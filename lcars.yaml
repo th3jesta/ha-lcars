@@ -1,0 +1,312 @@
+#
+# LCARS Theme
+#
+LCARS:
+  # Global
+  # background-image: "center / cover no-repeat fixed url('https://thatkookooguy.github.io/https-assets/bg-kibibit-theme.png')"
+  lovelace-background: "#000" #var(--background-image)
+  primary-color: "#000"
+  light-primary-color: "#B6B6C1"
+  primary-background-color: "#ffaa90"
+  secondary-background-color: rgba(25, 25, 25)
+  divider-color: var(--primary-background-color)
+  accent-color: "#f70"
+  box-sizing: unset !important
+  # Fonts
+  font-family: Antonio
+  primary-font-family: "Antonio"
+  paper-font-common-base_-_font-family: "var(--primary-font-family)"
+  paper-font-common-code_-_font-family: "var(--primary-font-family)"
+  paper-font-body1_-_font-family: "var(--primary-font-family)"
+  paper-font-subhead_-_font-family: "var(--primary-font-family)"
+  paper-font-headline_-_font-family: "var(--primary-font-family)"
+  paper-font-caption_-_font-family: "var(--primary-font-family)"
+  paper-font-title_-_font-family: "var(--primary-font-family)"
+  # Text
+  primary-text-color: "#d3d3d3" #"#000"
+  secondary-text-color: "#d3d3d3"
+  text-primary-color: "#d3d3d3"
+  disabled-text-color: "#555" # XXX: https://github.com/basnijholt/lovelace-ios-dark-mode-theme/issues/2
+  text-dark-color: "#000"
+  # Sidebar Menu
+  sidebar-background-color: var(--primary-background-color)
+  sidebar-icon-color: "#000"
+  sidebar-text-color: "#000"
+  sidebar-selected-background-color: var(--primary-background-color)
+  sidebar-selected-icon-color: "#000" # (light: systemGray5 from iOS light mode, dark: XXX)
+  sidebar-selected-text-color: "#000"
+  # States and Badges
+  state-icon-color: "#FFF"
+  state-icon-active-color: "#d3d3d3" # or make light icons yellow when active: rgba(255, 214, 10, 1)
+  state-icon-unavailable-color: var(--disabled-text-color)
+  # Sliders
+  paper-slider-knob-color: "#FFF"
+  paper-slider-knob-start-color: var(--paper-slider-knob-color)
+  paper-slider-pin-color: var(--paper-slider-knob-color)
+  paper-slider-active-color: "#0984ff" # from Apple systemBlue dark mode
+  paper-slider-secondary-color: var(--paper-slider-knob-color)
+  paper-slider-container-color: rgba(255, 255, 255, 0.5)
+  paper-slider-font-color: "#FFF"
+  ha-slider-background: none !important
+  # Labels
+  label-badge-background-color: "#23232E"
+  label-badge-text-color: "#000"
+  label-badge-red: rgba(255, 159, 9, 0.7) # from Apple systemOrange dark mode
+  # Cards
+  card-background-color: var(--secondary-background-color) # Unused entities table background
+  paper-listbox-background-color: var(--primary-background-color)
+  ha-card-border-radius: 40px
+  ha-card-background: "#d44"
+  paper-card-background-color: var(--ha-card-background)
+  # Toggles
+  paper-toggle-button-checked-button-color: "#484848"
+  paper-toggle-button-checked-bar-color: "#484848"
+  paper-toggle-button-unchecked-button-color: var(--paper-toggle-button-checked-button-color)
+  paper-toggle-button-unchecked-bar-color: var(--disabled-text-color)
+  # Table row
+  table-row-background-color: var(--primary-background-color)
+  table-row-alternative-background-color: var(--secondary-background-color)
+  # Switches
+  switch-checked-color: "#30d257" # XXX: remove when https://github.com/home-assistant/home-assistant-polymer/pull/4203 is in HA
+  switch-checked-track-color: "#30d158" # from Apple systemGreen dark mode
+  switch-checked-button-color: "#FFF"
+  # Other
+  paper-dialog-background-color: rgba(55, 55, 55)
+  paper-item-icon-color: var(--primary-text-color) # also should mini-media-player icon white (but doesn't work by itself)
+  more-info-header-background: rgba(25, 25, 25)
+  app-header-background-color: var(--primary-background-color)
+  # Custom
+  # mcg-title-letter-spacing: .15em
+  mini-media-player-base-color: white
+  mini-media-player-icon-color: white
+  sidebar-menu-button-text-color: "#000"
+  mdc-typography-button-font-family: "Antonio"
+  mdc-theme-secondary: "#f70"
+  round-slider-bar-color: "#c8f"
+  app-header-edit-background-color: "#ffaa90"
+
+  card-mod-theme: LCARS
+  card-mod-card: |
+    #states > .pointer {
+      color: var(--primary-text-color) !important;
+    }
+    ha-card {
+      padding: 0px !important;
+    }
+    ha-card.header {
+      background: #78f !important;
+      text-transform: uppercase;
+      border-radius: 40px 0px 0px 0px;
+      border-top: 10px solid #78f;
+      border-left: 35px solid #78f;
+    }
+    ha-card.middle {
+      background: #000 !important;
+      text-transform: uppercase;
+      border-radius: 0px;
+      border-left: 35px solid #d44;
+    }
+    ha-card.footer {
+      background: #668 !important;
+      text-transform: uppercase;
+      border-radius: 0px 0px 0px 40px;
+      border-bottom: 10px solid #668;
+      border-left: 35px solid #668;
+      margin-top: unset;
+    }
+    ha-card.button-small {
+      text-transform: uppercase;
+      color: black;
+      border-radius: 0px;
+    }
+    ha-card.button-large {
+      text-transform: uppercase;
+      color: black;
+    }
+    ha-markdown.no-header {
+      background: #000;
+      border-radius: 20px 0px 0px 0px;
+      padding-top: 0px !important;
+      padding-bottom: 0 !important;
+    }
+    .entities {
+      background: #000;
+      border-radius: 0px 0px 0px 20px;
+    }
+    .type-thermostat > .content {
+      background: #000;
+      border-radius: 0px 0px 0px 20px;
+      padding-top: 0px !important;
+      padding-bottom: 0 !important;
+    }
+    #states {
+      background: #000;
+      border-radius: 0px 0px 0px 20px;
+      padding-top: 0px !important;
+      padding-bottom: 0 !important;
+    }
+    .details {
+      margin-top: 1em;
+    }
+    .color-block {
+      border-radius: 0px 0px 0px 20px;
+    }
+    .card-actions {
+      border-top: none;
+      padding: 5px 16px;
+      margin-top: 10px;
+    }
+    .panel > ha-card {
+      border-radius: 40px !important;
+    }
+    ha-card.footer > ha-state-icon {
+      background: #000;
+      width: 100%;
+      --mdc-icon-size: 40%
+    }
+    ha-card.footer > span {
+      background: #000;
+      width: 100%;
+      margin: 0px;
+    }
+    .type-button > .state {
+      border-radius: 0px 0px 0px 20px;
+      padding-bottom: 0px;
+    }
+    ha-card.footer > .details {
+      background: #000;
+      width: 100%;
+      margin: 0px;
+    }
+    .MailImg {
+      margin-top: 0;
+    }
+    .details > .title {
+      margin-left: 15px;
+    }
+    .usps_update {
+      padding-top: 25px !important;
+      border-radius: 0 0 0 20px;
+      padding-left: 15px;
+      padding-bottom: 3px;
+    }
+    ha-card.footer > .content {
+      background: #000;
+      border-radius: 0 0 0 20px;
+    }
+    .details > p {
+      margin-left: 15px;
+    }
+    .type-custom-mail-and-packages-card {
+      
+    }
+  card-mod-root: |
+    hui-view {
+      border-radius: 40px 0px 0px 0px;
+      background-attachment: fixed;
+    }
+    .edit-mode app-header, .edit-mode app-toolbar {
+      background: var(--primary-background-color) !important;
+    }
+    app-toolbar {
+      border-right: 30px solid rgb(119, 136, 255);
+      border-radius: 0px 30px 30px 0px;
+      box-shadow: 30px 0px 0px 0px #000;
+    }
+    ha-button-menu::before {
+      content: "{{states('sensor.time')}}";
+      color: var(--text-primary-color);
+      visibility: visible;
+      position: absolute;
+      font-size: 62px;
+      width: 120px;
+      right: -16px;
+      top: -5px;
+      background: #000;
+      height: 100%;
+      vertical-align: middle;
+      line-height: .63;
+      border: 5px solid #000;
+    }
+    ha-menu-button {
+      display: none !important;
+    }
+    ha-button-menu {
+      color: transparent;
+    }
+    .exit-edit-mode {
+      padding-right: 35px;
+    }
+  card-mod-sidebar: |
+    :host {
+      border-right: 0px !important;
+    }
+    paper-listbox {
+      margin-top: 35px;
+      margin-bottom: -29px;
+      border-top: 4px solid #000;
+      padding-top: 0px !important;
+    }
+    .menu {
+      font-family: Antonio !important;
+      box-shadow: 0px 40px 0 15px #ffaa90, 0px 0px 0px 100px #000;
+      border-radius: 100px 0px 0px 0px;
+      padding-bottom: 14px !important;
+      font-size: 30px !important;
+    }
+    .title {
+      text-transform: uppercase;
+      height: 100%;
+      text-align: center;
+      background: #000;
+      color: var(--light-primary-color);
+      border-bottom: 10px solid #78f;
+      outline: 5px solid #000;
+    }
+    a {
+      border-bottom: 4px solid;
+      background-color: #c8f;
+    }
+    .spacer {
+      border-bottom: 4px solid #000;
+    }
+    .profile {
+      border-top: 4px solid #000;
+    }
+    .notifications-container {
+      border-top: 4px solid #000;
+    }
+    .menu > ha-icon-button{
+      margin-left: 25px;
+      margin-right: -25px;
+      margin-top: 5px;
+    }
+    .item-text {
+      text-align: right;
+      margin-left: auto;
+      margin-right: -12px;
+      margin-bottom: -23px;
+      text-transform: uppercase;
+    }
+    .profile > paper-icon-item > .item-text {
+      margin-left: auto !important;
+      margin-bottom: -17px;
+    }
+    .profile > span {
+      margin-bottom: 1px !important;
+    }
+    .configuration-badge {
+      left: calc(var(--app-drawer-width) - 30px) !important;
+      top: 2px;
+    }
+    .initials {
+      margin-top: -4px;
+    }
+  card-mod-view: |
+    #columns {
+      margin-right: 27px !important;
+    }
+  card-mod-config-dashboard: |
+    #contentContainer {
+      background: black;
+    }
