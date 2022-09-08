@@ -302,10 +302,6 @@ LCARS:
     .initials {
       margin-top: -4px;
     }
-  card-mod-view: |
-    #columns {
-      margin-right: 27px !important;
-    }
   card-mod-config-dashboard: |
     #contentContainer {
       background: black;
