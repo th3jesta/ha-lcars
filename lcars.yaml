@@ -20,9 +20,9 @@ LCARS:
   lovelace-background: black
   primary-color: black
   light-primary-color: var(--lcars-medium-gray)
-  primary-background-color: var(--lcars-peach)
+  primary-background-color: black
   secondary-background-color: rgba(25, 25, 25)
-  divider-color: var(--primary-background-color)
+  divider-color: var(--lcars-peach)
   accent-color: var(--lcars-orange)
   box-sizing: unset !important
   # Fonts
@@ -42,10 +42,10 @@ LCARS:
   disabled-text-color: "#555"
   text-dark-color: black
   # Sidebar Menu
-  sidebar-background-color: var(--primary-background-color)
+  sidebar-background-color: var(--lcars-peach)
   sidebar-icon-color: black
   sidebar-text-color: black
-  sidebar-selected-background-color: var(--primary-background-color)
+  sidebar-selected-background-color: var(--lcars-peach)
   sidebar-selected-icon-color: black # (light: systemGray5 from iOS light mode, dark: XXX)
   sidebar-selected-text-color: black
   # States and Badges
@@ -87,7 +87,7 @@ LCARS:
   paper-dialog-background-color: rgba(55, 55, 55)
   paper-item-icon-color: var(--lcars-dark-gray) # also should mini-media-player icon white (but doesn't work by itself)
   more-info-header-background: rgba(25, 25, 25)
-  app-header-background-color: var(--primary-background-color)
+  app-header-background-color: var(--lcars-peach)
   # Custom
   mini-media-player-base-color: white
   mini-media-player-icon-color: white
@@ -216,14 +216,14 @@ LCARS:
     .type-custom-mail-and-packages-card {
       
     }
-  # Toolbar modifications
+  # Toolbar and dashboard modifications
   card-mod-root: |
     hui-view {
       border-radius: 40px 0px 0px 0px;
-      background-attachment: fixed;
+      box-shadow: -40px -40px 0 15px var(--lcars-peach);
     }
     .edit-mode app-header, .edit-mode app-toolbar {
-      background: var(--primary-background-color) !important;
+      background: var(--lcars-peach) !important;
     }
     app-toolbar {
       border-right: 30px solid rgb(119, 136, 255);
