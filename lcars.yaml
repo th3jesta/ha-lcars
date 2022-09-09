@@ -72,7 +72,7 @@ LCARS:
   switch-checked-button-color: "#FFF"
   # Other
   paper-dialog-background-color: rgba(55, 55, 55)
-  paper-item-icon-color: var(--primary-text-color) # also should mini-media-player icon white (but doesn't work by itself)
+  paper-item-icon-color: "#3e3e3e" # also should mini-media-player icon white (but doesn't work by itself)
   more-info-header-background: rgba(25, 25, 25)
   app-header-background-color: var(--primary-background-color)
   # Custom
@@ -84,6 +84,7 @@ LCARS:
   mdc-theme-secondary: "#f70"
   round-slider-bar-color: "#c8f"
   app-header-edit-background-color: "#ffaa90"
+  switch-unchecked-track-color: "#d3d3d3"
 
   card-mod-theme: LCARS
   card-mod-card: |
@@ -302,7 +303,7 @@ LCARS:
     .initials {
       margin-top: -4px;
     }
-  card-mod-config-dashboard: |
+  card-mod-panel-config: |
     #contentContainer {
       background: black;
     }
