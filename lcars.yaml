@@ -99,7 +99,7 @@ LCARS:
   switch-unchecked-track-color: var(--lcars-light-gray)
   error-color: var(--lcars-error)
 
-  #card-mod modifications
+  # card-mod modifications =============================================================
   card-mod-theme: LCARS
   # Card modifications
   card-mod-card: |
@@ -212,9 +212,6 @@ LCARS:
     }
     .details > p {
       margin-left: 15px;
-    }
-    .type-custom-mail-and-packages-card {
-      
     }
   # Toolbar and dashboard modifications
   card-mod-root: |
