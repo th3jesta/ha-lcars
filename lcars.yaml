@@ -1,62 +1,75 @@
 #
 # LCARS Theme
+# Color codes and font choice from https://www.thelcars.com
+#     --thanks Jim Robertus!
 #
 LCARS:
+  # LCARS Variables and Colors
+  lcars-peach: "#ffaa90"
+  lcars-lavender: "#c8f"
+  lcars-blue: "#78f"
+  lcars-red: "#d44"
+  lcars-orange: "#f70"
+  lcars-error: "f20"
+  lcars-text-gray: "#668"
+  lcars-light-gray: "#d3d3d3"
+  lcars-medium-gray: "#B6B6C1"
+  lcars-dark-gray: "#3e3e3e"
+  lcars-font: Antonio
   # Global
-  # background-image: "center / cover no-repeat fixed url('https://thatkookooguy.github.io/https-assets/bg-kibibit-theme.png')"
-  lovelace-background: "#000" #var(--background-image)
-  primary-color: "#000"
-  light-primary-color: "#B6B6C1"
-  primary-background-color: "#ffaa90"
+  lovelace-background: black
+  primary-color: black
+  light-primary-color: var(--lcars-medium-gray)
+  primary-background-color: var(--lcars-peach)
   secondary-background-color: rgba(25, 25, 25)
   divider-color: var(--primary-background-color)
-  accent-color: "#f70"
+  accent-color: var(--lcars-orange)
   box-sizing: unset !important
   # Fonts
-  font-family: Antonio
-  primary-font-family: "Antonio"
-  paper-font-common-base_-_font-family: "var(--primary-font-family)"
-  paper-font-common-code_-_font-family: "var(--primary-font-family)"
-  paper-font-body1_-_font-family: "var(--primary-font-family)"
-  paper-font-subhead_-_font-family: "var(--primary-font-family)"
-  paper-font-headline_-_font-family: "var(--primary-font-family)"
-  paper-font-caption_-_font-family: "var(--primary-font-family)"
-  paper-font-title_-_font-family: "var(--primary-font-family)"
+  font-family: var(--lcars-font)
+  primary-font-family: var(--lcars-font)
+  paper-font-common-base_-_font-family: var(--primary-font-family)
+  paper-font-common-code_-_font-family: var(--primary-font-family)
+  paper-font-body1_-_font-family: var(--primary-font-family)
+  paper-font-subhead_-_font-family: var(--primary-font-family)
+  paper-font-headline_-_font-family: var(--primary-font-family)
+  paper-font-caption_-_font-family: var(--primary-font-family)
+  paper-font-title_-_font-family: var(--primary-font-family)
   # Text
-  primary-text-color: "#d3d3d3" #"#000"
-  secondary-text-color: "#d3d3d3"
-  text-primary-color: "#d3d3d3"
-  disabled-text-color: "#555" # XXX: https://github.com/basnijholt/lovelace-ios-dark-mode-theme/issues/2
-  text-dark-color: "#000"
+  primary-text-color: var(--lcars-light-gray)
+  secondary-text-color: var(--lcars-light-gray)
+  text-primary-color: var(--lcars-light-gray)
+  disabled-text-color: "#555"
+  text-dark-color: black
   # Sidebar Menu
   sidebar-background-color: var(--primary-background-color)
-  sidebar-icon-color: "#000"
-  sidebar-text-color: "#000"
+  sidebar-icon-color: black
+  sidebar-text-color: black
   sidebar-selected-background-color: var(--primary-background-color)
-  sidebar-selected-icon-color: "#000" # (light: systemGray5 from iOS light mode, dark: XXX)
-  sidebar-selected-text-color: "#000"
+  sidebar-selected-icon-color: black # (light: systemGray5 from iOS light mode, dark: XXX)
+  sidebar-selected-text-color: black
   # States and Badges
-  state-icon-color: "#FFF"
-  state-icon-active-color: "#d3d3d3" # or make light icons yellow when active: rgba(255, 214, 10, 1)
+  state-icon-color: white
+  state-icon-active-color: var(--lcars-light-gray) # or make light icons yellow when active: rgba(255, 214, 10, 1)
   state-icon-unavailable-color: var(--disabled-text-color)
   # Sliders
-  paper-slider-knob-color: "#FFF"
+  paper-slider-knob-color: white
   paper-slider-knob-start-color: var(--paper-slider-knob-color)
   paper-slider-pin-color: var(--paper-slider-knob-color)
   paper-slider-active-color: "#0984ff" # from Apple systemBlue dark mode
   paper-slider-secondary-color: var(--paper-slider-knob-color)
   paper-slider-container-color: rgba(255, 255, 255, 0.5)
-  paper-slider-font-color: "#FFF"
+  paper-slider-font-color: white
   ha-slider-background: none !important
   # Labels
   label-badge-background-color: "#23232E"
-  label-badge-text-color: "#000"
+  label-badge-text-color: black
   label-badge-red: rgba(255, 159, 9, 0.7) # from Apple systemOrange dark mode
   # Cards
   card-background-color: var(--secondary-background-color) # Unused entities table background
   paper-listbox-background-color: var(--primary-background-color)
   ha-card-border-radius: 40px
-  ha-card-background: "#d44"
+  ha-card-background: var(--lcars-red)
   paper-card-background-color: var(--ha-card-background)
   # Toggles
   paper-toggle-button-checked-button-color: "#484848"
@@ -69,24 +82,26 @@ LCARS:
   # Switches
   switch-checked-color: "#30d257" # XXX: remove when https://github.com/home-assistant/home-assistant-polymer/pull/4203 is in HA
   switch-checked-track-color: "#30d158" # from Apple systemGreen dark mode
-  switch-checked-button-color: "#FFF"
+  switch-checked-button-color: white
   # Other
   paper-dialog-background-color: rgba(55, 55, 55)
-  paper-item-icon-color: "#3e3e3e" # also should mini-media-player icon white (but doesn't work by itself)
+  paper-item-icon-color: var(--lcars-dark-gray) # also should mini-media-player icon white (but doesn't work by itself)
   more-info-header-background: rgba(25, 25, 25)
   app-header-background-color: var(--primary-background-color)
   # Custom
-  # mcg-title-letter-spacing: .15em
   mini-media-player-base-color: white
   mini-media-player-icon-color: white
-  sidebar-menu-button-text-color: "#000"
-  mdc-typography-button-font-family: "Antonio"
-  mdc-theme-secondary: "#f70"
-  round-slider-bar-color: "#c8f"
-  app-header-edit-background-color: "#ffaa90"
-  switch-unchecked-track-color: "#d3d3d3"
+  sidebar-menu-button-text-color: black
+  mdc-typography-button-font-family: var(--lcars-font)
+  mdc-theme-secondary: var(--lcars-orange)
+  round-slider-bar-color: var(--lcars-blue)
+  app-header-edit-background-color: var(--lcars-peach)
+  switch-unchecked-track-color: var(--lcars-light-gray)
+  error-color: var(--lcars-error)
 
+  #card-mod modifications
   card-mod-theme: LCARS
+  # Card modifications
   card-mod-card: |
     #states > .pointer {
       color: var(--primary-text-color) !important;
@@ -95,24 +110,24 @@ LCARS:
       padding: 0px !important;
     }
     ha-card.header {
-      background: #78f !important;
+      background: var(--lcars-blue) !important;
       text-transform: uppercase;
       border-radius: 40px 0px 0px 0px;
-      border-top: 10px solid #78f;
-      border-left: 35px solid #78f;
+      border-top: 10px solid var(--lcars-blue);
+      border-left: 35px solid var(--lcars-blue);
     }
     ha-card.middle {
-      background: #000 !important;
+      background: black !important;
       text-transform: uppercase;
       border-radius: 0px;
-      border-left: 35px solid #d44;
+      border-left: 35px solid var(--lcars-red);
     }
     ha-card.footer {
-      background: #668 !important;
+      background: var(--lcars-text-gray) !important;
       text-transform: uppercase;
       border-radius: 0px 0px 0px 40px;
-      border-bottom: 10px solid #668;
-      border-left: 35px solid #668;
+      border-bottom: 10px solid var(--lcars-text-gray);
+      border-left: 35px solid var(--lcars-text-gray);
       margin-top: unset;
     }
     ha-card.button-small {
@@ -125,23 +140,23 @@ LCARS:
       color: black;
     }
     ha-markdown.no-header {
-      background: #000;
+      background: black;
       border-radius: 20px 0px 0px 0px;
       padding-top: 0px !important;
       padding-bottom: 0 !important;
     }
     .entities {
-      background: #000;
+      background: black;
       border-radius: 0px 0px 0px 20px;
     }
     .type-thermostat > .content {
-      background: #000;
+      background: black;
       border-radius: 0px 0px 0px 20px;
       padding-top: 0px !important;
       padding-bottom: 0 !important;
     }
     #states {
-      background: #000;
+      background: black;
       border-radius: 0px 0px 0px 20px;
       padding-top: 0px !important;
       padding-bottom: 0 !important;
@@ -161,12 +176,12 @@ LCARS:
       border-radius: 40px !important;
     }
     ha-card.footer > ha-state-icon {
-      background: #000;
+      background: black;
       width: 100%;
       --mdc-icon-size: 40%
     }
     ha-card.footer > span {
-      background: #000;
+      background: black;
       width: 100%;
       margin: 0px;
     }
@@ -175,7 +190,7 @@ LCARS:
       padding-bottom: 0px;
     }
     ha-card.footer > .details {
-      background: #000;
+      background: black;
       width: 100%;
       margin: 0px;
     }
@@ -187,13 +202,13 @@ LCARS:
     }
     .usps_update {
       padding-top: 25px !important;
-      border-radius: 0 0 0 20px;
+      border-radius: 0px 0px 0px 20px;
       padding-left: 15px;
       padding-bottom: 3px;
     }
     ha-card.footer > .content {
-      background: #000;
-      border-radius: 0 0 0 20px;
+      background: black;
+      border-radius: 0px 0px 0px 20px;
     }
     .details > p {
       margin-left: 15px;
@@ -201,6 +216,7 @@ LCARS:
     .type-custom-mail-and-packages-card {
       
     }
+  # Toolbar modifications
   card-mod-root: |
     hui-view {
       border-radius: 40px 0px 0px 0px;
@@ -212,7 +228,7 @@ LCARS:
     app-toolbar {
       border-right: 30px solid rgb(119, 136, 255);
       border-radius: 0px 30px 30px 0px;
-      box-shadow: 30px 0px 0px 0px #000;
+      box-shadow: 30px 0px 0px 0px black;
     }
     ha-button-menu::before {
       content: "{{states('sensor.time')}}";
@@ -223,21 +239,26 @@ LCARS:
       width: 120px;
       right: -16px;
       top: -5px;
-      background: #000;
+      background: black;
       height: 100%;
       vertical-align: middle;
       line-height: .63;
-      border: 5px solid #000;
+      border: 5px solid black;
     }
     ha-menu-button {
       display: none !important;
-    }
-    ha-button-menu {
       color: transparent;
+      padding-right: 10px
     }
     .exit-edit-mode {
       padding-right: 35px;
     }
+    ha-icon-button {
+      padding-right: 120px;
+      margin-left: -120px;
+      color: black;
+    }
+  # Sidebar modifications
   card-mod-sidebar: |
     :host {
       border-right: 0px !important;
@@ -245,12 +266,12 @@ LCARS:
     paper-listbox {
       margin-top: 35px;
       margin-bottom: -29px;
-      border-top: 4px solid #000;
+      border-top: 4px solid black;
       padding-top: 0px !important;
     }
     .menu {
-      font-family: Antonio !important;
-      box-shadow: 0px 40px 0 15px #ffaa90, 0px 0px 0px 100px #000;
+      font-family: var(--lcars-font) !important;
+      box-shadow: 0px 40px 0 15px var(--lcars-peach), 0px 0px 0px 100px black;
       border-radius: 100px 0px 0px 0px;
       padding-bottom: 14px !important;
       font-size: 30px !important;
@@ -259,25 +280,25 @@ LCARS:
       text-transform: uppercase;
       height: 100%;
       text-align: center;
-      background: #000;
+      background: black;
       color: var(--light-primary-color);
-      border-bottom: 10px solid #78f;
-      outline: 5px solid #000;
+      border-bottom: 10px solid var(--lcars-blue);
+      outline: 5px solid black;
     }
     a {
       border-bottom: 4px solid;
-      background-color: #c8f;
+      background-color: var(--lcars-lavender);
     }
     .spacer {
-      border-bottom: 4px solid #000;
+      border-bottom: 4px solid black;
     }
     .profile {
-      border-top: 4px solid #000;
+      border-top: 4px solid black;
     }
     .notifications-container {
-      border-top: 4px solid #000;
+      border-top: 4px solid black;
     }
-    .menu > ha-icon-button{
+    .menu > ha-icon-button {
       margin-left: 25px;
       margin-right: -25px;
       margin-top: 5px;
@@ -302,8 +323,4 @@ LCARS:
     }
     .initials {
       margin-top: -4px;
-    }
-  card-mod-panel-config: |
-    #contentContainer {
-      background: black;
     }
