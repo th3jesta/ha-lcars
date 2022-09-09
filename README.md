@@ -1,4 +1,4 @@
-# ha-lcars
+# Home Assistant LCARS
 LCARS theme for Home Assistant
 
 Color codes and font choice from https://www.thelcars.com
@@ -14,7 +14,7 @@ frontend:
   themes: !include_dir_merge_named themes
 ```
 
-2. Under the Home Assistant **Config** folder, create a new folder named **themes**
+2. Under the Home Assistant **Config** folder, create a new folder named **themes**, and another folder under that called **LCARS**, then place this .yaml file therein. 
 3. **Restart** Home assistant to apply the changes.
 
 ### Add the font
@@ -24,8 +24,12 @@ resources:
   - url: https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap
   type: css
 ```
-#### OR
+#### -OR-
 Navigate to `Settings` → `Dashboards` → `3-dot menu` → `Resources` and add a new Resource with the above URL and selected as a stylesheet.
+
+### Enable theme
+1. Open your Home Assistant **Profile**
+2. Under, **Themes**, select the new LCARS theme
 
 ### Setting the default `backend-selected` theme
 In order to have this theme set automatically as the backend selected default, add the following automation to your Home Assistant:
