@@ -6,15 +6,20 @@ Color codes and font choice from https://www.thelcars.com
 
 ## Installation instructions
 ### Prerequisites
-#### Enable themes
+#### Enable themes and install card-mod
 
-1. Make sure that under the **configuration.yaml** file you have the following:
+1. Install `card-mod` per the instructions on the Github page: https://github.com/thomasloven/lovelace-card-mod
+
+2. Make sure that under the **configuration.yaml** file you have the following:
 ```
 frontend:
+  javascript_version: latest
   themes: !include_dir_merge_named themes
+  extra_module_url:
+    - /local/community/card-mod.js
 ```
-2. Under the Home Assistant **Config** folder, create a new folder named **themes**, and another folder under that called **LCARS**, then place this .yaml file therein. 
-3. **Restart** Home assistant to apply the changes.
+3. Under the Home Assistant **Config** folder, create a new folder named **themes**, and another folder under that called **LCARS**, then place this .yaml file therein. 
+4. **Restart** Home assistant to apply the changes.
 
 #### Add the font
 This theme requires you to add the `Antonio` font as a resource to your lovelace configuration:
