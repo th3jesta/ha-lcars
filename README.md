@@ -10,7 +10,7 @@ Color codes and font choice from https://www.thelcars.com
 
 1. Install `card-mod` per the instructions on the Github page: https://github.com/thomasloven/lovelace-card-mod
 
-2. Make sure that under the **configuration.yaml** file you have the following:
+2. Make sure in your **configuration.yaml** file you have the following:
 ```
 frontend:
   javascript_version: latest
