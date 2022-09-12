@@ -51,7 +51,7 @@ More info:
 https://www.home-assistant.io/integrations/time_date/
 
 ### Enable theme
-####Via profile
+#### Via profile
 1. Open your Home Assistant **Profile**
 2. Under, **Themes**, select the new LCARS theme
 
