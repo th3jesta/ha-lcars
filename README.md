@@ -33,7 +33,7 @@ Navigate to `Settings` → `Dashboards` → `3-dot menu` → `Resources` and add
 
 #### Set up the clock
 In order for the clock to work, you need to set up the Time & Date integration by adding the following to your configuration.yaml:
-```
+```yaml
 sensor:
   - platform: time_date
     display_options:
@@ -70,7 +70,7 @@ In order to have this theme set automatically as the backend selected default, a
 ```
 ## Usage instructions
 The theme includes 5 classes that can be added to cards like this to give them special styling:
-```
+```yaml
 card-mod:
   class: header
 ```
