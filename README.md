@@ -51,10 +51,11 @@ More info:
 https://www.home-assistant.io/integrations/time_date/
 
 ### Enable theme
+####Via profile
 1. Open your Home Assistant **Profile**
 2. Under, **Themes**, select the new LCARS theme
 
-### Setting the default `backend-selected` theme
+#### Setting the default `backend-selected` theme
 In order to have this theme set automatically as the backend selected default, add the following automation to your Home Assistant:
 ```yaml
 - alias: Set Default Theme
