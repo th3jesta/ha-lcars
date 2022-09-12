@@ -64,7 +64,7 @@ In order to have this theme set automatically as the backend selected default, a
     service: frontend.set_theme
 ```
 ## Usage instructions
-The theme include 5 classes that can be added to cards like this to give them special styling:
+The theme includes 5 classes that can be added to cards like this to give them special styling:
 ```
 card-mod:
   class: header
