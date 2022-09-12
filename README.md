@@ -6,7 +6,7 @@ Color codes and font choice from https://www.thelcars.com
 
 ## Installation instructions
 ### Prerequisites
-#### Enable themes and install card-mod
+#### I. Enable themes and install card-mod
 
 1. Install `card-mod` per the instructions on the Github page: https://github.com/thomasloven/lovelace-card-mod
 
@@ -21,7 +21,7 @@ frontend:
 3. Under the Home Assistant **Config** folder, create a new folder named **themes**, and another folder under that called **LCARS**, then place this .yaml file therein. 
 4. **Restart** Home assistant to apply the changes.
 
-#### Add the font
+#### II. Add the font
 This theme requires you to add the `Antonio` font as a resource to your lovelace configuration:
 ```yaml
 resources:
@@ -31,7 +31,7 @@ resources:
 ##### -OR-
 Navigate to `Settings` → `Dashboards` → `3-dot menu` → `Resources` and add a new Resource with the above URL and selected as a stylesheet.
 
-#### Set up the clock
+#### III. Set up the clock
 In order for the clock to work, you need to set up the Time & Date integration by adding the following to your configuration.yaml:
 ```yaml
 sensor:
