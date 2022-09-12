@@ -103,6 +103,12 @@ LCARS:
   # card-mod modifications =============================================================
   card-mod-theme: LCARS
   # Card modifications
+  card-mod-view-yaml: |
+    hui-masonry-view:
+      $: |
+        #columns .column > * {
+          padding-right: 22px;
+        }
   card-mod-card: |
     ha-card.header {
       background: var(--lcars-blue) !important;
@@ -115,7 +121,7 @@ LCARS:
       background: black !important;
       text-transform: uppercase;
       border-radius: 0px;
-      border-left: 35px solid var(--lcars-red);
+      border-left: 35.5px solid var(--lcars-red);
     }
     ha-card.footer {
       background: var(--lcars-gray) !important;
@@ -208,18 +214,11 @@ LCARS:
     .details > p {
       margin-left: 15px;
     }
-    #states > .pointer {
-      color: var(--primary-text-color) !important;
-    }
     ha-card {
       padding: 0px !important;
     }
   # Toolbar and dashboard modifications
   card-mod-root: |
-    hui-view {
-      border-radius: 40px 0px 0px 0px;
-      box-shadow: -40px -40px 0 15px var(--lcars-peach);
-    }
     .edit-mode app-header, .edit-mode app-toolbar {
       background: var(--lcars-peach) !important;
     }
@@ -261,33 +260,75 @@ LCARS:
     app-header {
       color: black;
     }
-
+    app-header::before {
+      box-shadow: unset;
+    }
+    app-toolbar::before {
+      content: "";
+      height: 40px;
+      width: 100px;
+      background-color: transparent;
+      border-top-left-radius: 40px;
+      box-shadow: -40px 0 0 0 var(--lcars-peach);
+      margin-top: 96px;
+      margin-left: -16px;
+    }
   # Sidebar modifications
   card-mod-sidebar: |
     :host {
+      content: "";
+      height: 100px;
+      width: 200px;
       border-right: 0px !important;
+      border-top-left-radius: 130px;
+      box-shadow: black 0px -130px 0px 0px;
     }
     paper-listbox {
-      margin-top: 35px;
-      margin-bottom: -29px;
+      margin-top: 120px;
+      margin-bottom: -61px;
       border-top: 4px solid black;
       padding-top: 0px !important;
+      padding-bottom: 36px !important;
+    }
+    :host([expanded]) ha-icon-button {
+      margin-left: 15px;
+      margin-right: -15px;
+      margin-top: 45px;
+      position: relative;
+    }
+    ha-icon-button {
+      margin-left: 13px;
+      margin-right: -25px;
+      margin-top: 3px;
+      position: fixed;
+    }
+    :host([expanded]) .menu {
+      width: unset !important;
+      position: fixed;
+      border-bottom: unset !important;
+      height: 61px;
+      margin-left: 232px;
+      font-family: var(--lcars-font) !important;
+      padding-bottom: 18px !important;
+      font-size: 62px !important;
     }
     .menu {
-      font-family: var(--lcars-font) !important;
-      box-shadow: 0px 40px 0 15px var(--lcars-peach), 0px 0px 0px 100px black;
-      border-radius: 100px 0px 0px 0px;
-      padding-bottom: 14px !important;
-      font-size: 30px !important;
+      width: unset !important;
+      position: fixed;
     }
     .title {
       text-transform: uppercase;
       height: 100%;
       text-align: center;
+      vertical-align: middle;
+      line-height: .33;
       background: black;
-      color: var(--light-primary-color);
-      border-bottom: 10px solid var(--lcars-blue);
-      outline: 5px solid black;
+      color: var(--lcars-orange);
+      border-left: 10px solid var(--lcars-blue);
+      border-right: 7px solid black;
+      padding-top: 26px;
+      padding-left: 2px;
+      box-shadow: -7px 0 0 0 black;
     }
     a {
       border-bottom: 4px solid;
@@ -301,11 +342,6 @@ LCARS:
     }
     .notifications-container {
       border-top: 4px solid black;
-    }
-    .menu > ha-icon-button {
-      margin-left: 25px;
-      margin-right: -25px;
-      margin-top: 5px;
     }
     .item-text {
       text-align: right;
