@@ -6,28 +6,27 @@ Color codes and font choice from https://www.thelcars.com
 
 ## Installation instructions
 ### Prerequisites
+#### Enable themes
 
 1. Make sure that under the **configuration.yaml** file you have the following:
-
 ```
 frontend:
   themes: !include_dir_merge_named themes
 ```
-
 2. Under the Home Assistant **Config** folder, create a new folder named **themes**, and another folder under that called **LCARS**, then place this .yaml file therein. 
 3. **Restart** Home assistant to apply the changes.
 
-### Add the font
+#### Add the font
 This theme requires you to add the `Antonio` font as a resource to your lovelace configuration:
 ```yaml
 resources:
   - url: https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap
   type: css
 ```
-#### -OR-
+##### -OR-
 Navigate to `Settings` → `Dashboards` → `3-dot menu` → `Resources` and add a new Resource with the above URL and selected as a stylesheet.
 
-### Set up the clock
+#### Set up the clock
 In order for the clock to work, you need to set up the Time & Date integration by adding the following to your configuration.yaml:
 ```
 sensor:
