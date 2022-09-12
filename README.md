@@ -10,7 +10,7 @@ Color codes and font choice from https://www.thelcars.com
 ### Prerequisites
 #### I. Enable themes and install card-mod
 
-1. Install `card-mod` per the instructions on the Github page: https://github.com/thomasloven/lovelace-card-mod
+1. Install `card-mod` per the instructions on the [Github page](https://github.com/thomasloven/lovelace-card-mod "card-mod")
 
 2. Make sure in your **configuration.yaml** file you have the following:
 ```yaml
