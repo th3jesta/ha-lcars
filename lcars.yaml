@@ -289,6 +289,9 @@ LCARS:
     .edit-icon {
       color: white !important;
     }
+    hui-masonry-view {
+      padding-right: 23px;
+    }
   # Sidebar modifications
   card-mod-sidebar: |
     :host {
@@ -296,7 +299,7 @@ LCARS:
       height: 100px;
       width: 200px;
       border-right: 0px !important;
-      border-top-left-radius: 130px;
+      border-top-left-radius: 80px;
       box-shadow: black 0px -130px 0px 0px;
     }
     paper-listbox {
@@ -322,7 +325,7 @@ LCARS:
       width: unset !important;
       position: fixed;
       border-bottom: unset !important;
-      margin-left: 232px;
+      margin-left: 233px;
       font-family: var(--lcars-font) !important;
       font-size: 42px !important;
     }
