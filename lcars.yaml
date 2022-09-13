@@ -99,6 +99,7 @@ LCARS:
   switch-unchecked-track-color: var(--lcars-text-gray)
   switch-unchecked-button-color: var(--lcars-text-gray)
   error-color: var(--lcars-error)
+  header-height: 40px
 
   # card-mod modifications =============================================================
   card-mod-theme: LCARS
@@ -232,15 +233,14 @@ LCARS:
       color: var(--text-primary-color);
       visibility: visible;
       position: absolute;
-      font-size: 62px;
-      width: 120px;
+      font-size: 42px;
       right: -16px;
-      top: -5px;
       background: black;
-      height: 100%;
       vertical-align: middle;
-      line-height: .63;
-      border: 4.5px solid black;
+      height: 100%;
+      line-height: 1;
+      border-right: 5px solid black;
+      border-left: 5px solid black;
     }
     ha-menu-button {
       display: none !important;
@@ -253,8 +253,8 @@ LCARS:
     ha-button-menu > ha-icon-button, 
     app-toolbar > ha-icon-button, 
     .menu-link > ha-icon-button {
-      padding-right: 120px;
-      margin-left: -120px;
+      padding-right: 75px;
+      margin-left: -75px;
       color: black;
     }
     app-header {
@@ -270,7 +270,7 @@ LCARS:
       background-color: transparent;
       border-top-left-radius: 40px;
       box-shadow: -40px 0 0 0 var(--lcars-peach);
-      margin-top: 96px;
+      margin-top: 80px;
       margin-left: -16px;
     }
   # Sidebar modifications
@@ -293,7 +293,7 @@ LCARS:
     :host([expanded]) ha-icon-button {
       margin-left: 15px;
       margin-right: -15px;
-      margin-top: 45px;
+      margin-top: 8px;
       position: relative;
     }
     ha-icon-button {
@@ -306,29 +306,27 @@ LCARS:
       width: unset !important;
       position: fixed;
       border-bottom: unset !important;
-      height: 61px;
       margin-left: 232px;
       font-family: var(--lcars-font) !important;
-      padding-bottom: 18px !important;
-      font-size: 62px !important;
+      font-size: 42px !important;
     }
     .menu {
       width: unset !important;
       position: fixed;
+      border-bottom: unset !important;
     }
     .title {
       text-transform: uppercase;
       height: 100%;
       text-align: center;
       vertical-align: middle;
-      line-height: .33;
+      line-height: .85;
       background: black;
       color: var(--lcars-orange);
-      border-left: 10px solid var(--lcars-blue);
-      border-right: 7px solid black;
-      padding-top: 26px;
+      border-left: 8px solid var(--lcars-blue);
+      border-right: 3px solid black;
       padding-left: 2px;
-      box-shadow: -7px 0 0 0 black;
+      box-shadow: -5px 0 0 0 black;
     }
     a {
       border-bottom: 4px solid;
