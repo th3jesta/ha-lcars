@@ -236,10 +236,11 @@ LCARS:
       position: absolute;
       font-size: 42px;
       right: -16px;
+      top: 4px;
       background: black;
       vertical-align: middle;
-      height: 100%;
-      line-height: 1;
+      height: var(--header-height);
+      line-height: .8;
       border-right: 5px solid black;
       border-left: 5px solid black;
     }
