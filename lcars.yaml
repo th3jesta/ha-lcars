@@ -182,8 +182,14 @@ LCARS:
     ha-card.footer > span {
       background: black;
       width: 100%;
+      padding-left: 0px;
+      margin-top: 0px;
+    }
+    ha-card.footer > span.usps_update {
+      background: black;
+      width: 100%;
       padding-left: 15px;
-      margin-top: -3px;
+      margin-top: -4px;
     }
     .type-button > .state {
       border-radius: 0px 0px 0px 20px;
