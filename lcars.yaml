@@ -311,10 +311,10 @@ LCARS:
     }
     paper-listbox {
       margin-top: 120px;
-      margin-bottom: -61px;
+      margin-bottom: -77px;
       border-top: 4px solid black;
       padding-top: 0px !important;
-      padding-bottom: 36px !important;
+      padding-bottom: 52px !important;
     }
     :host([expanded]) ha-icon-button {
       margin-left: 15px;
