@@ -1,6 +1,6 @@
 # Home Assistant LCARS
 LCARS theme for Home Assistant
-
+![wxample](https://github.com/th3jesta/ha-lcars/blob/master/example.jpg "Automations for hot Earl Grey Tea not included.")
 Color codes and font choice from https://www.thelcars.com
     --thanks Jim Robertus!
     
