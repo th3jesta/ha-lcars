@@ -4,7 +4,9 @@ LCARS theme for Home Assistant
 Color codes and font choice from https://www.thelcars.com
     --thanks Jim Robertus!
     
-
+##Table of Contents
+* [Prerequisites](https://github.com/th3jesta/ha-lcars#prerequisites)
+  I. [Enable themes and install card-mod](https://github.com/th3jesta/ha-lcars#i-enable-themes-and-install-card-mod)
 
 ## Installation instructions
 ### Prerequisites
