@@ -105,6 +105,7 @@ LCARS:
   mdc-button-outline-color: transparent
   ha-config-card-border-radius: 40px
   mdc-typography-font-family: Antonio
+  ha-card-border-width: 0px
 
   # card-mod modifications =============================================================
   card-mod-theme: LCARS
@@ -382,3 +383,11 @@ LCARS:
       margin-left: 256px;
       position: fixed;
     }
+
+#  card-mod-sidebar-yaml: |
+#    .: |
+#      {% if user == 'jessep' %}
+#      paper-listbox::before {
+#        margin-top: -112px;
+#      }
+#      {% endif %}
