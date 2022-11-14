@@ -293,6 +293,16 @@ LCARS:
     hui-masonry-view {
       padding-right: 23px;
     }
+    app-toolbar::before {
+      content: "";
+      height: 40px;
+      width: 100px;
+      background-color: transparent;
+      border-top-left-radius: 40px;
+      box-shadow: -40px 0 0 0 var(--lcars-peach);
+      margin-top: 80px;
+      margin-left: -16px;
+    }
   # Sidebar modifications
   card-mod-sidebar: |
     :host {
@@ -372,17 +382,18 @@ LCARS:
     .initials {
       margin-top: -4px;
     }
-    paper-listbox::before {
-      content: "";
-      height: 40px;
-      width: 100px;
-      background-color: transparent;
-      border-top-left-radius: 40px;
-      box-shadow: -40px 0 0 0 var(--lcars-peach);
-      margin-top: -72px;
-      margin-left: 256px;
-      position: fixed;
-    }
+
+#   paper-listbox::before {
+#     content: "";
+#     height: 40px;
+#     width: 100px;
+#     background-color: transparent;
+#     border-top-left-radius: 40px;
+#     box-shadow: -40px 0 0 0 var(--lcars-peach);
+#     margin-top: -72px;
+#     margin-left: 256px;
+#     position: fixed;
+#   }
 
 #  card-mod-sidebar-yaml: |
 #    .: |
