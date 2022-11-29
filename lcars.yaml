@@ -48,6 +48,7 @@ LCARS:
   sidebar-selected-background-color: var(--lcars-peach)
   sidebar-selected-icon-color: black # (light: systemGray5 from iOS light mode, dark: XXX)
   sidebar-selected-text-color: black
+  app-drawer-width: 75px
   # States and Badges
   state-icon-color: white
   state-icon-active-color: var(--lcars-text-gray) # or make light icons yellow when active: rgba(255, 214, 10, 1)
@@ -106,6 +107,7 @@ LCARS:
   ha-config-card-border-radius: 40px
   mdc-typography-font-family: Antonio
   ha-card-border-width: 0px
+  paper-yellow-a100: transparent
 
   # card-mod modifications =============================================================
   card-mod-theme: LCARS
@@ -174,6 +176,9 @@ LCARS:
       border-top: none;
       padding: 5px 16px;
       margin-top: 10px;
+      background: var(--lcars-peach);
+      border-radius: 40px;
+      --primary-text-color: black;
     }
     .panel > ha-card {
       border-radius: 40px !important;
@@ -228,8 +233,12 @@ LCARS:
     }
   # Toolbar and dashboard modifications
   card-mod-root: |
+    paper-tab.iron-selected {
+      background: var(--lcars-peach) !important;
+      color: black;
+    }
     .edit-mode app-header {
-      background: black !important;
+      background: transparent !important;
     }
     .edit-mode app-toolbar {
       background: var(--lcars-peach) !important;
@@ -238,6 +247,9 @@ LCARS:
       border-right: 30px solid rgb(119, 136, 255);
       border-radius: 0px 30px 30px 0px;
       box-shadow: 30px 0px 0px 0px black;
+    }
+    ha-tabs, paper-tabs {
+      --paper-tabs-selection-bar-color: transparent !important;
     }
     ha-button-menu::before {
       content: "{{states('sensor.time')}}";
@@ -260,7 +272,17 @@ LCARS:
       padding-right: 10px
     }
     .exit-edit-mode {
-      padding-right: 95px;
+      margin-right: 95px;
+      --mdc-button-outline-color: transparent !important;
+      --mdc-theme-primary: black !important;
+      background: var(--lcars-red);
+      border-radius: 40px;
+    }
+    .edit-mode div[main-title] {
+      color: black;
+    }
+    .edit-icon {
+      color: black !important;
     }
     ha-button-menu > ha-icon-button, 
     app-toolbar > ha-icon-button, 
@@ -287,8 +309,8 @@ LCARS:
     ha-icon-button#add-view {
       margin-top: 4px;
     }
-    .edit-icon {
-      color: white !important;
+    ha-icon {
+      color: black !important;
     }
     hui-masonry-view {
       padding-right: 23px;
