@@ -46,7 +46,7 @@ LCARS:
   sidebar-icon-color: black
   sidebar-text-color: black
   sidebar-selected-background-color: var(--lcars-peach)
-  sidebar-selected-icon-color: black # (light: systemGray5 from iOS light mode, dark: XXX)
+  sidebar-selected-icon-color: transparent # (light: systemGray5 from iOS light mode, dark: XXX)
   sidebar-selected-text-color: black
   app-drawer-width: 75px
   # States and Badges
@@ -237,6 +237,12 @@ LCARS:
       background: var(--lcars-peach) !important;
       color: black;
     }
+    paper-icon-item::before {
+      inset: 2px !important;
+      margin-right: -9px !important;
+      margin-left: -1px !important;
+      borer-radius: 20px !important;
+    }
     .edit-mode app-header {
       background: transparent !important;
     }
@@ -357,6 +363,7 @@ LCARS:
     }
     paper-icon-item {
       margin: 0px !important;
+      padding-left: 16px !important;
       height: 48px;
       --paper-item-min-height: unset !important;
     }
@@ -385,7 +392,6 @@ LCARS:
     }
     .menu ha-icon-button {
       color: var(--sidebar-icon-color);
-      margin-left: -4px;
       margin-top: 150px;
       margin-right: 96px;
     }
