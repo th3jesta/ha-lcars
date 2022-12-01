@@ -175,7 +175,7 @@ LCARS:
     .card-actions {
       border-top: none;
       padding: 5px 16px;
-      margin-top: 10px;
+      margin-top: 8px;
       background: var(--lcars-peach);
       border-radius: 40px;
       --primary-text-color: black;
