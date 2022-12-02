@@ -87,4 +87,4 @@ Those classes are as follows
 2. `middle` -  side red bar meant for non-button sections below `header` and above `footer`
 3. `footer` - bottom gray bar meant for the last card in a section
 4. `button-small` - squared off buttons intended to go in middle sections
-5. `button-large` - rounded button meant to be standalone outaide of `header`-`middle`-`footer` sections
+5. `button-large` - rounded button meant to be standalone outside of `header`-`middle`-`footer` sections
