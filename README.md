@@ -1,6 +1,13 @@
 # Home Assistant LCARS
 LCARS theme for Home Assistant
-![wxample](https://github.com/th3jesta/ha-lcars/blob/master/example.jpg "Automations for hot Earl Grey Tea not included.")
+
+## Updates
+### 2022-12-01: Edit modes are better!
+Edit modes have been completely overhauled and not only actually work, but look good doing it! 
+![example](https://github.com/th3jesta/ha-lcars/blob/master/example_updates.png "It still won't make you as fast as Data.")
+
+## Example dashboard
+![example](https://github.com/th3jesta/ha-lcars/blob/master/example.jpg "Automations for hot Earl Grey Tea not included.")
 Color codes and font choice from https://www.thelcars.com
     --thanks Jim Robertus!
 
@@ -80,4 +87,4 @@ Those classes are as follows
 2. `middle` -  side red bar meant for non-button sections below `header` and above `footer`
 3. `footer` - bottom gray bar meant for the last card in a section
 4. `button-small` - squared off buttons intended to go in middle sections
-5. `button-large` - rounded button meant to be standalone outaide of `header`-`middle`-`footer` sections
+5. `button-large` - rounded button meant to be standalone outside of `header`-`middle`-`footer` sections
