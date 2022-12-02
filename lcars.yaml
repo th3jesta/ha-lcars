@@ -430,9 +430,10 @@ LCARS:
     .profile > span {
       margin-bottom: 1px !important;
     }
-    .configuration-badge {
+    .notification-badge, .configuration-badge {
       left: calc(var(--app-drawer-width) - 30px) !important;
       top: 5px;
+      max-height: 20px;
     }
     .initials {
       margin-top: -4px;
