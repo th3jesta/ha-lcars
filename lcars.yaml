@@ -5,17 +5,96 @@
 #
 LCARS:
   # LCARS Variables and Colors
-  lcars-peach: "#ffaa90"
+  lcars-space-white: "#f5f6fa"
+  lcars-violet-creme: "#ddbbff"
+  lcars-green: "#33cc99"
+  lcars-magenta: "#cc4499"
+  lcars-blue: "#4455ff"
+  lcars-yellow: "#ffcc33"
+  lcars-violet: "#9944ff"
+  lcars-orange: "#ff7700"
+  lcars-african-violet: "#cc88ff"
+  lcars-text-purple: "#cc77ff"
+  lcars-red: "#dd4444"
+  lcars-almond: "#ffaa90"
+  lcars-almond-creme: "#ffbbaa"
+  lcars-sunflower: "#ffcc66"
+  lcars-bluey: "#7788ff"
+  lcars-gray: "#666688"
+  lcars-sky: "#aaaaff"
+  lcars-ice: "#88ccff"
+  lcars-gold: "#ffaa00"
+  lcars-mars: "#ff2200"
+  lcars-peach: "#ff8866"
+  lcars-butterscotch: "#ff9966"
+  lcars-tomato: "#ff5555"
+  lcars-lilac: "#cc33ff"
+  lcars-evening: "#2255ff"
+  lcars-midnight: "#1111ee"
+  lcars-ghost: "#88bbff"
+  lcars-wheat: "#ccaa88"
+  lcars-roseblush: "#ffcc99"
+  lcars-honey: "#ffcc99"
+  lcars-cardinal: "#cc2233"
+  lcars-pumpkinshade: "#ff7744"
+  lcars-tangerine: "#ff8833"
+  lcars-martian: "#99dd66"
+  lcars-text-blue: "#2266ff" 
+  lcars-moonbeam: "#ccdeff"
+  lcars-cool: "#5588ff"
+  lcars-galaxy: "#444a77"
+  lcars-moonshine: "#ddeeff"
+  lcars-october-sunset: "#ff4400"
+  lcars-harvestgold: "#ffaa44"
+  lcars-butter: "#ffeecc"
+  lcars-c43: "#5588ee"
+  lcars-c44: "#88ffff"
+  lcars-c45: "#344470"
+  lcars-c46: "#455580"
+  lcars-c47: "#7799dd"
+  lcars-c48: "#66ccff"
+  lcars-c49: "#99ccff"
+  lcars-c50: "#ff3500"
+  lcars-c51: "#552255"
+  lcars-c52: "#663366"
+  lcars-c53: "#774477"
+  lcars-c54: "#885588"
+  lcars-c55: "#996699"
+  lcars-c56: "#ff8800"
+  lcars-c57: "#d0b0a0"
+  lcars-c58: "#bbbbff"
+  lcars-c59: "#99aa66"
+  lcars-c60: "#00bb00"
+  lcars-c61: "#33ff33"
+  lcars-c62: "#ddffdd"
+  lcars-c63: "#ffebde"
+  lcars-c64: "#cc99cc"
+  lcars-c65: "#f6eef6"
+  lcars-c66: "#aa66aa"
+  lcars-c67: "#dd88dd"
+  lcars-c68: "#ff0000"
+  lcars-c69: "#cc0000"
+  lcars-70: "#ee0000"
+  lcars-c71: "#dfdfdf"
+  lcars-c72: "#f7f7f7"
   lcars-lavender: "#c8f"
-  lcars-blue: "#78f"
-  lcars-red: "#d44"
-  lcars-orange: "#f70"
   lcars-error: "f20"
   lcars-text-gray: "#d3d3d3"
-  lcars-gray: "#668"
   lcars-medium-gray: "#B6B6C1"
   lcars-dark-gray: "#3e3e3e"
   lcars-font: Antonio
+  
+  #Mode specific settings.
+  modes:
+    light:
+      lcars-card-top-color: var(--lcars-october-sunset)
+      lcars-card-mid-left-color: var(--lcars-gold)
+      lcars-card-bottom-color: var(--lcars-honey)
+    dark:
+      lcars-card-top-color: var(--lcars-blue)
+      lcars-card-mid-left-color: var(--lcars-red)
+      lcars-card-bottom-color: var(--lcars-gray)
+  
   # Global
   lovelace-background: black
   primary-color: black
@@ -115,24 +194,24 @@ LCARS:
   card-mod-view-yaml: |
   card-mod-card: |
     ha-card.header {
-      background: var(--lcars-blue) !important;
+      background: var(--lcars-card-top-color) !important;
       text-transform: uppercase;
       border-radius: 40px 0px 0px 0px !important;
-      border-top: 10px solid var(--lcars-blue);
-      border-left: 35px solid var(--lcars-blue);
+      border-top: 10px solid var(--lcars-card-top-color);
+      border-left: 35px solid var(--lcars-card-top-color);
     }
     ha-card.middle {
       background: black !important;
       text-transform: uppercase;
       border-radius: 0px !important;
-      border-left: 35.5px solid var(--lcars-red);
+      border-left: 35.5px solid var(--lcars-card-mid-left-color);
     }
     ha-card.footer {
-      background: var(--lcars-gray) !important;
+      background: var(--lcars-card-bottom-color) !important;
       text-transform: uppercase;
       border-radius: 0px 0px 0px 40px !important;
-      border-bottom: 10px solid var(--lcars-gray);
-      border-left: 35px solid var(--lcars-gray);
+      border-bottom: 10px solid var(--lcars-card-bottom-color);
+      border-left: 35px solid var(--lcars-card-bottom-color);
       margin-top: unset;
     }
     ha-card.button-small {
