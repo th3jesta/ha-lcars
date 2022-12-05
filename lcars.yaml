@@ -435,9 +435,8 @@ LCARS:
       top: 5px;
       max-height: 20px;
     }
-    .initials {
-      margin-top: -4px;
-      margin-left: -8px !important;
+    .profile paper-icon-item {
+      padding-left: 8px !important;
     }
 
 #   paper-listbox::before {
