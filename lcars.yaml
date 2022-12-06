@@ -3,8 +3,7 @@
 # Color codes and font choice from https://www.thelcars.com
 #     --thanks Jim Robertus!
 #
-LCARS:
-  # LCARS Variables and Colors
+(DO NOT USE/MODIFY)=== LCARS Colors: &lcars-colors
   lcars-space-white: "#f5f6fa"
   lcars-violet-creme: "#ddbbff"
   lcars-green: "#33cc99"
@@ -39,7 +38,7 @@ LCARS:
   lcars-pumpkinshade: "#ff7744"
   lcars-tangerine: "#ff8833"
   lcars-martian: "#99dd66"
-  lcars-text-blue: "#2266ff" 
+  lcars-text-blue: "#2266ff"
   lcars-moonbeam: "#ccdeff"
   lcars-cool: "#5588ff"
   lcars-galaxy: "#444a77"
@@ -83,24 +82,13 @@ LCARS:
   lcars-medium-gray: "#B6B6C1"
   lcars-dark-gray: "#3e3e3e"
   lcars-font: Antonio
-  
-  #Mode specific settings.
-  modes:
-    light:
-      lcars-card-top-color: var(--lcars-october-sunset)
-      lcars-card-mid-left-color: var(--lcars-gold)
-      lcars-card-bottom-color: var(--lcars-honey)
-    dark:
-      lcars-card-top-color: var(--lcars-blue)
-      lcars-card-mid-left-color: var(--lcars-red)
-      lcars-card-bottom-color: var(--lcars-gray)
-  
-  # Global
+
+(DO NOT USE/MODIFY)=== Base customizations: &base # Global
   lovelace-background: black
   primary-color: black
   light-primary-color: var(--lcars-medium-gray)
   primary-background-color: black
-  secondary-background-color: rgba(25, 25, 25)
+  secondary-background-color: var(--lcars-card-button)
   divider-color: transparent
   accent-color: var(--lcars-orange)
   box-sizing: unset !important
@@ -114,6 +102,7 @@ LCARS:
   paper-font-headline_-_font-family: var(--primary-font-family)
   paper-font-caption_-_font-family: var(--primary-font-family)
   paper-font-title_-_font-family: var(--primary-font-family)
+  ha-card-header-font-family: var(--primary-font-family)
   # Text
   primary-text-color: var(--lcars-text-gray)
   secondary-text-color: var(--lcars-text-gray)
@@ -121,22 +110,22 @@ LCARS:
   disabled-text-color: "#555"
   text-dark-color: black
   # Sidebar Menu
-  sidebar-background-color: var(--lcars-peach)
+  sidebar-background-color: var(--lcars-ui-primary)
   sidebar-icon-color: black
   sidebar-text-color: black
-  sidebar-selected-background-color: var(--lcars-peach)
-  sidebar-selected-icon-color: transparent # (light: systemGray5 from iOS light mode, dark: XXX)
+  sidebar-selected-background-color: var(--lcars-ui-primary)
+  sidebar-selected-icon-color: black
   sidebar-selected-text-color: black
   app-drawer-width: 75px
   # States and Badges
   state-icon-color: white
-  state-icon-active-color: var(--lcars-text-gray) # or make light icons yellow when active: rgba(255, 214, 10, 1)
+  state-icon-active-color: var(--lcars-text-gray)
   state-icon-unavailable-color: var(--disabled-text-color)
   # Sliders
   paper-slider-knob-color: white
   paper-slider-knob-start-color: var(--paper-slider-knob-color)
   paper-slider-pin-color: var(--paper-slider-knob-color)
-  paper-slider-active-color: "#0984ff" # from Apple systemBlue dark mode
+  paper-slider-active-color: "#0984ff"
   paper-slider-secondary-color: var(--paper-slider-knob-color)
   paper-slider-container-color: rgba(255, 255, 255, 0.5)
   paper-slider-font-color: white
@@ -144,12 +133,12 @@ LCARS:
   # Labels
   label-badge-background-color: "#23232E"
   label-badge-text-color: black
-  label-badge-red: rgba(255, 159, 9, 0.7) # from Apple systemOrange dark mode
+  label-badge-red: rgba(255, 159, 9, 0.7)
   # Cards
-  card-background-color: var(--secondary-background-color) # Unused entities table background
+  card-background-color: var(--secondary-background-color)
   paper-listbox-background-color: var(--primary-background-color)
   ha-card-border-radius: 40px
-  ha-card-background: var(--lcars-red)
+  ha-card-background: var(--lcars-card-button);
   paper-card-background-color: var(--ha-card-background)
   # Toggles
   paper-toggle-button-checked-button-color: "#484848"
@@ -160,19 +149,20 @@ LCARS:
   table-row-background-color: var(--primary-background-color)
   table-row-alternative-background-color: var(--secondary-background-color)
   # Switches
-  switch-checked-color: "#30d257" # XXX: remove when https://github.com/home-assistant/home-assistant-polymer/pull/4203 is in HA
-  switch-checked-track-color: "#30d158" # from Apple systemGreen dark mode
+  switch-checked-color: "#30d257"
+  switch-checked-track-color: "#30d158"
   switch-checked-button-color: white
   # Other
   paper-dialog-background-color: rgba(55, 55, 55)
-  paper-item-icon-color: var(--lcars-dark-gray) # also should mini-media-player icon white (but doesn't work by itself)
+  paper-item-icon-color: var(--lcars-dark-gray)
   more-info-header-background: rgba(25, 25, 25)
-  app-header-background-color: var(--lcars-peach)
+  app-header-background-color: var(--lcars-ui-primary)
   # Custom
   mini-media-player-base-color: white
   mini-media-player-icon-color: white
   sidebar-menu-button-text-color: black
   mdc-typography-button-font-family: var(--lcars-font)
+  mdc-theme-primary: var(--lcars-text-gray)
   mdc-theme-secondary: var(--lcars-orange)
   round-slider-bar-color: var(--lcars-blue)
   app-header-edit-background-color: transparent
@@ -187,12 +177,14 @@ LCARS:
   mdc-typography-font-family: Antonio
   ha-card-border-width: 0px
   paper-yellow-a100: transparent
+  mdc-theme-on-primary: black
+  mdc-theme-on-secondary: var(--lcars-text-gray)
+  mdc-theme-text-primary-on-background: black
+  mdc-theme-text-secondary-on-background: black
+  data-table-background-color: black
 
-  # card-mod modifications =============================================================
-  card-mod-theme: LCARS
-  # Card modifications
-  card-mod-view-yaml: |
-  card-mod-card: |
+(DO NOT USE/MODIFY)=== card-mod CSS: &card-mod-css # Card modifications
+  card-mod-card: &card-mod-card |
     ha-card.header {
       background: var(--lcars-card-top-color) !important;
       text-transform: uppercase;
@@ -255,7 +247,7 @@ LCARS:
       border-top: none;
       padding: 5px 16px;
       margin-top: 8px;
-      background: var(--lcars-peach);
+      background: var(--lcars-ui-primary);
       border-radius: 40px;
       --primary-text-color: black;
     }
@@ -310,10 +302,16 @@ LCARS:
       border-top-right-radius: 40px !important;
       border-top-left-radius: 40px !important;
     }
+    ha-config-updates {
+      color: black;
+    }
   # Toolbar and dashboard modifications
-  card-mod-root: |
+  card-mod-root: &card-mod-root |
+    ha-dialog > * {
+      color: black;
+    }
     paper-tab.iron-selected {
-      background: var(--lcars-peach) !important;
+      background: var(--lcars-ui-primary) !important;
       color: black;
     }
     paper-icon-item::before {
@@ -326,12 +324,11 @@ LCARS:
       background: transparent !important;
     }
     .edit-mode app-toolbar {
-      background: var(--lcars-peach) !important;
+      background: var(--lcars-ui-primary) !important;
     }
     app-toolbar {
-      border-right: 30px solid rgb(119, 136, 255);
+      border-right: 30px solid var(--lcars-ui-secondary);
       border-radius: 0px 30px 30px 0px;
-      box-shadow: 30px 0px 0px 0px black;
     }
     ha-tabs, paper-tabs {
       --paper-tabs-selection-bar-color: transparent !important;
@@ -360,7 +357,7 @@ LCARS:
       margin-right: 95px;
       --mdc-button-outline-color: transparent !important;
       --mdc-theme-primary: black !important;
-      background: var(--lcars-red);
+      background: var(--lcars-ui-tertiary);
       border-radius: 40px;
     }
     .edit-mode div[main-title] {
@@ -376,11 +373,11 @@ LCARS:
       margin-left: -75px;
       color: black;
     }
-    app-header::before {
-      box-shadow: unset;
+    app-header, app-toolbar {
+      box-shadow: 30px 0px 0px 0px black;
     }
     paper-tab.iron-selected {
-      background: var(--lcars-red);
+      background: var(--lcars-ui-tertiary);
       border-radius: 30px;
       height: 75%;
       margin-top: 10px;
@@ -400,18 +397,22 @@ LCARS:
     hui-masonry-view {
       padding-right: 23px;
     }
-    app-toolbar::before {
+    app-header::before {
       content: "";
       height: 40px;
       width: 100px;
       background-color: transparent;
       border-top-left-radius: 40px;
-      box-shadow: -40px 0 0 0 var(--lcars-peach);
-      margin-top: 80px;
-      margin-left: -16px;
+      box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+      margin-top: 40px;
+      right: unset;
+      bottom: unset;
+      left: unset;
+      opacity: unset;
+      transition: unset;
     }
   # Sidebar modifications
-  card-mod-sidebar: |
+  card-mod-sidebar: &card-mod-sidebar |
     :host {
       content: "";
       height: 100px;
@@ -466,7 +467,7 @@ LCARS:
       margin-left: 7px !important;
       height: 19px;
       border-radius: 20px;
-      background: var(--lcars-red);
+      background: var(--lcars-ui-tertiary);
       align-items: center;
     }
     .menu ha-icon-button {
@@ -484,7 +485,7 @@ LCARS:
     }
     a {
       border-bottom: 4px solid;
-      background-color: var(--lcars-lavender);
+      background-color: var(--lcars-ui-secondary);
     }
     .spacer {
       border-bottom: 4px solid black;
@@ -517,6 +518,12 @@ LCARS:
     .profile paper-icon-item {
       padding-left: 8px !important;
     }
+    .menu {
+      --mdc-theme-primary: black;
+    }
+    paper-icon-item::before {
+      opacity: 0 !important;
+    }
 
 #   paper-listbox::before {
 #     content: "";
@@ -524,7 +531,7 @@ LCARS:
 #     width: 100px;
 #     background-color: transparent;
 #     border-top-left-radius: 40px;
-#     box-shadow: -40px 0 0 0 var(--lcars-peach);
+#     box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
 #     margin-top: -72px;
 #     margin-left: 256px;
 #     position: fixed;
@@ -537,3 +544,48 @@ LCARS:
 #        margin-top: -112px;
 #      }
 #      {% endif %}
+
+LCARS Default:
+  card-mod-theme: LCARS Default
+  <<: *lcars-colors
+  <<: *base
+  <<: *card-mod-css
+  # Header and sidebar colors
+  lcars-ui-primary: var(--lcars-almond-creme)
+  lcars-ui-secondary: var(--lcars-african-violet)
+  lcars-ui-tertiary: var(--lcars-red)
+  # Card colors
+  lcars-card-top-color: var(--lcars-bluey)
+  lcars-card-mid-left-color: var(--lcars-red)
+  lcars-card-button: var(--lcars-red)
+  lcars-card-bottom-color: var(--lcars-gray)
+
+LCARS Classic:
+  card-mod-theme: LCARS Lower Decks
+  <<: *lcars-colors
+  <<: *base
+  <<: *card-mod-css
+  # Header and sidebar colors
+  lcars-ui-primary: var(--lcars-sunflower)
+  lcars-ui-secondary: var(--lcars-blue)
+  lcars-ui-tertiary: var(--lcars-mars)
+  # Card colors
+  lcars-card-top-color: var(--lcars-blue)
+  lcars-card-mid-left-color: var(--lcars-sunflower)
+  lcars-card-button: var(--lcars-blue)
+  lcars-card-bottom-color: var(--lcars-tomato)
+
+LCARS Lower Decks:
+  card-mod-theme: LCARS Lower Decks
+  <<: *lcars-colors
+  <<: *base
+  <<: *card-mod-css
+  # Header and sidebar colors
+  lcars-ui-primary: var(--lcars-gold)
+  lcars-ui-secondary: var(--lcars-butter)
+  lcars-ui-tertiary: var(--lcars-orange)
+  # Card colors
+  lcars-card-top-color: var(--lcars-october-sunset)
+  lcars-card-mid-left-color: var(--lcars-harvestgold)
+  lcars-card-button: var(--lcars-harvestgold)
+  lcars-card-bottom-color: var(--lcars-honey)
