@@ -658,6 +658,21 @@ LCARS Classic:
   lcars-card-mid-left-color: var(--lcars-ice)
   lcars-card-button: var(--lcars-ice)
   lcars-card-bottom-color: var(--lcars-honey)
+  
+LCARS Nemesis Blue:
+  card-mod-theme: LCARS Nemesis Blue
+  <<: *lcars-colors
+  <<: *base
+  <<: *card-mod-css
+  # Header and sidebar colors
+  lcars-ui-primary: var(--lcars-midnight)
+  lcars-ui-secondary: var(--lcars-tangerine)
+  lcars-ui-tertiary: var(--lcars-pumpkinshade)
+  # Card colors
+  lcars-card-top-color: var(--lcars-moonshine)
+  lcars-card-mid-left-color: var(--lcars-evening)
+  lcars-card-button: var(--lcars-roseblush)
+  lcars-card-bottom-color: var(--lcars-cool)  
 
 LCARS Lower Decks:
   card-mod-theme: LCARS Lower Decks
