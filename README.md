@@ -102,11 +102,11 @@ Those classes are as follows
 Custom themes can be created down at the bottom of `lcars.yaml`. Or, search for "===THEMES", which will take you right there. To create your own theme, copy the LCARS Default section to the bottom of the file and change the `lcars-ui-*` and `lcars-card-*` variables to your liking, using the color references at the top of the file, [The LCARS website](https://www.thelcars.com/colors.php), or define your own.
 
 ### Noise and gradients
-If you're not feeling the subtle noise and gradients that this theme added, let me know by raising an issue. I am still working on an easy method to enable and disable them. You can remove them yourself by searching for "base64" (you should find 3 entries) and commenting/deleting the entire CSS blocks that contains them.
+If you're not feeling the subtle noise and gradients that this theme added, let me know by raising an issue. I am still working on an easy method to enable and disable them. You can remove them yourself by searching for "base64" (you should find 3 entries) and commenting/deleting the entire CSS blocks that contains them. [Feature request here](https://github.com/th3jesta/ha-lcars/issues/5).
 
 ## Known issues
-* Collapsing and expanding the sidebar or zooming the interface will jack with the noise and gradient overlays. A simple refresh will set everything right again. I hope to find a way to make the pseudo elements that contain the textures to dynamically adjust with the DOM. PRs are welcome.
-* Mobile interface is 100% functional, though could still use some styling to correct things like the odd positioning of the Home Assistant header in the sidebar. It's in my list of improvements to implement. PRs are welcome.
+* Collapsing and expanding the sidebar or zooming the interface will jack with the noise and gradient overlays. A simple refresh will set everything right again. I hope to find a way to make the pseudo elements that contain the textures to dynamically adjust with the DOM. PRs are welcome. [Bug here](https://github.com/th3jesta/ha-lcars/issues/4).
+* Mobile interface is 100% functional, though could still use some styling to correct things like the odd positioning of the Home Assistant header in the sidebar. It's in my list of improvements to implement. PRs are welcome. [Bug here](https://github.com/th3jesta/ha-lcars/issues/6).
 * Menu pages like Development Tools and Profile are functional, but not great. Unfortunately, there's not much I can do to address this as card-mod does not provide a method to change these pages. Issues raised for anything comepletely broken and unsuable that I may have missed are welcome, as are PRs to make to make things better.
 
 ## Acknowledgements
