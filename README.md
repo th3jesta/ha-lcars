@@ -7,7 +7,7 @@ Color codes and font choice from https://www.thelcars.com
     --thanks Jim Robertus!
     
 ## Preamble
-I am most definitely not a real web developer, and fumbled my way into this initial release with the help of Stack Exchange and various blogs on CSS techniques. My main goal was and still is to keep this theme 100% CSS with no extra assets required besides the font. I'm positive there are better ways to implement anything and everything I've done thus far, so PRs are welcome. I will continue to improve things as I learn and add more comments to my CSS so that you can know what things do and maybe tell me how it can be better if you know.
+I am most definitely not a real web developer, and fumbled my way into this initial release with the help of Stack Exchange and various blogs on CSS techniques. My main goal was and still is to keep this theme 100% CSS with no extra assets required besides the font. I'm positive there are better ways to implement anything and everything I've done thus far, so PRs are welcome. I will continue to improve things as I learn and add more comments to my CSS so that you can know what things do and maybe tell me how it can be better if you know. I have tested this theme with most of the out-of-the-box cards that ship with Home Assistant, and some available in HACS like the Mail and Packages card. However, I'm sure there are some that could still be terribly broken. Simply create an issue and I will address it. 
 
 ## Installation instructions
 ### Prerequisites
@@ -99,3 +99,4 @@ If you're not feeling the subtle noise and gradients that this theme added, let 
 ## Known issues
 * Collapsing and expanding the sidebar or zooming the interface will jack with the noise and gradient overlays. A simple refresh will set everything right again. I hope to find a way to make the pseudo elements that contain the textures to dynamically adjust with the DOM. PRs are welcome.
 * Mobile interface is 100% functional, though could still use some styling to correct things like the odd positioning of the Home Assistant header in the sidebar. It's in my list of improvements to implement. PRs are welcome.
+* Menu pages like Development Tools and Profile are functional, but not great. Unfortunately, there's not much I can do to address this as card-mod does not provide a method to change these pages. Issues raised for anything comepletely broken and unsuable that I may have missed are welcome, as are PRs to make to make things better.
