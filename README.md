@@ -1,5 +1,5 @@
 # Home Assistant LCARS
-LCARS theme for Home Assistant
+Star Trek LCARS theme for Home Assistant
 
 
 
