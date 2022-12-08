@@ -83,9 +83,9 @@ card-mod:
   class: header
 ```
 Those classes are as follows
-1. `header` - top blue bar meant for Markdown cards with one `H1` line that will start a section
-2. `middle` -  side red bar meant for non-button sections below `header` and above `footer`
-3. `footer` - bottom gray bar meant for the last card in a section
+1. `header` - top blue bar (in Default theme) meant for Markdown cards with one `H1` line that will start a section
+2. `middle` -  side red bar (in Default theme) meant for non-button sections below `header` and above `footer`
+3. `footer` - bottom gray bar (in Default theme) meant for the last card in a section
 4. `button-small` - squared off buttons intended to go in middle sections
 5. `button-large` - rounded button meant to be standalone outside of `header`-`middle`-`footer` sections
 6. `button-lozenge` - pill-shaped button; only works on standard button cards in a horizontal-stack card that's two columns wide
