@@ -1,6 +1,7 @@
 {
   "name": "HA LCARS",
   "content_in_root": false,
+  "render_readme": true,
   "filename": "lcars.yaml",
   "country": ["US", "GB"]
 }
