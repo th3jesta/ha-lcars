@@ -2,12 +2,12 @@
 LCARS theme for Home Assistant
 
 ## Example dashboard
-![example](https://i.imgur.com/rBwDnWu.png "Automations for hot Earl Grey Tea not included.")
+![example](LCARS-Default-Example.png "Automations for hot Earl Grey Tea not included.")
 Color codes and font choice from https://www.thelcars.com
     --thanks Jim Robertus!
     
 ## Included themes
-![example](https://i.imgur.com/gtnVEIE.png "Classic, Lower Decks, Nemesis, Romulus, Kronos.")
+![example](LCARS-Themes.png "Classic, Lower Decks, Nemesis, Romulus, Kronos.")
     
 ## Preamble
 I am most definitely not a real web developer, and fumbled my way into this initial release with the help of Stack Exchange and various blogs on CSS techniques. My main goal was and still is to keep this theme 100% CSS with no extra assets required besides the font. I'm positive there are better ways to implement anything and everything I've done thus far, so PRs are welcome. I will continue to improve things as I learn and add more comments to my CSS so that you can know what things do and maybe tell me how it can be better if you know. I have tested this theme with most of the out-of-the-box cards that ship with Home Assistant, and some available in HACS like the Mail and Packages card. However, I'm sure there are some that could still be terribly broken. Simply create an issue and I will address it. 
