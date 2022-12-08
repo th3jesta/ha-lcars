@@ -28,7 +28,7 @@ frontend:
   extra_module_url:
     - /local/community/card-mod.js #or wherever you ended up putting card-mod.js
 ```
-3. Under the Home Assistant **Config** folder, create a new folder named **themes**, and another folder under that called **LCARS**, then place this .yaml file therein. 
+3. Under the Home Assistant **Config** folder, create a new folder named **themes**. 
 4. **Restart** Home assistant to apply the changes.
 
 #### II. Add the font
@@ -108,3 +108,6 @@ If you're not feeling the subtle noise and gradients that this theme added, let 
 * Collapsing and expanding the sidebar or zooming the interface will jack with the noise and gradient overlays. A simple refresh will set everything right again. I hope to find a way to make the pseudo elements that contain the textures to dynamically adjust with the DOM. PRs are welcome.
 * Mobile interface is 100% functional, though could still use some styling to correct things like the odd positioning of the Home Assistant header in the sidebar. It's in my list of improvements to implement. PRs are welcome.
 * Menu pages like Development Tools and Profile are functional, but not great. Unfortunately, there's not much I can do to address this as card-mod does not provide a method to change these pages. Issues raised for anything comepletely broken and unsuable that I may have missed are welcome, as are PRs to make to make things better.
+
+## Acknowledgements
+Thanks to @JHuckins for color theming support!
