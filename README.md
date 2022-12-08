@@ -1,15 +1,13 @@
 # Home Assistant LCARS
 LCARS theme for Home Assistant
 
-## Updates
-### 2022-12-01: Edit modes are better!
-Edit modes have been completely overhauled and not only actually work, but look good doing it! 
-![example](https://github.com/th3jesta/ha-lcars/blob/master/example_updates.png "It still won't make you as fast as Data.")
-
 ## Example dashboard
-![example](https://github.com/th3jesta/ha-lcars/blob/master/example.jpg "Automations for hot Earl Grey Tea not included.")
+![example](https://i.imgur.com/rBwDnWu.png "Automations for hot Earl Grey Tea not included.")
 Color codes and font choice from https://www.thelcars.com
     --thanks Jim Robertus!
+    
+## Preamble
+I am most definitely not a real web developer, and fumbled my way into this initial release with the help of Stack Exchange and various blogs on CSS techniques. My main goal was and still is to keep this theme 100% CSS with no extra assets required besides the font. I'm positive there are better ways to implement anything and everything I've done thus far, so PRs are welcome. I will continue to improve things as I learn and add more comments to my CSS so that you can know what things do and maybe tell me how it can be better if you know.
 
 ## Installation instructions
 ### Prerequisites
@@ -60,7 +58,8 @@ https://www.home-assistant.io/integrations/time_date/
 ### Enable theme
 #### Option 1: Via profile
 1. Open your Home Assistant **Profile**
-2. Under, **Themes**, select the new LCARS theme
+2. Under, **Themes**, select one of the new LCARS themes
+3. Call the `frontend.reload_themes` service.
 
 #### Option 2: Setting the default `backend-selected` theme
 In order to have this theme set automatically as the backend selected default, add the following automation to your Home Assistant:
@@ -73,11 +72,12 @@ In order to have this theme set automatically as the backend selected default, a
   condition: []
   action:
   - data:
-      name: LCARS
+      name: LCARS Default # or whichever other theme is available, like LCARS Lower Decks
     service: frontend.set_theme
 ```
 ## Usage instructions
-The theme includes 5 classes that can be added to cards like this to give them special styling:
+### Classes
+The theme includes 6 classes that can be added to cards like this to give them special styling:
 ```yaml
 card-mod:
   class: header
@@ -88,3 +88,14 @@ Those classes are as follows
 3. `footer` - bottom gray bar meant for the last card in a section
 4. `button-small` - squared off buttons intended to go in middle sections
 5. `button-large` - rounded button meant to be standalone outside of `header`-`middle`-`footer` sections
+6. `button-lozenge` - pill-shaped button; only works on standard button cards in a horizontal-stack card that's two columns wide
+
+### Make your own color themes
+Custom themes can be created down at the bottom of `lcars.yaml`. Or, search for "===THEMES", which will take you right there. To create your own theme, copy the LCARS Default section to the bottom of the file and change the `lcars-ui-*` and `lcars-card-*` variables to your liking, using the color references at the top of the file, [The LCARS website](https://www.thelcars.com/colors.php), or define your own.
+
+### Noise and gradients
+If you're not feeling the subtle noise and gradients that this theme added, let me know by raising an issue. I am still working on an easy method to enable and disable them. You can remove them yourself by searching for "base64" (you should find 3 entries) and commenting/deleting the entire CSS blocks that contains them.
+
+## Known issues
+* Collapsing and expanding the sidebar or zooming the interface will jack with the noise and gradient overlays. A simple refresh will set everything right again. I hope to find a way to make the pseudo elements that contain the textures to dynamically adjust with the DOM. PRs are welcome.
+* Mobile interface is 100% functional, though could still use some styling to correct things like the odd positioning of the Home Assistant header in the sidebar. It's in my list of improvements to implement. PRs are welcome.
