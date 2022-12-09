@@ -61,7 +61,7 @@ More info:
 https://www.home-assistant.io/integrations/time_date/
 
 ### Install the theme
-Install via HACS (pending) or download the [latest release](https://github.com/th3jesta/ha-lcars/releases/latest) and extract and drop the lcars folder into your themes folder.
+Install via HACS by adding this repository URL or download the [latest release](https://github.com/th3jesta/ha-lcars/releases/latest) and extract and drop the lcars folder into your themes folder.
 
 ### Enable theme
 #### Option 1: Via profile
