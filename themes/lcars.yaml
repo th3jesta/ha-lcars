@@ -84,6 +84,7 @@
   lcars-medium-gray: "#B6B6C1"
   lcars-dark-gray: "#3e3e3e"
   lcars-khaki: "#ffe399"
+  lcars-cardassia-maroon: "#4f1a23"
   lcars-font: Antonio
 
 (DO NOT USE/MODIFY)=== Base customizations: &base # Global
@@ -799,5 +800,19 @@ LCARS Kronos:
   lcars-card-mid-left-color: var(--lcars-october-sunset)
   lcars-card-button: var(--lcars-october-sunset)
   lcars-card-bottom-color: var(--lcars-peach)
+
+LCARS Cardassia:
+  card-mod-theme: LCARS Cardassia
+  <<: *lcars-colors
+  <<: *base
+  <<: *card-mod-css
+  lcars-ui-primary: var(--lcars-c44)
+  lcars-ui-secondary: var(--lcars-c55)
+  lcars-ui-tertiary: var(--lcars-cardassia-maroon)
+  # Card colors
+  lcars-card-top-color: var(--lcars-c48)
+  lcars-card-mid-left-color: var(--lcars-cardassia-maroon)
+  lcars-card-button: var(--lcars-cardassia-maroon)
+  lcars-card-bottom-color: var(--lcars-c52)
 # Paste your themes here |
 #                        V
