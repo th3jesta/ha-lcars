@@ -310,10 +310,10 @@
       margin-top: unset;
       padding-right: 26px;
       padding-bottom: 6px;
+      position: absolute;
     }
     ha-card.button-lozenge > span.state, 
     ha-card.button-bullet > span.state {
-      position: absolute;
       padding-bottom: 45px;
       color: black;
     }
