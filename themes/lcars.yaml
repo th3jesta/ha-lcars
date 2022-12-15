@@ -641,6 +641,10 @@
       font-family: var(--lcars-font) !important;
       margin-left: 10px !important;
     }
+    :host([narrow]) .title {
+      padding: 148px 6px 0px 0px !important;
+      text-align: right !important;
+    }
     a {
       border-bottom: 4px solid;
       background-color: var(--lcars-ui-secondary);
