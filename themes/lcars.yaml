@@ -322,6 +322,9 @@
       border-left: 35.5px solid var(--lcars-card-mid-left-color);
       padding-left: 6px !important;
     }
+    ha-card > .content > .bar {
+      stroke-width: 5px;
+    }
     ha-markdown.no-header {
       background: black;
       border-radius: 20px 0px 0px 0px;
