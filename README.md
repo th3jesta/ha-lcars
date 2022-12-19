@@ -106,7 +106,7 @@ If you're not feeling the subtle noise and gradients that this theme added, let 
 
 ## Known issues
 * Collapsing and expanding the sidebar or zooming the interface will jack with the noise and gradient overlays. A simple refresh will set everything right again. I hope to find a way to make the pseudo elements that contain the textures to dynamically adjust with the DOM. PRs are welcome. [Bug here](https://github.com/th3jesta/ha-lcars/issues/4).
-* ~~Mobile interface is 100% functional, though could still use some styling to correct things like the odd positioning of the Home Assistant header in the sidebar. It's in my list of improvements to implement. PRs are welcome. [Bug here](https://github.com/th3jesta/ha-lcars/issues/6).~~
+* ~~Mobile interface is 100% functional, though could still use some styling to correct things like the odd positioning of the Home Assistant header in the sidebar. It's in my list of improvements to implement. PRs are welcome. [Bug here](https://github.com/th3jesta/ha-lcars/issues/6).~~ Fixed and will be in the next release.
 * Menu pages like Development Tools and Profile are functional, but not great. Unfortunately, there's not much I can do to address this as card-mod does not provide a method to change these pages. Issues raised for anything comepletely broken and unsuable that I may have missed are welcome, as are PRs to make to make things better.
 
 ## Acknowledgements
