@@ -87,7 +87,7 @@ In order to have this theme set automatically as the backend selected default, a
 ### Classes
 The theme includes 6 classes that can be added to cards like this to give them special styling:
 ```yaml
-card-mod:
+card_mod:
   class: header
 ```
 Those classes are as follows
