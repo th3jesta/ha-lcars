@@ -203,7 +203,7 @@
       border-top: 10px solid var(--lcars-card-top-color);
       border-right: 35px solid var(--lcars-card-top-color);
     }
-    ha-card.header.right > ha-markdown.no-header {
+    ha-card.header-right > ha-markdown.no-header {
       background: black;
       border-radius: 0px 20px 0px 0px;
       padding-top: 0px !important;
