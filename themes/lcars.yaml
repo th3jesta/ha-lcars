@@ -34,7 +34,7 @@
   lcars-midnight: "#1111ee"
   lcars-ghost: "#88bbff"
   lcars-wheat: "#ccaa88"
-  lcars-roseblush: "#ffcc99"
+  lcars-roseblush: "#cc6666"
   lcars-honey: "#ffcc99"
   lcars-cardinal: "#cc2233"
   lcars-pumpkinshade: "#ff7744"
@@ -196,11 +196,36 @@
       border-top: 10px solid var(--lcars-card-top-color);
       border-left: 35px solid var(--lcars-card-top-color);
     }
+    ha-card.header-right {
+      background: var(--lcars-card-top-color) !important;
+      text-transform: uppercase;
+      border-radius: 0px 40px 0px 0px !important;
+      border-top: 10px solid var(--lcars-card-top-color);
+      border-right: 35px solid var(--lcars-card-top-color);
+    }
+    ha-card.header-right > ha-markdown.no-header {
+      background: black;
+      border-radius: 0px 20px 0px 0px;
+      padding-top: 0px !important;
+      padding-bottom: 0 !important;
+    }
+
     ha-card.middle {
       background: black !important;
       text-transform: uppercase;
       border-radius: 0px !important;
       border-left: 35.5px solid var(--lcars-card-mid-left-color);
+    }
+    ha-card.middle-right {
+      background: black !important;
+      text-transform: uppercase;
+      border-radius: 0px !important;
+      border-right: 35.5px solid var(--lcars-card-mid-left-color);
+    }
+    ha-card.middle-blank {
+      background: black !important;
+      text-transform: uppercase;
+      border-radius: 0px !important;
     }
     ha-card.footer {
       background: var(--lcars-card-bottom-color) !important;
@@ -210,14 +235,35 @@
       border-left: 35px solid var(--lcars-card-bottom-color);
       margin-top: unset;
     }
+    ha-card.footer-right {
+      background: var(--lcars-card-bottom-color) !important;
+      text-transform: uppercase;
+      border-radius: 0px 0px 40px 0px !important;
+      border-bottom: 10px solid var(--lcars-card-bottom-color);
+      border-right: 35px solid var(--lcars-card-bottom-color);
+      margin-top: unset;
+    }
     ha-card.footer > span {
       background: black;
       width: 100%;
       padding-left: 0px;
       margin-top: 0px;
     }
+    ha-card.footer-right > span {
+      background: black;
+      width: 100%;
+      padding-right: 0px;
+      margin-top: 0px;
+    }
     ha-card.footer > span.state {
       border-radius: 0px 0px 0px 20px;
+    }
+    ha-card.footer-right > span.state {
+      border-radius: 0px 20px 0px 0px;
+    }
+    ha-card.footer-right > .entities {
+      background: black;
+      border-radius: 0px 0px 20px 0px;
     }
     ha-card.button-small {
       display: flex;
