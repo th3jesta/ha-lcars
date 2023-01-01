@@ -134,5 +134,5 @@ _If you have anything to add here, create a PR with your tip and I will review i
 * Sometimes when a dashboard loads, not all CSS styles will load and all or most cards will end up looking like the `button-large` cards. This is more prevalent on large dashboards. Try reloading the page, and if that doesn't work, load a smaller dashboard and then go back to the offending dashboard.
 
 ## Acknowledgements
-Thanks to @JHuckins for color theming support and testing!
-Thanks to @csanner for the new classes and additional fixes and tweaks!
+- Thanks to @JHuckins for color theming support and testing!
+- Thanks to @csanner for the new classes and additional fixes and tweaks!
