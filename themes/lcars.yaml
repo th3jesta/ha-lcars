@@ -186,6 +186,7 @@
   mdc-theme-text-primary-on-background: black
   mdc-theme-text-secondary-on-background: black
   data-table-background-color: black
+  rgb-state-media-player-color: var(--paper-item-icon-color)
 
 (DO NOT USE/MODIFY)=== card-mod CSS: &card-mod-css # Card modifications
   card-mod-card: &card-mod-card |
@@ -209,7 +210,6 @@
       padding-top: 0px !important;
       padding-bottom: 0 !important;
     }
-
     ha-card.middle {
       background: black !important;
       text-transform: uppercase;
