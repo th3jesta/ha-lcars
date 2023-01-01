@@ -136,3 +136,6 @@ _If you have anything to add here, create a PR with your tip and I will review i
 ## Acknowledgements
 - Thanks to @JHuckins for color theming support and testing!
 - Thanks to @csanner for the new classes and additional fixes and tweaks!
+
+## Links
+**Discord:** https://discord.gg/gGxud6Y6WJ
