@@ -104,16 +104,16 @@ The classes are as follows:
 4. `footer` and `footer-right` - bottom gray bar (in Default theme) meant for the last card in a section
 <img width="317" alt="image" src="https://user-images.githubusercontent.com/38670315/210178378-7b45ec2d-30fc-45c9-a6ab-68f2517a83fc.png">
 
-5. `button-small` - squared off buttons intended to go in middle sections
+5. `button-small` - squared off buttons intended to go in middle sections and horizontal-stacks and grids
 <img width="107" alt="image" src="https://user-images.githubusercontent.com/38670315/210178400-5d39e821-328f-4bd5-907d-1863dc2f7ff6.png">
 
-6. `button-large` - rounded button meant to be standalone outside of `header`-`middle`-`footer` sections
+6. `button-large` - rounded button meant to be standalone outside of `header`/`middle`/`footer` sections
 <img width="318" alt="image" src="https://user-images.githubusercontent.com/38670315/210178438-59da5bce-4f86-4de6-94e3-830aa845293e.png">
 
-7. `button-lozenge` - pill-shaped button; only works on standard button cards; also works on button cards in a horizontal-stack card that's two columns wide
+7. `button-lozenge` - pill-shaped button; only works on standard button cards; also works on button cards in a horizontal-stacks and grids up to two columns wide; more columns get glitchy and is not advised
 <img width="158" alt="image" src="https://user-images.githubusercontent.com/38670315/210178574-68183ee3-a3a8-4642-85a6-7d0f1dfed537.png">
 
-8. `button-bullet` - similar to the lozenge, but with a squared-off left side
+8. `button-bullet` - similar to the lozenge, but with a squared-off left side; same column restrictions apply
 <img width="157" alt="image" src="https://user-images.githubusercontent.com/38670315/210178586-7f339168-4c6d-4ed7-aa80-cdacd3b57194.png">
 
 ### Make your own color themes
@@ -124,12 +124,43 @@ If you're not feeling the subtle noise and gradients that this theme added, let 
 
 ## Tips and tricks
 _If you have anything to add here, create a PR with your tip and I will review it to add to this list._
-* Make use of Vertical Stack cards. Whether in this theme or any other theme, they are invaluable for keeping dashboards organized. In LCARS, a Vertical Stack card should contain a Markdown card first with the title of the group and the `header` class applied, then any number of `middle` class cards and `button` class single buttons or in horizontal stacks or grids, and then finally a `footer` class applied to the last card in the vertical stack. You can see this formation in all of the screenshots at the top of this page.
+* Make use of Vertical Stack cards. Whether in this theme or any other theme, they are invaluable for keeping dashboards organized. In LCARS, a Vertical Stack card should contain a Markdown card first with the title of the group and the `header` class applied, then any number of `middle` class cards and `button` class single buttons or in horizontal stacks or grids, and then finally a `footer` class applied to the last card in the vertical stack. You can see this formation in all of the screenshots at the top of this page. Here's an example Vertical Stack card and all of it's contents:
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+type: vertical-stack
+cards:
+  - type: markdown
+    card_mod:
+      class: header
+    content: '# Climate'
+  - type: weather-forecast
+    entity: weather.home
+    card_mod:
+      class: middle
+  - type: thermostat
+    entity: climate.dining_room
+    card_mod:
+      class: footer
+```
+
+</td>
+<td>
+<img width="308" alt="image" src="https://user-images.githubusercontent.com/38670315/210189965-b73662a8-5390-46ea-9450-b0043e6d2547.png">
+</td>
+</tr>
+</table>
+
 
 ## Known issues
 * Font and sidebar and header CSS styles only load when a dashboard has been loaded first. If you navigate directly to a non-dashboard page without loading a dashboard first, things will look pretty awful, though still functional. Simply load a dashboard and hit the back button. This is a quirk of the [card-mod](https://github.com/thomasloven/lovelace-card-mod) addon on which this theme relies, so it's outside my ability to fix.
 * card-mod classes do not work with Vertical Stack and Horizontal Stacks cards (though they do work with the cards they contain). This is a quirk of the [card-mod](https://github.com/thomasloven/lovelace-card-mod) addon on which this theme relies, so it's outside my ability to fix. There is, however, a hacky workaround I have identified though have opted to not include at this time. Please submit a feature request if you would like to see this included.
-* Collapsing and expanding the sidebar or zooming the interface will jack with the noise and gradient overlays. A simple refresh will set everything right again. I hope to find a way to make the pseudo elements that contain the textures to dynamically adjust with the DOM. PRs are welcome. [Bug here](https://github.com/th3jesta/ha-lcars/issues/4).
+* ~~Collapsing and expanding the sidebar or zooming the interface will jack with the noise and gradient overlays. A simple refresh will set everything right again. I hope to find a way to make the pseudo elements that contain the textures to dynamically adjust with the DOM. PRs are welcome. [Bug here](https://github.com/th3jesta/ha-lcars/issues/4).~~
 * Menu pages like Development Tools and Profile are functional, but not great. Unfortunately, there's not much I can do to address this as card-mod does not provide a method to change these pages. Issues raised for anything comepletely broken and unsuable that I may have missed are welcome, as are PRs to make to make things better.
 * Sometimes when a dashboard loads, not all CSS styles will load and all or most cards will end up looking like the `button-large` cards. This is more prevalent on large dashboards. Try reloading the page, and if that doesn't work, load a smaller dashboard and then go back to the offending dashboard.
 
