@@ -116,24 +116,157 @@ content: '# Climate'
 </table>
 
 2. `middle` and `middle-right` -  side red bar (in Default theme) meant for non-button sections below `header` and above `footer`
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+type: weather-forecast
+entity: weather.home
+card_mod:
+  class: middle
+```
+
+</td>
+<td>
 <img width="319" alt="image" src="https://user-images.githubusercontent.com/38670315/210178353-8fab9352-a3f5-4105-aea0-b05ede7f3cdd.png">
+</td>
+</tr>
+</table>
 
 3. `middle-blank` - special case for Mushroom Cards (@csanner please confirm)
 
 4. `footer` and `footer-right` - bottom gray bar (in Default theme) meant for the last card in a section
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+type: media-control
+entity: media_player.living_room_tv_2
+card_mod:
+  class: footer
+```
+
+</td>
+<td>
 <img width="317" alt="image" src="https://user-images.githubusercontent.com/38670315/210178378-7b45ec2d-30fc-45c9-a6ab-68f2517a83fc.png">
+</td>
+</tr>
+</table>
 
 5. `button-small` - squared off buttons intended to go in middle sections and horizontal-stacks and grids
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+type: light
+entity: light.jesse_s_desk
+name: Desk Lamp
+card_mod:
+  class: button-small
+```
+
+</td>
+<td>
 <img width="107" alt="image" src="https://user-images.githubusercontent.com/38670315/210178400-5d39e821-328f-4bd5-907d-1863dc2f7ff6.png">
+</td>
+</tr>
+</table>
 
 6. `button-large` - rounded button meant to be standalone outside of `header`/`middle`/`footer` sections
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+show_name: true
+show_icon: true
+type: button
+tap_action:
+  action: call-service
+  service: frontend.reload_themes
+  data: {}
+  target: {}
+show_state: true
+card_mod:
+  class: button-large
+```
+
+</td>
+<td>
 <img width="318" alt="image" src="https://user-images.githubusercontent.com/38670315/210178438-59da5bce-4f86-4de6-94e3-830aa845293e.png">
+</td>
+</tr>
+</table>
 
 7. `button-lozenge` - pill-shaped button; only works on standard button cards; also works on button cards in a horizontal-stacks and grids up to two columns wide; more columns get glitchy and is not advised
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+show_name: true
+show_icon: true
+type: button
+tap_action:
+  action: toggle
+entity: switch.lightsaber
+icon: ''
+card_mod:
+  class: button-lozenge
+```
+
+</td>
+<td>
 <img width="158" alt="image" src="https://user-images.githubusercontent.com/38670315/210178574-68183ee3-a3a8-4642-85a6-7d0f1dfed537.png">
+</td>
+</tr>
+</table>
 
 8. `button-bullet` - similar to the lozenge, but with a squared-off left side; same column restrictions apply
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+show_name: true
+show_icon: true
+type: button
+tap_action:
+  action: toggle
+entity: switch.speakers
+show_state: true
+icon: mdi:speaker-multiple
+card_mod:
+  class: button-bullet
+```
+
+</td>
+<td>
 <img width="157" alt="image" src="https://user-images.githubusercontent.com/38670315/210178586-7f339168-4c6d-4ed7-aa80-cdacd3b57194.png">
+</td>
+</tr>
+</table>
 
 ### Make your own color themes
 Custom themes can be created down at the bottom of `lcars.yaml`. Or, search for "===THEMES", which will take you right there. To create your own theme, copy the LCARS Default section to the bottom of the file and change the `lcars-ui-*` and `lcars-card-*` variables to your liking, using the color references at the top of the file, [The LCARS website](https://www.thelcars.com/colors.php), or define your own.
