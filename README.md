@@ -104,16 +104,16 @@ The classes are as follows:
 4. `footer` and `footer-right` - bottom gray bar (in Default theme) meant for the last card in a section
 <img width="317" alt="image" src="https://user-images.githubusercontent.com/38670315/210178378-7b45ec2d-30fc-45c9-a6ab-68f2517a83fc.png">
 
-5. `button-small` - squared off buttons intended to go in middle sections
+5. `button-small` - squared off buttons intended to go in middle sections and horizontal-stacks and grids
 <img width="107" alt="image" src="https://user-images.githubusercontent.com/38670315/210178400-5d39e821-328f-4bd5-907d-1863dc2f7ff6.png">
 
-6. `button-large` - rounded button meant to be standalone outside of `header`-`middle`-`footer` sections
+6. `button-large` - rounded button meant to be standalone outside of `header`/`middle`/`footer` sections
 <img width="318" alt="image" src="https://user-images.githubusercontent.com/38670315/210178438-59da5bce-4f86-4de6-94e3-830aa845293e.png">
 
-7. `button-lozenge` - pill-shaped button; only works on standard button cards; also works on button cards in a horizontal-stack card that's two columns wide
+7. `button-lozenge` - pill-shaped button; only works on standard button cards; also works on button cards in a horizontal-stacks and grids up to two columns wide; more columns get glitchy and is not advised
 <img width="158" alt="image" src="https://user-images.githubusercontent.com/38670315/210178574-68183ee3-a3a8-4642-85a6-7d0f1dfed537.png">
 
-8. `button-bullet` - similar to the lozenge, but with a squared-off left side
+8. `button-bullet` - similar to the lozenge, but with a squared-off left side; same column restrictions apply
 <img width="157" alt="image" src="https://user-images.githubusercontent.com/38670315/210178586-7f339168-4c6d-4ed7-aa80-cdacd3b57194.png">
 
 ### Make your own color themes
