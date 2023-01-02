@@ -94,7 +94,26 @@ _The class names are only indications of what types of cards they were intended 
 
 The classes are as follows:
 1. `header` and `header-right` - top blue bar (in Default theme) meant for Markdown cards with one `H1` line that will start a section
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+type: markdown
+card_mod:
+  class: header
+content: '# Climate'
+```
+
+</td>
+<td>
 <img width="319" alt="image" src="https://user-images.githubusercontent.com/38670315/210178336-ee6ca541-31c8-48bf-b1d8-e2069d435111.png">
+</td>
+</tr>
+</table>
 
 2. `middle` and `middle-right` -  side red bar (in Default theme) meant for non-button sections below `header` and above `footer`
 <img width="319" alt="image" src="https://user-images.githubusercontent.com/38670315/210178353-8fab9352-a3f5-4105-aea0-b05ede7f3cdd.png">
