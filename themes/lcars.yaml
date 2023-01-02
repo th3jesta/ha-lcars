@@ -190,6 +190,7 @@
 
 (DO NOT USE/MODIFY)=== card-mod CSS: &card-mod-css # Card modifications
   card-mod-card: &card-mod-card |
+    /* Header classes and fixes for specific card types */
     ha-card.header {
       background: var(--lcars-card-top-color) !important;
       text-transform: uppercase;
@@ -210,6 +211,7 @@
       padding-top: 0px !important;
       padding-bottom: 0 !important;
     }
+    /* Middle classes and fixes for specific cards */
     ha-card.middle {
       background: black !important;
       text-transform: uppercase;
@@ -227,6 +229,7 @@
       text-transform: uppercase;
       border-radius: 0px !important;
     }
+    /* Footer classes and fixes for specific cards */
     ha-card.footer {
       background: var(--lcars-card-bottom-color) !important;
       text-transform: uppercase;
@@ -265,6 +268,18 @@
       background: black;
       border-radius: 0px 0px 20px 0px;
     }
+    ha-card.footer > ha-state-icon {
+      background: black;
+      width: 100%;
+      --mdc-icon-size: 40%
+    }
+    ha-card.footer > span.usps_update {
+      background: black;
+      width: 100%;
+      padding-left: 15px;
+      margin-top: -4px;
+    }
+    /* Small button class and fixes for specific cards */
     ha-card.button-small {
       display: flex;
       text-transform: uppercase;
@@ -312,10 +327,12 @@
       position: absolute;
       bottom: 0;
     }
+    /* Large button class and fixes for specific cards */
     ha-card.button-large {
       text-transform: uppercase;
       color: black;
     }
+    /* Lozenge and bullet button classes and fixes for specific cards */
     ha-card.button-lozenge {
       text-transform: uppercase;
       color: black;
@@ -363,20 +380,25 @@
       padding-bottom: 45px;
       color: black;
     }
+    /* Hacky workaround to add middle-type class to horizontal and vertical stack cards */
+    /* More info: https://github.com/thomasloven/lovelace-card-mod#styling-cards-without-an-ha-card-element */
     .type-custom-mod-card {
       border-radius: 0px !important;
       border-left: 35.5px solid var(--lcars-card-mid-left-color);
       padding-left: 6px !important;
     }
+    /* WIP fix for aliasing ugliness on slider tracks */
     ha-card > .content > .bar {
       stroke-width: 5px;
     }
+    /* ?Fix for markdown cards that are not headers? */
     ha-markdown.no-header {
       background: black;
       border-radius: 20px 0px 0px 0px;
       padding-top: 0px !important;
       padding-bottom: 0 !important;
     }
+    /* Various generic card fixes */
     .entities {
       background: black;
       border-radius: 0px 0px 0px 20px;
@@ -410,17 +432,6 @@
     }
     .panel > ha-card {
       border-radius: 40px !important;
-    }
-    ha-card.footer > ha-state-icon {
-      background: black;
-      width: 100%;
-      --mdc-icon-size: 40%
-    }
-    ha-card.footer > span.usps_update {
-      background: black;
-      width: 100%;
-      padding-left: 15px;
-      margin-top: -4px;
     }
     .button-small > .state,
     .button-large > .state,
@@ -456,12 +467,6 @@
       border-top-right-radius: 40px !important;
       border-top-left-radius: 40px !important;
     }
-    ha-gauge {
-      --primary-text-color: black;
-    }
-    ha-card:has(ha-gauge) {
-      background: var(--lcars-card-top-color)
-    }
     ha-card:focus {
       background: unset !important;
     }
@@ -473,6 +478,13 @@
     }
     button#button.mdc-button {
       color: black !important;
+    }
+    /* Gauge card fixes */
+    ha-gauge {
+      --primary-text-color: black;
+    }
+    ha-card:has(ha-gauge) {
+      background: var(--lcars-card-top-color)
     }
   # Toolbar and dashboard modifications
   card-mod-root: &card-mod-root |
