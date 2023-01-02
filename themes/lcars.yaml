@@ -835,7 +835,7 @@ LCARS Nemesis Blue:
   # Card colors
   lcars-card-top-color: var(--lcars-moonshine)
   lcars-card-mid-left-color: var(--lcars-evening)
-  lcars-card-button: var(--lcars-roseblush)
+  lcars-card-button: var(--lcars-honey)
   lcars-card-bottom-color: var(--lcars-cool)
   # Misc
   success-color: var(--lcars-green)
