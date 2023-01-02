@@ -456,6 +456,18 @@
       border-top-right-radius: 40px !important;
       border-top-left-radius: 40px !important;
     }
+    ha-gauge {
+      --primary-text-color: black;
+    }
+    ha-card:has(ha-gauge) {
+      background: var(--lcars-card-top-color)
+    }
+    ha-card:focus {
+      background: unset !important;
+    }
+    ha-card > .name {
+      color: black;
+    }
     ha-config-updates {
       color: black;
     }
@@ -779,6 +791,10 @@ LCARS Default:
   lcars-card-mid-left-color: var(--lcars-red)
   lcars-card-button: var(--lcars-red)
   lcars-card-bottom-color: var(--lcars-gray)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-red)
 
 LCARS Classic:
   card-mod-theme: LCARS Lower Decks
@@ -786,13 +802,17 @@ LCARS Classic:
   <<: *base
   <<: *card-mod-css
   lcars-ui-primary: var(--lcars-khaki)
-  lcars-ui-secondary: var(--lcars-roseblush)
+  lcars-ui-secondary: var(--lcars-honey)
   lcars-ui-tertiary: var(--lcars-mars)
   # Card colors
   lcars-card-top-color: var(--lcars-violet)
   lcars-card-mid-left-color: var(--lcars-ice)
   lcars-card-button: var(--lcars-ice)
   lcars-card-bottom-color: var(--lcars-honey)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-red)
 
 LCARS Nemesis Blue:
   card-mod-theme: LCARS Nemesis Blue
@@ -807,6 +827,10 @@ LCARS Nemesis Blue:
   lcars-card-mid-left-color: var(--lcars-evening)
   lcars-card-button: var(--lcars-roseblush)
   lcars-card-bottom-color: var(--lcars-cool)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-red)
 
 LCARS Lower Decks:
   card-mod-theme: LCARS Lower Decks
@@ -821,6 +845,10 @@ LCARS Lower Decks:
   lcars-card-mid-left-color: var(--lcars-harvestgold)
   lcars-card-button: var(--lcars-harvestgold)
   lcars-card-bottom-color: var(--lcars-honey)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-red)
 
 LCARS Romulus:
   card-mod-theme: LCARS Romulus
@@ -835,6 +863,10 @@ LCARS Romulus:
   lcars-card-mid-left-color: var(--lcars-african-violet)
   lcars-card-button: var(--lcars-sky)
   lcars-card-bottom-color: var(--lcars-c62)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-red)
 
 LCARS Kronos:
   card-mod-theme: LCARS Kronos
@@ -849,6 +881,10 @@ LCARS Kronos:
   lcars-card-mid-left-color: var(--lcars-october-sunset)
   lcars-card-button: var(--lcars-october-sunset)
   lcars-card-bottom-color: var(--lcars-peach)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-red)
 
 LCARS Cardassia:
   card-mod-theme: LCARS Cardassia
@@ -863,5 +899,9 @@ LCARS Cardassia:
   lcars-card-mid-left-color: var(--lcars-cardassia-maroon)
   lcars-card-button: var(--lcars-cardassia-maroon)
   lcars-card-bottom-color: var(--lcars-c52)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-red)
 # Paste your themes here |
 #                        V
