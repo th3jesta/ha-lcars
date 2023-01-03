@@ -512,14 +512,14 @@
       --paper-tabs-selection-bar-color: transparent !important;
     }
     /* Code for the clock */
-    ha-button-menu::before {
+    app-toolbar::after {
       content: "{{states('sensor.time')}}";
       color: var(--text-primary-color);
       visibility: visible;
       position: absolute;
       font-size: 42px;
-      right: -16px;
-      top: 4px;
+      right: 0px;
+      top: 0px;
       background: black;
       vertical-align: middle;
       height: var(--header-height);
