@@ -1,12 +1,21 @@
 # Home Assistant LCARS
 Star Trek LCARS theme for Home Assistant
-
-
-
-## Example dashboard
-![image](https://user-images.githubusercontent.com/38670315/210180806-88684ec3-283f-4fe2-8adc-024b1ad69133.png "Automations for hot Earl Grey Tea not included.")
 Color codes and font choice from https://www.thelcars.com
     --thanks Jim Robertus!
+
+
+## Examples
+### Dashboard
+![image](https://user-images.githubusercontent.com/38670315/210180806-88684ec3-283f-4fe2-8adc-024b1ad69133.png "Automations for hot Earl Grey Tea not included.")
+
+    
+### Edit modes
+![image](https://user-images.githubusercontent.com/38670315/210401951-57f2aae9-bb2f-4781-9755-b02a3c1b04f2.png)
+    
+### Mobile view
+<img src="https://user-images.githubusercontent.com/38670315/210399888-02dc2d01-4b8a-45a1-b3e8-85aaf4d43ab3.jpg" width="360" /> <img src="https://user-images.githubusercontent.com/38670315/210399990-fab5911a-9ed3-403d-bdf7-0b4c2614b164.jpg" width="360" />
+
+
     
 ## Included themes
 ![image](https://user-images.githubusercontent.com/38670315/206508344-043c00ad-2407-4159-a1ee-1800dbea3e2a.png "Classic, Lower Decks, Nemesis, Romulus, Kronos.")
@@ -94,27 +103,179 @@ _The class names are only indications of what types of cards they were intended 
 
 The classes are as follows:
 1. `header` and `header-right` - top blue bar (in Default theme) meant for Markdown cards with one `H1` line that will start a section
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+type: markdown
+card_mod:
+  class: header
+content: '# Climate'
+```
+
+</td>
+<td>
 <img width="319" alt="image" src="https://user-images.githubusercontent.com/38670315/210178336-ee6ca541-31c8-48bf-b1d8-e2069d435111.png">
+</td>
+</tr>
+</table>
 
 2. `middle` and `middle-right` -  side red bar (in Default theme) meant for non-button sections below `header` and above `footer`
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+type: weather-forecast
+entity: weather.home
+card_mod:
+  class: middle
+```
+
+</td>
+<td>
 <img width="319" alt="image" src="https://user-images.githubusercontent.com/38670315/210178353-8fab9352-a3f5-4105-aea0-b05ede7f3cdd.png">
+</td>
+</tr>
+</table>
 
 3. `middle-blank` - special case for Mushroom Cards (@csanner please confirm)
 
 4. `footer` and `footer-right` - bottom gray bar (in Default theme) meant for the last card in a section
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+type: media-control
+entity: media_player.living_room_tv_2
+card_mod:
+  class: footer
+```
+
+</td>
+<td>
 <img width="317" alt="image" src="https://user-images.githubusercontent.com/38670315/210178378-7b45ec2d-30fc-45c9-a6ab-68f2517a83fc.png">
+</td>
+</tr>
+</table>
 
 5. `button-small` - squared off buttons intended to go in middle sections and horizontal-stacks and grids
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+type: light
+entity: light.jesse_s_desk
+name: Desk Lamp
+card_mod:
+  class: button-small
+```
+
+</td>
+<td>
 <img width="107" alt="image" src="https://user-images.githubusercontent.com/38670315/210178400-5d39e821-328f-4bd5-907d-1863dc2f7ff6.png">
+</td>
+</tr>
+</table>
 
 6. `button-large` - rounded button meant to be standalone outside of `header`/`middle`/`footer` sections
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+show_name: true
+show_icon: true
+type: button
+tap_action:
+  action: call-service
+  service: frontend.reload_themes
+  data: {}
+  target: {}
+show_state: true
+card_mod:
+  class: button-large
+```
+
+</td>
+<td>
 <img width="318" alt="image" src="https://user-images.githubusercontent.com/38670315/210178438-59da5bce-4f86-4de6-94e3-830aa845293e.png">
+</td>
+</tr>
+</table>
 
 7. `button-lozenge` - pill-shaped button; only works on standard button cards; also works on button cards in a horizontal-stacks and grids up to two columns wide; more columns get glitchy and is not advised
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+show_name: true
+show_icon: true
+type: button
+tap_action:
+  action: toggle
+entity: switch.lightsaber
+icon: ''
+card_mod:
+  class: button-lozenge
+```
+
+</td>
+<td>
 <img width="158" alt="image" src="https://user-images.githubusercontent.com/38670315/210178574-68183ee3-a3a8-4642-85a6-7d0f1dfed537.png">
+</td>
+</tr>
+</table>
 
 8. `button-bullet` - similar to the lozenge, but with a squared-off left side; same column restrictions apply
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+show_name: true
+show_icon: true
+type: button
+tap_action:
+  action: toggle
+entity: switch.speakers
+show_state: true
+icon: mdi:speaker-multiple
+card_mod:
+  class: button-bullet
+```
+
+</td>
+<td>
 <img width="157" alt="image" src="https://user-images.githubusercontent.com/38670315/210178586-7f339168-4c6d-4ed7-aa80-cdacd3b57194.png">
+</td>
+</tr>
+</table>
 
 ### Make your own color themes
 Custom themes can be created down at the bottom of `lcars.yaml`. Or, search for "===THEMES", which will take you right there. To create your own theme, copy the LCARS Default section to the bottom of the file and change the `lcars-ui-*` and `lcars-card-*` variables to your liking, using the color references at the top of the file, [The LCARS website](https://www.thelcars.com/colors.php), or define your own.
@@ -124,7 +285,7 @@ If you're not feeling the subtle noise and gradients that this theme added, let 
 
 ## Tips and tricks
 _If you have anything to add here, create a PR with your tip and I will review it to add to this list._
-* Make use of Vertical Stack cards. Whether in this theme or any other theme, they are invaluable for keeping dashboards organized. In LCARS, a Vertical Stack card should contain a Markdown card first with the title of the group and the `header` class applied, then any number of `middle` class cards and `button` class single buttons or in horizontal stacks or grids, and then finally a `footer` class applied to the last card in the vertical stack. You can see this formation in all of the screenshots at the top of this page. Here's an example Vertical Stack card and all of it's contents:
+* Make use of Vertical Stack cards. Whether in this theme or any other theme, they are invaluable for keeping dashboards organized. In LCARS, a Vertical Stack card should contain a Markdown card first with the title of the group and the `header` class applied, then any number of `middle` class cards and `button` class single buttons or in horizontal stacks or grids, and then finally a `footer` class applied to the last card in the vertical stack. You can see this formation in all of the screenshots at the top of this page. Here's an example Vertical Stack card and all of its contents:
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
