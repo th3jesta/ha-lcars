@@ -1,5 +1,6 @@
 # Home Assistant LCARS
 Star Trek LCARS theme for Home Assistant
+
 Color codes and font choice from https://www.thelcars.com
     --thanks Jim Robertus!
 
