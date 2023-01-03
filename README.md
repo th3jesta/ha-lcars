@@ -1,14 +1,18 @@
 # Home Assistant LCARS
 Star Trek LCARS theme for Home Assistant
-
-
-
-## Example dashboard
-![image](https://user-images.githubusercontent.com/38670315/210180806-88684ec3-283f-4fe2-8adc-024b1ad69133.png "Automations for hot Earl Grey Tea not included.")
 Color codes and font choice from https://www.thelcars.com
     --thanks Jim Robertus!
+
+
+## Examples
+### Dashboard
+![image](https://user-images.githubusercontent.com/38670315/210180806-88684ec3-283f-4fe2-8adc-024b1ad69133.png "Automations for hot Earl Grey Tea not included.")
+
     
-## Mobile view
+### Edit modes
+![image](https://user-images.githubusercontent.com/38670315/210401951-57f2aae9-bb2f-4781-9755-b02a3c1b04f2.png)
+    
+### Mobile view
 <img src="https://user-images.githubusercontent.com/38670315/210399888-02dc2d01-4b8a-45a1-b3e8-85aaf4d43ab3.jpg" width="360" /> <img src="https://user-images.githubusercontent.com/38670315/210399990-fab5911a-9ed3-403d-bdf7-0b4c2614b164.jpg" width="360" />
 
 
