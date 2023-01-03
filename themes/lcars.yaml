@@ -198,6 +198,9 @@
       border-top: 10px solid var(--lcars-card-top-color);
       border-left: 35px solid var(--lcars-card-top-color);
     }
+    ha-card.header > ha-markdown {
+      border-radius: 20px 0 0 0;
+    }
     ha-card.header-right {
       background: var(--lcars-card-top-color) !important;
       text-transform: uppercase;
@@ -278,6 +281,9 @@
       width: 100%;
       padding-left: 15px;
       margin-top: -4px;
+    }
+    ha-card.footer > ha-markdown {
+      border-radius: 0 0 0 20px !important;
     }
     /* Small button class and fixes for specific cards */
     ha-card.button-small {
@@ -394,7 +400,7 @@
     /* ?Fix for markdown cards that are not headers? */
     ha-markdown.no-header {
       background: black;
-      border-radius: 20px 0px 0px 0px;
+      border-radius: unset;
       padding-top: 0px !important;
       padding-bottom: 0 !important;
     }
