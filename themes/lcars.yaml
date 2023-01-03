@@ -511,6 +511,7 @@
     ha-tabs, paper-tabs {
       --paper-tabs-selection-bar-color: transparent !important;
     }
+    /* Code for the clock */
     ha-button-menu::before {
       content: "{{states('sensor.time')}}";
       color: var(--text-primary-color);
@@ -807,7 +808,7 @@ LCARS Default:
   error-color: var(--lcars-red)
 
 LCARS Classic:
-  card-mod-theme: LCARS Lower Decks
+  card-mod-theme: LCARS Classic
   <<: *lcars-colors
   <<: *base
   <<: *card-mod-css
