@@ -8,6 +8,11 @@ Star Trek LCARS theme for Home Assistant
 Color codes and font choice from https://www.thelcars.com
     --thanks Jim Robertus!
     
+## Mobile view
+<img src="https://user-images.githubusercontent.com/38670315/210399888-02dc2d01-4b8a-45a1-b3e8-85aaf4d43ab3.jpg" width="360" /> <img src="https://user-images.githubusercontent.com/38670315/210399990-fab5911a-9ed3-403d-bdf7-0b4c2614b164.jpg" width="360" />
+
+
+    
 ## Included themes
 ![image](https://user-images.githubusercontent.com/38670315/206508344-043c00ad-2407-4159-a1ee-1800dbea3e2a.png "Classic, Lower Decks, Nemesis, Romulus, Kronos.")
     
