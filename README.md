@@ -1,5 +1,6 @@
 # Home Assistant LCARS
 Star Trek LCARS theme for Home Assistant
+
 Color codes and font choice from https://www.thelcars.com
     --thanks Jim Robertus!
 
@@ -35,7 +36,7 @@ frontend:
   javascript_version: latest
   themes: !include_dir_merge_named themes
   extra_module_url:
-    - /local/community/card-mod.js #or wherever you ended up putting card-mod.js
+    - /local/community/lovelace-card-mod/card-mod.js #or wherever you ended up putting card-mod.js
 ```
 3. Under the Home Assistant **Config** folder, create a new folder named **themes**. 
 4. **Restart** Home assistant to apply the changes.
