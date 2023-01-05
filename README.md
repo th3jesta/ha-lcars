@@ -318,6 +318,7 @@ cards:
 </td>
 </tr>
 </table>
+
 * You can create a blank header or footer by creating a Markdown card and putting `## &nbsp;` in the Content field. It looks like this:
 ![image](https://user-images.githubusercontent.com/38670315/210792537-f25c740d-1ad3-4ac7-8a31-59ad04cf38fb.png)
 
