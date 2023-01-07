@@ -47,7 +47,7 @@ This theme requires you to add the `Antonio` font as a resource to your lovelace
 ```yaml
 resources:
   - url: https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap
-  type: css
+    type: css
 ```
 ##### -OR-
 Navigate to `Settings` → `Dashboards` → `3-dot menu` → `Resources` and add a new Resource with the above URL and selected as a stylesheet.
