@@ -1,6 +1,8 @@
 # Home Assistant LCARS
 Star Trek LCARS theme for Home Assistant
 
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-41BDF5.svg?style=for-the-badge)](https://github.com/hacs/integration)
+
 Color codes and font choice from https://www.thelcars.com
     --thanks Jim Robertus!
 
@@ -15,11 +17,10 @@ Color codes and font choice from https://www.thelcars.com
     
 ### Mobile view
 <img src="https://user-images.githubusercontent.com/38670315/210399888-02dc2d01-4b8a-45a1-b3e8-85aaf4d43ab3.jpg" width="360" /> <img src="https://user-images.githubusercontent.com/38670315/210399990-fab5911a-9ed3-403d-bdf7-0b4c2614b164.jpg" width="360" />
-
-
     
-## Included themes
-![image](https://user-images.githubusercontent.com/38670315/206508344-043c00ad-2407-4159-a1ee-1800dbea3e2a.png "Classic, Lower Decks, Nemesis, Romulus, Kronos.")
+### Included themes
+![LCARS Themes](https://user-images.githubusercontent.com/38670315/210556056-26458f3d-60e4-400f-89df-f0b8cc68a6a2.png)
+Classic, Lower Decks, Romulus, Cardassia, Kronos, Nemesis.
     
 ## Preamble
 I am most definitely not a real web developer, and fumbled my way into the initial release with the help of Stack Exchange and various blogs on CSS techniques. My main goal was and still is to keep this theme 100% CSS with no extra assets required besides the font. I'm positive there are better ways to implement anything and everything I've done thus far, so PRs are welcome. I will continue to improve things as I learn and add more comments to my CSS so that you can know what things do and maybe tell me how it can be better if you know. I have tested this theme with most of the out-of-the-box cards that ship with Home Assistant, and some available in HACS like the Mail and Packages card. However, I'm sure there are some that could still be terribly broken. Simply create an issue and I will address it. 
@@ -46,7 +47,7 @@ This theme requires you to add the `Antonio` font as a resource to your lovelace
 ```yaml
 resources:
   - url: https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap
-  type: css
+    type: css
 ```
 ##### -OR-
 Navigate to `Settings` → `Dashboards` → `3-dot menu` → `Resources` and add a new Resource with the above URL and selected as a stylesheet.
@@ -71,7 +72,7 @@ More info:
 https://www.home-assistant.io/integrations/time_date/
 
 ### Install the theme
-Install via HACS by adding this repository URL or download the [latest release](https://github.com/th3jesta/ha-lcars/releases/latest) and extract and drop the lcars folder into your themes folder.
+Install via HACS by searching "LCARS" or download the [latest release](https://github.com/th3jesta/ha-lcars/releases/latest) and extract and drop the lcars folder into your themes folder.
 
 ### Enable theme
 #### Option 1: Via profile
@@ -317,6 +318,9 @@ cards:
 </td>
 </tr>
 </table>
+
+* You can create a blank header or footer by creating a Markdown card and putting `## &nbsp;` in the Content field. It looks like this:
+![image](https://user-images.githubusercontent.com/38670315/210792537-f25c740d-1ad3-4ac7-8a31-59ad04cf38fb.png)
 
 
 ## Known issues
