@@ -651,8 +651,9 @@
   card-mod-sidebar: &card-mod-sidebar |
     :host {
       content: "";
-      height: 100px;
-      width: 200px;
+      /* Commenting h and w as potential fix for  https://github.com/th3jesta/ha-lcars/issues/22 */
+      /* height: 100px; */
+      /* width: 200px; */
       border-right: 0px !important;
       border-top-left-radius: 80px;
       box-shadow: black 0px -130px 0px 0px;
