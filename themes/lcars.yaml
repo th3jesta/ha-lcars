@@ -233,6 +233,18 @@
       text-transform: uppercase;
       border-radius: 0px !important;
     }
+    ha-card.middle > ha-gauge {
+      --primary-text-color: var(--lcars-text-gray);
+    }
+    ha-card.middle-right > ha-gauge {
+      --primary-text-color: var(--lcars-text-gray);
+    }
+    ha-card.middle > .name {
+      color: var(--lcars-text-gray);
+    }
+    ha-card.middle-right > .name {
+      color: var(--lcars-text-gray);
+    }
     /* Footer classes and fixes for specific cards */
     ha-card.footer {
       background: var(--lcars-card-bottom-color) !important;
