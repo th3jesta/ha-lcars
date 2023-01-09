@@ -300,12 +300,14 @@
       padding-top: 0px !important;
       padding-bottom: 0 !important;
     }
-    ha-card.footer > ha-state-icon {
+    ha-card.footer > ha-state-icon,
+    ha-card.footer-right > ha-state-icon {
       background: black;
       width: 100%;
       --mdc-icon-size: 40%
     }
-    ha-card.footer > span.usps_update {
+    ha-card.footer > span.usps_update,
+    ha-card.footer-right > span.usps_update {
       background: black;
       width: 100%;
       padding-left: 15px;
