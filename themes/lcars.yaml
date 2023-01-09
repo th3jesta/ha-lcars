@@ -198,9 +198,6 @@
       border-top: 10px solid var(--lcars-card-top-color);
       border-left: 35px solid var(--lcars-card-top-color);
     }
-    ha-card.header > ha-markdown {
-      border-radius: 20px 0 0 0;
-    }
     ha-card.header-right {
       background: var(--lcars-card-top-color) !important;
       text-transform: uppercase;
@@ -213,6 +210,9 @@
       border-radius: 0px 20px 0px 0px;
       padding-top: 0px !important;
       padding-bottom: 0 !important;
+    }
+    ha-card.header > ha-markdown {
+      border-radius: 20px 0 0 0;
     }
     /* Middle classes and fixes for specific cards */
     ha-card.middle {
@@ -265,11 +265,27 @@
       border-radius: 0px 0px 0px 20px;
     }
     ha-card.footer-right > span.state {
-      border-radius: 0px 20px 0px 0px;
+      border-radius: 0px 0px 20px 0px;
+    }
+    ha-card.footer > .entities {
+      background: black;
+      border-radius: 0px 0px 0px 20px;
     }
     ha-card.footer-right > .entities {
       background: black;
       border-radius: 0px 0px 20px 0px;
+    }
+    ha-card.footer > #states {
+      background: black;
+      border-radius: 0px 0px 0px 20px;
+      padding-top: 0px !important;
+      padding-bottom: 0 !important;
+    }
+    ha-card.footer-right > #states {
+      background: black;
+      border-radius: 0px 0px 20px 0px;
+      padding-top: 0px !important;
+      padding-bottom: 0 !important;
     }
     ha-card.footer > ha-state-icon {
       background: black;
@@ -283,7 +299,10 @@
       margin-top: -4px;
     }
     ha-card.footer > ha-markdown {
-      border-radius: 0 0 0 20px !important;
+      border-radius: 0px 0px 0px 20px !important;
+    }
+    ha-card.footer-right > ha-markdown {
+      border-radius: 0px 0px 20px 0px !important;
     }
     /* Small button class and fixes for specific cards */
     ha-card.button-small {
@@ -410,12 +429,6 @@
       border-radius: 0px 0px 0px 20px;
     }
     .type-thermostat > .content {
-      background: black;
-      border-radius: 0px 0px 0px 20px;
-      padding-top: 0px !important;
-      padding-bottom: 0 !important;
-    }
-    #states {
       background: black;
       border-radius: 0px 0px 0px 20px;
       padding-top: 0px !important;
