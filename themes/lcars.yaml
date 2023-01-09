@@ -85,6 +85,7 @@
   lcars-dark-gray: "#3e3e3e"
   lcars-khaki: "#ffe399"
   lcars-cardassia-maroon: "#4f1a23"
+  lcars-dark-red: "#360000"
   lcars-font: Antonio
 
 (DO NOT USE/MODIFY)=== Base customizations: &base # Global
@@ -825,7 +826,7 @@ LCARS Default:
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
-  error-color: var(--lcars-red)
+  error-color: var(--lcars-dark-red)
 
 LCARS Classic:
   card-mod-theme: LCARS Classic
@@ -843,7 +844,7 @@ LCARS Classic:
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
-  error-color: var(--lcars-red)
+  error-color: var(--lcars-dark-red)
 
 LCARS Nemesis Blue:
   card-mod-theme: LCARS Nemesis Blue
@@ -861,7 +862,7 @@ LCARS Nemesis Blue:
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
-  error-color: var(--lcars-red)
+  error-color: var(--lcars-dark-red)
 
 LCARS Lower Decks:
   card-mod-theme: LCARS Lower Decks
@@ -879,7 +880,7 @@ LCARS Lower Decks:
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
-  error-color: var(--lcars-red)
+  error-color: var(--lcars-dark-red)
 
 LCARS Romulus:
   card-mod-theme: LCARS Romulus
@@ -897,7 +898,7 @@ LCARS Romulus:
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
-  error-color: var(--lcars-red)
+  error-color: var(--lcars-dark-red)
 
 LCARS Kronos:
   card-mod-theme: LCARS Kronos
@@ -915,7 +916,7 @@ LCARS Kronos:
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
-  error-color: var(--lcars-red)
+  error-color: var(--lcars-dark-red)
 
 LCARS Cardassia:
   card-mod-theme: LCARS Cardassia
@@ -933,6 +934,6 @@ LCARS Cardassia:
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
-  error-color: var(--lcars-red)
+  error-color: var(--lcars-dark-red)
 # Paste your themes here |
 #                        V
