@@ -523,7 +523,7 @@
       color: black;
     }
     paper-tab.iron-selected {
-      background: var(--lcars-ui-primary) !important;
+      background: var(--lcars-ui-tertiary) !important;
       color: black;
     }
     paper-icon-item::before {
@@ -544,6 +544,8 @@
     }
     ha-tabs, paper-tabs {
       --paper-tabs-selection-bar-color: transparent !important;
+      border-left: solid black 4px;
+      margin-left: 4px !important;
     }
     /* Code for the clock */
     app-toolbar::after {
@@ -591,18 +593,18 @@
     app-header, app-toolbar {
       box-shadow: 30px 0px 0px 0px black;
     }
+    #tabsContainer {
+      border-left: solid black 6px;
+    }
     paper-tab.iron-selected {
       margin-left: -2px;
       margin-right: -2px;
       background: var(--lcars-ui-tertiary);
-      border-left: 4px solid black;
-      border-right: 4px solid black;
     }
     paper-tab {
       margin-left: -2px;
       margin-right: -2px;
       background: var(--lcars-ui-secondary);
-      border-left: 4px solid black;
       border-right: 4px solid black;
     }
     ha-icon-button#add-view {
@@ -616,6 +618,7 @@
     }
     app-toolbar::before {
       content: "";
+      position: inherit;
       height: 40px;
       width: 100px;
       background-color: transparent;
@@ -623,6 +626,7 @@
       box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
       margin-top: 80px;
       margin-left: -16px;
+      z-index: 9997;
     }
     hui-image {
       cursor: pointer;
