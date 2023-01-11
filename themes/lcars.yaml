@@ -78,13 +78,14 @@
   lcars-70: "#ee0000"
   lcars-c71: "#dfdfdf"
   lcars-c72: "#f7f7f7"
-  lcars-lavender: "#c8f"
-  lcars-error: "f20"
+  lcars-lavender: "#cc88ff"
+  lcars-error: "#ff2200"
   lcars-text-gray: "#d3d3d3"
   lcars-medium-gray: "#B6B6C1"
   lcars-dark-gray: "#3e3e3e"
   lcars-khaki: "#ffe399"
   lcars-cardassia-maroon: "#4f1a23"
+  lcars-dark-red: "#360000"
   lcars-font: Antonio
 
 (DO NOT USE/MODIFY)=== Base customizations: &base # Global
@@ -186,9 +187,11 @@
   mdc-theme-text-primary-on-background: black
   mdc-theme-text-secondary-on-background: black
   data-table-background-color: black
+  rgb-state-media-player-color: var(--paper-item-icon-color)
 
 (DO NOT USE/MODIFY)=== card-mod CSS: &card-mod-css # Card modifications
   card-mod-card: &card-mod-card |
+    /* Header classes and fixes for specific card types */
     ha-card.header {
       background: var(--lcars-card-top-color) !important;
       text-transform: uppercase;
@@ -209,7 +212,10 @@
       padding-top: 0px !important;
       padding-bottom: 0 !important;
     }
-
+    ha-card.header > ha-markdown {
+      border-radius: 20px 0 0 0;
+    }
+    /* Middle classes and fixes for specific cards */
     ha-card.middle {
       background: black !important;
       text-transform: uppercase;
@@ -227,6 +233,19 @@
       text-transform: uppercase;
       border-radius: 0px !important;
     }
+    ha-card.middle > ha-gauge {
+      --primary-text-color: var(--lcars-text-gray);
+    }
+    ha-card.middle-right > ha-gauge {
+      --primary-text-color: var(--lcars-text-gray);
+    }
+    ha-card.middle > .name {
+      color: var(--lcars-text-gray);
+    }
+    ha-card.middle-right > .name {
+      color: var(--lcars-text-gray);
+    }
+    /* Footer classes and fixes for specific cards */
     ha-card.footer {
       background: var(--lcars-card-bottom-color) !important;
       text-transform: uppercase;
@@ -259,12 +278,48 @@
       border-radius: 0px 0px 0px 20px;
     }
     ha-card.footer-right > span.state {
-      border-radius: 0px 20px 0px 0px;
+      border-radius: 0px 0px 20px 0px;
+    }
+    ha-card.footer > .entities {
+      background: black;
+      border-radius: 0px 0px 0px 20px;
     }
     ha-card.footer-right > .entities {
       background: black;
       border-radius: 0px 0px 20px 0px;
     }
+    ha-card.footer > #states {
+      background: black;
+      border-radius: 0px 0px 0px 20px;
+      padding-top: 0px !important;
+      padding-bottom: 0 !important;
+    }
+    ha-card.footer-right > #states {
+      background: black;
+      border-radius: 0px 0px 20px 0px;
+      padding-top: 0px !important;
+      padding-bottom: 0 !important;
+    }
+    ha-card.footer > ha-state-icon,
+    ha-card.footer-right > ha-state-icon {
+      background: black;
+      width: 100%;
+      --mdc-icon-size: 40%
+    }
+    ha-card.footer > span.usps_update,
+    ha-card.footer-right > span.usps_update {
+      background: black;
+      width: 100%;
+      padding-left: 15px;
+      margin-top: -4px;
+    }
+    ha-card.footer > ha-markdown {
+      border-radius: 0px 0px 0px 20px !important;
+    }
+    ha-card.footer-right > ha-markdown {
+      border-radius: 0px 0px 20px 0px !important;
+    }
+    /* Small button class and fixes for specific cards */
     ha-card.button-small {
       display: flex;
       text-transform: uppercase;
@@ -312,10 +367,12 @@
       position: absolute;
       bottom: 0;
     }
+    /* Large button class and fixes for specific cards */
     ha-card.button-large {
       text-transform: uppercase;
       color: black;
     }
+    /* Lozenge and bullet button classes and fixes for specific cards */
     ha-card.button-lozenge {
       text-transform: uppercase;
       color: black;
@@ -363,31 +420,30 @@
       padding-bottom: 45px;
       color: black;
     }
+    /* Hacky workaround to add middle-type class to horizontal and vertical stack cards */
+    /* More info: https://github.com/thomasloven/lovelace-card-mod#styling-cards-without-an-ha-card-element */
     .type-custom-mod-card {
       border-radius: 0px !important;
       border-left: 35.5px solid var(--lcars-card-mid-left-color);
       padding-left: 6px !important;
     }
+    /* WIP fix for aliasing ugliness on slider tracks */
     ha-card > .content > .bar {
       stroke-width: 5px;
     }
+    /* ?Fix for markdown cards that are not headers? */
     ha-markdown.no-header {
       background: black;
-      border-radius: 20px 0px 0px 0px;
+      border-radius: unset;
       padding-top: 0px !important;
       padding-bottom: 0 !important;
     }
+    /* Various generic card fixes */
     .entities {
       background: black;
       border-radius: 0px 0px 0px 20px;
     }
     .type-thermostat > .content {
-      background: black;
-      border-radius: 0px 0px 0px 20px;
-      padding-top: 0px !important;
-      padding-bottom: 0 !important;
-    }
-    #states {
       background: black;
       border-radius: 0px 0px 0px 20px;
       padding-top: 0px !important;
@@ -410,17 +466,6 @@
     }
     .panel > ha-card {
       border-radius: 40px !important;
-    }
-    ha-card.footer > ha-state-icon {
-      background: black;
-      width: 100%;
-      --mdc-icon-size: 40%
-    }
-    ha-card.footer > span.usps_update {
-      background: black;
-      width: 100%;
-      padding-left: 15px;
-      margin-top: -4px;
     }
     .button-small > .state,
     .button-large > .state,
@@ -456,11 +501,21 @@
       border-top-right-radius: 40px !important;
       border-top-left-radius: 40px !important;
     }
+    ha-card > .name {
+      color: black;
+    }
     ha-config-updates {
       color: black;
     }
     button#button.mdc-button {
       color: black !important;
+    }
+    /* Gauge card fixes */
+    ha-gauge {
+      --primary-text-color: black;
+    }
+    ha-card:has(ha-gauge) {
+      background: var(--lcars-card-top-color)
     }
   # Toolbar and dashboard modifications
   card-mod-root: &card-mod-root |
@@ -491,7 +546,8 @@
     ha-tabs, paper-tabs {
       --paper-tabs-selection-bar-color: transparent !important;
     }
-    ha-button-menu::before {
+    /* Code for the clock */
+    app-toolbar::after {
       content: "{{states('sensor.time')}}";
       margin-left: -2px;
       margin-right: -2px;
@@ -499,8 +555,8 @@
       visibility: visible;
       position: absolute;
       font-size: 42px;
-      right: -16px;
-      top: 4px;
+      right: 0px;
+      top: 0px;
       background: black;
       vertical-align: middle;
       height: var(--header-height);
@@ -630,8 +686,9 @@
   card-mod-sidebar: &card-mod-sidebar |
     :host {
       content: "";
-      height: 100px;
-      width: 200px;
+      /* Commenting h and w as potential fix for  https://github.com/th3jesta/ha-lcars/issues/22 */
+      /* height: 100px; */
+      /* width: 200px; */
       border-right: 0px !important;
       border-top-left-radius: 80px;
       box-shadow: black 0px -130px 0px 0px;
@@ -748,7 +805,8 @@
       opacity: 0 !important;
     }
     paper-listbox::before {
-      content: linear-gradient(to bottom left, transparent 10%, '#AAAAAADD' 30%, '#000000AA' 60%, transparent 90%);
+      content: "";
+      background: linear-gradient(to bottom left, transparent 10%, #AAAAAADD 30%, #000000AA 60%, transparent 90%);
       width: 100%;
       height: 120%;
       margin-top: -130px;
@@ -790,20 +848,28 @@ LCARS Default:
   lcars-card-mid-left-color: var(--lcars-red)
   lcars-card-button: var(--lcars-red)
   lcars-card-bottom-color: var(--lcars-gray)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
 
 LCARS Classic:
-  card-mod-theme: LCARS Lower Decks
+  card-mod-theme: LCARS Classic
   <<: *lcars-colors
   <<: *base
   <<: *card-mod-css
   lcars-ui-primary: var(--lcars-khaki)
-  lcars-ui-secondary: var(--lcars-roseblush)
+  lcars-ui-secondary: var(--lcars-honey)
   lcars-ui-tertiary: var(--lcars-mars)
   # Card colors
   lcars-card-top-color: var(--lcars-violet)
   lcars-card-mid-left-color: var(--lcars-ice)
   lcars-card-button: var(--lcars-ice)
   lcars-card-bottom-color: var(--lcars-honey)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
 
 LCARS Nemesis Blue:
   card-mod-theme: LCARS Nemesis Blue
@@ -816,8 +882,12 @@ LCARS Nemesis Blue:
   # Card colors
   lcars-card-top-color: var(--lcars-moonshine)
   lcars-card-mid-left-color: var(--lcars-evening)
-  lcars-card-button: var(--lcars-roseblush)
+  lcars-card-button: var(--lcars-honey)
   lcars-card-bottom-color: var(--lcars-cool)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
 
 LCARS Lower Decks:
   card-mod-theme: LCARS Lower Decks
@@ -832,6 +902,10 @@ LCARS Lower Decks:
   lcars-card-mid-left-color: var(--lcars-harvestgold)
   lcars-card-button: var(--lcars-harvestgold)
   lcars-card-bottom-color: var(--lcars-honey)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
 
 LCARS Romulus:
   card-mod-theme: LCARS Romulus
@@ -846,6 +920,10 @@ LCARS Romulus:
   lcars-card-mid-left-color: var(--lcars-african-violet)
   lcars-card-button: var(--lcars-sky)
   lcars-card-bottom-color: var(--lcars-c62)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
 
 LCARS Kronos:
   card-mod-theme: LCARS Kronos
@@ -860,6 +938,10 @@ LCARS Kronos:
   lcars-card-mid-left-color: var(--lcars-october-sunset)
   lcars-card-button: var(--lcars-october-sunset)
   lcars-card-bottom-color: var(--lcars-peach)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
 
 LCARS Cardassia:
   card-mod-theme: LCARS Cardassia
@@ -874,5 +956,9 @@ LCARS Cardassia:
   lcars-card-mid-left-color: var(--lcars-cardassia-maroon)
   lcars-card-button: var(--lcars-cardassia-maroon)
   lcars-card-bottom-color: var(--lcars-c52)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
 # Paste your themes here |
 #                        V
