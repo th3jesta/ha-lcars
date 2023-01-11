@@ -277,6 +277,28 @@ card_mod:
 </tr>
 </table>
 
+9. `bar` and `bar-right` -  blue bar (in Default theme) meant for Markdown cards
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+type: markdown
+content: '# Bar'
+card_mod:
+  class: bar
+```
+
+</td>
+<td>
+<img width="350" alt="image" src="https://user-images.githubusercontent.com/25553648/211906842-0b6e04ac-fc50-4349-91fd-7fb2bc564f7b.png">
+</td>
+</tr>
+</table>
+
 ### Make your own color themes
 Custom themes can be created down at the bottom of `lcars.yaml`. Or, search for "===THEMES", which will take you right there. To create your own theme, copy the LCARS Default section to the bottom of the file and change the `lcars-ui-*` and `lcars-card-*` variables to your liking, using the color references at the top of the file, [The LCARS website](https://www.thelcars.com/colors.php), or define your own.
 
