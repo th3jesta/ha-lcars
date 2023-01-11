@@ -420,6 +420,22 @@
       padding-bottom: 45px;
       color: black;
     }
+    ha-card.bar {
+      text-transform: uppercase;
+      border-right: 40px solid var(--lcars-card-top-color);
+      border-left: 40px solid var(--lcars-card-top-color);
+      background-color: var(--lcars-card-top-color);
+      display: flex;
+    }
+    ha-card.bar-right {
+      text-transform: uppercase;
+      border-right: 40px solid var(--lcars-card-top-color);
+      border-left: 40px solid var(--lcars-card-top-color);
+      text-align: right;
+      background-color: var(--lcars-card-top-color);
+      display: flex;
+      justify-content: right
+    }
     /* Hacky workaround to add middle-type class to horizontal and vertical stack cards */
     /* More info: https://github.com/thomasloven/lovelace-card-mod#styling-cards-without-an-ha-card-element */
     .type-custom-mod-card {
