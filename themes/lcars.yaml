@@ -548,6 +548,8 @@
     /* Code for the clock */
     app-toolbar::after {
       content: "{{states('sensor.time')}}";
+      margin-left: -2px;
+      margin-right: -2px;
       color: var(--text-primary-color);
       visibility: visible;
       position: absolute;
@@ -590,16 +592,18 @@
       box-shadow: 30px 0px 0px 0px black;
     }
     paper-tab.iron-selected {
+      margin-left: -2px;
+      margin-right: -2px;
       background: var(--lcars-ui-tertiary);
-      border-radius: 30px;
-      height: 75%;
-      margin-top: 10px;
+      border-left: 4px solid black;
+      border-right: 4px solid black;
     }
     paper-tab {
-      background: var(--lcars-blue);
-      border-radius: 30px;
-      height: 75%;
-      margin-top: 10px;
+      margin-left: -2px;
+      margin-right: -2px;
+      background: var(--lcars-ui-secondary);
+      border-left: 4px solid black;
+      border-right: 4px solid black;
     }
     ha-icon-button#add-view {
       margin-top: 4px;
@@ -756,6 +760,10 @@
       border-bottom: 4px solid;
       background-color: var(--lcars-ui-secondary);
     }
+    a.iron-selected {
+      background-color: var(--lcars-ui-tertiary);
+    }
+
     .spacer {
       border-bottom: 4px solid black;
     }
