@@ -591,8 +591,6 @@
     app-header, app-toolbar {
       box-shadow: 30px 0px 0px 0px black;
     }
-    #tabsContainer {
-      
     paper-tab.iron-selected {
       margin-left: -2px;
       margin-right: -2px;
