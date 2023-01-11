@@ -522,7 +522,6 @@
     ha-dialog > * {
       color: black;
     }
-    #
     paper-tab.iron-selected {
       background: var(--lcars-ui-primary) !important;
       color: black;
