@@ -102,7 +102,7 @@ card_mod:
 _The class names are only indications of what types of cards they were intended for, but the classes can be applied to any card you like. I cannot guarantee how well they will work outside of their intended uses, however._
 
 The classes are as follows:
-1. `header` and `header-right` - top blue bar (in Default theme) meant for Markdown cards with one `H1` line that will start a section
+1. `header`, `header-right`, and `header-contained` - top blue bar (in Default theme) meant for Markdown cards with one `H1` line that will start a section
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -124,7 +124,7 @@ content: '# Climate'
 </tr>
 </table>
 
-2. `middle` and `middle-right` -  side red bar (in Default theme) meant for non-button sections below `header` and above `footer`
+2. `middle`, `middle-right`, `middle-contained` -  side red bar (in Default theme) meant for non-button sections below `header` and above `footer`
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -148,7 +148,7 @@ card_mod:
 
 3. `middle-blank` - special case for Mushroom Cards (@csanner please confirm)
 
-4. `footer` and `footer-right` - bottom gray bar (in Default theme) meant for the last card in a section
+4. `footer`, `footer-right`, and `footer-contained` - bottom gray bar (in Default theme) meant for the last card in a section
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -249,7 +249,7 @@ card_mod:
 </tr>
 </table>
 
-8. `button-bullet` - similar to the lozenge, but with a squared-off left side; same column restrictions apply
+8. `button-bullet` and `button-bullet-right` - similar to the lozenge, but with a squared-off left side; same column restrictions apply
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
