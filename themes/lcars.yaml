@@ -582,6 +582,13 @@
         padding-right: unset !important;
         margin-left: unset !important;
       }
+      ha-menu-button {
+        display: initial !important;
+        color: black !important;
+        padding-right: 0px !important;
+        margin-right: -22px;
+        margin-left: -16px;
+      }
     }
     /*@media screen and (max-width: 375px) {
       app-toolbar::before {
@@ -594,7 +601,7 @@
       }
     }*/
     ha-menu-button {
-      display: none !important;
+      display: none;
       color: transparent;
       padding-right: 10px
     }
@@ -772,9 +779,14 @@
       align-items: center;
     }
     .menu ha-icon-button {
-      color: var(--sidebar-icon-color);
       margin-top: 150px;
       margin-right: 96px;
+    }
+    @media screen and (max-width: 768px) {
+      .menu ha-icon-button {
+        margin-top: 0px;
+        margin-right: 0px;
+      }
     }
     .title {
       text-transform: uppercase;
