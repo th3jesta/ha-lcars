@@ -590,16 +590,6 @@
         margin-left: -16px;
       }
     }
-    /*@media screen and (max-width: 375px) {
-      app-toolbar::before {
-        margin-top: 77px !important;
-      }
-    }
-    @media screen and (max-width: 320px) {
-      app-toolbar::before {
-        margin-top: 74px !important;
-      }
-    }*/
     ha-menu-button {
       display: none;
       color: transparent;
