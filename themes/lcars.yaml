@@ -173,7 +173,6 @@
   app-header-edit-background-color: transparent
   switch-unchecked-track-color: var(--lcars-text-gray)
   switch-unchecked-button-color: var(--lcars-text-gray)
-  error-color: var(--lcars-error)
   header-height: 40px
   app-header-text-color: black
   paper-tabs-selection-bar-color: transparent
@@ -199,6 +198,10 @@
       border-top: 10px solid var(--lcars-card-top-color);
       border-left: 35px solid var(--lcars-card-top-color);
     }
+    ha-card.header > ha-markdown {
+      border-radius: 20px 0 0 0;
+    }
+
     ha-card.header-right {
       background: var(--lcars-card-top-color) !important;
       text-transform: uppercase;
@@ -212,9 +215,23 @@
       padding-top: 0px !important;
       padding-bottom: 0 !important;
     }
-    ha-card.header > ha-markdown {
-      border-radius: 20px 0 0 0;
+
+    ha-card.header-contained {
+      background: var(--lcars-card-top-color) !important;
+      text-transform: uppercase;
+      border-radius: 40px 40px 0px 0px !important;
+      border-top: 10px solid var(--lcars-card-top-color);
+      border-right: 35px solid var(--lcars-card-top-color);
+      border-left: 35px solid var(--lcars-card-top-color);
     }
+    ha-card.header-contained > ha-markdown.no-header {
+      background: black;
+      border-radius: 20px 20px 0px 0px;
+      padding-top: 0px !important;
+      padding-bottom: 0 !important;
+    }
+
+
     /* Middle classes and fixes for specific cards */
     ha-card.middle {
       background: black !important;
@@ -233,19 +250,28 @@
       text-transform: uppercase;
       border-radius: 0px !important;
     }
-    ha-card.middle > ha-gauge {
+    ha-card.middle-contained {
+      background: black !important;
+      text-transform: uppercase;
+      border-radius: 0px !important;
+      border-left: 35.5px solid var(--lcars-card-mid-left-color);
+      border-right: 35.5px solid var(--lcars-card-mid-left-color);
+    }
+    ha-card.middle > ha-gauge, 
+    ha-card.middle-right > ha-gauge, 
+    ha-card.middle-contained > ha-gauge, 
+    ha-card.middle-blank > ha-gauge {
       --primary-text-color: var(--lcars-text-gray);
     }
-    ha-card.middle-right > ha-gauge {
-      --primary-text-color: var(--lcars-text-gray);
-    }
-    ha-card.middle > .name {
-      color: var(--lcars-text-gray);
-    }
-    ha-card.middle-right > .name {
+
+    ha-card.middle > .name, 
+    ha-card.middle-right > .name, 
+    ha-card.middle-contained > .name, 
+    ha-card.middle-blank > .name {
       color: var(--lcars-text-gray);
     }
     /* Footer classes and fixes for specific cards */
+    /* Border on the left */
     ha-card.footer {
       background: var(--lcars-card-bottom-color) !important;
       text-transform: uppercase;
@@ -253,6 +279,12 @@
       border-bottom: 10px solid var(--lcars-card-bottom-color);
       border-left: 35px solid var(--lcars-card-bottom-color);
       margin-top: unset;
+    }
+    ha-card.footer > span {
+      background: black;
+      width: 100%;
+      padding-left: 0px;
+      margin-top: 0px;
     }
     ha-card.footer-right {
       background: var(--lcars-card-bottom-color) !important;
@@ -262,31 +294,12 @@
       border-right: 35px solid var(--lcars-card-bottom-color);
       margin-top: unset;
     }
-    ha-card.footer > span {
-      background: black;
-      width: 100%;
-      padding-left: 0px;
-      margin-top: 0px;
-    }
-    ha-card.footer-right > span {
-      background: black;
-      width: 100%;
-      padding-right: 0px;
-      margin-top: 0px;
-    }
     ha-card.footer > span.state {
       border-radius: 0px 0px 0px 20px;
-    }
-    ha-card.footer-right > span.state {
-      border-radius: 0px 0px 20px 0px;
     }
     ha-card.footer > .entities {
       background: black;
       border-radius: 0px 0px 0px 20px;
-    }
-    ha-card.footer-right > .entities {
-      background: black;
-      border-radius: 0px 0px 20px 0px;
     }
     ha-card.footer > #states {
       background: black;
@@ -294,14 +307,76 @@
       padding-top: 0px !important;
       padding-bottom: 0 !important;
     }
+    ha-card.footer > ha-markdown {
+      border-radius: 0px 0px 0px 20px !important;
+    }
+    /* Border on the right */
+    ha-card.footer-right > span {
+      background: black;
+      width: 100%;
+      padding-right: 0px;
+      margin-top: 0px;
+    }
+    ha-card.footer-right > span.state {
+      border-radius: 0px 0px 20px 0px;
+    }
+    ha-card.footer-right > .entities {
+      background: black;
+      border-radius: 0px 0px 20px 0px;
+    }
     ha-card.footer-right > #states {
       background: black;
       border-radius: 0px 0px 20px 0px;
       padding-top: 0px !important;
       padding-bottom: 0 !important;
     }
+    ha-card.footer-right > ha-markdown {
+      border-radius: 0px 0px 20px 0px !important;
+    }
+
+    /* Border on both sides */
+    ha-card.footer-contained {
+      background: var(--lcars-card-bottom-color) !important;
+      text-transform: uppercase;
+      border-radius: 0px 0px 40px 40px !important;
+      border-bottom: 10px solid var(--lcars-card-bottom-color);
+      border-right: 35px solid var(--lcars-card-bottom-color);
+      border-left: 35px solid var(--lcars-card-bottom-color);
+      margin-top: unset;
+    }
+    ha-card.footer-contained > span {
+      background: black;
+      width: 100%;
+      padding-right: 0px;
+      padding-left: 0px;
+      margin-top: 0px;
+    }
+    ha-card.footer-contained > span.state {
+      border-radius: 0px 0px 20px 20px;
+    }
+    ha-card.footer-contained > .entities {
+      background: black;
+      border-radius: 0px 0px 20px 20px;
+    }
+    ha-card.footer-contained > #states {
+      background: black;
+      border-radius: 0px 0px 20px 20px;
+      padding-top: 0px !important;
+      padding-bottom: 0 !important;
+    }
+    ha-card.footer-contained > ha-state-icon {
+      background: black;
+      width: 100%;
+      --mdc-icon-size: 40%
+    }
+    ha-card.footer-contained > ha-markdown {
+      border-radius: 0px 0px 20px 20px !important;
+    }
+
+    /* Fixes across card types */
     ha-card.footer > ha-state-icon,
-    ha-card.footer-right > ha-state-icon {
+    ha-card.footer-right > ha-state-icon,
+    ha-card.footer-contained> ha-state-icon {
       background: black;
       width: 100%;
       --mdc-icon-size: 40%
@@ -313,12 +388,7 @@
       padding-left: 15px;
       margin-top: -4px;
     }
-    ha-card.footer > ha-markdown {
-      border-radius: 0px 0px 0px 20px !important;
-    }
-    ha-card.footer-right > ha-markdown {
-      border-radius: 0px 0px 20px 0px !important;
-    }
+
     /* Small button class and fixes for specific cards */
     ha-card.button-small {
       display: flex;
@@ -417,6 +487,53 @@
     }
     ha-card.button-lozenge > span.state, 
     ha-card.button-bullet > span.state {
+      padding-bottom: 45px;
+      color: black;
+    }
+    ha-card.button-lozenge-right {
+      text-transform: uppercase;
+      color: black;
+      min-height: 60px;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column-reverse;
+    }
+    ha-card.button-bullet-right {
+      text-transform: uppercase;
+      color: black;
+      min-height: 60px;
+      border-radius: 40px 0px 0px 40px !important;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column-reverse;
+    }
+    ha-card.button-lozenge-right > ha-state-icon,
+    ha-card.button-bullet-right > ha-state-icon {
+      --mdc-icon-size: unset;
+      display: flex;
+      align-items: center;
+      right: 0;
+      width: 35px;
+      height: 100% !important;
+      border-left: black solid 6px;
+      position: absolute;
+      justify-content: center;
+      background: var(--lcars-card-top-color);
+    }
+    ha-card.button-lozenge-right > span,
+    ha-card.button-bullet-right > span {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      margin-top: unset;
+      padding-left: 26px;
+      padding-bottom: 6px;
+      position: absolute;
+    }
+    ha-card.button-lozenge-right > span.state,
+    ha-card.button-bullet-right > span.state {
       padding-bottom: 45px;
       color: black;
     }
@@ -1003,3 +1120,20 @@ LCARS Cardassia:
   error-color: var(--lcars-dark-red)
 # Paste your themes here |
 #                        V
+LCARS Zeldaar:
+  card-mod-theme: LCARS Zeldaar
+  <<: *lcars-colors
+  <<: *base
+  <<: *card-mod-css
+  lcars-ui-primary: var(--lcars-violet-creme)
+  lcars-ui-secondary: var(--lcars-honey)
+  lcars-ui-tertiary: var(--lcars-roseblush)
+  # Card colors
+  lcars-card-top-color: var(--lcars-bluey)
+  lcars-card-mid-left-color: var(--lcars-khaki)
+  lcars-card-button: var(--lcars-african-violet)
+  lcars-card-bottom-color: var(--lcars-roseblush)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
