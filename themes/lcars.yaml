@@ -231,7 +231,6 @@
       padding-bottom: 0 !important;
     }
 
-
     /* Middle classes and fixes for specific cards */
     ha-card.middle {
       background: black !important;
@@ -263,7 +262,6 @@
     ha-card.middle-blank > ha-gauge {
       --primary-text-color: var(--lcars-text-gray);
     }
-
     ha-card.middle > .name, 
     ha-card.middle-right > .name, 
     ha-card.middle-contained > .name, 
@@ -417,7 +415,7 @@
       margin-top: -24px;
       position: relative;
     }
-    ha-card.button-small > ha-state-icon {
+    ha-card.button-small > ha-state-icon { /*wat*/
     }
     ha-card.button-small > span {
       box-sizing: border-box;
@@ -556,10 +554,10 @@
       padding-bottom: 0 !important;
     }
     /* Various generic card fixes */
-    .entities {
+    /*.entities {
       background: black;
       border-radius: 0px 0px 0px 20px;
-    }
+    }*/
     .type-thermostat > .content {
       background: black;
       border-radius: 0px 0px 0px 20px;
@@ -658,6 +656,7 @@
     app-toolbar {
       border-right: 30px solid var(--lcars-card-top-color);
       border-radius: 0px 30px 30px 0px;
+      margin-right: 1px;
     }
     ha-tabs, paper-tabs {
       --paper-tabs-selection-bar-color: transparent !important;
