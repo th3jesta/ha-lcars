@@ -587,7 +587,7 @@
     ha-card:has(ha-gauge) {
       background: var(--lcars-card-top-color)
     }
-  /* Toolbar and dashboard modifications */
+  # Toolbar and dashboard modifications
   card-mod-root: &card-mod-root |
     ha-dialog > * {
       color: black;
