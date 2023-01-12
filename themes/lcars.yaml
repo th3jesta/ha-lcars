@@ -587,7 +587,7 @@
     ha-card:has(ha-gauge) {
       background: var(--lcars-card-top-color)
     }
-  # Toolbar and dashboard modifications
+  /* Toolbar and dashboard modifications */
   card-mod-root: &card-mod-root |
     ha-dialog > * {
       color: black;
@@ -660,7 +660,7 @@
         margin-left: -16px;
       }
     }
-    @media screen and (max-width: 375px) {
+    /*@media screen and (max-width: 375px) {
       app-toolbar::before {
         margin-top: 77px !important;
       }
@@ -669,7 +669,7 @@
       app-toolbar::before {
         margin-top: 74px !important;
       }
-    }
+    }*/
     ha-menu-button {
       display: none;
       color: transparent;
