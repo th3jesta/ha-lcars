@@ -222,7 +222,7 @@ card_mod:
 </tr>
 </table>
 
-7. `button-lozenge` - pill-shaped button; only works on standard button cards; also works on button cards in a horizontal-stacks and grids up to two columns wide; more columns get glitchy and is not advised
+7. `button-lozenge` and `button-lozenge-right` - pill-shaped button; only works on standard button cards; also works on button cards in a horizontal-stacks and grids up to two columns wide; more columns get glitchy and is not advised
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -249,7 +249,7 @@ card_mod:
 </tr>
 </table>
 
-8. `button-bullet` and `button-bullet-right` - similar to the lozenge, but with a squared-off left side; same column restrictions apply
+8. `button-bullet` and `button-bullet-right` - similar to the lozenge, but with a squared-off side; same column restrictions apply
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
