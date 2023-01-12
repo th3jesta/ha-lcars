@@ -545,7 +545,7 @@
     ha-tabs, paper-tabs {
       --paper-tabs-selection-bar-color: transparent !important;
       border-left: solid black 4px;
-      margin-left: 4px !important;
+      margin-left: 22px !important;
     }
     /* Code for the clock */
     app-toolbar::after {
@@ -565,6 +565,34 @@
       border-right: 5px solid black;
       border-left: 5px solid black;
     }
+    @media screen and (max-width: 768px) {
+      app-toolbar::after {
+        content: "";
+        border-left: 0px solid black;
+      }
+      ha-button-menu > ha-icon-button {
+        margin-right: -48px;
+        padding-right: unset !important;
+        margin-left: unset !important;
+      }
+      .exit-edit-mode {
+        margin-right: 0px !important;
+      }
+      ha-icon-button {
+        padding-right: unset !important;
+        margin-left: unset !important;
+      }
+    }
+    /*@media screen and (max-width: 375px) {
+      app-toolbar::before {
+        margin-top: 77px !important;
+      }
+    }
+    @media screen and (max-width: 320px) {
+      app-toolbar::before {
+        margin-top: 74px !important;
+      }
+    }*/
     ha-menu-button {
       display: none !important;
       color: transparent;
@@ -618,7 +646,7 @@
     }
     app-toolbar::before {
       content: "";
-      position: inherit;
+      position: fixed;
       height: 40px;
       width: 100px;
       background-color: transparent;
