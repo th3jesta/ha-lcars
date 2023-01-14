@@ -535,6 +535,47 @@
       padding-bottom: 45px;
       color: black;
     }
+    /* Markdown bar */
+    ha-card.bar {
+      text-transform: uppercase;
+      border-left: 35px solid var(--lcars-card-top-color);
+      background-color: var(--lcars-card-top-color);
+      display: flex;
+    }
+    ha-card.bar-right {
+      text-transform: uppercase;
+      border-right: 35.5px solid var(--lcars-card-top-color);
+      background-color: var(--lcars-card-top-color);
+      display: flex;
+      justify-content: right;
+    }
+    ha-card.bar > ha-markdown,
+    ha-card.bar-right > ha-markdown {
+      padding: 2px 8px 2px !important;
+      margin-top: -8px;
+      margin-bottom: -3px;
+    }
+    /* Markdown bar large */
+    ha-card.bar-large {
+      text-transform: uppercase;
+      border-left: 35px solid var(--lcars-card-top-color);
+      background-color: var(--lcars-card-top-color);
+      display: flex;
+    }
+    ha-card.bar-large-right {
+      text-transform: uppercase;
+      border-right: 35.5px solid var(--lcars-card-top-color);
+      background-color: var(--lcars-card-top-color);
+      display: flex;
+      justify-content: right;
+    }
+    ha-card.bar-large > ha-markdown,
+    ha-card.bar-large-right > ha-markdown {
+      padding: 0px 8px 0px !important;
+      margin-top: -8px;
+      margin-bottom: -3px;
+      font-size: 1.5em;
+    }
     /* Hacky workaround to add middle-type class to horizontal and vertical stack cards */
     /* More info: https://github.com/thomasloven/lovelace-card-mod#styling-cards-without-an-ha-card-element */
     .type-custom-mod-card {
@@ -551,7 +592,7 @@
       background: black;
       border-radius: unset;
       padding-top: 0px !important;
-      padding-bottom: 0 !important;
+      padding-bottom: 0px !important;
     }
     /* Various generic card fixes */
     /*.entities {
@@ -647,11 +688,11 @@
       margin-left: -1px !important;
       borer-radius: 20px !important;
     }
-    .edit-mode app-header {
-      background: transparent !important;
-    }
     .edit-mode app-toolbar {
       background: var(--lcars-ui-primary) !important;
+    }
+    paper-icon-button.not-visible {
+      display: none;
     }
     app-toolbar {
       border-right: 30px solid var(--lcars-card-top-color);
@@ -661,7 +702,7 @@
     ha-tabs, paper-tabs {
       --paper-tabs-selection-bar-color: transparent !important;
       border-left: solid black 4px;
-      margin-left: 22px !important;
+      margin-left: 0px !important;
     }
     /* Code for the clock */
     app-toolbar::after {
