@@ -133,7 +133,7 @@
   paper-slider-active-color: "#0984ff"
   paper-slider-secondary-color: var(--paper-slider-knob-color)
   paper-slider-container-color: rgba(255, 255, 255, 0.5)
-  paper-slider-font-color: white
+  paper-slider-font-color: black
   ha-slider-background: none !important
   # Labels
   label-badge-background-color: "#23232E"
@@ -163,8 +163,9 @@
   more-info-header-background: rgba(25, 25, 25)
   app-header-background-color: var(--lcars-ui-primary)
   # Custom
-  mini-media-player-base-color: white
-  mini-media-player-icon-color: white
+  mini-media-player-base-color: var(--lcars-text-gray)
+  mini-media-player-icon-color: var(--lcars-text-gray)
+
   sidebar-menu-button-text-color: black
   mdc-typography-button-font-family: var(--lcars-font)
   mdc-theme-primary: var(--lcars-text-gray)
@@ -202,6 +203,9 @@
     ha-card.header > ha-markdown {
       border-radius: 20px 0 0 0;
     }
+    ha-card.header.type-thermostat > .content {
+      border-radius: 0px 0px 0px 20px;
+    }
     /* Border on right */
     ha-card.header-right {
       background: var(--lcars-card-top-color) !important;
@@ -215,6 +219,9 @@
       border-radius: 0px 20px 0px 0px;
       padding-top: 0px !important;
       padding-bottom: 0 !important;
+    }
+    ha-card.header-right.type-thermostat > .content {
+      border-radius: 0px 0px 20px 0px;
     }
     /* Border on both sides */
     ha-card.header-contained {
@@ -230,6 +237,9 @@
       border-radius: 20px 20px 0px 0px;
       padding-top: 0px !important;
       padding-bottom: 0 !important;
+    }
+    ha-card.header-right.type-thermostat > .content {
+      border-radius: 0px 0px 20px 20px;
     }
     /* Border on neither side */
     ha-card.header-open {
@@ -322,6 +332,12 @@
     ha-card.footer > ha-markdown {
       border-radius: 0px 0px 0px 20px !important;
     }
+    ha-card.footer.type-thermostat > .content {
+      border-radius: 0px 0px 0px 20px;
+    }
+    ha-card.footer.type-picture-entity {
+      border-radius: 0px 0px 0px 20px;
+    }
     /* Border on the right */
     ha-card.footer-right > span {
       background: black;
@@ -345,7 +361,9 @@
     ha-card.footer-right > ha-markdown {
       border-radius: 0px 0px 20px 0px !important;
     }
-
+    ha-card.footer-right.type-thermostat > .content {
+      border-radius: 0px 0px 20px 0px;
+    }
     /* Border on both sides */
     ha-card.footer-contained {
       background: var(--lcars-card-bottom-color) !important;
@@ -384,7 +402,9 @@
     ha-card.footer-contained > ha-markdown {
       border-radius: 0px 0px 20px 20px !important;
     }
-
+    ha-card.footer-contained.type-thermostat > .csontent {
+      border-radius: 0px 0px 20px 20px;
+    }
     /* Border on neither side */
     ha-card.footer-open {
       background: var(--lcars-card-bottom-color) !important;
@@ -652,7 +672,6 @@
     }*/
     .type-thermostat > .content {
       background: black;
-      border-radius: 0px 0px 0px 20px;
       padding-top: 0px !important;
       padding-bottom: 0 !important;
     }
@@ -753,7 +772,7 @@
     ha-tabs {
       width: 100%;
       height: 100%;
-      margin-left: 30px !important;
+      margin-left: 22px !important;
       border-left: solid black 4px;
     }
     .edit-mode > ha-tabs, 
