@@ -1,7 +1,9 @@
 # Home Assistant LCARS
 Star Trek LCARS theme for Home Assistant
 
-[![hacs_badge](https://img.shields.io/badge/HACS-Default-41BDF5.svg?style=for-the-badge)](https://github.com/hacs/integration)
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-41BDF5.svg?style=for-the-badge)](https://github.com/hacs/integration) 
+
+<img src="https://discordapp.com/api/guilds/1059179538371858493/widget.png?style=banner2" width="140px" alt="Discord Banner 2"/>
 
 Color codes and font choice from https://www.thelcars.com
     --thanks Jim Robertus!
@@ -102,7 +104,7 @@ card_mod:
 _The class names are only indications of what types of cards they were intended for, but the classes can be applied to any card you like. I cannot guarantee how well they will work outside of their intended uses, however._
 
 The classes are as follows:
-1. `header`, `header-right`, `header-contained`, `header-open` - top blue bar (in Default theme) meant for Markdown cards with one `H1` line that will start a section
+1. `header` `header-right` `header-contained` `header-open` - top blue bar (in Default theme) meant for Markdown cards with one `H1` line that will start a section
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -139,7 +141,7 @@ content: '# header-open'
 </tr>
 </table>
 
-2. `middle`, `middle-right`, `middle-contained` -  side red bar (in Default theme) meant for non-button sections below `header` and above `footer`
+2. `middle` `middle-right` `middle-contained` -  side red bar (in Default theme) meant for non-button sections below `header` and above `footer`
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -173,7 +175,7 @@ content: '# middle-contained'
 
 3. `middle-blank` - special case for Mushroom Cards (@csanner please confirm)
 
-4. `footer`, `footer-right`, `footer-contained`, `footer-open` - bottom gray bar (in Default theme) meant for the last card in a section
+4. `footer` `footer-right` `footer-contained` `footer-open` - bottom gray bar (in Default theme) meant for the last card in a section
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -411,7 +413,7 @@ cards:
 </tr>
 </table>
 
-* You can create a blank header or footer by creating a Markdown card and putting `## &nbsp;` in the Content field. It looks like this:
+* You can create a blank header or footer by creating a Markdown card and putting `## &nbsp;` in the Content field, and change the size by modifying the number of `#`. It looks like this:
 ![image](https://user-images.githubusercontent.com/38670315/210792537-f25c740d-1ad3-4ac7-8a31-59ad04cf38fb.png)
 
 
@@ -429,3 +431,5 @@ cards:
 
 ## Links
 **Discord:** https://discord.gg/gGxud6Y6WJ
+
+**LCARS Resources:** https://www.thelcars.com
