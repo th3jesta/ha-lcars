@@ -102,7 +102,7 @@ card_mod:
 _The class names are only indications of what types of cards they were intended for, but the classes can be applied to any card you like. I cannot guarantee how well they will work outside of their intended uses, however._
 
 The classes are as follows:
-1. `header`, `header-right`, and `header-contained` - top blue bar (in Default theme) meant for Markdown cards with one `H1` line that will start a section
+1. `header`, `header-right`, `header-contained`, `header-open` - top blue bar (in Default theme) meant for Markdown cards with one `H1` line that will start a section
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -114,12 +114,27 @@ The classes are as follows:
 type: markdown
 card_mod:
   class: header
-content: '# Climate'
+content: '# header'
+
+type: markdown
+card_mod:
+  class: header-right
+content: '# header-right'
+
+type: markdown
+card_mod:
+  class: header-contained
+content: '# header-contained'
+
+type: markdown
+card_mod:
+  class: header-open
+content: '# header-open'
 ```
 
 </td>
 <td>
-<img width="319" alt="image" src="https://user-images.githubusercontent.com/38670315/210178336-ee6ca541-31c8-48bf-b1d8-e2069d435111.png">
+<img width="316" alt="image" src="https://user-images.githubusercontent.com/38670315/212480715-ca72d5e5-1950-4f75-9b14-8b67fcebdcd0.png">
 </td>
 </tr>
 </table>
@@ -133,22 +148,32 @@ content: '# Climate'
 <td>
     
 ```yaml
-type: weather-forecast
-entity: weather.home
+type: markdown
 card_mod:
   class: middle
+content: '# middle'
+
+type: markdown
+card_mod:
+  class: middle-right
+content: '# middle-right'
+
+type: markdown
+card_mod:
+  class: middle-contained
+content: '# middle-contained'
 ```
 
 </td>
 <td>
-<img width="319" alt="image" src="https://user-images.githubusercontent.com/38670315/210178353-8fab9352-a3f5-4105-aea0-b05ede7f3cdd.png">
+<img width="315" alt="image" src="https://user-images.githubusercontent.com/38670315/212480611-018e7de1-71dc-45e6-8f55-48b82b4dd04d.png">
 </td>
 </tr>
 </table>
 
 3. `middle-blank` - special case for Mushroom Cards (@csanner please confirm)
 
-4. `footer`, `footer-right`, and `footer-contained` - bottom gray bar (in Default theme) meant for the last card in a section
+4. `footer`, `footer-right`, `footer-contained`, `footer-open` - bottom gray bar (in Default theme) meant for the last card in a section
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -157,15 +182,30 @@ card_mod:
 <td>
     
 ```yaml
-type: media-control
-entity: media_player.living_room_tv_2
+type: markdown
 card_mod:
   class: footer
+content: '# footer'
+
+type: markdown
+card_mod:
+  class: footer-right
+content: '# footer-right'
+
+type: markdown
+card_mod:
+  class: footer-contained
+content: '# footer-contained'
+
+type: markdown
+card_mod:
+  class: footer-open
+content: '# footer-open'
 ```
 
 </td>
 <td>
-<img width="317" alt="image" src="https://user-images.githubusercontent.com/38670315/210178378-7b45ec2d-30fc-45c9-a6ab-68f2517a83fc.png">
+<img width="314" alt="image" src="https://user-images.githubusercontent.com/38670315/212480789-62e37686-dd35-4a49-a3e7-1d974b7eb133.png">
 </td>
 </tr>
 </table>
@@ -222,34 +262,7 @@ card_mod:
 </tr>
 </table>
 
-7. `button-lozenge` and `button-lozenge-right` - pill-shaped button; only works on standard button cards; also works on button cards in a horizontal-stacks and grids up to two columns wide; more columns get glitchy and is not advised
-<table>
-<tr>
-<td> YAML </td> <td> Result </td>
-</tr>
-<tr>
-<td>
-    
-```yaml
-show_name: true
-show_icon: true
-type: button
-tap_action:
-  action: toggle
-entity: switch.lightsaber
-icon: ''
-card_mod:
-  class: button-lozenge
-```
-
-</td>
-<td>
-<img width="158" alt="image" src="https://user-images.githubusercontent.com/38670315/210178574-68183ee3-a3a8-4642-85a6-7d0f1dfed537.png">
-</td>
-</tr>
-</table>
-
-8. `button-bullet` and `button-bullet-right` - similar to the lozenge, but with a squared-off side; same column restrictions apply
+7. `button-lozenge` `button-lozenge-right` - pill-shaped button; only works on standard button cards; also works on button cards in a horizontal-stacks and grids up to two columns wide; more columns get glitchy and is not advised
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -264,18 +277,99 @@ type: button
 tap_action:
   action: toggle
 entity: switch.speakers
-show_state: true
 icon: mdi:speaker-multiple
 card_mod:
-  class: button-bullet
+  class: button-lozenge
+  
+show_name: true
+show_icon: true
+type: button
+tap_action:
+  action: toggle
+entity: switch.lightsaber
+card_mod:
+  class: button-lozenge-right
 ```
 
 </td>
 <td>
-<img width="157" alt="image" src="https://user-images.githubusercontent.com/38670315/210178586-7f339168-4c6d-4ed7-aa80-cdacd3b57194.png">
+<img width="159" alt="image" src="https://user-images.githubusercontent.com/38670315/212760869-5a09e9c0-9d61-4b48-af3c-5040a82c1722.png">
 </td>
 </tr>
 </table>
+
+8. `button-bullet` `button-bullet-right` - similar to the lozenge, but with a squared-off side; same column restrictions apply
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+show_name: true
+show_icon: true
+type: button
+tap_action:
+  action: toggle
+entity: light.bedroom_tree
+card_mod:
+  class: button-bullet
+  
+show_name: true
+show_icon: true
+type: button
+tap_action:
+  action: toggle
+entity: switch.counter_lights
+card_mod:
+  class: button-bullet-right
+```
+
+</td>
+<td>
+<img width="158" alt="image" src="https://user-images.githubusercontent.com/38670315/212761051-a9cb1cc8-b445-46d5-9270-171249f6d63f.png">
+</td>
+</tr>
+</table>
+
+9. `bar` `bar-right` `bar-large` `bar-large-right` - standalone header-type bar; only intended for and tested with Markdown cards
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+type: markdown
+content: '# bar'
+card_mod:
+  class: bar
+  
+type: markdown
+content: '# bar-large'
+card_mod:
+  class: bar-large
+  
+type: markdown
+content: '# bar-right'
+card_mod:
+  class: bar-right
+  
+type: markdown
+content: '# bar-large-right'
+card_mod:
+  class: bar-large-right
+```
+
+</td>
+<td>
+<img width="313" alt="image" src="https://user-images.githubusercontent.com/38670315/212764544-04adc98c-8146-4f9b-9eef-7696689dce4c.png">
+</td>
+</tr>
+</table>
+
 
 ### Make your own color themes
 Custom themes can be created down at the bottom of `lcars.yaml`. Or, search for "===THEMES", which will take you right there. To create your own theme, copy the LCARS Default section to the bottom of the file and change the `lcars-ui-*` and `lcars-card-*` variables to your liking, using the color references at the top of the file, [The LCARS website](https://www.thelcars.com/colors.php), or define your own.
@@ -331,6 +425,7 @@ cards:
 ## Acknowledgements
 - Thanks to @JHuckins for color theming support and testing!
 - Thanks to @csanner for the new classes and additional fixes and tweaks!
+- Thanks to @Anthrazz for the bar classes!
 
 ## Links
 **Discord:** https://discord.gg/gGxud6Y6WJ
