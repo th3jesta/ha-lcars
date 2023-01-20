@@ -190,559 +190,663 @@
   rgb-state-media-player-color: var(--paper-item-icon-color)
 
 (DO NOT USE/MODIFY)=== card-mod CSS: &card-mod-css # Card modifications
-  card-mod-card: &card-mod-card |
-    /* Header classes and fixes for specific card types */
-    /* Border on left */
-    ha-card.header {
-      background: var(--lcars-card-top-color) !important;
-      text-transform: uppercase;
-      border-radius: 40px 0px 0px 0px !important;
-      border-top: 10px solid var(--lcars-card-top-color);
-      border-left: 35px solid var(--lcars-card-top-color);
-    }
-    ha-card.header > ha-markdown {
-      border-radius: 20px 0 0 0;
-    }
-    ha-card.header.type-thermostat > .content {
-      border-radius: 0px 0px 0px 20px;
-    }
-    /* Border on right */
-    ha-card.header-right {
-      background: var(--lcars-card-top-color) !important;
-      text-transform: uppercase;
-      border-radius: 0px 40px 0px 0px !important;
-      border-top: 10px solid var(--lcars-card-top-color);
-      border-right: 35px solid var(--lcars-card-top-color);
-    }
-    ha-card.header-right > ha-markdown.no-header {
-      background: black;
-      border-radius: 0px 20px 0px 0px;
-      padding-top: 0px !important;
-      padding-bottom: 0 !important;
-    }
-    ha-card.header-right.type-thermostat > .content {
-      border-radius: 0px 0px 20px 0px;
-    }
-    /* Border on both sides */
-    ha-card.header-contained {
-      background: var(--lcars-card-top-color) !important;
-      text-transform: uppercase;
-      border-radius: 40px 40px 0px 0px !important;
-      border-top: 10px solid var(--lcars-card-top-color);
-      border-right: 35px solid var(--lcars-card-top-color);
-      border-left: 35px solid var(--lcars-card-top-color);
-    }
-    ha-card.header-contained > ha-markdown.no-header {
-      background: black;
-      border-radius: 20px 20px 0px 0px;
-      padding-top: 0px !important;
-      padding-bottom: 0 !important;
-    }
-    ha-card.header-right.type-thermostat > .content {
-      border-radius: 0px 0px 20px 20px;
-    }
-    /* Border on neither side */
-    ha-card.header-open {
-      background: var(--lcars-card-top-color) !important;
-      text-transform: uppercase;
-      border-radius: 0px 0px 0px 0px !important;
-      border-top: 10px solid var(--lcars-card-top-color);
-    }
-    ha-card.header-open > ha-markdown.no-header {
-      background: black;
-      border-radius: 0px 0px 0px 0px;
-      padding-top: 0px !important;
-      padding-bottom: 0 !important;
-    }
+  card-mod-card-yaml: &card-mod-card |
+    .: |
+      /* Header classes and fixes for specific card types */
+      /* Border on left */
+      ha-card.header {
+        background: var(--lcars-card-top-color) !important;
+        text-transform: uppercase;
+        border-radius: 40px 0px 0px 0px !important;
+        border-top: 10px solid var(--lcars-card-top-color);
+        border-left: 35px solid var(--lcars-card-top-color);
+      }
+      ha-card.header > ha-markdown {
+        border-radius: 20px 0 0 0;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+      }
+      ha-card.header.type-thermostat > .content {
+        border-radius: 0px 0px 0px 20px;
+      }
+      /* Border on right */
+      ha-card.header-right {
+        background: var(--lcars-card-top-color) !important;
+        text-transform: uppercase;
+        border-radius: 0px 40px 0px 0px !important;
+        border-top: 10px solid var(--lcars-card-top-color);
+        border-right: 35px solid var(--lcars-card-top-color);
+      }
+      ha-card.header-right > ha-markdown.no-header {
+        background: black;
+        border-radius: 0px 20px 0px 0px;
+        padding-top: 0px !important;
+        padding-bottom: 0 !important;
+      }
+      ha-card.header-right.type-thermostat > .content {
+        border-radius: 0px 0px 20px 0px;
+      }
+      /* Border on both sides */
+      ha-card.header-contained {
+        background: var(--lcars-card-top-color) !important;
+        text-transform: uppercase;
+        border-radius: 40px 40px 0px 0px !important;
+        border-top: 10px solid var(--lcars-card-top-color);
+        border-right: 35px solid var(--lcars-card-top-color);
+        border-left: 35px solid var(--lcars-card-top-color);
+      }
+      ha-card.header-contained > ha-markdown.no-header {
+        background: black;
+        border-radius: 20px 20px 0px 0px;
+        padding-top: 0px !important;
+        padding-bottom: 0 !important;
+      }
+      ha-card.header-right.type-thermostat > .content {
+        border-radius: 0px 0px 20px 20px;
+      }
+      /* Border on neither side */
+      ha-card.header-open {
+        background: var(--lcars-card-top-color) !important;
+        text-transform: uppercase;
+        border-radius: 0px 0px 0px 0px !important;
+        border-top: 10px solid var(--lcars-card-top-color);
+      }
+      ha-card.header-open > ha-markdown.no-header {
+        background: black;
+        border-radius: 0px 0px 0px 0px;
+        padding-top: 0px !important;
+        padding-bottom: 0 !important;
+      }
 
-    /* Middle classes and fixes for specific cards */
-    ha-card.middle {
-      background: black !important;
-      text-transform: uppercase;
-      border-radius: 0px !important;
-      border-left: 35.5px solid var(--lcars-card-mid-left-color);
-    }
-    ha-card.middle-right {
-      background: black !important;
-      text-transform: uppercase;
-      border-radius: 0px !important;
-      border-right: 35.5px solid var(--lcars-card-mid-left-color);
-    }
-    ha-card.middle-blank {
-      background: black !important;
-      text-transform: uppercase;
-      border-radius: 0px !important;
-    }
-    ha-card.middle-contained {
-      background: black !important;
-      text-transform: uppercase;
-      border-radius: 0px !important;
-      border-left: 35.5px solid var(--lcars-card-mid-left-color);
-      border-right: 35.5px solid var(--lcars-card-mid-left-color);
-    }
-    ha-card.middle > ha-gauge, 
-    ha-card.middle-right > ha-gauge, 
-    ha-card.middle-contained > ha-gauge, 
-    ha-card.middle-blank > ha-gauge {
-      --primary-text-color: var(--lcars-text-gray);
-    }
-    ha-card.middle > .name, 
-    ha-card.middle-right > .name, 
-    ha-card.middle-contained > .name, 
-    ha-card.middle-blank > .name {
-      color: var(--lcars-text-gray);
-    }
-    /* Footer classes and fixes for specific cards */
-    /* Border on the left */
-    ha-card.footer {
-      background: var(--lcars-card-bottom-color) !important;
-      text-transform: uppercase;
-      border-radius: 0px 0px 0px 40px !important;
-      border-bottom: 10px solid var(--lcars-card-bottom-color);
-      border-left: 35px solid var(--lcars-card-bottom-color);
-      margin-top: unset;
-    }
-    ha-card.footer > span {
-      background: black;
-      width: 100%;
-      padding-left: 0px;
-      margin-top: 0px;
-    }
-    ha-card.footer-right {
-      background: var(--lcars-card-bottom-color) !important;
-      text-transform: uppercase;
-      border-radius: 0px 0px 40px 0px !important;
-      border-bottom: 10px solid var(--lcars-card-bottom-color);
-      border-right: 35px solid var(--lcars-card-bottom-color);
-      margin-top: unset;
-    }
-    ha-card.footer > span.state {
-      border-radius: 0px 0px 0px 20px;
-    }
-    ha-card.footer > .entities {
-      background: black;
-      border-radius: 0px 0px 0px 20px;
-    }
-    ha-card.footer > #states {
-      background: black;
-      border-radius: 0px 0px 0px 20px;
-      padding-top: 0px !important;
-      padding-bottom: 0 !important;
-    }
-    ha-card.footer > ha-markdown {
-      border-radius: 0px 0px 0px 20px !important;
-    }
-    ha-card.footer.type-thermostat > .content {
-      border-radius: 0px 0px 0px 20px;
-    }
-    ha-card.footer.type-picture-entity {
-      border-radius: 0px 0px 0px 20px;
-    }
-    /* Border on the right */
-    ha-card.footer-right > span {
-      background: black;
-      width: 100%;
-      padding-right: 0px;
-      margin-top: 0px;
-    }
-    ha-card.footer-right > span.state {
-      border-radius: 0px 0px 20px 0px;
-    }
-    ha-card.footer-right > .entities {
-      background: black;
-      border-radius: 0px 0px 20px 0px;
-    }
-    ha-card.footer-right > #states {
-      background: black;
-      border-radius: 0px 0px 20px 0px;
-      padding-top: 0px !important;
-      padding-bottom: 0 !important;
-    }
-    ha-card.footer-right > ha-markdown {
-      border-radius: 0px 0px 20px 0px !important;
-    }
-    ha-card.footer-right.type-thermostat > .content {
-      border-radius: 0px 0px 20px 0px;
-    }
-    /* Border on both sides */
-    ha-card.footer-contained {
-      background: var(--lcars-card-bottom-color) !important;
-      text-transform: uppercase;
-      border-radius: 0px 0px 40px 40px !important;
-      border-bottom: 10px solid var(--lcars-card-bottom-color);
-      border-right: 35px solid var(--lcars-card-bottom-color);
-      border-left: 35px solid var(--lcars-card-bottom-color);
-      margin-top: unset;
-    }
-    ha-card.footer-contained > span {
-      background: black;
-      width: 100%;
-      padding-right: 0px;
-      padding-left: 0px;
-      margin-top: 0px;
-    }
-    ha-card.footer-contained > span.state {
-      border-radius: 0px 0px 20px 20px;
-    }
-    ha-card.footer-contained > .entities {
-      background: black;
-      border-radius: 0px 0px 20px 20px;
-    }
-    ha-card.footer-contained > #states {
-      background: black;
-      border-radius: 0px 0px 20px 20px;
-      padding-top: 0px !important;
-      padding-bottom: 0 !important;
-    }
-    ha-card.footer-contained > ha-state-icon {
-      background: black;
-      width: 100%;
-      --mdc-icon-size: 40%
-    }
-    ha-card.footer-contained > ha-markdown {
-      border-radius: 0px 0px 20px 20px !important;
-    }
-    ha-card.footer-contained.type-thermostat > .csontent {
-      border-radius: 0px 0px 20px 20px;
-    }
-    /* Border on neither side */
-    ha-card.footer-open {
-      background: var(--lcars-card-bottom-color) !important;
-      text-transform: uppercase;
-      border-radius: 0px 0px 0px 0px !important;
-      border-bottom: 10px solid var(--lcars-card-bottom-color);
-      margin-top: unset;
-    }
-    ha-card.footer-open > span {
-      background: black;
-      width: 100%;
-      padding-right: 0px;
-      padding-left: 0px;
-      margin-top: 0px;
-    }
-    ha-card.footer-open > span.state {
-      border-radius: 0px 0px 0px 0px;
-    }
-    ha-card.footer-open > .entities {
-      background: black;
-      border-radius: 0px 0px 0px 0px;
-    }
-    ha-card.footer-open > #states {
-      background: black;
-      border-radius: 0px 0px 0px 0px;
-      padding-top: 0px !important;
-      padding-bottom: 0 !important;
-    }
-    ha-card.footer-open > ha-state-icon {
-      background: black;
-      width: 100%;
-      --mdc-icon-size: 40%
-    }
-    ha-card.footer-open > ha-markdown {
-      border-radius: 0px 0px 0px 0px !important;
-    }
+      /* Middle classes and fixes for specific cards */
+      ha-card.middle {
+        background: black !important;
+        text-transform: uppercase;
+        border-radius: 0px !important;
+        border-left: 35.5px solid var(--lcars-card-mid-left-color);
+      }
+      ha-card.middle-right {
+        background: black !important;
+        text-transform: uppercase;
+        border-radius: 0px !important;
+        border-right: 35.5px solid var(--lcars-card-mid-left-color);
+      }
+      ha-card.middle-blank {
+        background: black !important;
+        text-transform: uppercase;
+        border-radius: 0px !important;
+      }
+      ha-card.middle-contained {
+        background: black !important;
+        text-transform: uppercase;
+        border-radius: 0px !important;
+        border-left: 35.5px solid var(--lcars-card-mid-left-color);
+        border-right: 35.5px solid var(--lcars-card-mid-left-color);
+      }
+      ha-card.middle > ha-gauge, 
+      ha-card.middle-right > ha-gauge, 
+      ha-card.middle-contained > ha-gauge, 
+      ha-card.middle-blank > ha-gauge {
+        --primary-text-color: var(--lcars-text-gray);
+      }
+      ha-card.middle > .name, 
+      ha-card.middle-right > .name, 
+      ha-card.middle-contained > .name, 
+      ha-card.middle-blank > .name {
+        color: var(--lcars-text-gray);
+      }
+      /* Footer classes and fixes for specific cards */
+      /* Border on the left */
+      ha-card.footer {
+        background: var(--lcars-card-bottom-color) !important;
+        text-transform: uppercase;
+        border-radius: 0px 0px 0px 40px !important;
+        border-bottom: 10px solid var(--lcars-card-bottom-color);
+        border-left: 35px solid var(--lcars-card-bottom-color);
+        margin-top: unset;
+      }
+      ha-card.footer > span {
+        background: black;
+        width: 100%;
+        padding-left: 0px;
+        margin-top: 0px;
+        border-radius: 0px 0px 0px 20px;
+      }
+      ha-card.footer > .entities {
+        background: black;
+        border-radius: 0px 0px 0px 20px;
+      }
+      ha-card.footer > #states {
+        background: black;
+        border-radius: 0px 0px 0px 20px;
+        padding-top: 0px !important;
+        padding-bottom: 0 !important;
+      }
+      ha-card.footer > ha-markdown {
+        border-radius: 0px 0px 0px 20px !important;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+      }
+      ha-card.footer.type-thermostat > .content {
+        border-radius: 0px 0px 0px 20px;
+      }
+      ha-card.footer.type-picture-entity {
+        border-radius: 0px 0px 0px 20px;
+      }
+      ha-card.footer > ha-state-icon {
+        height: 100%;
+        --mdc-icon-size: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      /* Border on the right */
+      ha-card.footer-right {
+        background: var(--lcars-card-bottom-color) !important;
+        text-transform: uppercase;
+        border-radius: 0px 0px 40px 0px !important;
+        border-bottom: 10px solid var(--lcars-card-bottom-color);
+        border-right: 35px solid var(--lcars-card-bottom-color);
+        margin-top: unset;
+      }
+      ha-card.footer-right > span {
+        background: black;
+        width: 100%;
+        padding-right: 0px;
+        margin-top: 0px;
+        border-radius: 0px 0px 20px 0px;
+      }
+      ha-card.footer-right > .entities {
+        background: black;
+        border-radius: 0px 0px 20px 0px;
+      }
+      ha-card.footer-right > #states {
+        background: black;
+        border-radius: 0px 0px 20px 0px;
+        padding-top: 0px !important;
+        padding-bottom: 0 !important;
+      }
+      ha-card.footer-right > ha-markdown {
+        border-radius: 0px 0px 20px 0px !important;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+      }
+      ha-card.footer-right.type-thermostat > .content {
+        border-radius: 0px 0px 20px 0px;
+      }
+      /* Border on both sides */
+      ha-card.footer-contained {
+        background: var(--lcars-card-bottom-color) !important;
+        text-transform: uppercase;
+        border-radius: 0px 0px 40px 40px !important;
+        border-bottom: 10px solid var(--lcars-card-bottom-color);
+        border-right: 35px solid var(--lcars-card-bottom-color);
+        border-left: 35px solid var(--lcars-card-bottom-color);
+        margin-top: unset;
+      }
+      ha-card.footer-contained > span {
+        background: black;
+        width: 100%;
+        padding-right: 0px;
+        padding-left: 0px;
+        margin-top: 0px;
+        border-radius: 0px 0px 20px 20px;
+      }
+      ha-card.footer-contained > .entities {
+        background: black;
+        border-radius: 0px 0px 20px 20px;
+      }
+      ha-card.footer-contained > #states {
+        background: black;
+        border-radius: 0px 0px 20px 20px;
+        padding-top: 0px !important;
+        padding-bottom: 0 !important;
+      }
+      ha-card.footer-contained > ha-state-icon {
+        background: black;
+        width: 100%;
+        --mdc-icon-size: 40%
+      }
+      ha-card.footer-contained > ha-markdown {
+        border-radius: 0px 0px 20px 20px !important;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+      }
+      ha-card.footer-contained.type-thermostat > .csontent {
+        border-radius: 0px 0px 20px 20px;
+      }
+      /* Border on neither side */
+      ha-card.footer-open {
+        background: var(--lcars-card-bottom-color) !important;
+        text-transform: uppercase;
+        border-radius: 0px 0px 0px 0px !important;
+        border-bottom: 10px solid var(--lcars-card-bottom-color);
+        margin-top: unset;
+      }
+      ha-card.footer-open > span {
+        background: black;
+        width: 100%;
+        padding-right: 0px;
+        padding-left: 0px;
+        margin-top: 0px;
+        border-radius: 0px 0px 0px 0px;
+      }
+      ha-card.footer-open > .entities {
+        background: black;
+        border-radius: 0px 0px 0px 0px;
+      }
+      ha-card.footer-open > #states {
+        background: black;
+        border-radius: 0px 0px 0px 0px;
+        padding-top: 0px !important;
+        padding-bottom: 0 !important;
+      }
+      ha-card.footer-open > ha-state-icon {
+        background: black;
+        width: 100%;
+        --mdc-icon-size: 40%
+      }
+      ha-card.footer-open > ha-markdown {
+        border-radius: 0px 0px 0px 0px !important;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+      }
+      /* Fixes across card types */
+      ha-card.footer.type-button,
+      ha-card.footer-right.type-button,
+      ha-card.footer-contained.type-button
+      ha-card.footer-open.type-button {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column-reverse;
+      }
+      ha-card.footer > ha-state-icon,
+      ha-card.footer-right > ha-state-icon,
+      ha-card.footer-contained > ha-state-icon,
+      ha-card.footer-open > ha-state-icon {
+        background: transparent;
+        width: 100%;
+        height: 100%;
+        --mdc-icon-size: 48px;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        top: 0;
+        z-index: 1;
+        border-radius: 0px 0px 20px 20px;
+      }
+      ha-card.footer > span.state,
+      ha-card.footer-right > span.state,
+      ha-card.footer-contained > span.state,
+      ha-card.footer-open > span.state {
+        background: transparent;
+        border-radius: 0px 0px 0px 0px;
+        padding-top: 55px;
+        position: relative;
+        margin-bottom: 16px;
+      }
+      ha-card.footer > span,
+      ha-card.footer-right > span,
+      ha-card.footer-contained > span,
+      ha-card.footer-open > span {
+        height: 100%;
+        position: absolute;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+      ha-card.footer > span.usps_update,
+      ha-card.footer-right > span.usps_update,
+      ha-card.footer-contained > span.usps_update,
+      ha-card.footer-open > span.usps_update {
+        background: black;
+        width: 100%;
+        padding-left: 15px;
+        margin-top: -4px;
+        height: unset !important;
+      }
+      ha-card.footer.type-custom-mail-and-packages-card,
+      ha-card.footer-right.type-custom-mail-and-packages-card,
+      ha-card.footer-contained.type-custom-mail-and-packages-card,
+      ha-card.footer-open.type-custom-mail-and-packages-card {
+        border-bottom: 26px solid var(--lcars-card-bottom-color);
+      }
 
-    /* Fixes across card types */
-    ha-card.footer > ha-state-icon,
-    ha-card.footer-right > ha-state-icon,
-    ha-card.footer-contained> ha-state-icon {
-      background: black;
-      width: 100%;
-      --mdc-icon-size: 40%
-    }
-    ha-card.footer > span.usps_update,
-    ha-card.footer-right > span.usps_update {
-      background: black;
-      width: 100%;
-      padding-left: 15px;
-      margin-top: -4px;
-    }
-
-    /* Small button class and fixes for specific cards */
-    ha-card.button-small {
-      display: flex;
-      text-transform: uppercase;
-      color: black;
-      border-radius: 0px !important;
-      position: relative;
-      flex-direction: column;
-      flex-wrap: nowrap;
-      justify-content: center;
-    }
-    ha-card.button-small > .more-info {
-      display: none;
-    }
-    ha-card.button-small > .content > #controls {
-      display: flex;
-      place-content: flex-start center;
-      position: relative;
-      padding: 0px;
-    }
-    ha-card.button-small > .content > #info {
-      text-align: right;
-      box-sizing: border-box;
-      width: 100%;
-      padding: 0px 6px 6px 0px;
-      margin-top: -24px;
-      position: relative;
-    }
-    ha-card.button-small > ha-state-icon { /*wat*/
-    }
-    ha-card.button-small > span {
-      box-sizing: border-box;
-      text-align: right;
-      width: 100%;
-      padding: 6px;
-      margin: unset;
-      position: absolute;
-      bottom: 0;
-    }
-    ha-card.button-small > span.state {
-      text-align: right;
-      width: 100%;
-      padding: 6px;
-      padding-bottom: 22px;
-      margin: unset;
-      position: absolute;
-      bottom: 0;
-    }
-    /* Large button class and fixes for specific cards */
-    ha-card.button-large {
-      text-transform: uppercase;
-      color: black;
-    }
-    /* Lozenge and bullet button classes and fixes for specific cards */
-    ha-card.button-lozenge {
-      text-transform: uppercase;
-      color: black;
-      min-height: 60px;
-      display: flex;
-      align-items: flex-end;
-      flex-direction: column-reverse;
-    }
-    ha-card.button-bullet {
-      text-transform: uppercase;
-      color: black;
-      min-height: 60px;
-      border-radius: 0px 40px 40px 0px !important;
-      display: flex;
-      align-items: flex-end;
-      flex-direction: column-reverse;
-    }
-    ha-card.button-lozenge > ha-state-icon, 
-    ha-card.button-bullet > ha-state-icon {
-      --mdc-icon-size: unset;
-      display: flex;
-      align-items: center;
-      left: 0;
-      width: 35px;
-      height: 100% !important;
-      border-right: black solid 6px;
-      position: absolute;
-      justify-content: center;
-      background: var(--lcars-card-top-color);
-    }
-    ha-card.button-lozenge > span, 
-    ha-card.button-bullet > span {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-end;
-      margin-top: unset;
-      padding-right: 26px;
-      padding-bottom: 6px;
-      position: absolute;
-    }
-    ha-card.button-lozenge > span.state, 
-    ha-card.button-bullet > span.state {
-      padding-bottom: 45px;
-      color: black;
-    }
-    ha-card.button-lozenge-right {
-      text-transform: uppercase;
-      color: black;
-      min-height: 60px;
-      display: flex;
-      align-items: flex-start;
-      flex-direction: column-reverse;
-    }
-    ha-card.button-bullet-right {
-      text-transform: uppercase;
-      color: black;
-      min-height: 60px;
-      border-radius: 40px 0px 0px 40px !important;
-      display: flex;
-      align-items: flex-start;
-      flex-direction: column-reverse;
-    }
-    ha-card.button-lozenge-right > ha-state-icon,
-    ha-card.button-bullet-right > ha-state-icon {
-      --mdc-icon-size: unset;
-      display: flex;
-      align-items: center;
-      right: 0;
-      width: 35px;
-      height: 100% !important;
-      border-left: black solid 6px;
-      position: absolute;
-      justify-content: center;
-      background: var(--lcars-card-top-color);
-    }
-    ha-card.button-lozenge-right > span,
-    ha-card.button-bullet-right > span {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-start;
-      margin-top: unset;
-      padding-left: 26px;
-      padding-bottom: 6px;
-      position: absolute;
-    }
-    ha-card.button-lozenge-right > span.state,
-    ha-card.button-bullet-right > span.state {
-      padding-bottom: 45px;
-      color: black;
-    }
-    /* Markdown bar */
-    ha-card.bar {
-      text-transform: uppercase;
-      border-left: 35px solid var(--lcars-card-top-color);
-      background-color: var(--lcars-card-top-color);
-      display: flex;
-    }
-    ha-card.bar-right {
-      text-transform: uppercase;
-      border-right: 35.5px solid var(--lcars-card-top-color);
-      background-color: var(--lcars-card-top-color);
-      display: flex;
-      justify-content: right;
-    }
-    ha-card.bar > ha-markdown,
-    ha-card.bar-right > ha-markdown {
-      padding: 2px 8px 2px !important;
-      margin-top: -8px;
-      margin-bottom: -3px;
-    }
-    /* Markdown bar large */
-    ha-card.bar-large {
-      text-transform: uppercase;
-      border-left: 35px solid var(--lcars-card-top-color);
-      background-color: var(--lcars-card-top-color);
-      display: flex;
-    }
-    ha-card.bar-large-right {
-      text-transform: uppercase;
-      border-right: 35.5px solid var(--lcars-card-top-color);
-      background-color: var(--lcars-card-top-color);
-      display: flex;
-      justify-content: right;
-    }
-    ha-card.bar-large > ha-markdown,
-    ha-card.bar-large-right > ha-markdown {
-      padding: 0px 8px 0px !important;
-      margin-top: -8px;
-      margin-bottom: -3px;
-      font-size: 1.5em;
-    }
-    /* Hacky workaround to add middle-type class to horizontal and vertical stack cards */
-    /* More info: https://github.com/thomasloven/lovelace-card-mod#styling-cards-without-an-ha-card-element */
-    .type-custom-mod-card {
-      border-radius: 0px !important;
-      border-left: 35.5px solid var(--lcars-card-mid-left-color);
-      padding-left: 6px !important;
-    }
-    /* WIP fix for aliasing ugliness on slider tracks */
-    ha-card > .content > .bar {
-      stroke-width: 5px;
-    }
-    /* ?Fix for markdown cards that are not headers? */
-    ha-markdown.no-header {
-      background: black;
-      border-radius: unset;
-      padding-top: 0px !important;
-      padding-bottom: 0px !important;
-    }
-    /* Various generic card fixes */
-    /*.entities {
-      background: black;
-      border-radius: 0px 0px 0px 20px;
-    }*/
-    .type-thermostat > .content {
-      background: black;
-      padding-top: 0px !important;
-      padding-bottom: 0 !important;
-    }
-    .details {
-      margin-top: 1em;
-    }
-    .color-block {
-      border-radius: 0px 0px 0px 20px;
-    }
-    .card-actions {
-      border-top: none;
-      padding: 5px 16px;
-      margin-top: 8px;
-      background: var(--lcars-ui-primary);
-      border-radius: 40px;
-      --primary-text-color: black;
-      --mdc-theme-primary: black;
-    }
-    .panel > ha-card {
-      border-radius: 40px !important;
-    }
-    .button-small > .state,
-    .button-large > .state,
-    .button-lozenge > .state {
-      border-radius: 0px 0px 0px 20px;
-      padding-bottom: 0px;
-      color: black;
-    }
-    ha-card.footer > .details {
-      background: black;
-      width: 100%;
-      margin: 0px;
-    }
-    .MailImg {
-      margin-top: 0;
-    }
-    .details > .title {
-      margin-left: 15px;
-    }
-    .usps_update {
-      border-radius: 0px 0px 0px 20px;
-      display: flex;
-    }
-    ha-card.footer > .content {
-      background: black;
-      border-radius: 0px 0px 0px 20px;
-    }
-    .details > p {
-      margin-left: 15px;
-    }
-    ha-card {
-      padding: 0px !important;
-      border-top-right-radius: 40px !important;
-      border-top-left-radius: 40px !important;
-    }
-    ha-card > .name {
-      color: black;
-    }
-    ha-config-updates {
-      color: black;
-    }
-    button#button.mdc-button {
-      color: black !important;
-    }
-    /* Gauge card fixes */
-    ha-gauge {
-      --primary-text-color: black;
-    }
-    ha-card:has(ha-gauge) {
-      background: var(--lcars-card-top-color)
-    }
+      /* Small button class and fixes for specific cards */
+      ha-card.button-small {
+        display: flex;
+        text-transform: uppercase;
+        color: black;
+        border-radius: 0px !important;
+        position: relative;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+      }
+      ha-card.button-small > .more-info {
+        display: none;
+      }
+      ha-card.button-small > .content > #controls {
+        display: flex;
+        place-content: flex-start center;
+        position: relative;
+        padding: 0px;
+      }
+      ha-card.button-small > .content > #info {
+        text-align: right;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0px 6px 6px 0px;
+        margin-top: -24px;
+        position: relative;
+      }
+      ha-card.button-small > ha-state-icon { /*wat*/
+      }
+      ha-card.button-small > span {
+        box-sizing: border-box;
+        text-align: right;
+        width: 100%;
+        padding: 6px;
+        margin: unset;
+        position: absolute;
+        bottom: 0;
+      }
+      ha-card.button-small > span.state {
+        text-align: right;
+        width: 100%;
+        padding: 6px;
+        padding-bottom: 22px;
+        margin: unset;
+        position: absolute;
+        bottom: 0;
+      }
+      /* Large button class and fixes for specific cards */
+      ha-card.button-large {
+        text-transform: uppercase;
+        color: black;
+      }
+      /* Lozenge, bullet, and capped button classes and fixes for specific cards */
+      ha-card.button-lozenge {
+        text-transform: uppercase;
+        color: black;
+        min-height: 60px;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column-reverse;
+      }
+      ha-card.button-bullet {
+        text-transform: uppercase;
+        color: black;
+        min-height: 60px;
+        border-radius: 0px 40px 40px 0px !important;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column-reverse;
+      }
+      ha-card.button-capped {
+        text-transform: uppercase;
+        color: black;
+        min-height: 60px;
+        border-radius: 40px 0px 0px 40px !important;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column-reverse;
+      }
+      ha-card.button-lozenge > ha-state-icon, 
+      ha-card.button-bullet > ha-state-icon,
+      ha-card.button-capped > ha-state-icon {
+        --mdc-icon-size: unset;
+        display: flex;
+        align-items: center;
+        left: 0;
+        width: 35px;
+        height: 100% !important;
+        border-right: black solid 6px;
+        position: absolute;
+        justify-content: center;
+        background: var(--lcars-card-top-color);
+      }
+      ha-card.button-lozenge > span, 
+      ha-card.button-bullet > span {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        margin-top: unset;
+        padding-right: 26px;
+        padding-bottom: 6px;
+        position: absolute;
+      }
+      ha-card.button-capped > span {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        margin-top: unset;
+        padding-right: 6px;
+        padding-bottom: 6px;
+        position: absolute;
+      }
+      ha-card.button-lozenge > span.state, 
+      ha-card.button-bullet > span.state,
+      ha-card.button-capped > span.state {
+        padding-bottom: 45px;
+        color: black;
+      }
+      ha-card.button-lozenge-right {
+        text-transform: uppercase;
+        color: black;
+        min-height: 60px;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column-reverse;
+      }
+      ha-card.button-bullet-right {
+        text-transform: uppercase;
+        color: black;
+        min-height: 60px;
+        border-radius: 40px 0px 0px 40px !important;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column-reverse;
+      }
+      ha-card.button-capped-right {
+        text-transform: uppercase;
+        color: black;
+        min-height: 60px;
+        border-radius: 0px 40px 40px 0px !important;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column-reverse;
+      }
+      ha-card.button-lozenge-right > ha-state-icon,
+      ha-card.button-bullet-right > ha-state-icon,
+      ha-card.button-capped-right > ha-state-icon {
+        --mdc-icon-size: unset;
+        display: flex;
+        align-items: center;
+        right: 0;
+        width: 35px;
+        height: 100% !important;
+        border-left: black solid 6px;
+        position: absolute;
+        justify-content: center;
+        background: var(--lcars-card-top-color);
+      }
+      ha-card.button-lozenge-right > span,
+      ha-card.button-bullet-right > span {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        margin-top: unset;
+        padding-left: 26px;
+        padding-bottom: 6px;
+        position: absolute;
+      }
+      ha-card.button-capped-right > span {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        margin-top: unset;
+        padding-left: 6px;
+        padding-bottom: 6px;
+        position: absolute;
+      }
+      ha-card.button-lozenge-right > span.state,
+      ha-card.button-bullet-right > span.state,
+      ha-card.button-capped-right > span.state {
+        padding-bottom: 45px;
+        color: black;
+      }
+      /* Markdown bar */
+      ha-card.bar {
+        text-transform: uppercase;
+        border-left: 35px solid var(--lcars-card-top-color);
+        background-color: var(--lcars-card-top-color);
+        display: flex;
+      }
+      ha-card.bar-right {
+        text-transform: uppercase;
+        border-right: 35.5px solid var(--lcars-card-top-color);
+        background-color: var(--lcars-card-top-color);
+        display: flex;
+        justify-content: right;
+      }
+      ha-card.bar > ha-markdown,
+      ha-card.bar-right > ha-markdown {
+        padding: 2px 8px 2px !important;
+        margin-top: -8px;
+        margin-bottom: -3px;
+      }
+      /* Markdown bar large */
+      ha-card.bar-large {
+        text-transform: uppercase;
+        border-left: 35px solid var(--lcars-card-top-color);
+        background-color: var(--lcars-card-top-color);
+        display: flex;
+      }
+      ha-card.bar-large-right {
+        text-transform: uppercase;
+        border-right: 35.5px solid var(--lcars-card-top-color);
+        background-color: var(--lcars-card-top-color);
+        display: flex;
+        justify-content: right;
+      }
+      ha-card.bar-large > ha-markdown,
+      ha-card.bar-large-right > ha-markdown {
+        padding: 0px 8px 0px !important;
+        margin-top: -8px;
+        margin-bottom: -3px;
+        font-size: 1.5em;
+      }
+      /* Hacky workaround to add middle-type class to horizontal and vertical stack cards */
+      /* More info: https://github.com/thomasloven/lovelace-card-mod#styling-cards-without-an-ha-card-element */
+      .type-custom-mod-card {
+        border-radius: 0px !important;
+        border-left: 35.5px solid var(--lcars-card-mid-left-color);
+        padding-left: 6px !important;
+      }
+      /* WIP fix for aliasing ugliness on slider tracks */
+      .type-light > .bar {
+        stroke-width: 5px;
+      }
+      /* ?Fix for markdown cards that are not headers? */
+      ha-markdown.no-header {
+        background: black;
+        border-radius: unset;
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+      }
+      /* Various generic card fixes */
+      /*.entities {
+        background: black;
+        border-radius: 0px 0px 0px 20px;
+      }*/
+      .type-thermostat > .content {
+        background: black;
+        padding-top: 0px !important;
+        padding-bottom: 0 !important;
+      }
+      .details {
+        margin-top: 1em;
+      }
+      .color-block {
+        border-radius: 0px 0px 0px 20px;
+      }
+      .card-actions {
+        border-top: none;
+        padding: 5px 16px;
+        margin-top: 8px;
+        background: var(--lcars-ui-primary);
+        border-radius: 40px;
+        --primary-text-color: black;
+        --mdc-theme-primary: black;
+      }
+      .panel > ha-card {
+        border-radius: 40px !important;
+      }
+      .button-small > .state,
+      .button-large > .state,
+      .button-lozenge > .state {
+        border-radius: 0px 0px 0px 20px;
+        padding-bottom: 0px;
+        color: black;
+      }
+      ha-card.footer > .details {
+        background: black;
+        width: 100%;
+        margin: 0px;
+      }
+      .MailImg {
+        margin-top: 0;
+      }
+      .details > .title {
+        margin-left: 15px;
+      }
+      .usps_update {
+        border-radius: 0px 0px 0px 20px;
+        display: flex;
+      }
+      ha-card.footer > .content {
+        background: black;
+        border-radius: 0px 0px 0px 20px;
+      }
+      .details > p {
+        margin-left: 15px;
+      }
+      ha-card {
+        padding: 0px !important;
+        border-top-right-radius: 40px !important;
+        border-top-left-radius: 40px !important;
+      }
+      ha-card > .name {
+        color: black;
+      }
+      ha-config-updates {
+        color: black;
+      }
+      button#button.mdc-button {
+        color: black !important;
+      }
+      /* Gauge card fixes */
+      ha-gauge {
+        --primary-text-color: black;
+      }
+      ha-card:has(ha-gauge) {
+        background: var(--lcars-card-top-color)
+      }
   # Toolbar and dashboard modifications
   card-mod-root: &card-mod-root |
     ha-dialog > * {
@@ -775,7 +879,7 @@
       margin-left: 22px !important;
       border-left: solid black 4px;
     }
-    .edit-mode > ha-tabs, 
+    .edit-mode > ha-tabs,
     .edit-mode > paper-tabs {
       --paper-tabs-selection-bar-color: transparent !important;
       border-left: solid black 4px;
