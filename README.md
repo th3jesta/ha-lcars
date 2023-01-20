@@ -335,7 +335,42 @@ card_mod:
 </tr>
 </table>
 
-9. `bar` `bar-right` `bar-large` `bar-large-right` - standalone header-type bar; only intended for and tested with Markdown cards
+9. `button-capped` `button-capped-right` - similar to the bullet, but capped on the round side; same column restrictions apply
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+show_name: true
+show_icon: true
+type: button
+tap_action:
+  action: toggle
+entity: light.bathroom
+card_mod:
+  class: button-capped
+  
+show_name: true
+show_icon: true
+type: button
+tap_action:
+  action: toggle
+entity: switch.built_in
+card_mod:
+  class: button-capped-right
+```
+
+</td>
+<td>
+<img width="164" alt="image" src="https://user-images.githubusercontent.com/38670315/213804819-a9949ad2-4b9c-4539-ae5a-075dec098b11.png">
+</td>
+</tr>
+</table>
+
+10. `bar` `bar-right` `bar-large` `bar-large-right` - standalone header-type bar; only intended for and tested with Markdown cards
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
