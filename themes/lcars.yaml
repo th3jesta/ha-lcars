@@ -862,6 +862,8 @@
       margin-left: -1px !important;
       borer-radius: 20px !important;
     }
+    app-header,
+    app-toolbar,
     .edit-mode app-toolbar {
       background: var(--lcars-ui-primary) !important;
     }
@@ -995,6 +997,7 @@
       cursor: pointer;
       z-index: 9999;
     }
+    {% if not is_state('input_boolean.disable_theme_gradient', 'on') %}
     app-header::before {
       content: linear-gradient(to left, transparent, #EEEEEE 30%, #222222 60%, transparent 90% );
       width: 100%;
@@ -1047,6 +1050,7 @@
       opacity: .8;
       pointer-events: none;
     }
+    {% endif %}
   card-mod-sidebar: &card-mod-sidebar |
     :host {
       content: "";
@@ -1173,6 +1177,7 @@
     paper-icon-item::before {
       opacity: 0 !important;
     }
+    {% if not is_state('input_boolean.disable_theme_gradient', 'on') %}
     paper-listbox::before {
       content: "";
       background: linear-gradient(to bottom left, transparent 10%, #AAAAAADD 30%, #000000AA 60%, transparent 90%);
@@ -1197,6 +1202,7 @@
       opacity: .8;
       pointer-events: none;
     }
+    {% endif %}
 # ===THEMES================================================
 # To create your own theme, copy this LCARS Default section
 # to the bottom of the file and change the lcars-ui-* and
@@ -1348,3 +1354,29 @@ LCARS Zeldaar:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+
+LCARS Modern:
+  card-mod-theme: LCARS Modern
+  <<: *lcars-colors
+  <<: *base
+  <<: *card-mod-css
+  # specifying darker app header colors improves look on HA Apps (iphone/ipad/mac).
+  # One unfortunate side effect is that pages without hui-root can't have heading styled
+  # So, logbook, history, calendar, dev tools etc look a bit weird.
+  # overall the cleaner look on dashboards is worth it in my opinion
+  app-header-background-color: rgba(39, 39, 39)
+  app-header-text-color: white
+
+  # Primary colors
+  lcars-ui-primary: "#C099CB" # Pink
+  lcars-ui-secondary: "#9A98FC" # Blue
+  lcars-ui-tertiary: "#E89924" # Orange
+  # Card colors
+  lcars-card-top-color: "#E89924" # Orange
+  lcars-card-mid-left-color: "#9996BA" # Light Gray
+  lcars-card-button: var(--lcars-gray)
+  lcars-card-bottom-color: "#9A98FC" # Blue
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-red)
