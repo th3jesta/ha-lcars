@@ -161,7 +161,7 @@
   paper-dialog-background-color: rgba(55, 55, 55)
   paper-item-icon-color: var(--lcars-dark-gray)
   more-info-header-background: rgba(25, 25, 25)
-  app-header-background-color: var(--lcars-ui-primary)
+  app-header-background-color: var(--lcars-ui-app-header-background-color)
   # Custom
   mini-media-player-base-color: var(--lcars-text-gray)
   mini-media-player-icon-color: var(--lcars-text-gray)
@@ -175,7 +175,7 @@
   switch-unchecked-track-color: var(--lcars-text-gray)
   switch-unchecked-button-color: var(--lcars-text-gray)
   header-height: 40px
-  app-header-text-color: black
+  app-header-text-color: var(--lcars-ui-app-header-text-color)
   paper-tabs-selection-bar-color: transparent
   mdc-button-outline-color: transparent
   ha-config-card-border-radius: 40px
@@ -1218,6 +1218,9 @@ LCARS Default:
   lcars-ui-primary: var(--lcars-almond-creme)
   lcars-ui-secondary: var(--lcars-african-violet)
   lcars-ui-tertiary: var(--lcars-red)
+  # Header colors
+  lcars-ui-app-header-background-color: var(--lcars-ui-primary)
+  lcars-ui-app-header-text-color: black
   # Card colors
   lcars-card-top-color: var(--lcars-bluey)
   lcars-card-mid-left-color: var(--lcars-red)
@@ -1236,6 +1239,9 @@ LCARS Classic:
   lcars-ui-primary: var(--lcars-khaki)
   lcars-ui-secondary: var(--lcars-honey)
   lcars-ui-tertiary: var(--lcars-mars)
+  # Header colors
+  lcars-ui-app-header-background-color: var(--lcars-ui-primary)
+  lcars-ui-app-header-text-color: black
   # Card colors
   lcars-card-top-color: var(--lcars-violet)
   lcars-card-mid-left-color: var(--lcars-ice)
@@ -1254,6 +1260,9 @@ LCARS Nemesis Blue:
   lcars-ui-primary: var(--lcars-midnight)
   lcars-ui-secondary: var(--lcars-tangerine)
   lcars-ui-tertiary: var(--lcars-pumpkinshade)
+  # Header colors
+  lcars-ui-app-header-background-color: var(--lcars-ui-primary)
+  lcars-ui-app-header-text-color: black
   # Card colors
   lcars-card-top-color: var(--lcars-moonshine)
   lcars-card-mid-left-color: var(--lcars-evening)
@@ -1272,6 +1281,9 @@ LCARS Lower Decks:
   lcars-ui-primary: var(--lcars-gold)
   lcars-ui-secondary: var(--lcars-butter)
   lcars-ui-tertiary: var(--lcars-orange)
+  # Header colors
+  lcars-ui-app-header-background-color: var(--lcars-ui-primary)
+  lcars-ui-app-header-text-color: black
   # Card colors
   lcars-card-top-color: var(--lcars-october-sunset)
   lcars-card-mid-left-color: var(--lcars-harvestgold)
@@ -1290,6 +1302,9 @@ LCARS Romulus:
   lcars-ui-primary: var(--lcars-green)
   lcars-ui-secondary: var(--lcars-african-violet)
   lcars-ui-tertiary: var(--lcars-orange)
+  # Header colors
+  lcars-ui-app-header-background-color: var(--lcars-ui-primary)
+  lcars-ui-app-header-text-color: black
   # Card colors
   lcars-card-top-color: var(--lcars-cardinal)
   lcars-card-mid-left-color: var(--lcars-african-violet)
@@ -1308,6 +1323,9 @@ LCARS Kronos:
   lcars-ui-primary: var(--lcars-mars)
   lcars-ui-secondary: var(--lcars-gold)
   lcars-ui-tertiary: var(--lcars-orange)
+  # Header colors
+  lcars-ui-app-header-background-color: var(--lcars-ui-primary)
+  lcars-ui-app-header-text-color: black
   # Card colors
   lcars-card-top-color: var(--lcars-mars)
   lcars-card-mid-left-color: var(--lcars-october-sunset)
@@ -1326,6 +1344,9 @@ LCARS Cardassia:
   lcars-ui-primary: var(--lcars-c44)
   lcars-ui-secondary: var(--lcars-c55)
   lcars-ui-tertiary: var(--lcars-cardassia-maroon)
+  # Header colors
+  lcars-ui-app-header-background-color: var(--lcars-ui-primary)
+  lcars-ui-app-header-text-color: black
   # Card colors
   lcars-card-top-color: var(--lcars-c48)
   lcars-card-mid-left-color: var(--lcars-cardassia-maroon)
@@ -1345,6 +1366,9 @@ LCARS Zeldaar:
   lcars-ui-primary: var(--lcars-violet-creme)
   lcars-ui-secondary: var(--lcars-honey)
   lcars-ui-tertiary: var(--lcars-roseblush)
+  # Header colors
+  lcars-ui-app-header-background-color: var(--lcars-ui-primary)
+  lcars-ui-app-header-text-color: black
   # Card colors
   lcars-card-top-color: var(--lcars-bluey)
   lcars-card-mid-left-color: var(--lcars-khaki)
@@ -1360,17 +1384,17 @@ LCARS Modern:
   <<: *lcars-colors
   <<: *base
   <<: *card-mod-css
-  # specifying darker app header colors improves look on HA Apps (iphone/ipad/mac).
-  # One unfortunate side effect is that pages without hui-root can't have heading styled
-  # So, logbook, history, calendar, dev tools etc look a bit weird.
-  # overall the cleaner look on dashboards is worth it in my opinion
-  app-header-background-color: rgba(39, 39, 39)
-  app-header-text-color: white
-
   # Primary colors
   lcars-ui-primary: "#C099CB" # Pink
   lcars-ui-secondary: "#9A98FC" # Blue
   lcars-ui-tertiary: "#E89924" # Orange
+  # Header colors
+  # specifying darker app header colors improves look on HA Apps (iphone/ipad/mac).
+  # One unfortunate side effect is that pages without hui-root can't have heading styled
+  # So, logbook, history, calendar, dev tools etc look a bit weird.
+  # overall the cleaner look on dashboards is worth it in my opinion
+  lcars-ui-app-header-background-color: rgba(39, 39, 39)
+  lcars-ui-app-header-text-color: white
   # Card colors
   lcars-card-top-color: "#E89924" # Orange
   lcars-card-mid-left-color: "#9996BA" # Light Gray
