@@ -1357,6 +1357,8 @@ LCARS Zeldaar:
 
 LCARS Modern:
   card-mod-theme: LCARS Modern
+  # Custom colors
+  lcars-modern-light-gray: "#9996BA"
   <<: *lcars-colors
   <<: *base
   <<: *card-mod-css
@@ -1373,7 +1375,7 @@ LCARS Modern:
   lcars-ui-app-header-text-color: var(--lcars-c72)
   # Card colors
   lcars-card-top-color: var(--lcars-gold)
-  lcars-card-mid-left-color: "#9996BA"
+  lcars-card-mid-left-color: var(--lcars-modern-light-gray)
   lcars-card-button: var(--lcars-gray)
   lcars-card-bottom-color: var(--lcars-sky)
   # Misc
