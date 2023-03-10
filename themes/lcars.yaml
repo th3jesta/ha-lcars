@@ -1371,7 +1371,7 @@ LCARS Modern:
   # One unfortunate side effect is that pages without hui-root can't have heading styled
   # So, logbook, history, calendar, dev tools etc look a bit weird.
   # overall the cleaner look on dashboards is worth it in my opinion
-  lcars-ui-app-header-background-color: rgba(39, 39, 39)
+  lcars-ui-app-header-background-color: "#272727"
   lcars-ui-app-header-text-color: var(--lcars-c72)
   # Card colors
   lcars-card-top-color: var(--lcars-gold)
