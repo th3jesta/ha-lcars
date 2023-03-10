@@ -1357,12 +1357,6 @@ LCARS Zeldaar:
 
 LCARS Modern:
   card-mod-theme: LCARS Modern
-  # Custom colors
-  # lcars-modern-blue: "#9A98FC"
-  # lcars-modern-light-gray: "#9996BA"
-  # lcars-modern-orange: "#E89924"
-  # lcars-modern-pink: "#C099CB"
-  # lcars-modern-purple: "#824E74"
   <<: *lcars-colors
   <<: *base
   <<: *card-mod-css
@@ -1385,4 +1379,4 @@ LCARS Modern:
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
-  error-color: var(--lcars-c70)
+  error-color: var(--lcars-red)
