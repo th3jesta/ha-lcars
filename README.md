@@ -424,6 +424,8 @@ input_boolean:
     initial: true
 ```
 
+You may alternatively implement this through the UI by creating a helper of type `toggle`.
+
 ## Tips and tricks
 _If you have anything to add here, create a PR with your tip and I will review it to add to this list._
 * Make use of Vertical Stack cards. Whether in this theme or any other theme, they are invaluable for keeping dashboards organized. In LCARS, a Vertical Stack card should contain a Markdown card first with the title of the group and the `header` class applied, then any number of `middle` class cards and `button` class single buttons or in horizontal stacks or grids, and then finally a `footer` class applied to the last card in the vertical stack. You can see this formation in all of the screenshots at the top of this page. Here's an example Vertical Stack card and all of its contents:
