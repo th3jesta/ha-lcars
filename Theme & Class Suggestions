@@ -1,0 +1,151 @@
+# These are just some of the fixes and/or additions I would like to add for review.
+# 
+# Thanks!
+
+
+### General Fixes ###
+
+# Middle Card - Mind the Gap
+    ha-card {
+      padding-left: 6px !important;
+    }
+
+# Middle Right Card - Mind the Gap
+    ha-card {
+      padding-right: 6px !important;
+    }
+
+# Footer - Mind the Gap
+card_mod:
+  class: footer
+  style: |
+    img {     ### <--- This will change, depending on the card, unfortunately ###
+      padding: 0px 0px 6px 6px;
+      border-bottom-left-radius: 20px;
+      background: black;
+    }
+
+
+### New Classes: ###
+     ## Obviously some or a lot of that code isn't needed. I just kept adding and hitting the !important; button over and over until it was right. ##
+     
+# msd-left
+card_mod:
+  style: |
+    ha-card {
+      margin: 0px 15px 23px 0px !important;
+      background: black !important;
+      font-size: 1.5em !important;
+      font-weight: 700 !important;
+      color: var(--lcars-orange) !important;
+      text-transform: uppercase !important;
+      text-align: right !important;
+      display: flex !important;
+      align-items: flex-end !important;
+      border-radius: 0 0 0 0 !important;
+    }
+
+# msd-right
+card_mod:
+  style: |
+    ha-card {
+      margin: 0px 15px 23px 18px !important;
+      background: black !important;
+      font-size: 1.5em !important;
+      font-weight: 700 !important;
+      color: var(--lcars-orange) !important;
+      text-transform: uppercase !important;
+      text-align: left !important;
+      display: flex !important;
+      align-items: flex-start !important;
+      flex-direction: column-reverse !important;
+      border-radius: 0 0 0 0 !important;
+    }
+
+
+### New Themes ###
+
+LCARS Red Alert:
+  card-mod-theme: LCARS Red Alert
+  <<: *lcars-colors
+  <<: *base
+  <<: *card-mod-css
+  lcars-ui-primary: var(--lcars-gold)
+  lcars-ui-secondary: var(--lcars-butter)
+  lcars-ui-tertiary: var(--lcars-orange)
+  # Card colors
+  lcars-card-top-color: "#bf1b1b"
+  lcars-card-mid-left-color: "#9d361e"
+  lcars-card-button: "#d66a60"
+  lcars-card-bottom-color: "#91311c"
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
+
+LCARS Lower Decks Var 1:
+  card-mod-theme: LCARS Lower Decks Var 1
+  <<: *lcars-colors
+  <<: *base
+  <<: *card-mod-css
+  lcars-ui-primary: var(--lcars-gold)
+  lcars-ui-secondary: var(--lcars-butter)
+  lcars-ui-tertiary: var(--lcars-orange)
+  # Card colors
+  lcars-card-top-color: var(--lcars-october-sunset)
+  lcars-card-mid-left-color: var(--lcars-c57) # <-- Only difference from standard Lower Decks. Add this or modify existing?
+  lcars-card-button: var(--lcars-harvestgold)
+  lcars-card-bottom-color: var(--lcars-butter)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
+
+LCARS Lower Decks Var 2:
+  card-mod-theme: LCARS Lower Decks Var 2
+  <<: *lcars-colors
+  <<: *base
+  <<: *card-mod-css
+  lcars-ui-primary: var(--lcars-gold)
+  lcars-ui-secondary: var(--lcars-butter)
+  lcars-ui-tertiary: var(--lcars-orange)
+  # Card colors
+  lcars-card-top-color: var(--lcars-gold)
+  lcars-card-mid-left-color: var(--lcars-yellow)
+  lcars-card-button: var(--lcars-yellow)
+  lcars-card-bottom-color: var(--lcars-khaki)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
+
+LCARS Lower Decks Var 3:
+  card-mod-theme: LCARS Lower Decks Var 3
+  <<: *lcars-colors
+  <<: *base
+  <<: *card-mod-css
+  lcars-ui-primary: var(--lcars-gold)
+  lcars-ui-secondary: var(--lcars-butter)
+  lcars-ui-tertiary: var(--lcars-orange)
+  # Card colors
+  lcars-card-top-color: var(--lcars-orange)
+  lcars-card-mid-left-color: var(--lcars-c57)
+  lcars-card-button: var(--lcars-honey)
+  lcars-card-bottom-color: "#fff5c7"
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
+
+
+### New Color Variables ###
+
+# MSD Colors:
+  msd-bright: "#fff1ab"
+  msd-medium: var(--lcars-yellow) ### "#ffcc33"
+  msd-normal: var(--lcars-orange) ### "#ff7700"
+  msd-dark: var(--lcars-october-sunset) ### "#ff4400"
+  msd-ra-bright: "#dca29e"
+  msd-ra-medium: "#e97369"
+  msd-ra-normal: "#ff1100"
+  msd-ra-dark:   "#7f0800"
