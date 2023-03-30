@@ -29,38 +29,83 @@ card_mod:
 ### New Classes: ###
      ## Obviously some or a lot of that code isn't needed. I just kept adding and hitting the !important; button over and over until it was right. ##
      
-# msd-left
-card_mod:
-  style: |
-    ha-card {
-      margin: 0px 15px 23px 0px !important;
-      background: black !important;
-      font-size: 1.5em !important;
-      font-weight: 700 !important;
-      color: var(--lcars-orange) !important;
-      text-transform: uppercase !important;
-      text-align: right !important;
-      display: flex !important;
-      align-items: flex-end !important;
-      border-radius: 0 0 0 0 !important;
-    }
+ha-card.msd-left
+  card_mod:
+    style: |
+      ha-card {
+        margin: 0px 15px 23px 0px !important;
+        background: black !important;
+        font-size: 1.5em !important;
+        font-weight: 700 !important;
+        color: var(--lcars-orange) !important;
+        text-transform: uppercase !important;
+        text-align: right !important;
+        display: flex !important;
+        align-items: flex-end !important;
+        border-radius: 0 0 0 0 !important;
+      }
 
-# msd-right
-card_mod:
-  style: |
-    ha-card {
-      margin: 0px 15px 23px 18px !important;
-      background: black !important;
-      font-size: 1.5em !important;
-      font-weight: 700 !important;
-      color: var(--lcars-orange) !important;
-      text-transform: uppercase !important;
-      text-align: left !important;
-      display: flex !important;
-      align-items: flex-start !important;
-      flex-direction: column-reverse !important;
-      border-radius: 0 0 0 0 !important;
-    }
+ha-card.msd-right
+  card_mod:
+    style: |
+      ha-card {
+        margin: 0px 15px 23px 18px !important;
+        background: black !important;
+        font-size: 1.5em !important;
+        font-weight: 700 !important;
+        color: var(--lcars-orange) !important;
+        text-transform: uppercase !important;
+        text-align: left !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        flex-direction: column-reverse !important;
+        border-radius: 0 0 0 0 !important;
+      }
+
+
+ha-card.section   ### Someone asked for some classes like these in Discord recently ###
+  card_mod:
+    style: |
+      ha-card {
+        background: var(--lcars-card-top-color) !important;
+        text-transform: uppercase;
+        border-radius: 0px 0px 0px 0px !important;
+        border-top: 10px solid var(--lcars-card-mid-left-color) !important;
+        border-left: 35.5px solid var(--lcars-card-mid-left-color) !important;
+      }
+
+ha-card.section-right
+  card_mod:
+    style: |
+      ha-card {
+        background: var(--lcars-card-top-color) !important;
+        text-transform: uppercase;
+        border-radius: 0px 0px 0px 0px !important;
+        border-top: 10px solid var(--lcars-card-mid-left-color) !important;
+        border-right: 35.5px solid var(--lcars-card-mid-left-color) !important;
+      }
+
+ha-card.section-contained
+  card_mod:
+    style: |
+      ha-card {
+        background: var(--lcars-card-top-color) !important;
+        text-transform: uppercase;
+        border-radius: 0px 0px 0px 0px !important;
+        border-top: 10px solid var(--lcars-card-mid-left-color) !important;
+        border-left: 35.5px solid var(--lcars-card-mid-left-color) !important;
+        border-right: 35.5px solid var(--lcars-card-mid-left-color) !important;
+      }
+
+ha-card.section-open
+  card_mod:
+    style: |
+      ha-card {
+        background: var(--lcars-card-top-color) !important;
+        text-transform: uppercase;
+        border-radius: 0px 0px 0px 0px !important;
+        border-top: 10px solid var(--lcars-card-mid-left-color) !important;
+      }
 
 
 ### New Themes ###
