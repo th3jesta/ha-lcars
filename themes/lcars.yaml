@@ -75,7 +75,7 @@
   lcars-c67: "#dd88dd"
   lcars-c68: "#ff0000"
   lcars-c69: "#cc0000"
-  lcars-70: "#ee0000"
+  lcars-c70: "#ee0000"
   lcars-c71: "#dfdfdf"
   lcars-c72: "#f7f7f7"
   lcars-lavender: "#cc88ff"
@@ -161,7 +161,7 @@
   paper-dialog-background-color: rgba(55, 55, 55)
   paper-item-icon-color: var(--lcars-dark-gray)
   more-info-header-background: rgba(25, 25, 25)
-  app-header-background-color: var(--lcars-ui-primary)
+  app-header-background-color: var(--lcars-ui-app-header-background-color, var(--lcars-ui-primary))
   # Custom
   mini-media-player-base-color: var(--lcars-text-gray)
   mini-media-player-icon-color: var(--lcars-text-gray)
@@ -175,7 +175,7 @@
   switch-unchecked-track-color: var(--lcars-text-gray)
   switch-unchecked-button-color: var(--lcars-text-gray)
   header-height: 40px
-  app-header-text-color: black
+  app-header-text-color: var(--lcars-ui-app-header-text-color, black)
   paper-tabs-selection-bar-color: transparent
   mdc-button-outline-color: transparent
   ha-config-card-border-radius: var(--ha-card-border-radius)
@@ -864,6 +864,8 @@
       margin-left: -1px !important;
       border-radius: 20px !important;
     }
+    .header,
+    .toolbar,
     .edit-mode .toolbar {
       background: var(--lcars-ui-primary) !important;
     }
@@ -998,6 +1000,7 @@
       cursor: pointer;
       z-index: 9999;
     }
+    {% if not is_state('input_boolean.disable_theme_gradient', 'on') %}
     .header::before {
       content: linear-gradient(to left, transparent, #EEEEEE 30%, #222222 60%, transparent 90% );
       width: 100%;
@@ -1050,6 +1053,7 @@
       opacity: .8;
       pointer-events: none;
     }
+    {% endif %}
   card-mod-sidebar: &card-mod-sidebar |
     :host {
       content: "";
@@ -1192,6 +1196,7 @@
     paper-icon-item::before {
       opacity: 0 !important;
     }
+    {% if not is_state('input_boolean.disable_theme_gradient', 'on') %}
     paper-listbox::before {
       content: "";
       background: linear-gradient(to bottom left, transparent 10%, #AAAAAADD 30%, #000000AA 60%, transparent 90%);
@@ -1216,6 +1221,7 @@
       opacity: .8;
       pointer-events: none;
     }
+    {% endif %}
 # ===THEMES================================================
 # To create your own theme, copy this LCARS Default section
 # to the bottom of the file and change the lcars-ui-* and
@@ -1367,3 +1373,31 @@ LCARS Zeldaar:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+
+LCARS Modern:
+  card-mod-theme: LCARS Modern
+  # Custom colors
+  lcars-modern-light-gray: "#9996BA"
+  <<: *lcars-colors
+  <<: *base
+  <<: *card-mod-css
+  # Primary colors
+  lcars-ui-primary: var(--lcars-violet-creme)
+  lcars-ui-secondary: var(--lcars-sky)
+  lcars-ui-tertiary: var(--lcars-gold)
+  # Header colors
+  # specifying darker app header colors improves look on HA Apps (iphone/ipad/mac).
+  # One unfortunate side effect is that pages without hui-root can't have heading styled
+  # So, logbook, history, calendar, dev tools etc look a bit weird.
+  # overall the cleaner look on dashboards is worth it in my opinion
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-c72)
+  # Card colors
+  lcars-card-top-color: var(--lcars-gold)
+  lcars-card-mid-left-color: var(--lcars-modern-light-gray)
+  lcars-card-button: var(--lcars-gray)
+  lcars-card-bottom-color: var(--lcars-sky)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-red)
