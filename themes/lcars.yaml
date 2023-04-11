@@ -1053,16 +1053,13 @@
   card-mod-sidebar: &card-mod-sidebar |
     :host {
       content: "";
-      /* Commenting h and w as potential fix for  https://github.com/th3jesta/ha-lcars/issues/22 */
-      /* height: 100px; */
-      /* width: 200px; */
       border-right: 0px !important;
       border-top-left-radius: 80px;
       box-shadow: black 0px -130px 0px 0px;
     }
     paper-listbox {
       margin-top: 68px;
-      margin-bottom: -21px;
+      margin-bottom: -15px;
       border-top: 4px solid black;
       padding-top: 0px !important;
       padding-bottom: 0px !important;
@@ -1165,9 +1162,6 @@
       border-bottom: 4px solid black;
     }
     .profile {
-      border-top: 4px solid black;
-    }
-    .notifications-container {
       border-top: 4px solid black;
     }
     .item-text {
