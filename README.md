@@ -412,19 +412,7 @@ card_mod:
 Custom themes can be created down at the bottom of `lcars.yaml`. Or, search for "===THEMES", which will take you right there. To create your own theme, copy the LCARS Default section to the bottom of the file and change the `lcars-ui-*` and `lcars-card-*` variables to your liking, using the color references at the top of the file, [The LCARS website](https://www.thelcars.com/colors.php), or define your own.
 
 ### Noise and gradients
-If you're not feeling the subtle noise and gradients that this theme added, you can disable them by adding an `input_boolean` entity to home assistant named `disable_theme_gradient` with the value of `on`.
-
-In YAML, this looks like:
-
-```yaml
-input_boolean:
-  disable_theme_gradient:
-    name: Disable Theme Gradient
-    icon: mdi:gradient-horizontal
-    initial: true
-```
-
-You may alternatively implement this through the UI by creating a helper of type `toggle`.
+If you're not feeling the subtle noise and gradients that this theme added, you can disable them by adding a Helper (Settings > Devices & Services > Helpers) of type **Toggle** named **LCARS Texture**. The Entity ID _must_ be **input_boolean.lcars_texture**.
 
 ## Tips and tricks
 _If you have anything to add here, create a PR with your tip and I will review it to add to this list._
