@@ -411,7 +411,7 @@ card_mod:
 ### Make your own color themes
 Custom themes can be created down at the bottom of `lcars.yaml`. Or, search for "===THEMES", which will take you right there. To create your own theme, copy the LCARS Default section to the bottom of the file and change the `lcars-ui-*` and `lcars-card-*` variables to your liking, using the color references at the top of the file, [The LCARS website](https://www.thelcars.com/colors.php), or define your own.
 
-### Noise and gradients
+### Noise and gradients (COMING IN 2.0)
 If you're not feeling the subtle noise and gradients that this theme added, you can disable them by adding a Helper (Settings > Devices & Services > Helpers) of type **Toggle** named **LCARS Texture**. The Entity ID _must_ be **input_boolean.lcars_texture**.
 
 ## Tips and tricks
