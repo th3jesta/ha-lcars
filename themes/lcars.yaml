@@ -165,9 +165,10 @@
   # Custom
   mini-media-player-base-color: var(--lcars-text-gray)
   mini-media-player-icon-color: var(--lcars-text-gray)
-  mdc-theme-surface: var(--lcars-ui-primary)
+  #mdc-theme-surface: var(--lcars-ui-primary)
   sidebar-menu-button-text-color: black
   mdc-typography-button-font-family: var(--lcars-font)
+  mdc-typography-body2-font-family: var(--lcars-font)
   mdc-theme-primary: var(--lcars-text-gray)
   mdc-theme-secondary: var(--lcars-orange)
   round-slider-bar-color: var(--lcars-blue)
@@ -960,6 +961,7 @@
     }
     .header, .toolbar {
       box-shadow: 30px 0px 0px 0px black;
+      --app-header-text-color: black;
     }
     #tabsContainer {
       border-left: solid black 6px;
@@ -1006,7 +1008,7 @@
       cursor: pointer;
       z-index: 9999;
     }
-    {% if not is_state('input_boolean.disable_theme_gradient', 'on') %}
+    {% if not is_state('input_boolean.lcars_texture', 'off') %}
     .header::before {
       content: linear-gradient(to left, transparent, #EEEEEE 30%, #222222 60%, transparent 90% );
       width: 100%;
@@ -1205,7 +1207,7 @@
     paper-icon-item::before {
       opacity: 0 !important;
     }
-    {% if not is_state('input_boolean.disable_theme_gradient', 'on') %}
+    {% if not is_state('input_boolean.lcars_texture', 'off') %}
     paper-listbox::before {
       content: "";
       background: linear-gradient(to bottom left, transparent 10%, #AAAAAADD 30%, #000000AA 60%, transparent 90%);
@@ -1363,8 +1365,7 @@ LCARS Cardassia:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
-# Paste your themes here |
-#                        V
+
 LCARS Zeldaar:
   card-mod-theme: LCARS Zeldaar
   <<: *lcars-colors
@@ -1410,3 +1411,5 @@ LCARS Modern:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-red)
+# Paste your themes here |
+#                        V
