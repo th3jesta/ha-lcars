@@ -23,7 +23,7 @@ Color codes and font choice from https://www.thelcars.com
 Classic, Lower Decks, Romulus, Cardassia, Kronos, Nemesis.
     
 ## Preamble
-I am most definitely not a real web developer, and fumbled my way into the initial release with the help of Stack Exchange and various blogs on CSS techniques. My main goal was and still is to keep this theme 100% CSS with no extra assets required besides the font. I'm positive there are better ways to implement anything and everything I've done thus far, so PRs are welcome. I will continue to improve things as I learn and add more comments to my CSS so that you can know what things do and maybe tell me how it can be better if you know. I have tested this theme with most of the out-of-the-box cards that ship with Home Assistant, and some available in HACS like the Mail and Packages card. However, I'm sure there are some that could still be terribly broken. Simply create an issue and I will address it. 
+I am most definitely not a real web developer, and fumbled my way into the initial release with the help of Stack Exchange and various blogs on CSS techniques. My main goal was and still is to keep this theme 100% CSS/JS with no extra assets required besides the font. I'm positive there are better ways to implement anything and everything I've done thus far, so PRs are welcome. I will continue to improve things as I learn and add more comments to my CSS so that you can know what things do and maybe tell me how it can be better if you know. I have tested this theme with most of the out-of-the-box cards that ship with Home Assistant, and some available in HACS like the Mail and Packages card. However, I'm sure there are some that could still be terribly broken. Simply create an issue and I will address it. 
 
 ## Installation instructions
 ### Prerequisites
@@ -45,7 +45,7 @@ frontend:
 #### II. Add the font and JavaScript file
 
 This theme requires you to add both the `Antonio` font and the included `lcars.js` file as resources to your lovelace configuration. 
-First, copy the lcars.js file out of the theme directory and into your `<home-assistant-directory>/www/community/`; **this will need to be done with every HA-LCARS update.**
+First, copy the `lcars.js` file out of the theme directory and into your `<home-assistant-directory>/www/community/`; **this will need to be done with every HA-LCARS update.**
 Then, edit your lovelace configuration as so:
 ```yaml
 resources:
@@ -57,6 +57,8 @@ resources:
 ```
 ##### -OR-
 Navigate to `Settings` → `Dashboards` → `3-dot menu` → `Resources` and add a new Resource with the above font URL and selected as a stylesheet, and another with the path `/local/community/lcars.js` and selected as javascript.
+
+**Do not add `/local/community/lcars.js` to `extra_module_url`; it will not work there.**
 
 #### III. Set up the clock
 In order for the clock to work, you need to set up the Time & Date integration by adding the following to your configuration.yaml:
