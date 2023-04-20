@@ -78,6 +78,11 @@
   lcars-c70: "#ee0000"
   lcars-c71: "#dfdfdf"
   lcars-c72: "#f7f7f7"
+  lcars-dunkelgrau: "#30374AFF"
+  lcars-mittelgrau: "#656B83FF"
+  lcars-hellgrau: "#9FA5BDFF"
+  lcars-feuerrot: "#E7432AFF"
+  lcars-mango: "#E5960C"
   lcars-lavender: "#cc88ff"
   lcars-error: "#ff2200"
   lcars-text-gray: "#d3d3d3"
@@ -87,6 +92,15 @@
   lcars-cardassia-maroon: "#4f1a23"
   lcars-dark-red: "#360000"
   lcars-font: Antonio
+  # MSD Colors:
+  msd-bright: "#fff1ab"
+  msd-medium: var(--lcars-yellow) ### "#ffcc33"
+  msd-normal: var(--lcars-orange) ### "#ff7700"
+  msd-dark: var(--lcars-october-sunset) ### "#ff4400"
+  msd-ra-bright: "#dca29e"
+  msd-ra-medium: "#e97369"
+  msd-ra-normal: "#ff1100"
+  msd-ra-dark: "#7f0800"
 
 (DO NOT USE/MODIFY)=== Base customizations: &base # Global
   lovelace-background: black
@@ -165,7 +179,7 @@
   # Custom
   mini-media-player-base-color: var(--lcars-text-gray)
   mini-media-player-icon-color: var(--lcars-text-gray)
-  #mdc-theme-surface: var(--lcars-ui-primary)
+  state-lock-unlocked-color: var(--lcars-dark-red)
   sidebar-menu-button-text-color: black
   mdc-typography-button-font-family: var(--lcars-font)
   mdc-typography-body2-font-family: var(--lcars-font)
@@ -266,12 +280,14 @@
         text-transform: uppercase;
         border-radius: 0px !important;
         border-left: 35.5px solid var(--lcars-card-mid-left-color);
+        padding-left: 6px !important;
       }
       ha-card.middle-right {
         background: black !important;
         text-transform: uppercase;
         border-radius: 0px !important;
         border-right: 35.5px solid var(--lcars-card-mid-left-color);
+        padding-right: 6px !important;
       }
       ha-card.middle-blank {
         background: black !important;
@@ -284,6 +300,7 @@
         border-radius: 0px !important;
         border-left: 35.5px solid var(--lcars-card-mid-left-color);
         border-right: 35.5px solid var(--lcars-card-mid-left-color);
+        padding: 0px 6px !important;
       }
       ha-card.middle > ha-gauge, 
       ha-card.middle-right > ha-gauge, 
@@ -343,6 +360,11 @@
         justify-content: center;
         align-items: center;
       }
+      ha-card.footer > img {
+        padding: 0px 0px 6px 6px;
+        border-bottom-left-radius: 20px;
+        background: black;
+      }
       /* Border on the right */
       ha-card.footer-right {
         background: var(--lcars-card-bottom-color) !important;
@@ -351,6 +373,7 @@
         border-bottom: 10px solid var(--lcars-card-bottom-color);
         border-right: 35px solid var(--lcars-card-bottom-color);
         margin-top: unset;
+        padding-right: 6px !important;
       }
       ha-card.footer-right > span {
         background: black;
@@ -378,6 +401,14 @@
       ha-card.footer-right.type-thermostat > .content {
         border-radius: 0px 0px 20px 0px;
       }
+      ha-card.footer.type-picture-entity {
+        border-radius: 0px 0px 20px 0px;
+      }
+      ha-card.footer-right > img {
+        padding: 0px 6px 6px 0px;
+        border-bottom-right-radius: 20px;
+        background: black;
+      }
       /* Border on both sides */
       ha-card.footer-contained {
         background: var(--lcars-card-bottom-color) !important;
@@ -387,6 +418,7 @@
         border-right: 35px solid var(--lcars-card-bottom-color);
         border-left: 35px solid var(--lcars-card-bottom-color);
         margin-top: unset;
+        padding-right: 12px !important;
       }
       ha-card.footer-contained > span {
         background: black;
@@ -417,8 +449,13 @@
         display: flex;
         align-items: flex-end;
       }
-      ha-card.footer-contained.type-thermostat > .csontent {
+      ha-card.footer-contained.type-thermostat > .content {
         border-radius: 0px 0px 20px 20px;
+      }
+      ha-card.footer-contained > img {
+        padding: 0px 6px 6px 6px;
+        border-radius: 0px 0px 20px 20px;
+        background: black;
       }
       /* Border on neither side */
       ha-card.footer-open {
@@ -457,6 +494,7 @@
         display: flex;
         align-items: flex-end;
       }
+      
       /* Fixes across card types */
       ha-card.footer.type-button,
       ha-card.footer-right.type-button,
@@ -791,7 +829,7 @@
         padding: 5px 16px;
         margin-top: 8px;
         background: var(--lcars-ui-primary);
-        border-radius: var(--ha-card-border-radius);
+        border-radius: var(--ha-card-border-radius) !important;
         --primary-text-color: black;
         --mdc-theme-primary: black;
       }
@@ -812,6 +850,7 @@
       }
       .MailImg {
         margin-top: 0;
+        border-radius: 0px !important;
       }
       .details > .title {
         margin-left: 15px;
@@ -829,6 +868,8 @@
       }
       ha-card {
         padding: 0px !important;
+        border-top-right-radius: var(--ha-card-border-radius) !important;
+        border-top-left-radius: var(--ha-card-border-radius) !important;
       }
       ha-card > .name {
         color: black;
@@ -836,15 +877,38 @@
       ha-config-updates {
         color: black;
       }
-      button#button.mdc-button {
-        color: black !important;
-      }
       /* Gauge card fixes */
       ha-gauge {
         --primary-text-color: black;
       }
       ha-card:has(ha-gauge) {
         background: var(--lcars-card-top-color)
+      }
+      /* MSD Styles */
+      ha-card.msd-left {
+        margin: 0px 15px 23px 0px !important;
+        background: black !important;
+        font-size: 1.5em !important;
+        font-weight: 700 !important;
+        color: var(--lcars-orange) !important;
+        text-transform: uppercase !important;
+        text-align: right !important;
+        display: flex !important;
+        align-items: flex-end !important;
+        border-radius: 0 0 0 0 !important;
+      }
+      ha-card.msd-right {
+        margin: 0px 15px 23px 18px !important;
+        background: black !important;
+        font-size: 1.5em !important;
+        font-weight: 700 !important;
+        color: var(--lcars-orange) !important;
+        text-transform: uppercase !important;
+        text-align: left !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        flex-direction: column-reverse !important;
+        border-radius: 0 0 0 0 !important;
       }
   # Toolbar and dashboard modifications
   card-mod-root: &card-mod-root |
@@ -869,6 +933,10 @@
     .toolbar,
     .edit-mode .toolbar {
       background: var(--lcars-ui-primary) !important;
+    }
+    .edit-mode .header {
+      height: 40px;
+      background: transparent;
     }
     paper-icon-button.not-visible {
       display: none;
@@ -1244,10 +1312,18 @@ LCARS Default:
   <<: *base
   <<: *card-mod-css
   # ========================YOUR MODIFICATIONS BEGIN HERE |
-  # Header and sidebar colors                             V
+  # Primary colors                             V
   lcars-ui-primary: var(--lcars-almond-creme)
   lcars-ui-secondary: var(--lcars-african-violet)
   lcars-ui-tertiary: var(--lcars-red)
+  # Header colors
+  # Specifying darker app header colors improves look on HA Apps (iphone/ipad/mac).
+  # One unfortunate side effect is that pages without hui-root can't have heading styled
+  # So, logbook, history, calendar, dev tools etc look a bit weird.
+  # overall the cleaner look on dashboards is worth it in my opinion
+  #                                       - mtezzo
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-c72)
   # Card colors
   lcars-card-top-color: var(--lcars-bluey)
   lcars-card-mid-left-color: var(--lcars-red)
@@ -1263,9 +1339,13 @@ LCARS Classic:
   <<: *lcars-colors
   <<: *base
   <<: *card-mod-css
+  # Primary colors
   lcars-ui-primary: var(--lcars-khaki)
   lcars-ui-secondary: var(--lcars-honey)
   lcars-ui-tertiary: var(--lcars-mars)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-c72)
   # Card colors
   lcars-card-top-color: var(--lcars-violet)
   lcars-card-mid-left-color: var(--lcars-ice)
@@ -1281,9 +1361,13 @@ LCARS Nemesis Blue:
   <<: *lcars-colors
   <<: *base
   <<: *card-mod-css
+  # Primary colors
   lcars-ui-primary: var(--lcars-midnight)
   lcars-ui-secondary: var(--lcars-tangerine)
   lcars-ui-tertiary: var(--lcars-pumpkinshade)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-c72)
   # Card colors
   lcars-card-top-color: var(--lcars-moonshine)
   lcars-card-mid-left-color: var(--lcars-evening)
@@ -1294,14 +1378,18 @@ LCARS Nemesis Blue:
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
 
-LCARS Lower Decks:
-  card-mod-theme: LCARS Lower Decks
+LCARS Lower Decks I:
+  card-mod-theme: LCARS Lower Decks I
   <<: *lcars-colors
   <<: *base
   <<: *card-mod-css
+  # Primary colors
   lcars-ui-primary: var(--lcars-gold)
   lcars-ui-secondary: var(--lcars-butter)
   lcars-ui-tertiary: var(--lcars-orange)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-c72)
   # Card colors
   lcars-card-top-color: var(--lcars-october-sunset)
   lcars-card-mid-left-color: var(--lcars-harvestgold)
@@ -1317,9 +1405,13 @@ LCARS Romulus:
   <<: *lcars-colors
   <<: *base
   <<: *card-mod-css
+  # Primary colors
   lcars-ui-primary: var(--lcars-green)
   lcars-ui-secondary: var(--lcars-african-violet)
   lcars-ui-tertiary: var(--lcars-orange)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-c72)
   # Card colors
   lcars-card-top-color: var(--lcars-cardinal)
   lcars-card-mid-left-color: var(--lcars-african-violet)
@@ -1335,9 +1427,13 @@ LCARS Kronos:
   <<: *lcars-colors
   <<: *base
   <<: *card-mod-css
+  # Primary colors
   lcars-ui-primary: var(--lcars-mars)
   lcars-ui-secondary: var(--lcars-gold)
   lcars-ui-tertiary: var(--lcars-orange)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-c72)
   # Card colors
   lcars-card-top-color: var(--lcars-mars)
   lcars-card-mid-left-color: var(--lcars-october-sunset)
@@ -1353,9 +1449,13 @@ LCARS Cardassia:
   <<: *lcars-colors
   <<: *base
   <<: *card-mod-css
+  # Primary colors
   lcars-ui-primary: var(--lcars-c44)
   lcars-ui-secondary: var(--lcars-c55)
   lcars-ui-tertiary: var(--lcars-cardassia-maroon)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-c72)
   # Card colors
   lcars-card-top-color: var(--lcars-c48)
   lcars-card-mid-left-color: var(--lcars-cardassia-maroon)
@@ -1371,9 +1471,13 @@ LCARS Zeldaar:
   <<: *lcars-colors
   <<: *base
   <<: *card-mod-css
+  # Primary colors
   lcars-ui-primary: var(--lcars-violet-creme)
   lcars-ui-secondary: var(--lcars-honey)
   lcars-ui-tertiary: var(--lcars-roseblush)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-c72)
   # Card colors
   lcars-card-top-color: var(--lcars-bluey)
   lcars-card-mid-left-color: var(--lcars-khaki)
@@ -1396,10 +1500,6 @@ LCARS Modern:
   lcars-ui-secondary: var(--lcars-sky)
   lcars-ui-tertiary: var(--lcars-gold)
   # Header colors
-  # specifying darker app header colors improves look on HA Apps (iphone/ipad/mac).
-  # One unfortunate side effect is that pages without hui-root can't have heading styled
-  # So, logbook, history, calendar, dev tools etc look a bit weird.
-  # overall the cleaner look on dashboards is worth it in my opinion
   lcars-ui-app-header-background-color: "#272727"
   lcars-ui-app-header-text-color: var(--lcars-c72)
   # Card colors
@@ -1411,5 +1511,65 @@ LCARS Modern:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-red)
+
+LCARS Picard I:
+  card-mod-theme: LCARS Picard I
+  # Custom colors
+  lcars-modern-light-gray: "#9996BA"
+  <<: *lcars-colors
+  <<: *base
+  <<: *card-mod-css
+  # Primary colors
+  lcars-ui-primary: var(--lcars-hellgrau)
+  lcars-ui-secondary: var(--lcars-mittelgrau)
+  lcars-ui-tertiary: var(--lcars-feuerrot)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-c72)
+  # Card colors
+  lcars-card-top-color: var(--lcars-mittelgrau)
+  lcars-card-mid-left-color: var(--lcars-mango)
+  lcars-card-button: var(--lcars-feuerrot)
+  lcars-card-bottom-color: var(--lcars-dunkelgrau)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
+
+LCARS Red Alert:
+  card-mod-theme: LCARS Red Alert
+  <<: *lcars-colors
+  <<: *base
+  <<: *card-mod-css
+  lcars-ui-primary: var(--lcars-gold)
+  lcars-ui-secondary: var(--lcars-butter)
+  lcars-ui-tertiary: var(--lcars-orange)
+  # Card colors
+  lcars-card-top-color: "#bf1b1b"
+  lcars-card-mid-left-color: "#9d361e"
+  lcars-card-button: "#d66a60"
+  lcars-card-bottom-color: "#91311c"
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
+
+LCARS Lower Decks II:
+  card-mod-theme: LCARS Lower Decks II
+  <<: *lcars-colors
+  <<: *base
+  <<: *card-mod-css
+  lcars-ui-primary: var(--lcars-gold)
+  lcars-ui-secondary: var(--lcars-butter)
+  lcars-ui-tertiary: var(--lcars-orange)
+  # Card colors
+  lcars-card-top-color: var(--lcars-orange)
+  lcars-card-mid-left-color: var(--lcars-c57)
+  lcars-card-button: var(--lcars-honey)
+  lcars-card-bottom-color: "#fff5c7"
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
 # Paste your themes here |
 #                        V
