@@ -44,20 +44,11 @@ frontend:
 
 #### II. Add the font and JavaScript file
 
-This theme requires you to add both the `Antonio` font and the included `lcars.js` file as resources to your lovelace configuration. 
-First, copy the `lcars.js` file out of the theme directory and into your `<home-assistant-directory>/www/community/`; **this will need to be done with every HA-LCARS update.**
-Then, edit your lovelace configuration as so:
-```yaml
-resources:
-  - url: https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap
-    type: css
-  - url: /local/community/lcars.js
-    type: js
- 
-```
-##### -OR-
-Navigate to `Settings` → `Dashboards` → `3-dot menu` → `Resources` and add a new Resource with the above font URL and selected as a stylesheet, and another with the path `/local/community/lcars.js` and selected as javascript.
+This theme requires you to add both the `Antonio` font and `lcars.js` file as resources to your lovelace configuration. 
+Navigate to `Settings` → `Dashboards` → `3-dot menu` → `Resources` and add a new Resource with the above font URL and selected as a stylesheet, and another with the path `https://cdn.jsdelivr.net/gh/th3jesta/ha-lcars@js-main/lcars.js` and selected as javascript.
 
+##### -OR-
+If you don't trust someone's random JavaScript hosted on a CDN (I get it), you can download the `lcars.js` file directly from GitHub, audit it yourself, and place it in your `<home-assistant-directory>/www/community/`; **this will need to be done with every HA-LCARS update.**
 **Do not add `/local/community/lcars.js` to `extra_module_url`; it will not work there.**
 
 #### III. Set up the clock
