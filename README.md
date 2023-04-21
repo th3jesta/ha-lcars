@@ -45,7 +45,10 @@ frontend:
 #### II. Add the font and JavaScript file
 
 This theme requires you to add both the `Antonio` font and `lcars.js` file as resources to your lovelace configuration. 
-Navigate to `Settings` → `Dashboards` → `3-dot menu` → `Resources` and add a new Resource with the above font URL and selected as a stylesheet, and another with the path `https://cdn.jsdelivr.net/gh/th3jesta/ha-lcars@js-main/lcars.js` and selected as javascript.
+
+Navigate to `Settings` → `Dashboards` → `3-dot menu` → `Resources` and add the following new Resources:
+1. `https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap` and select 'stylesheet'
+2. `https://cdn.jsdelivr.net/gh/th3jesta/ha-lcars@js-main/lcars.js` and select javascript
 
 ##### -OR-
 If you don't trust someone's random JavaScript hosted on a CDN (I get it), you can download the `lcars.js` file directly from GitHub, audit it yourself, and place it in your `<home-assistant-directory>/www/community/`; **this will need to be done with every HA-LCARS update.**
