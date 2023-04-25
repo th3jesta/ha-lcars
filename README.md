@@ -44,20 +44,14 @@ frontend:
 
 #### II. Add the font and JavaScript file
 
-This theme requires you to add both the `Antonio` font and the included `lcars.js` file as resources to your lovelace configuration. 
-First, copy the `lcars.js` file out of the theme directory and into your `<home-assistant-directory>/www/community/`; **this will need to be done with every HA-LCARS update.**
-Then, edit your lovelace configuration as so:
-```yaml
-resources:
-  - url: https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap
-    type: css
-  - url: /local/community/lcars.js
-    type: js
- 
-```
-##### -OR-
-Navigate to `Settings` → `Dashboards` → `3-dot menu` → `Resources` and add a new Resource with the above font URL and selected as a stylesheet, and another with the path `/local/community/lcars.js` and selected as javascript.
+This theme requires you to add both the `Antonio` font and `lcars.js` file as resources to your lovelace configuration. 
 
+Navigate to `Settings` → `Dashboards` → `3-dot menu` → `Resources` and add the following new Resources:
+1. `https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap` and select 'stylesheet'
+2. `https://cdn.jsdelivr.net/gh/th3jesta/ha-lcars@js-main/lcars.js` and select javascript
+
+##### -OR-
+If you don't trust someone's random JavaScript hosted on a CDN (I get it), you can download the `lcars.js` file directly from GitHub, audit it yourself, and place it in your `<home-assistant-directory>/www/community/`; **this will need to be done with every HA-LCARS update.**
 **Do not add `/local/community/lcars.js` to `extra_module_url`; it will not work there.**
 
 #### III. Set up the clock
@@ -78,6 +72,13 @@ sensor:
 
 More info:
 https://www.home-assistant.io/integrations/time_date/
+
+#### IV. Create the entities
+This theme has two controls for sound and textures that require creating simple toggle entities. Create them by going to Settings > Devices & Services > Helpers and create two of type **Toggle** named as below:
+- LCARS Sound (entity id should be `input_boolean.lcars_sound`)
+- LCARS Texture (entity id should be `input_boolean.lcars_texture`)
+
+These entities can be controlled directly from viewing the entity, or you can even add buttons to your dashboard to control them, just like any other entity. 
 
 ### Install the theme
 Install via HACS by searching "LCARS" or download the [latest release](https://github.com/th3jesta/ha-lcars/releases/latest) and extract and drop the lcars folder into your themes folder.
@@ -418,9 +419,6 @@ card_mod:
 
 ### Make your own color themes
 Custom themes can be created down at the bottom of `lcars.yaml`. Or, search for "===THEMES", which will take you right there. To create your own theme, copy the LCARS Default section to the bottom of the file and change the `lcars-ui-*` and `lcars-card-*` variables to your liking, using the color references at the top of the file, [The LCARS website](https://www.thelcars.com/colors.php), or define your own.
-
-### Noise and gradients
-If you're not feeling the subtle noise and gradients that this theme added, you can disable them by adding a Helper (Settings > Devices & Services > Helpers) of type **Toggle** named **LCARS Texture**. The Entity ID _must_ be **input_boolean.lcars_texture**.
 
 ## Tips and tricks
 _If you have anything to add here, create a PR with your tip and I will review it to add to this list._
