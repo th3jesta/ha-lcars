@@ -1,0 +1,12 @@
+name: Purge jsdelivr
+on:
+  push:
+    branches: [ "js-main" ]
+jobs:
+  purge-jsdelivr-cache:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: gacts/purge-jsdelivr-cache@v1
+        with:
+          url: https://cdn.jsdelivr.net/gh/th3jesta/ha-lcars@js-main/lcars.js
+          attempts: 3
