@@ -54,6 +54,10 @@ Navigate to `Settings` → `Dashboards` → `3-dot menu` → `Resources` and add
 If you don't trust someone's random JavaScript hosted on a CDN (I get it), you can download the `lcars.js` file directly from GitHub, audit it yourself, and place it in your `<home-assistant-directory>/www/community/`; **this will need to be done with every HA-LCARS update.**
 **Do not add `/local/community/lcars.js` to `extra_module_url`; it will not work there.**
 
+
+**IF YOU USE CLOUDFLARE IN FRONT OF YOUR SITE:**
+Purge your site cache in CloudFlare (Purge Cache under Quick Actions) anytime you update the local file or if you are using the JSDelivr link and a new version of HA-LCARS is released. This needs to happen whether you are using the JSDelivr link or putting it in your www folder. Unless you tell it not to, CloudFlare caches anything in your site that it can.
+
 #### III. Set up the clock
 In order for the clock to work, you need to set up the Time & Date integration by adding the following to your configuration.yaml:
 ```yaml
