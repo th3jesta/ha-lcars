@@ -177,18 +177,21 @@ type: markdown
 card_mod:
   class: middle-contained
 content: '# middle-contained'
+    
+type: markdown
+card_mod:
+  class: middle-blank
+content: '# middle-blank'
 ```
 
 </td>
 <td>
-<img width="315" alt="image" src="https://user-images.githubusercontent.com/38670315/212480611-018e7de1-71dc-45e6-8f55-48b82b4dd04d.png">
+<img width="405" alt="image" src="https://user-images.githubusercontent.com/38670315/234729314-6bd0371e-5839-4b6e-8996-bb5ce417824f.png">
 </td>
 </tr>
 </table>
 
-3. `middle-blank` - special case for Mushroom Cards (@csanner please confirm)
-
-4. `footer` `footer-right` `footer-contained` `footer-open` - bottom gray bar (in Default theme) meant for the last card in a section
+3. `footer` `footer-right` `footer-contained` `footer-open` - bottom gray bar (in Default theme) meant for the last card in a section
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -225,7 +228,7 @@ content: '# footer-open'
 </tr>
 </table>
 
-5. `button-small` - squared off buttons intended to go in middle sections and horizontal-stacks and grids
+4. `button-small` - squared off buttons intended to go in middle sections and horizontal-stacks and grids
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -248,7 +251,7 @@ card_mod:
 </tr>
 </table>
 
-6. `button-large` - rounded button meant to be standalone outside of `header`/`middle`/`footer` sections
+5. `button-large` - rounded button meant to be standalone outside of `header`/`middle`/`footer` sections
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -277,7 +280,7 @@ card_mod:
 </tr>
 </table>
 
-7. `button-lozenge` `button-lozenge-right` - pill-shaped button; only works on standard button cards; also works on button cards in a horizontal-stacks and grids up to two columns wide; more columns get glitchy and is not advised
+6. `button-lozenge` `button-lozenge-right` - pill-shaped button; only works on standard button cards; also works on button cards in a horizontal-stacks and grids up to two columns wide; more columns get glitchy and is not advised
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -313,7 +316,7 @@ card_mod:
 </tr>
 </table>
 
-8. `button-bullet` `button-bullet-right` - similar to the lozenge, but with a squared-off side; same column restrictions apply
+7. `button-bullet` `button-bullet-right` - similar to the lozenge, but with a squared-off side; same column restrictions apply
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -348,7 +351,7 @@ card_mod:
 </tr>
 </table>
 
-9. `button-capped` `button-capped-right` - similar to the bullet, but capped on the round side; same column restrictions apply
+8. `button-capped` `button-capped-right` - similar to the bullet, but capped on the round side; same column restrictions apply
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -383,7 +386,7 @@ card_mod:
 </tr>
 </table>
 
-10. `bar` `bar-right` `bar-large` `bar-large-right` - standalone header-type bar; only intended for and tested with Markdown cards
+9. `bar` `bar-right` `bar-large` `bar-large-right` - standalone header-type bar; only intended for and tested with Markdown cards
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
