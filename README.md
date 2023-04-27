@@ -186,7 +186,7 @@ content: '# middle-blank'
 
 </td>
 <td>
-<img width="405" alt="image" src="https://user-images.githubusercontent.com/38670315/234729314-6bd0371e-5839-4b6e-8996-bb5ce417824f.png">
+<img width="316" alt="image" src="https://user-images.githubusercontent.com/38670315/234729314-6bd0371e-5839-4b6e-8996-bb5ce417824f.png">
 </td>
 </tr>
 </table>
