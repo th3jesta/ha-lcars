@@ -81,6 +81,7 @@ https://www.home-assistant.io/integrations/time_date/
 This theme has two controls for sound and textures that require creating simple toggle entities. Create them by going to Settings > Devices & Services > Helpers and create two of type **Toggle** named as below:
 - LCARS Sound (entity id should be `input_boolean.lcars_sound`)
 - LCARS Texture (entity id should be `input_boolean.lcars_texture`)
+<img width="644" alt="image" src="https://user-images.githubusercontent.com/38670315/234965572-defd6f0e-8af3-4e16-9cb2-408d665d531a.png">
 
 These entities can be controlled directly from viewing the entity, or you can even add buttons to your dashboard to control them, just like any other entity. 
 
