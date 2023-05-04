@@ -465,6 +465,32 @@ cards:
 * You can create a blank header or footer by creating a Markdown card and putting `## &nbsp;` in the Content field, and change the size by modifying the number of `#`. It looks like this:
 ![image](https://user-images.githubusercontent.com/38670315/210792537-f25c740d-1ad3-4ac7-8a31-59ad04cf38fb.png)
 
+* If you are only applying the theme to a dashboard or a card, the font won't render on the cards. You can brute-force loading the font on a per-card basis by adding the following style to every card:
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+type: markdown
+content: '# Card-level theming'
+theme: LCARS Default
+card_mod:
+  class: header
+  style: |
+    ha-card > * {
+      font-family: Antonio
+    }
+```
+
+</td>
+<td>
+<img width="308" alt="image" src="https://user-images.githubusercontent.com/38670315/236198970-0c06be57-d331-41d8-b692-95741b68bf5e.png">
+</td>
+</tr>
+</table>
 
 ## Known issues
 * Font and sidebar and header CSS styles only load when a dashboard has been loaded first. If you navigate directly to a non-dashboard page without loading a dashboard first, things will look pretty awful, though still functional. Simply load a dashboard and hit the back button. This is a quirk of the [card-mod](https://github.com/thomasloven/lovelace-card-mod) addon on which this theme relies, so it's outside my ability to fix.
