@@ -97,7 +97,8 @@ Install via HACS by searching "LCARS" or download the [latest release](https://g
 #### Option 2: Setting the default `backend-selected` theme
 In order to have this theme set automatically as the backend selected default, add the following automation to your Home Assistant:
 ```yaml
-- alias: Set Default Theme
+- id: 'lcars_default' # Any string really see https://www.home-assistant.io/docs/automation/yaml/#id
+  alias: Set Default Theme
   description: ''
   trigger:
   - event: start
