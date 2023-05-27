@@ -492,6 +492,8 @@ card_mod:
 </tr>
 </table>
 
+* If you want to host the font yourself, such as running a Home Assistant instance in a car or on an air-gapped network, you can learn how to download the font and install it from issue https://github.com/th3jesta/ha-lcars/issues/69.
+
 ## Known issues
 * Font and sidebar and header CSS styles only load when a dashboard has been loaded first. If you navigate directly to a non-dashboard page without loading a dashboard first, things will look pretty awful, though still functional. Simply load a dashboard and hit the back button. This is a quirk of the [card-mod](https://github.com/thomasloven/lovelace-card-mod) addon on which this theme relies, so it's outside my ability to fix.
 * card-mod classes do not work with Vertical Stack and Horizontal Stacks cards (though they do work with the cards they contain). This is a quirk of the [card-mod](https://github.com/thomasloven/lovelace-card-mod) addon on which this theme relies, so it's outside my ability to fix. There is, however, a hacky workaround I have identified though have opted to not include at this time. Please submit a feature request if you would like to see this included.
@@ -505,6 +507,7 @@ card_mod:
 - Thanks to @Anthrazz for the bar classes!
 - Thanks to @mtezzo for the entity toggle for textures/gradients, and the Modern theme (my new favorite)!
 - Thanks to @CmdreIsaacHull for various fixes, improvements, themes, and new classes!
+- Thanks to @askpatrickw for figuring out how to self-host the font!
 
 ## Links
 **Discord:** https://discord.gg/gGxud6Y6WJ
