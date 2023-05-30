@@ -581,7 +581,8 @@
       ha-card.button-small {
         display: flex;
         text-transform: uppercase;
-        color: black;
+        --primary-text-color: black !important;
+        --secondary-text-color: black !important;
         border-radius: 0px !important;
         position: relative;
         flex-direction: column;
@@ -605,8 +606,6 @@
         margin-top: -24px;
         position: relative;
       }
-      ha-card.button-small > ha-state-icon { /*wat*/
-      }
       ha-card.button-small > span {
         box-sizing: border-box;
         text-align: right;
@@ -628,12 +627,14 @@
       /* Large button class and fixes for specific cards */
       ha-card.button-large {
         text-transform: uppercase;
-        color: black;
+        --primary-text-color: black !important;
+        --secondary-text-color: black !important;
       }
       /* Lozenge, bullet, and capped button classes and fixes for specific cards */
       ha-card.button-lozenge {
         text-transform: uppercase;
-        color: black;
+        --primary-text-color: black !important;
+        --secondary-text-color: black !important;
         min-height: 60px;
         display: flex;
         align-items: flex-end;
@@ -641,7 +642,8 @@
       }
       ha-card.button-bullet {
         text-transform: uppercase;
-        color: black;
+        --primary-text-color: black !important;
+        --secondary-text-color: black !important;
         min-height: 60px;
         border-radius: 0px var(--ha-card-border-radius) var(--ha-card-border-radius) 0px !important;
         display: flex;
@@ -650,7 +652,8 @@
       }
       ha-card.button-capped {
         text-transform: uppercase;
-        color: black;
+        --primary-text-color: black !important;
+        --secondary-text-color: black !important;
         min-height: 60px;
         border-radius: var(--ha-card-border-radius) 0px 0px var(--ha-card-border-radius) !important;
         display: flex;
@@ -702,7 +705,8 @@
       }
       ha-card.button-lozenge-right {
         text-transform: uppercase;
-        color: black;
+        --primary-text-color: black !important;
+        --secondary-text-color: black !important;
         min-height: 60px;
         display: flex;
         align-items: flex-start;
@@ -710,7 +714,8 @@
       }
       ha-card.button-bullet-right {
         text-transform: uppercase;
-        color: black;
+        --primary-text-color: black !important;
+        --secondary-text-color: black !important;
         min-height: 60px;
         border-radius: var(--ha-card-border-radius) 0px 0px var(--ha-card-border-radius) !important;
         display: flex;
@@ -719,7 +724,8 @@
       }
       ha-card.button-capped-right {
         text-transform: uppercase;
-        color: black;
+        --primary-text-color: black !important;
+        --secondary-text-color: black !important;
         min-height: 60px;
         border-radius: 0px var(--ha-card-border-radius) var(--ha-card-border-radius) 0px !important;
         display: flex;
@@ -944,82 +950,23 @@
         --chip-border-radius: 40px;
         text-transform: uppercase;
       }
-      ha-card.type-custom-mushroom-climate-card > * {
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
-        text-transform: uppercase;
-      }
-      ha-card.type-custom-mushroom-entity-card > * {
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
-        text-transform: uppercase;
-      }
-      ha-card.type-custom-mushroom-alarm-control-panel-card > * {
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
-      }
-      ha-card.type-custom-mushroom-cover-card > * {
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
-      }
-      ha-card.type-custom-mushroom-fan-card > * {
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
-      }
-      ha-card.type-custom-mushroom-humidifier-card > * {
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
-      }
-      ha-card.type-custom-mushroom-light-card > * {
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
-      }
-      ha-card.type-custom-mushroom-media-player-card > * {
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
-      }
-      ha-card.type-custom-mushroom-person-card > * {
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
-      }
-      ha-card.type-custom-mushroom-template-card > * {
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
-      }
-      ha-card.type-custom-mushroom-update-card > * {
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
-      }
-      ha-card.type-custom-mushroom-vacuum-card > * {
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
-      }
       /* Mushroom Select Card */
       ha-card.type-custom-mushroom-select-card > * {
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
         --mdc-shape-small: 0px;
       }
       ha-card.type-custom-mushroom-select-card {
         border-radius: 22px !important;
       }
       /* Mushroom Lock Card */
-      ha-card.type-custom-mushroom-lock-card > * {
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
-      }
       ha-card.type-custom-mushroom-lock-card {
         border-radius: 22px !important;
       }
       /* Mushroom Number Card */
       ha-card.type-custom-mushroom-number-card > * {
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
-        text-transform: uppercase;
         --control-border-radius: 0px !important;
       }
       ha-card.type-custom-mushroom-number-card {
-        border-radius: 0px !important;
+        border-radius: 22px !important;
       }
 
   # Toolbar and dashboard modifications
