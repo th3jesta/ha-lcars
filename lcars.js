@@ -15,19 +15,19 @@ class SidebarCustomStyle {
   }
 
   run = () => {
-    if (document.querySelector('home-assistant').hass.themes['theme'].includes("LCARS")) {
-      setTimeout(() => {
-        try {
-          this.refs.drawer.querySelector("aside").style.borderRightStyle = "unset"
-        } catch(error) { }
-      }, 1)
-    }
+    setTimeout(() => {
+      try {
+        this.refs.drawer.querySelector("aside").style.borderRightStyle = "unset"
+      } catch(error) { }
+    }, 1)
   }
 }
 
 Promise.resolve(customElements.whenDefined('ha-panel-lovelace')).then(() => {
-  console.info(`%c  LCARS - CONDITIONALLY REMOVING SIDEBAR BORDER  `, "color: #ff9800; font-weight: bold; background-color: black")
-  window.customStyle = new SidebarCustomStyle()
+  if (document.querySelector('home-assistant').hass.themes['theme'].includes("LCARS")) {
+    console.info(`%c  LCARS - REMOVING SIDEBAR BORDER  `, "color: #ff9800; font-weight: bold; background-color: black")
+    window.customStyle = new SidebarCustomStyle()
+  }
 })
 
 class SidebarSound {
@@ -51,7 +51,7 @@ class SidebarSound {
 
   runMenu = () => {
     this.refsMenu.sidebar.addEventListener('click', e => {
-      if (document.querySelector('home-assistant').hass.states['input_boolean.lcars_sound'].state == 'on' && document.querySelector('home-assistant').hass.themes['theme'].includes("LCARS")) {
+      if (document.querySelector('home-assistant').hass.states['input_boolean.lcars_sound'].state == 'on') {
         if (e.target.matches("ha-icon-button")) {
           menuExpand.play()
         } else if (e.target.matches("PAPER-ICON-ITEM") ||
@@ -92,7 +92,7 @@ class DashSound {
 
   runButton = () => {
     this.refsButton.resolver.addEventListener('click', e => {
-      if (e.target.matches("HA-PANEL-LOVELACE") && document.querySelector('home-assistant').hass.states['input_boolean.lcars_sound'].state == 'on' && document.querySelector('home-assistant').hass.themes['theme'].includes("LCARS")) {
+      if (e.target.matches("HA-PANEL-LOVELACE") && document.querySelector('home-assistant').hass.states['input_boolean.lcars_sound'].state == 'on' ) {
         btnBeep.play()
       }
     })
@@ -103,8 +103,10 @@ Promise.all([
   customElements.whenDefined('ha-panel-lovelace'),
   customElements.whenDefined('hui-masonry-view')
 ]).then(() => {
-  console.info(`%c  LCARS - CONDITIONALLY ADDING AUDIO  `, "color: #ff9800; font-weight: bold; background-color: black")
-  const sounds = [new SidebarSound(), new DashSound()]
+  if (document.querySelector('home-assistant').hass.themes['theme'].includes("LCARS")) {
+    console.info(`%c  LCARS - ADDING AUDIO  `, "color: #ff9800; font-weight: bold; background-color: black")
+    const sounds = [new SidebarSound(), new DashSound()]
+  }
 })
 
 
