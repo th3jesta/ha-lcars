@@ -1001,7 +1001,7 @@
         --mdc-shape-small: 0px;
       }
       ha-card.type-custom-mushroom-select-card {
-        border-radius: 0px !important;
+        border-radius: 22px !important;
       }
       /* Mushroom Lock Card */
       ha-card.type-custom-mushroom-lock-card > * {
