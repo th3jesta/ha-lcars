@@ -54,6 +54,10 @@ Navigate to `Settings` → `Dashboards` → `3-dot menu` → `Resources` and add
 If you don't trust someone's random JavaScript hosted on a CDN (I get it), you can download the `lcars.js` file directly from GitHub, audit it yourself, and place it in your `<home-assistant-directory>/www/community/`; **this will need to be done with every HA-LCARS update.**
 **Do not add `/local/community/lcars.js` to `extra_module_url`; it will not work there.**
 
+
+**IF YOU USE CLOUDFLARE IN FRONT OF YOUR SITE:**
+Purge your site cache in CloudFlare (Purge Cache under Quick Actions) anytime you update the local file or if you are using the JSDelivr link and a new version of HA-LCARS is released. This needs to happen whether you are using the JSDelivr link or putting it in your www folder. Unless you tell it not to, CloudFlare caches anything in your site that it can.
+
 #### III. Set up the clock
 In order for the clock to work, you need to set up the Time & Date integration by adding the following to your configuration.yaml:
 ```yaml
@@ -77,6 +81,7 @@ https://www.home-assistant.io/integrations/time_date/
 This theme has two controls for sound and textures that require creating simple toggle entities. Create them by going to Settings > Devices & Services > Helpers and create two of type **Toggle** named as below:
 - LCARS Sound (entity id should be `input_boolean.lcars_sound`)
 - LCARS Texture (entity id should be `input_boolean.lcars_texture`)
+<img width="644" alt="image" src="https://user-images.githubusercontent.com/38670315/234965572-defd6f0e-8af3-4e16-9cb2-408d665d531a.png">
 
 These entities can be controlled directly from viewing the entity, or you can even add buttons to your dashboard to control them, just like any other entity. 
 
@@ -173,18 +178,21 @@ type: markdown
 card_mod:
   class: middle-contained
 content: '# middle-contained'
+    
+type: markdown
+card_mod:
+  class: middle-blank
+content: '# middle-blank'
 ```
 
 </td>
 <td>
-<img width="315" alt="image" src="https://user-images.githubusercontent.com/38670315/212480611-018e7de1-71dc-45e6-8f55-48b82b4dd04d.png">
+<img width="316" alt="image" src="https://user-images.githubusercontent.com/38670315/234729314-6bd0371e-5839-4b6e-8996-bb5ce417824f.png">
 </td>
 </tr>
 </table>
 
-3. `middle-blank` - special case for Mushroom Cards (@csanner please confirm)
-
-4. `footer` `footer-right` `footer-contained` `footer-open` - bottom gray bar (in Default theme) meant for the last card in a section
+3. `footer` `footer-right` `footer-contained` `footer-open` - bottom gray bar (in Default theme) meant for the last card in a section
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -221,7 +229,7 @@ content: '# footer-open'
 </tr>
 </table>
 
-5. `button-small` - squared off buttons intended to go in middle sections and horizontal-stacks and grids
+4. `button-small` - squared off buttons intended to go in middle sections and horizontal-stacks and grids
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -244,7 +252,7 @@ card_mod:
 </tr>
 </table>
 
-6. `button-large` - rounded button meant to be standalone outside of `header`/`middle`/`footer` sections
+5. `button-large` - rounded button meant to be standalone outside of `header`/`middle`/`footer` sections
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -273,7 +281,7 @@ card_mod:
 </tr>
 </table>
 
-7. `button-lozenge` `button-lozenge-right` - pill-shaped button; only works on standard button cards; also works on button cards in a horizontal-stacks and grids up to two columns wide; more columns get glitchy and is not advised
+6. `button-lozenge` `button-lozenge-right` - pill-shaped button; only works on standard button cards; also works on button cards in a horizontal-stacks and grids up to two columns wide; more columns get glitchy and is not advised
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -309,7 +317,7 @@ card_mod:
 </tr>
 </table>
 
-8. `button-bullet` `button-bullet-right` - similar to the lozenge, but with a squared-off side; same column restrictions apply
+7. `button-bullet` `button-bullet-right` - similar to the lozenge, but with a squared-off side; same column restrictions apply
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -344,7 +352,7 @@ card_mod:
 </tr>
 </table>
 
-9. `button-capped` `button-capped-right` - similar to the bullet, but capped on the round side; same column restrictions apply
+8. `button-capped` `button-capped-right` - similar to the bullet, but capped on the round side; same column restrictions apply
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -379,7 +387,7 @@ card_mod:
 </tr>
 </table>
 
-10. `bar` `bar-right` `bar-large` `bar-large-right` - standalone header-type bar; only intended for and tested with Markdown cards
+9. `bar` `bar-right` `bar-large` `bar-large-right` - standalone header-type bar; only intended for and tested with Markdown cards
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -457,6 +465,34 @@ cards:
 * You can create a blank header or footer by creating a Markdown card and putting `## &nbsp;` in the Content field, and change the size by modifying the number of `#`. It looks like this:
 ![image](https://user-images.githubusercontent.com/38670315/210792537-f25c740d-1ad3-4ac7-8a31-59ad04cf38fb.png)
 
+* If you are only applying the theme to a dashboard or a card, the font won't render on the cards. You can brute-force loading the font on a per-card basis by adding the following style to every card:
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+type: markdown
+content: '# Card-level theming'
+theme: LCARS Default
+card_mod:
+  class: header
+  style: |
+    ha-card > * {
+      font-family: Antonio
+    }
+```
+
+</td>
+<td>
+<img width="308" alt="image" src="https://user-images.githubusercontent.com/38670315/236198970-0c06be57-d331-41d8-b692-95741b68bf5e.png">
+</td>
+</tr>
+</table>
+
+* If you want to host the font yourself, such as running a Home Assistant instance in a car or on an air-gapped network, you can learn how to download the font and install it from issue https://github.com/th3jesta/ha-lcars/issues/69.
 
 ## Known issues
 * Font and sidebar and header CSS styles only load when a dashboard has been loaded first. If you navigate directly to a non-dashboard page without loading a dashboard first, things will look pretty awful, though still functional. Simply load a dashboard and hit the back button. This is a quirk of the [card-mod](https://github.com/thomasloven/lovelace-card-mod) addon on which this theme relies, so it's outside my ability to fix.
@@ -471,6 +507,7 @@ cards:
 - Thanks to @Anthrazz for the bar classes!
 - Thanks to @mtezzo for the entity toggle for textures/gradients, and the Modern theme (my new favorite)!
 - Thanks to @CmdreIsaacHull for various fixes, improvements, themes, and new classes!
+- Thanks to @askpatrickw for figuring out how to self-host the font!
 
 ## Links
 **Discord:** https://discord.gg/gGxud6Y6WJ
