@@ -65,13 +65,6 @@ sensor:
   - platform: time_date
     display_options:
       - 'time'
-      - 'date'
-      - 'date_time'
-      - 'date_time_utc'
-      - 'date_time_iso'
-      - 'time_date'
-      - 'time_utc'
-      - 'beat'
 ```
 
 More info:
