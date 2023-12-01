@@ -494,6 +494,62 @@ card_mod:
 
 * If you want to host the font yourself, such as running a Home Assistant instance in a car or on an air-gapped network, you can learn how to download the font and install it from issue https://github.com/th3jesta/ha-lcars/issues/69.
 
+* You can switch the alignment of text in a card, such as the markdown card for `header-right`, by adding custom CSS per card like so:
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+card_mod:
+  class: header-right
+  style: |
+    ha-card {
+      text-align: right;
+    }
+```
+
+</td>
+<td>
+<img width="308" alt="image" src="https://github.com/th3jesta/ha-lcars/assets/38670315/41c38e14-5041-4355-8581-07c82c96ceca">
+</td>
+</tr>
+</table>
+
+* You can set a button's background color to the color of the light by adding custom CSS per card like so:
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+card_mod:
+  class: button-capped-right
+  style: |
+    ha-card {
+      {% if is_state('light.terasa', 'on') %}
+        {% set rgb_color = state_attr('light.terasa', 'rgb_color') %}
+        background-color: rgba({{ rgb_color[0] }}, {{ rgb_color[1] }}, {{ rgb_color[2] }}, 1);
+        color: black;  /* or any other logic for text color */
+      {% else %}
+        background-color: #dd4444;
+        color: black;
+      {% endif %}
+    }
+```
+
+</td>
+<td>
+<img width="308" alt="image" src="https://github.com/th3jesta/ha-lcars/assets/38670315/8417b463-0d0b-447d-8a7b-374d47f1e251">
+
+</td>
+</tr>
+</table>
+
 ## Known issues
 * Font and sidebar and header CSS styles only load when a dashboard has been loaded first. If you navigate directly to a non-dashboard page without loading a dashboard first, things will look pretty awful, though still functional. Simply load a dashboard and hit the back button. This is a quirk of the [card-mod](https://github.com/thomasloven/lovelace-card-mod) addon on which this theme relies, so it's outside my ability to fix.
 * card-mod classes do not work with Vertical Stack and Horizontal Stacks cards (though they do work with the cards they contain). This is a quirk of the [card-mod](https://github.com/thomasloven/lovelace-card-mod) addon on which this theme relies, so it's outside my ability to fix. There is, however, a hacky workaround I have identified though have opted to not include at this time. Please submit a feature request if you would like to see this included.
