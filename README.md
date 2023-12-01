@@ -564,6 +564,9 @@ card_mod:
 - Thanks to @mtezzo for the entity toggle for textures/gradients, and the Modern theme (my new favorite)!
 - Thanks to @CmdreIsaacHull for various fixes, improvements, themes, and new classes!
 - Thanks to @askpatrickw for figuring out how to self-host the font!
+- Thanks to @z3r0l1nk for light color-matching button trick!
+- Thanks to @smugleafdev for the right-justified text tip!
+- Thanks to @Routhinator (via Discord) for the right-footer fix!
 
 ## Links
 **Discord:** https://discord.gg/gGxud6Y6WJ
