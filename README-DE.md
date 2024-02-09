@@ -74,7 +74,6 @@ sensor:
       - 'date_time_iso'
       - 'time_date'
       - 'time_utc'
-      - 'beat'
 ```
 
 Weitere Informationen:
