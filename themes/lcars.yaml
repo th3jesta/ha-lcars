@@ -675,7 +675,7 @@
         text-transform: uppercase;
         --primary-text-color: black !important;
         --secondary-text-color: black !important;
-        min-height: 60px;
+        min-height: 50px;
         display: flex;
         align-items: flex-end;
         flex-direction: column-reverse;
@@ -709,6 +709,7 @@
         left: 0;
         width: 35px;
         height: 100% !important;
+        max-height: 100% !important;
         border-right: black solid 6px;
         position: absolute;
         justify-content: center;
@@ -781,6 +782,7 @@
         right: 0;
         width: 35px;
         height: 100% !important;
+        max-height: 100% !important;
         border-left: black solid 6px;
         position: absolute;
         justify-content: center;
@@ -935,7 +937,15 @@
         border-top-right-radius: var(--ha-card-border-radius) !important;
         border-top-left-radius: var(--ha-card-border-radius) !important;
         --mdc-theme-primary: var(--lcars-ui-secondary) !important;
-        --state-color: var(--lcars-ui-tertiary) !important;
+        {% if has_value(config.entity | string) %}
+            {% if is_state(config.entity | string, 'off') %}
+                --state-color: var(--lcars-dark-gray);
+            {% else %}
+                --state-color: var(--lcars-gray);
+            {% endif %}
+        {% else %}
+            --state-color: var(--lcars-dark-gray);
+        {% endif %}
       }
       ha-card > .name {
         color: black;
@@ -1064,20 +1074,21 @@
       /* Code for the clock */
       .toolbar::after {
         content: "{{states('sensor.time')}}";
-        margin-left: -2px;
-        margin-right: 30px;
         color: var(--text-primary-color);
         visibility: visible;
-        position: absolute;
         font-size: 42px;
         right: 0px;
         top: 0px;
+        margin-left: 0px;
+        margin-right: -12px;
         background: black;
         vertical-align: middle;
         height: var(--header-height);
         line-height: .8;
         border-right: 5px solid black;
         border-left: 5px solid black;
+        text-transform: uppercase;
+        white-space: nowrap;
       }
       @media screen and (max-width: 870px) {
         .toolbar::after {
@@ -1350,8 +1361,8 @@
     .item-text {
       text-align: right;
       margin-left: auto;
-      margin-right: -12px;
       margin-bottom: -23px;
+      margin-right: 2px;
       text-transform: uppercase;
     }
     .profile > paper-icon-item > .item-text {
