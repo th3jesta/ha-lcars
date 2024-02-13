@@ -937,15 +937,6 @@
         border-top-right-radius: var(--ha-card-border-radius) !important;
         border-top-left-radius: var(--ha-card-border-radius) !important;
         --mdc-theme-primary: var(--lcars-ui-secondary) !important;
-        {% if has_value(config.entity | string) %}
-            {% if is_state(config.entity | string, 'off') %}
-                --state-color: var(--lcars-dark-gray);
-            {% else %}
-                --state-color: var(--lcars-gray);
-            {% endif %}
-        {% else %}
-            --state-color: var(--lcars-dark-gray);
-        {% endif %}
       }
       ha-card > .name {
         color: black;
