@@ -665,44 +665,50 @@
         bottom: 0;
       }
       /* Large button class and fixes for specific cards */
-      ha-card.button-large {
+      ha-card.button-large,
+      ha-card.button-lozenge,
+      ha-card.button-bullet,
+      ha-card.button-capped {
         text-transform: uppercase;
         --primary-text-color: black !important;
         --secondary-text-color: black !important;
       }
       /* Lozenge, bullet, and capped button classes and fixes for specific cards */
-      ha-card.button-lozenge {
-        text-transform: uppercase;
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
-        min-height: 50px;
+      ha-card.button-lozenge,
+      ha-card.button-bullet,
+      ha-card.button-capped {
         display: flex;
         align-items: flex-end;
         flex-direction: column-reverse;
+      }
+      ha-card.button-lozenge,
+      ha-card.button-bullet,
+      ha-card.button-capped {
+        min-height: 45px;
       }
       ha-card.button-bullet {
-        text-transform: uppercase;
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
-        min-height: 60px;
         border-radius: 0px var(--ha-card-border-radius) var(--ha-card-border-radius) 0px !important;
-        display: flex;
-        align-items: flex-end;
-        flex-direction: column-reverse;
       }
       ha-card.button-capped {
-        text-transform: uppercase;
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
-        min-height: 60px;
         border-radius: var(--ha-card-border-radius) 0px 0px var(--ha-card-border-radius) !important;
+      }
+      /* button-bar */
+      ha-card.button-bar {
+        background-color: var(--lcars-card-top-color);
+        color: var(--text-primary-color);
+        line-height: initial;
+        font-size: 2em;
+        font-weight: bold;
+        padding-left: 35.5px !important;
         display: flex;
-        align-items: flex-end;
-        flex-direction: column-reverse;
+        align-items: center;
+        flex-direction: row ;
+        justify-content: space-between;
       }
       ha-card.button-lozenge > ha-state-icon, 
       ha-card.button-bullet > ha-state-icon,
-      ha-card.button-capped > ha-state-icon {
+      ha-card.button-capped > ha-state-icon,
+      ha-card.button-bar > ha-state-icon {
         --mdc-icon-size: unset;
         display: flex;
         align-items: center;
@@ -714,6 +720,9 @@
         position: absolute;
         justify-content: center;
         background: var(--lcars-card-top-color);
+      }
+      ha-card.button-bar > ha-state-icon {
+        align-items: flex-end;
       }
       ha-card.button-lozenge > span, 
       ha-card.button-bullet > span {
@@ -738,40 +747,40 @@
         padding-bottom: 6px;
         position: absolute;
       }
+      ha-card.button-bar > span {
+        width: fit-content;
+        height: 100%;
+        text-transform: uppercase;
+        background-color: black;
+        padding: 2px 8px 2px 9px !important;
+        margin: -8px 8px -3px -1px;
+      }
       ha-card.button-lozenge > span.state, 
       ha-card.button-bullet > span.state,
       ha-card.button-capped > span.state {
         padding-bottom: 45px;
         color: black;
       }
-      ha-card.button-lozenge-right {
+      ha-card.button-bar > span.state {
+        background-color: unset;
+        color: black;
+      }
+      ha-card.button-lozenge-right,
+      ha-card.button-bullet-right,
+      ha-card.button-capped-right {
         text-transform: uppercase;
         --primary-text-color: black !important;
         --secondary-text-color: black !important;
-        min-height: 60px;
+        min-height: 45px;
         display: flex;
         align-items: flex-start;
         flex-direction: column-reverse;
       }
       ha-card.button-bullet-right {
-        text-transform: uppercase;
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
-        min-height: 60px;
         border-radius: var(--ha-card-border-radius) 0px 0px var(--ha-card-border-radius) !important;
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column-reverse;
       }
       ha-card.button-capped-right {
-        text-transform: uppercase;
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
-        min-height: 60px;
         border-radius: 0px var(--ha-card-border-radius) var(--ha-card-border-radius) 0px !important;
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column-reverse;
       }
       ha-card.button-lozenge-right > ha-state-icon,
       ha-card.button-bullet-right > ha-state-icon,
