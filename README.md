@@ -386,7 +386,78 @@ card_mod:
 </tr>
 </table>
 
-9. `bar` `bar-right` `bar-large` `bar-large-right` - standalone header-type bar; only intended for and tested with Markdown cards
+9. `button-bar` - similar to the bar (see below), but header-type button; same column restrictions apply
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+
+show_name: true
+show_icon: false
+type: button
+tap_action:
+  action: navigate
+  navigation_path: /dashboard
+show_state: false
+icon: mdi:backburger
+name: maintenance
+entity: lock.entree_porte_serrure
+card_mod:
+  class: button-bar
+
+show_name: true
+show_icon: true
+type: button
+tap_action:
+  action: navigate
+  navigation_path: /dashboard
+show_state: false
+icon: mdi:backburger
+name: maintenance
+card_mod:
+  class: button-bar
+
+show_name: true
+show_icon: true
+type: button
+tap_action:
+  action: navigate
+  navigation_path: /dashboard
+show_state: false
+icon: mdi:backburger
+name: maintenance
+entity: lock.entree_porte_serrure
+card_mod:
+  class: button-bar
+show_name: true
+show_icon: true
+type: button
+tap_action:
+  action: navigate
+  navigation_path: /dashboard
+show_state: true
+icon: mdi:backburger
+name: maintenance
+icon_height: 20px
+entity: lock.entree_porte_serrure
+card_mod:
+  class: button-bar
+
+
+```
+
+</td>
+<td>
+<img width="340" alt="image" src="https://github.com/bobzer/ha-lcars/assets/2830684/74d84463-57ce-4238-8050-1dfdbe76600f">
+</td>
+</tr>
+</table>
+
+10. `bar` `bar-right` `bar-large` `bar-large-right` - standalone header-type bar; only intended for and tested with Markdown cards
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
