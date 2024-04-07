@@ -241,6 +241,9 @@
         border-radius: 0px 20px 0px 0px;
         padding-top: 0px !important;
         padding-bottom: 0 !important;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
       }
       ha-card.header-right.type-thermostat > .content {
         border-radius: 0px 0px 20px 0px;
@@ -259,6 +262,9 @@
         border-radius: 20px 20px 0px 0px;
         padding-top: 0px !important;
         padding-bottom: 0 !important;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
       }
       ha-card.header-right.type-thermostat > .content {
         border-radius: 0px 0px 20px 20px;
@@ -275,6 +281,9 @@
         border-radius: 0px 0px 0px 0px;
         padding-top: 0px !important;
         padding-bottom: 0 !important;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
       }
 
       /* Middle classes and fixes for specific cards */
