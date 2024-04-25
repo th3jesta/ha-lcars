@@ -675,7 +675,7 @@
         text-transform: uppercase;
         --primary-text-color: black !important;
         --secondary-text-color: black !important;
-        min-height: 50px;
+        min-height: 60px;
         display: flex;
         align-items: flex-end;
         flex-direction: column-reverse;
