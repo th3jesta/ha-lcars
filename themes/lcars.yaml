@@ -101,7 +101,6 @@
   msd-ra-medium: "#e97369"
   msd-ra-normal: "#ff1100"
   msd-ra-dark: "#7f0800"
-  lcars-sound: "true"
 
 (DO NOT USE/MODIFY)=== Base customizations: &base # Global
   lovelace-background: black
@@ -378,13 +377,22 @@
         background: black;
         border-radius: 0px 0px 0px 20px;
       }
+      ha-card.footer.type-thermostat {
+        border-bottom: 0px !important;
+      }
       ha-card.footer.type-thermostat > p {
         background: black;
       }
-      ha-card.footer > ha-state-control-climate-temperature {
-        background: black !important;
+      ha-card.footer.type-thermostat > .container {
+        background: black;
+        padding: unset;
+        width: 100%;
         border-radius: 0px 0px 0px 20px;
+        margin-bottom: 12px;
         max-width: unset;
+      }
+      ha-card.footer.type-thermostat > hui-card-features {
+        --primary-text-color: black;
       }
       /* Border on the right */
       ha-card.footer-right {
@@ -441,9 +449,12 @@
       ha-card.footer-right.type-thermostat > p {
         background: black;
       }
-      ha-card.footer-right > ha-state-control-climate-temperature {
-        background: black !important;
+      ha-card.footer-right.type-thermostat > .container {
+        background: black;
+        padding: unset;
+        width: 100%;
         border-radius: 0px 0px 20px 0px;
+        margin-bottom: 12px;
         max-width: unset;
       }
       /* Border on both sides */
@@ -501,9 +512,12 @@
       ha-card.footer-contained.type-thermostat > p {
         background: black;
       }
-      ha-card.footer-contained > ha-state-control-climate-temperature {
-        background: black !important;
+      ha-card.footer-contained.type-thermostat > .container {
+        background: black;
+        padding: unset;
+        width: 100%;
         border-radius: 0px 0px 20px 20px;
+        margin-bottom: 12px;
         max-width: unset;
       }
       /* Border on neither side */
@@ -1249,6 +1263,11 @@
       padding-top: 0px !important;
       padding-bottom: 0px !important;
       height: calc( 100% - var(--header-height) - 176px - env(safe-area-inset-bottom)) !important;
+    }
+    paper-listbox.ha-scrollbar {
+      overflow-y: auto;
+      scrollbar-color: unset;
+      scrollbar-width: unset;
     }
     #sortable a {
       display: block !important;
