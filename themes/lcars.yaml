@@ -1,11 +1,10 @@
-#
 # LCARS Theme
 # Color codes and font choice from https://www.thelcars.com
 #     --thanks Jim Robertus!
 # Custom themes can be created down at the bottom of this
 # file. Or, search for "===THEMES", which will take you
 # right there.
-(DO NOT USE/MODIFY)=== LCARS Colors: &lcars-colors
+(DO NOT USE/MODIFY)=== LCARS variables: &lcars-variables
   lcars-space-white: "#f5f6fa"
   lcars-violet-creme: "#ddbbff"
   lcars-green: "#33cc99"
@@ -34,7 +33,7 @@
   lcars-midnight: "#1111ee"
   lcars-ghost: "#88bbff"
   lcars-wheat: "#ccaa88"
-  lcars-roseblush: "#ffcc99"
+  lcars-roseblush: "#cc6666"
   lcars-honey: "#ffcc99"
   lcars-cardinal: "#cc2233"
   lcars-pumpkinshade: "#ff7744"
@@ -75,16 +74,82 @@
   lcars-c67: "#dd88dd"
   lcars-c68: "#ff0000"
   lcars-c69: "#cc0000"
-  lcars-70: "#ee0000"
+  lcars-c70: "#ee0000"
   lcars-c71: "#dfdfdf"
   lcars-c72: "#f7f7f7"
-  lcars-lavender: "#c8f"
-  lcars-error: "f20"
+
+  # LCARS Transporter Theme Colors
+  lcars-c73: "#2C374B"
+  lcars-c74: "#6E748C"
+  lcars-c75: "#2A7092"
+  lcars-c76: "#FA6851"
+  lcars-c77: "#51596C"
+
+  # LCARS Navigation Theme Colors
+  lcars-c79: "#827A53"
+  lcars-c80: "#CDB972"
+  lcars-c81: "#F7EE51"
+  lcars-c82: "#6499FF"
+  lcars-c83: "#B8A666"
+
+  # LCARS Picard S1 Colors
+  lcars-dunkelgrau: "#30374AFF"
+  lcars-mittelgrau: "#656B83FF"
+  lcars-hellgrau: "#9FA5BDFF"
+  lcars-feuerrot: "#E7432AFF"
+  lcars-mango: "#E5960C"
+  lcars-lavender: "#cc88ff"
+  lcars-error: "#ff2200"
   lcars-text-gray: "#d3d3d3"
   lcars-medium-gray: "#B6B6C1"
   lcars-dark-gray: "#3e3e3e"
   lcars-khaki: "#ffe399"
+  lcars-cardassia-maroon: "#4f1a23"
+  lcars-dark-red: "#360000"
+
+  # LCARS Picard S3 Colors
+  lcars-alt-dark-gray: "#2f3749"
+  lcars-medium-dark-gray: "#52596e"
+  lcars-primary-gray: "#6d748c"
+  lcars-light-gray: "#9ea5ba"
+  lcars-ghost-gray: "#d2d5df"
+  lcars-starlight: "#f3f4f7"
+  lcars-cyan: "#0ee"
+  lcars-alt-orange: "#e7442a"
+  lcars-light-orange: "#ff6753"
+  lcars-pale-orange: "#ff977b"
+  lcars-alt-blue: "#37a6d1"
+  lcars-medium-dark-blue: "#2a7193"
+  lcars-dark-blue: "#1c3c55"
+  lcars-alt-green: "#2B9032"
+  lcars-black-cherry: "#8c6d7c"
+  lcars-ont-color: "#828ba6"
+
+  lcars-alert-red: var(--lcars-c69)
+  lcars-alert-yellow: var(--lcars-gold)
+  lcars-alert-blue: var(--lcars-text-blue)
+  lcars-alert-white: var(--lcars-c71)
+  lcars-alert-uv: "#000080"
+  lcars-alert-uvc: "#68fffa"
+
+  # Shapes
+  lcars-vertical-border: "35px"
+  lcars-horizontal-border: "10px"
+  lcars-outer-radius: "34px"
+  lcars-inner-radius: "20px"
+
+  # Font
   lcars-font: Antonio
+
+  # MSD Colors:
+  msd-bright: "#fff1ab"
+  msd-medium: var(--lcars-yellow) ### "#ffcc33"
+  msd-normal: var(--lcars-orange) ### "#ff7700"
+  msd-dark: var(--lcars-october-sunset) ### "#ff4400"
+  msd-ra-bright: "#dca29e"
+  msd-ra-medium: "#e97369"
+  msd-ra-normal: "#ff1100"
+  msd-ra-dark: "#7f0800"
 
 (DO NOT USE/MODIFY)=== Base customizations: &base # Global
   lovelace-background: black
@@ -131,7 +196,7 @@
   paper-slider-active-color: "#0984ff"
   paper-slider-secondary-color: var(--paper-slider-knob-color)
   paper-slider-container-color: rgba(255, 255, 255, 0.5)
-  paper-slider-font-color: white
+  paper-slider-font-color: black
   ha-slider-background: none !important
   # Labels
   label-badge-background-color: "#23232E"
@@ -140,7 +205,7 @@
   # Cards
   card-background-color: var(--secondary-background-color)
   paper-listbox-background-color: var(--primary-background-color)
-  ha-card-border-radius: 40px
+  ha-card-border-radius: var(--lcars-outer-radius)
   ha-card-background: var(--lcars-card-button);
   paper-card-background-color: var(--ha-card-background)
   # Toggles
@@ -159,24 +224,25 @@
   paper-dialog-background-color: rgba(55, 55, 55)
   paper-item-icon-color: var(--lcars-dark-gray)
   more-info-header-background: rgba(25, 25, 25)
-  app-header-background-color: var(--lcars-ui-primary)
+  app-header-background-color: var(--lcars-ui-app-header-background-color, var(--lcars-ui-primary))
   # Custom
-  mini-media-player-base-color: white
-  mini-media-player-icon-color: white
+  mini-media-player-base-color: var(--lcars-text-gray)
+  mini-media-player-icon-color: var(--lcars-text-gray)
+  state-lock-unlocked-color: var(--lcars-dark-red)
   sidebar-menu-button-text-color: black
   mdc-typography-button-font-family: var(--lcars-font)
+  mdc-typography-body2-font-family: var(--lcars-font)
   mdc-theme-primary: var(--lcars-text-gray)
   mdc-theme-secondary: var(--lcars-orange)
   round-slider-bar-color: var(--lcars-blue)
   app-header-edit-background-color: transparent
   switch-unchecked-track-color: var(--lcars-text-gray)
   switch-unchecked-button-color: var(--lcars-text-gray)
-  error-color: var(--lcars-error)
   header-height: 40px
-  app-header-text-color: black
+  app-header-text-color: var(--lcars-ui-app-header-text-color, black)
   paper-tabs-selection-bar-color: transparent
   mdc-button-outline-color: transparent
-  ha-config-card-border-radius: 40px
+  ha-config-card-border-radius: var(--ha-card-border-radius)
   mdc-typography-font-family: Antonio
   ha-card-border-width: 0px
   paper-yellow-a100: transparent
@@ -185,297 +251,1131 @@
   mdc-theme-text-primary-on-background: black
   mdc-theme-text-secondary-on-background: black
   data-table-background-color: black
+  rgb-state-media-player-color: var(--paper-item-icon-color)
+  state-color: var(--lcars-ui-secondary)
+  mdc-shape-small: var(--ha-card-border-radius)
 
 (DO NOT USE/MODIFY)=== card-mod CSS: &card-mod-css # Card modifications
-  card-mod-card: &card-mod-card |
-    ha-card.header {
-      background: var(--lcars-card-top-color) !important;
-      text-transform: uppercase;
-      border-radius: 40px 0px 0px 0px !important;
-      border-top: 10px solid var(--lcars-card-top-color);
-      border-left: 35px solid var(--lcars-card-top-color);
-    }
-    ha-card.middle {
-      background: black !important;
-      text-transform: uppercase;
-      border-radius: 0px !important;
-      border-left: 35.5px solid var(--lcars-card-mid-left-color);
-    }
-    ha-card.footer {
-      background: var(--lcars-card-bottom-color) !important;
-      text-transform: uppercase;
-      border-radius: 0px 0px 0px 40px !important;
-      border-bottom: 10px solid var(--lcars-card-bottom-color);
-      border-left: 35px solid var(--lcars-card-bottom-color);
-      margin-top: unset;
-    }
-    ha-card.button-small {
-      text-transform: uppercase;
-      color: black;
-      border-radius: 0px !important;
-    }
-    ha-card.button-large {
-      text-transform: uppercase;
-      color: black;
-    }
-    ha-card.button-lozenge {
-      text-transform: uppercase;
-      color: black;
-      min-height: 60px;
-    }
-    ha-card.button-lozenge > ha-state-icon {
-      --mdc-icon-size: unset;
-      text-align: left;
-      margin-left: -88px;
-      position: absolute;
-    }
-    ha-card.button-lozenge > span {
-      text-align: right;
-      align-items: unset;
-      width: 60%;
-      height: 100%;
-      margin-top: 0px;
-      margin-left: 15px;
-      padding-top: 35px;
-      border-left: black solid 10px;
-      box-shadow: -90px 0px 0px 0px var(--lcars-card-top-color);
-    }
-    ha-card.button-lozenge > span.state {
-      text-align: right;
-      align-items: unset;
-      width: 60%;
-      height: 100%;
-      margin-top: -60px;
-      margin-left: 25px;
-      padding-top: 0px;
-      border-left: none !important;
-      box-shadow: none !important;
-    }
-    .type-custom-mod-card {
-      border-radius: 0px !important;
-      border-left: 35.5px solid var(--lcars-card-mid-left-color);
-      padding-left: 6px !important;
-    }
-    ha-markdown.no-header {
-      background: black;
-      border-radius: 20px 0px 0px 0px;
-      padding-top: 0px !important;
-      padding-bottom: 0 !important;
-    }
-    .entities {
-      background: black;
-      border-radius: 0px 0px 0px 20px;
-    }
-    .type-thermostat > .content {
-      background: black;
-      border-radius: 0px 0px 0px 20px;
-      padding-top: 0px !important;
-      padding-bottom: 0 !important;
-    }
-    #states {
-      background: black;
-      border-radius: 0px 0px 0px 20px;
-      padding-top: 0px !important;
-      padding-bottom: 0 !important;
-    }
-    .details {
-      margin-top: 1em;
-    }
-    .color-block {
-      border-radius: 0px 0px 0px 20px;
-    }
-    .card-actions {
-      border-top: none;
-      padding: 5px 16px;
-      margin-top: 8px;
-      background: var(--lcars-ui-primary);
-      border-radius: 40px;
-      --primary-text-color: black;
-      --mdc-theme-primary: black;
-    }
-    .panel > ha-card {
-      border-radius: 40px !important;
-    }
-    ha-card.footer > ha-state-icon {
-      background: black;
-      width: 100%;
-      --mdc-icon-size: 40%
-    }
-    ha-card.footer > span {
-      background: black;
-      width: 100%;
-      padding-left: 0px;
-      margin-top: 0px;
-    }
-    ha-card.footer > span.usps_update {
-      background: black;
-      width: 100%;
-      padding-left: 15px;
-      margin-top: -4px;
-    }
-    .button-small > .state,
-    .button-large > .state,
-    .button-lozenge > .state {
-      border-radius: 0px 0px 0px 20px;
-      padding-bottom: 0px;
-      color: black;
-    }
-    ha-card.footer > .details {
-      background: black;
-      width: 100%;
-      margin: 0px;
-    }
-    .MailImg {
-      margin-top: 0;
-    }
-    .details > .title {
-      margin-left: 15px;
-    }
-    .usps_update {
-      border-radius: 0px 0px 0px 20px;
-      display: flex;
-    }
-    ha-card.footer > .content {
-      background: black;
-      border-radius: 0px 0px 0px 20px;
-    }
-    .details > p {
-      margin-left: 15px;
-    }
-    ha-card {
-      padding: 0px !important;
-      border-top-right-radius: 40px !important;
-      border-top-left-radius: 40px !important;
-    }
-    ha-config-updates {
-      color: black;
-    }
-    button#button.mdc-button {
-      color: black !important;
-    }
+  card-mod-card-yaml: &card-mod-card |
+    ha-card.footer $ hui-graph-header-footer $ hui-graph-base $: |
+      svg {
+        border-radius: 0px 0px 0px var(--lcars-inner-radius);
+      }
+    .: |
+      /* Header classes and fixes for specific card types */
+      /* Common Header Styles */
+      ha-card.header,
+      ha-card.header-right,
+      ha-card.header-contained,
+      ha-card.header-open {
+        background: var(--lcars-card-top-color) !important;
+        text-transform: uppercase;
+        border-top: var(--lcars-horizontal-border) solid var(--lcars-card-top-color);
+      }
+      ha-card.header > ha-markdown,
+      ha-card.header-right > ha-markdown,
+      ha-card.header-contained > ha-markdown,
+      ha-card.header-open > ha-markdown {
+        background: black;
+        padding-top: 0px !important;
+        padding-bottom: 0 !important;
+      }
+      ha-card.header.type-thermostat > .content,
+      ha-card.header-right.type-thermostat > .content,
+      ha-card.header-contained.type-thermostat > .content,
+      ha-card.header-open.type-thermostat > .content {
+        border-radius: 0px 0px 0px var(--lcars-inner-radius);
+      }
+
+      /* Specific Header Styles */
+      ha-card.header {
+        border-radius: var(--ha-card-border-radius) 0px 0px 0px !important;
+        border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
+      }
+      ha-card.header > ha-markdown {
+        border-radius: var(--lcars-inner-radius) 0 0 0;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+      }
+      ha-card.header-right {
+        border-radius: 0px var(--ha-card-border-radius) 0px 0px !important;
+        border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
+      }
+      ha-card.header-right > ha-markdown.no-header {
+        border-radius: 0px var(--lcars-inner-radius) 0px 0px;
+      }
+      ha-card.header-contained {
+        border-radius: var(--ha-card-border-radius) var(--ha-card-border-radius) 0px 0px !important;
+        border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
+        border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
+      }
+      ha-card.header-contained > ha-markdown.no-header {
+        border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
+      }
+      ha-card.header-open {
+        border-radius: 0px 0px 0px 0px !important;
+      }
+      ha-card.header-open > ha-markdown.no-header {
+        border-radius: 0px 0px 0px 0px;
+      }
+      /* Border on left */
+      ha-card.header {
+        background: var(--lcars-card-top-color) !important;
+        text-transform: uppercase;
+        border-radius: var(--ha-card-border-radius) 0px 0px 0px !important;
+        border-top: var(--lcars-horizontal-border) solid var(--lcars-card-top-color);
+        border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
+      }
+      ha-card.header > ha-markdown {
+        border-radius: var(--lcars-inner-radius) 0px 0px 0px;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+      }
+      ha-card.header.type-thermostat > .content {
+        border-radius: 0px 0px 0px var(--lcars-inner-radius);
+      }
+      /* Border on right */
+      ha-card.header-right {
+        background: var(--lcars-card-top-color) !important;
+        text-transform: uppercase;
+        border-radius: 0px var(--ha-card-border-radius) 0px 0px !important;
+        border-top: var(--lcars-horizontal-border) solid var(--lcars-card-top-color);
+        border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
+      }
+      ha-card.header-right > ha-markdown.no-header {
+        background: black;
+        border-radius: 0px var(--lcars-inner-radius) 0px 0px;
+        padding-top: 0px !important;
+        padding-bottom: 0 !important;
+      }
+      ha-card.header-right.type-thermostat > .content {
+        border-radius: 0px 0px var(--lcars-inner-radius) 0px;
+      }
+      /* Border on both sides */
+      ha-card.header-contained {
+        background: var(--lcars-card-top-color) !important;
+        text-transform: uppercase;
+        border-radius: var(--ha-card-border-radius) var(--ha-card-border-radius) 0px 0px !important;
+        border-top: var(--lcars-horizontal-border) solid var(--lcars-card-top-color);
+        border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
+        border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
+      }
+      ha-card.header-contained > ha-markdown.no-header {
+        background: black;
+        border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
+        padding-top: 0px !important;
+        padding-bottom: 0 !important;
+      }
+      ha-card.header-right.type-thermostat > .content {
+        border-radius: 0px 0px var(--lcars-inner-radius) var(--lcars-inner-radius);
+      }
+      /* Border on neither side */
+      ha-card.header-open {
+        background: var(--lcars-card-top-color) !important;
+        text-transform: uppercase;
+        border-radius: 0px 0px 0px 0px !important;
+        border-top: var(--lcars-horizontal-border) solid var(--lcars-card-top-color);
+      }
+      ha-card.header-open > ha-markdown.no-header {
+        background: black;
+        border-radius: 0px 0px 0px 0px;
+        padding-top: 0px !important;
+        padding-bottom: 0 !important;
+      }
+
+      /* Common Middle Styles */
+      ha-card.middle,
+      ha-card.middle-right,
+      ha-card.middle-blank,
+      ha-card.middle-contained {
+        background: black !important;
+        text-transform: uppercase;
+        border-radius: 0px !important;
+      }
+      ha-card.middle > ha-gauge, 
+      ha-card.middle-right > ha-gauge, 
+      ha-card.middle-contained > ha-gauge, 
+      ha-card.middle-blank > ha-gauge {
+        --primary-text-color: var(--lcars-text-gray);
+      }
+      ha-card.middle > .name, 
+      ha-card.middle-right > .name, 
+      ha-card.middle-contained > .name, 
+      ha-card.middle-blank > .name {
+        color: var(--lcars-text-gray);
+      }
+
+      /* Specific Middle Styles */
+      ha-card.middle {
+        border-left: 35.5px solid var(--lcars-card-mid-left-color);
+        padding-left: 6px !important;
+      }
+      ha-card.middle-right {
+        border-right: 35.5px solid var(--lcars-card-mid-left-color);
+        padding-right: 6px !important;
+      }
+      ha-card.middle-contained {
+        border-left: 35.5px solid var(--lcars-card-mid-left-color);
+        border-right: 35.5px solid var(--lcars-card-mid-left-color);
+        padding: 0px 6px !important;
+      }
+
+      /* Common Footer Styles */
+      ha-card.footer,
+      ha-card.footer-right,
+      ha-card.footer-contained,
+      ha-card.footer-open {
+        background: var(--lcars-card-bottom-color) !important;
+        text-transform: uppercase;
+        border-bottom: var(--lcars-horizontal-border) solid var(--lcars-card-bottom-color);
+        margin-top: unset;
+      }
+      ha-card.footer > span,
+      ha-card.footer-right > span,
+      ha-card.footer-contained > span,
+      ha-card.footer-open > span {
+        background: black;
+        width: 100%;
+        margin-top: 0px;
+        padding-top: 80px;
+      }
+      ha-card.footer > .entities,
+      ha-card.footer-right > .entities,
+      ha-card.footer-contained > .entities,
+      ha-card.footer-open > .entities {
+        background: black;
+      }
+      ha-card.footer > #states,
+      ha-card.footer-right > #states,
+      ha-card.footer-contained > #states,
+      ha-card.footer-open > #states {
+        background: black;
+        padding-top: 0px !important;
+        padding-bottom: 0 !important;
+      }
+      ha-card.footer > ha-markdown,
+      ha-card.footer-right > ha-markdown,
+      ha-card.footer-contained > ha-markdown,
+      ha-card.footer-open > ha-markdown {
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+      }
+      ha-card.footer > ha-state-icon,
+      ha-card.footer-right > ha-state-icon,
+      ha-card.footer-contained > ha-state-icon,
+      ha-card.footer-open > ha-state-icon {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      ha-card.footer > img,
+      ha-card.footer-right > img,
+      ha-card.footer-contained > img,
+      ha-card.footer-open > img {
+        background: black;
+        box-sizing: border-box;
+      }
+      ha-card.footer > .header,
+      ha-card.footer > .info,
+      ha-card.footer-right > .header,
+      ha-card.footer-right > .info,
+      ha-card.footer-contained > .header,
+      ha-card.footer-contained > .info,
+      ha-card.footer-open > .header,
+      ha-card.footer-open > .info {
+        background: black !important;
+      }
+      ha-card.footer > .content,
+      ha-card.footer-right > .content,
+      ha-card.footer-contained > .content,
+      ha-card.footer-open > .content {
+        background: black;
+      }
+      ha-card.footer.type-thermostat,
+      ha-card.footer-right.type-thermostat,
+      ha-card.footer-contained.type-thermostat,
+      ha-card.footer-open.type-thermostat {
+        border-bottom: 0px !important;
+      }
+      ha-card.footer.type-thermostat > p,
+      ha-card.footer-right.type-thermostat > p,
+      ha-card.footer-contained.type-thermostat > p,
+      ha-card.footer-open.type-thermostat > p {
+        background: black;
+      }
+      ha-card.footer.type-custom-weather-card .current,
+      ha-card.footer-right.type-custom-weather-card .current,
+      ha-card.footer-contained.type-custom-weather-card .current,
+      ha-card.footer-open.type-custom-weather-card .current  {
+        margin-bottom: unset;
+        padding-bottom: 3.5em;
+        background: black;
+      }
+      ha-card.footer.type-custom-weather-card .variations,
+      ha-card.footer-right.type-custom-weather-card .variations,
+      ha-card.footer-contained.type-custom-weather-card .variations,
+      ha-card.footer-open.type-custom-weather-card .variations {
+        background: black;
+      }
+      ha-card.footer.type-entity .footer,
+      ha-card.footer-right.type-entity .footer,
+      ha-card.footer-contained.type-entity .footer,
+      ha-card.footer-open.type-entity .footer {
+        background: black;
+      }
+      ha-card.footer.type-thermostat > .container,
+      ha-card.footer-right.type-thermostat > .container,
+      ha-card.footer-contained.type-thermostat > .container,
+      ha-card.footer-open.type-thermostat > .container {
+        background: black;
+        padding: unset;
+        width: 100%;
+        margin-bottom: 12px;
+        max-width: unset;
+      }
+      ha-card.footer.type-thermostat > hui-card-features,
+      ha-card.footer-right.type-thermostat > hui-card-features,
+      ha-card.footer-contained.type-thermostat > hui-card-features,
+      ha-card.footer-open.type-thermostat > hui-card-features {
+        --primary-text-color: black;
+      }
+      ha-card.footer.type-button,
+      ha-card.footer-right.type-button,
+      ha-card.footer-contained.type-button,
+      ha-card.footer-open.type-button {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column-reverse;
+      }
+      ha-card.footer > ha-state-icon,
+      ha-card.footer-right > ha-state-icon,
+      ha-card.footer-contained > ha-state-icon,
+      ha-card.footer-open > ha-state-icon {
+        background: black;
+        width: 100%;
+        height: 100%;
+        --mdc-icon-size: 96px;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        top: 0;
+        z-index: 0;
+        margin-bottom: 30px;
+      }
+      ha-card.footer > span.state,
+      ha-card.footer-right > span.state,
+      ha-card.footer-contained > span.state,
+      ha-card.footer-open > span.state {
+        background: transparent;
+        border-radius: 0px 0px 0px 0px;
+        margin-top: 30px;
+        margin-bottom: -80px;
+        position: relative;
+      }
+      ha-card.footer > span.usps_update,
+      ha-card.footer-right > span.usps_update,
+      ha-card.footer-contained > span.usps_update,
+      ha-card.footer-open > span.usps_update {
+        background: black;
+        width: 100%;
+        padding-left: 15px;
+        margin-top: -4px;
+        height: unset !important;
+      }
+      ha-card.footer.type-custom-mail-and-packages-card > span.usps_update,
+      ha-card.footer-right.type-custom-mail-and-packages-card > span.usps_update,
+      ha-card.footer-contained.type-custom-mail-and-packages-card > span.usps_update,
+      ha-card.footer-open.type-custom-mail-and-packages-card > span.usps_update {
+        padding-top: unset;
+      }
+
+      /* Specific Footer Styles */
+      ha-card.footer {
+        border-radius: 0px 0px 0px var(--ha-card-border-radius) !important;
+        border-left: var(--lcars-vertical-border) solid var(--lcars-card-bottom-color);
+        position: relative;
+      }
+      ha-card.footer > span {
+        padding-left: 0px;
+        border-radius: 0px 0px 0px var(--lcars-inner-radius);
+      }
+      ha-card.footer > .entities,
+      ha-card.footer > #states,
+      ha-card.footer > ha-markdown,
+      ha-card.footer > .content,
+      ha-card.footer > ha-state-icon,
+      ha-card.footer > .info,
+      ha-card.footer.type-statistic > .info,
+      ha-card.footer.type-thermostat > .container,
+      ha-card.footer.type-media-control .color-block,
+      ha-card.footer.type-custom-weather-card .variations,
+      ha-card.footer.type-entity .footer{
+        border-radius: 0px 0px 0px var(--lcars-inner-radius);
+      }
+      
+
+      ha-card.footer > img {
+        padding: 0px 0px 6px 6px;
+        border-bottom-left-radius: var(--lcars-inner-radius);
+      }
+
+      ha-card.footer-right {
+        border-radius: 0px 0px var(--ha-card-border-radius) 0px !important;
+        border-right: var(--lcars-vertical-border) solid var(--lcars-card-bottom-color);
+      }
+      ha-card.footer-right > span {
+        padding-right: 0px;
+        border-radius: 0px 0px var(--lcars-inner-radius) 0px;
+      }
+      ha-card.footer-right > .entities,
+      ha-card.footer-right > #states,
+      ha-card.footer-right > ha-markdown,
+      ha-card.footer-right > .content,
+      ha-card.footer-right > ha-state-icon,
+      ha-card.footer-right > .info,
+      ha-card.footer-right.type-thermostat > .container,
+      ha-card.footer-right.type-media-control .color-block,
+      ha-card.footer-right.type-media-control .no-img,
+      ha-card.footer-right.type-media-control .image,
+      ha-card.footer-right.type-custom-weather-card .variations,
+      ha-card.footer-right.type-entity .footer {
+        border-radius: 0px 0px var(--lcars-inner-radius) 0px;
+      }
+      ha-card.footer-right > img {
+        padding: 0px 6px 6px 0px;
+        border-bottom-right-radius: var(--lcars-inner-radius);
+      }
+
+      ha-card.footer-contained {
+        border-radius: 0px 0px var(--ha-card-border-radius) var(--ha-card-border-radius) !important;
+        border-left: var(--lcars-vertical-border) solid var(--lcars-card-bottom-color);
+        border-right: var(--lcars-vertical-border) solid var(--lcars-card-bottom-color);
+      }
+      ha-card.footer-contained > span {
+        padding-right: 0px;
+        padding-left: 0px;
+        border-radius: 0px 0px var(--lcars-inner-radius) var(--lcars-inner-radius);
+      }
+      ha-card.footer-contained > .entities,
+      ha-card.footer-contained > #states,
+      ha-card.footer-contained > ha-markdown,
+      ha-card.footer-contained > .content,
+      ha-card.footer-contained > ha-state-icon,
+      ha-card.footer-contained > .info,
+      ha-card.footer-contained.type-thermostat > .container,
+      ha-card.footer-contained.type-media-control .color-block,
+      ha-card.footer-contained.type-media-control .no-img,
+      ha-card.footer-contained.type-media-control .image,
+      ha-card.footer-contained.type-custom-weather-card .variations,
+      ha-card.footer-contained.type-entity .footer {
+        border-radius: 0px 0px var(--lcars-inner-radius) var(--lcars-inner-radius);
+      }
+      ha-card.footer-contained > img {
+        padding: 0px 6px 6px 6px;
+        border-radius: 0px 0px var(--lcars-inner-radius) var(--lcars-inner-radius);
+      }
+
+      ha-card.footer-open {
+        border-radius: 0px 0px 0px 0px !important;
+      }
+      ha-card.footer-open > span {
+        padding-right: 0px;
+        padding-left: 0px;
+        border-radius: 0px 0px 0px 0px;
+      }
+      ha-card.footer-open > .entities,
+      ha-card.footer-open > #states,
+      ha-card.footer-open > ha-markdown,
+      ha-card.footer-open > .content,
+      ha-card.footer-open > ha-state-icon,
+      ha-card.footer-open > .info,
+      ha-card.footer-open.type-thermostat > .container,
+      ha-card.footer-open.type-media-control .color-block,
+      ha-card.footer-open.type-custom-weather-card .variations,
+      ha-card.footer-open.type-entity .footer {
+        border-radius: 0px 0px 0px 0px;
+      }
+
+      ha-card.footer.type-entity > .info,
+      ha-card.footer-right.type-entity > .info,
+      ha-card.footer-contained.type-entity > .info,
+      ha-card.footer-open.type-entity > .info {
+        border-radius: 0px 0px 0px 0px;
+      }
+
+
+      /* Small button class and fixes for specific cards */
+      ha-card.button-small {
+        display: flex;
+        text-transform: uppercase;
+        --primary-text-color: black !important;
+        --secondary-text-color: black !important;
+        border-radius: 0px !important;
+        position: relative;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+      }
+      ha-card.button-small > .more-info {
+        display: none;
+      }
+      ha-card.button-small > .content > #controls {
+        display: flex;
+        place-content: flex-start center;
+        position: relative;
+        padding: 0px;
+      }
+      ha-card.button-small > .content > #info {
+        text-align: right;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0px 6px 6px 0px;
+        margin-top: -24px;
+        position: relative;
+      }
+      ha-card.button-small > span {
+        box-sizing: border-box;
+        text-align: right;
+        width: 100%;
+        padding: 6px;
+        margin: unset;
+        position: absolute;
+        bottom: 0;
+      }
+      ha-card.button-small > span.state {
+        text-align: right;
+        width: 100%;
+        padding: 6px;
+        padding-bottom: 22px;
+        margin: unset;
+        position: absolute;
+        bottom: 0;
+      }
+      /* Large button class and fixes for specific cards */
+      ha-card.button-large {
+        text-transform: uppercase;
+        --primary-text-color: black !important;
+        --secondary-text-color: black !important;
+      }
+      /* Lozenge, bullet, and capped button classes and fixes for specific cards */
+      ha-card.button-lozenge {
+        text-transform: uppercase;
+        --primary-text-color: black !important;
+        --secondary-text-color: black !important;
+        min-height: 50px;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column-reverse;
+      }
+      ha-card.button-bullet {
+        text-transform: uppercase;
+        --primary-text-color: black !important;
+        --secondary-text-color: black !important;
+        min-height: 60px;
+        border-radius: 0px var(--ha-card-border-radius) var(--ha-card-border-radius) 0px !important;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column-reverse;
+      }
+      ha-card.button-capped {
+        text-transform: uppercase;
+        --primary-text-color: black !important;
+        --secondary-text-color: black !important;
+        min-height: 60px;
+        border-radius: var(--ha-card-border-radius) 0px 0px var(--ha-card-border-radius) !important;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column-reverse;
+      }
+      ha-card.button-lozenge > ha-state-icon, 
+      ha-card.button-bullet > ha-state-icon,
+      ha-card.button-capped > ha-state-icon {
+        --mdc-icon-size: unset;
+        display: flex;
+        align-items: center;
+        left: 0;
+        width: var(--lcars-vertical-border);
+        height: 100% !important;
+        max-height: 100% !important;
+        border-right: black solid 6px;
+        position: absolute;
+        justify-content: center;
+        background: var(--lcars-card-top-color);
+      }
+      ha-card.button-lozenge > span, 
+      ha-card.button-bullet > span {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        margin-top: unset;
+        padding-right: 26px;
+        padding-bottom: 6px;
+        position: absolute;
+      }
+      ha-card.button-capped > span {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        margin-top: unset;
+        padding-right: 6px;
+        padding-bottom: 6px;
+        position: absolute;
+      }
+      ha-card.button-lozenge > span.state, 
+      ha-card.button-bullet > span.state,
+      ha-card.button-capped > span.state {
+        padding-bottom: 45px;
+        color: black;
+      }
+      ha-card.button-lozenge-right {
+        text-transform: uppercase;
+        --primary-text-color: black !important;
+        --secondary-text-color: black !important;
+        min-height: 60px;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column-reverse;
+      }
+      ha-card.button-bullet-right {
+        text-transform: uppercase;
+        --primary-text-color: black !important;
+        --secondary-text-color: black !important;
+        min-height: 60px;
+        border-radius: var(--ha-card-border-radius) 0px 0px var(--ha-card-border-radius) !important;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column-reverse;
+      }
+      ha-card.button-capped-right {
+        text-transform: uppercase;
+        --primary-text-color: black !important;
+        --secondary-text-color: black !important;
+        min-height: 60px;
+        border-radius: 0px var(--ha-card-border-radius) var(--ha-card-border-radius) 0px !important;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column-reverse;
+      }
+      ha-card.button-lozenge-right > ha-state-icon,
+      ha-card.button-bullet-right > ha-state-icon,
+      ha-card.button-capped-right > ha-state-icon {
+        --mdc-icon-size: unset;
+        display: flex;
+        align-items: center;
+        right: 0;
+        width: var(--lcars-vertical-border);
+        height: 100% !important;
+        max-height: 100% !important;
+        border-left: black solid 6px;
+        position: absolute;
+        justify-content: center;
+        background: var(--lcars-card-top-color);
+      }
+      ha-card.button-lozenge-right > span,
+      ha-card.button-bullet-right > span {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        margin-top: unset;
+        padding-left: 26px;
+        padding-bottom: 6px;
+        position: absolute;
+      }
+      ha-card.button-capped-right > span {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        margin-top: unset;
+        padding-left: 6px;
+        padding-bottom: 6px;
+        position: absolute;
+      }
+      ha-card.button-lozenge-right > span.state,
+      ha-card.button-bullet-right > span.state,
+      ha-card.button-capped-right > span.state {
+        padding-bottom: 45px;
+        color: black;
+      }
+
+      /* Common Markdown Bar Styles */
+      ha-card.bar,
+      ha-card.bar-right,
+      ha-card.bar-large,
+      ha-card.bar-large-right {
+        text-transform: uppercase;
+        background-color: var(--lcars-card-top-color);
+        display: flex;
+      }
+      ha-card.bar > ha-markdown,
+      ha-card.bar-right > ha-markdown,
+      ha-card.bar-large > ha-markdown,
+      ha-card.bar-large-right > ha-markdown {
+        margin-top: -8px;
+        margin-bottom: -3px;
+      }
+
+      /* Specific Markdown Bar Styles */
+      ha-card.bar {
+        border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
+      }
+      ha-card.bar-right {
+        border-right: 35.5px solid var(--lcars-card-top-color);
+        justify-content: right;
+      }
+      ha-card.bar > ha-markdown,
+      ha-card.bar-right > ha-markdown {
+        padding: 2px 8px 2px !important;
+      }
+      ha-card.bar-large {
+        border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
+      }
+      ha-card.bar-large-right {
+        border-right: 35.5px solid var(--lcars-card-top-color);
+        justify-content: right;
+      }
+      ha-card.bar-large > ha-markdown,
+      ha-card.bar-large-right > ha-markdown {
+        padding: 0px 8px 0px !important;
+        font-size: 1.5em;
+      }
+      /* Markdown bar */
+      ha-card.bar {
+        text-transform: uppercase;
+        border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
+        background-color: var(--lcars-card-top-color);
+        display: flex;
+      }
+      ha-card.bar-right {
+        text-transform: uppercase;
+        border-right: 35.5px solid var(--lcars-card-top-color);
+        background-color: var(--lcars-card-top-color);
+        display: flex;
+        justify-content: right;
+      }
+      ha-card.bar > ha-markdown,
+      ha-card.bar-right > ha-markdown {
+        padding: 2px 8px 2px !important;
+        margin-top: -8px;
+        margin-bottom: -3px;
+      }
+      /* Markdown bar large */
+      ha-card.bar-large {
+        text-transform: uppercase;
+        border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
+        background-color: var(--lcars-card-top-color);
+        display: flex;
+      }
+      ha-card.bar-large-right {
+        text-transform: uppercase;
+        border-right: 35.5px solid var(--lcars-card-top-color);
+        background-color: var(--lcars-card-top-color);
+        display: flex;
+        justify-content: right;
+      }
+      ha-card.bar-large > ha-markdown,
+      ha-card.bar-large-right > ha-markdown {
+        padding: 0px 8px 0px !important;
+        margin-top: -8px;
+        margin-bottom: -3px;
+        font-size: 1.5em;
+      }
+      /* Hacky workaround to add middle-type class to horizontal and vertical stack cards */
+      /* More info: https://github.com/thomasloven/lovelace-card-mod#styling-cards-without-an-ha-card-element */
+      .type-custom-mod-card {
+        /* border-radius: 0px !important; */
+        /* border-left: 35.5px solid var(--lcars-card-mid-left-color); */
+        /* padding-left: 6px !important; */
+      }
+      /* WIP fix for aliasing ugliness on slider tracks */
+      .type-light > .bar {
+        stroke-width: 5px;
+      }
+      /* ?Fix for markdown cards that are not headers? */
+      ha-markdown.no-header {
+        background: black;
+        border-radius: unset;
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+      }
+      /* Common Card Fixes */
+      ha-card {
+        padding: 0px !important;
+        border-top-right-radius: var(--ha-card-border-radius) !important;
+        border-top-left-radius: var(--ha-card-border-radius) !important;
+        --mdc-theme-primary: var(--lcars-ui-secondary) !important;
+      }
+      ha-card > .name {
+        color: black;
+      }
+      ha-card > * {
+        font-family: var(--lcars-font) !important;
+      }
+      ha-config-updates {
+        color: black;
+      }
+
+      /* Specific Card Fixes */
+      .type-thermostat > .content {
+        background: black;
+        padding-top: 0px !important;
+        padding-bottom: 0 !important;
+      }
+      .details {
+        margin-top: 1em;
+      }
+      .card-actions {
+        border-top: none;
+        padding: 5px 16px;
+        margin-top: 8px;
+        background: var(--lcars-ui-primary);
+        border-radius: var(--ha-card-border-radius) !important;
+        --primary-text-color: black;
+        --mdc-theme-primary: purple;
+      }
+      .panel > ha-card {
+        border-radius: var(--ha-card-border-radius) !important;
+      }
+      .button-small > .state,
+      .button-large > .state,
+      .button-lozenge > .state {
+        border-radius: 0px 0px 0px var(--lcars-inner-radius);
+        padding-bottom: 0px;
+        color: black;
+      }
+      ha-card.footer > .details {
+        background: black;
+        width: 100%;
+        margin: 0px;
+      }
+      .MailImg {
+        margin-top: 0;
+        border-radius: 0px !important;
+        padding: 0px 0px 6px 6px !important;
+        width: 100%;
+      }
+      .details > .title {
+        margin-left: 15px;
+      }
+      .usps_update {
+        border-radius: 0px 0px 0px var(--lcars-inner-radius);
+        display: flex;
+      }
+      .details > p {
+        margin-left: 15px;
+      }
+      /* Gauge card fixes */
+      ha-gauge {
+        --primary-text-color: black;
+      }
+      ha-card:has(ha-gauge) {
+        background: var(--lcars-card-top-color);
+      }
+      /* MSD Styles */
+      ha-card.msd-left {
+        margin: 0px 15px 23px 0px !important;
+        background: black !important;
+        font-size: 1.5em !important;
+        font-weight: 700 !important;
+        color: var(--lcars-orange) !important;
+        text-transform: uppercase !important;
+        text-align: right !important;
+        display: flex !important;
+        align-items: flex-end !important;
+        border-radius: 0 0 0 0 !important;
+      }
+      ha-card.msd-right {
+        margin: 0px 15px 23px 18px !important;
+        background: black !important;
+        font-size: 1.5em !important;
+        font-weight: 700 !important;
+        color: var(--lcars-orange) !important;
+        text-transform: uppercase !important;
+        text-align: left !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        flex-direction: column-reverse !important;
+        border-radius: 0 0 0 0 !important;
+      }
+
+      /* Mushroom Cards */
+      ha-card.type-custom-mushroom-chips-card > * {
+        --primary-text-color: black;
+        --chip-border-radius: var(--ha-card-border-radius);
+        text-transform: uppercase;
+      }
+      /* Mushroom Select Card */
+      ha-card.type-custom-mushroom-select-card > * {
+        --mdc-shape-small: 0px;
+      }
+      ha-card.type-custom-mushroom-select-card,
+      ha-card.type-custom-mushroom-lock-card,
+      ha-card.type-custom-mushroom-number-card {
+        border-radius: 22px !important;
+      }
+      ha-card.type-custom-mushroom-number-card > * {
+        --control-border-radius: 0px !important;
+      }
+
   # Toolbar and dashboard modifications
-  card-mod-root: &card-mod-root |
-    ha-dialog > * {
-      color: black;
-    }
-    paper-tab.iron-selected {
-      background: var(--lcars-ui-primary) !important;
-      color: black;
-    }
-    paper-icon-item::before {
-      inset: 2px !important;
-      margin-right: -9px !important;
-      margin-left: -1px !important;
-      borer-radius: 20px !important;
-    }
-    .edit-mode app-header {
-      background: transparent !important;
-    }
-    .edit-mode app-toolbar {
-      background: var(--lcars-ui-primary) !important;
-    }
-    app-toolbar {
-      border-right: 30px solid var(--lcars-card-top-color);
-      border-radius: 0px 30px 30px 0px;
-    }
-    ha-tabs, paper-tabs {
-      --paper-tabs-selection-bar-color: transparent !important;
-    }
-    ha-button-menu::before {
-      content: "{{states('sensor.time')}}";
-      color: var(--text-primary-color);
-      visibility: visible;
-      position: absolute;
-      font-size: 42px;
-      right: -16px;
-      top: 4px;
-      background: black;
-      vertical-align: middle;
-      height: var(--header-height);
-      line-height: .8;
-      border-right: 5px solid black;
-      border-left: 5px solid black;
-    }
-    ha-menu-button {
-      display: none !important;
-      color: transparent;
-      padding-right: 10px
-    }
-    .exit-edit-mode {
-      margin-right: 95px;
-      --mdc-button-outline-color: transparent !important;
-      --mdc-theme-primary: black !important;
-      background: var(--lcars-ui-tertiary);
-      border-radius: 40px;
-    }
-    .edit-mode div[main-title] {
-      color: black;
-    }
-    .edit-icon {
-      color: black !important;
-    }
-    ha-button-menu > ha-icon-button, 
-    app-toolbar > ha-icon-button, 
-    .menu-link > ha-icon-button {
-      padding-right: 75px;
-      margin-left: -75px;
-      color: black;
-    }
-    app-header, app-toolbar {
-      box-shadow: 30px 0px 0px 0px black;
-    }
-    paper-tab.iron-selected {
-      background: var(--lcars-ui-tertiary);
-      border-radius: 30px;
-      height: 75%;
-      margin-top: 10px;
-    }
-    paper-tab {
-      background: var(--lcars-blue);
-      border-radius: 30px;
-      height: 75%;
-      margin-top: 10px;
-    }
-    ha-icon-button#add-view {
-      margin-top: 4px;
-    }
-    ha-icon {
-      color: black !important;
-    }
-    hui-masonry-view {
-      padding-right: 23px;
-    }
-    app-toolbar::before {
-      content: "";
-      height: 40px;
-      width: 100px;
-      background-color: transparent;
-      border-top-left-radius: 40px;
-      box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
-      margin-top: 80px;
-      margin-left: -16px;
-    }
-    hui-image {
-      cursor: pointer;
-      z-index: 9999;
-    }
-  # Sidebar modifications
+  card-mod-root-yaml: &card-mod-root |
+    .: |
+      {% if not is_state('input_boolean.lcars_sound', 'on') %}
+      .header {
+        --lcars-sound: false;
+      }
+      {% else %}
+      .header {
+        --lcars-sound: true;
+      }
+      {% endif %}
+      ha-drawer {
+        border-right-width: unset !important;
+        border-right-style: unset !important;
+      }
+      ha-dialog > * {
+        color: black;
+      }
+      paper-tab.iron-selected {
+        background: var(--lcars-ui-tertiary) !important;
+        color: black;
+      }
+      paper-icon-item::before {
+        inset: 2px !important;
+        margin-right: -9px !important;
+        margin-left: -1px !important;
+        border-radius: var(--lcars-inner-radius) !important;
+      }
+      .header,
+      .toolbar,
+      .edit-mode .toolbar {
+        background: var(--lcars-ui-primary) !important;
+      }
+      .edit-mode .header {
+        height: 40px;
+        background: transparent;
+      }
+      .toolbar {
+        border-right: 30px solid var(--lcars-card-top-color);
+        border-radius: 0px 30px 30px 0px;
+        margin-right: 1px;
+        padding: 0px 12px !important;
+      }
+      ha-tabs {
+        width: 100%;
+        height: 100%;
+        margin-left: 30px !important;
+        border-left: solid black 4px;
+      }
+      .edit-mode > ha-tabs,
+      .edit-mode > paper-tabs {
+        --paper-tabs-selection-bar-color: transparent !important;
+        border-left: solid black 4px;
+        margin-left: 0px !important;
+      }
+      /* Code for the clock */
+      .toolbar::after {
+        content: "{{states('sensor.time')}}";
+        color: var(--text-primary-color);
+        visibility: visible;
+        font-size: 42px;
+        right: 0px;
+        top: 0px;
+        margin-left: 0px;
+        margin-right: -12px;
+        background: black;
+        vertical-align: middle;
+        height: var(--header-height);
+        line-height: .8;
+        border-right: 5px solid black;
+        border-left: 5px solid black;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      @media screen and (max-width: 870px) {
+        .toolbar::after {
+          content: "";
+          border-left: 0px solid black;
+        }
+        ha-button-menu > ha-icon-button {
+          margin-right: -48px;
+          padding-right: unset !important;
+          margin-left: unset !important;
+        }
+        .exit-edit-mode {
+          margin-right: 0px !important;
+        }
+        ha-icon-button {
+          padding-right: unset !important;
+          margin-left: unset !important;
+        }
+        ha-menu-button {
+          display: initial !important;
+          color: black !important;
+          padding-right: 0px !important;
+          margin-right: -22px;
+          margin-left: -16px;
+        }
+      }
+      ha-menu-button {
+        display: none;
+        color: transparent;
+        padding-right: 10px
+      }
+      .exit-edit-mode {
+        margin-right: 95px;
+        --mdc-button-outline-color: transparent !important;
+        --mdc-theme-primary: black !important;
+        background: var(--lcars-ui-tertiary);
+        border-radius: var(--ha-card-border-radius);
+      }
+      .edit-mode div[main-title] {
+        color: black;
+      }
+      .edit-icon {
+        color: black !important;
+      }
+      ha-button-menu > ha-icon-button, 
+      .toolbar > ha-icon-button, 
+      .menu-link > ha-icon-button {
+        padding-right: 78px;
+        margin-left: 0px;
+        color: black;
+      }
+      .header, .toolbar {
+        box-shadow: 30px 0px 0px 0px black;
+        --app-header-text-color: black;
+      }
+      #tabsContainer {
+        border-left: solid black 6px;
+      }
+      paper-tab.iron-selected {
+        margin-left: -2px;
+        margin-right: -2px;
+        background: var(--lcars-ui-tertiary);
+      }
+      paper-tab {
+        margin-left: -2px;
+        margin-right: -2px;
+        background: var(--lcars-ui-secondary);
+        border-right: 4px solid black;
+      }
+      ha-icon-button#add-view {
+        margin-top: 4px;
+      }
+      ha-icon {
+        color: black !important;
+      }
+      hui-view::-webkit-scrollbar {
+        display: none;
+      }
+      hui-view {
+        scrollbar-width: none !important;
+      }
+      hui-masonry-view {
+        padding-right: 23px;
+      }
+      .toolbar::before {
+        content: "";
+        position: fixed;
+        height: 40px;
+        width: 100px;
+        background-color: transparent;
+        border-top-left-radius: 40px;
+        box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+        margin-top: 80px;
+        margin-left: -12px;
+        z-index: 9997;
+      }
+      hui-image {
+        cursor: pointer;
+        z-index: 9999;
+      }
+      {% if not is_state('input_boolean.lcars_texture', 'off') %}
+      .header::before {
+        content: linear-gradient(to left, transparent, #EEEEEE 30%, #222222 60%, transparent 90% );
+        width: 100%;
+        height: 40px;
+        z-index: 9998;
+        position: absolute;
+        mix-blend-mode: overlay;
+        opacity: .8;
+        right: unset;
+        bottom: unset;
+        left: unset;
+        pointer-events: none;
+        box-shadow: none;
+      }
+      .header::after {
+        content: "";
+        background: url(data:image/png;base64,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);
+        width: 100%;
+        height: 40px;
+        z-index: 9999;
+        position: absolute;
+        mix-blend-mode: overlay;
+        opacity: .8;
+        top: 0px;
+        right: unset;
+        bottom: unset;
+        left: unset;
+        pointer-events: none;
+        box-shadow: none;
+      }
+      hui-masonry-view::before {
+        content: radial-gradient(ellipse farthest-corner at center center, white 0%, transparent 60%);
+        width: 100%;
+        height: 100%;
+        z-index: 9990;
+        position: fixed;
+        mix-blend-mode: overlay;
+        opacity: .8;
+        pointer-events: none;
+      }
+      hui-masonry-view::after {
+        content: "";
+        background: url(data:image/png;base64,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);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        z-index: 9991;
+        mix-blend-mode: overlay;
+        opacity: .8;
+        pointer-events: none;
+      }
+      {% endif %}
+    ha-tabs$: |
+      paper-icon-button { display: none !important; }
   card-mod-sidebar: &card-mod-sidebar |
     :host {
       content: "";
-      height: 100px;
-      width: 200px;
       border-right: 0px !important;
       border-top-left-radius: 80px;
       box-shadow: black 0px -130px 0px 0px;
     }
     paper-listbox {
       margin-top: 68px;
-      margin-bottom: -21px;
       border-top: 4px solid black;
       padding-top: 0px !important;
       padding-bottom: 0px !important;
       height: calc( 100% - var(--header-height) - 176px - env(safe-area-inset-bottom)) !important;
+    }
+    paper-listbox.ha-scrollbar {
+      overflow-y: auto;
+      scrollbar-color: unset;
+      scrollbar-width: unset;
     }
     #sortable a {
       display: block !important;
@@ -514,15 +1414,42 @@
       margin-top: 152px !important;
       margin-left: 7px !important;
       height: 19px;
-      border-radius: 20px;
+      border-radius: var(--lcars-inner-radius);
       background: var(--lcars-ui-tertiary);
       align-items: center;
     }
     .menu ha-icon-button {
-      color: var(--sidebar-icon-color);
       margin-top: 150px;
       margin-right: 96px;
     }
+    @media screen and (max-width: 768px) {
+      .menu ha-icon-button {
+        margin-top: 0px;
+        margin-right: 0px;
+      }
+      .menu::before {
+        content: "";
+        position: fixed;
+        height: 40px;
+        width: 100px;
+        background-color: transparent;
+        border-top-left-radius: 40px;
+        box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+        margin-top: 80px;
+        margin-left: 251px;
+        z-index: 9997;
+      }
+      .menu::after {
+        content: linear-gradient(90deg, var(--lcars-ui-primary) 0%, var(--lcars-ui-primary) 35%, rgba(0,0,0,0) 100%);
+        position: fixed;
+        height: 40px;
+        width: 150px;
+        background-color: transparent;
+        margin-left: 251px;
+        z-index: 9997;
+      }
+    }
+
     .title {
       text-transform: uppercase;
       font-size: 15px;
@@ -531,24 +1458,29 @@
       font-family: var(--lcars-font) !important;
       margin-left: 10px !important;
     }
+    :host([narrow]) .title {
+      padding: 148px 6px 0px 0px !important;
+      text-align: right !important;
+    }
     a {
       border-bottom: 4px solid;
       background-color: var(--lcars-ui-secondary);
     }
+    a.iron-selected {
+      background-color: var(--lcars-ui-tertiary);
+    }
+
     .spacer {
       border-bottom: 4px solid black;
     }
     .profile {
       border-top: 4px solid black;
     }
-    .notifications-container {
-      border-top: 4px solid black;
-    }
     .item-text {
       text-align: right;
       margin-left: auto;
-      margin-right: -12px;
       margin-bottom: -23px;
+      margin-right: 2px;
       text-transform: uppercase;
     }
     .profile > paper-icon-item > .item-text {
@@ -559,12 +1491,16 @@
       margin-bottom: 1px !important;
     }
     .notification-badge, .configuration-badge {
-      left: calc(var(--app-drawer-width) - 30px) !important;
+      left: calc(var(--app-drawer-width) - 48px) !important;
       top: 5px;
       max-height: 20px;
     }
     .profile paper-icon-item {
       padding-left: 8px !important;
+    }
+    .notifications-container {
+      border-top: unset;
+      margin-top: -16px
     }
     .menu {
       --mdc-theme-primary: black;
@@ -572,48 +1508,32 @@
     paper-icon-item::before {
       opacity: 0 !important;
     }
-
-(DO NOT USE/MODIFY)=== card-mod-noise-gradients CSS: &card-mod-noise-gradients
-  card-mod-root: &card-mod-root |
-    app-header::before {
-      content: radial-gradient(ellipse farthest-corner at top right, white, transparent 70%);
-      background: url(data:image/png;base64,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);
-      width: 100%;
-      height: 40px;
-      z-index: 9999;
-      position: absolute;
-      mix-blend-mode: overlay;
-      opacity: .8;
-      right: unset;
-      bottom: unset;
-      left: unset;
-      pointer-events: none;
-      box-shadow: none;
-    }
-    hui-masonry-view::before {
-      content: radial-gradient(ellipse farthest-corner at center center, white 0%, transparent 60%);;
-      background: url(data:image/png;base64,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);
-      width: 100%;
-      height: 100%;
-      z-index: 9999;
-      position: absolute;
-      mix-blend-mode: overlay;
-      opacity: .8;
-      pointer-events: none;
-    }
-  card-mod-sidebar: &card-mod-sidebar |
+    {% if not is_state('input_boolean.lcars_texture', 'off') %}
     paper-listbox::before {
-      content: radial-gradient(ellipse at 30% 110%, white 0%, transparent 60%);
-      background: url(data:image/png;base64,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);
-      width: 100%;
+      content: "";
+      background: linear-gradient(to bottom left, transparent 10%, #AAAAAADD 30%, #000000AA 60%, transparent 90%);
+      width: var(--mdc-drawer-width,256px);
       height: 120%;
+      bottom: 0;
       z-index: 9999;
       position: absolute;
       mix-blend-mode: overlay;
       opacity: .8;
       pointer-events: none;
     }
-
+    paper-listbox::after {
+      content: "";
+      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dmYRFZ60YiBhJRCgh1FYhiLAmdvX0CzTOpNE77ME0Zty/nWWzchDtiqrmQDeuv3powQ5ta2eN0FY0InkqDD73lT9c9lEzwUNqgFHs9VQce3TVClFCQrSTfOiYkVJQBmpbq2L6iZavPnAPcoU0dSw0SUTqz/GtrGuXfbyyBniKykOWQWGqwwMA7QiYAxi+IlPdqo+hYHnUt5ZPfnsHJyNiDtnpJyayNBkF6cWoYGAMY92U2hXHF/C1M8uP/ZtYdiuj26UdAdQQSXQErwSOMzt/XWRWAz5GuSBIkwG1H3FabJ2OsUOUhGC6tK4EMtJO0ttC6IBD3kM0ve0tJwMdSfjZo+EEISaeTr9P3wYrGjXqyC1krcKdhMpxEnt5JetoulscpyzhXN5FRpuPHvbeQaKxFAEB6EN+cYN6xD7RYGpXpNndMmZgM5Dcs3YSNFDHUo2LGfZuukSWyUYirJAdYbF3MfqEKmjM+I2EfhA94iG3L7uKrR+GdWD73ydlIB+6hgref1QTlmgmbM3/LeX5GI1Ux1RWpgxpLuZ2+I+IjzZ8wqE4nilvQdkUdfhzI5QDWy+kw5Wgg2pGpeEVeCCA7b85BO3F9DzxB3cdqvBzWcmzbyMiqhzuYqtHRVG2y4x+KOlnyqla8AoWWpuBoYRxzXrfKuILl6SfiWCbjxoZJUaCBj1CjH7GIaDbc9kqBY3W/Rgjda1iqQcOJu2WW+76pZC9QG7M00dffe9hNnseupFL53r8F7YHSwJWUKP2q+k7RdsxyOB11n0xtOvnW4irMMFNV4H0uqwS5ExsmP9AxbDTc9JwgneAT5vTiUSm1E7BSflSt3bfa1tv8Di3R8n3Af7MNWzs49hmauE2wP+ttrq+AsWpFG2awvsuOqbipWHgtuvuaAE+A1Z/7gC9hesnr+7wqCwG8c5yAg3AL1fm8T9AZtp/bbJGwl1pNrE7RuOX7PeMRUERVaPpEs+yqeoSmuOlokqw49pgomjLeh7icHNlG19yjs6XXOMedYm5xH2YxpV2tc0Ro2jJfxC50ApuxGob7lMsxfTbeUv07TyYxpeLucEH1gNd4IKH2LAg5TdVhlCafZvpskfncCfx8pOhJzd76bJWeYFnFciwcYfubRc12Ip/ppIhA1/mSZ/RxjFDrJC5xifFjJpY2Xl5zXdguFqYyTR1zSp1Y9p+tktDYYSNflcxI0iyO4TPBdlRcpeqjK/piF5bklq77VSEaA+z8qmJTFzIWiitbnzR794USKBUaT0NTEsVjZqLaFVqJoPN9ODG70IPbfBHKK+/q/AWR0tJzYHRULOa4MP+W/HfGadZUbfw177G7j/OGbIs8TahLyynl4X4RinF793Oz+BU0saXtUHrVBFT/DnA3ctNPoGbs4hRIjTok8i+algT1lTHi4SxFvONKNrgQFAq2/gFnWMXgwffgYMJpiKYkmW3tTg3ZQ9Jq+f8XN+A5eeUKHWvJWJ2sgJ1Sop+wwhqFVijqWaJhwtD8MNlSBeWNNWTa5Z5kPZw5+LbVT99wqTdx29lMUH4OIG/D86ruKEauBjvH5xy6um/Sfj7ei6UUVk4AIl3MyD4MSSTOFgSwsH/QJWaQ5as7ZcmgBZkzjjU1UrQ74ci1gWBCSGHtuV1H2mhSnO3Wp/3fEV5a+4wz//6qy8JxjZsmxxy5+4w9CDNJY09T072iKG0EnOS0arEYgXqYnXcYHwjTtUNAcMelOd4xpkoqiTYICWFq0JSiPfPDQdnt+4/wuqcXY47QILbgAAAABJRU5ErkJggg==);
+      width: var(--mdc-drawer-width,256px);
+      height: 120%;
+      bottom: 0;
+      z-index: 9999;
+      position: absolute;
+      mix-blend-mode: overlay;
+      opacity: .8;
+      pointer-events: none;
+    }
+    {% endif %}
 # ===THEMES================================================
 # To create your own theme, copy this LCARS Default section
 # to the bottom of the file and change the lcars-ui-* and
@@ -621,94 +1541,346 @@
 # references at the top of this file, or define your own.
 LCARS Default:
   card-mod-theme: LCARS Default
-  <<: *lcars-colors
+  <<: *lcars-variables
   <<: *base
   <<: *card-mod-css
-  <<: *card-mod-noise-gradients
   # ========================YOUR MODIFICATIONS BEGIN HERE |
-  # Header and sidebar colors                             V
+  # Primary colors                             V
   lcars-ui-primary: var(--lcars-almond-creme)
   lcars-ui-secondary: var(--lcars-african-violet)
   lcars-ui-tertiary: var(--lcars-red)
+  # Header colors
+  # Specifying darker app header colors improves look on HA Apps (iphone/ipad/mac).
+  # One unfortunate side effect is that pages without hui-root can't have heading styled
+  # So, logbook, history, calendar, dev tools etc look a bit weird.
+  # overall the cleaner look on dashboards is worth it in my opinion
+  #                                       - mtezzo
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-c72)
   # Card colors
   lcars-card-top-color: var(--lcars-bluey)
   lcars-card-mid-left-color: var(--lcars-red)
   lcars-card-button: var(--lcars-red)
   lcars-card-bottom-color: var(--lcars-gray)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
 
 LCARS Classic:
-  card-mod-theme: LCARS Lower Decks
-  <<: *lcars-colors
+  card-mod-theme: LCARS Classic
+  <<: *lcars-variables
   <<: *base
   <<: *card-mod-css
-  <<: *card-mod-noise-gradients
+  # Primary colors
   lcars-ui-primary: var(--lcars-khaki)
-  lcars-ui-secondary: var(--lcars-roseblush)
+  lcars-ui-secondary: var(--lcars-honey)
   lcars-ui-tertiary: var(--lcars-mars)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-c72)
   # Card colors
   lcars-card-top-color: var(--lcars-violet)
   lcars-card-mid-left-color: var(--lcars-ice)
   lcars-card-button: var(--lcars-ice)
   lcars-card-bottom-color: var(--lcars-honey)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
 
 LCARS Nemesis Blue:
   card-mod-theme: LCARS Nemesis Blue
-  <<: *lcars-colors
+  <<: *lcars-variables
   <<: *base
   <<: *card-mod-css
-  <<: *card-mod-noise-gradients
+  # Primary colors
   lcars-ui-primary: var(--lcars-midnight)
   lcars-ui-secondary: var(--lcars-tangerine)
   lcars-ui-tertiary: var(--lcars-pumpkinshade)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-c72)
   # Card colors
   lcars-card-top-color: var(--lcars-moonshine)
   lcars-card-mid-left-color: var(--lcars-evening)
-  lcars-card-button: var(--lcars-roseblush)
+  lcars-card-button: var(--lcars-honey)
   lcars-card-bottom-color: var(--lcars-cool)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
 
-LCARS Lower Decks:
-  card-mod-theme: LCARS Lower Decks
-  <<: *lcars-colors
+LCARS Lower Decks I:
+  card-mod-theme: LCARS Lower Decks I
+  <<: *lcars-variables
   <<: *base
   <<: *card-mod-css
-  <<: *card-mod-noise-gradients
+  # Primary colors
   lcars-ui-primary: var(--lcars-gold)
   lcars-ui-secondary: var(--lcars-butter)
   lcars-ui-tertiary: var(--lcars-orange)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-c72)
   # Card colors
   lcars-card-top-color: var(--lcars-october-sunset)
   lcars-card-mid-left-color: var(--lcars-harvestgold)
   lcars-card-button: var(--lcars-harvestgold)
   lcars-card-bottom-color: var(--lcars-honey)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
 
 LCARS Romulus:
   card-mod-theme: LCARS Romulus
-  <<: *lcars-colors
+  <<: *lcars-variables
   <<: *base
   <<: *card-mod-css
-  <<: *card-mod-noise-gradients
+  # Primary colors
   lcars-ui-primary: var(--lcars-green)
   lcars-ui-secondary: var(--lcars-african-violet)
   lcars-ui-tertiary: var(--lcars-orange)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-c72)
   # Card colors
   lcars-card-top-color: var(--lcars-cardinal)
   lcars-card-mid-left-color: var(--lcars-african-violet)
   lcars-card-button: var(--lcars-sky)
   lcars-card-bottom-color: var(--lcars-c62)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
 
 LCARS Kronos:
   card-mod-theme: LCARS Kronos
-  <<: *lcars-colors
+  <<: *lcars-variables
   <<: *base
   <<: *card-mod-css
-  <<: *card-mod-noise-gradients
+  # Primary colors
   lcars-ui-primary: var(--lcars-mars)
   lcars-ui-secondary: var(--lcars-gold)
   lcars-ui-tertiary: var(--lcars-orange)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-c72)
   # Card colors
   lcars-card-top-color: var(--lcars-mars)
   lcars-card-mid-left-color: var(--lcars-october-sunset)
   lcars-card-button: var(--lcars-october-sunset)
   lcars-card-bottom-color: var(--lcars-peach)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
+
+LCARS Cardassia:
+  card-mod-theme: LCARS Cardassia
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  # Primary colors
+  lcars-ui-primary: var(--lcars-c44)
+  lcars-ui-secondary: var(--lcars-c55)
+  lcars-ui-tertiary: var(--lcars-cardassia-maroon)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-c72)
+  # Card colors
+  lcars-card-top-color: var(--lcars-c48)
+  lcars-card-mid-left-color: var(--lcars-cardassia-maroon)
+  lcars-card-button: var(--lcars-cardassia-maroon)
+  lcars-card-bottom-color: var(--lcars-c52)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
+
+LCARS Zeldaar:
+  card-mod-theme: LCARS Zeldaar
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  # Primary colors
+  lcars-ui-primary: var(--lcars-violet-creme)
+  lcars-ui-secondary: var(--lcars-honey)
+  lcars-ui-tertiary: var(--lcars-roseblush)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-c72)
+  # Card colors
+  lcars-card-top-color: var(--lcars-bluey)
+  lcars-card-mid-left-color: var(--lcars-khaki)
+  lcars-card-button: var(--lcars-african-violet)
+  lcars-card-bottom-color: var(--lcars-roseblush)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
+
+LCARS Modern:
+  card-mod-theme: LCARS Modern
+  # Custom colors
+  lcars-modern-light-gray: "#9996BA"
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  # Primary colors
+  lcars-ui-primary: var(--lcars-violet-creme)
+  lcars-ui-secondary: var(--lcars-sky)
+  lcars-ui-tertiary: var(--lcars-gold)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-c72)
+  # Card colors
+  lcars-card-top-color: var(--lcars-gold)
+  lcars-card-mid-left-color: var(--lcars-modern-light-gray)
+  lcars-card-button: var(--lcars-gray)
+  lcars-card-bottom-color: var(--lcars-sky)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-red)
+
+LCARS Picard I:
+  card-mod-theme: LCARS Picard I
+  # Custom colors
+  lcars-modern-light-gray: "#9996BA"
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  # Primary colors
+  lcars-ui-primary: var(--lcars-hellgrau)
+  lcars-ui-secondary: var(--lcars-mittelgrau)
+  lcars-ui-tertiary: var(--lcars-feuerrot)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-c72)
+  # Card colors
+  lcars-card-top-color: var(--lcars-mittelgrau)
+  lcars-card-mid-left-color: var(--lcars-mango)
+  lcars-card-button: var(--lcars-feuerrot)
+  lcars-card-bottom-color: var(--lcars-dunkelgrau)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
+
+LCARS Red Alert:
+  card-mod-theme: LCARS Red Alert
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  lcars-ui-primary: var(--lcars-gold)
+  lcars-ui-secondary: var(--lcars-butter)
+  lcars-ui-tertiary: var(--lcars-orange)
+  # Card colors
+  lcars-card-top-color: "#bf1b1b"
+  lcars-card-mid-left-color: "#9d361e"
+  lcars-card-button: "#d66a60"
+  lcars-card-bottom-color: "#91311c"
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
+
+LCARS Lower Decks II:
+  card-mod-theme: LCARS Lower Decks II
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  lcars-ui-primary: var(--lcars-gold)
+  lcars-ui-secondary: var(--lcars-butter)
+  lcars-ui-tertiary: var(--lcars-orange)
+  # Card colors
+  lcars-card-top-color: var(--lcars-orange)
+  lcars-card-mid-left-color: var(--lcars-c57)
+  lcars-card-button: var(--lcars-honey)
+  lcars-card-bottom-color: "#fff5c7"
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
+
+LCARS Transporter:
+  card-mod-theme: LCARS Transporter
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  lcars-ui-primary: var(--lcars-c73)
+  lcars-ui-secondary: var(--lcars-c74)
+  lcars-ui-tertiary: var(--lcars-c76)
+  # Card colors
+  lcars-card-top-color: var(--lcars-c77)
+  lcars-card-mid-left-color: var(--lcars-c77)
+  lcars-card-button: var(--lcars-c75)
+  lcars-card-bottom-color: var(--lcars-c73)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-dark-red)
+  error-color: var(--lcars-gold)
+
+LCARS Navigation:
+  card-mod-theme: LCARS Navigation
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  lcars-ui-primary: var(--lcars-c79)
+  lcars-ui-secondary: var(--lcars-c80)
+  lcars-ui-tertiary: var(--lcars-c81)
+  # Card colors
+  lcars-card-top-color: var(--lcars-c83)
+  lcars-card-mid-left-color: var(--lcars-c82)
+  lcars-card-button: var(--lcars-c79)
+  lcars-card-bottom-color: var(--lcars-c79)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-dark-red)
+  error-color: var(--lcars-gold)
+
+LCARS Picard II:
+  card-mod-theme: LCARS Picard II
+  # Custom colors
+  lcars-modern-light-gray: var(--lcars-starlight)
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  # Primary colors
+  lcars-ui-primary: var(--lcars-primary-gray)
+  lcars-ui-secondary: var(--lcars-medium-gray)
+  lcars-ui-tertiary: var(--lcars-orange)
+  lcars-ui-quat: var(--lcars-cyan)
+  # Header colors
+  lcars-ui-app-header-background-color: "#000000"
+  lcars-ui-app-header-text-color: var(--lcars-cyan)
+  lcars-ui-app-header-clock: var(--lcars-pale-orange)
+  # Card colors
+  lcars-card-top-color: var(--lcars-dark-gray)
+  lcars-card-mid-left-color: var(--lcars-primary-gray)
+  lcars-card-button: var(--lcars-medium-gray)
+  lcars-card-button-off: var(--lcars-primary-gray)
+  lcars-card-button-unavailable: var(--lcars-dark-gray)
+  lcars-card-button-bar: var(--lcars-primary-gray)
+  lcars-card-bottom-color: var(--lcars-dark-gray)
+  lcars-card-background: var(--lcars-primary-gray)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-light-orange)
+  error-color: var(--lcars-orange)
+  #Inline SVGs to get around stupid limitations of Keyframe definitions
+  lcars-tab-selected-bg: >
+    url("data:image/svg+xml,%3C!-- sample rectangle --%3E%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='transparent'%3E%3Canimate attributeName='fill' values='
+    %23e7442a;
+    %23e7442a;
+    %236d748c'
+    begin='0s'
+    dur='5s'
+    calcMode='discrete'
+    repeatCount='indefinite'
+    /%3E%3C/rect%3E%3C/svg%3E")
+
 # Paste your themes here |
 #                        V
