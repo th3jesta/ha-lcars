@@ -78,6 +78,9 @@
   lcars-c71: "#dfdfdf"
   lcars-c72: "#f7f7f7"
 
+  # LCARS Modern Theme Colors
+  lcars-modern-light-gray: "#9996BA"
+
   # LCARS Transporter Theme Colors
   lcars-c73: "#2C374B"
   lcars-c74: "#6E748C"
@@ -137,6 +140,8 @@
   lcars-horizontal-border: "10px"
   lcars-outer-radius: "34px"
   lcars-inner-radius: "20px"
+  # Calculated
+  lcars-middle-vertical-border: "calc(var(--lcars-vertical-border) - 1.5px)"
 
   # Font
   lcars-font: Antonio
@@ -198,6 +203,8 @@
   paper-slider-container-color: rgba(255, 255, 255, 0.5)
   paper-slider-font-color: black
   ha-slider-background: none !important
+  md-slider-handle-color: var(--lcars-dark-gray)
+  md-slider-active-track-color: var(--lcars-ui-tertiary)
   # Labels
   label-badge-background-color: "#23232E"
   label-badge-text-color: black
@@ -255,13 +262,25 @@
   state-color: var(--lcars-ui-secondary)
   mdc-shape-small: var(--ha-card-border-radius)
 
+  # Future logic for adjustable bar width/height to be added inside card-mod-card-yaml:
+  # {% set LCARS_HORIZONTAL = states('input_number.lcars_horizontal') | int %}
+  # {% if LCARS_HORIZONTAL > 0 %}
+  # ha-card, ha-card > * {
+  #   --lcars-horizontal-border: {{LCARS_HORIZONTAL}}px !important;
+  # }
+  # {% endif %}
+  # {% set LCARS_VERTICAL = states('input_number.lcars_vertical') | int  %}
+  # {% if LCARS_VERTICAL > 0 %}
+  # ha-card, ha-card > * {
+  #   --lcars-vertical-border: {{LCARS_VERTICAL}}px !important;
+  #   --lcars-middle-vertical-border: calc({{LCARS_VERTICAL}}px) !important;
+  # }
+  # {% endif %}
+
 (DO NOT USE/MODIFY)=== card-mod CSS: &card-mod-css # Card modifications
   card-mod-card-yaml: &card-mod-card |
-    ha-card.footer $ hui-graph-header-footer $ hui-graph-base $: |
-      svg {
-        border-radius: 0px 0px 0px var(--lcars-inner-radius);
-      }
     .: |
+      
       /* Header classes and fixes for specific card types */
       /* Common Header Styles */
       ha-card.header,
@@ -272,13 +291,13 @@
         text-transform: uppercase;
         border-top: var(--lcars-horizontal-border) solid var(--lcars-card-top-color);
       }
-      ha-card.header > ha-markdown,
-      ha-card.header-right > ha-markdown,
-      ha-card.header-contained > ha-markdown,
-      ha-card.header-open > ha-markdown {
+      ha-card.header.type-markdown,
+      ha-card.header-right.type-markdown,
+      ha-card.header-contained.type-markdown,
+      ha-card.header-open.type-markdown {
         background: black;
         padding-top: 0px !important;
-        padding-bottom: 0 !important;
+        padding-bottom: 0px !important;
       }
       ha-card.header.type-thermostat > .content,
       ha-card.header-right.type-thermostat > .content,
@@ -287,44 +306,29 @@
         border-radius: 0px 0px 0px var(--lcars-inner-radius);
       }
 
+      ha-card.header.type-custom-html-card > div,
+      ha-card.header-right.type-custom-html-card > div,
+      ha-card.header-contained.type-custom-html-card > div,
+      ha-card.header-open.type-custom-html-card > div {
+        background: black;
+        line-height: initial;
+        border-top: var(--lcars-horizontal-border);
+        padding: 0px 16px 0px 16px;
+      }
+      ha-card.header.type-custom-html-card > div > h1,
+      ha-card.header-right.type-custom-html-card > div > h1,
+      ha-card.header-contained.type-custom-html-card > div > h1,
+      ha-card.header-open.type-custom-html-card > div > h1 {
+        margin: 0px;
+      }
+
       /* Specific Header Styles */
-      ha-card.header {
-        border-radius: var(--ha-card-border-radius) 0px 0px 0px !important;
-        border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
-      }
-      ha-card.header > ha-markdown {
-        border-radius: var(--lcars-inner-radius) 0 0 0;
-        height: 100%;
-        display: flex;
-        align-items: flex-end;
-      }
-      ha-card.header-right {
-        border-radius: 0px var(--ha-card-border-radius) 0px 0px !important;
-        border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
-      }
-      ha-card.header-right > ha-markdown.no-header {
-        border-radius: 0px var(--lcars-inner-radius) 0px 0px;
-      }
-      ha-card.header-contained {
-        border-radius: var(--ha-card-border-radius) var(--ha-card-border-radius) 0px 0px !important;
-        border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
-        border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
-      }
-      ha-card.header-contained > ha-markdown.no-header {
-        border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
-      }
-      ha-card.header-open {
-        border-radius: 0px 0px 0px 0px !important;
-      }
-      ha-card.header-open > ha-markdown.no-header {
-        border-radius: 0px 0px 0px 0px;
-      }
+      
       /* Border on left */
       ha-card.header {
         background: var(--lcars-card-top-color) !important;
         text-transform: uppercase;
         border-radius: var(--ha-card-border-radius) 0px 0px 0px !important;
-        border-top: var(--lcars-horizontal-border) solid var(--lcars-card-top-color);
         border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
       }
       ha-card.header > ha-markdown {
@@ -336,29 +340,33 @@
       ha-card.header.type-thermostat > .content {
         border-radius: 0px 0px 0px var(--lcars-inner-radius);
       }
+      ha-card.header.type-custom-html-card > div {
+        border-radius: var(--lcars-inner-radius) 0px 0px 0px;
+      }
       /* Border on right */
       ha-card.header-right {
         background: var(--lcars-card-top-color) !important;
         text-transform: uppercase;
         border-radius: 0px var(--ha-card-border-radius) 0px 0px !important;
-        border-top: var(--lcars-horizontal-border) solid var(--lcars-card-top-color);
         border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
       }
       ha-card.header-right > ha-markdown.no-header {
         background: black;
         border-radius: 0px var(--lcars-inner-radius) 0px 0px;
         padding-top: 0px !important;
-        padding-bottom: 0 !important;
+        padding-bottom: 0px !important;
       }
       ha-card.header-right.type-thermostat > .content {
         border-radius: 0px 0px var(--lcars-inner-radius) 0px;
+      }
+      ha-card.header-right.type-custom-html-card > div {
+        border-radius: 0px var(--lcars-inner-radius) 0px 0px;
       }
       /* Border on both sides */
       ha-card.header-contained {
         background: var(--lcars-card-top-color) !important;
         text-transform: uppercase;
         border-radius: var(--ha-card-border-radius) var(--ha-card-border-radius) 0px 0px !important;
-        border-top: var(--lcars-horizontal-border) solid var(--lcars-card-top-color);
         border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
         border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
       }
@@ -366,23 +374,28 @@
         background: black;
         border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
         padding-top: 0px !important;
-        padding-bottom: 0 !important;
+        padding-bottom: 0px !important;
       }
-      ha-card.header-right.type-thermostat > .content {
-        border-radius: 0px 0px var(--lcars-inner-radius) var(--lcars-inner-radius);
+      ha-card.header-contained.type-thermostat > .content {
+        border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
+      }
+      ha-card.header-contained.type-custom-html-card > div {
+        border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
       }
       /* Border on neither side */
       ha-card.header-open {
         background: var(--lcars-card-top-color) !important;
         text-transform: uppercase;
         border-radius: 0px 0px 0px 0px !important;
-        border-top: var(--lcars-horizontal-border) solid var(--lcars-card-top-color);
       }
       ha-card.header-open > ha-markdown.no-header {
         background: black;
         border-radius: 0px 0px 0px 0px;
         padding-top: 0px !important;
-        padding-bottom: 0 !important;
+        padding-bottom: 0px !important;
+      }
+      ha-card.header-open.type-custom-html-card > div {
+        border-radius: 0px 0px 0px 0px;
       }
 
       /* Common Middle Styles */
@@ -407,18 +420,30 @@
         color: var(--lcars-text-gray);
       }
 
+      ha-card.middle.type-custom-html-card > div,
+      ha-card.middle-right.type-custom-html-card > div,
+      ha-card.middle-contained.type-custom-html-card > div {
+        line-height: initial;
+        padding: 0px 16px 0px 16px;
+      }
+      ha-card.middle.type-custom-html-card > div > h1,
+      ha-card.middle-right.type-custom-html-card > div > h1,
+      ha-card.middle-contained.type-custom-html-card > div > h1 {
+        margin: 0px;
+      }
+
       /* Specific Middle Styles */
       ha-card.middle {
-        border-left: 35.5px solid var(--lcars-card-mid-left-color);
+        border-left: var(--lcars-middle-vertical-border) solid var(--lcars-card-mid-left-color);
         padding-left: 6px !important;
       }
       ha-card.middle-right {
-        border-right: 35.5px solid var(--lcars-card-mid-left-color);
+        border-right: var(--lcars-middle-vertical-border) solid var(--lcars-card-mid-left-color);
         padding-right: 6px !important;
       }
       ha-card.middle-contained {
-        border-left: 35.5px solid var(--lcars-card-mid-left-color);
-        border-right: 35.5px solid var(--lcars-card-mid-left-color);
+        border-left: var(--lcars-middle-vertical-border) solid var(--lcars-card-mid-left-color);
+        border-right: var(--lcars-middle-vertical-border) solid var(--lcars-card-mid-left-color);
         padding: 0px 6px !important;
       }
 
@@ -453,7 +478,7 @@
       ha-card.footer-open > #states {
         background: black;
         padding-top: 0px !important;
-        padding-bottom: 0 !important;
+        padding-bottom: 0px !important;
       }
       ha-card.footer > ha-markdown,
       ha-card.footer-right > ha-markdown,
@@ -592,6 +617,30 @@
       ha-card.footer-open.type-custom-mail-and-packages-card > span.usps_update {
         padding-top: unset;
       }
+      
+
+      ha-card.footer.type-entity > .info,
+      ha-card.footer-right.type-entity > .info,
+      ha-card.footer-contained.type-entity > .info,
+      ha-card.footer-open.type-entity > .info {
+        border-radius: 0px 0px 0px 0px;
+      }
+
+      ha-card.footer.type-custom-html-card > div,
+      ha-card.footer-right.type-custom-html-card > div,
+      ha-card.footer-contained.type-custom-html-card > div,
+      ha-card.footer-open.type-custom-html-card > div {
+        background: black;
+        line-height: initial;
+        border-top: var(--lcars-horizontal-border);
+        padding: 0px 16px 0px 16px;
+      }
+      ha-card.footer.type-custom-html-card > div > h1,
+      ha-card.footer-right.type-custom-html-card > div > h1,
+      ha-card.footer-contained.type-custom-html-card > div > h1,
+      ha-card.footer-open.type-custom-html-card > div > h1 {
+        margin: 0px;
+      }
 
       /* Specific Footer Styles */
       ha-card.footer {
@@ -623,6 +672,10 @@
         border-bottom-left-radius: var(--lcars-inner-radius);
       }
 
+      ha-card.footer.type-custom-html-card > div {
+        border-radius: 0px 0px 0px var(--lcars-inner-radius);
+      }
+
       ha-card.footer-right {
         border-radius: 0px 0px var(--ha-card-border-radius) 0px !important;
         border-right: var(--lcars-vertical-border) solid var(--lcars-card-bottom-color);
@@ -648,6 +701,10 @@
       ha-card.footer-right > img {
         padding: 0px 6px 6px 0px;
         border-bottom-right-radius: var(--lcars-inner-radius);
+      }
+
+      ha-card.footer-right.type-custom-html-card > div {
+        border-radius: 0px 0px var(--lcars-inner-radius) 0px;
       }
 
       ha-card.footer-contained {
@@ -679,6 +736,10 @@
         border-radius: 0px 0px var(--lcars-inner-radius) var(--lcars-inner-radius);
       }
 
+      ha-card.footer-contained.type-custom-html-card > div {
+        border-radius: 0px 0px var(--lcars-inner-radius) var(--lcars-inner-radius);
+      }
+
       ha-card.footer-open {
         border-radius: 0px 0px 0px 0px !important;
       }
@@ -700,13 +761,9 @@
         border-radius: 0px 0px 0px 0px;
       }
 
-      ha-card.footer.type-entity > .info,
-      ha-card.footer-right.type-entity > .info,
-      ha-card.footer-contained.type-entity > .info,
-      ha-card.footer-open.type-entity > .info {
+      ha-card.footer-open.type-custom-html-card > div {
         border-radius: 0px 0px 0px 0px;
       }
-
 
       /* Small button class and fixes for specific cards */
       ha-card.button-small {
@@ -931,7 +988,7 @@
         border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
       }
       ha-card.bar-right {
-        border-right: 35.5px solid var(--lcars-card-top-color);
+        border-right: var(--lcars-middle-vertical-border) solid var(--lcars-card-top-color);
         justify-content: right;
       }
       ha-card.bar > ha-markdown,
@@ -942,7 +999,7 @@
         border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
       }
       ha-card.bar-large-right {
-        border-right: 35.5px solid var(--lcars-card-top-color);
+        border-right: var(--lcars-middle-vertical-border) solid var(--lcars-card-top-color);
         justify-content: right;
       }
       ha-card.bar-large > ha-markdown,
@@ -959,7 +1016,7 @@
       }
       ha-card.bar-right {
         text-transform: uppercase;
-        border-right: 35.5px solid var(--lcars-card-top-color);
+        border-right: var(--lcars-middle-vertical-border) solid var(--lcars-card-top-color);
         background-color: var(--lcars-card-top-color);
         display: flex;
         justify-content: right;
@@ -979,7 +1036,7 @@
       }
       ha-card.bar-large-right {
         text-transform: uppercase;
-        border-right: 35.5px solid var(--lcars-card-top-color);
+        border-right: var(--lcars-middle-vertical-border) solid var(--lcars-card-top-color);
         background-color: var(--lcars-card-top-color);
         display: flex;
         justify-content: right;
@@ -995,7 +1052,7 @@
       /* More info: https://github.com/thomasloven/lovelace-card-mod#styling-cards-without-an-ha-card-element */
       .type-custom-mod-card {
         /* border-radius: 0px !important; */
-        /* border-left: 35.5px solid var(--lcars-card-mid-left-color); */
+        /* border-left: var(--lcars-middle-vertical-border) solid var(--lcars-card-mid-left-color); */
         /* padding-left: 6px !important; */
       }
       /* WIP fix for aliasing ugliness on slider tracks */
@@ -1030,7 +1087,7 @@
       .type-thermostat > .content {
         background: black;
         padding-top: 0px !important;
-        padding-bottom: 0 !important;
+        padding-bottom: 0px !important;
       }
       .details {
         margin-top: 1em;
@@ -1723,8 +1780,6 @@ LCARS Zeldaar:
 
 LCARS Modern:
   card-mod-theme: LCARS Modern
-  # Custom colors
-  lcars-modern-light-gray: "#9996BA"
   <<: *lcars-variables
   <<: *base
   <<: *card-mod-css
@@ -1747,8 +1802,6 @@ LCARS Modern:
 
 LCARS Picard I:
   card-mod-theme: LCARS Picard I
-  # Custom colors
-  lcars-modern-light-gray: "#9996BA"
   <<: *lcars-variables
   <<: *base
   <<: *card-mod-css
@@ -1841,8 +1894,8 @@ LCARS Navigation:
   warning-color: var(--lcars-dark-red)
   error-color: var(--lcars-gold)
 
-LCARS Picard II:
-  card-mod-theme: LCARS Picard II
+LCARS 25C:
+  card-mod-theme: LCARS 25C
   # Custom colors
   lcars-modern-light-gray: var(--lcars-starlight)
   <<: *lcars-variables
@@ -1851,25 +1904,25 @@ LCARS Picard II:
   # Primary colors
   lcars-ui-primary: var(--lcars-primary-gray)
   lcars-ui-secondary: var(--lcars-medium-gray)
-  lcars-ui-tertiary: var(--lcars-orange)
+  lcars-ui-tertiary: var(--lcars-alt-orange)
   lcars-ui-quat: var(--lcars-cyan)
   # Header colors
   lcars-ui-app-header-background-color: "#000000"
   lcars-ui-app-header-text-color: var(--lcars-cyan)
   lcars-ui-app-header-clock: var(--lcars-pale-orange)
   # Card colors
-  lcars-card-top-color: var(--lcars-dark-gray)
+  lcars-card-top-color: var(--lcars-alt-dark-gray)
   lcars-card-mid-left-color: var(--lcars-primary-gray)
   lcars-card-button: var(--lcars-medium-gray)
   lcars-card-button-off: var(--lcars-primary-gray)
-  lcars-card-button-unavailable: var(--lcars-dark-gray)
+  lcars-card-button-unavailable: var(--lcars-alt-dark-gray)
   lcars-card-button-bar: var(--lcars-primary-gray)
-  lcars-card-bottom-color: var(--lcars-dark-gray)
+  lcars-card-bottom-color: var(--lcars-alt-dark-gray)
   lcars-card-background: var(--lcars-primary-gray)
   # Misc
-  success-color: var(--lcars-green)
+  success-color: var(--lcars-alt-green)
   warning-color: var(--lcars-light-orange)
-  error-color: var(--lcars-orange)
+  error-color: var(--lcars-alt-orange)
   #Inline SVGs to get around stupid limitations of Keyframe definitions
   lcars-tab-selected-bg: >
     url("data:image/svg+xml,%3C!-- sample rectangle --%3E%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='transparent'%3E%3Canimate attributeName='fill' values='
@@ -1882,5 +1935,91 @@ LCARS Picard II:
     repeatCount='indefinite'
     /%3E%3C/rect%3E%3C/svg%3E")
 
+# Red Alert
+LCARS 25C (Red Alert):
+  card-mod-theme: LCARS 25C (Red Alert)
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  lcars-alert-color: var(--lcars-alert-red)
+  lcars-ui-primary: var(--lcars-alert-color)
+  lcars-ui-secondary: var(--lcars-alert-white)
+  lcars-ui-tertiary: var(--lcars-alert-color)
+  lcars-ui-quat: var(--lcars-alert-color)
+  # Header colors
+  lcars-ui-app-header-background-color: "#000000"
+  lcars-ui-app-header-text-color: var(--lcars-alert-white)
+  lcars-ui-app-header-clock: var(--lcars-alert-white)
+  # Card colors
+  lcars-card-top-color: var(--lcars-alert-color)
+  lcars-card-mid-left-color: var(--lcars-alert-color)
+  lcars-card-button: var(--lcars-alert-color)
+  lcars-card-button-off: var(--lcars-alert-white)
+  lcars-card-button-unavailable: var(--lcars-alert-color)
+  lcars-card-button-bar: var(--lcars-alert-white)
+  lcars-card-bottom-color: var(--lcars-alert-color)
+  lcars-card-background: var(--lcars-alert-color)
+  # Misc
+  success-color: var(--lcars-alt-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-color)
+
+# Yellow Alert
+LCARS 25C (Yellow Alert):
+  card-mod-theme: LCARS 25C (Yellow Alert)
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  lcars-alert-color: var(--lcars-alert-yellow)
+  lcars-ui-primary: var(--lcars-alert-color)
+  lcars-ui-secondary: var(--lcars-alert-white)
+  lcars-ui-tertiary: var(--lcars-alert-color)
+  lcars-ui-quat: var(--lcars-alert-color)
+  # Header colors
+  lcars-ui-app-header-background-color: "#000000"
+  lcars-ui-app-header-text-color: var(--lcars-alert-white)
+  lcars-ui-app-header-clock: var(--lcars-alert-white)
+  # Card colors
+  lcars-card-top-color: var(--lcars-alert-color)
+  lcars-card-mid-left-color: var(--lcars-alert-color)
+  lcars-card-button: var(--lcars-alert-color)
+  lcars-card-button-off: var(--lcars-alert-white)
+  lcars-card-button-unavailable: var(--lcars-alert-color)
+  lcars-card-button-bar: var(--lcars-alert-white)
+  lcars-card-bottom-color: var(--lcars-alert-color)
+  lcars-card-background: var(--lcars-alert-color)
+  # Misc
+  success-color: var(--lcars-alt-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-color)
+
+# Blue Alert
+LCARS 25C (Blue Alert):
+  card-mod-theme: LCARS 25C (Blue Alert)
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  lcars-alert-color: var(--lcars-alert-blue)
+  lcars-ui-primary: var(--lcars-alert-color)
+  lcars-ui-secondary: var(--lcars-alert-white)
+  lcars-ui-tertiary: var(--lcars-alert-color)
+  lcars-ui-quat: var(--lcars-alert-color)
+  # Header colors
+  lcars-ui-app-header-background-color: "#000000"
+  lcars-ui-app-header-text-color: var(--lcars-alert-white)
+  lcars-ui-app-header-clock: var(--lcars-alert-white)
+  # Card colors
+  lcars-card-top-color: var(--lcars-alert-color)
+  lcars-card-mid-left-color: var(--lcars-alert-color)
+  lcars-card-button: var(--lcars-alert-color)
+  lcars-card-button-off: var(--lcars-alert-white)
+  lcars-card-button-unavailable: var(--lcars-alert-color)
+  lcars-card-button-bar: var(--lcars-alert-white)
+  lcars-card-bottom-color: var(--lcars-alert-color)
+  lcars-card-background: var(--lcars-alert-color)
+  # Misc
+  success-color: var(--lcars-alt-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-color)
 # Paste your themes here |
 #                        V
