@@ -8,6 +8,25 @@ Star Trek LCARS theme for Home Assistant
 Color codes and font choice from https://www.thelcars.com
     --thanks Jim Robertus!
 
+# 💥💥💥MARKDOWN CARDS ARE BROKEN IN CARD-MOD💥💥💥
+HA-LCARS replies on a mod called card-mod, and since Home Assistant 2024.8, card-mod no longer applies classes defined in the theme to Markdown cards. HA-LCARS dashboards have typically made heavy use of Markdown cards for headers and section labels. Due to card-mod no longer being able to apply CSS classes to Markdown cards on the initial load of a page without calling a reload of the theme, I have added support in 2.3.1 for the [Lovelace HTML card](https://github.com/PiotrMachowski/lovelace-html-card) to the various `header`, `middle`, and `footer` classes, with the various `bar` classes to follow soon in the next update. 
+Setup an HTML card like this:
+
+1. Install [Lovelace HTML card](https://github.com/PiotrMachowski/lovelace-html-card)
+
+2. Create a new "manual" card
+
+3. Input the following code for the card, and adjust the content and class per your needs.
+```
+type: custom:html-card
+title: ''
+content: |
+  <h1>TEST HTML CARD</h1>
+card_mod:
+  class: header
+```
+
+
 ## Examples
 ### Dashboard
 ![image](https://user-images.githubusercontent.com/38670315/212081440-039e5481-ca2b-4c08-814c-2a83d6a5a377.png "Automations for hot Earl Grey Tea not included.")
@@ -20,7 +39,7 @@ Color codes and font choice from https://www.thelcars.com
 
 ### Included themes
 ![LCARS Themes](https://user-images.githubusercontent.com/38670315/210556056-26458f3d-60e4-400f-89df-f0b8cc68a6a2.png)
-Classic, Lower Decks, Romulus, Cardassia, Kronos, Nemesis.
+Classic, Lower Decks, Romulus, Cardassia, Kronos, Nemesis (and more!).
     
 ## Preamble
 I am most definitely not a real web developer, and fumbled my way into the initial release with the help of Stack Exchange and various blogs on CSS techniques. My main goal was and still is to keep this theme 100% CSS/JS with no extra assets required besides the font. I'm positive there are better ways to implement anything and everything I've done thus far, so PRs are welcome. I will continue to improve things as I learn and add more comments to my CSS so that you can know what things do and maybe tell me how it can be better if you know. I have tested this theme with most of the out-of-the-box cards that ship with Home Assistant, and some available in HACS like the Mail and Packages card. However, I'm sure there are some that could still be terribly broken. Simply create an issue and I will address it. 
