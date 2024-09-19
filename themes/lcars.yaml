@@ -192,7 +192,7 @@
   text-primary-color: var(--lcars-text-gray)
   disabled-text-color: "#555"
   text-dark-color: black
-  # Sidebar Menu
+  # Sidebar-left Menu
   sidebar-background-color: var(--lcars-ui-primary)
   sidebar-icon-color: black
   sidebar-text-color: black
@@ -276,7 +276,7 @@
   mdc-text-field-label-ink-color: black
   mdc-text-field-fill-color: var(--lcars-ui-quaternary)
 
-  # Future logic for adjustable bar width/height to be added inside card-mod-card-yaml:
+  # Future logic for adjustable bar-left width/height to be added inside card-mod-card-yaml:
   # {% set LCARS_HORIZONTAL = states('input_number.lcars_horizontal') | int %}
   # {% if LCARS_HORIZONTAL > 0 %}
   # ha-card, ha-card > * {
@@ -1047,7 +1047,7 @@
       }
 
       /* Common Markdown Bar Styles */
-      ha-card.bar,
+      ha-card.bar-left,
       ha-card.bar-right,
       ha-card.bar-large,
       ha-card.bar-large-right {
@@ -1055,40 +1055,62 @@
         background-color: var(--lcars-card-top-color);
         display: flex;
       }
-      ha-card.bar > ha-markdown,
+      ha-card.bar-left > ha-markdown,
       ha-card.bar-right > ha-markdown,
-      ha-card.bar-large > ha-markdown,
+      ha-card.bar-large-left > ha-markdown,
       ha-card.bar-large-right > ha-markdown {
         margin-top: -8px;
         margin-bottom: -3px;
+      }
+      ha-card.bar-left.type-custom-html-card > div,
+      ha-card.bar-right.type-custom-html-card > div,
+      ha-card.bar-large-left.type-custom-html-card > div,
+      ha-card.bar-large-right.type-custom-html-card > div {
+        background: black;
+        line-height: initial;
+        border-top: var(--lcars-horizontal-border);
+        padding: 0px 6px 0px 6px;
+        margin-top: -8px;
+        margin-bottom: -3px;
+      }
+      ha-card.bar-left.type-custom-html-card > div > h1,
+      ha-card.bar-right.type-custom-html-card > div > h1,
+      ha-card.bar-large-left.type-custom-html-card > div > h1,
+      ha-card.bar-large-right.type-custom-html-card > div > h1 {
+        margin: 0px;
       }
 
-      /* Specific Markdown Bar Styles */
-      ha-card.bar {
+      /* Specific Bar Styles */
+      ha-card.bar-left {
         border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
       }
       ha-card.bar-right {
         border-right: var(--lcars-middle-vertical-border) solid var(--lcars-card-top-color);
         justify-content: right;
       }
-      ha-card.bar > ha-markdown,
-      ha-card.bar-right > ha-markdown {
+      ha-card.bar-left > ha-markdown,
+      ha-card.bar-left.type-custom-html-card,
+      ha-card.bar-right > ha-markdown,
+      ha-card.bar-right.type-custom-html-card, {
         padding: 2px 8px 2px !important;
       }
-      ha-card.bar-large {
+      ha-card.bar-large-left {
         border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
       }
       ha-card.bar-large-right {
         border-right: var(--lcars-middle-vertical-border) solid var(--lcars-card-top-color);
         justify-content: right;
       }
-      ha-card.bar-large > ha-markdown,
-      ha-card.bar-large-right > ha-markdown {
-        padding: 0px 8px 0px !important;
+      ha-card.bar-large-left > ha-markdown,
+      ha-card.bar-large-right > ha-markdown{
         font-size: 1.5em;
       }
-      /* Markdown bar */
-      ha-card.bar {
+      ha-card.bar-large-left > div > h1,
+      ha-card.bar-large-right > div > h1 {
+        font-size: 3.1em;
+      }
+      /* Bar */
+      ha-card.bar-left {
         text-transform: uppercase;
         border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
         background-color: var(--lcars-card-top-color);
@@ -1101,14 +1123,14 @@
         display: flex;
         justify-content: right;
       }
-      ha-card.bar > ha-markdown,
+      ha-card.bar-left > ha-markdown,
       ha-card.bar-right > ha-markdown {
         padding: 2px 8px 2px !important;
         margin-top: -8px;
         margin-bottom: -3px;
       }
-      /* Markdown bar large */
-      ha-card.bar-large {
+      /* Markdown bar-left large */
+      ha-card.bar-large-left {
         text-transform: uppercase;
         border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
         background-color: var(--lcars-card-top-color);
@@ -1121,7 +1143,7 @@
         display: flex;
         justify-content: right;
       }
-      ha-card.bar-large > ha-markdown,
+      ha-card.bar-large-left > ha-markdown,
       ha-card.bar-large-right > ha-markdown {
         padding: 0px 8px 0px !important;
         margin-top: -8px;
@@ -1136,7 +1158,7 @@
         /* padding-left: 6px !important; */
       }
       /* WIP fix for aliasing ugliness on slider tracks */
-      .type-light > .bar {
+      .type-light > .bar-left {
         stroke-width: 5px;
       }
       /* ?Fix for markdown cards that are not headers? */
@@ -1264,7 +1286,7 @@
         --control-border-radius: 0px !important;
       }
 
-  # Toolbar and dashboard modifications
+  # Toolbar-left and dashboard modifications
   card-mod-root-yaml: &card-mod-root |
     .: |
       /* Section-specific coloring */
@@ -1304,7 +1326,7 @@
       }
       .header,
       .toolbar,
-      .edit-mode .toolbar {
+      .edit-mode .toolbar-left {
         background: var(--lcars-ui-primary) !important;
       }
       .edit-mode .header {
@@ -1312,7 +1334,7 @@
         background: transparent;
         color: black !important;
       }
-      .toolbar {
+      .toolbar-left {
         border-right: 30px solid var(--lcars-card-top-color);
         border-radius: 0px 30px 30px 0px;
         margin-right: 1px;
@@ -1392,12 +1414,12 @@
         color: black !important;
       }
       ha-button-menu > ha-icon-button, 
-      .toolbar > ha-icon-button, 
+      .toolbar-left > ha-icon-button, 
       .menu-link > ha-icon-button {
         margin-left: 0px;
         color: black;
       }
-      .header, .toolbar {
+      .header, .toolbar-left {
         box-shadow: 30px 0px 0px 0px black;
         --app-header-text-color: black;
       }
@@ -1421,7 +1443,7 @@
       ha-icon {
         color: black !important;
       }
-      hui-view::-webkit-scrollbar {
+      hui-view::-webkit-scrollbar-left {
         display: none;
       }
       hui-view {
@@ -1510,114 +1532,97 @@
       {% endif %}
     ha-tabs$: |
       paper-icon-button { display: none !important; }
-  card-mod-sidebar-yaml: &card-mod-sidebar |
-    .: |
-      /* Section-specific coloring */
-      paper-listbox,
-      .notifications-container,
-      .profile {
-        --sidebar-background-color: var(--lcars-ui-primary) !important;
-        --primary-background-color: var(--lcars-ui-primary);
-        --primary-text-color: var(--lcars-text-gray);
-        --secondary-text-color: var(--lcars-text-gray);
-        --text-primary-color: var(--lcars-text-gray);
-        --sidebar-icon-color: black;
-        --sidebar-text-color: black;
-        --sidebar-selected-background-color: var(--lcars-ui-primary);
-        --sidebar-selected-icon-color: black;
-        --sidebar-selected-text-color: black;
-      }
-
-      :host {
-        content: "";
-        border-right: 0px !important;
-        border-top-left-radius: 80px;
-        box-shadow: black 0px -130px 0px 0px;
-      }
-      paper-listbox {
-        margin-top: 68px;
-        border-top: 4px solid black;
-        padding-top: 0px !important;
-        padding-bottom: 0px !important;
-        height: calc( 100% - var(--header-height) - 176px - env(safe-area-inset-bottom)) !important;
-      }
-      paper-listbox.ha-scrollbar {
-        overflow-y: auto;
-        scrollbar-color: unset;
-        scrollbar-width: unset;
-      }
-      #sortable a {
-        display: block !important;
-      }
-      paper-icon-item.hidden-panel, 
-      paper-icon-item.hidden-panel span, 
-      paper-icon-item.hidden-panel 
-      ha-icon[slot="item-icon"] {
-        color: black !important;
-      }
-      paper-icon-item.hidden-panel {
-        display: block !important;
-      }
-      paper-icon-item {
-        margin: 0px !important;
-        padding-left: 16px !important;
-        height: 48px;
-        --paper-item-min-height: unset !important;
-      }
-      .hide-panel {
-        right: 175px !important;
-      }
-      .show-panel {
-        right: 172px !important;
-        top: 4px !important;
-      }
-      .hidden-panel > ha-icon {
-        padding-top: 10px;
-        margin-bottom: -10px;
-      }
-      .hidden-panel > ha-svg-icon {
-        padding-top: 12px;
-        margin-bottom: -12px;
-      }
-      :host([expanded]) .menu mwc-button {
-        margin-top: 152px !important;
-        margin-left: 7px !important;
-        height: 19px;
-        border-radius: var(--lcars-inner-radius);
-        background: var(--lcars-ui-tertiary);
-        align-items: center;
-      }
+  card-mod-sidebar: &card-mod-sidebar |
+    :host {
+      content: "";
+      border-right: 0px !important;
+      border-top-left-radius: 80px;
+      box-shadow: black 0px -130px 0px 0px;
+    }
+    paper-listbox {
+      margin-top: 68px;
+      border-top: 4px solid black;
+      padding-top: 0px !important;
+      padding-bottom: 0px !important;
+      height: calc( 100% - var(--header-height) - 176px - env(safe-area-inset-bottom)) !important;
+    }
+    paper-listbox.ha-scrollbar {
+      overflow-y: auto;
+      scrollbar-color: unset;
+      scrollbar-width: unset;
+    }
+    #sortable a {
+      display: block !important;
+    }
+    paper-icon-item.hidden-panel, 
+    paper-icon-item.hidden-panel span, 
+    paper-icon-item.hidden-panel 
+    ha-icon[slot="item-icon"] {
+      color: black !important;
+    }
+    paper-icon-item.hidden-panel {
+      display: block !important;
+    }
+    paper-icon-item {
+      margin: 0px !important;
+      padding-left: 16px !important;
+      height: 48px;
+      --paper-item-min-height: unset !important;
+    }
+    .hide-panel {
+      right: 175px !important;
+    }
+    .show-panel {
+      right: 172px !important;
+      top: 4px !important;
+    }
+    .hidden-panel > ha-icon {
+      padding-top: 10px;
+      margin-bottom: -10px;
+    }
+    .hidden-panel > ha-svg-icon {
+      padding-top: 12px;
+      margin-bottom: -12px;
+    }
+    :host([expanded]) .menu mwc-button {
+      margin-top: 152px !important;
+      margin-left: 7px !important;
+      height: 19px;
+      border-radius: var(--lcars-inner-radius);
+      background: var(--lcars-ui-tertiary);
+      align-items: center;
+    }
+    .menu ha-icon-button {
+      margin-top: 150px;
+      margin-right: 96px;
+    }
+    @media screen and (max-width: 768px) {
       .menu ha-icon-button {
-        margin-top: 150px;
-        margin-right: 96px;
+        margin-top: 0px;
+        margin-right: 0px;
       }
-      @media screen and (max-width: 768px) {
-        .menu ha-icon-button {
-          margin-top: 0px;
-          margin-right: 0px;
-        }
-        .menu::before {
-          content: "";
-          position: fixed;
-          height: 40px;
-          width: 100px;
-          background-color: transparent;
-          border-top-left-radius: 40px;
-          box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
-          margin-top: 80px;
-          margin-left: 251px;
-          z-index: 9997;
-        }
-        .menu::after {
-          content: linear-gradient(90deg, var(--lcars-ui-primary) 0%, var(--lcars-ui-primary) 35%, rgba(0,0,0,0) 100%);
-          position: fixed;
-          height: 40px;
-          width: 150px;
-          background-color: transparent;
-          margin-left: 251px;
-          z-index: 9997;
-        }
+      .menu::before {
+        content: "";
+        position: fixed;
+        height: 40px;
+        width: 100px;
+        background-color: transparent;
+        border-top-left-radius: 40px;
+        box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+        margin-top: 80px;
+        margin-left: 251px;
+        z-index: 9997;
       }
+      .menu::after {
+        content: linear-gradient(90deg, var(--lcars-ui-primary) 0%, var(--lcars-ui-primary) 35%, rgba(0,0,0,0) 100%);
+        position: fixed;
+        height: 40px;
+        width: 150px;
+        background-color: transparent;
+        margin-left: 251px;
+        z-index: 9997;
+      }
+    }
 
       .title {
         text-transform: uppercase;
