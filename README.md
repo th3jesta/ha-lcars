@@ -99,7 +99,13 @@ https://www.home-assistant.io/integrations/time_date/
 This theme has two controls for sound and textures that require creating simple toggle entities. Create them by going to Settings > Devices & Services > Helpers and create two of type **Toggle** named as below:
 - LCARS Sound (entity id should be `input_boolean.lcars_sound`)
 - LCARS Texture (entity id should be `input_boolean.lcars_texture`)
-<img width="644" alt="image" src="https://user-images.githubusercontent.com/38670315/234965572-defd6f0e-8af3-4e16-9cb2-408d665d531a.png">
+- LCARS Vertical (entity id should be `input_number.lcars_vertical`)
+    - Min value: 26
+    - Max value: 60
+- LCARS Horizontal (entity id should be `input_number.lcars_horizontal`)
+    - Min value: 6
+    - Max value: 60
+<img width="644" alt="image" src="https://github.com/user-attachments/assets/7fbd9425-65af-4729-85f2-d57c839c757f">
 
 These entities can be controlled directly from viewing the entity, or you can even add buttons to your dashboard to control them, just like any other entity. 
 
@@ -136,7 +142,7 @@ card_mod:
 _The class names are only indications of what types of cards they were intended for, but the classes can be applied to any card you like. I cannot guarantee how well they will work outside of their intended uses, however._
 
 The classes are as follows:
-1. `header` `header-right` `header-contained` `header-open` - top blue bar (in Default theme) meant for Markdown cards with one `H1` line that will start a section
+1. `header-left` `header-right` `header-contained` `header-open` - top blue bar (in Default theme) meant for Markdown cards with one `H1` line that will start a section
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -147,8 +153,8 @@ The classes are as follows:
 ```yaml
 type: markdown
 card_mod:
-  class: header
-content: '# header'
+  class: header-left
+content: '# header-left'
 
 type: markdown
 card_mod:
@@ -173,7 +179,7 @@ content: '# header-open'
 </tr>
 </table>
 
-2. `middle` `middle-right` `middle-contained` -  side red bar (in Default theme) meant for non-button sections below `header` and above `footer`
+2. `middle-left` `middle-right` `middle-contained` `middle-blank` -  side red bar (in Default theme) meant for non-button sections below `header` and above `footer`
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -184,8 +190,8 @@ content: '# header-open'
 ```yaml
 type: markdown
 card_mod:
-  class: middle
-content: '# middle'
+  class: middle-left
+content: '# middle-left'
 
 type: markdown
 card_mod:
@@ -199,7 +205,7 @@ content: '# middle-contained'
     
 type: markdown
 card_mod:
-  class: middle-blank
+  class: middle-open
 content: '# middle-blank'
 ```
 
@@ -210,7 +216,7 @@ content: '# middle-blank'
 </tr>
 </table>
 
-3. `footer` `footer-right` `footer-contained` `footer-open` - bottom gray bar (in Default theme) meant for the last card in a section
+3. `footer-left` `footer-right` `footer-contained` `footer-open` - bottom gray bar (in Default theme) meant for the last card in a section
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -221,8 +227,8 @@ content: '# middle-blank'
 ```yaml
 type: markdown
 card_mod:
-  class: footer
-content: '# footer'
+  class: footer-left
+content: '# footer-left'
 
 type: markdown
 card_mod:
@@ -299,7 +305,7 @@ card_mod:
 </tr>
 </table>
 
-6. `button-lozenge` `button-lozenge-right` - pill-shaped button; only works on standard button cards; also works on button cards in a horizontal-stacks and grids up to two columns wide; more columns get glitchy and is not advised
+6. `button-lozenge-left` `button-lozenge-right` - pill-shaped button; only works on standard button cards; also works on button cards in a horizontal-stacks and grids up to two columns wide; more columns get glitchy and is not advised
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -316,7 +322,7 @@ tap_action:
 entity: switch.speakers
 icon: mdi:speaker-multiple
 card_mod:
-  class: button-lozenge
+  class: button-lozenge-left
   
 show_name: true
 show_icon: true
@@ -335,7 +341,7 @@ card_mod:
 </tr>
 </table>
 
-7. `button-bullet` `button-bullet-right` - similar to the lozenge, but with a squared-off side; same column restrictions apply
+7. `button-bullet-left` `button-bullet-right` - similar to the lozenge, but with a squared-off side; same column restrictions apply
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -351,7 +357,7 @@ tap_action:
   action: toggle
 entity: light.bedroom_tree
 card_mod:
-  class: button-bullet
+  class: button-bullet-left
   
 show_name: true
 show_icon: true
@@ -370,7 +376,7 @@ card_mod:
 </tr>
 </table>
 
-8. `button-capped` `button-capped-right` - similar to the bullet, but capped on the round side; same column restrictions apply
+8. `button-capped-left` `button-capped-right` - similar to the bullet, but capped on the round side; same column restrictions apply
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -386,7 +392,7 @@ tap_action:
   action: toggle
 entity: light.bathroom
 card_mod:
-  class: button-capped
+  class: button-capped-left
   
 show_name: true
 show_icon: true
@@ -405,7 +411,42 @@ card_mod:
 </tr>
 </table>
 
-9. `bar` `bar-right` `bar-large` `bar-large-right` - standalone header-type bar; only intended for and tested with Markdown cards
+9. `button-barrel-left` `button-barrel-right` - similar to the bullet, but no rounding at all; same column restrictions apply
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+show_name: true
+show_icon: true
+type: button
+tap_action:
+  action: toggle
+entity: light.bathroom
+card_mod:
+  class: button-barrel-left
+  
+show_name: true
+show_icon: true
+type: button
+tap_action:
+  action: toggle
+entity: switch.built_in
+card_mod:
+  class: button-barrel-right
+```
+
+</td>
+<td>
+<img width="198" alt="image" src="https://github.com/user-attachments/assets/89ab1a43-276f-43b8-84f2-d6853c2940df">
+</td>
+</tr>
+</table>
+
+10. `bar-left` `bar-right` `bar-large-left` `bar-large-right` - standalone header-type bar; only intended for and tested with Markdown and HTML cards
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -415,14 +456,14 @@ card_mod:
     
 ```yaml
 type: markdown
-content: '# bar'
+content: '# bar-left'
 card_mod:
-  class: bar
+  class: bar-left
   
 type: markdown
-content: '# bar-large'
+content: '# bar-large-left'
 card_mod:
-  class: bar-large
+  class: bar-large-left
   
 type: markdown
 content: '# bar-right'
