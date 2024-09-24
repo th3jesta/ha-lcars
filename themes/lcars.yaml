@@ -1584,7 +1584,7 @@
   # ===================================================== #
   #                 SIDEBAR MODIFICATIONS                 #
   # ===================================================== #
-  card-mod-sidebar: &card-mod-sidebar |
+  card-mod-sidebar-yaml: &card-mod-sidebar |
     .: |
       /* =============================================== */
       /*            SECTION-SPECIFIC SETTINGS            */
