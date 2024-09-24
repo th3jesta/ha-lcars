@@ -2,8 +2,12 @@
 # Color codes and font choice from https://www.thelcars.com
 #     --thanks Jim Robertus!
 # Custom themes can be created down at the bottom of this
-# file. Or, search for "===THEMES", which will take you
-# right there.
+# file. Or, search for "THEME DEFINITIONS", which will take
+# you right there.
+
+# ======================================================= #
+#                     LCARS VARIABLES                     #
+# ======================================================= #
 (DO NOT USE/MODIFY)=== LCARS variables: &lcars-variables
   lcars-space-white: "#f5f6fa"
   lcars-violet-creme: "#ddbbff"
@@ -169,8 +173,11 @@
   msd-ra-normal: "#ff1100"
   msd-ra-dark: "#7f0800"
 
-(DO NOT USE/MODIFY)=== Base customizations: &base # Global
-  primary-color: var(--lcars-text-gray)
+# ======================================================= #
+#                   BASE CUSTOMIZATIONS                   #
+# ======================================================= #
+(DO NOT USE/MODIFY)=== Base customizations: &base
+  primary-color: var(--lcars-ui-quaternary)
   primary-background-color: black
   secondary-background-color: var(--lcars-ui-quaternary)
   divider-color: transparent
@@ -285,12 +292,15 @@
   input-dropdown-icon-color: var(--lcars-text-gray)
   ha-outlined-field-container-color: var(--lcars-text-gray)
 
+# ======================================================= #
+#                    CARD MODIFICATIONS                   #
+# ======================================================= #
 (DO NOT USE/MODIFY)=== card-mod CSS: &card-mod-css # Card modifications
   card-mod-card-yaml: &card-mod-card |
     .: |
-      /* ======================================== */
-      /*           SECTION-SPECIFIC SETTINGS      */
-      /* ======================================== */
+      /* =============================================== */
+      /*            SECTION-SPECIFIC SETTINGS            */
+      /* =============================================== */
       ha-card {
         --paper-item-icon-color: var(--lcars-dark-gray);
       }
@@ -300,13 +310,13 @@
         --lcars-middle-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
       }
 
-      /* ======================================== */
-      /*    HEADER CLASSES AND CARD TYPE FIXES    */
-      /* ======================================== */
+      /* =============================================== */
+      /*        HEADER CLASSES AND CARD TYPE FIXES       */
+      /* =============================================== */
       
-      /* ---------------------------------------- */
-      /*           Common Header Styles           */
-      /* ---------------------------------------- */
+      /* ----------------------------------------------- */
+      /*               Common Header Styles              */
+      /* ----------------------------------------------- */
       ha-card.header-left,
       ha-card.header-right,
       ha-card.header-contained,
@@ -347,11 +357,11 @@
         margin: 0px;
       }
 
-      /* ---------------------------------------- */
-      /*          Specific Header Styles          */
-      /* ---------------------------------------- */
+      /* ----------------------------------------------- */
+      /*              Specific Header Styles             */
+      /* ----------------------------------------------- */
       
-      /* -------------Border on left------------- */
+      /* ----------------Border on left----------------- */
       ha-card.header-left {
         background: var(--lcars-card-top-color) !important;
         text-transform: uppercase;
@@ -371,7 +381,7 @@
         border-radius: var(--lcars-inner-radius) 0px 0px 0px;
       }
 
-      /* -------------Border on right------------ */
+      /* ----------------Border on right---------------- */
       ha-card.header-right {
         background: var(--lcars-card-top-color) !important;
         text-transform: uppercase;
@@ -391,7 +401,7 @@
         border-radius: 0px var(--lcars-inner-radius) 0px 0px;
       }
 
-      /* ----------Border on both sides---------- */
+      /* -------------Border on both sides-------------- */
       ha-card.header-contained {
         background: var(--lcars-card-top-color) !important;
         text-transform: uppercase;
@@ -412,7 +422,7 @@
         border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
       }
 
-      /* ---------Border on neither side--------- */
+      /* -------------Border on neither side------------ */
       ha-card.header-open {
         background: var(--lcars-card-top-color) !important;
         text-transform: uppercase;
@@ -428,13 +438,13 @@
         border-radius: 0px 0px 0px 0px;
       }
 
-      /* ======================================== */
-      /*    MIDDLE CLASSES AND CARD TYPE FIXES    */
-      /* ======================================== */
+      /* =============================================== */
+      /*        MIDDLE CLASSES AND CARD TYPE FIXES       */
+      /* =============================================== */
 
-      /* ---------------------------------------- */
-      /*           Common Middle Styles           */
-      /* ---------------------------------------- */
+      /* ----------------------------------------------- */
+      /*               Common Middle Styles              */
+      /* ----------------------------------------------- */
       ha-card.middle-left,
       ha-card.middle-right,
       ha-card.middle-blank,
@@ -468,36 +478,36 @@
         margin: 0px;
       }
 
-      /* ---------------------------------------- */
-      /*          Specific Middle Styles          */
-      /* ---------------------------------------- */
+      /* ----------------------------------------------- */
+      /*              Specific Middle Styles             */
+      /* ----------------------------------------------- */
 
-      /* -------------Border on left------------- */
+      /* -----------------Border on left---------------- */
       ha-card.middle-left {
         border-left: var(--lcars-middle-vertical-border) solid var(--lcars-card-mid-left-color);
         padding-left: 6px !important;
       }
 
-      /* -------------Border on right------------ */
+      /* ----------------Border on right---------------- */
       ha-card.middle-right {
         border-right: var(--lcars-middle-vertical-border) solid var(--lcars-card-mid-left-color);
         padding-right: 6px !important;
       }
 
-      /* ----------Border on both sides---------- */
+      /* --------------Border on both sides------------- */
       ha-card.middle-contained {
         border-left: var(--lcars-middle-vertical-border) solid var(--lcars-card-mid-left-color);
         border-right: var(--lcars-middle-vertical-border) solid var(--lcars-card-mid-left-color);
         padding: 0px 6px !important;
       }
 
-      /* ======================================== */
-      /*    FOOTER CLASSES AND CARD TYPE FIXES    */
-      /* ======================================== */
+      /* =============================================== */
+      /*        FOOTER CLASSES AND CARD TYPE FIXES       */
+      /* =============================================== */
       
-      /* ---------------------------------------- */
-      /*           Common Footer Styles           */
-      /* ---------------------------------------- */
+      /* ----------------------------------------------- */
+      /*               Common Footer Styles              */
+      /* ----------------------------------------------- */
       ha-card.footer-left,
       ha-card.footer-right,
       ha-card.footer-contained,
@@ -690,11 +700,11 @@
         margin: 0px;
       }
 
-      /* ---------------------------------------- */
-      /*          Specific Footer Styles          */
-      /* ---------------------------------------- */
+      /* ----------------------------------------------- */
+      /*              Specific Footer Styles             */
+      /* ----------------------------------------------- */
 
-      /* -------------Border on left------------- */
+      /* -----------------Border on left---------------- */
       ha-card.footer-left {
         border-radius: 0px 0px 0px var(--ha-card-border-radius) !important;
         border-left: var(--lcars-vertical-border) solid var(--lcars-card-bottom-color);
@@ -725,7 +735,7 @@
         border-radius: 0px 0px 0px var(--lcars-inner-radius);
       }
 
-      /* -------------Border on right------------ */
+      /* ----------------Border on right---------------- */
       ha-card.footer-right {
         border-radius: 0px 0px var(--ha-card-border-radius) 0px !important;
         border-right: var(--lcars-vertical-border) solid var(--lcars-card-bottom-color);
@@ -757,7 +767,7 @@
         border-radius: 0px 0px var(--lcars-inner-radius) 0px;
       }
 
-      /* ----------Border on both sides---------- */
+      /* --------------Border on both sides------------- */
       ha-card.footer-contained {
         border-radius: 0px 0px var(--ha-card-border-radius) var(--ha-card-border-radius) !important;
         border-left: var(--lcars-vertical-border) solid var(--lcars-card-bottom-color);
@@ -790,7 +800,7 @@
         border-radius: 0px 0px var(--lcars-inner-radius) var(--lcars-inner-radius);
       }
 
-      /* ---------Border on neither side--------- */
+      /* -------------Border on neither side------------ */
       ha-card.footer-open {
         border-radius: 0px 0px 0px 0px !important;
       }
@@ -815,13 +825,13 @@
         border-radius: 0px 0px 0px 0px;
       }
 
-      /* ======================================== */
-      /*                 BUTTONS                  */
-      /* ======================================== */
+      /* =============================================== */
+      /*                     BUTTONS                     */
+      /* =============================================== */
 
-      /* ---------------------------------------- */
-      /*           Common Button Styles           */
-      /* ---------------------------------------- */
+      /* ----------------------------------------------- */
+      /*               Common Button Styles              */
+      /* ----------------------------------------------- */
       ha-card.button-small,
       ha-card.button-large,
       ha-card.button-lozenge-left,
@@ -835,9 +845,9 @@
         background: var(--lcars-card-button)
       }
 
-      /* ---------------------------------------- */
-      /*        Small Button Class and Fixes      */
-      /* ---------------------------------------- */
+      /* ----------------------------------------------- */
+      /*           Small Button Class and Fixes          */
+      /* ----------------------------------------------- */
       ha-card.button-small {
         display: flex;
         text-transform: uppercase;
@@ -885,22 +895,22 @@
         bottom: 0;
       }
 
-      /* ---------------------------------------- */
-      /*        Large Button Class and Fixes      */
-      /* ---------------------------------------- */
+      /* ----------------------------------------------- */
+      /*           Large Button Class and Fixes          */
+      /* ----------------------------------------------- */
       ha-card.button-large {
         text-transform: uppercase;
         --primary-text-color: black !important;
         --secondary-text-color: black !important;
       }
       
-      /* ======================================== */
-      /*            LEFT-SIDED BUTTONS            */
-      /* ======================================== */
+      /* =============================================== */
+      /*                LEFT-SIDED BUTTONS               */
+      /* =============================================== */
 
-      /* ---------------------------------------- */
-      /*         Common Left Button Styles        */
-      /* ---------------------------------------- */
+      /* ----------------------------------------------- */
+      /*            Common Left Button Styles            */
+      /* ----------------------------------------------- */
       ha-card.button-lozenge-left,
       ha-card.button-bullet-left,
       ha-card.button-capped-left,
@@ -913,9 +923,9 @@
         align-items: flex-end;
         flex-direction: column-reverse;
       }
-      /* ---------------------------------------- */
-      /*        Specific Left Button Styles       */
-      /* ---------------------------------------- */
+      /* ----------------------------------------------- */
+      /*           Specific Left Button Styles           */
+      /* ----------------------------------------------- */
       ha-card.button-lozenge-left {
         /* Specific styles for lozenge-left */
       }
@@ -976,13 +986,13 @@
         color: black;
       }
       
-      /* ======================================== */
-      /*            RIGHT-SIDED BUTTONS           */
-      /* ======================================== */
+      /* =============================================== */
+      /*               RIGHT-SIDED BUTTONS               */
+      /* =============================================== */
 
-      /* ---------------------------------------- */
-      /*        Common Right Button Styles        */
-      /* ---------------------------------------- */
+      /* ----------------------------------------------- */
+      /*            Common Right Button Styles           */
+      /* ----------------------------------------------- */
       ha-card.button-lozenge-right,
       ha-card.button-bullet-right,
       ha-card.button-capped-right,
@@ -996,9 +1006,9 @@
         flex-direction: column-reverse;
       }
 
-      /* ---------------------------------------- */
-      /*       Specific Right Button Styles       */
-      /* ---------------------------------------- */
+      /* ----------------------------------------------- */
+      /*           Specific Right Button Styles          */
+      /* ----------------------------------------------- */
       ha-card.button-lozenge-right {
         /* Specific styles for lozenge-right */
       }
@@ -1062,13 +1072,13 @@
         color: black;
       }
 
-      /* ======================================== */
-      /*                BAR STYLES                */
-      /* ======================================== */
+      /* =============================================== */
+      /*                    BAR STYLES                   */
+      /* =============================================== */
 
-      /* ---------------------------------------- */
-      /*           Common Bar Styles              */
-      /* ---------------------------------------- */
+      /* ----------------------------------------------- */
+      /*                Common Bar Styles                */
+      /* ----------------------------------------------- */
       ha-card.bar-left,
       ha-card.bar-right,
       ha-card.bar-large,
@@ -1102,9 +1112,9 @@
         margin: 0px;
       }
 
-      /* ---------------------------------------- */
-      /*            Specific Bar Styles           */
-      /* ---------------------------------------- */
+      /* ----------------------------------------------- */
+      /*               Specific Bar Styles               */
+      /* ----------------------------------------------- */
       ha-card.bar-left {
         border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
       }
@@ -1128,9 +1138,9 @@
         font-size: 3.1em;
       }
 
-      /* ---------------------------------------- */
-      /*             Normal Bar Styles            */
-      /* ---------------------------------------- */
+      /* ----------------------------------------------- */
+      /*                Normal Bar Styles                */
+      /* ----------------------------------------------- */
       ha-card.bar-left {
         text-transform: uppercase;
         border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
@@ -1151,9 +1161,9 @@
         margin-bottom: -3px;
       }
 
-      /* ---------------------------------------- */
-      /*             Large Bar Styles             */
-      /* ---------------------------------------- */
+      /* ----------------------------------------------- */
+      /*                 Large Bar Styles                */
+      /* ----------------------------------------------- */
       ha-card.bar-large-left {
         text-transform: uppercase;
         border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
@@ -1175,9 +1185,9 @@
         font-size: 1.5em;
       }
 
-      /* ======================================== */
-      /*           MISCELLANEOUS STYLES           */
-      /* ======================================== */
+      /* =============================================== */
+      /*               MISCELLANEOUS STYLES              */
+      /* =============================================== */
       /* Hacky workaround to add middle-type class to horizontal and vertical stack cards */
       /* More info: https://github.com/thomasloven/lovelace-card-mod#styling-cards-without-an-ha-card-element */
       .type-custom-mod-card {
@@ -1196,9 +1206,9 @@
         padding-top: 0px !important;
         padding-bottom: 0px !important;
       }
-      /* ---------------------------------------- */
-      /*            Common Card Styles            */
-      /* ---------------------------------------- */
+      /* ----------------------------------------------- */
+      /*                Common Card Styles               */
+      /* ----------------------------------------------- */
       ha-card {
         padding: 0px !important;
         border-top-right-radius: var(--ha-card-border-radius) !important;
@@ -1209,11 +1219,12 @@
       }
       ha-card > * {
         font-family: var(--lcars-font) !important;
+        --md-sys-color-primary: var(--lcars-ui-quaternary) !important;
       }
 
-      /* ---------------------------------------- */
-      /*            Specific Card Fixes           */
-      /* ---------------------------------------- */
+      /* ----------------------------------------------- */
+      /*               Specific Card Fixes               */
+      /* ----------------------------------------------- */
 
       .type-thermostat > .content {
         background: black;
@@ -1273,9 +1284,9 @@
         background: var(--lcars-card-top-color);
       }
 
-      /* ---------------------------------------- */
-      /*                MSD Styles                */
-      /* ---------------------------------------- */
+      /* ----------------------------------------------- */
+      /*                    MSD Styles                   */
+      /* ----------------------------------------------- */
       ha-card.msd-left {
         margin: 0px 15px 23px 0px !important;
         background: black !important;
@@ -1302,9 +1313,9 @@
         border-radius: 0 0 0 0 !important;
       }
 
-      /* ---------------------------------------- */
-      /*            Mushroom Card Fixes           */
-      /* ---------------------------------------- */
+      /* ----------------------------------------------- */
+      /*               Mushroom Card Fixes               */
+      /* ----------------------------------------------- */
       ha-card.type-custom-mushroom-chips-card > * {
         --primary-text-color: black;
         --chip-border-radius: var(--ha-card-border-radius);
@@ -1323,10 +1334,14 @@
         --control-border-radius: 0px !important;
       }
 
-  # Toolbar and dashboard modifications
+  # ===================================================== #
+  #          TOOLBAR AND DASHBOARD MODIFICATIONS          #
+  # ===================================================== #
   card-mod-root-yaml: &card-mod-root |
     .: |
-      /* Section-specific coloring */
+      /* =============================================== */
+      /*            SECTION-SPECIFIC SETTINGS            */
+      /* =============================================== */
       #view {
         --primary-background-color: black;
         --lovelace-background: black;
@@ -1512,6 +1527,10 @@
         pointer-events: none;
         box-shadow: none;
       }
+
+      /* ----------------------------------------------- */
+      /*      Toolbar/Dashbaord Texture and Gradient     */
+      /* ----------------------------------------------- */
       .header::after {
         content: "";
         background: url(data:image/png;base64,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);
@@ -1561,97 +1580,105 @@
       {% endif %}
     ha-tabs$: |
       paper-icon-button { display: none !important; }
+
+  # ===================================================== #
+  #                 SIDEBAR MODIFICATIONS                 #
+  # ===================================================== #
   card-mod-sidebar: &card-mod-sidebar |
-    :host {
-      content: "";
-      border-right: 0px !important;
-      border-top-left-radius: 80px;
-      box-shadow: black 0px -130px 0px 0px;
-    }
-    paper-listbox {
-      margin-top: 68px;
-      border-top: 4px solid black;
-      padding-top: 0px !important;
-      padding-bottom: 0px !important;
-      height: calc( 100% - var(--header-height) - 176px - env(safe-area-inset-bottom)) !important;
-    }
-    paper-listbox.ha-scrollbar {
-      overflow-y: auto;
-      scrollbar-color: unset;
-      scrollbar-width: unset;
-    }
-    #sortable a {
-      display: block !important;
-    }
-    paper-icon-item.hidden-panel, 
-    paper-icon-item.hidden-panel span, 
-    paper-icon-item.hidden-panel 
-    ha-icon[slot="item-icon"] {
-      color: black !important;
-    }
-    paper-icon-item.hidden-panel {
-      display: block !important;
-    }
-    paper-icon-item {
-      margin: 0px !important;
-      padding-left: 16px !important;
-      height: 48px;
-      --paper-item-min-height: unset !important;
-    }
-    .hide-panel {
-      right: 175px !important;
-    }
-    .show-panel {
-      right: 172px !important;
-      top: 4px !important;
-    }
-    .hidden-panel > ha-icon {
-      padding-top: 10px;
-      margin-bottom: -10px;
-    }
-    .hidden-panel > ha-svg-icon {
-      padding-top: 12px;
-      margin-bottom: -12px;
-    }
-    :host([expanded]) .menu mwc-button {
-      margin-top: 152px !important;
-      margin-left: 7px !important;
-      height: 19px;
-      border-radius: var(--lcars-inner-radius);
-      background: var(--lcars-ui-tertiary);
-      align-items: center;
-    }
-    .menu ha-icon-button {
-      margin-top: 150px;
-      margin-right: 96px;
-    }
-    @media screen and (max-width: 768px) {
-      .menu ha-icon-button {
-        margin-top: 0px;
-        margin-right: 0px;
-      }
-      .menu::before {
+    .: |
+      /* =============================================== */
+      /*            SECTION-SPECIFIC SETTINGS            */
+      /* =============================================== */
+      :host {
         content: "";
-        position: fixed;
-        height: 40px;
-        width: 100px;
-        background-color: transparent;
-        border-top-left-radius: 40px;
-        box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
-        margin-top: 80px;
-        margin-left: 251px;
-        z-index: 9997;
+        border-right: 0px !important;
+        border-top-left-radius: 80px;
+        box-shadow: black 0px -130px 0px 0px;
       }
-      .menu::after {
-        content: linear-gradient(90deg, var(--lcars-ui-primary) 0%, var(--lcars-ui-primary) 35%, rgba(0,0,0,0) 100%);
-        position: fixed;
-        height: 40px;
-        width: 150px;
-        background-color: transparent;
-        margin-left: 251px;
-        z-index: 9997;
+      paper-listbox {
+        margin-top: 68px;
+        border-top: 4px solid black;
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+        height: calc( 100% - var(--header-height) - 176px - env(safe-area-inset-bottom)) !important;
       }
-    }
+      paper-listbox.ha-scrollbar {
+        overflow-y: auto;
+        scrollbar-color: unset;
+        scrollbar-width: unset;
+      }
+      #sortable a {
+        display: block !important;
+      }
+      paper-icon-item.hidden-panel, 
+      paper-icon-item.hidden-panel span, 
+      paper-icon-item.hidden-panel 
+      ha-icon[slot="item-icon"] {
+        color: black !important;
+      }
+      paper-icon-item.hidden-panel {
+        display: block !important;
+      }
+      paper-icon-item {
+        margin: 0px !important;
+        padding-left: 16px !important;
+        height: 48px;
+        --paper-item-min-height: unset !important;
+      }
+      .hide-panel {
+        right: 175px !important;
+      }
+      .show-panel {
+        right: 172px !important;
+        top: 4px !important;
+      }
+      .hidden-panel > ha-icon {
+        padding-top: 10px;
+        margin-bottom: -10px;
+      }
+      .hidden-panel > ha-svg-icon {
+        padding-top: 12px;
+        margin-bottom: -12px;
+      }
+      :host([expanded]) .menu mwc-button {
+        margin-top: 152px !important;
+        margin-left: 7px !important;
+        height: 19px;
+        border-radius: var(--lcars-inner-radius);
+        background: var(--lcars-ui-tertiary);
+        align-items: center;
+      }
+      .menu ha-icon-button {
+        margin-top: 150px;
+        margin-right: 96px;
+      }
+      @media screen and (max-width: 768px) {
+        .menu ha-icon-button {
+          margin-top: 0px;
+          margin-right: 0px;
+        }
+        .menu::before {
+          content: "";
+          position: fixed;
+          height: 40px;
+          width: 100px;
+          background-color: transparent;
+          border-top-left-radius: 40px;
+          box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+          margin-top: 80px;
+          margin-left: 251px;
+          z-index: 9997;
+        }
+        .menu::after {
+          content: linear-gradient(90deg, var(--lcars-ui-primary) 0%, var(--lcars-ui-primary) 35%, rgba(0,0,0,0) 100%);
+          position: fixed;
+          height: 40px;
+          width: 150px;
+          background-color: transparent;
+          margin-left: 251px;
+          z-index: 9997;
+        }
+      }
       .title {
         text-transform: uppercase;
         font-size: 15px;
@@ -1709,6 +1736,10 @@
       paper-icon-item::before {
         opacity: 0 !important;
       }
+
+      /* ----------------------------------------------- */
+      /*           Sidebar Texture and Gradient          */
+      /* ----------------------------------------------- */
       {% if not is_state('input_boolean.lcars_texture', 'off') %}
       paper-listbox::before {
         content: "";
@@ -1735,7 +1766,11 @@
         pointer-events: none;
       }
       {% endif %}
-# ===THEMES================================================
+
+# ======================================================= #
+#                    THEME DEFINITIONS                    #
+# ======================================================= #
+
 # To create your own theme, copy this LCARS Default section
 # to the bottom of the file and change the lcars-ui-* and
 # lcars-card-* variables to your liking, using the color
@@ -1745,8 +1780,8 @@ LCARS Default:
   <<: *lcars-variables
   <<: *base
   <<: *card-mod-css
-  # ========================YOUR MODIFICATIONS BEGIN HERE |
-  # Primary colors                             V
+  # ======================= YOUR MODIFICATIONS BEGIN HERE |
+  # Primary colors                                        V
   lcars-ui-primary: var(--lcars-almond-creme)
   lcars-ui-secondary: var(--lcars-african-violet)
   lcars-ui-tertiary: var(--lcars-red)
@@ -2244,5 +2279,5 @@ LCARS Breen:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
-# Paste your themes here |
-#                        V
+# ================ Paste your themes here =============== |
+#                                                         V
