@@ -612,6 +612,10 @@
       ha-card.footer-contained.type-entity .footer,
       ha-card.footer-open.type-entity .footer {
         background: black;
+        overflow: hidden;
+        position: static;
+        flex-grow: 1;
+        align-content: end;
       }
       ha-card.footer-left.type-thermostat > .container,
       ha-card.footer-right.type-thermostat > .container,
