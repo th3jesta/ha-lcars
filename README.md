@@ -8,24 +8,15 @@ Star Trek LCARS theme for Home Assistant
 Color codes and font choice from https://www.thelcars.com
     --thanks Jim Robertus!
 
-# 💥💥💥MARKDOWN CARDS ARE BROKEN IN CARD-MOD💥💥💥
-HA-LCARS replies on a mod called card-mod, and since Home Assistant 2024.8, card-mod no longer applies classes defined in the theme to Markdown cards. HA-LCARS dashboards have typically made heavy use of Markdown cards for headers and section labels. Due to card-mod no longer being able to apply CSS classes to Markdown cards on the initial load of a page without calling a reload of the theme, I have added support in 2.3.1 for the [Lovelace HTML card](https://github.com/PiotrMachowski/lovelace-html-card) to the various `header`, `middle`, and `footer` classes, with the various `bar` classes to follow soon in the next update. 
-Setup an HTML card like this:
+# 💥BREAKING CHANGES IN 3.0💥
+Version 3.0 changes `header`, `middle`, `footer`, and oriented-buttons such as `button-lozenge` and `button-capped` to `header-left`, `middle-left`, `footer-left`, `button-lozenge-left`, etc. I implemented this change because Home Assistant has started using classes called `.header`, `.footer`, etc. and it was causing conflicts in styles and breaking some parts of the UI. Given that these class names were created in the first iteration of HA-LCARS, before there were other-oriented classes like `-right` and `-contained`, it seemed responsible to update the convention to be consistent with the rest of the theme styles and ensure compatibility with future HA updates. I know this will take some time to update your dashboards, and I apologize for the inconvenience, but it is necessary at this point. If you have insanely complicated dashboards, I recommend copying your whole-dashboard yaml into a tool like VSCode and using its advanced find/replace capabilities to update the dashboards. Full list of changed classes:
 
-1. Install [Lovelace HTML card](https://github.com/PiotrMachowski/lovelace-html-card)
-
-2. Create a new "manual" card
-
-3. Input the following code for the card, and adjust the content and class per your needs.
-```
-type: custom:html-card
-title: ''
-content: |
-  <h1>TEST HTML CARD</h1>
-card_mod:
-  class: header
-```
-
+- `header` to `header-left`
+- `middle` to `middle-left`
+- `footer` to `footer-left`
+- `button-lozenge` to `button-lozenge-left`
+- `button-bullet` to `button-bullet-left`
+- `button-capped` to `button-capped-left`
 
 ## Examples
 ### Dashboard
@@ -610,6 +601,21 @@ card_mod:
 </table>
 
 ## Known issues
+* 💥MARKDOWN CARDS ARE BROKEN IN CARD-MOD💥
+    HA-LCARS replies on a mod called card-mod, and since Home Assistant 2024.8, card-mod no longer applies classes defined in the theme to Markdown cards. HA-LCARS dashboards have typically made heavy use of Markdown cards for headers and section labels. Due to card-mod no longer being able to apply CSS classes to Markdown cards on the initial load of a page without calling a reload of the theme, I have added support in 2.3.1 for the [Lovelace HTML card](https://github.com/PiotrMachowski/lovelace-html-card) to the various `header`, `middle`, and `footer` classes, with the various `bar` classes to follow soon in the next update. 
+    Setup an HTML card like this:
+
+    1. Install [Lovelace HTML card](https://github.com/PiotrMachowski/lovelace-html-card)
+    2. Create a new "manual" card
+    3. Input the following code for the card, and adjust the content and class per your needs.
+        ```
+        type: custom:html-card
+        title: ''
+        content: |
+          <h1>TEST HTML CARD</h1>
+        card_mod:
+          class: header
+        ```
 * Font and sidebar and header CSS styles only load when a dashboard has been loaded first. If you navigate directly to a non-dashboard page without loading a dashboard first, things will look pretty awful, though still functional. Simply load a dashboard and hit the back button. This is a quirk of the [card-mod](https://github.com/thomasloven/lovelace-card-mod) addon on which this theme relies, so it's outside my ability to fix.
 * card-mod classes do not work with Vertical Stack and Horizontal Stacks cards (though they do work with the cards they contain). This is a quirk of the [card-mod](https://github.com/thomasloven/lovelace-card-mod) addon on which this theme relies, so it's outside my ability to fix. There is, however, a hacky workaround I have identified though have opted to not include at this time. Please submit a feature request if you would like to see this included.
 * ~~Collapsing and expanding the sidebar or zooming the interface will jack with the noise and gradient overlays. A simple refresh will set everything right again. I hope to find a way to make the pseudo elements that contain the textures to dynamically adjust with the DOM. PRs are welcome. [Bug here](https://github.com/th3jesta/ha-lcars/issues/4).~~
