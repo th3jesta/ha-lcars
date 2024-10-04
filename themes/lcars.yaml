@@ -2086,6 +2086,56 @@ LCARS Red Alert:
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
 
+LCARS TNG:
+  card-mod-theme: LCARS TNG
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+
+  # UI Colors
+  lcars-ui-primary: "#f5deb3" # Main Display Background (Wheat)
+  lcars-ui-secondary: "#ffcc66" # menu buttons unclicked (qing yellow)
+  lcars-ui-tertiary: "#cc99cc" # clicked menu buttons (lilac)
+  lcars-ui-quaternary: var(--lcars-gray)
+
+  # Card colors
+  lcars-card-top-color: "#f5deb3" #  header class
+  lcars-card-mid-left-color: "#c5b358" # middle bars
+  lcars-card-button: "#ffbb33" # main button colour
+  lcars-card-bottom-color: "#f5deb3" # footer class
+
+  # Header colors
+  lcars-ui-app-header-background-color: "#d2b48c" # Header Background
+  lcars-ui-app-header-text-color: "#f5deb3" # Header Text
+
+  # Misc
+  success-color: "#f0e68c" # Success (Khaki)
+  warning-color: "#dc143c" # Warning (Crimson)
+  error-color: "#8b0000" # Error (Dark Red)
+
+LCARS TNGbuttons:
+  card-mod-theme: LCARS TNGbuttons
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+
+  # UI Colors
+  lcars-ui-primary: "#F5cd9f" # Main Display Background
+  lcars-ui-secondary: "#ffcc66" # menu buttons unclicked (qing yellow)
+  lcars-ui-tertiary: "#cc99cc" # clicked menu buttons (lilac)
+  lcars-ui-quaternary: var(--lcars-gray)
+
+  # Card colors
+  lcars-card-top-color: "#F5CD9F" #  header class
+  lcars-card-mid-left-color: "#ffcc99" # middle bars
+  lcars-card-button: "#ffcc66" # main button colour
+  lcars-card-bottom-color: "#EFC861" # footer class
+
+  # Misc
+  success-color: "#99aa66" # Success (yellow Green)
+  warning-color: "#dc143c" # Warning (Crimson)
+  error-color: "#8b0000" # Error (Dark Red)
+
 LCARS Transporter:
   card-mod-theme: LCARS Transporter
   <<: *lcars-variables
