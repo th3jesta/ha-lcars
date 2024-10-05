@@ -326,10 +326,7 @@
         border-top: var(--lcars-horizontal-border) solid var(--lcars-card-top-color);
         border-inline: 0px solid var(--lcars-card-top-color);
 
-        &.type-markdown,
-        &.type-thermostat > .container,
-        &.type-thermostat > .title,
-        &.type-custom-html-card > div {
+        & > * {
           background: black;
         }
 
@@ -373,9 +370,6 @@
         &.type-thermostat > .title,
         &.type-custom-html-card > div {
           border-top-left-radius: var(--lcars-inner-radius);
-        }
-
-        & > ha-markdown {
         }
       }
 
@@ -457,25 +451,11 @@
         --primary-text-color: var(--lcars-text-gray) !important;
         margin-top: unset;
 
-        border-radius: 0;
+        border-radius: 0px;
         border-bottom: var(--lcars-horizontal-border) solid var(--lcars-card-bottom-color);
-        border-inline: 0px solid var(--lcars-card-top-color;)
+        border-inline: 0px solid var(--lcars-card-bottom-color);
 
-        & > span,
-        & > .entities,
-        & > #states
-        & > img
-        & > .header,
-        & > .info,
-        & > .content,
-        &.type-thermostat > .container,
-        &.type-thermostat > .title,
-        &.type-custom-weather-card .current,
-        &.type-custom-weather-card .variations,
-        &.type-entity .footer,
-        & > ha-state-icon,
-        & > span.usps-update
-        &.type-custom-html-card > div {
+        & > * {
           background: black;
         }
 
@@ -505,14 +485,13 @@
           border-bottom: 0px !important;
 
           & > .container {
-            padding: unset;
             width: 100%;
-            margin-bottom: 12px;
-            max-width: unset;
           }
 
           & > hui-card-features {
+            margin-top: 12px;
             --primary-text-color: black;
+            background: none;
           }
         }
 
@@ -587,23 +566,27 @@
       /* -----------------Border on left---------------- */
       ha-card.footer-left,
       ha-card.footer-contained {
-        border-bottom-left-radius: 0px 0px 0px var(--ha-card-border-radius);
+        border-bottom-left-radius: var(--ha-card-border-radius);
         border-left-width: var(--lcars-vertical-border);
         /* position: relative; */
 
-        & > span
+        & > span,
+        & > img,
         & > .entities,
         & > #states,
         & > ha-markdown,
         & > .content,
         & > ha-state-icon,
         & > .info,
-        &.type-statistic > .info,
         &.type-thermostat > .container,
         &.type-media-control .color-block,
+        &.type-media-control .no-img,
+        &.type-media-control .image,
         &.type-custom-weather-card .variations,
+        &.type-custom-html-card > div,
+        &.type-custom-battery-state-card > div,
         &.type-entity .footer {
-          border-bottom-left-radius: var(--lcars-inner-radius)
+          border-bottom-left-radius: var(--lcars-inner-radius);
         }
 
         & > span {
@@ -640,6 +623,7 @@
         &.type-media-control .image,
         &.type-custom-weather-card .variations,
         &.type-custom-html-card > div,
+        &.type-custom-battery-state-card > div,
         &.type-entity .footer {
           border-bottom-right-radius: var(--lcars-inner-radius);
         }
@@ -1052,7 +1036,7 @@
       }
       ha-card > * {
         font-family: var(--lcars-font) !important;
-        --md-sys-color-primary: var(--lcars-ui-quaternary) !important;
+        --md-sys-color-primary: var(--lcars-ui-quaternary);
       }
 
       /* ----------------------------------------------- */
