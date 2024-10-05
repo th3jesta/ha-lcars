@@ -338,6 +338,12 @@
           padding-block: 0px !important;
         }
 
+        & > ha-markdown {
+          height: 100%;
+          display: flex;
+          align-items: flex-end;
+        }
+
         &.type-thermostat > .container {
           width: 100%;
         }
@@ -358,7 +364,8 @@
       /* ----------------------------------------------- */
       
       /* ----------------Border on left----------------- */
-      ha-card.header-left {
+      ha-card.header-left,
+      ha-card.header-contained {
         border-top-left-radius: var(--ha-card-border-radius);
         border-left-width: var(--lcars-vertical-border);
 
@@ -369,14 +376,12 @@
         }
 
         & > ha-markdown {
-          height: 100%;
-          display: flex;
-          align-items: flex-end;
         }
       }
 
       /* ----------------Border on right---------------- */
-      ha-card.header-right {
+      ha-card.header-right,
+      ha-card.header-contained {
         border-top-right-radius: var(--ha-card-border-radius);
         border-right-width: var(--lcars-vertical-border);
 
@@ -387,18 +392,6 @@
         }
       }
 
-      /* -------------Border on both sides-------------- */
-      ha-card.header-contained {
-        border-radius: var(--ha-card-border-radius) var(--ha-card-border-radius) 0px 0px;
-        border-inline-width: var(--lcars-vertical-border);
-
-        & > ha-markdown.no-header,
-        &.type-thermostat > .title,
-        &.type-custom-html-card > div {
-          border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
-        }
-      }
-
       /* =============================================== */
       /*        MIDDLE CLASSES AND CARD TYPE FIXES       */
       /* =============================================== */
@@ -406,37 +399,31 @@
       /* ----------------------------------------------- */
       /*               Common Middle Styles              */
       /* ----------------------------------------------- */
-      ha-card.middle-left,
-      ha-card.middle-right,
-      ha-card.middle-blank,
-      ha-card.middle-contained {
-        background: black !important;
+      ha-card:is(.middle-left, .middle-right, .middle-contained, .middle-blank) { 
+        background: black;
         text-transform: uppercase;
-        --primary-text-color: var(--lcars-text-gray) !important;
-        border-radius: 0px !important;
-      }
-      ha-card.middle-left > ha-gauge, 
-      ha-card.middle-right > ha-gauge, 
-      ha-card.middle-contained > ha-gauge, 
-      ha-card.middle-blank > ha-gauge {
         --primary-text-color: var(--lcars-text-gray);
+        border-radius: 0px;
+        border-inline: 0px solid var(--lcars-card-mid-left-color);
+
+        & > ha-gauge {
+          --primary-text-color: var(--lcars-text-gray);
+        }
+
+        & > .name {
+          color: var(--lcars-text-gray);
+        }
       }
-      ha-card.middle-left > .name, 
-      ha-card.middle-right > .name, 
-      ha-card.middle-contained > .name, 
-      ha-card.middle-blank > .name {
-        color: var(--lcars-text-gray);
-      }
-      ha-card.middle-left.type-custom-html-card > div,
-      ha-card.middle-right.type-custom-html-card > div,
-      ha-card.middle-contained.type-custom-html-card > div {
-        line-height: initial;
-        padding: 0px 16px 0px 16px;
-      }
-      ha-card.middle-left.type-custom-html-card > div > h1,
-      ha-card.middle-right.type-custom-html-card > div > h1,
-      ha-card.middle-contained.type-custom-html-card > div > h1 {
-        margin: 0px;
+
+      ha-card:is(.middle-left, .middle-right, .middle-contained) {
+        &.type-custom-html-card > div {
+          line-height: initial;
+          padding: 0px 16px;
+
+          & > h1 {
+            margin: 0px;
+          }
+        }
       }
 
       /* ----------------------------------------------- */
@@ -444,22 +431,17 @@
       /* ----------------------------------------------- */
 
       /* -----------------Border on left---------------- */
-      ha-card.middle-left {
-        border-left: var(--lcars-middle-vertical-border) solid var(--lcars-card-mid-left-color);
+      ha-card.middle-left,
+      ha-card.middle-contained {
+        border-left-width: var(--lcars-middle-vertical-border);
         padding-left: 6px !important;
       }
 
       /* ----------------Border on right---------------- */
-      ha-card.middle-right {
-        border-right: var(--lcars-middle-vertical-border) solid var(--lcars-card-mid-left-color);
-        padding-right: 6px !important;
-      }
-
-      /* --------------Border on both sides------------- */
+      ha-card.middle-right,
       ha-card.middle-contained {
-        border-left: var(--lcars-middle-vertical-border) solid var(--lcars-card-mid-left-color);
-        border-right: var(--lcars-middle-vertical-border) solid var(--lcars-card-mid-left-color);
-        padding: 0px 6px !important;
+        border-right-width: var(--lcars-middle-vertical-border);
+        padding-right: 6px !important;
       }
 
       /* =============================================== */
