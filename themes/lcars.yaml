@@ -317,44 +317,40 @@
       /* ----------------------------------------------- */
       /*               Common Header Styles              */
       /* ----------------------------------------------- */
-      ha-card.header-left,
-      ha-card.header-right,
-      ha-card.header-contained,
-      ha-card.header-open {
-        background: var(--lcars-card-top-color) !important;
+      ha-card:is(.header-left, .header-right, .header-contained, .header-open) {
+        background: var(--lcars-card-top-color); /* used for the inner corner */
         text-transform: uppercase;
-        --primary-text-color: var(--lcars-text-gray) !important;
-        border-top: var(--lcars-horizontal-border) solid var(--lcars-card-top-color);
-      }
-      ha-card.header-left.type-markdown,
-      ha-card.header-right.type-markdown,
-      ha-card.header-contained.type-markdown,
-      ha-card.header-open.type-markdown {
-        background: black;
-        padding-top: 0px !important;
-        padding-bottom: 0px !important;
-      }
-      ha-card.header-left.type-thermostat > .content,
-      ha-card.header-right.type-thermostat > .content,
-      ha-card.header-contained.type-thermostat > .content,
-      ha-card.header-open.type-thermostat > .content {
-        border-radius: 0px 0px 0px var(--lcars-inner-radius);
-      }
+        --primary-text-color: var(--lcars-text-gray);
 
-      ha-card.header-left.type-custom-html-card > div,
-      ha-card.header-right.type-custom-html-card > div,
-      ha-card.header-contained.type-custom-html-card > div,
-      ha-card.header-open.type-custom-html-card > div {
-        background: black;
-        line-height: initial;
-        border-top: var(--lcars-horizontal-border);
-        padding: 0px 16px 0px 16px;
-      }
-      ha-card.header-left.type-custom-html-card > div > h1,
-      ha-card.header-right.type-custom-html-card > div > h1,
-      ha-card.header-contained.type-custom-html-card > div > h1,
-      ha-card.header-open.type-custom-html-card > div > h1 {
-        margin: 0px;
+        border-radius: 0;
+        border-top: var(--lcars-horizontal-border) solid var(--lcars-card-top-color);
+        border-inline: 0px solid var(--lcars-card-top-color);
+
+        &.type-markdown,
+        &.type-thermostat > .container,
+        &.type-thermostat > .title,
+        &.type-custom-html-card > div {
+          background: black;
+        }
+
+        &.type-markdown,
+        & > ha-markdown.no-header {
+          padding-block: 0px !important;
+        }
+
+        &.type-thermostat > .container {
+          width: 100%;
+        }
+
+        &.type-custom-html-card > div {
+          line-height: initial;
+          border-top: var(--lcars-horizontal-border);
+          padding: 0px 16px;
+
+          & > h1 {
+            margin: 0px;
+          }
+        }
       }
 
       /* ----------------------------------------------- */
@@ -363,79 +359,44 @@
       
       /* ----------------Border on left----------------- */
       ha-card.header-left {
-        background: var(--lcars-card-top-color) !important;
-        text-transform: uppercase;
-        border-radius: var(--ha-card-border-radius) 0px 0px 0px !important;
-        border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
-      }
-      ha-card.header-left > ha-markdown {
-        border-radius: var(--lcars-inner-radius) 0px 0px 0px;
-        height: 100%;
-        display: flex;
-        align-items: flex-end;
-      }
-      ha-card.header-left.type-thermostat > .content {
-        border-radius: 0px 0px 0px var(--lcars-inner-radius);
-      }
-      ha-card.header-left.type-custom-html-card > div {
-        border-radius: var(--lcars-inner-radius) 0px 0px 0px;
+        border-top-left-radius: var(--ha-card-border-radius);
+        border-left-width: var(--lcars-vertical-border);
+
+        & > ha-markdown,
+        &.type-thermostat > .title,
+        &.type-custom-html-card > div {
+          border-top-left-radius: var(--lcars-inner-radius);
+        }
+
+        & > ha-markdown {
+          height: 100%;
+          display: flex;
+          align-items: flex-end;
+        }
       }
 
       /* ----------------Border on right---------------- */
       ha-card.header-right {
-        background: var(--lcars-card-top-color) !important;
-        text-transform: uppercase;
-        border-radius: 0px var(--ha-card-border-radius) 0px 0px !important;
-        border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
-      }
-      ha-card.header-right > ha-markdown.no-header {
-        background: black;
-        border-radius: 0px var(--lcars-inner-radius) 0px 0px;
-        padding-top: 0px !important;
-        padding-bottom: 0px !important;
-      }
-      ha-card.header-right.type-thermostat > .content {
-        border-radius: 0px 0px var(--lcars-inner-radius) 0px;
-      }
-      ha-card.header-right.type-custom-html-card > div {
-        border-radius: 0px var(--lcars-inner-radius) 0px 0px;
+        border-top-right-radius: var(--ha-card-border-radius);
+        border-right-width: var(--lcars-vertical-border);
+
+        & > ha-markdown.no-header,
+        &.type-thermostat > .title,
+        &.type-custom-html-card > div {
+          border-top-right-radius: var(--lcars-inner-radius);
+        }
       }
 
       /* -------------Border on both sides-------------- */
       ha-card.header-contained {
-        background: var(--lcars-card-top-color) !important;
-        text-transform: uppercase;
-        border-radius: var(--ha-card-border-radius) var(--ha-card-border-radius) 0px 0px !important;
-        border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
-        border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
-      }
-      ha-card.header-contained > ha-markdown.no-header {
-        background: black;
-        border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
-        padding-top: 0px !important;
-        padding-bottom: 0px !important;
-      }
-      ha-card.header-contained.type-thermostat > .content {
-        border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
-      }
-      ha-card.header-contained.type-custom-html-card > div {
-        border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
-      }
+        border-radius: var(--ha-card-border-radius) var(--ha-card-border-radius) 0px 0px;
+        border-inline-width: var(--lcars-vertical-border);
 
-      /* -------------Border on neither side------------ */
-      ha-card.header-open {
-        background: var(--lcars-card-top-color) !important;
-        text-transform: uppercase;
-        border-radius: 0px 0px 0px 0px !important;
-      }
-      ha-card.header-open > ha-markdown.no-header {
-        background: black;
-        border-radius: 0px 0px 0px 0px;
-        padding-top: 0px !important;
-        padding-bottom: 0px !important;
-      }
-      ha-card.header-open.type-custom-html-card > div {
-        border-radius: 0px 0px 0px 0px;
+        & > ha-markdown.no-header,
+        &.type-thermostat > .title,
+        &.type-custom-html-card > div {
+          border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
+        }
       }
 
       /* =============================================== */
@@ -1215,8 +1176,8 @@
       /* ----------------------------------------------- */
       ha-card {
         padding: 0px !important;
-        border-top-right-radius: var(--ha-card-border-radius) !important;
-        border-top-left-radius: var(--ha-card-border-radius) !important;
+        border-top-right-radius: var(--ha-card-border-radius);
+        border-top-left-radius: var(--ha-card-border-radius);
       }
       ha-card > .name {
         color: black;
