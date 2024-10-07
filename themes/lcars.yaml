@@ -357,6 +357,22 @@
         margin: 0px;
       }
 
+      ha-card.header-left.type-custom-html-template-card > div,
+      ha-card.header-right.type-custom-html-template-card > div,
+      ha-card.header-contained.type-custom-html-template-card > div,
+      ha-card.header-open.type-custom-html-template-card > div {
+        background: black;
+        line-height: initial;
+        border-top: var(--lcars-horizontal-border);
+        padding: 0px 16px 0px 16px;
+      }
+      ha-card.header-left.type-custom-html-template-card > div > h1,
+      ha-card.header-right.type-custom-html-template-card > div > h1,
+      ha-card.header-contained.type-custom-html-template-card > div > h1,
+      ha-card.header-open.type-custom-html-template-card > div > h1 {
+        margin: 0px;
+      }
+
       /* ----------------------------------------------- */
       /*              Specific Header Styles             */
       /* ----------------------------------------------- */
@@ -380,6 +396,9 @@
       ha-card.header-left.type-custom-html-card > div {
         border-radius: var(--lcars-inner-radius) 0px 0px 0px;
       }
+      ha-card.header-left.type-custom-html-template-card > div {
+        border-radius: var(--lcars-inner-radius) 0px 0px 0px;
+      }
 
       /* ----------------Border on right---------------- */
       ha-card.header-right {
@@ -398,6 +417,9 @@
         border-radius: 0px 0px var(--lcars-inner-radius) 0px;
       }
       ha-card.header-right.type-custom-html-card > div {
+        border-radius: 0px var(--lcars-inner-radius) 0px 0px;
+      }
+      ha-card.header-right.type-custom-html-template-card > div {
         border-radius: 0px var(--lcars-inner-radius) 0px 0px;
       }
 
@@ -421,6 +443,9 @@
       ha-card.header-contained.type-custom-html-card > div {
         border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
       }
+      ha-card.header-contained.type-custom-html-template-card > div {
+        border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
+      }
 
       /* -------------Border on neither side------------ */
       ha-card.header-open {
@@ -435,6 +460,9 @@
         padding-bottom: 0px !important;
       }
       ha-card.header-open.type-custom-html-card > div {
+        border-radius: 0px 0px 0px 0px;
+      }
+      ha-card.header-open.type-custom-html-template-card > div {
         border-radius: 0px 0px 0px 0px;
       }
 
@@ -475,6 +503,17 @@
       ha-card.middle-left.type-custom-html-card > div > h1,
       ha-card.middle-right.type-custom-html-card > div > h1,
       ha-card.middle-contained.type-custom-html-card > div > h1 {
+        margin: 0px;
+      }
+      ha-card.middle-left.type-custom-html-template-card > div,
+      ha-card.middle-right.type-custom-html-template-card > div,
+      ha-card.middle-contained.type-custom-html-template-card > div {
+        line-height: initial;
+        padding: 0px 16px 0px 16px;
+      }
+      ha-card.middle-left.type-custom-html-template-card > div > h1,
+      ha-card.middle-right.type-custom-html-template-card > div > h1,
+      ha-card.middle-contained.type-custom-html-template-card > div > h1 {
         margin: 0px;
       }
 
@@ -703,6 +742,21 @@
       ha-card.footer-open.type-custom-html-card > div > h1 {
         margin: 0px;
       }
+      ha-card.footer-left.type-custom-html-template-card > div,
+      ha-card.footer-right.type-custom-html-template-card > div,
+      ha-card.footer-contained.type-custom-html-template-card > div,
+      ha-card.footer-open.type-custom-html-template-card > div {
+        background: black;
+        line-height: initial;
+        border-top: var(--lcars-horizontal-border);
+        padding: 0px 16px 0px 16px;
+      }
+      ha-card.footer-left.type-custom-html-template-card > div > h1,
+      ha-card.footer-right.type-custom-html-template-card > div > h1,
+      ha-card.footer-contained.type-custom-html-template-card > div > h1,
+      ha-card.footer-open.type-custom-html-template-card > div > h1 {
+        margin: 0px;
+      }
 
       /* ----------------------------------------------- */
       /*              Specific Footer Styles             */
@@ -738,6 +792,9 @@
       ha-card.footer-left.type-custom-html-card > div {
         border-radius: 0px 0px 0px var(--lcars-inner-radius);
       }
+      ha-card.footer-left.type-custom-html-template-card > div {
+        border-radius: 0px 0px 0px var(--lcars-inner-radius);
+      }
 
       /* ----------------Border on right---------------- */
       ha-card.footer-right {
@@ -768,6 +825,9 @@
       }
 
       ha-card.footer-right.type-custom-html-card > div {
+        border-radius: 0px 0px var(--lcars-inner-radius) 0px;
+      }
+      ha-card.footer-right.type-custom-html-template-card > div {
         border-radius: 0px 0px var(--lcars-inner-radius) 0px;
       }
 
@@ -801,6 +861,9 @@
         border-radius: 0px 0px var(--lcars-inner-radius) var(--lcars-inner-radius);
       }
       ha-card.footer-contained.type-custom-html-card > div {
+        border-radius: 0px 0px var(--lcars-inner-radius) var(--lcars-inner-radius);
+      }
+      ha-card.footer-contained.type-custom-html-template-card > div {
         border-radius: 0px 0px var(--lcars-inner-radius) var(--lcars-inner-radius);
       }
 
@@ -1113,6 +1176,23 @@
       ha-card.bar-right.type-custom-html-card > div > h1,
       ha-card.bar-large-left.type-custom-html-card > div > h1,
       ha-card.bar-large-right.type-custom-html-card > div > h1 {
+        margin: 0px;
+      }
+      ha-card.bar-left.type-custom-html-template-card > div,
+      ha-card.bar-right.type-custom-html-template-card > div,
+      ha-card.bar-large-left.type-custom-html-template-card > div,
+      ha-card.bar-large-right.type-custom-html-template-card > div {
+        background: black;
+        line-height: initial;
+        border-top: var(--lcars-horizontal-border);
+        padding: 0px 6px 0px 6px;
+        margin-top: -8px;
+        margin-bottom: -3px;
+      }
+      ha-card.bar-left.type-custom-html-template-card > div > h1,
+      ha-card.bar-right.type-custom-html-template-card > div > h1,
+      ha-card.bar-large-left.type-custom-html-template-card > div > h1,
+      ha-card.bar-large-right.type-custom-html-template-card > div > h1 {
         margin: 0px;
       }
 
