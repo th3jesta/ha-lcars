@@ -330,6 +330,11 @@
           background: black;
         }
 
+        & > ha-ripple {
+          background: unset;
+          z-index: 10;
+        }
+
         &.type-markdown,
         & > ha-markdown.no-header {
           padding-block: 0px !important;
@@ -457,6 +462,11 @@
 
         & > * {
           background: black;
+        }
+
+        & > ha-ripple {
+          background: unset;
+          z-index: 10;
         }
 
         & > span {
