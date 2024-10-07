@@ -317,44 +317,48 @@
       /* ----------------------------------------------- */
       /*               Common Header Styles              */
       /* ----------------------------------------------- */
-      ha-card.header-left,
-      ha-card.header-right,
-      ha-card.header-contained,
-      ha-card.header-open {
-        background: var(--lcars-card-top-color) !important;
+      ha-card:is(.header-left, .header-right, .header-contained, .header-open) {
+        background: var(--lcars-card-top-color); /* used for the inner corner */
         text-transform: uppercase;
-        --primary-text-color: var(--lcars-text-gray) !important;
-        border-top: var(--lcars-horizontal-border) solid var(--lcars-card-top-color);
-      }
-      ha-card.header-left.type-markdown,
-      ha-card.header-right.type-markdown,
-      ha-card.header-contained.type-markdown,
-      ha-card.header-open.type-markdown {
-        background: black;
-        padding-top: 0px !important;
-        padding-bottom: 0px !important;
-      }
-      ha-card.header-left.type-thermostat > .content,
-      ha-card.header-right.type-thermostat > .content,
-      ha-card.header-contained.type-thermostat > .content,
-      ha-card.header-open.type-thermostat > .content {
-        border-radius: 0px 0px 0px var(--lcars-inner-radius);
-      }
+        --primary-text-color: var(--lcars-text-gray);
 
-      ha-card.header-left.type-custom-html-card > div,
-      ha-card.header-right.type-custom-html-card > div,
-      ha-card.header-contained.type-custom-html-card > div,
-      ha-card.header-open.type-custom-html-card > div {
-        background: black;
-        line-height: initial;
-        border-top: var(--lcars-horizontal-border);
-        padding: 0px 16px 0px 16px;
-      }
-      ha-card.header-left.type-custom-html-card > div > h1,
-      ha-card.header-right.type-custom-html-card > div > h1,
-      ha-card.header-contained.type-custom-html-card > div > h1,
-      ha-card.header-open.type-custom-html-card > div > h1 {
-        margin: 0px;
+        border-radius: 0;
+        border-top: var(--lcars-horizontal-border) solid var(--lcars-card-top-color);
+        border-inline: 0px solid var(--lcars-card-top-color);
+
+        & > * {
+          background: black;
+        }
+
+        & > ha-ripple {
+          background: unset;
+          z-index: 10;
+        }
+
+        &.type-markdown,
+        & > ha-markdown.no-header {
+          padding-block: 0px !important;
+        }
+
+        & > ha-markdown {
+          height: 100%;
+          display: flex;
+          align-items: flex-end;
+        }
+
+        &.type-thermostat > .container {
+          width: 100%;
+        }
+
+        &.type-custom-html-card > div {
+          line-height: initial;
+          border-top: var(--lcars-horizontal-border);
+          padding: 0px 16px;
+
+          & > h1 {
+            margin: 0px;
+          }
+        }
       }
 
       /* ----------------------------------------------- */
@@ -362,80 +366,29 @@
       /* ----------------------------------------------- */
       
       /* ----------------Border on left----------------- */
-      ha-card.header-left {
-        background: var(--lcars-card-top-color) !important;
-        text-transform: uppercase;
-        border-radius: var(--ha-card-border-radius) 0px 0px 0px !important;
-        border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
-      }
-      ha-card.header-left > ha-markdown {
-        border-radius: var(--lcars-inner-radius) 0px 0px 0px;
-        height: 100%;
-        display: flex;
-        align-items: flex-end;
-      }
-      ha-card.header-left.type-thermostat > .content {
-        border-radius: 0px 0px 0px var(--lcars-inner-radius);
-      }
-      ha-card.header-left.type-custom-html-card > div {
-        border-radius: var(--lcars-inner-radius) 0px 0px 0px;
+      ha-card.header-left,
+      ha-card.header-contained {
+        border-top-left-radius: var(--ha-card-border-radius);
+        border-left-width: var(--lcars-vertical-border);
+
+        & > ha-markdown,
+        &.type-thermostat > .title,
+        &.type-custom-html-card > div {
+          border-top-left-radius: var(--lcars-inner-radius);
+        }
       }
 
       /* ----------------Border on right---------------- */
-      ha-card.header-right {
-        background: var(--lcars-card-top-color) !important;
-        text-transform: uppercase;
-        border-radius: 0px var(--ha-card-border-radius) 0px 0px !important;
-        border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
-      }
-      ha-card.header-right > ha-markdown.no-header {
-        background: black;
-        border-radius: 0px var(--lcars-inner-radius) 0px 0px;
-        padding-top: 0px !important;
-        padding-bottom: 0px !important;
-      }
-      ha-card.header-right.type-thermostat > .content {
-        border-radius: 0px 0px var(--lcars-inner-radius) 0px;
-      }
-      ha-card.header-right.type-custom-html-card > div {
-        border-radius: 0px var(--lcars-inner-radius) 0px 0px;
-      }
-
-      /* -------------Border on both sides-------------- */
+      ha-card.header-right,
       ha-card.header-contained {
-        background: var(--lcars-card-top-color) !important;
-        text-transform: uppercase;
-        border-radius: var(--ha-card-border-radius) var(--ha-card-border-radius) 0px 0px !important;
-        border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
-        border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
-      }
-      ha-card.header-contained > ha-markdown.no-header {
-        background: black;
-        border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
-        padding-top: 0px !important;
-        padding-bottom: 0px !important;
-      }
-      ha-card.header-contained.type-thermostat > .content {
-        border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
-      }
-      ha-card.header-contained.type-custom-html-card > div {
-        border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
-      }
+        border-top-right-radius: var(--ha-card-border-radius);
+        border-right-width: var(--lcars-vertical-border);
 
-      /* -------------Border on neither side------------ */
-      ha-card.header-open {
-        background: var(--lcars-card-top-color) !important;
-        text-transform: uppercase;
-        border-radius: 0px 0px 0px 0px !important;
-      }
-      ha-card.header-open > ha-markdown.no-header {
-        background: black;
-        border-radius: 0px 0px 0px 0px;
-        padding-top: 0px !important;
-        padding-bottom: 0px !important;
-      }
-      ha-card.header-open.type-custom-html-card > div {
-        border-radius: 0px 0px 0px 0px;
+        & > ha-markdown.no-header,
+        &.type-thermostat > .title,
+        &.type-custom-html-card > div {
+          border-top-right-radius: var(--lcars-inner-radius);
+        }
       }
 
       /* =============================================== */
@@ -445,37 +398,31 @@
       /* ----------------------------------------------- */
       /*               Common Middle Styles              */
       /* ----------------------------------------------- */
-      ha-card.middle-left,
-      ha-card.middle-right,
-      ha-card.middle-blank,
-      ha-card.middle-contained {
-        background: black !important;
+      ha-card:is(.middle-left, .middle-right, .middle-contained, .middle-blank) { 
+        background: black;
         text-transform: uppercase;
-        --primary-text-color: var(--lcars-text-gray) !important;
-        border-radius: 0px !important;
-      }
-      ha-card.middle-left > ha-gauge, 
-      ha-card.middle-right > ha-gauge, 
-      ha-card.middle-contained > ha-gauge, 
-      ha-card.middle-blank > ha-gauge {
         --primary-text-color: var(--lcars-text-gray);
+        border-radius: 0px;
+        border-inline: 0px solid var(--lcars-card-mid-left-color);
+
+        & > ha-gauge {
+          --primary-text-color: var(--lcars-text-gray);
+        }
+
+        & > .name {
+          color: var(--lcars-text-gray);
+        }
       }
-      ha-card.middle-left > .name, 
-      ha-card.middle-right > .name, 
-      ha-card.middle-contained > .name, 
-      ha-card.middle-blank > .name {
-        color: var(--lcars-text-gray);
-      }
-      ha-card.middle-left.type-custom-html-card > div,
-      ha-card.middle-right.type-custom-html-card > div,
-      ha-card.middle-contained.type-custom-html-card > div {
-        line-height: initial;
-        padding: 0px 16px 0px 16px;
-      }
-      ha-card.middle-left.type-custom-html-card > div > h1,
-      ha-card.middle-right.type-custom-html-card > div > h1,
-      ha-card.middle-contained.type-custom-html-card > div > h1 {
-        margin: 0px;
+
+      ha-card:is(.middle-left, .middle-right, .middle-contained) {
+        &.type-custom-html-card > div {
+          line-height: initial;
+          padding: 0px 16px;
+
+          & > h1 {
+            margin: 0px;
+          }
+        }
       }
 
       /* ----------------------------------------------- */
@@ -483,22 +430,17 @@
       /* ----------------------------------------------- */
 
       /* -----------------Border on left---------------- */
-      ha-card.middle-left {
-        border-left: var(--lcars-middle-vertical-border) solid var(--lcars-card-mid-left-color);
+      ha-card.middle-left,
+      ha-card.middle-contained {
+        border-left-width: var(--lcars-middle-vertical-border);
         padding-left: 6px !important;
       }
 
       /* ----------------Border on right---------------- */
-      ha-card.middle-right {
-        border-right: var(--lcars-middle-vertical-border) solid var(--lcars-card-mid-left-color);
-        padding-right: 6px !important;
-      }
-
-      /* --------------Border on both sides------------- */
+      ha-card.middle-right,
       ha-card.middle-contained {
-        border-left: var(--lcars-middle-vertical-border) solid var(--lcars-card-mid-left-color);
-        border-right: var(--lcars-middle-vertical-border) solid var(--lcars-card-mid-left-color);
-        padding: 0px 6px !important;
+        border-right-width: var(--lcars-middle-vertical-border);
+        padding-right: 6px !important;
       }
 
       /* =============================================== */
@@ -508,200 +450,124 @@
       /* ----------------------------------------------- */
       /*               Common Footer Styles              */
       /* ----------------------------------------------- */
-      ha-card.footer-left,
-      ha-card.footer-right,
-      ha-card.footer-contained,
-      ha-card.footer-open {
-        background: var(--lcars-card-bottom-color) !important;
+      ha-card:is(.footer-left, .footer-right, .footer-contained, .footer-open) {
+        background: var(--lcars-card-bottom-color); /* colors the inner corner */
         text-transform: uppercase;
         --primary-text-color: var(--lcars-text-gray) !important;
-        border-bottom: var(--lcars-horizontal-border) solid var(--lcars-card-bottom-color);
         margin-top: unset;
-      }
-      ha-card.footer-left > span,
-      ha-card.footer-right > span,
-      ha-card.footer-contained > span,
-      ha-card.footer-open > span {
-        background: black;
-        width: 100%;
-        margin-top: 0px;
-        padding-top: 80px;
-      }
-      ha-card.footer-left > .entities,
-      ha-card.footer-right > .entities,
-      ha-card.footer-contained > .entities,
-      ha-card.footer-open > .entities {
-        background: black;
-      }
-      ha-card.footer-left > #states,
-      ha-card.footer-right > #states,
-      ha-card.footer-contained > #states,
-      ha-card.footer-open > #states {
-        background: black;
-        padding-top: 0px !important;
-        padding-bottom: 0px !important;
-      }
-      ha-card.footer-left > ha-markdown,
-      ha-card.footer-right > ha-markdown,
-      ha-card.footer-contained > ha-markdown,
-      ha-card.footer-open > ha-markdown {
-        height: 100%;
-        display: flex;
-        align-items: flex-end;
-      }
-      ha-card.footer-left > ha-state-icon,
-      ha-card.footer-right > ha-state-icon,
-      ha-card.footer-contained > ha-state-icon,
-      ha-card.footer-open > ha-state-icon {
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      ha-card.footer-left > img,
-      ha-card.footer-right > img,
-      ha-card.footer-contained > img,
-      ha-card.footer-open > img {
-        background: black;
-        box-sizing: border-box;
-      }
-      ha-card.footer-left > .header,
-      ha-card.footer-left > .info,
-      ha-card.footer-right > .header,
-      ha-card.footer-right > .info,
-      ha-card.footer-contained > .header,
-      ha-card.footer-contained > .info,
-      ha-card.footer-open > .header,
-      ha-card.footer-open > .info {
-        background: black !important;
-      }
-      ha-card.footer-left > .content,
-      ha-card.footer-right > .content,
-      ha-card.footer-contained > .content,
-      ha-card.footer-open > .content {
-        background: black;
-      }
-      ha-card.footer-left.type-thermostat,
-      ha-card.footer-right.type-thermostat,
-      ha-card.footer-contained.type-thermostat,
-      ha-card.footer-open.type-thermostat {
-        border-bottom: 0px !important;
-      }
-      ha-card.footer-left.type-thermostat > p,
-      ha-card.footer-right.type-thermostat > p,
-      ha-card.footer-contained.type-thermostat > p,
-      ha-card.footer-open.type-thermostat > p {
-        background: black;
-      }
-      ha-card.footer-left.type-custom-weather-card .current,
-      ha-card.footer-right.type-custom-weather-card .current,
-      ha-card.footer-contained.type-custom-weather-card .current,
-      ha-card.footer-open.type-custom-weather-card .current  {
-        margin-bottom: unset;
-        padding-bottom: 3.5em;
-        background: black;
-      }
-      ha-card.footer-left.type-custom-weather-card .variations,
-      ha-card.footer-right.type-custom-weather-card .variations,
-      ha-card.footer-contained.type-custom-weather-card .variations,
-      ha-card.footer-open.type-custom-weather-card .variations {
-        background: black;
-      }
-      ha-card.footer-left.type-entity .footer,
-      ha-card.footer-right.type-entity .footer,
-      ha-card.footer-contained.type-entity .footer,
-      ha-card.footer-open.type-entity .footer {
-        background: black;
-        overflow: hidden;
-        position: static;
-        flex-grow: 1;
-        align-content: end;
-      }
-      ha-card.footer-left.type-thermostat > .container,
-      ha-card.footer-right.type-thermostat > .container,
-      ha-card.footer-contained.type-thermostat > .container,
-      ha-card.footer-open.type-thermostat > .container {
-        background: black;
-        padding: unset;
-        width: 100%;
-        margin-bottom: 12px;
-        max-width: unset;
-      }
-      ha-card.footer-left.type-thermostat > hui-card-features,
-      ha-card.footer-right.type-thermostat > hui-card-features,
-      ha-card.footer-contained.type-thermostat > hui-card-features,
-      ha-card.footer-open.type-thermostat > hui-card-features {
-        --primary-text-color: black;
-      }
-      ha-card.footer-left.type-button,
-      ha-card.footer-right.type-button,
-      ha-card.footer-contained.type-button,
-      ha-card.footer-open.type-button {
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: column-reverse;
-      }
-      ha-card.footer-left > ha-state-icon,
-      ha-card.footer-right > ha-state-icon,
-      ha-card.footer-contained > ha-state-icon,
-      ha-card.footer-open > ha-state-icon {
-        background: black;
-        width: 100%;
-        height: 100%;
-        --mdc-icon-size: 96px;
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        top: 0;
-        z-index: 0;
-        margin-bottom: 30px;
-      }
-      ha-card.footer-left > span.state,
-      ha-card.footer-right > span.state,
-      ha-card.footer-contained > span.state,
-      ha-card.footer-open > span.state {
-        background: transparent;
-        border-radius: 0px 0px 0px 0px;
-        margin-top: 30px;
-        margin-bottom: -80px;
-        position: relative;
-      }
-      ha-card.footer-left > span.usps_update,
-      ha-card.footer-right > span.usps_update,
-      ha-card.footer-contained > span.usps_update,
-      ha-card.footer-open > span.usps_update {
-        background: black;
-        width: 100%;
-        padding-left: 15px;
-        margin-top: -4px;
-        height: unset !important;
-      }
-      ha-card.footer-left.type-custom-mail-and-packages-card > span.usps_update,
-      ha-card.footer-right.type-custom-mail-and-packages-card > span.usps_update,
-      ha-card.footer-contained.type-custom-mail-and-packages-card > span.usps_update,
-      ha-card.footer-open.type-custom-mail-and-packages-card > span.usps_update {
-        padding-top: unset;
-      }
-      ha-card.footer-left.type-entity > .info,
-      ha-card.footer-right.type-entity > .info,
-      ha-card.footer-contained.type-entity > .info,
-      ha-card.footer-open.type-entity > .info {
-        border-radius: 0px 0px 0px 0px;
-      }
-      ha-card.footer-left.type-custom-html-card > div,
-      ha-card.footer-right.type-custom-html-card > div,
-      ha-card.footer-contained.type-custom-html-card > div,
-      ha-card.footer-open.type-custom-html-card > div {
-        background: black;
-        line-height: initial;
-        border-top: var(--lcars-horizontal-border);
-        padding: 0px 16px 0px 16px;
-      }
-      ha-card.footer-left.type-custom-html-card > div > h1,
-      ha-card.footer-right.type-custom-html-card > div > h1,
-      ha-card.footer-contained.type-custom-html-card > div > h1,
-      ha-card.footer-open.type-custom-html-card > div > h1 {
-        margin: 0px;
+
+        border-radius: 0px;
+        border-bottom: var(--lcars-horizontal-border) solid var(--lcars-card-bottom-color);
+        border-inline: 0px solid var(--lcars-card-bottom-color);
+
+        & > * {
+          background: black;
+        }
+
+        & > ha-ripple {
+          background: unset;
+          z-index: 10;
+        }
+
+        & > span {
+          width: 100%;
+          margin-top: 0px;
+          padding-top: 80px;
+        }
+
+        & > #states {
+          padding-block: 0px !important;
+        }
+
+        & > ha-markdown,
+        & > ha-state-icon {
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        & > img {
+          box-sizing: border-box;
+          padding-bottom: 6px;
+        }
+
+        &.type-thermostat {
+          border-bottom: 0px !important;
+
+          & > .container {
+            width: 100%;
+          }
+
+          & > hui-card-features {
+            margin-top: 12px;
+            --primary-text-color: black;
+            background: none;
+          }
+        }
+
+        &.type-custom-weather-card .current {
+          margin-bottom: unset;
+          padding-bottom: 3.5em;
+        }
+
+        &.type-entity .footer {
+          overflow: hidden;
+          position: static;
+          flex-grow: 1;
+          align-content: end;
+        }
+
+        &.type-button {
+          display: flex;
+          justify-content: flex-start;
+          flex-direction: column-reverse;
+        }
+
+        & > ha-state-icon {
+          width: 100%;
+          height: 100%;
+          --mdc-icon-size: 96px;
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          top: 0;
+          z-index: 0;
+          margin-bottom: 30px;
+        }
+
+        & > span.state {
+          background: transparent;
+          border-radius: 0px 0px 0px 0px;
+          margin-top: 30px;
+          margin-bottom: -80px;
+          position: relative;
+        }
+
+        & > span.usps_update {
+          width: 100%;
+          padding-left: 15px;
+          margin-top: -4px;
+          height: unset !important;
+        }
+
+        &.type-custom-mail-and-packages-card > span.usps-update {
+          padding-top: unset;
+        }
+
+        &.type-entity > .info {
+          border-radius: 0px;
+        }
+
+        &.type-custom-html-card > div {
+          line-height: initial;
+          border-top: var(--lcars-horizontal-border);
+          padding: 0px 16px;
+
+          & > h1 {
+            margin: 0px;
+          }
+        }
       }
 
       /* ----------------------------------------------- */
@@ -709,124 +575,81 @@
       /* ----------------------------------------------- */
 
       /* -----------------Border on left---------------- */
-      ha-card.footer-left {
-        border-radius: 0px 0px 0px var(--ha-card-border-radius) !important;
-        border-left: var(--lcars-vertical-border) solid var(--lcars-card-bottom-color);
-        position: relative;
-      }
-      ha-card.footer-left > span {
-        padding-left: 0px;
-        border-radius: 0px 0px 0px var(--lcars-inner-radius);
-      }
-      ha-card.footer-left > .entities,
-      ha-card.footer-left > #states,
-      ha-card.footer-left > ha-markdown,
-      ha-card.footer-left > .content,
-      ha-card.footer-left > ha-state-icon,
-      ha-card.footer-left > .info,
-      ha-card.footer-left.type-statistic > .info,
-      ha-card.footer-left.type-thermostat > .container,
-      ha-card.footer-left.type-media-control .color-block,
-      ha-card.footer-left.type-custom-weather-card .variations,
-      ha-card.footer-left.type-entity .footer{
-        border-radius: 0px 0px 0px var(--lcars-inner-radius);
-      }
-      ha-card.footer-left > img {
-        padding: 0px 0px 6px 6px;
-        border-bottom-left-radius: var(--lcars-inner-radius);
-      }
-      ha-card.footer-left.type-custom-html-card > div {
-        border-radius: 0px 0px 0px var(--lcars-inner-radius);
+      ha-card.footer-left,
+      ha-card.footer-contained {
+        border-bottom-left-radius: var(--ha-card-border-radius);
+        border-left-width: var(--lcars-vertical-border);
+        /* position: relative; */
+
+        & > span,
+        & > img,
+        & > .entities,
+        & > #states,
+        & > ha-markdown,
+        & > .content,
+        & > ha-state-icon,
+        & > .info,
+        &.type-thermostat > .container,
+        &.type-media-control .color-block,
+        &.type-media-control .no-img,
+        &.type-media-control .image,
+        &.type-custom-weather-card .variations,
+        &.type-custom-html-card > div,
+        &.type-custom-battery-state-card > div,
+        &.type-entity .footer {
+          border-bottom-left-radius: var(--lcars-inner-radius);
+        }
+
+        & > span {
+          padding-left: 0px;
+        }
+
+        & > img {
+          padding-left: 6px;
+        }
+
+        & .type-custom-html-card > div {
+          border-bottom-left-radius: var(--lcars-inner-radius);
+        }
       }
 
       /* ----------------Border on right---------------- */
-      ha-card.footer-right {
-        border-radius: 0px 0px var(--ha-card-border-radius) 0px !important;
-        border-right: var(--lcars-vertical-border) solid var(--lcars-card-bottom-color);
-      }
-      ha-card.footer-right > span {
-        padding-right: 0px;
-        border-radius: 0px 0px var(--lcars-inner-radius) 0px;
-      }
-      ha-card.footer-right > .entities,
-      ha-card.footer-right > #states,
-      ha-card.footer-right > ha-markdown,
-      ha-card.footer-right > .content,
-      ha-card.footer-right > ha-state-icon,
-      ha-card.footer-right > .info,
-      ha-card.footer-right.type-thermostat > .container,
-      ha-card.footer-right.type-media-control .color-block,
-      ha-card.footer-right.type-media-control .no-img,
-      ha-card.footer-right.type-media-control .image,
-      ha-card.footer-right.type-custom-weather-card .variations,
-      ha-card.footer-right.type-entity .footer {
-        border-radius: 0px 0px var(--lcars-inner-radius) 0px;
-      }
-      ha-card.footer-right > img {
-        padding: 0px 6px 6px 0px;
-        border-bottom-right-radius: var(--lcars-inner-radius);
-      }
-
-      ha-card.footer-right.type-custom-html-card > div {
-        border-radius: 0px 0px var(--lcars-inner-radius) 0px;
-      }
-
-      /* --------------Border on both sides------------- */
+      ha-card.footer-right,
       ha-card.footer-contained {
-        border-radius: 0px 0px var(--ha-card-border-radius) var(--ha-card-border-radius) !important;
-        border-left: var(--lcars-vertical-border) solid var(--lcars-card-bottom-color);
-        border-right: var(--lcars-vertical-border) solid var(--lcars-card-bottom-color);
-      }
-      ha-card.footer-contained > span {
-        padding-right: 0px;
-        padding-left: 0px;
-        border-radius: 0px 0px var(--lcars-inner-radius) var(--lcars-inner-radius);
-      }
-      ha-card.footer-contained > .entities,
-      ha-card.footer-contained > #states,
-      ha-card.footer-contained > ha-markdown,
-      ha-card.footer-contained > .content,
-      ha-card.footer-contained > ha-state-icon,
-      ha-card.footer-contained > .info,
-      ha-card.footer-contained.type-thermostat > .container,
-      ha-card.footer-contained.type-media-control .color-block,
-      ha-card.footer-contained.type-media-control .no-img,
-      ha-card.footer-contained.type-media-control .image,
-      ha-card.footer-contained.type-custom-weather-card .variations,
-      ha-card.footer-contained.type-entity .footer {
-        border-radius: 0px 0px var(--lcars-inner-radius) var(--lcars-inner-radius);
-      }
-      ha-card.footer-contained > img {
-        padding: 0px 6px 6px 6px;
-        border-radius: 0px 0px var(--lcars-inner-radius) var(--lcars-inner-radius);
-      }
-      ha-card.footer-contained.type-custom-html-card > div {
-        border-radius: 0px 0px var(--lcars-inner-radius) var(--lcars-inner-radius);
+        border-bottom-right-radius: var(--ha-card-border-radius);
+        border-right-width: var(--lcars-vertical-border);
+
+        & > span,
+        & > img,
+        & > .entities,
+        & > #states,
+        & > ha-markdown,
+        & > .content,
+        & > ha-state-icon,
+        & > .info,
+        &.type-thermostat > .container,
+        &.type-media-control .color-block,
+        &.type-media-control .no-img,
+        &.type-media-control .image,
+        &.type-custom-weather-card .variations,
+        &.type-custom-html-card > div,
+        &.type-custom-battery-state-card > div,
+        &.type-entity .footer {
+          border-bottom-right-radius: var(--lcars-inner-radius);
+        }
+
+        & > span {
+          padding-right: 0px;
+        }
+
+        & > img {
+          padding-right: 6px;
+        }
       }
 
       /* -------------Border on neither side------------ */
-      ha-card.footer-open {
-        border-radius: 0px 0px 0px 0px !important;
-      }
       ha-card.footer-open > span {
-        padding-right: 0px;
-        padding-left: 0px;
-        border-radius: 0px 0px 0px 0px;
-      }
-      ha-card.footer-open > .entities,
-      ha-card.footer-open > #states,
-      ha-card.footer-open > ha-markdown,
-      ha-card.footer-open > .content,
-      ha-card.footer-open > ha-state-icon,
-      ha-card.footer-open > .info,
-      ha-card.footer-open.type-thermostat > .container,
-      ha-card.footer-open.type-media-control .color-block,
-      ha-card.footer-open.type-custom-weather-card .variations,
-      ha-card.footer-open.type-entity .footer {
-        border-radius: 0px 0px 0px 0px;
-      }
-      ha-card.footer-open.type-custom-html-card > div {
-        border-radius: 0px 0px 0px 0px;
+        padding-inline: 0px;
       }
 
       /* =============================================== */
@@ -1215,15 +1038,15 @@
       /* ----------------------------------------------- */
       ha-card {
         padding: 0px !important;
-        border-top-right-radius: var(--ha-card-border-radius) !important;
-        border-top-left-radius: var(--ha-card-border-radius) !important;
+        border-top-right-radius: var(--ha-card-border-radius);
+        border-top-left-radius: var(--ha-card-border-radius);
       }
       ha-card > .name {
         color: black;
       }
       ha-card > * {
         font-family: var(--lcars-font) !important;
-        --md-sys-color-primary: var(--lcars-ui-quaternary) !important;
+        --md-sys-color-primary: var(--lcars-ui-quaternary);
       }
 
       /* ----------------------------------------------- */
