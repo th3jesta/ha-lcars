@@ -318,22 +318,13 @@
       /*               Common Header Styles              */
       /* ----------------------------------------------- */
       ha-card:is(.header-left, .header-right, .header-contained, .header-open) {
-        background: var(--lcars-card-top-color); /* used for the inner corner */
+        background: none;
         text-transform: uppercase;
         --primary-text-color: var(--lcars-text-gray);
 
         border-radius: 0;
         border-top: var(--lcars-horizontal-border) solid var(--lcars-card-top-color);
         border-inline: 0px solid var(--lcars-card-top-color);
-
-        & > * {
-          background: black;
-        }
-
-        & > ha-ripple {
-          background: unset;
-          z-index: 10;
-        }
 
         &.type-markdown,
         & > ha-markdown.no-header {
@@ -370,12 +361,6 @@
       ha-card.header-contained {
         border-top-left-radius: var(--ha-card-border-radius);
         border-left-width: var(--lcars-vertical-border);
-
-        & > ha-markdown,
-        &.type-thermostat > .title,
-        &.type-custom-html-card > div {
-          border-top-left-radius: var(--lcars-inner-radius);
-        }
       }
 
       /* ----------------Border on right---------------- */
@@ -383,12 +368,6 @@
       ha-card.header-contained {
         border-top-right-radius: var(--ha-card-border-radius);
         border-right-width: var(--lcars-vertical-border);
-
-        & > ha-markdown.no-header,
-        &.type-thermostat > .title,
-        &.type-custom-html-card > div {
-          border-top-right-radius: var(--lcars-inner-radius);
-        }
       }
 
       /* =============================================== */
@@ -399,7 +378,7 @@
       /*               Common Middle Styles              */
       /* ----------------------------------------------- */
       ha-card:is(.middle-left, .middle-right, .middle-contained, .middle-blank) { 
-        background: black;
+        background: none;
         text-transform: uppercase;
         --primary-text-color: var(--lcars-text-gray);
         border-radius: 0px;
@@ -451,28 +430,21 @@
       /*               Common Footer Styles              */
       /* ----------------------------------------------- */
       ha-card:is(.footer-left, .footer-right, .footer-contained, .footer-open) {
-        background: var(--lcars-card-bottom-color); /* colors the inner corner */
+        background: none;
         text-transform: uppercase;
         --primary-text-color: var(--lcars-text-gray) !important;
         margin-top: unset;
+        overflow: visible; /* fixes an aliasing bug with the inner corners on some cards for some reason */
 
         border-radius: 0px;
         border-bottom: var(--lcars-horizontal-border) solid var(--lcars-card-bottom-color);
         border-inline: 0px solid var(--lcars-card-bottom-color);
 
-        & > * {
-          background: black;
-        }
-
-        & > ha-ripple {
-          background: unset;
-          z-index: 10;
-        }
-
         & > span {
           width: 100%;
           margin-top: 0px;
           padding-top: 80px;
+          padding-inline: 0;
         }
 
         & > #states {
@@ -500,9 +472,9 @@
           }
 
           & > hui-card-features {
-            margin-top: 12px;
+            padding-top: 12px;
             --primary-text-color: black;
-            background: none;
+            background: var(--lcars-card-bottom-color);
           }
         }
 
@@ -581,31 +553,9 @@
         border-left-width: var(--lcars-vertical-border);
         /* position: relative; */
 
-        & > span,
-        & > img,
-        & > .entities,
-        & > #states,
-        & > ha-markdown,
-        & > .content,
-        & > ha-state-icon,
-        & > .info,
-        &.type-thermostat > .container,
-        &.type-media-control .color-block,
-        &.type-media-control .no-img,
-        &.type-media-control .image,
-        &.type-custom-weather-card .variations,
-        &.type-custom-html-card > div,
-        &.type-custom-battery-state-card > div,
-        &.type-entity .footer {
-          border-bottom-left-radius: var(--lcars-inner-radius);
-        }
-
-        & > span {
-          padding-left: 0px;
-        }
-
         & > img {
           padding-left: 6px;
+          border-bottom-left-radius: var(--lcars-inner-radius);
         }
 
         & .type-custom-html-card > div {
@@ -619,37 +569,70 @@
         border-bottom-right-radius: var(--ha-card-border-radius);
         border-right-width: var(--lcars-vertical-border);
 
-        & > span,
-        & > img,
-        & > .entities,
-        & > #states,
-        & > ha-markdown,
-        & > .content,
-        & > ha-state-icon,
-        & > .info,
-        &.type-thermostat > .container,
-        &.type-media-control .color-block,
-        &.type-media-control .no-img,
-        &.type-media-control .image,
-        &.type-custom-weather-card .variations,
-        &.type-custom-html-card > div,
-        &.type-custom-battery-state-card > div,
-        &.type-entity .footer {
-          border-bottom-right-radius: var(--lcars-inner-radius);
-        }
-
-        & > span {
-          padding-right: 0px;
-        }
-
         & > img {
           padding-right: 6px;
+          border-bottom-right-radius: var(--lcars-inner-radius);
         }
       }
 
-      /* -------------Border on neither side------------ */
-      ha-card.footer-open > span {
-        padding-inline: 0px;
+      /* ================================================*/
+      /*                  INNER CORNERS                  */
+      /* ================================================*/
+
+      ha-card::before,
+      ha-card::after,
+      ha-card.type-thermostat > hui-card-features::before,
+      ha-card.type-thermostat > hui-card-features::after {
+        position: absolute;
+        width: var(--lcars-inner-radius);
+        height: var(--lcars-inner-radius);
+        mask-size: var(--lcars-inner-radius);
+        mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none"> <path d="m 0,0 v 10 A 10,10 0 0 1 10,0" fill="black" /> </svg>');
+        scale: var(--corner-scale-x, 1) var(--corner-scale-y, 1);
+        z-index: 1;
+      }
+
+      /* top left & bottom left */
+      ha-card::before {
+        left: 0;
+      }
+
+      /* top right & bottom right */
+      ha-card::after {
+        right: 0;
+        --corner-scale-x: -1;
+      }
+
+      /* top left & top right */
+      ha-card:is(.header-left, .header-contained)::before,
+      ha-card:is(.header-right, .header-contained)::after {
+        content: '';
+        background: var(--lcars-card-top-color);
+        top: 0;
+      }
+
+      /* bottom left & bottom right */
+      ha-card:is(.footer-left, .footer-contained)::before,
+      ha-card:is(.footer-right, .footer-contained)::after,
+      ha-card.type-thermostat:is(.footer-left, .footer-contained) > hui-card-features::before,
+      ha-card.type-thermostat:is(.footer-right, .footer-contained) > hui-card-features::after {
+        content: '';
+        background: var(--lcars-card-bottom-color);
+        bottom: 0;
+        --corner-scale-y: -1;
+      }
+
+      /* thermostat-specific fixes */
+
+      ha-card.type-thermostat > hui-card-features::before {
+        top: calc(-1 * var(--lcars-inner-radius));
+        left: 0;
+      }
+
+      ha-card.type-thermostat > hui-card-features::after {
+        top: calc(-1 * var(--lcars-inner-radius));
+        right: 0;
+        --corner-scale-x: -1;
       }
 
       /* =============================================== */
