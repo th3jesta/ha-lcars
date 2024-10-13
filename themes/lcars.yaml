@@ -1135,10 +1135,8 @@
       ha-card.type-custom-mushroom-select-card > * {
         --mdc-shape-small: 0px;
       }
-      ha-card.type-custom-mushroom-select-card,
-      ha-card.type-custom-mushroom-lock-card,
-      ha-card.type-custom-mushroom-number-card {
-        border-radius: 22px !important;
+      ha-card[class*=type-custom-mushroom-]:has(.actions):not(.header-left, .header-right, .header-contained, .footer-left, .footer-right, .footer-contained) {
+        border-radius: 22px;
       }
       ha-card.type-custom-mushroom-number-card > * {
         --control-border-radius: 0px !important;
