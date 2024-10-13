@@ -143,7 +143,7 @@
   lcars-dark-blue: "#1c3c55"
   lcars-alt-green: "#2B9032"
   lcars-black-cherry: "#8c6d7c"
-  lcars-ont-color: "#828ba6"
+  lcars-font-color: "#828ba6"
 
   lcars-alert-red: var(--lcars-crimson)
   lcars-alert-yellow: var(--lcars-gold)
@@ -177,7 +177,7 @@
 #                   BASE CUSTOMIZATIONS                   #
 # ======================================================= #
 (DO NOT USE/MODIFY)=== Base customizations: &base
-  primary-color: var(--lcars-ui-quaternary)
+  primary-color: var(--lcars-ui-tertiary)
   primary-background-color: black
   secondary-background-color: var(--lcars-ui-quaternary)
   divider-color: transparent
@@ -2096,7 +2096,7 @@ LCARS TNG:
   lcars-ui-primary: "#f5deb3" # Main Display Background (Wheat)
   lcars-ui-secondary: "#ffcc66" # menu buttons unclicked (qing yellow)
   lcars-ui-tertiary: "#cc99cc" # clicked menu buttons (lilac)
-  lcars-ui-quaternary: var(--lcars-gray)
+  lcars-ui-quaternary: var(--lcars-galaxy)
 
   # Card colors
   lcars-card-top-color: "#f5deb3" #  header class
@@ -2123,7 +2123,7 @@ LCARS TNGbuttons:
   lcars-ui-primary: "#F5cd9f" # Main Display Background
   lcars-ui-secondary: "#ffcc66" # menu buttons unclicked (qing yellow)
   lcars-ui-tertiary: "#cc99cc" # clicked menu buttons (lilac)
-  lcars-ui-quaternary: var(--lcars-gray)
+  lcars-ui-quaternary: var(--lcars-galaxy)
 
   # Card colors
   lcars-card-top-color: "#F5CD9F" #  header class
