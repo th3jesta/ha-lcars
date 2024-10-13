@@ -465,7 +465,7 @@
         }
 
         &.type-thermostat {
-          border-bottom: 0px !important;
+          border-bottom-width: 0.01px;
 
           & > .container {
             width: 100%;
