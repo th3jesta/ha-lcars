@@ -583,12 +583,18 @@
       ha-card::after,
       ha-card.type-thermostat > hui-card-features::before,
       ha-card.type-thermostat > hui-card-features::after {
+        /* The thickness of the rectangulaar portion that overlaps with the main border to hide rounding errors */
+        --extra-thickness: calc(0.1 * var(--lcars-inner-radius));
+
         position: absolute;
         width: var(--lcars-inner-radius);
         height: var(--lcars-inner-radius);
-        mask-size: var(--lcars-inner-radius);
-        mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none"> <path d="m 0,0 v 10 A 10,10 0 0 1 10,0" fill="black" /> </svg>');
-        scale: var(--corner-scale-x, 1) var(--corner-scale-y, 1);
+
+        margin: calc(-1 * var(--extra-thickness));
+        padding: var(--extra-thickness) 0 0 var(--extra-thickness);
+
+        mask-size: calc(var(--lcars-inner-radius) + var(--extra-thickness));
+        mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 11"><path d="M0,0 v11 h1 A10,10 0,0,1 11,1 V0" fill="red"/></svg>');
         z-index: 1;
       }
 
@@ -600,7 +606,7 @@
       /* top right & bottom right */
       ha-card::after {
         right: 0;
-        --corner-scale-x: -1;
+        scale: -1 1;
       }
 
       /* top left & top right */
@@ -619,7 +625,8 @@
         content: '';
         background: var(--lcars-card-bottom-color);
         bottom: 0;
-        --corner-scale-y: -1;
+        /* need to use different transform properties so they work together on the bottom right */
+        rotate: x 180deg;
       }
 
       /* thermostat-specific fixes */
