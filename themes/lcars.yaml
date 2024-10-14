@@ -643,41 +643,46 @@
         flex-direction: column;
         flex-wrap: nowrap;
         justify-content: center;
-      }
-      ha-card.button-small > .more-info {
-        display: none;
-      }
-      ha-card.button-small > .content > #controls {
-        display: flex;
-        place-content: flex-start center;
-        position: relative;
-        padding: 0px;
-      }
-      ha-card.button-small > .content > #info {
-        text-align: right;
-        box-sizing: border-box;
-        width: 100%;
-        padding: 0px 6px 6px 0px;
-        margin-top: -24px;
-        position: relative;
-      }
-      ha-card.button-small > span {
-        box-sizing: border-box;
-        text-align: right;
-        width: 100%;
-        padding: 6px;
-        margin: unset;
-        position: absolute;
-        bottom: 0;
-      }
-      ha-card.button-small > span.state {
-        text-align: right;
-        width: 100%;
-        padding: 6px;
-        padding-bottom: 22px;
-        margin: unset;
-        position: absolute;
-        bottom: 0;
+
+        & > .more-info {
+          display: none;
+        }
+
+        & > .content > #controls {
+          display: flex;
+          place-content: flex-start center;
+          position: relative;
+          padding: 0px;
+        }
+
+        & > .content > #info {
+          text-align: right;
+          box-sizing: border-box;
+          width: 100%;
+          padding: 0px 6px 6px 0px;
+          margin-top: -24px;
+          position: relative;
+        }
+
+        & > span {
+          box-sizing: border-box;
+          text-align: right;
+          width: 100%;
+          padding: 6px;
+          margin: unset;
+          position: absolute;
+          bottom: 0;
+        }
+
+        & > span.state {
+          text-align: right;
+          width: 100%;
+          padding: 6px;
+          padding-bottom: 22px;
+          margin: unset;
+          position: absolute;
+          bottom: 0;
+        }
       }
 
       /* ----------------------------------------------- */
@@ -688,173 +693,119 @@
         --primary-text-color: black !important;
         --secondary-text-color: black !important;
       }
-      
+
       /* =============================================== */
-      /*                LEFT-SIDED BUTTONS               */
+      /*       BULLET/LOZENGE/CAPPED/BARREL BUTTONS      */
       /* =============================================== */
 
-      /* ----------------------------------------------- */
-      /*            Common Left Button Styles            */
-      /* ----------------------------------------------- */
       ha-card.button-lozenge-left,
       ha-card.button-bullet-left,
       ha-card.button-capped-left,
-      ha-card.button-barrel-left {
-        text-transform: uppercase;
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
-        min-height: 60px;
-        display: flex;
-        align-items: flex-end;
-        flex-direction: column-reverse;
-      }
-      /* ----------------------------------------------- */
-      /*           Specific Left Button Styles           */
-      /* ----------------------------------------------- */
-      ha-card.button-lozenge-left {
-        /* Specific styles for lozenge-left */
-      }
-      ha-card.button-bullet-left {
-        border-radius: 0px var(--ha-card-border-radius) var(--ha-card-border-radius) 0px !important;
-      }
-      ha-card.button-capped-left {
-        border-radius: var(--ha-card-border-radius) 0px 0px var(--ha-card-border-radius) !important;
-      }
-      ha-card.button-barrel-left {
-        border-radius: 0px 0px 0px 0px !important;
-      }
-      ha-card.button-lozenge-left > ha-state-icon,
-      ha-card.button-bullet-left > ha-state-icon,
-      ha-card.button-capped-left > ha-state-icon,
-      ha-card.button-barrel-left > ha-state-icon {
-        --mdc-icon-size: unset;
-        display: flex;
-        align-items: center;
-        left: 0;
-        width: var(--lcars-vertical-border);
-        height: 100% !important;
-        max-height: 100% !important;
-        border-right: black solid 6px;
-        position: absolute;
-        justify-content: center;
-        background: var(--lcars-card-top-color);
-      }
-      ha-card.button-lozenge-left > span,
-      ha-card.button-bullet-left > span {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-end;
-        margin-top: unset;
-        padding-right: 26px;
-        padding-bottom: 6px;
-        position: absolute;
-      }
-      ha-card.button-capped-left > span,
-      ha-card.button-barrel-left > span {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-end;
-        margin-top: unset;
-        padding-right: 6px;
-        padding-bottom: 6px;
-        position: absolute;
-      }
-      ha-card.button-lozenge-left > span.state, 
-      ha-card.button-bullet-left > span.state,
-      ha-card.button-capped-left > span.state,
-      ha-card.button-barrel-left > span.state {
-        padding-bottom: 45px;
-        color: black;
-      }
-      
-      /* =============================================== */
-      /*               RIGHT-SIDED BUTTONS               */
-      /* =============================================== */
-
-      /* ----------------------------------------------- */
-      /*            Common Right Button Styles           */
-      /* ----------------------------------------------- */
+      ha-card.button-barrel-left,
       ha-card.button-lozenge-right,
       ha-card.button-bullet-right,
       ha-card.button-capped-right,
       ha-card.button-barrel-right {
         text-transform: uppercase;
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
+        --primary-text-color: black;
+        --secondary-text-color: black;
         min-height: 60px;
         display: flex;
-        align-items: flex-start;
         flex-direction: column-reverse;
+
+        & > ha-state-icon {
+          --mdc-icon-size: unset;
+          display: flex;
+          align-items: center;
+          width: var(--lcars-vertical-border);
+          height: 100% !important;
+          max-height: 100% !important;
+          border: 0px solid black;
+          position: absolute;
+          justify-content: center;
+          background: var(--lcars-card-top-color);
+        }
+
+        & > span {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: flex-end;
+          margin-top: unset;
+          padding-bottom: 6px;
+          padding-inline: 6px;
+          position: absolute;
+
+          &.state {
+            padding-bottom: 45px;
+          }
+        }
       }
 
-      /* ----------------------------------------------- */
-      /*           Specific Right Button Styles          */
-      /* ----------------------------------------------- */
-      ha-card.button-lozenge-right {
-        /* Specific styles for lozenge-right */
+      ha-card.button-lozenge-left,
+      ha-card.button-bullet-left,
+      ha-card.button-capped-left,
+      ha-card.button-barrel-left {
+        align-items: flex-end;
+    
+        /* Text against right end */
+        & > span {
+          justify-content: flex-end;
+        }
+
+        /* Icon against left end */
+        & > ha-state-icon {
+          left: 0;
+          border-right-width: 6px;
+        }
       }
 
-      ha-card.button-bullet-right {
-        border-radius: var(--ha-card-border-radius) 0px 0px var(--ha-card-border-radius) !important;
-      }
-
-      ha-card.button-capped-right {
-        border-radius: 0px var(--ha-card-border-radius) var(--ha-card-border-radius) 0px !important;
-      }
-
+      ha-card.button-lozenge-right,
+      ha-card.button-bullet-right,
+      ha-card.button-capped-right,
       ha-card.button-barrel-right {
-        border-radius: 0px 0px 0px 0px !important;
+        align-items: flex-start;
+
+        /* Text against left end */
+        & > span {
+          justify-content: flex-start;
+        }
+
+        /* Icon against right end */
+        & > ha-state-icon {
+          right: 0;
+          border-left-width: 6px;
+        }
       }
-      ha-card.button-lozenge-right > ha-state-icon,
-      ha-card.button-bullet-right > ha-state-icon,
-      ha-card.button-capped-right > ha-state-icon,
-      ha-card.button-barrel-right > ha-state-icon {
-        --mdc-icon-size: unset;
-        display: flex;
-        align-items: center;
-        right: 0;
-        width: var(--lcars-vertical-border);
-        height: 100% !important;
-        max-height: 100% !important;
-        border-left: black solid 6px;
-        position: absolute;
-        justify-content: center;
-        background: var(--lcars-card-top-color);
+
+      /* Square left corners */
+      ha-card.button-bullet-left,
+      ha-card.button-capped-right,
+      ha-card.button-barrel-left,
+      ha-card.button-barrel-right {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
       }
+
+      /* Square right corners */
+      ha-card.button-bullet-right,
+      ha-card.button-capped-left,
+      ha-card.button-barrel-left,
+      ha-card.button-barrel-right {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+
+      /* Text against rounded right end */
+      ha-card.button-lozenge-left > span,
+      ha-card.button-bullet-left > span {
+        padding-right: 26px;
+      }
+
+      /* Text against rounded left end */
       ha-card.button-lozenge-right > span,
       ha-card.button-bullet-right > span {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-start;
-        margin-top: unset;
         padding-left: 26px;
-        padding-bottom: 6px;
-        position: absolute;
-      }
-      ha-card.button-capped-right > span,
-      ha-card.button-barrel-right > span {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-start;
-        margin-top: unset;
-        padding-left: 6px;
-        padding-bottom: 6px;
-        position: absolute;
-      }
-      ha-card.button-lozenge-right > span.state,
-      ha-card.button-bullet-right > span.state,
-      ha-card.button-capped-right > span.state,
-      ha-card.button-barrel-right > span.state {
-        padding-bottom: 45px;
-        color: black;
       }
 
       /* =============================================== */
