@@ -706,12 +706,11 @@
       ha-card.button-bullet-right,
       ha-card.button-capped-right,
       ha-card.button-barrel-right {
+        border-radius: var(--lcars-outer-radius) !important;
         text-transform: uppercase;
         --primary-text-color: black;
         --secondary-text-color: black;
         min-height: 60px;
-        display: flex;
-        flex-direction: column-reverse;
 
         & > ha-state-icon {
           --mdc-icon-size: unset;
@@ -727,17 +726,12 @@
         }
 
         & > span {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          align-items: flex-end;
-          margin-top: unset;
-          padding-bottom: 6px;
-          padding-inline: 6px;
+          margin-block: 0px;
           position: absolute;
+          bottom: 4px;
 
           &.state {
-            padding-bottom: 45px;
+            bottom: 24px;
           }
         }
       }
@@ -746,11 +740,9 @@
       ha-card.button-bullet-left,
       ha-card.button-capped-left,
       ha-card.button-barrel-left {
-        align-items: flex-end;
-    
         /* Text against right end */
         & > span {
-          justify-content: flex-end;
+          right: 6px;
         }
 
         /* Icon against left end */
@@ -764,11 +756,9 @@
       ha-card.button-bullet-right,
       ha-card.button-capped-right,
       ha-card.button-barrel-right {
-        align-items: flex-start;
-
         /* Text against left end */
         & > span {
-          justify-content: flex-start;
+          left: 6px;
         }
 
         /* Icon against right end */
@@ -783,8 +773,8 @@
       ha-card.button-capped-right,
       ha-card.button-barrel-left,
       ha-card.button-barrel-right {
-        border-top-left-radius: 0px;
-        border-bottom-left-radius: 0px;
+        border-top-left-radius: 0px !important;
+        border-bottom-left-radius: 0px !important;
       }
 
       /* Square right corners */
@@ -792,20 +782,20 @@
       ha-card.button-capped-left,
       ha-card.button-barrel-left,
       ha-card.button-barrel-right {
-        border-top-right-radius: 0px;
-        border-bottom-right-radius: 0px;
+        border-top-right-radius: 0px !important;
+        border-bottom-right-radius: 0px !important;
       }
 
       /* Text against rounded right end */
       ha-card.button-lozenge-left > span,
       ha-card.button-bullet-left > span {
-        padding-right: 26px;
+        right: 26px;
       }
 
       /* Text against rounded left end */
       ha-card.button-lozenge-right > span,
       ha-card.button-bullet-right > span {
-        padding-left: 26px;
+        left: 26px;
       }
 
       /* =============================================== */
