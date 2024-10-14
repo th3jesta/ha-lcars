@@ -340,16 +340,6 @@
         &.type-thermostat > .container {
           width: 100%;
         }
-
-        &.type-custom-html-card > div {
-          line-height: initial;
-          border-top: var(--lcars-horizontal-border);
-          padding: 0px 16px;
-
-          & > h1 {
-            margin: 0px;
-          }
-        }
       }
 
       /* ----------------------------------------------- */
@@ -394,14 +384,6 @@
       }
 
       ha-card:is(.middle-left, .middle-right, .middle-contained) {
-        &.type-custom-html-card > div {
-          line-height: initial;
-          padding: 0px 16px;
-
-          & > h1 {
-            margin: 0px;
-          }
-        }
       }
 
       /* ----------------------------------------------- */
@@ -530,16 +512,6 @@
         &.type-entity > .info {
           border-radius: 0px;
         }
-
-        &.type-custom-html-card > div {
-          line-height: initial;
-          border-top: var(--lcars-horizontal-border);
-          padding: 0px 16px;
-
-          & > h1 {
-            margin: 0px;
-          }
-        }
       }
 
       /* ----------------------------------------------- */
@@ -555,10 +527,6 @@
 
         & > img {
           padding-left: 6px;
-          border-bottom-left-radius: var(--lcars-inner-radius);
-        }
-
-        & .type-custom-html-card > div {
           border-bottom-left-radius: var(--lcars-inner-radius);
         }
       }
@@ -1034,6 +1002,7 @@
       ha-card > .name {
         color: black;
       }
+      ha-card.type-heading p, /* temporary, see home-assistant/frontend #22322 */
       ha-card > * {
         font-family: var(--lcars-font) !important;
         --md-sys-color-primary: var(--lcars-ui-quaternary);
@@ -1099,6 +1068,29 @@
       }
       ha-card:has(ha-gauge) {
         background: var(--lcars-card-top-color);
+      }
+
+      ha-card.type-heading .content {
+        font-size: 2em;
+        line-height: initial;
+        --mdc-icon-size: 1em;
+        font-weight: bold;
+
+        &.subtitle {
+          font-size: 1.5em;
+          font-weight: normal;
+        }
+      }
+
+      ha-card.type-custom-html-card > div,
+      ha-card.type-heading > .container {
+        line-height: initial;
+        padding: 0px 16px;
+
+        & > h1,
+        & > p {
+          margin: 0px;
+        }
       }
 
       /* ----------------------------------------------- */
