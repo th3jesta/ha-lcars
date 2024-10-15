@@ -1218,7 +1218,6 @@
 
     # extra special shadow-DOM hacks/fixes
     # let flexbox be handed by elements that can be selected from the outer ha-card
-    # ideally this would only be applied to cards with the button classes but I can't get that to work
 
     mushroom-card$: |
       .container {
