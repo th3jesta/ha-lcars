@@ -799,11 +799,18 @@
           --display-override: contents;
           flex-direction: column-reverse;
           justify-items: end;
-          pointer-events: none;
           --card-primary-color: black;
           --card-secondary-color: black;
           --card-primary-font-size: 16.8px;
           --card-secondary-font-size: 0.9rem;
+        }
+
+        &:has(:is(
+          mushroom-light-brightness-control,
+          mushroom-light-color-temp-control,
+          mushroom-light-color-control
+        )) mushroom-state-info {
+          pointer-events: none;
         }
 
         & .actions {
