@@ -711,10 +711,19 @@
         --primary-text-color: black;
         --secondary-text-color: black;
         min-height: 60px;
-        align-content: center;
 
         display: flex;
+        flex-direction: row;
+        flex-wrap: wrap-reverse;
+        justify-content: space-between;
+        align-content: space-before;
 
+        gap: 6px;
+
+        &:has(mushroom-card) {
+          /* sorry bud, mushrooms don't stretch */
+          max-height: 60px;
+        }
 
         & > ha-state-icon {
           --mdc-icon-size: unset;
@@ -724,45 +733,47 @@
           height: 100% !important;
           max-height: 100% !important;
           border: 0px solid black;
-          position: absolute;
           justify-content: center;
           background: var(--lcars-card-top-color);
         }
 
         & > span {
-          margin-block: 0px;
-          position: absolute;
-          bottom: 4px;
+          margin-inline: 6px;
+          margin-block: 6px;
+          display: block;
+          align-self: end;
 
           &.state {
-            bottom: 24px;
+            position: absolute;
+            bottom: 20px;
           }
         }
 
         & mushroom-card {
-          display: contents;      
+          display: contents;
         }
         & mushroom-state-item {
-          display: contents;
-          --spacing: 0;
           --icon-size: 100% !important;
           --icon-border-radius: 0;
+          z-index: 1;
+          flex: 0 0 var(--lcars-vertical-border);
         }
         & mushroom-state-info {
-          position: absolute;
-          z-index: 1;
+          padding-inline: 6px;
+          margin-inline: 6px;
           align-content: center;
-          left: calc(var(--lcars-vertical-border) + 12px);
           height: 100%;
-          top: 0;
+          z-index: 1;
           --card-primary-color: black;
           --card-secondary-color: black;
+          position: absolute;
         }
 
         & .actions {
-          justify-content: flex-end;
+          padding-inline: 10px !important;
           & mushroom-button {
             z-index: 1;
+            --bg-color: rgba(var(--rgb-primary-text-color), 0.125) !important;
           }
         }
 
@@ -774,7 +785,6 @@
           --rgb-disabled: none !important;
           position: absolute;
           width: calc(100% - var(--lcars-vertical-border) - 6px);
-          left: calc(var(--lcars-vertical-border) + 6px);
         }
 
         & mushroom-light-brightness-control {
@@ -811,14 +821,29 @@
       ha-card.button-barrel-left {
         /* Text against right end */
         & > span {
-          right: 6px;
+          text-align: right;
+          right: 0;
+        }
+
+        & .actions {
+          justify-content: end;
+        }
+
+        & mushroom-state-info {
+          text-align: left;
+          left: var(--lcars-vertical-border);
         }
 
         /* Icon against left end */
         & mushroom-shape-icon,
         & > ha-state-icon {
-          left: 0;
           border-right-width: 6px;
+        }
+
+        & mushroom-light-color-control,
+        & mushroom-light-color-temp-control,
+        & mushroom-light-brightness-control {
+          left: calc(var(--lcars-vertical-border) + 6px);
         }
       }
 
@@ -826,16 +851,42 @@
       ha-card.button-bullet-right,
       ha-card.button-capped-right,
       ha-card.button-barrel-right {
+        flex-direction: row-reverse;
+
         /* Text against left end */
         & > span {
-          left: 6px;
+          text-align: left;
+        }
+
+        & .actions {
+          justify-content: start;
+        }
+
+        & .actions::before {
+          /* We can't override the 0px padding-left, so just add an element to get a gap */
+          content: '';
+          display: inline;
+        }
+
+        & mushroom-state-info {
+          text-align: right;
+          right: var(--lcars-vertical-border);
         }
 
         /* Icon against right end */
         & mushroom-shape-icon,
         & > ha-state-icon {
-          right: 0;
           border-left-width: 6px;
+        }
+
+        & mushroom-state-item {
+          flex-direction: row-reverse;
+        }
+
+        & mushroom-light-color-control,
+        & mushroom-light-color-temp-control,
+        & mushroom-light-brightness-control {
+          right: calc(var(--lcars-vertical-border) + 6px);
         }
       }
 
@@ -869,16 +920,12 @@
         }
       }
 
-      /* Text against rounded right end */
+      /* Text against rounded end */
       ha-card.button-lozenge-left > span,
-      ha-card.button-bullet-left > span {
-        right: 26px;
-      }
-
-      /* Text against rounded left end */
+      ha-card.button-bullet-left > span,
       ha-card.button-lozenge-right > span,
       ha-card.button-bullet-right > span {
-        left: 26px;
+        margin-inline: 26px;
       }
 
       /* =============================================== */
@@ -1163,6 +1210,24 @@
       }
       ha-card.type-custom-mushroom-number-card > * {
         --control-border-radius: 0px !important;
+      }
+
+    # extra special shadow-DOM hacks/fixes
+    # let flexbox be handed by elements that can be selected from the outer ha-card
+
+    mushroom-card$: |
+      .container {
+        display: contents !important;
+      }
+
+    mushroom-state-item$: |
+      /* extra special shadow DOM fix: let the host do the flexbox, so we can actually style it */
+      /* ideally this would only be applied to elements with certain classes but I can't get that to work */
+      .container {
+        display: contents !important;
+      }
+      :host {
+        display: flex !important;
       }
 
   # ===================================================== #
