@@ -711,6 +711,10 @@
         --primary-text-color: black;
         --secondary-text-color: black;
         min-height: 60px;
+        align-content: center;
+
+        display: flex;
+
 
         & > ha-state-icon {
           --mdc-icon-size: unset;
@@ -734,6 +738,71 @@
             bottom: 24px;
           }
         }
+
+        & mushroom-card {
+          display: contents;      
+        }
+        & mushroom-state-item {
+          display: contents;
+          --spacing: 0;
+          --icon-size: 100% !important;
+          --icon-border-radius: 0;
+        }
+        & mushroom-state-info {
+          position: absolute;
+          z-index: 1;
+          align-content: center;
+          left: calc(var(--lcars-vertical-border) + 12px);
+          height: 100%;
+          top: 0;
+          --card-primary-color: black;
+          --card-secondary-color: black;
+        }
+
+        & .actions {
+          justify-content: flex-end;
+          & mushroom-button {
+            z-index: 1;
+          }
+        }
+
+        & mushroom-light-color-control,
+        & mushroom-light-color-temp-control,
+        & mushroom-light-brightness-control {
+          --control-height: 60px !important;
+          --control-border-radius: var(--lcars-outer-radius);
+          --rgb-disabled: none !important;
+          position: absolute;
+          width: calc(100% - var(--lcars-vertical-border) - 6px);
+          left: calc(var(--lcars-vertical-border) + 6px);
+        }
+
+        & mushroom-light-brightness-control {
+          --slider-color: var(--lcars-card-top-color) !important;
+          --slider-bg-color: var(--lcars-card-button) !important;
+        }
+
+        & ha-state-icon {
+          --mdc-icon-size: unset !important;
+        }
+
+        & mushroom-shape-icon {
+          height: 60px;
+          background: var(--lcars-card-top-color);
+          width: var(--lcars-vertical-border);
+          display: inline-flex;
+          align-content: center;
+          border: 0px solid black;
+          --shape-color: none !important;
+          --shape-color-disabled: none !important;
+
+          & > ha-state-icon {
+            vertical-align: middle;
+            align-items: center;
+            align-content: center;
+            align-self: center;
+          }
+        }
       }
 
       ha-card.button-lozenge-left,
@@ -746,6 +815,7 @@
         }
 
         /* Icon against left end */
+        & mushroom-shape-icon,
         & > ha-state-icon {
           left: 0;
           border-right-width: 6px;
@@ -762,6 +832,7 @@
         }
 
         /* Icon against right end */
+        & mushroom-shape-icon,
         & > ha-state-icon {
           right: 0;
           border-left-width: 6px;
@@ -775,6 +846,12 @@
       ha-card.button-barrel-right {
         border-top-left-radius: 0px !important;
         border-bottom-left-radius: 0px !important;
+
+        & mushroom-light-color-control,
+        & mushroom-light-color-temp-control,
+        & mushroom-light-brightness-control {
+          --control-border-radius: 0 var(--lcars-outer-radius) var(--lcars-outer-radius) 0;
+        }
       }
 
       /* Square right corners */
@@ -784,6 +861,12 @@
       ha-card.button-barrel-right {
         border-top-right-radius: 0px !important;
         border-bottom-right-radius: 0px !important;
+
+        & mushroom-light-color-control,
+        & mushroom-light-color-temp-control,
+        & mushroom-light-brightness-control {
+          --control-border-radius: var(--lcars-outer-radius) 0 0 var(--lcars-outer-radius);
+        }
       }
 
       /* Text against rounded right end */
