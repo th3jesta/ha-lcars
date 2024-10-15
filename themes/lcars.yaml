@@ -782,17 +782,21 @@
 
         & mushroom-card {
           display: contents;
+          --display-override: contents;
         }
         & mushroom-state-item {
-          --icon-size: 100% !important;
+          --icon-size: 100%;
           --icon-border-radius: 0;
           z-index: 1;
-          display: contents !important;
+          display: contents;
+          --display-override: contents;
         }
         & mushroom-state-info {
           grid-area: 1 / 2;
           margin: 6px;
           z-index: 1;
+          display: flex;
+          --display-override: contents;
           flex-direction: column-reverse;
           justify-items: end;
           pointer-events: none;
@@ -1211,23 +1215,17 @@
 
     mushroom-card$: |
       .container {
-        display: contents !important;
+        display: var(--display-override, flex) !important;
       }
 
     mushroom-state-item$: |
       .container, .container > div {
-        display: contents !important;
-      }
-      :host {
-        display: flex;
+        display: var(--display-override, flex) !important;
       }
 
     mushroom-state-info$: |
       .container {
-        display: contents !important;
-      }
-      :host {
-        display: flex !important;
+        display: var(--display-override, flex) !important;
       }
 
   # ===================================================== #
