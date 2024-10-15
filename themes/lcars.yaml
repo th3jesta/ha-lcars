@@ -706,7 +706,10 @@
       ha-card.button-bullet-right,
       ha-card.button-capped-right,
       ha-card.button-barrel-right {
-        border-radius: var(--lcars-outer-radius) !important;
+        --border-left-radius: 0;
+        --border-right-radius: 0;
+        border-radius: var(--border-left-radius) var(--border-right-radius) var(--border-right-radius) var(--border-left-radius) !important;
+
         text-transform: uppercase;
         --primary-text-color: black;
         --secondary-text-color: black;
@@ -781,7 +784,6 @@
         & mushroom-light-color-temp-control,
         & mushroom-light-brightness-control {
           --control-height: 60px !important;
-          --control-border-radius: var(--lcars-outer-radius);
           --rgb-disabled: none !important;
           position: absolute;
           width: calc(100% - var(--lcars-vertical-border) - 6px);
@@ -815,6 +817,22 @@
         }
       }
 
+      /* Rounded left corners */
+      ha-card.button-lozenge-left,
+      ha-card.button-lozenge-right,
+      ha-card.button-bullet-right,
+      ha-card.button-capped-left {
+        --border-left-radius: var(--lcars-outer-radius);
+      }
+
+      /* Rounded right corners */
+      ha-card.button-lozenge-left,
+      ha-card.button-lozenge-right,
+      ha-card.button-bullet-left,
+      ha-card.button-capped-right {
+        --border-right-radius: var(--lcars-outer-radius);
+      }
+
       ha-card.button-lozenge-left,
       ha-card.button-bullet-left,
       ha-card.button-capped-left,
@@ -838,12 +856,14 @@
         & mushroom-shape-icon,
         & > ha-state-icon {
           border-right-width: 6px;
+          border-radius: var(--border-left-radius) 0 0 var(--border-left-radius);
         }
 
         & mushroom-light-color-control,
         & mushroom-light-color-temp-control,
         & mushroom-light-brightness-control {
           left: calc(var(--lcars-vertical-border) + 6px);
+          --control-border-radius: 0 var(--border-right-radius) var(--border-right-radius) 0;
         }
       }
 
@@ -873,10 +893,13 @@
           right: var(--lcars-vertical-border);
         }
 
-        /* Icon against right end */
-        & mushroom-shape-icon,
         & > ha-state-icon {
           border-left-width: 6px;
+        }
+
+        & mushroom-shape-icon {
+          border-left-width: 6px;
+          border-radius: 0 var(--border-right-radius) var(--border-right-radius) 0;
         }
 
         & mushroom-state-item {
@@ -887,36 +910,7 @@
         & mushroom-light-color-temp-control,
         & mushroom-light-brightness-control {
           right: calc(var(--lcars-vertical-border) + 6px);
-        }
-      }
-
-      /* Square left corners */
-      ha-card.button-bullet-left,
-      ha-card.button-capped-right,
-      ha-card.button-barrel-left,
-      ha-card.button-barrel-right {
-        border-top-left-radius: 0px !important;
-        border-bottom-left-radius: 0px !important;
-
-        & mushroom-light-color-control,
-        & mushroom-light-color-temp-control,
-        & mushroom-light-brightness-control {
-          --control-border-radius: 0 var(--lcars-outer-radius) var(--lcars-outer-radius) 0;
-        }
-      }
-
-      /* Square right corners */
-      ha-card.button-bullet-right,
-      ha-card.button-capped-left,
-      ha-card.button-barrel-left,
-      ha-card.button-barrel-right {
-        border-top-right-radius: 0px !important;
-        border-bottom-right-radius: 0px !important;
-
-        & mushroom-light-color-control,
-        & mushroom-light-color-temp-control,
-        & mushroom-light-brightness-control {
-          --control-border-radius: var(--lcars-outer-radius) 0 0 var(--lcars-outer-radius);
+          --control-border-radius: var(--border-left-radius) 0 0 var(--border-left-radius);
         }
       }
 
@@ -925,7 +919,7 @@
       ha-card.button-bullet-left > span,
       ha-card.button-lozenge-right > span,
       ha-card.button-bullet-right > span {
-        margin-inline: 26px;
+        margin-inline: 20px;
       }
 
       /* =============================================== */
