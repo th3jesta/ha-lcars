@@ -740,7 +740,7 @@
         & mushroom-shape-icon {
           grid-row: 1 / -1;
           grid-column: 1;
-          background: var(--lcars-card-top-color);
+          background: var(--lcars-card-mid-left-color);
           width: var(--lcars-vertical-border);
           align-items: center;
           justify-content: center;
@@ -816,6 +816,12 @@
         & .actions {
           grid-row: 1;
           grid-column: 2;
+          padding-inline: 0;
+          --icon-size: 30px;
+          --control-icon-size: 18px;
+          flex-direction: column;
+          justify-content: space-around;
+          gap: 0;
         }
 
         & mushroom-button {
@@ -894,18 +900,13 @@
           grid-column: 1;
         }
 
-        & > span {
-          text-align: left;
+        & .actions {
+          justify-self: end;
         }
 
+        & > span,
         & mushroom-state-info {
-          text-align: right;
-        }
-
-        & .actions::before {
-          /* We can't override the 0px padding-left, so just add an element to get a gap */
-          content: '';
-          display: inline;
+          text-align: left;
         }
 
         & mushroom-shape-icon,
@@ -922,14 +923,20 @@
 
       /* Text against rounded end */
 
-      ha-card.button-lozenge-left > span,
-      ha-card.button-bullet-left > span {
-        margin-right: 20px;
+      ha-card.button-lozenge-left,
+      ha-card.button-bullet-left {
+        & > span,
+        & mushroom-state-info {
+          margin-right: 20px;
+        }
       }
 
-      ha-card.button-lozenge-right > span,
-      ha-card.button-bullet-right > span {
-        margin-left: 20px;
+      ha-card.button-lozenge-right,
+      ha-card.button-bullet-right {
+        & > span,
+        & mushroom-state-info {
+          margin-left: 20px;
+        }
       }
 
       /* =============================================== */
