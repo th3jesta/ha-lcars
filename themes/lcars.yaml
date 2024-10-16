@@ -865,17 +865,13 @@
       ha-card.button-bullet-left,
       ha-card.button-capped-left,
       ha-card.button-barrel-left {
+        & mushroom-state-info,
         & > span {
           text-align: right;
         }
 
         & .actions {
-          justify-content: end;
-        }
-
-        & mushroom-state-info {
-          text-align: left;
-          left: var(--lcars-vertical-border);
+          justify-self: start;
         }
 
         & mushroom-light-color-control,
