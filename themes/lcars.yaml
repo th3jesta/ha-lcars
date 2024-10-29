@@ -1080,7 +1080,6 @@
       ha-card > .name {
         color: black;
       }
-      ha-card.type-heading p, /* temporary, see home-assistant/frontend #22322 */
       ha-card > * {
         font-family: var(--lcars-font) !important;
         --md-sys-color-primary: var(--lcars-ui-quaternary);
