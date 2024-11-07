@@ -203,6 +203,7 @@
   text-dark-color: black
   # Sidebar Menu
   sidebar-background-color: var(--lcars-ui-primary)
+  sidebar-menu-button-background-color: var(--sidebar-background-color)
   sidebar-icon-color: black
   sidebar-text-color: black
   sidebar-selected-background-color: var(--lcars-ui-primary)
