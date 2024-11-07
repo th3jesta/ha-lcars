@@ -340,16 +340,6 @@
         &.type-thermostat > .container {
           width: 100%;
         }
-
-        &.type-custom-html-card > div {
-          line-height: initial;
-          border-top: var(--lcars-horizontal-border);
-          padding: 0px 16px;
-
-          & > h1 {
-            margin: 0px;
-          }
-        }
       }
 
       /* ----------------------------------------------- */
@@ -394,14 +384,6 @@
       }
 
       ha-card:is(.middle-left, .middle-right, .middle-contained) {
-        &.type-custom-html-card > div {
-          line-height: initial;
-          padding: 0px 16px;
-
-          & > h1 {
-            margin: 0px;
-          }
-        }
       }
 
       /* ----------------------------------------------- */
@@ -530,16 +512,6 @@
         &.type-entity > .info {
           border-radius: 0px;
         }
-
-        &.type-custom-html-card > div {
-          line-height: initial;
-          border-top: var(--lcars-horizontal-border);
-          padding: 0px 16px;
-
-          & > h1 {
-            margin: 0px;
-          }
-        }
       }
 
       /* ----------------------------------------------- */
@@ -555,10 +527,6 @@
 
         & > img {
           padding-left: 6px;
-          border-bottom-left-radius: var(--lcars-inner-radius);
-        }
-
-        & .type-custom-html-card > div {
           border-bottom-left-radius: var(--lcars-inner-radius);
         }
       }
@@ -579,16 +547,22 @@
       /*                  INNER CORNERS                  */
       /* ================================================*/
 
-      ha-card::before,
-      ha-card::after,
+      ha-card:is(.header-left, .header-contained, .footer-left, .footer-contained):before,
+      ha-card:is(.header-right, .header-contained, .footer-right, .footer-contained):after,
       ha-card.type-thermostat > hui-card-features::before,
       ha-card.type-thermostat > hui-card-features::after {
+        /* The thickness of the rectangulaar portion that overlaps with the main border to hide rounding errors */
+        --extra-thickness: calc(0.1 * var(--lcars-inner-radius));
+
         position: absolute;
         width: var(--lcars-inner-radius);
         height: var(--lcars-inner-radius);
-        mask-size: var(--lcars-inner-radius);
-        mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none"> <path d="m 0,0 v 10 A 10,10 0 0 1 10,0" fill="black" /> </svg>');
-        scale: var(--corner-scale-x, 1) var(--corner-scale-y, 1);
+
+        margin: calc(-1 * var(--extra-thickness));
+        padding: var(--extra-thickness) 0 0 var(--extra-thickness);
+
+        mask-size: calc(var(--lcars-inner-radius) + var(--extra-thickness));
+        mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 11"><path d="M0,0 v11 h1 A10,10 0,0,1 11,1 V0" fill="red"/></svg>');
         z-index: 1;
       }
 
@@ -600,7 +574,7 @@
       /* top right & bottom right */
       ha-card::after {
         right: 0;
-        --corner-scale-x: -1;
+        scale: -1 1;
       }
 
       /* top left & top right */
@@ -619,7 +593,8 @@
         content: '';
         background: var(--lcars-card-bottom-color);
         bottom: 0;
-        --corner-scale-y: -1;
+        /* need to use different transform properties so they work together on the bottom right */
+        rotate: x 180deg;
       }
 
       /* thermostat-specific fixes */
@@ -668,41 +643,46 @@
         flex-direction: column;
         flex-wrap: nowrap;
         justify-content: center;
-      }
-      ha-card.button-small > .more-info {
-        display: none;
-      }
-      ha-card.button-small > .content > #controls {
-        display: flex;
-        place-content: flex-start center;
-        position: relative;
-        padding: 0px;
-      }
-      ha-card.button-small > .content > #info {
-        text-align: right;
-        box-sizing: border-box;
-        width: 100%;
-        padding: 0px 6px 6px 0px;
-        margin-top: -24px;
-        position: relative;
-      }
-      ha-card.button-small > span {
-        box-sizing: border-box;
-        text-align: right;
-        width: 100%;
-        padding: 6px;
-        margin: unset;
-        position: absolute;
-        bottom: 0;
-      }
-      ha-card.button-small > span.state {
-        text-align: right;
-        width: 100%;
-        padding: 6px;
-        padding-bottom: 22px;
-        margin: unset;
-        position: absolute;
-        bottom: 0;
+
+        & > .more-info {
+          display: none;
+        }
+
+        & > .content > #controls {
+          display: flex;
+          place-content: flex-start center;
+          position: relative;
+          padding: 0px;
+        }
+
+        & > .content > #info {
+          text-align: right;
+          box-sizing: border-box;
+          width: 100%;
+          padding: 0px 6px 6px 0px;
+          margin-top: -24px;
+          position: relative;
+        }
+
+        & > span {
+          box-sizing: border-box;
+          text-align: right;
+          width: 100%;
+          padding: 6px;
+          margin: unset;
+          position: absolute;
+          bottom: 0;
+        }
+
+        & > span.state {
+          text-align: right;
+          width: 100%;
+          padding: 6px;
+          padding-bottom: 22px;
+          margin: unset;
+          position: absolute;
+          bottom: 0;
+        }
       }
 
       /* ----------------------------------------------- */
@@ -713,173 +693,246 @@
         --primary-text-color: black !important;
         --secondary-text-color: black !important;
       }
-      
+
       /* =============================================== */
-      /*                LEFT-SIDED BUTTONS               */
+      /*       BULLET/LOZENGE/CAPPED/BARREL BUTTONS      */
       /* =============================================== */
 
-      /* ----------------------------------------------- */
-      /*            Common Left Button Styles            */
-      /* ----------------------------------------------- */
       ha-card.button-lozenge-left,
       ha-card.button-bullet-left,
       ha-card.button-capped-left,
-      ha-card.button-barrel-left {
-        text-transform: uppercase;
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
-        min-height: 60px;
-        display: flex;
-        align-items: flex-end;
-        flex-direction: column-reverse;
-      }
-      /* ----------------------------------------------- */
-      /*           Specific Left Button Styles           */
-      /* ----------------------------------------------- */
-      ha-card.button-lozenge-left {
-        /* Specific styles for lozenge-left */
-      }
-      ha-card.button-bullet-left {
-        border-radius: 0px var(--ha-card-border-radius) var(--ha-card-border-radius) 0px !important;
-      }
-      ha-card.button-capped-left {
-        border-radius: var(--ha-card-border-radius) 0px 0px var(--ha-card-border-radius) !important;
-      }
-      ha-card.button-barrel-left {
-        border-radius: 0px 0px 0px 0px !important;
-      }
-      ha-card.button-lozenge-left > ha-state-icon,
-      ha-card.button-bullet-left > ha-state-icon,
-      ha-card.button-capped-left > ha-state-icon,
-      ha-card.button-barrel-left > ha-state-icon {
-        --mdc-icon-size: unset;
-        display: flex;
-        align-items: center;
-        left: 0;
-        width: var(--lcars-vertical-border);
-        height: 100% !important;
-        max-height: 100% !important;
-        border-right: black solid 6px;
-        position: absolute;
-        justify-content: center;
-        background: var(--lcars-card-top-color);
-      }
-      ha-card.button-lozenge-left > span,
-      ha-card.button-bullet-left > span {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-end;
-        margin-top: unset;
-        padding-right: 26px;
-        padding-bottom: 6px;
-        position: absolute;
-      }
-      ha-card.button-capped-left > span,
-      ha-card.button-barrel-left > span {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-end;
-        margin-top: unset;
-        padding-right: 6px;
-        padding-bottom: 6px;
-        position: absolute;
-      }
-      ha-card.button-lozenge-left > span.state, 
-      ha-card.button-bullet-left > span.state,
-      ha-card.button-capped-left > span.state,
-      ha-card.button-barrel-left > span.state {
-        padding-bottom: 45px;
-        color: black;
-      }
-      
-      /* =============================================== */
-      /*               RIGHT-SIDED BUTTONS               */
-      /* =============================================== */
-
-      /* ----------------------------------------------- */
-      /*            Common Right Button Styles           */
-      /* ----------------------------------------------- */
+      ha-card.button-barrel-left,
       ha-card.button-lozenge-right,
       ha-card.button-bullet-right,
       ha-card.button-capped-right,
       ha-card.button-barrel-right {
+        --border-left-radius: 0;
+        --border-right-radius: 0;
+        border-radius: 0;
+
         text-transform: uppercase;
-        --primary-text-color: black !important;
-        --secondary-text-color: black !important;
+        --primary-text-color: black;
+        --secondary-text-color: black;
+
+        background: none;
+
+        display: grid;
+        grid-template-columns: var(--lcars-vertical-border) 1fr;
+        column-gap: 6px;
         min-height: 60px;
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column-reverse;
+
+        &::before {
+          content: '';
+          background: var(--lcars-card-button);
+          grid-row: 1 / -1;
+          grid-column: 2;
+          width: 100%;
+          height: 100%;
+        }
+
+        &::before,
+        & mushroom-shape-icon,
+        & > ha-state-icon {
+          border-radius: var(--border-left-radius) var(--border-right-radius) var(--border-right-radius) var(--border-left-radius);
+        }
+
+        & > ha-state-icon,
+        & mushroom-shape-icon {
+          grid-row: 1 / -1;
+          grid-column: 1;
+          background: var(--lcars-card-mid-left-color);
+          width: var(--lcars-vertical-border);
+          align-items: center;
+          justify-content: center;
+          align-content: center;
+          height: max(60px, 100%);
+          max-height: max(60px, 100%);
+          --mdc-icon-size: unset !important;
+          display: flex;
+        }
+
+        & mushroom-shape-icon {
+          --shape-color: none !important;
+          --shape-color-disabled: none !important;
+
+          & > ha-state-icon {
+            vertical-align: middle;
+            align-items: center;
+            align-content: center;
+            align-self: center;
+            --mdc-icon-size: unset;
+          }
+        }
+
+        &:has(> span) {
+          grid-template-rows: auto min-content;
+        }
+
+        & > span {
+          margin-inline: 6px;
+          margin-block: 0 6px;
+          align-self: end;
+          grid-area: 2 / 2;
+
+          &.state {
+            margin-block: 0;
+            grid-row: 1;
+          }
+        }
+
+        & mushroom-card {
+          display: contents;
+          --display-override: contents;
+        }
+        & mushroom-state-item {
+          --icon-size: 100%;
+          --icon-border-radius: 0;
+          z-index: 1;
+          display: contents;
+          --display-override: contents;
+        }
+        & mushroom-state-info {
+          grid-area: 1 / 2;
+          margin: 6px;
+          z-index: 1;
+          display: flex;
+          --display-override: contents;
+          flex-direction: column-reverse;
+          justify-items: end;
+          --card-primary-color: black;
+          --card-secondary-color: black;
+          --card-primary-font-size: 16.8px;
+          --card-secondary-font-size: 0.9rem;
+        }
+
+        &:has(:is(
+          mushroom-light-brightness-control,
+          mushroom-light-color-temp-control,
+          mushroom-light-color-control
+        )) mushroom-state-info {
+          pointer-events: none;
+        }
+
+        & .actions {
+          grid-row: 1;
+          grid-column: 2;
+          padding-inline: 0;
+          --icon-size: 30px;
+          --control-icon-size: 18px;
+          flex-direction: column;
+          justify-content: space-around;
+          gap: 0;
+        }
+
+        & mushroom-button {
+          z-index: 1;
+          --bg-color: none;
+          &:hover {
+            --bg-color: rgba(var(--rgb-primary-text-color), 0.125) !important;
+          }
+        }
+
+        & mushroom-light-color-control,
+        & mushroom-light-color-temp-control,
+        & mushroom-light-brightness-control {
+          height: 100%;
+          --control-height: 100%;
+          --rgb-disabled: none;
+          position: absolute;
+          width: calc(100% - var(--lcars-vertical-border) - 6px);
+          --control-border-radius: var(--border-left-radius) var(--border-right-radius) var(--border-right-radius) var(--border-left-radius);
+        }
+
+        & mushroom-light-brightness-control {
+          --slider-color: var(--lcars-card-top-color) !important;
+          --slider-bg-color: var(--lcars-card-button) !important;
+        }
       }
 
-      /* ----------------------------------------------- */
-      /*           Specific Right Button Styles          */
-      /* ----------------------------------------------- */
-      ha-card.button-lozenge-right {
-        /* Specific styles for lozenge-right */
+      ha-card:is(.button-lozenge-right, .button-bullet-right)::before,
+      ha-card:is(.button-lozenge-right, .button-bullet-right) :is(mushroom-light-brightness-control, mushroom-light-color-temp-control, mushroom-light-color-control),
+      ha-card:is(.button-lozenge-left, .button-capped-left) :is(mushroom-shape-icon, ha-state-icon) {
+        --border-left-radius: var(--lcars-outer-radius);
       }
 
-      ha-card.button-bullet-right {
-        border-radius: var(--ha-card-border-radius) 0px 0px var(--ha-card-border-radius) !important;
+      ha-card:is(.button-lozenge-left, .button-bullet-left)::before,
+      ha-card:is(.button-lozenge-left, .button-bullet-left) :is(mushroom-light-brightness-control, mushroom-light-color-temp-control, mushroom-light-color-control),
+      ha-card:is(.button-lozenge-right, .button-capped-right) :is(mushroom-shape-icon, ha-state-icon) {
+        --border-right-radius: var(--lcars-outer-radius);
       }
 
-      ha-card.button-capped-right {
-        border-radius: 0px var(--ha-card-border-radius) var(--ha-card-border-radius) 0px !important;
+      ha-card.button-lozenge-left,
+      ha-card.button-bullet-left,
+      ha-card.button-capped-left,
+      ha-card.button-barrel-left {
+        & mushroom-state-info,
+        & > span {
+          text-align: right;
+        }
+
+        & .actions {
+          justify-self: start;
+        }
+
+        & mushroom-light-color-control,
+        & mushroom-light-color-temp-control,
+        & mushroom-light-brightness-control {
+          right: 0;
+        }
       }
 
+      ha-card.button-lozenge-right,
+      ha-card.button-bullet-right,
+      ha-card.button-capped-right,
       ha-card.button-barrel-right {
-        border-radius: 0px 0px 0px 0px !important;
+        flex-direction: row-reverse;
+
+        grid-template-columns: 1fr var(--lcars-vertical-border);
+
+        &::before,
+        & .actions,
+        & > span,
+        & mushroom-state-info {
+          grid-column: 1;
+        }
+
+        & .actions {
+          justify-self: end;
+        }
+
+        & > span,
+        & mushroom-state-info {
+          text-align: left;
+        }
+
+        & mushroom-shape-icon,
+        & > ha-state-icon {
+          grid-column: 2;
+        }
+
+        & mushroom-light-color-control,
+        & mushroom-light-color-temp-control,
+        & mushroom-light-brightness-control {
+          left: 0;
+        }
       }
-      ha-card.button-lozenge-right > ha-state-icon,
-      ha-card.button-bullet-right > ha-state-icon,
-      ha-card.button-capped-right > ha-state-icon,
-      ha-card.button-barrel-right > ha-state-icon {
-        --mdc-icon-size: unset;
-        display: flex;
-        align-items: center;
-        right: 0;
-        width: var(--lcars-vertical-border);
-        height: 100% !important;
-        max-height: 100% !important;
-        border-left: black solid 6px;
-        position: absolute;
-        justify-content: center;
-        background: var(--lcars-card-top-color);
+
+      /* Text against rounded end */
+
+      ha-card.button-lozenge-left,
+      ha-card.button-bullet-left {
+        & > span,
+        & mushroom-state-info {
+          margin-right: 20px;
+        }
       }
-      ha-card.button-lozenge-right > span,
-      ha-card.button-bullet-right > span {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-start;
-        margin-top: unset;
-        padding-left: 26px;
-        padding-bottom: 6px;
-        position: absolute;
-      }
-      ha-card.button-capped-right > span,
-      ha-card.button-barrel-right > span {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-start;
-        margin-top: unset;
-        padding-left: 6px;
-        padding-bottom: 6px;
-        position: absolute;
-      }
-      ha-card.button-lozenge-right > span.state,
-      ha-card.button-bullet-right > span.state,
-      ha-card.button-capped-right > span.state,
-      ha-card.button-barrel-right > span.state {
-        padding-bottom: 45px;
-        color: black;
+
+      ha-card.button-lozenge-right,
+      ha-card.button-bullet-right {
+        & > span,
+        & mushroom-state-info {
+          margin-left: 20px;
+        }
       }
 
       /* =============================================== */
@@ -1094,6 +1147,29 @@
         background: var(--lcars-card-top-color);
       }
 
+      ha-card.type-heading .content {
+        font-size: 2em;
+        line-height: initial;
+        --mdc-icon-size: 1em;
+        font-weight: bold;
+
+        &.subtitle {
+          font-size: 1.5em;
+          font-weight: normal;
+        }
+      }
+
+      ha-card.type-custom-html-card > div,
+      ha-card.type-heading > .container {
+        line-height: initial;
+        padding: 0px 16px;
+
+        & > h1,
+        & > p {
+          margin: 0px;
+        }
+      }
+
       /* ----------------------------------------------- */
       /*                    MSD Styles                   */
       /* ----------------------------------------------- */
@@ -1140,6 +1216,24 @@
       }
       ha-card.type-custom-mushroom-number-card > * {
         --control-border-radius: 0px !important;
+      }
+
+    # extra special shadow-DOM hacks/fixes
+    # let flexbox be handed by elements that can be selected from the outer ha-card
+
+    mushroom-card$: |
+      .container {
+        display: var(--display-override, flex) !important;
+      }
+
+    mushroom-state-item$: |
+      .container, .container > div {
+        display: var(--display-override, flex) !important;
+      }
+
+    mushroom-state-info$: |
+      .container {
+        display: var(--display-override, flex) !important;
       }
 
   # ===================================================== #
