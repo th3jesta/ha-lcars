@@ -343,18 +343,26 @@
       }
 
       ha-card.header-left.type-custom-html-card > div,
+      ha-card.header-left.type-custom-html-template-card > div,
       ha-card.header-right.type-custom-html-card > div,
+      ha-card.header-right type-custom-html-template-card > div,
       ha-card.header-contained.type-custom-html-card > div,
-      ha-card.header-open.type-custom-html-card > div {
+      ha-card.header-contained type-custom-html-template-card > div,
+      ha-card.header-open.type-custom-html-card > div,
+      ha-card.header-open.type-custom-html-template-card > div {
         background: black;
         line-height: initial;
         border-top: var(--lcars-horizontal-border);
         padding: 0px 16px 0px 16px;
       }
       ha-card.header-left.type-custom-html-card > div > h1,
+      ha-card.header-left.type-custom-html-template-card > div > h1,
       ha-card.header-right.type-custom-html-card > div > h1,
+      ha-card.header-right type-custom-html-template-card > div > h1,
       ha-card.header-contained.type-custom-html-card > div > h1,
-      ha-card.header-open.type-custom-html-card > div > h1 {
+      ha-card.header-contained type-custom-html-template-card > div > h1,
+      ha-card.header-open.type-custom-html-card > div > h1,
+      ha-card.header-open.type-custom-html-template-card > div > h1 {
         margin: 0px;
       }
 
@@ -378,7 +386,8 @@
       ha-card.header-left.type-thermostat > .content {
         border-radius: 0px 0px 0px var(--lcars-inner-radius);
       }
-      ha-card.header-left.type-custom-html-card > div {
+      ha-card.header-left.type-custom-html-card > div,
+      ha-card.header-left.type-custom-html-template-card > div {
         border-radius: var(--lcars-inner-radius) 0px 0px 0px;
       }
 
@@ -398,7 +407,8 @@
       ha-card.header-right.type-thermostat > .content {
         border-radius: 0px 0px var(--lcars-inner-radius) 0px;
       }
-      ha-card.header-right.type-custom-html-card > div {
+      ha-card.header-right.type-custom-html-card > div,
+      ha-card.header-right.type-custom-html-template-card > div {
         border-radius: 0px var(--lcars-inner-radius) 0px 0px;
       }
 
@@ -419,7 +429,8 @@
       ha-card.header-contained.type-thermostat > .content {
         border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
       }
-      ha-card.header-contained.type-custom-html-card > div {
+      ha-card.header-contained.type-custom-html-card > div,
+      ha-card.header-contained.type-custom-html-template-card > div {
         border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
       }
 
@@ -435,7 +446,8 @@
         padding-top: 0px !important;
         padding-bottom: 0px !important;
       }
-      ha-card.header-open.type-custom-html-card > div {
+      ha-card.header-open.type-custom-html-card > div,
+      ha-card.header-open.type-custom-html-template-card > div {
         border-radius: 0px 0px 0px 0px;
       }
 
@@ -468,14 +480,20 @@
         color: var(--lcars-text-gray);
       }
       ha-card.middle-left.type-custom-html-card > div,
+      ha-card.middle-left.type-custom-html-template-card,
       ha-card.middle-right.type-custom-html-card > div,
-      ha-card.middle-contained.type-custom-html-card > div {
+      ha-card.middle-right.type-custom-html-template-card,
+      ha-card.middle-contained.type-custom-html-card > div,
+      ha-card.middle-contained.type-custom-html-template-card {
         line-height: initial;
         padding: 0px 16px 0px 16px;
       }
       ha-card.middle-left.type-custom-html-card > div > h1,
+      ha-card.middle-left.type-custom-html-template-card > h1,
       ha-card.middle-right.type-custom-html-card > div > h1,
-      ha-card.middle-contained.type-custom-html-card > div > h1 {
+      ha-card.middle-right.type-custom-html-template-card > h1,
+      ha-card.middle-contained.type-custom-html-card > div > h1,
+      ha-card.middle-contained.type-custom-html-template-card > h1 {
         margin: 0px;
       }
 
@@ -690,18 +708,26 @@
         border-radius: 0px 0px 0px 0px;
       }
       ha-card.footer-left.type-custom-html-card > div,
+      ha-card.footer-left.type-custom-html-template-card > div,
       ha-card.footer-right.type-custom-html-card > div,
+      ha-card.footer-right.type-custom-html-template-card > div,
       ha-card.footer-contained.type-custom-html-card > div,
-      ha-card.footer-open.type-custom-html-card > div {
+      ha-card.footer-contained.type-custom-html-template-card > div,
+      ha-card.footer-open.type-custom-html-card > div,
+      ha-card.footer-open.type-custom-html-template-card > div {
         background: black;
         line-height: initial;
         border-top: var(--lcars-horizontal-border);
         padding: 0px 16px 0px 16px;
       }
       ha-card.footer-left.type-custom-html-card > div > h1,
+      ha-card.footer-left.type-custom-html-template-card > div > h1,
       ha-card.footer-right.type-custom-html-card > div > h1,
+      ha-card.footer-right.type-custom-html-template-card > div > h1,
       ha-card.footer-contained.type-custom-html-card > div > h1,
-      ha-card.footer-open.type-custom-html-card > div > h1 {
+      ha-card.footer-contained.type-custom-html-template-card > div > h1,
+      ha-card.footer-open.type-custom-html-card > div > h1,
+      ha-card.footer-open.type-custom-html-template-card > div > h1 {
         margin: 0px;
       }
 
@@ -736,7 +762,8 @@
         padding: 0px 0px 6px 6px;
         border-bottom-left-radius: var(--lcars-inner-radius);
       }
-      ha-card.footer-left.type-custom-html-card > div {
+      ha-card.footer-left.type-custom-html-card > div,
+      ha-card.footer-left.type-custom-html-template-card > div {
         border-radius: 0px 0px 0px var(--lcars-inner-radius);
       }
 
@@ -768,7 +795,8 @@
         border-bottom-right-radius: var(--lcars-inner-radius);
       }
 
-      ha-card.footer-right.type-custom-html-card > div {
+      ha-card.footer-right.type-custom-html-card > div,
+      ha-card.footer-right.type-custom-html-template-card > div {
         border-radius: 0px 0px var(--lcars-inner-radius) 0px;
       }
 
@@ -801,7 +829,8 @@
         padding: 0px 6px 6px 6px;
         border-radius: 0px 0px var(--lcars-inner-radius) var(--lcars-inner-radius);
       }
-      ha-card.footer-contained.type-custom-html-card > div {
+      ha-card.footer-contained.type-custom-html-card > div,
+      ha-card.footer-contained.type-custom-html-template-card > div {
         border-radius: 0px 0px var(--lcars-inner-radius) var(--lcars-inner-radius);
       }
 
@@ -826,7 +855,8 @@
       ha-card.footer-open.type-entity .footer {
         border-radius: 0px 0px 0px 0px;
       }
-      ha-card.footer-open.type-custom-html-card > div {
+      ha-card.footer-open.type-custom-html-card > div,
+      ha-card.footer-open.type-custom-html-template-card > div {
         border-radius: 0px 0px 0px 0px;
       }
 
@@ -847,7 +877,8 @@
       ha-card.button-capped-right,
       ha-card.button-barrel-left,
       ha-card.button-barrel-right {
-        background: var(--lcars-card-button)
+        background: var(--lcars-card-button);
+        --primary-color: var(--lcars-ui-quaternary);
       }
 
       /* ----------------------------------------------- */
