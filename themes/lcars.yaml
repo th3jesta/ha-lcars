@@ -310,6 +310,10 @@
         --lcars-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
         --lcars-middle-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
       }
+      ha-card > .card-actions,
+      ha-card > .card-actions .position-badge {
+        color: black;
+      }
 
       /* =============================================== */
       /*        HEADER CLASSES AND CARD TYPE FIXES       */
