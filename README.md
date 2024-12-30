@@ -128,7 +128,7 @@ In order to have this theme set automatically as the backend selected default, a
 The theme includes some classes that can be added to cards like this to give them special styling:
 ```yaml
 card_mod:
-  class: header
+  class: header-left
 ```
 _The class names are only indications of what types of cards they were intended for, but the classes can be applied to any card you like. I cannot guarantee how well they will work outside of their intended uses, however._
 
@@ -493,16 +493,16 @@ type: vertical-stack
 cards:
   - type: markdown
     card_mod:
-      class: header
+      class: header-left
     content: '# Climate'
   - type: weather-forecast
     entity: weather.home
     card_mod:
-      class: middle
+      class: middle-left
   - type: thermostat
     entity: climate.dining_room
     card_mod:
-      class: footer
+      class: footer-left
 ```
 
 </td>
@@ -528,7 +528,7 @@ type: markdown
 content: '# Card-level theming'
 theme: LCARS Default
 card_mod:
-  class: header
+  class: header-left
   style: |
     ha-card > * {
       font-family: Antonio
