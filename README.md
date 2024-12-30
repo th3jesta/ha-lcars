@@ -142,22 +142,22 @@ The classes are as follows:
 <td>
     
 ```yaml
-type: markdown
+type: custom:html-card
 card_mod:
   class: header-left
 content: '# header-left'
 
-type: markdown
+type: custom:html-card
 card_mod:
   class: header-right
 content: '# header-right'
 
-type: markdown
+type: custom:html-card
 card_mod:
   class: header-contained
 content: '# header-contained'
 
-type: markdown
+type: custom:html-card
 card_mod:
   class: header-open
 content: '# header-open'
@@ -179,22 +179,22 @@ content: '# header-open'
 <td>
     
 ```yaml
-type: markdown
+type: custom:html-card
 card_mod:
   class: middle-left
 content: '# middle-left'
 
-type: markdown
+type: custom:html-card
 card_mod:
   class: middle-right
 content: '# middle-right'
 
-type: markdown
+type: custom:html-card
 card_mod:
   class: middle-contained
 content: '# middle-contained'
     
-type: markdown
+type: custom:html-card
 card_mod:
   class: middle-open
 content: '# middle-blank'
@@ -216,22 +216,22 @@ content: '# middle-blank'
 <td>
     
 ```yaml
-type: markdown
+type: custom:html-card
 card_mod:
   class: footer-left
 content: '# footer-left'
 
-type: markdown
+type: custom:html-card
 card_mod:
   class: footer-right
 content: '# footer-right'
 
-type: markdown
+type: custom:html-card
 card_mod:
   class: footer-contained
 content: '# footer-contained'
 
-type: markdown
+type: custom:html-card
 card_mod:
   class: footer-open
 content: '# footer-open'
@@ -446,22 +446,22 @@ card_mod:
 <td>
     
 ```yaml
-type: markdown
+type: custom:html-card
 content: '# bar-left'
 card_mod:
   class: bar-left
   
-type: markdown
+type: custom:html-card
 content: '# bar-large-left'
 card_mod:
   class: bar-large-left
   
-type: markdown
+type: custom:html-card
 content: '# bar-right'
 card_mod:
   class: bar-right
   
-type: markdown
+type: custom:html-card
 content: '# bar-large-right'
 card_mod:
   class: bar-large-right
@@ -491,7 +491,7 @@ _If you have anything to add here, create a PR with your tip and I will review i
 ```yaml
 type: vertical-stack
 cards:
-  - type: markdown
+  - type: custom:html-card
     card_mod:
       class: header-left
     content: '# Climate'
@@ -524,7 +524,7 @@ cards:
 <td>
     
 ```yaml
-type: markdown
+type: custom:html-card
 content: '# Card-level theming'
 theme: LCARS Default
 card_mod:
