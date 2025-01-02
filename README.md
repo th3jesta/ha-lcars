@@ -145,22 +145,22 @@ The classes are as follows:
 type: custom:html-card
 card_mod:
   class: header-left
-content: '# header-left'
+content: <h1>header-left</h1>
 
 type: custom:html-card
 card_mod:
   class: header-right
-content: '# header-right'
+content: <h1>header-right</h1>
 
 type: custom:html-card
 card_mod:
   class: header-contained
-content: '# header-contained'
+content: <h1>header-contained</h1>
 
 type: custom:html-card
 card_mod:
   class: header-open
-content: '# header-open'
+content: <h1>header-open</h1>
 ```
 
 </td>
@@ -182,22 +182,22 @@ content: '# header-open'
 type: custom:html-card
 card_mod:
   class: middle-left
-content: '# middle-left'
+content: <h1>middle-left</h1>
 
 type: custom:html-card
 card_mod:
   class: middle-right
-content: '# middle-right'
+content: <h1>middle-right</h1>
 
 type: custom:html-card
 card_mod:
   class: middle-contained
-content: '# middle-contained'
+content: <h1>middle-contained</h1>
     
 type: custom:html-card
 card_mod:
   class: middle-open
-content: '# middle-blank'
+content: <h1>middle-blank</h1>
 ```
 
 </td>
@@ -219,22 +219,22 @@ content: '# middle-blank'
 type: custom:html-card
 card_mod:
   class: footer-left
-content: '# footer-left'
+content: <h1>footer-left</h1>
 
 type: custom:html-card
 card_mod:
   class: footer-right
-content: '# footer-right'
+content: <h1>footer-right</h1>
 
 type: custom:html-card
 card_mod:
   class: footer-contained
-content: '# footer-contained'
+content: <h1>footer-contained</h1>
 
 type: custom:html-card
 card_mod:
   class: footer-open
-content: '# footer-open'
+content: <h1>footer-open</h1>
 ```
 
 </td>
@@ -447,22 +447,22 @@ card_mod:
     
 ```yaml
 type: custom:html-card
-content: '# bar-left'
+content: <h1>bar-left</h1>
 card_mod:
   class: bar-left
   
 type: custom:html-card
-content: '# bar-large-left'
+content: <h1>bar-large-left</h1>
 card_mod:
   class: bar-large-left
   
 type: custom:html-card
-content: '# bar-right'
+content: <h1>bar-right</h1>
 card_mod:
   class: bar-right
   
 type: custom:html-card
-content: '# bar-large-right'
+content: <h1>bar-large-right</h1>
 card_mod:
   class: bar-large-right
 ```
@@ -494,7 +494,7 @@ cards:
   - type: custom:html-card
     card_mod:
       class: header-left
-    content: '# Climate'
+    content: <h1>Climate</h1>
   - type: weather-forecast
     entity: weather.home
     card_mod:
@@ -525,7 +525,8 @@ cards:
     
 ```yaml
 type: custom:html-card
-content: '# Card-level theming'
+content: <h1>Card-level theming</h1>
+
 theme: LCARS Default
 card_mod:
   class: header-left
@@ -611,8 +612,7 @@ card_mod:
         ```
         type: custom:html-card
         title: ''
-        content: |
-          <h1>TEST HTML CARD</h1>
+        content: <h1>TEST HTML CARD</h1>
         card_mod:
           class: header-left
         ```
