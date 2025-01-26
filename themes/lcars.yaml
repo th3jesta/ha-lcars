@@ -961,7 +961,11 @@
       ha-card.bar-left.type-custom-html-card > div,
       ha-card.bar-right.type-custom-html-card > div,
       ha-card.bar-large-left.type-custom-html-card > div,
-      ha-card.bar-large-right.type-custom-html-card > div {
+      ha-card.bar-large-right.type-custom-html-card > div,
+      ha-card.bar-left.type-custom-html-template-card > div,
+      ha-card.bar-right.type-custom-html-template-card > div,
+      ha-card.bar-large-left.type-custom-html-template-card > div,
+      ha-card.bar-large-right.type-custom-html-template-card > div {
         background: black;
         line-height: initial;
         border-top: var(--lcars-horizontal-border);
@@ -972,7 +976,11 @@
       ha-card.bar-left.type-custom-html-card > div > h1,
       ha-card.bar-right.type-custom-html-card > div > h1,
       ha-card.bar-large-left.type-custom-html-card > div > h1,
-      ha-card.bar-large-right.type-custom-html-card > div > h1 {
+      ha-card.bar-large-right.type-custom-html-card > div > h1,
+      ha-card.bar-left.type-custom-html-template-card > div > h1,
+      ha-card.bar-right.type-custom-html-template-card > div > h1,
+      ha-card.bar-large-left.type-custom-html-template-card > div > h1,
+      ha-card.bar-large-right.type-custom-html-template-card > div > h1 {
         margin: 0px;
       }
 
@@ -1161,6 +1169,7 @@
       }
 
       ha-card.type-custom-html-card > div,
+      ha-card.type-custom-html-template-card > div,
       ha-card.type-heading > .container {
         line-height: initial;
         padding: 0px 16px;
