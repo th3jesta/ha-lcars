@@ -184,7 +184,7 @@
   accent-color: var(--lcars-orange)
   box-sizing: unset !important
   # Fonts
-  font-family: "var(--lcars-font), Segoe UI Variable Static Text, Segoe UI, SegoeUI, -apple-system,BlinkMacSystemFont, system-ui, sans-serif"
+  font-family: "var(--lcars-font), Roboto Condensed, Noto Sans Condensed, Segoe UI Variable Static Text, Segoe UI, SegoeUI, -apple-system,BlinkMacSystemFont, system-ui, sans-serif"
   primary-font-family: var(--font-family)
   paper-font-common-base_-_font-family: var(--primary-font-family)
   paper-font-common-code_-_font-family: var(--primary-font-family)
