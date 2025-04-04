@@ -253,12 +253,12 @@
   switch-checked-track-color: "#30d158"
   switch-checked-button-color: white
   # Material Design Components
-  mdc-typography-button-font-family: var(--lcars-font)
-  mdc-typography-body2-font-family: var(--lcars-font)
+  mdc-typography-button-font-family: var(--font-family)
+  mdc-typography-body2-font-family: var(--font-family)
   mdc-theme-primary: var(--lcars-text-gray)
   mdc-theme-secondary: var(--lcars-text-gray)
   mdc-button-outline-color: transparent
-  mdc-typography-font-family: Antonio
+  mdc-typography-font-family: var(--font-family)
   mdc-theme-on-primary: black
   mdc-theme-on-secondary: black
   mdc-theme-text-primary-on-background: var(--lcars-text-gray)
@@ -1258,7 +1258,7 @@
         color: black;
       }
       ha-card > * {
-        font-family: var(--lcars-font) !important;
+        font-family: var(--font-family) !important;
         --md-sys-color-primary: var(--lcars-ui-quaternary) !important;
       }
 
@@ -1690,7 +1690,10 @@
       }
       .menu ha-icon-button {
         margin-top: 150px;
-        margin-right: 96px;
+      }
+      .menu .title {
+          text-align: right;
+          padding-right: 10px;
       }
       @media screen and (max-width: 768px) {
         .menu ha-icon-button {
@@ -1724,7 +1727,7 @@
         font-size: 15px;
         padding-left: 5px;
         padding-top: 150px;
-        font-family: var(--lcars-font) !important;
+        font-family: var(--font-family) !important;
         margin-left: 10px !important;
       }
       :host([narrow]) .title {
