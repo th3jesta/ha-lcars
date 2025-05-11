@@ -402,7 +402,7 @@
         border-radius: 0px var(--ha-card-border-radius) 0px 0px !important;
         border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
       }
-      ha-card.header-right > ha-markdown.no-header {
+      ha-card.header-right > ha-markdown {
         background: black;
         border-radius: 0px var(--lcars-inner-radius) 0px 0px;
         padding-top: 0px !important;
@@ -424,7 +424,7 @@
         border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
         border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
       }
-      ha-card.header-contained > ha-markdown.no-header {
+      ha-card.header-contained > ha-markdown {
         background: black;
         border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
         padding-top: 0px !important;
@@ -444,7 +444,7 @@
         text-transform: uppercase;
         border-radius: 0px 0px 0px 0px !important;
       }
-      ha-card.header-open > ha-markdown.no-header {
+      ha-card.header-open > ha-markdown {
         background: black;
         border-radius: 0px 0px 0px 0px;
         padding-top: 0px !important;
@@ -1240,7 +1240,7 @@
         stroke-width: 5px;
       }
       /* ?Fix for markdown cards that are not headers? */
-      ha-markdown.no-header {
+      ha-markdown {
         background: black;
         border-radius: unset;
         padding-top: 0px !important;
@@ -1424,6 +1424,26 @@
         border-radius: 0px 40px 40px 0px;
         border-left: solid black 4px;
       }
+      /* Code for the clock */
+      .toolbar::after {
+        content: "{{states('sensor.time')}}";
+        color: var(--text-primary-color);
+        visibility: visible;
+        font-size: 42px;
+        font-family: var(--lcars-font);
+        right: 0px;
+        top: 0px;
+        margin-left: 0px;
+        margin-right: -12px;
+        background: black;
+        vertical-align: middle;
+        height: var(--header-height);
+        line-height: .8;
+        border-right: 5px solid black;
+        border-left: 5px solid black;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
 
       /* ============== HA 2025.05 UPDATES ============= */
 
@@ -1465,25 +1485,6 @@
         --paper-tabs-selection-bar-color: transparent !important;
         border-left: solid black 4px;
         margin-left: 0px !important;
-      }
-      /* Code for the clock */
-      .toolbar::after {
-        content: "{{states('sensor.time')}}";
-        color: var(--text-primary-color);
-        visibility: visible;
-        font-size: 42px;
-        right: 0px;
-        top: 0px;
-        margin-left: 0px;
-        margin-right: -12px;
-        background: black;
-        vertical-align: middle;
-        height: var(--header-height);
-        line-height: .8;
-        border-right: 5px solid black;
-        border-left: 5px solid black;
-        text-transform: uppercase;
-        white-space: nowrap;
       }
       @media screen and (max-width: 870px) {
         .toolbar::after {
