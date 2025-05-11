@@ -488,7 +488,9 @@
       ha-card.middle-right.type-custom-html-card > div,
       ha-card.middle-right.type-custom-html-template-card,
       ha-card.middle-contained.type-custom-html-card > div,
-      ha-card.middle-contained.type-custom-html-template-card {
+      ha-card.middle-contained.type-custom-html-template-card,
+      ha-card.middle-blank.type-custom-html-card > div,
+      ha-card.middle-blank.type-custom-html-template-card {
         line-height: initial;
         padding: 0px 16px 0px 16px;
       }
@@ -497,7 +499,9 @@
       ha-card.middle-right.type-custom-html-card > div > h1,
       ha-card.middle-right.type-custom-html-template-card > h1,
       ha-card.middle-contained.type-custom-html-card > div > h1,
-      ha-card.middle-contained.type-custom-html-template-card > h1 {
+      ha-card.middle-contained.type-custom-html-template-card > h1,
+      ha-card.middle-blank.type-custom-html-card > div > h1,
+      ha-card.middle-blank.type-custom-html-template-card > h1 {
         margin: 0px;
       }
 
