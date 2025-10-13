@@ -1393,27 +1393,27 @@
         text-transform: uppercase;
         font-family: var(--lcars-font);
       }
-      sl-tab-group {
+      ha-tab-group {
         margin-left: 30px;
         border-left: solid black 4px;
         --ha-tab-indicator-color: transparent !important;
         font-family: var(--lcars-font) !important;
         text-transform: uppercase;
       }
-      sl-tab {
+      ha-tab-group-tab {
         background: var(--lcars-ui-secondary);
         color: black;
         border-right: solid black 4px;
         height: 40px !important;
       }
-      sl-tab[aria-selected="true"],
-      sl-tab[active] {
+      ha-tab-group-tab[aria-selected="true"],
+      ha-tab-group-tab[active] {
         background: var(--lcars-ui-tertiary) !important;
       }
-      .edit-mode sl-tab[aria-selected=true]::part(base) {
+      .edit-mode ha-tab-group-tab[aria-selected=true]::part(base) {
         padding: 0px !important;
       }
-      .edit-mode sl-tab-group {
+      .edit-mode ha-tab-group {
         margin-left: 0px;
         border-left: none;
         height: 40px !important;
