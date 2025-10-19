@@ -402,7 +402,7 @@
         border-radius: 0px var(--ha-card-border-radius) 0px 0px !important;
         border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
       }
-      ha-card.header-right > ha-markdown.no-header {
+      ha-card.header-right > ha-markdown {
         background: black;
         border-radius: 0px var(--lcars-inner-radius) 0px 0px;
         padding-top: 0px !important;
@@ -424,7 +424,7 @@
         border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
         border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
       }
-      ha-card.header-contained > ha-markdown.no-header {
+      ha-card.header-contained > ha-markdown {
         background: black;
         border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
         padding-top: 0px !important;
@@ -444,7 +444,7 @@
         text-transform: uppercase;
         border-radius: 0px 0px 0px 0px !important;
       }
-      ha-card.header-open > ha-markdown.no-header {
+      ha-card.header-open > ha-markdown {
         background: black;
         border-radius: 0px 0px 0px 0px;
         padding-top: 0px !important;
@@ -1244,7 +1244,7 @@
         stroke-width: 5px;
       }
       /* ?Fix for markdown cards that are not headers? */
-      ha-markdown.no-header {
+      ha-markdown {
         background: black;
         border-radius: unset;
         padding-top: 0px !important;
@@ -1386,6 +1386,71 @@
       /* =============================================== */
       /*            SECTION-SPECIFIC SETTINGS            */
       /* =============================================== */
+
+      /* ============== HA 2025.05 UPDATES ============= */
+      .header,
+      .toolbar,
+      .edit-mode .toolbar {
+        background: var(--lcars-ui-primary) !important;
+      }
+        .main-title {
+        text-transform: uppercase;
+        font-family: var(--lcars-font);
+      }
+      ha-tab-group {
+        margin-left: 30px;
+        border-left: solid black 4px;
+        --ha-tab-indicator-color: transparent !important;
+        font-family: var(--lcars-font) !important;
+        text-transform: uppercase;
+      }
+      ha-tab-group-tab {
+        background: var(--lcars-ui-secondary);
+        color: black;
+        border-right: solid black 4px;
+        height: 40px !important;
+      }
+      ha-tab-group-tab[aria-selected="true"],
+      ha-tab-group-tab[active] {
+        background: var(--lcars-ui-tertiary) !important;
+      }
+      .edit-mode ha-tab-group-tab[aria-selected=true]::part(base) {
+        padding: 0px !important;
+      }
+      .edit-mode ha-tab-group {
+        margin-left: 0px;
+        border-left: none;
+        height: 40px !important;
+      }
+      #add-view {
+        background: var(--lcars-card-top-color);
+        height: 40px;
+        border-radius: 0px 40px 40px 0px;
+        border-left: solid black 4px;
+      }
+      /* Code for the clock */
+      .toolbar::after {
+        content: "{{states('sensor.time')}}";
+        color: var(--text-primary-color);
+        visibility: visible;
+        font-size: 42px;
+        font-family: var(--lcars-font);
+        right: 0px;
+        top: 0px;
+        margin-left: 0px;
+        margin-right: -12px;
+        background: black;
+        vertical-align: middle;
+        height: var(--header-height);
+        line-height: .8;
+        border-right: 5px solid black;
+        border-left: 5px solid black;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      /* ============== HA 2025.05 UPDATES ============= */
+
       #view {
         --primary-background-color: black;
         --lovelace-background: black;
@@ -1402,20 +1467,11 @@
         --lcars-sound: true;
       }
       {% endif %}
-      paper-tab.iron-selected {
-        background: var(--lcars-ui-tertiary) !important;
-        color: black;
-      }
       paper-icon-item::before {
         inset: 2px !important;
         margin-right: -9px !important;
         margin-left: -1px !important;
         border-radius: var(--lcars-inner-radius) !important;
-      }
-      .header,
-      .toolbar,
-      .edit-mode .toolbar {
-        background: var(--lcars-ui-primary) !important;
       }
       .edit-mode .header {
         height: 40px;
@@ -1428,36 +1484,11 @@
         margin-right: 1px;
         padding: 0px 12px !important;
       }
-      ha-tabs {
-        width: 100%;
-        height: 100%;
-        margin-left: 30px !important;
-        border-left: solid black 4px;
-      }
-      .edit-mode > ha-tabs,
-      .edit-mode > paper-tabs {
+      
+      .edit-mode > ha-tabs {
         --paper-tabs-selection-bar-color: transparent !important;
         border-left: solid black 4px;
         margin-left: 0px !important;
-      }
-      /* Code for the clock */
-      .toolbar::after {
-        content: "{{states('sensor.time')}}";
-        color: var(--text-primary-color);
-        visibility: visible;
-        font-size: 42px;
-        right: 0px;
-        top: 0px;
-        margin-left: 0px;
-        margin-right: -12px;
-        background: black;
-        vertical-align: middle;
-        height: var(--header-height);
-        line-height: .8;
-        border-right: 5px solid black;
-        border-left: 5px solid black;
-        text-transform: uppercase;
-        white-space: nowrap;
       }
       @media screen and (max-width: 870px) {
         .toolbar::after {
@@ -1551,6 +1582,7 @@
         margin-top: 80px;
         margin-left: -12px;
         z-index: 9997;
+        pointer-events: none;
       }
       hui-image {
         cursor: pointer;
@@ -1633,68 +1665,58 @@
       /* =============================================== */
       /*            SECTION-SPECIFIC SETTINGS            */
       /* =============================================== */
+      
+      /* ============== HA 2025.05 UPDATES ============= */
       :host {
         content: "";
         border-right: 0px !important;
         border-top-left-radius: 80px;
         box-shadow: black 0px -130px 0px 0px;
       }
-      paper-listbox {
-        margin-top: 68px;
+      .title {
+        text-transform: uppercase;
+        font-size: 15px;
+        padding-left: 5px;
+        padding-top: 150px;
+        font-family: var(--lcars-font) !important;
+        margin-left: 10px !important;
+      }
+      ha-md-list.ha-scrollbar {
+        margin-top: 70px;
         border-top: 4px solid black;
         padding-top: 0px !important;
-        padding-bottom: 0px !important;
-        height: calc( 100% - var(--header-height) - 176px - env(safe-area-inset-bottom)) !important;
+        font-family: var(--lcars-font);
+        height: calc(100% - var(--header-height) - 220px - env(safe-area-inset-bottom));
       }
-      paper-listbox.ha-scrollbar {
-        overflow-y: auto;
-        scrollbar-color: unset;
-        scrollbar-width: unset;
+      ha-md-list-item.selected {
+        background-color: var(--lcars-ui-tertiary);
       }
-      #sortable a {
-        display: block !important;
-      }
-      paper-icon-item.hidden-panel, 
-      paper-icon-item.hidden-panel span, 
-      paper-icon-item.hidden-panel 
-      ha-icon[slot="item-icon"] {
+      ha-md-list-item {
+        border-bottom: 4px solid;
+        background-color: var(--lcars-ui-secondary);
+        width: 100% !important;
+        height: 50px;
+        margin: unset !important;
+        padding-left: 4px;
+        border-radius: unset !important;
+        border-color: black;
         color: black !important;
       }
-      paper-icon-item.hidden-panel {
-        display: block !important;
+      span.item-text {
+        padding-top: 16px;
+        margin: unset;
       }
-      paper-icon-item {
-        margin: 0px !important;
-        padding-left: 16px !important;
-        height: 48px;
-        --paper-item-min-height: unset !important;
-      }
-      .hide-panel {
-        right: 175px !important;
-      }
-      .show-panel {
-        right: 172px !important;
-        top: 4px !important;
-      }
-      .hidden-panel > ha-icon {
-        padding-top: 10px;
-        margin-bottom: -10px;
-      }
-      .hidden-panel > ha-svg-icon {
-        padding-top: 12px;
-        margin-bottom: -12px;
-      }
-      :host([expanded]) .menu mwc-button {
-        margin-top: 152px !important;
-        margin-left: 7px !important;
-        height: 19px;
-        border-radius: var(--lcars-inner-radius);
-        background: var(--lcars-ui-tertiary);
-        align-items: center;
+      span.item-text,
+      span.badge {
+        font-family: var(--lcars-font);
+        text-align: right;
+        text-transform: uppercase;
+        color: black;
       }
       .menu ha-icon-button {
         margin-top: 150px;
-        margin-right: 96px;
+        margin-right: 94px;
+        margin-left: 0px;
       }
       @media screen and (max-width: 768px) {
         .menu ha-icon-button {
@@ -1723,69 +1745,44 @@
           z-index: 9997;
         }
       }
-      .title {
-        text-transform: uppercase;
-        font-size: 15px;
-        padding-left: 5px;
-        padding-top: 150px;
-        font-family: var(--lcars-font) !important;
-        margin-left: 10px !important;
+      
+      :host([expanded]) .menu mwc-button {
+        margin-top: 152px !important;
+        margin-left: 7px !important;
+        height: 19px;
+        border-radius: var(--lcars-inner-radius);
+        background: var(--lcars-ui-tertiary);
+        align-items: center;
       }
-      :host([narrow]) .title {
-        padding: 148px 6px 0px 0px !important;
-        text-align: right !important;
+      mwc-button {
+        --mdc-theme-primary: black;
       }
-      a {
-        border-bottom: 4px solid;
-        background-color: var(--lcars-ui-secondary);
+      ha-md-list-item.hidden-panel ha-icon[slot=start],
+      .hidden-panel > ha-svg-icon {
+        color: black !important;
+        padding-top: unset !important;
+        margin-bottom: unset !important;
       }
-      a.iron-selected {
-        background-color: var(--lcars-ui-tertiary);
+      ha-md-list-item.hidden-panel span {
+        color: black !important;
+      }
+      ha-icon-button.hide-panel {
+        color: black !important;
       }
       .spacer {
         border-bottom: 4px solid black;
       }
-      .profile {
-        border-top: 4px solid black;
+      .divider {
+        display: none;
       }
-      .item-text {
-        text-align: right;
-        margin-left: auto;
-        margin-bottom: -23px;
-        margin-right: 2px;
-        text-transform: uppercase;
+      ha-md-list {
+        padding: 0px !important;
       }
-      .profile > paper-icon-item > .item-text {
-        margin-left: auto !important;
-        margin-bottom: -17px;
-      }
-      .profile > span {
-        margin-bottom: 1px !important;
-      }
-      .notification-badge, .configuration-badge {
-        left: calc(var(--app-drawer-width) - 48px) !important;
-        top: 5px;
-        max-height: 20px;
-      }
-      .profile paper-icon-item {
-        padding-left: 8px !important;
-      }
-      .notifications-container {
-        border-top: unset;
-        margin-top: -16px
-      }
-      .menu {
-        --mdc-theme-primary: black;
-      }
-      paper-icon-item::before {
-        opacity: 0 !important;
-      }
-
       /* ----------------------------------------------- */
       /*           Sidebar Texture and Gradient          */
       /* ----------------------------------------------- */
       {% if not is_state('input_boolean.lcars_texture', 'off') %}
-      paper-listbox::before {
+      .menu::before {
         content: "";
         background: linear-gradient(to bottom left, transparent 10%, #AAAAAADD 30%, #000000AA 60%, transparent 90%);
         width: var(--mdc-drawer-width,256px);
@@ -1797,7 +1794,7 @@
         opacity: .8;
         pointer-events: none;
       }
-      paper-listbox::after {
+      .menu::after {
         content: "";
         background: url(data:image/png;base64,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);
         width: var(--mdc-drawer-width,256px);
