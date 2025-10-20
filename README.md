@@ -169,7 +169,7 @@ content: '# header-open'
 
 </td>
 <td>
-<img width="316" alt="image" src="https://user-images.githubusercontent.com/38670315/212480715-ca72d5e5-1950-4f75-9b14-8b67fcebdcd0.png">
+<img width="350" alt="ha-lcars-headers" src="https://github.com/user-attachments/assets/02d599cf-5a0b-4ad3-a20f-ff0335e34bd5" />
 </td>
 </tr>
 </table>
@@ -206,7 +206,7 @@ content: '# middle-blank'
 
 </td>
 <td>
-<img width="316" alt="image" src="https://user-images.githubusercontent.com/38670315/234729314-6bd0371e-5839-4b6e-8996-bb5ce417824f.png">
+<img width="350" alt="ha-lcars-middle" src="https://github.com/user-attachments/assets/691bc899-9373-4c35-90e1-de131a83f68a" />
 </td>
 </tr>
 </table>
@@ -243,7 +243,7 @@ content: '# footer-open'
 
 </td>
 <td>
-<img width="314" alt="image" src="https://user-images.githubusercontent.com/38670315/212480789-62e37686-dd35-4a49-a3e7-1d974b7eb133.png">
+<img width="350" alt="ha-lcars-footers" src="https://github.com/user-attachments/assets/5eb6dc12-c990-4388-bdb9-7ed08884e73c" />
 </td>
 </tr>
 </table>
@@ -473,7 +473,7 @@ card_mod:
 
 </td>
 <td>
-<img width="313" alt="image" src="https://user-images.githubusercontent.com/38670315/212764544-04adc98c-8146-4f9b-9eef-7696689dce4c.png">
+<img width="350" alt="image" src="https://github.com/user-attachments/assets/82de2ee8-60d6-4ea8-8d3d-49ce2cfc8a5f" />
 </td>
 </tr>
 </table>
