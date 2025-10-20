@@ -86,6 +86,10 @@ sensor:
 More info:
 https://www.home-assistant.io/integrations/time_date/
 
+> [!NOTE]  
+> You may wish to remove these new Time & Date entities from Home Assistant's Recorder integration so they don't fill you database with updates every second. Examples on how to do that: https://www.home-assistant.io/integrations/recorder/#common-filtering-examples
+
+
 #### IV. Create the entities
 This theme has two controls for sound and textures that require creating simple toggle entities. Create them by going to Settings > Devices & Services > Helpers and create two of type **Toggle** named as below:
 - LCARS Sound (entity id should be `input_boolean.lcars_sound`)
