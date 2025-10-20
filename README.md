@@ -200,7 +200,7 @@ content: '# middle-contained'
     
 type: custom:html-card
 card_mod:
-  class: middle-open
+  class: middle-blank
 content: '# middle-blank'
 ```
 
