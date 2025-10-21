@@ -587,10 +587,10 @@ card_mod:
     ha-card {
       {% if is_state('light.terasa', 'on') %}
         {% set rgb_color = state_attr('light.terasa', 'rgb_color') %}
-        background-color: rgba({{ rgb_color[0] }}, {{ rgb_color[1] }}, {{ rgb_color[2] }}, 1);
+        background-color: rgba({{ rgb_color[0] }}, {{ rgb_color[1] }}, {{ rgb_color[2] }}, 1) !important;
         color: black;  /* or any other logic for text color */
       {% else %}
-        background-color: #dd4444;
+        background-color: #dd4444 !important;
         color: black;
       {% endif %}
     }
