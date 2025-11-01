@@ -87,7 +87,7 @@ More info:
 https://www.home-assistant.io/integrations/time_date/
 
 #### IV. Create the entities
-This theme has two controls for sound and textures that require creating simple toggle entities. Create them by going to Settings > Devices & Services > Helpers and create two of type **Toggle** named as below:
+This theme has two controls for sound and textures that require creating simple toggle entities. Create them by going to Settings > Devices & Services > Helpers and create two of type **Toggle** and two of type **Number** named as below:
 - LCARS Sound (entity id should be `input_boolean.lcars_sound`)
 - LCARS Texture (entity id should be `input_boolean.lcars_texture`)
 - LCARS Vertical (entity id should be `input_number.lcars_vertical`)
