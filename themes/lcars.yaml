@@ -330,239 +330,171 @@
       /*        HEADER CLASSES AND CARD TYPE FIXES       */
       /* =============================================== */
       
-      /* ----------------------------------------------- */
-      /*               Common Header Styles              */
-      /* ----------------------------------------------- */
+      /* ------------- Common Header Styles ------------ */
       :host(.header-left),
       :host(.header-right),
       :host(.header-contained),
-      :host(.header-open) {
-        display: block;
-        border-top: var(--lcars-horizontal-border) solid var(--lcars-card-top-color);
+      :host(.header-open),
+      ha-card:is(.header-left,
+                 .header-right,
+                 .header-contained,
+                 .header-open
+      ):not(div > *) {
+        display: block !important;
+        border: 0px solid var(--lcars-card-top-color);
+        border-top-width: var(--lcars-horizontal-border);
+        border-radius: 0px;
+        padding: 0px;
         background: var(--lcars-card-top-color);
         text-transform: uppercase;
 
-        > :is(ha-card,div#root) {
+        > :not(style,card-mod) {
           border-radius: 0px;
           background: black;
           padding-top: 6px;
           --primary-text-color: var(--lcars-text-gray);
-          heigh: 100%;
+          height: 100%;
+          box-sizing: border-box;
           
           > .name {
           --primary-text-color: var(--lcars-text-gray);
           }
         }
-        
+        > ha-markdown,
         > ha-card > ha-markdown {
           padding-block: 0px;
         }
       }
-
-      # ha-card.header-left.type-custom-html-card > div,
-      # ha-card.header-left.type-custom-html-template-card > div,
-      # ha-card.header-right.type-custom-html-card > div,
-      # ha-card.header-right type-custom-html-template-card > div,
-      # ha-card.header-contained.type-custom-html-card > div,
-      # ha-card.header-contained type-custom-html-template-card > div,
-      # ha-card.header-open.type-custom-html-card > div,
-      # ha-card.header-open.type-custom-html-template-card > div {
-      #   background: black;
-      #   line-height: initial;
-      #   border-top: var(--lcars-horizontal-border);
-      #   padding: 0px 16px 0px 16px;
-      # }
-      # ha-card.header-left.type-custom-html-card > div > h1,
-      # ha-card.header-left.type-custom-html-template-card > div > h1,
-      # ha-card.header-right.type-custom-html-card > div > h1,
-      # ha-card.header-right type-custom-html-template-card > div > h1,
-      # ha-card.header-contained.type-custom-html-card > div > h1,
-      # ha-card.header-contained type-custom-html-template-card > div > h1,
-      # ha-card.header-open.type-custom-html-card > div > h1,
-      # ha-card.header-open.type-custom-html-template-card > div > h1 {
-      #   margin: 0px;
-      # }
-
-      /* ----------------------------------------------- */
-      /*              Specific Header Styles             */
-      /* ----------------------------------------------- */
       
       /* ----------------Border on left----------------- */
       :host(.header-left),
-      :host(.header-contained) {
+      :host(.header-contained),
+      ha-card:is(.header-left,
+                 .header-contained
+      ):not(div > *) {
         border-top-left-radius: var(--ha-card-border-radius);
-        border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
+        border-left-width: var(--lcars-vertical-border);
 
-        > :is(ha-card,div#root) {
+        > :not(style,card-mod) {
           border-top-left-radius: var(--lcars-inner-radius);
           padding-left: 6px;
           --primary-text-color: var(--lcars-text-gray);
         }
       }
 
-
-      # ha-card.header-left.type-thermostat > .content {
-      #   border-radius: 0px 0px 0px var(--lcars-inner-radius);
-      # }
-      # ha-card.header-left.type-custom-html-card > div,
-      # ha-card.header-left.type-custom-html-template-card > div {
-      #   border-radius: var(--lcars-inner-radius) 0px 0px 0px;
-      # }
-
       /* ----------------Border on right---------------- */
       :host(.header-right),
-      :host(.header-contained) {
+      :host(.header-contained),
+      ha-card:is(.header-right,
+                 .header-contained
+      ):not(div > *) {
         border-top-right-radius: var(--ha-card-border-radius);
-        border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
+        border-right-width: var(--lcars-vertical-border);
 
-        > :is(ha-card,div#root) {
+        > :not(style,card-mod) {
           border-top-right-radius: var(--lcars-inner-radius);
           padding-right: 6px;
           --primary-text-color: var(--lcars-text-gray);
         }
       }
 
-      # ha-card.header-right.type-thermostat > .content {
-      #   border-radius: 0px 0px var(--lcars-inner-radius) 0px;
-      # }
-      # ha-card.header-right.type-custom-html-card > div,
-      # ha-card.header-right.type-custom-html-template-card > div {
-      #   border-radius: 0px var(--lcars-inner-radius) 0px 0px;
-      # }
-
-      # /* -------------Border on both sides-------------- */
-      # ha-card.header-contained.type-thermostat > .content {
-      #   border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
-      # }
-      # ha-card.header-contained.type-custom-html-card > div,
-      # ha-card.header-contained.type-custom-html-template-card > div {
-      #   border-radius: var(--lcars-inner-radius) var(--lcars-inner-radius) 0px 0px;
-      # }
-
-      /* -------------Border on neither side------------ */
-      # ha-card.header-open.type-custom-html-card > div,
-      # ha-card.header-open.type-custom-html-template-card > div {
-      #   border-radius: 0px 0px 0px 0px;
-      # }
-
       /* =============================================== */
       /*        MIDDLE CLASSES AND CARD TYPE FIXES       */
       /* =============================================== */
 
-      /* ----------------------------------------------- */
-      /*               Common Middle Styles              */
-      /* ----------------------------------------------- */
+      /* ------------- Common Middle Styles ------------ */
       :host(.middle-left),
       :host(.middle-right),
       :host(.middle-contained),
-      :host(.middle-blank) {
-        display: block;
-        border-inline: 0px solid var(--lcars-card-top-color);
+      :host(.middle-blank),
+      ha-card:is(.middle-left,
+                 .middle-right,
+                 .middle-contained,
+                 .middle-blank
+      ):not(div > *)  {
+        display: block !important;
+        background: black;
+        padding: 0px;
+        border-radius: 0px;
+        border-inline: 0px solid var(--lcars-card-mid-left-color);
         text-transform: uppercase;
 
-        > :is(ha-card,div#root) {
+        > :not(style,card-mod) {
           border-radius: 0px;
           background: black;
           --primary-text-color: var(--lcars-text-gray);
+          height: 100%;
+          box-sizing: border-box;
           
           > .name {
           --primary-text-color: var(--lcars-text-gray);
           }
         }
-        > ha-card > ha-markdown {
-          padding-block: 0px;
-        }
       }
-
-      # ha-card.middle-left,
-      # ha-card.middle-right,
-      # ha-card.middle-blank,
-      # ha-card.middle-contained {
-      #   background: black !important;
-      #   text-transform: uppercase;
-      #   --primary-text-color: var(--lcars-text-gray) !important;
-      #   border-radius: 0px !important;
-      # }
-      # ha-card.middle-left > ha-gauge, 
-      # ha-card.middle-right > ha-gauge, 
-      # ha-card.middle-contained > ha-gauge, 
-      # ha-card.middle-blank > ha-gauge {
-      #   --primary-text-color: var(--lcars-text-gray);
-      # }
-      # ha-card.middle-left > .name, 
-      # ha-card.middle-right > .name, 
-      # ha-card.middle-contained > .name, 
-      # ha-card.middle-blank > .name {
-      #   color: var(--lcars-text-gray);
-      # }
-      # ha-card.middle-left.type-custom-html-card > div,
-      # ha-card.middle-left.type-custom-html-template-card,
-      # ha-card.middle-right.type-custom-html-card > div,
-      # ha-card.middle-right.type-custom-html-template-card,
-      # ha-card.middle-contained.type-custom-html-card > div,
-      # ha-card.middle-contained.type-custom-html-template-card {
-      #   line-height: initial;
-      #   padding: 0px 16px 0px 16px;
-      # }
-      # ha-card.middle-left.type-custom-html-card > div > h1,
-      # ha-card.middle-left.type-custom-html-template-card > h1,
-      # ha-card.middle-right.type-custom-html-card > div > h1,
-      # ha-card.middle-right.type-custom-html-template-card > h1,
-      # ha-card.middle-contained.type-custom-html-card > div > h1,
-      # ha-card.middle-contained.type-custom-html-template-card > h1 {
-      #   margin: 0px;
-      # }
-
-      /* ----------------------------------------------- */
-      /*              Specific Middle Styles             */
-      /* ----------------------------------------------- */
-
+      > ha-markdown,
+      > ha-card > ha-markdown {
+        padding-block: 0px;
+      }
+      
       /* -----------------Border on left---------------- */
       :host(.middle-left),
-      :host(.middle-contained) {
+      :host(.middle-contained),
+      ha-card:is(.middle-left,
+                 .middle-contained
+      ):not(div > *) {
         border-left-width: var(--lcars-vertical-border);
-        > div#root {
+        > :not(style,card-mod) {
           padding-left: 6px;
         }
       }
 
       /* ----------------Border on right---------------- */
       :host(.middle-right),
-      :host(.middle-contained) {
+      :host(.middle-contained),
+      ha-card:is(.middle-right,
+                 .middle-contained
+      ):not(div > *) {
         border-right-width: var(--lcars-vertical-border);
-        > div#root {
+        > :not(style,card-mod) {
           padding-right: 6px;
         }
       }
-
-      /* --------------Border on both sides------------- */
 
       /* =============================================== */
       /*        FOOTER CLASSES AND CARD TYPE FIXES       */
       /* =============================================== */
       
-      /* ----------------------------------------------- */
-      /*               Common Footer Styles              */
-      /* ----------------------------------------------- */
+      /* ------------- Common Footer Styles ------------ */
       :host(.footer-left),
       :host(.footer-right),
       :host(.footer-contained),
-      :host(.footer-open) {
-        display: block;
-        border-bottom: var(--lcars-horizontal-border) solid var(--lcars-card-top-color);
-        background: var(--lcars-card-top-color);
+      :host(.footer-open),
+      ha-card:is(.footer-left,
+                 .footer-right,
+                 .footer-contained,
+                 .footer-open
+      ):not(div > *) {
+        display: block !important;
+        padding: 0px;
+        border-radius: 0px;
+        border: 0px solid var(--lcars-card-bottom-color);
+        border-bottom-width: var(--lcars-horizontal-border);
+        background: var(--lcars-card-bottom-color);
         text-transform: uppercase;
 
-        > :is(ha-card,div#root) {
+        > :not(style,card-mod) {
           border-radius: 0px;
           background: black;
           padding-bottom: 6px;
+          height: 100%;
+          box-sizing: border-box;
           --primary-text-color: var(--lcars-text-gray);
 
           > .name {
           --primary-text-color: var(--lcars-text-gray);
           }
         }
+        > ha-markdown,
         > ha-card > ha-markdown {
           padding-block: 0px;
         }
@@ -768,12 +700,15 @@
 
       /* -----------------Border on left---------------- */
       :host(.footer-left),
-      :host(.footer-contained) {
-        border-bottom-left-radius: var(--ha-card-border-radius);
-        border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
+      :host(.footer-contained),
+      ha-card:is(.footer-left,
+                 .footer-contained
+      ):not(div > *)  {
+        border-bottom-left-radius: var(--ha-card-border-radius) !important;
+        border-left-width: var(--lcars-vertical-border);
 
-        > :is(ha-card,div#root) {
-          border-bottom-left-radius: var(--lcars-inner-radius);
+        > :not(style,card-mod) {
+          border-bottom-left-radius: var(--lcars-inner-radius) !important;
           padding-left: 6px;
         }
       }
@@ -806,12 +741,15 @@
 
       /* ----------------Border on right---------------- */
       :host(.footer-right),
-      :host(.footer-contained) {
-        border-bottom-right-radius: var(--ha-card-border-radius);
-        border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
+      :host(.footer-contained),
+      ha-card:is(.footer-right,
+                 .footer-contained
+      ):not(div > *)  {
+        border-bottom-right-radius: var(--ha-card-border-radius) !important;
+        border-right-width: var(--lcars-vertical-border);
 
-        > :is(ha-card,div#root) {
-          border-bottom-right-radius: var(--lcars-inner-radius);
+        > :not(style,card-mod) {
+          border-bottom-right-radius: var(--lcars-inner-radius) !important;
           padding-right: 6px;
         }
       }
@@ -1092,46 +1030,61 @@
       /* ----------------------------------------------- */
       /*                Common Bar Styles                */
       /* ----------------------------------------------- */
-      :host(.bar-left) > ha-card,
-      :host(.bar-right) > ha-card,
-      :host(.bar-large-left) > ha-card,
-      :host(.bar-large-right) > ha-card {
-        text-transform: uppercase;
+      :host(.bar-left),
+      :host(.bar-right),
+      :host(.bar-large-left),
+      :host(.bar-large-right),
+      ha-card:is(.bar-left,
+                 .bar-large-left,
+                 .bar-right,
+                 .bar-large-right
+      ):not(div > *)   {
         background-color: var(--lcars-card-top-color);
+        border-radius: 9999px;
         display: flex;
-        align-content: center;
+        align-items: center;
         overflow: hidden;
-
-        > :is(ha-markdown, div) {
+        height: 100%;
+          
+        > :not(style,card-mod) {
+          text-transform: uppercase;
           background: black;
-          line-height: initial;
-          border-top: var(--lcars-horizontal-border);
-          padding: 0px 8px 0px 8px;
-          margin-top: -8px;
-          margin-bottom: -3px;
-
-          > h1{
-            margin: 0px;
-          }
+          border-radius: 0px;
+          display: inline-block;
+          padding: 0px 6px 0px 6px;
+          height: calc(100% + 6px);
+          overflow: visible;
+        }
+        > ha-markdown,
+        > :not(style,card-mod) > ha-markdown {
+          padding: 0px;
+          margin-top: 0px;
         }
       }
       
       :host(.bar-large-left) > ha-card,
-      :host(.bar-large-right) > ha-card {
+      :host(.bar-large-right) > ha-card,
+      ha-card:is(.bar-large-left,
+                 .bar-large-right
+      ):not(div > *) {
         > ha-markdown {
           font-size: 1.5em;
         }
-        > div > h1 {
-          font-size: 3.1em;
-        }
       }
 
-      :host(.bar-left) > ha-card,
-      :host(.bar-large-left) > ha-card {
+      :host(.bar-left),
+      :host(.bar-large-left),
+      ha-card:is(.bar-left,
+                 .bar-large-left
+      ):not(div > *) {
         border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
       }
-      :host(.bar-right) > ha-card,
-      :host(.bar-large-right) > ha-card {
+
+      :host(.bar-right),
+      :host(.bar-large-right),
+      ha-card:is(.bar-right,
+                 .bar-large-right
+      ):not(div > *) {
         border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
         justify-content: right;
       }
@@ -1274,6 +1227,14 @@
       # ha-card.type-custom-mushroom-number-card > * {
       #   --control-border-radius: 0px !important;
       # }
+
+    "ha-markdown$": |
+      :host {
+        overflow: hidden;
+      }
+      h1 {
+        line-height: 1.1 !important;
+      }
 
   # ===================================================== #
   #          TOOLBAR AND DASHBOARD MODIFICATIONS          #
