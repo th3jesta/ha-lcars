@@ -345,6 +345,7 @@
         border-top-width: var(--lcars-horizontal-border);
         border-radius: 0px;
         padding: 0px;
+        box-sizing: border-box;
         background: var(--lcars-card-top-color);
         text-transform: uppercase;
 
@@ -415,6 +416,7 @@
         display: block !important;
         background: black;
         padding: 0px;
+        box-sizing: border-box;
         border-radius: 0px;
         border-inline: 0px solid var(--lcars-card-mid-left-color);
         text-transform: uppercase;
@@ -476,6 +478,7 @@
       ):not(div > *) {
         display: block !important;
         padding: 0px;
+        box-sizing: border-box;
         border-radius: 0px;
         border: 0px solid var(--lcars-card-bottom-color);
         border-bottom-width: var(--lcars-horizontal-border);
@@ -1041,35 +1044,38 @@
       ):not(div > *)   {
         background-color: var(--lcars-card-top-color);
         border-radius: 9999px;
-        display: flex;
-        align-items: center;
-        overflow: hidden;
-        height: 100%;
-          
+        display: block;
+        height: 1em;
+        font-size: 2em;
+        overflow:hidden;
+
         > :not(style,card-mod) {
           text-transform: uppercase;
           background: black;
           border-radius: 0px;
           display: inline-block;
           padding: 0px 6px 0px 6px;
-          height: calc(100% + 6px);
-          overflow: visible;
+          height: calc(100% + 0.4em);
+          margin-top: -0.35em;
+          vertical-align: top;
+          overflow: hidden;
         }
         > ha-markdown,
         > :not(style,card-mod) > ha-markdown {
           padding: 0px;
-          margin-top: 0px;
+
+          h1 {
+            font-size: inherit !important;
+          }
         }
       }
       
-      :host(.bar-large-left) > ha-card,
-      :host(.bar-large-right) > ha-card,
+      :host(.bar-large-left),
+      :host(.bar-large-right),
       ha-card:is(.bar-large-left,
                  .bar-large-right
       ):not(div > *) {
-        > ha-markdown {
-          font-size: 1.5em;
-        }
+          font-size: 3em;
       }
 
       :host(.bar-left),
@@ -1086,7 +1092,7 @@
                  .bar-large-right
       ):not(div > *) {
         border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
-        justify-content: right;
+        text-align: right;
       }
 
       /* =============================================== */
@@ -1228,12 +1234,21 @@
       #   --control-border-radius: 0px !important;
       # }
 
-    "ha-markdown$": |
-      :host {
-        overflow: hidden;
-      }
+    "hui-markdown-card:is(.bar-left) $ ha-card ha-markdown $ ha-markdown-element": |
       h1 {
-        line-height: 1.1 !important;
+        font-size: inherit;
+      }
+    "hui-markdown-card:is(.bar-right) $ ha-card ha-markdown $ ha-markdown-element": |
+      h1 {
+        font-size: inherit;
+      }
+    "hui-markdown-card:is(.bar-large-left) $ ha-card ha-markdown $ ha-markdown-element": |
+      h1 {
+        font-size: inherit;
+      }
+    "hui-markdown-card:is(.bar-large-right) $ ha-card ha-markdown $ ha-markdown-element": |
+      h1 {
+        font-size: inherit;
       }
 
   # ===================================================== #
