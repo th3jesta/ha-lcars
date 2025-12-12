@@ -1059,15 +1059,12 @@
           margin-top: -0.35em;
           vertical-align: top;
           overflow: hidden;
-        }
-        > ha-markdown,
-        > :not(style,card-mod) > ha-markdown {
-          padding: 0px;
 
-          h1 {
-            font-size: inherit !important;
+          > ha-markdown {
+            padding: 0px;
           }
         }
+        
       }
       
       :host(.bar-large-left),
@@ -1233,23 +1230,6 @@
       # ha-card.type-custom-mushroom-number-card > * {
       #   --control-border-radius: 0px !important;
       # }
-
-    "hui-markdown-card:is(.bar-left) $ ha-card ha-markdown $ ha-markdown-element": |
-      h1 {
-        font-size: inherit;
-      }
-    "hui-markdown-card:is(.bar-right) $ ha-card ha-markdown $ ha-markdown-element": |
-      h1 {
-        font-size: inherit;
-      }
-    "hui-markdown-card:is(.bar-large-left) $ ha-card ha-markdown $ ha-markdown-element": |
-      h1 {
-        font-size: inherit;
-      }
-    "hui-markdown-card:is(.bar-large-right) $ ha-card ha-markdown $ ha-markdown-element": |
-      h1 {
-        font-size: inherit;
-      }
 
   # ===================================================== #
   #          TOOLBAR AND DASHBOARD MODIFICATIONS          #
