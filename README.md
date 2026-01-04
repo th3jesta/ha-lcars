@@ -7,31 +7,23 @@ Star Trek LCARS theme for Home Assistant
 
 Color codes and font choice from https://www.thelcars.com
     --thanks Jim Robertus!
-    
-# 💥DO NOT UPDATE TO CARD-MOD 4.0💥
-Home Assistant LCARS is built using the functionality of [Card Mod](https://github.com/thomasloven/lovelace-card-mod "card-mod"). Version 4.x of Card Mod includes numerous breaking changes to all themes, including Home Assistant LCARS. While we are working to update LCARS for these changes, users should continue to use Card Mod 3.4.6. If you have already installed Card Mod 4.x, you can redownload an older version by viewing the Card Mod page in HACS and click the japanese elipsis:
 
-<img width="195" height="229" alt="image" src="https://github.com/user-attachments/assets/cf813aff-3308-4e86-ac9f-a6783386c849" />
+# 💥BREAKING CHANGES IN 4.0💥
+1. Home Assistant LCARS is built using the functionality of [Card Mod](https://github.com/thomasloven/lovelace-card-mod "card-mod"). Version 4.x of Card Mod includes numerous breaking changes to all themes, including Home Assistant LCARS. Most standard cards using this theme should update without any issues. Any cards with custom css applied using ``card-mod: style:`` may need to be manually updated to Card Mod's new element selectors (i.e. ``:host`` instead of ``ha-card``). See Card Mod's [README](https://github.com/thomasloven/lovelace-card-mod/blob/master/README.md) and [README-application](https://github.com/thomasloven/lovelace-card-mod/blob/master/README-application.md) as starting points.
+2. Because of the changes mentioned above, a few cards are no longer supported or need a special workaround. The workaround is to place the card inside a vertical or horizontal stack and applying the class `middle-blank` to the stack. Cards known to have issues include:
+   - ❌ html-card: unsupported
+   - ❌ html-template-card: unsupported
+   - ⚠️ calendar: stack workaround required
+   - ⚠️ auto-entities: stack workaround required
+   - ⚠️ custom-button-card: stack workaround required for some theme classes
+3. Bar cards can now be scaled by changing the font size of the card (see [Tips and Tricks](#custom-bar-sizes) below). Because of this, the markdown **must not** include any font sizing, such as the header ``#``.
 
-While downloading Card Mod, you will see a version selection window: 
+# 🎉NEW FEATURES IN 4.0🎉
+1. Support for several new cards has been added, including:
+  - Themed stacks. Vertical and horizontal stacks can now be themed. Examples include a horizontal stack header filled with buttons
+<img width="525" height="90" alt="image" src="https://github.com/user-attachments/assets/2ed71eb1-7de2-46be-a3ce-8b8183abd8fe" />
 
-<img width="520" height="238" alt="image" src="https://github.com/user-attachments/assets/7702ed74-a8b9-40a5-a974-3b4c82f6eeb6" />
-
-Use the "Need a different version?" dropdown to select version 3.4.6:
-
-<img width="582" height="855" alt="image" src="https://github.com/user-attachments/assets/98234ba4-5253-47dc-9c82-e6a4c462d8b8" />
-
-After changing which version of Card Mod is installed, you will need to force a hard refresh of your browser to clear the cache. Instructions for that depend on your browser and can be found online. 
-
-# 💥BREAKING CHANGES IN 3.0💥
-Version 3.0 changes `header`, `middle`, `footer`, and oriented-buttons such as `button-lozenge` and `button-capped` to `header-left`, `middle-left`, `footer-left`, `button-lozenge-left`, etc. I implemented this change because Home Assistant has started using classes called `.header`, `.footer`, etc. and it was causing conflicts in styles and breaking some parts of the UI. Given that these class names were created in the first iteration of HA-LCARS, before there were other-oriented classes like `-right` and `-contained`, it seemed responsible to update the convention to be consistent with the rest of the theme styles and ensure compatibility with future HA updates. I know this will take some time to update your dashboards, and I apologize for the inconvenience, but it is necessary at this point. If you have insanely complicated dashboards, I recommend copying your whole-dashboard yaml into a tool like VSCode and using its advanced find/replace capabilities to update the dashboards. Full list of changed classes:
-
-- `header` to `header-left`
-- `middle` to `middle-left`
-- `footer` to `footer-left`
-- `button-lozenge` to `button-lozenge-left`
-- `button-bullet` to `button-bullet-left`
-- `button-capped` to `button-capped-left`
+  - Buttons as bars. New classes ``button-bar-left`` and ``button-bar-right`` allow buttons to appear like the bars, including icons and states. Thanks [@bobzer](https://github.com/bobzer) for the idea!
 
 ## Examples
 ### Dashboard
@@ -59,7 +51,6 @@ I am most definitely not a real web developer, and fumbled my way into the initi
 2. Make sure in your **configuration.yaml** file you have the following:
 ```yaml
 frontend:
-  javascript_version: latest
   themes: !include_dir_merge_named themes
   extra_module_url:
     - /local/community/lovelace-card-mod/card-mod.js #or wherever you ended up putting card-mod.js
@@ -488,7 +479,7 @@ card_mod:
 
 </td>
 <td>
-<img width="350" alt="image" src="https://github.com/user-attachments/assets/82de2ee8-60d6-4ea8-8d3d-49ce2cfc8a5f" />
+<img width="689" height="181" alt="image" src="https://github.com/user-attachments/assets/58a9f540-56f3-4b4d-acfc-02e19967fda8" />
 </td>
 </tr>
 </table>
@@ -499,7 +490,8 @@ Custom themes can be created down at the bottom of `lcars.yaml`. Or, search for 
 
 ## Tips and tricks
 _If you have anything to add here, create a PR with your tip and I will review it to add to this list._
-* Make use of Vertical Stack cards. Whether in this theme or any other theme, they are invaluable for keeping dashboards organized. In LCARS, a Vertical Stack card should contain a Markdown card first with the title of the group and the `header` class applied, then any number of `middle` class cards and `button` class single buttons or in horizontal stacks or grids, and then finally a `footer` class applied to the last card in the vertical stack. You can see this formation in all of the screenshots at the top of this page. Here's an example Vertical Stack card and all of its contents:
+#### Stacks and stacks and stacks
+Make use of Vertical Stack cards. Whether in this theme or any other theme, they are invaluable for keeping dashboards organized. In LCARS, a Vertical Stack card should contain a Markdown card first with the title of the group and the `header` class applied, then any number of `middle` class cards and `button` class single buttons or in horizontal stacks or grids, and then finally a `footer` class applied to the last card in the vertical stack. You can see this formation in all of the screenshots at the top of this page. Here's an example Vertical Stack card and all of its contents:
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -531,10 +523,12 @@ cards:
 </tr>
 </table>
 
-* You can create a blank header or footer by creating a Markdown card and putting `## &nbsp;` in the Content field, and change the size by modifying the number of `#`. It looks like this:
+#### Blank Headers
+You can create a blank header or footer by creating a Markdown card and putting `## &nbsp;` in the Content field, and change the size by modifying the number of `#`. It looks like this:
 ![image](https://user-images.githubusercontent.com/38670315/210792537-f25c740d-1ad3-4ac7-8a31-59ad04cf38fb.png)
 
-* If you are only applying the theme to a dashboard or a card, the font won't render on the cards. You can brute-force loading the font on a per-card basis by adding the following style to every card:
+#### Font on a single dashboard
+If you are only applying the theme to a dashboard or a card, the font won't render on the cards. You can brute-force loading the font on a per-card basis by adding the following style to every card:
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -561,9 +555,11 @@ card_mod:
 </tr>
 </table>
 
-* If you want to host the font yourself, such as running a Home Assistant instance in a car or on an air-gapped network, you can learn how to download the font and install it from issue https://github.com/th3jesta/ha-lcars/issues/69.
+#### Font on air-gapped installs
+If you want to host the font yourself, such as running a Home Assistant instance in a car or on an air-gapped network, you can learn how to download the font and install it from issue https://github.com/th3jesta/ha-lcars/issues/69.
 
-* You can switch the alignment of text in a card, such as the markdown card for `header-right`, by adding custom CSS per card like so:
+#### Right-aligned text
+You can switch the alignment of text in a card, such as the markdown card for `header-right`, by adding custom CSS per card like so:
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -587,7 +583,8 @@ card_mod:
 </tr>
 </table>
 
-* You can set a button's background color to the color of the light by adding custom CSS per card like so:
+#### Button Background Colors
+You can set a button's background color to the color of the light by adding custom CSS per card like so:
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -619,10 +616,50 @@ card_mod:
 </tr>
 </table>
 
+#### Custom Bar Sizes
+You can the size of a bar card by scaling the font size of the card like so:
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+type: vertical-stack
+cards:
+  - type: markdown
+    content: Defiant Class Bar
+    card_mod:
+      class: bar-left
+      style: |
+        :host {
+          font-size: 16px !important;
+        }
+  - type: markdown
+    content: Constitution Class Bar
+    card_mod:
+      class: bar-left
+  - type: markdown
+    content: Galaxy Class Bar
+    card_mod:
+      class: bar-left
+      style: |
+        :host {
+          font-size: 64px !important;
+        }
+```
+
+</td>
+<td>
+<img width="793" height="135" alt="image" src="https://github.com/user-attachments/assets/d1d992b0-608e-43f0-b17a-614b7a366435" />
+</td>
+</tr>
+</table>
+
 ## Known issues
 * Font and sidebar and header CSS styles only load when a dashboard has been loaded first. If you navigate directly to a non-dashboard page without loading a dashboard first, things will look pretty awful, though still functional. Simply load a dashboard and hit the back button. This is a quirk of the [card-mod](https://github.com/thomasloven/lovelace-card-mod) addon on which this theme relies, so it's outside my ability to fix.
-* card-mod classes do not work with Vertical Stack and Horizontal Stacks cards (though they do work with the cards they contain). This is a quirk of the [card-mod](https://github.com/thomasloven/lovelace-card-mod) addon on which this theme relies, so it's outside my ability to fix. There is, however, a hacky workaround I have identified though have opted to not include at this time. Please submit a feature request if you would like to see this included.
-* Menu pages like Development Tools and Profile are functional, but not great. Unfortunately, there's not much I can do to address this as card-mod does not provide a method to change these pages. Issues raised for anything comepletely broken and unsuable that I may have missed are welcome, as are PRs to make to make things better.
+* Menu pages like Development Tools and Profile are functional, but not great. Unfortunately, there's not much I can do to address this as card-mod does not provide a method to change some of these pages. Issues raised for anything comepletely broken and unsuable that I may have missed are welcome, as are PRs to make to make things better.
 * Sometimes when a dashboard loads, not all CSS styles will load and all or most cards will end up looking like the `button-large` cards. This is more prevalent on large dashboards. Try reloading the page, and if that doesn't work, load a smaller dashboard and then go back to the offending dashboard.
 
 ## Acknowledgements
@@ -635,6 +672,7 @@ card_mod:
 - Thanks to @z3r0l1nk for light color-matching button trick!
 - Thanks to @smugleafdev for the right-justified text tip!
 - Thanks to @Routhinator (via Discord) for the right-footer fix!
+- Thanks to @bobzer for the button-bar idea!
 
 ## Links
 **Discord:** https://discord.gg/gGxud6Y6WJ
