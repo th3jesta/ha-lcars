@@ -10,20 +10,21 @@ Color codes and font choice from https://www.thelcars.com
 
 # 💥BREAKING CHANGES IN 4.0💥
 1. Home Assistant LCARS is built using the functionality of [Card Mod](https://github.com/thomasloven/lovelace-card-mod "card-mod"). Version 4.x of Card Mod includes numerous breaking changes to all themes, including Home Assistant LCARS. Most standard cards using this theme should update without any issues. Any cards with custom css applied using ``card-mod: style:`` may need to be manually updated to Card Mod's new element selectors (i.e. ``:host`` instead of ``ha-card``). See Card Mod's [README](https://github.com/thomasloven/lovelace-card-mod/blob/master/README.md) and [README-application](https://github.com/thomasloven/lovelace-card-mod/blob/master/README-application.md) as starting points.
-2. Because of the changes mentioned above, a few cards are no longer supported or need a special workaround. The workaround is to place the card inside a vertical or horizontal stack and applying the class `middle-blank` to the stack. Cards known to have issues include:
+2. Because of the changes mentioned above, a few cards are no longer supported or need a special workaround. The workaround is to place the card inside a vertical or horizontal stack. This changes how Card Mod sees the card and applies the theme. Cards known to have issues include:
    - ❌ html-card: unsupported
    - ❌ html-template-card: unsupported
-   - ⚠️ calendar: stack workaround required
-   - ⚠️ auto-entities: stack workaround required
-   - ⚠️ custom-button-card: stack workaround required for some theme classes
+   - ⚠️ custom-button-card: stack workaround required for some theme classes. Apply the desired theme class to the stack. Use Custom Button Cards style capabilities to make the button look how you want it.
 3. Bar cards can now be scaled by changing the font size of the card (see [Tips and Tricks](#custom-bar-sizes) below). Because of this, the markdown **must not** include any font sizing, such as the header ``#``.
+4. This is an almost complete rewrite, including several css optimizations. Dashboards designed using previous versions may need to be updated slightly due to small changes in spacing and padding. 
 
 # 🎉NEW FEATURES IN 4.0🎉
-1. Support for several new cards has been added, including:
-  - Themed stacks. Vertical and horizontal stacks can now be themed. Examples include a horizontal stack header filled with buttons
-<img width="525" height="90" alt="image" src="https://github.com/user-attachments/assets/2ed71eb1-7de2-46be-a3ce-8b8183abd8fe" />
+### Themed stacks. 
+Vertical and horizontal stacks can now be themed. Examples include a horizontal stack header filled with buttons
+<p align="center"><img width="525" height="90" alt="image" src="https://github.com/user-attachments/assets/2ed71eb1-7de2-46be-a3ce-8b8183abd8fe" /></p>
 
-  - Buttons as bars. New classes ``button-bar-left`` and ``button-bar-right`` allow buttons to appear like the bars, including icons and states. Thanks [@bobzer](https://github.com/bobzer) for the idea!
+### Buttons as bars
+New classes ``button-bar-left`` and ``button-bar-right`` allow buttons to appear like the bars, including icons and states. Thanks [@bobzer](https://github.com/bobzer) for the idea!
+<p align="center"><img width="635" height="138" alt="image" src="https://github.com/user-attachments/assets/17f72d65-9f86-419f-b8f8-f685e64481c7" /></p>
 
 ## Examples
 ### Dashboard
@@ -447,7 +448,42 @@ card_mod:
 </tr>
 </table>
 
-10. `bar-left` `bar-right` `bar-large-left` `bar-large-right` - standalone header-type bar; only intended for and tested with Markdown and HTML cards
+9. `button-bar-left` `button-bar-right` - button in the style of a header bar. Uses large text and includes the icon and state of shown; same column restrictions apply
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+show_name: true
+show_icon: true
+show_state: true
+type: button
+entity: light.porch_light
+name: Porch
+card_mod:
+  class: button-bar-left
+
+show_name: true
+show_icon: true
+show_state: true
+type: button
+entity: light.garage_light
+name: Garage
+card_mod:
+  class: button-bar-right
+```
+
+</td>
+<td>
+<img width="635" height="138" alt="image" src="https://github.com/user-attachments/assets/17f72d65-9f86-419f-b8f8-f685e64481c7" />
+</td>
+</tr>
+</table>
+
+10. `bar-left` `bar-right` `bar-large-left` `bar-large-right` - standalone header-type bar; only intended for and tested with Markdown cards. Comes with a standard and large versions, see [Tips & Tricks](#custom-bar-sizes) for custom sizing
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -457,22 +493,22 @@ card_mod:
     
 ```yaml
 type: markdown
-content: '# bar-left'
+content: 'bar-left'
 card_mod:
   class: bar-left
   
 type: markdown
-content: '# bar-large-left'
+content: 'bar-large-left'
 card_mod:
   class: bar-large-left
   
 type: markdown
-content: '# bar-right'
+content: 'bar-right'
 card_mod:
   class: bar-right
   
 type: markdown
-content: '# bar-large-right'
+content: 'bar-large-right'
 card_mod:
   class: bar-large-right
 ```
@@ -519,6 +555,131 @@ cards:
 </td>
 <td>
 <img width="308" alt="image" src="https://user-images.githubusercontent.com/38670315/210189965-b73662a8-5390-46ea-9450-b0043e6d2547.png">
+</td>
+</tr>
+</table>
+
+Additionally, since version 4.0, vertical and horizontal stacks can be themed. This allows multiple cards to be stacked evenly within LCARS framing:
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+type: vertical-stack
+grid_options:
+  columns: 48
+  rows: auto
+card_mod:
+  class: header-left
+cards:
+  - type: heading
+    heading_style: title
+    heading: Stack Example
+    icon: fa6-solid:cubes-stacked
+    badges:
+      - type: entity
+        entity: input_number.lcars_horizontal
+      - type: entity
+        entity: input_number.lcars_vertical
+      - type: entity
+        entity: input_boolean.lcars_texture
+    card_mod:
+      style: ":host .title {font-size:2em;}"
+  - type: horizontal-stack
+    card_mod:
+      class: header-right
+    cards:
+      - show_name: true
+        show_icon: true
+        type: button
+        entity: light.east_flood_lights
+        card_mod:
+          class: button-lozenge-left
+      - show_name: true
+        show_icon: true
+        type: button
+        entity: light.south_flood_lights
+        card_mod:
+          class: button-lozenge-right
+  - type: horizontal-stack
+    card_mod:
+      class: middle-right
+    cards:
+      - show_name: true
+        show_icon: true
+        type: button
+        entity: light.porch_light
+        card_mod:
+          class: button-lozenge-left
+      - show_name: true
+        show_icon: true
+        type: button
+        entity: light.garage_light
+        card_mod:
+          class: button-lozenge-right
+  - type: horizontal-stack
+    card_mod:
+      class: footer-right
+    cards:
+      - show_name: true
+        show_icon: true
+        type: button
+        entity: light.front_lights
+        card_mod:
+          class: button-lozenge-left
+      - show_name: true
+        show_icon: true
+        type: button
+        entity: light.stoop_light
+        card_mod:
+          class: button-lozenge-right
+```
+
+</td>
+<td>
+<img width="1048" height="321" alt="image" src="https://github.com/user-attachments/assets/cafc28e0-2a90-4062-8bd4-7a3a6f25ae40" />
+</td>
+</tr>
+</table>
+
+#### Button Cards in Section View
+When using Home Assistant's Sections layout (currently the default for new dashboards), button cards are forced to be two rows tall. While LCARS button themes will work, they will look bigger than in the examples. The size can be corrected by setting the ``grid_options: rows: auto`` as such:  
+
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+  - type: button
+    show_name: true
+    show_icon: true
+    show_state: true
+    entity: light.front_lights
+    card_mod:
+      class: button-lozenge-left
+    grid_options:
+      columns: full
+  - type: button
+    show_name: true
+    show_icon: true
+    show_state: true
+    entity: light.front_lights
+    card_mod:
+      class: button-lozenge-left
+    grid_options:
+      columns: full
+      rows: auto
+```
+
+</td>
+<td>
+<img width="518" height="200" alt="image" src="https://github.com/user-attachments/assets/3c6827e9-daa8-46ed-9a09-3bf326a3c818" />
 </td>
 </tr>
 </table>
