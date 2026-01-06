@@ -645,7 +645,7 @@ cards:
 </tr>
 </table>
 
-#### Button Cards in Section View
+#### Button Cards in Section Layout
 When using Home Assistant's Sections layout (currently the default for new dashboards), button cards are forced to be two rows tall. While LCARS button themes will work, they will look bigger than in the examples. The size can be corrected by setting the ``grid_options: rows: auto`` as such:  
 
 <table>
@@ -656,30 +656,87 @@ When using Home Assistant's Sections layout (currently the default for new dashb
 <td>
     
 ```yaml
-  - type: button
-    show_name: true
-    show_icon: true
-    show_state: true
-    entity: light.front_lights
-    card_mod:
-      class: button-lozenge-left
-    grid_options:
-      columns: full
-  - type: button
-    show_name: true
-    show_icon: true
-    show_state: true
-    entity: light.front_lights
-    card_mod:
-      class: button-lozenge-left
-    grid_options:
-      columns: full
-      rows: auto
+type: button
+show_name: true
+show_icon: true
+show_state: true
+entity: light.front_lights
+card_mod:
+  class: button-lozenge-left
+grid_options:
+  columns: full
+
+type: button
+show_name: true
+show_icon: true
+show_state: true
+entity: light.front_lights
+card_mod:
+  class: button-lozenge-left
+grid_options:
+  columns: full
+  rows: auto
 ```
 
 </td>
 <td>
 <img width="518" height="200" alt="image" src="https://github.com/user-attachments/assets/3c6827e9-daa8-46ed-9a09-3bf326a3c818" />
+</td>
+</tr>
+</table>
+
+#### Section Layout Headings
+By default, Home Assistant creates a Heading Card at the top of each Section. This card can take the header and bar classes!
+
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+type: heading
+heading_style: title
+grid_options:
+  columns: 18
+  rows: auto
+heading: LCARS Settings
+icon: local:Star Trek/starfleet-star-badge
+badges:
+  - type: entity
+    entity: input_number.lcars_horizontal
+  - type: entity
+    entity: input_number.lcars_vertical
+  - type: entity
+    entity: input_boolean.lcars_texture
+card_mod:
+  class: header-contained
+  style: |
+    :host .title { font-size: 2em;}
+
+type: heading
+icon: local:Star Trek/starfleet-star-badge
+heading: LCARS Settings
+heading_style: title
+badges:
+  - type: entity
+    entity: input_number.lcars_vertical
+  - type: entity
+    entity: input_number.lcars_horizontal
+  - type: entity
+    entity: input_boolean.lcars_texture
+card_mod:
+  class: bar-left
+grid_options:
+  columns: 18
+  rows: auto
+```
+
+</td>
+<td>
+<img width="793" height="116" alt="image" src="https://github.com/user-attachments/assets/b88d95a4-9f2a-4147-81e9-dafb2e09bc75" />
+
 </td>
 </tr>
 </table>
