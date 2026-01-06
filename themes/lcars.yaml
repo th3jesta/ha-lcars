@@ -309,6 +309,7 @@
         --lcars-horizontal-border: {{ states('input_number.lcars_horizontal') if has_value('input_number.lcars_horizontal') else 10 }}px !important;
         --lcars-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
         --lcars-middle-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
+        height: 100%;
       }
       :host > ha-card > .card-actions,
       :host > ha-card > .card-actions .position-badge {
@@ -1163,7 +1164,10 @@
             padding: 0px;
           }
         }
-        
+
+        .title { 
+          font-size: inherit !important;
+        }
       }
       
       :host(.bar-large-left),
