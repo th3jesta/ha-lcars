@@ -1091,7 +1091,8 @@
               height: 100%;
               background-color: black;
               padding-inline: 6px;
-              padding-bottom: 0.1em;
+              padding-bottom: 0.05em;
+              margin-top: -0.5em;
             }
           }
           
