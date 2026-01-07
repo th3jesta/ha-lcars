@@ -309,7 +309,10 @@
         --lcars-horizontal-border: {{ states('input_number.lcars_horizontal') if has_value('input_number.lcars_horizontal') else 10 }}px !important;
         --lcars-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
         --lcars-middle-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
-        height: 100%;
+        &:not(.type-undefined) {
+          height: 100%;
+        }
+        
       }
       :host > ha-card > .card-actions,
       :host > ha-card > .card-actions .position-badge {
@@ -478,7 +481,7 @@
                  .footer-open
       ):not(div > *) {
         display: block !important;
-        padding: 0px;
+        padding: 0px;          
         box-sizing: border-box;
         border-radius: 0px;
         border: 0px solid var(--lcars-card-bottom-color);
@@ -1227,6 +1230,13 @@
         ha-full-calendar {
           --card-background-color: black;
           --table-header-background-color: var(--lcars-dark-gray);
+        }
+      }
+
+      /* ----------- HTML Template Card ---------------- */
+      :host, ha-card {
+        &:is(.type-custom-html-template-card, .type-custom-html-card) {
+          padding:0px !important;
         }
       }
 
