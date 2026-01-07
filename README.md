@@ -11,8 +11,6 @@ Color codes and font choice from https://www.thelcars.com
 # 💥BREAKING CHANGES IN 4.0💥
 1. Home Assistant LCARS is built using the functionality of [Card Mod](https://github.com/thomasloven/lovelace-card-mod "card-mod"). Version 4.x of Card Mod includes numerous breaking changes to all themes, including Home Assistant LCARS. Most standard cards using this theme should update without any issues. Any cards with custom css applied using ``card-mod: style:`` may need to be manually updated to Card Mod's new element selectors (i.e. ``:host`` instead of ``ha-card``). See Card Mod's [README](https://github.com/thomasloven/lovelace-card-mod/blob/master/README.md) and [README-application](https://github.com/thomasloven/lovelace-card-mod/blob/master/README-application.md) as starting points.
 2. Because of the changes mentioned above, a few cards are no longer supported or need a special workaround. The workaround is to place the card inside a vertical or horizontal stack. This changes how Card Mod sees the card and applies the theme. Cards known to have issues include:
-   - ❌ html-card: unsupported
-   - ❌ html-template-card: unsupported
    - ⚠️ custom-button-card: stack workaround required for some theme classes. Apply the desired theme class to the stack. Use Custom Button Cards style capabilities to make the button look how you want it.
 3. Bar cards can now be scaled by changing the font size of the card (see [Tips and Tricks](#custom-bar-sizes) below). Because of this, the markdown **must not** include any font sizing, such as the header ``#``.
 4. This is an almost complete rewrite, including several css optimizations. Dashboards designed using previous versions may need to be updated slightly due to small changes in spacing and padding. 
