@@ -1221,6 +1221,15 @@
       /*               Specific Card Fixes               */
       /* ----------------------------------------------- */
 
+      /* ----------- Calendar Card --------------------- */
+      :host(.type-calendar),
+      ha-card:is(.type-calendar) {
+        ha-full-calendar {
+          --card-background-color: black;
+          --table-header-background-color: var(--lcars-dark-gray);
+        }
+      }
+
       /* ----------- Weather Card ---------------------- */
       :host(.type-custom-weather-card) > ha-card {
         padding-top: 12px !important;
