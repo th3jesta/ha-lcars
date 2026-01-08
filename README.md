@@ -21,6 +21,10 @@ Use the "Need a different version?" dropdown to select version 3.4.6:
 
 <img width="582" height="855" alt="image" src="https://github.com/user-attachments/assets/98234ba4-5253-47dc-9c82-e6a4c462d8b8" />
 
+In some cases, Home Assistant creates an archived copy of Card Mod and continues to use the copy even after you download a new version. So you may also need to delete ``card-mod.js.gz`` from the ``lovelace-card-mod`` directory.
+
+<img width="152" height="87" alt="image" src="https://github.com/user-attachments/assets/d31006ea-2755-47c4-ae90-ef54e7409730" />
+
 After changing which version of Card Mod is installed, you will need to force a hard refresh of your browser to clear the cache. Instructions for that depend on your browser and can be found online. 
 
 # 💥BREAKING CHANGES IN 3.0💥
