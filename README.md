@@ -644,3 +644,11 @@ card_mod:
 **Discord:** https://discord.gg/gGxud6Y6WJ
 
 **LCARS Resources:** https://www.thelcars.com
+
+## Attribution & Disclaimer
+
+LCARS design elements inspired by *Star Trek™* and adapted from resources at [thelcars.com](https://www.thelcars.com) by Jim Robertus.
+
+This project is a non-commercial fan production. *Star Trek* and all related marks, logos, and characters are solely owned by CBS Studios Inc. This fan production is not endorsed by, sponsored by, nor affiliated with CBS, Paramount Pictures, or any other *Star Trek* franchise. 
+
+No commercial exhibition or distribution is permitted. No alleged independent rights will be asserted against CBS or Paramount Pictures. This work is intended for personal and recreational use only.
