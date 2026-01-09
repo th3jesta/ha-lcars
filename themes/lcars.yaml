@@ -2196,8 +2196,6 @@ LCARS Navigation:
 
 LCARS 25C:
   card-mod-theme: LCARS 25C
-  # Custom colors
-  lcars-modern-light-gray: var(--lcars-starlight)
   <<: *lcars-variables
   <<: *base
   <<: *card-mod-css
