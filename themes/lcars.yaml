@@ -950,6 +950,7 @@
       :host(.button-bar-left),
       :host(.button-bar-right) {
 
+        > ha-card#container,
         > ha-card, 
         > #aspect-ratio > ha-card {
           min-height: 60px;
@@ -987,6 +988,18 @@
             align-items: center;
             color: black;
           }
+
+          /* Big Slider Card */
+          &:is(#container) {
+            > #slider {
+              right: calc((1 - var(--bsc-percent) / 100% ) * ( 100% - var(--lcars-vertical-border) - 6px));
+              left: calc(var(--lcars-vertical-border) + 6px);
+            }
+            > #content {
+              padding-left: calc(var(--lcars-vertical-border) + 18px);
+              justify-content: right;
+            }
+          }
         }
       }
       
@@ -998,6 +1011,7 @@
       :host(.button-capped-right),
       :host(.button-barrel-right) {
 
+        > ha-card#container,
         > ha-card, 
         > #aspect-ratio > ha-card {
 
@@ -1015,6 +1029,19 @@
             left: var(--lcars-vertical-border);
             padding-inline: 6px;
           }
+          
+          /* Big Slider Card */
+          &:is(#container) {
+            > #slider {
+              right: calc(100% - (var(--bsc-percent)/100%)*(100% - var(--lcars-vertical-border) - 6px));
+              left: 0;
+            }
+            > #content {
+              padding-left: var(--ha-card-border-radius);
+              padding-right: 0px;
+              justify-content: left;
+            }
+          }
         }
       }
 
@@ -1028,6 +1055,7 @@
       :host(.button-capped-right),
       :host(.button-bar-left),
       :host(.button-bar-right) {
+        > ha-card#container,
         > ha-card, 
         > #aspect-ratio > ha-card {
           border-top-right-radius: var(--ha-card-border-radius);
@@ -1040,6 +1068,7 @@
       :host(.button-capped-left),
       :host(.button-bar-left),
       :host(.button-bar-right) {
+        > ha-card#container,
         > ha-card, 
         > #aspect-ratio > ha-card {
       
@@ -1049,6 +1078,7 @@
       }
       :host(.button-lozenge-left), 
       :host(.button-bullet-left) {
+        > ha-card#container,
         > ha-card, 
         > #aspect-ratio > ha-card {
           > span {
@@ -1058,6 +1088,7 @@
       }
       :host(.button-lozenge-right), 
       :host(.button-bullet-right) {
+        > ha-card#container,
         > ha-card, 
         > #aspect-ratio > ha-card {
           > span {
@@ -1071,6 +1102,7 @@
       /* ----------------------------------------------- */
       :host(.button-bar-left),
       :host(.button-bar-right) {
+        > ha-card#container,
         > ha-card, 
         > #aspect-ratio > ha-card {
 
@@ -1103,10 +1135,27 @@
           > ha-state-icon {
             font-size: 0;
           }
+          
+          /* Big Slider Card */
+          &:is(#container) {
+            > #slider {
+              right: calc(100% - (var(--bsc-percent)/100%)*(100% - var(--lcars-vertical-border) - 6px));
+              left: 0;
+            }
+            > #content {
+              position: relative;
+              padding-right: var(--ha-card-border-radius);
+              padding-left: 18px;
+              padding-bottom: 0.1em;
+              justify-content: left;
+            }
+          }
+          
         }
       }
 
       :host(.button-bar-right) {
+        > ha-card#container,
         > ha-card, 
         > #aspect-ratio > ha-card {
 
@@ -1125,7 +1174,21 @@
             border-right: 0px;
             border-left: black solid 6px;
           }
+
+          /* Big Slider Card */
+          &:is(#container) {
+            > #slider {
+              right: calc(100% - (var(--bsc-percent)/100%)*(100% - var(--lcars-vertical-border) - 6px));
+              left: 0;
+            }
+            > #content {
+              padding-left: var(--ha-card-border-radius);
+              padding-right: 18px;
+              justify-content: right;
+            }
+          }
         }
+        
       }
 
 
