@@ -24,6 +24,12 @@ Vertical and horizontal stacks can now be themed. Examples include a horizontal 
 New classes ``button-bar-left`` and ``button-bar-right`` allow buttons to appear like the bars, including icons and states. Thanks [@bobzer](https://github.com/bobzer) for the idea!
 <p align="center"><img width="635" height="138" alt="image" src="https://github.com/user-attachments/assets/17f72d65-9f86-419f-b8f8-f685e64481c7" /></p>
 
+### LCARS Style Sidebar
+The sidebar menu has been given a LCARS facelift! Thanks @3of9 for this stunning work!  
+*Not all of the documentation images have been updated to reflect this addition.*
+<p align="center"><img width="185" alt="image" src="https://github.com/user-attachments/assets/b9e1e417-e597-4190-9fa8-d7d29792fb34" /></p>
+
+
 ## Examples
 ### Dashboard
 ![image](https://user-images.githubusercontent.com/38670315/212081440-039e5481-ca2b-4c08-814c-2a83d6a5a377.png "Automations for hot Earl Grey Tea not included.")
@@ -57,22 +63,38 @@ frontend:
 3. Under the Home Assistant **Config** folder, create a new folder named **themes**. 
 4. **Restart** Home assistant to apply the changes.
 
-#### II. Add the font and JavaScript file
+#### II. Add the fonts
 
-This theme requires you to add both the `Antonio` font and `lcars.js` file as resources to your lovelace configuration. 
+This theme requires you to add either the `Tungsten` font or the `Antonio` font. If both are available, the theme will use Tungsten. Tungsten is the actual font used in the later seasons of *Picard*. Antonio is a very similar and is slightly less horizontally compressed. 
 
-Navigate to `Settings` → `Dashboards` → `3-dot menu` → `Resources` and add the following new Resources:
-1. `https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap` and select 'stylesheet'
-2. `https://cdn.jsdelivr.net/gh/th3jesta/ha-lcars@js-main/lcars.js` and select javascript
+A. Tungsten is available free for personal use from [Font Dowloader](https://fontdownloader.net/tungsten-font/).  
+   1. Download and unzip the font files  
+   2. Place `Tungsten-Medium.woff2` and `Tungsten-Bold.woff2` in `<home-assistant-directory>/www/community/fonts/`  
+   3. Download Tungsten.css from the HA-LCARS GitHub and place it also in `<home-assistant-directory>/www/community/fonts/`  
+   4. Navigate to `Settings` → `Dashboards` → `3-dot menu` → `Resources` and add the following new Resources:  
+      `/hacsfiles/fonts/tungsten.css` and select 'stylesheet'  
 
 ##### -OR-
-If you don't trust someone's random JavaScript hosted on a CDN (I get it), you can download the `lcars.js` file directly from GitHub, audit it yourself, and place it in your `<home-assistant-directory>/www/community/`; **this will need to be done with every HA-LCARS update.**
+
+B. Antonio is available from Google Fonts and can be added as a Dashboard Resource
+   1. Navigate to `Settings` → `Dashboards` → `3-dot menu` → `Resources` and add the following new Resources:  
+       `https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap` and select 'stylesheet'
+
+#### III. Add the Javascript file
+
+This theme requires you to add a javascript file to your Dashboard Resources
+
+A. Navigate to `Settings` → `Dashboards` → `3-dot menu` → `Resources` and add the following new Resources:  
+   `https://cdn.jsdelivr.net/gh/th3jesta/ha-lcars@js-main/lcars.js` and select javascript
+
+##### -OR-
+
+B. If you don't trust someone's random JavaScript hosted on a CDN (I get it), you can download the `lcars.js` file directly from GitHub, audit it yourself, and place it in your `<home-assistant-directory>/www/community/`; **this will need to be done with every HA-LCARS update.**
 **Do not add `/local/community/lcars.js` to `extra_module_url`; it will not work there.**
 
-
-**IF YOU USE CLOUDFLARE IN FRONT OF YOUR SITE:**
-Purge your site cache in CloudFlare (Purge Cache under Quick Actions) anytime you update the local file or if you are using the JSDelivr link and a new version of HA-LCARS is released. This needs to happen whether you are using the JSDelivr link or putting it in your www folder. Unless you tell it not to, CloudFlare caches anything in your site that it can.
-
+> [!WARNING]
+> **IF YOU USE CLOUDFLARE IN FRONT OF YOUR SITE:**  
+> Purge your site cache in CloudFlare (Purge Cache under Quick Actions) anytime you update the local file or if you are using the JSDelivr link and a new version of HA-LCARS is released. This needs to happen whether you are using the JSDelivr link or putting it in your www folder. Unless you tell it not to, CloudFlare caches anything in your site that it can.
 #### III. Set up the clock
 In order for the clock to work, you need to set up the Time & Date integration by adding the following to your configuration.yaml:
 ```yaml
@@ -889,6 +911,8 @@ cards:
 - Thanks to @smugleafdev for the right-justified text tip!
 - Thanks to @Routhinator (via Discord) for the right-footer fix!
 - Thanks to @bobzer for the button-bar idea!
+- Thanks to @3of9 for the sidebar and themes!
+- Thanks to @adejong5 for the v.4 rewrite!
 
 ## Links
 **Discord:** https://discord.gg/gGxud6Y6WJ
