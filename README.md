@@ -9,14 +9,14 @@ Color codes and font choice from https://www.thelcars.com
     --thanks Jim Robertus!
 
 # 💥BREAKING CHANGES IN 4.0💥
-1. Home Assistant LCARS is built using the functionality of [Card Mod](https://github.com/thomasloven/lovelace-card-mod "card-mod"). Version 4.x of Card Mod includes numerous breaking changes to all themes, including Home Assistant LCARS. Most standard cards using this theme should update without any issues. Any cards with custom css applied using ``card-mod: style:`` may need to be manually updated to Card Mod's new element selectors (i.e. ``:host`` instead of ``ha-card``). See Card Mod's [README](https://github.com/thomasloven/lovelace-card-mod/blob/master/README.md) and [README-application](https://github.com/thomasloven/lovelace-card-mod/blob/master/README-application.md) as starting points.
-2. Because of the changes mentioned above, a few cards are no longer supported or need a special workaround. The workaround is to place the card inside a vertical or horizontal stack. This changes how Card Mod sees the card and applies the theme. Cards known to have issues include:
+1. Home Assistant LCARS is built using the functionality of [card-mod](https://github.com/thomasloven/lovelace-card-mod "card-mod"). Version 4.x of card-mod includes numerous breaking changes to all themes, including Home Assistant LCARS. Most standard cards using this theme should update without any issues. Any cards with custom css applied using ``card-mod: style:`` may need to be manually updated to card-mod's new element selectors (i.e. ``hui-card`` instead of ``ha-card``). See card-mod's [README](https://github.com/thomasloven/lovelace-card-mod/blob/master/README.md) and [README-application](https://github.com/thomasloven/lovelace-card-mod/blob/master/README-application.md) as starting points.
+2. Because of the changes mentioned above, a few cards are no longer supported or need a special workaround. The workaround is to place the card inside a vertical or horizontal stack. This changes how card-mod sees the card and applies the theme. Cards known to have issues include:
    - ⚠️ custom-button-card: stack workaround required for some theme classes. Apply the desired theme class to the stack. Use Custom Button Cards style capabilities to make the button look how you want it.
 3. Bar cards can now be scaled by changing the font size of the card (see [Tips and Tricks](#custom-bar-sizes) below). Because of this, the markdown **must not** include any font sizing, such as the header ``#``.
 4. This is an almost complete rewrite, including several css optimizations. Dashboards designed using previous versions may need to be updated slightly due to small changes in spacing and padding. 
 
 # 🎉NEW FEATURES IN 4.0🎉
-### Themed stacks. 
+### Themed stacks 
 Vertical and horizontal stacks can now be themed. Examples include a horizontal stack header filled with buttons
 <p align="center"><img width="525" height="90" alt="image" src="https://github.com/user-attachments/assets/2ed71eb1-7de2-46be-a3ce-8b8183abd8fe" /></p>
 
@@ -53,21 +53,21 @@ I am most definitely not a real web developer, and fumbled my way into the initi
 
 1. Install `card-mod` per the instructions on its [GitHub page](https://github.com/thomasloven/lovelace-card-mod "card-mod").
 
-2. Make sure in your **configuration.yaml** file you have the following:
+2. Make sure in your ``configuration.yaml`` file you have the following:
 ```yaml
 frontend:
   themes: !include_dir_merge_named themes
   extra_module_url:
     - /local/community/lovelace-card-mod/card-mod.js #or wherever you ended up putting card-mod.js
 ```
-3. Under the Home Assistant **Config** folder, create a new folder named **themes**. 
+3. Under the Home Assistant ``config`` folder, create a new folder named ``themes``   
 4. **Restart** Home assistant to apply the changes.
 
 #### II. Add the fonts
 
 This theme requires you to add either the `Tungsten` font or the `Antonio` font. If both are available, the theme will use Tungsten. Tungsten is the actual font used in the later seasons of *Picard*. Antonio is a very similar and is slightly less horizontally compressed. 
 
-A. Tungsten is available free for personal use from [Font Dowloader](https://fontdownloader.net/tungsten-font/).  
+A. Tungsten[^1] is available free for personal use from [Font Dowloader](https://fontdownloader.net/tungsten-font/).  
    1. Download and unzip the font files  
    2. Place `Tungsten-Medium.woff2` and `Tungsten-Bold.woff2` in `<home-assistant-directory>/www/community/fonts/`  
    3. Download Tungsten.css from the HA-LCARS GitHub and place it also in `<home-assistant-directory>/www/community/fonts/`  
@@ -76,7 +76,7 @@ A. Tungsten is available free for personal use from [Font Dowloader](https://fon
 
 ##### -OR-
 
-B. Antonio is available from Google Fonts and can be added as a Dashboard Resource
+B. Antonio[^2] is available from Google Fonts and can be added as a Dashboard Resource
    1. Navigate to `Settings` → `Dashboards` → `3-dot menu` → `Resources` and add the following new Resources:  
        `https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap` and select 'stylesheet'
 
@@ -118,7 +118,7 @@ https://www.home-assistant.io/integrations/time_date/
 
 
 #### IV. Create the entities
-This theme has two controls for sound and textures that require creating simple toggle entities. Create them by going to Settings > Devices & Services > Helpers and create two of type **Toggle** and two of type **Number** named as below:
+This theme has two controls for sound and textures that require creating simple toggle entities. Create them by going to ``Settings`` → ``Devices & Services`` → ``Helpers`` and create two of type **Toggle** and two of type **Number** named as below:
 - LCARS Sound (entity id should be `input_boolean.lcars_sound`)
 - LCARS Texture (entity id should be `input_boolean.lcars_texture`)
 - LCARS Vertical (entity id should be `input_number.lcars_vertical`)
@@ -127,7 +127,7 @@ This theme has two controls for sound and textures that require creating simple 
 - LCARS Horizontal (entity id should be `input_number.lcars_horizontal`)
     - Min value: 6
     - Max value: 60
-<img width="644" alt="image" src="https://github.com/user-attachments/assets/7fbd9425-65af-4729-85f2-d57c839c757f">
+<img width="644" alt="entities for LCARS sound, texture, and borders" src="https://github.com/user-attachments/assets/7fbd9425-65af-4729-85f2-d57c839c757f">
 
 These entities can be controlled directly from viewing the entity, or you can even add buttons to your dashboard to control them, just like any other entity. 
 
@@ -161,10 +161,11 @@ The theme includes some classes that can be added to cards like this to give the
 card_mod:
   class: header-left
 ```
-_The class names are only indications of what types of cards they were intended for, but the classes can be applied to any card you like. I cannot guarantee how well they will work outside of their intended uses, however._
+> [!NOTE]  
+> The class names are only indications of what types of cards they were intended for, but the classes can be applied to any card you like. I cannot guarantee how well they will work outside of their intended uses, however.
 
 The classes are as follows:
-1. `header-left` `header-right` `header-contained` `header-open` - top blue bar (in Default theme) meant for Markdown cards with one `H1` line that will start a section
+1. `header-left` `header-right` `header-contained` `header-open` - top blue bar (in Default theme) meant for Markdown and Heading cards and with one `H1` line that will start a section
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -293,7 +294,7 @@ card_mod:
 
 </td>
 <td>
-<img width="107" alt="image" src="https://user-images.githubusercontent.com/38670315/210178400-5d39e821-328f-4bd5-907d-1863dc2f7ff6.png">
+<img width="107" alt="small button" src="https://user-images.githubusercontent.com/38670315/210178400-5d39e821-328f-4bd5-907d-1863dc2f7ff6.png">
 </td>
 </tr>
 </table>
@@ -322,7 +323,7 @@ card_mod:
 
 </td>
 <td>
-<img width="318" alt="image" src="https://user-images.githubusercontent.com/38670315/210178438-59da5bce-4f86-4de6-94e3-830aa845293e.png">
+<img width="318" alt="large button" src="https://user-images.githubusercontent.com/38670315/210178438-59da5bce-4f86-4de6-94e3-830aa845293e.png">
 </td>
 </tr>
 </table>
@@ -358,7 +359,7 @@ card_mod:
 
 </td>
 <td>
-<img width="159" alt="image" src="https://user-images.githubusercontent.com/38670315/212760869-5a09e9c0-9d61-4b48-af3c-5040a82c1722.png">
+<img width="159" alt="lozenge button" src="https://user-images.githubusercontent.com/38670315/212760869-5a09e9c0-9d61-4b48-af3c-5040a82c1722.png">
 </td>
 </tr>
 </table>
@@ -393,7 +394,7 @@ card_mod:
 
 </td>
 <td>
-<img width="158" alt="image" src="https://user-images.githubusercontent.com/38670315/212761051-a9cb1cc8-b445-46d5-9270-171249f6d63f.png">
+<img width="158" alt="bullet button" src="https://user-images.githubusercontent.com/38670315/212761051-a9cb1cc8-b445-46d5-9270-171249f6d63f.png">
 </td>
 </tr>
 </table>
@@ -428,7 +429,7 @@ card_mod:
 
 </td>
 <td>
-<img width="164" alt="image" src="https://user-images.githubusercontent.com/38670315/213804819-a9949ad2-4b9c-4539-ae5a-075dec098b11.png">
+<img width="164" alt="capped button" src="https://user-images.githubusercontent.com/38670315/213804819-a9949ad2-4b9c-4539-ae5a-075dec098b11.png">
 </td>
 </tr>
 </table>
@@ -463,7 +464,7 @@ card_mod:
 
 </td>
 <td>
-<img width="198" alt="image" src="https://github.com/user-attachments/assets/89ab1a43-276f-43b8-84f2-d6853c2940df">
+<img width="198" alt="barrel button" src="https://github.com/user-attachments/assets/89ab1a43-276f-43b8-84f2-d6853c2940df">
 </td>
 </tr>
 </table>
@@ -498,12 +499,12 @@ card_mod:
 
 </td>
 <td>
-<img width="635" height="138" alt="image" src="https://github.com/user-attachments/assets/17f72d65-9f86-419f-b8f8-f685e64481c7" />
+<img width="635" height="138" alt="bar button" src="https://github.com/user-attachments/assets/17f72d65-9f86-419f-b8f8-f685e64481c7" />
 </td>
 </tr>
 </table>
 
-10. `bar-left` `bar-right` `bar-large-left` `bar-large-right` - standalone header-type bar; only intended for and tested with Markdown cards. Comes with a standard and large versions, see [Tips & Tricks](#custom-bar-sizes) for custom sizing
+10. `bar-left` `bar-right` `bar-large-left` `bar-large-right` - standalone header-type bar; only intended for and tested with Markdown and Heading cards. Comes with a standard and large versions, see [Tips & Tricks](#custom-bar-sizes) for custom sizing
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -535,7 +536,7 @@ card_mod:
 
 </td>
 <td>
-<img width="689" height="181" alt="image" src="https://github.com/user-attachments/assets/58a9f540-56f3-4b4d-acfc-02e19967fda8" />
+<img width="689" height="181" alt="bars" src="https://github.com/user-attachments/assets/58a9f540-56f3-4b4d-acfc-02e19967fda8" />
 </td>
 </tr>
 </table>
@@ -545,7 +546,9 @@ card_mod:
 Custom themes can be created down at the bottom of `lcars.yaml`. Or, search for "===THEMES", which will take you right there. To create your own theme, copy the LCARS Default section to the bottom of the file and change the `lcars-ui-*` and `lcars-card-*` variables to your liking, using the color references at the top of the file, [The LCARS website](https://www.thelcars.com/colors.php), or define your own.
 
 ## Tips and tricks
-_If you have anything to add here, create a PR with your tip and I will review it to add to this list._
+> [!NOTE]  
+> If you have anything to add here, create a PR with your tip and I will review it to add to this list.
+
 #### Stacks and stacks and stacks
 Make use of Vertical Stack cards. Whether in this theme or any other theme, they are invaluable for keeping dashboards organized. In LCARS, a Vertical Stack card should contain a Markdown card first with the title of the group and the `header` class applied, then any number of `middle` class cards and `button` class single buttons or in horizontal stacks or grids, and then finally a `footer` class applied to the last card in the vertical stack. You can see this formation in all of the screenshots at the top of this page. Here's an example Vertical Stack card and all of its contents:
 <table>
@@ -574,7 +577,7 @@ cards:
 
 </td>
 <td>
-<img width="308" alt="image" src="https://user-images.githubusercontent.com/38670315/210189965-b73662a8-5390-46ea-9450-b0043e6d2547.png">
+<img width="308" alt="stack with themed cards" src="https://user-images.githubusercontent.com/38670315/210189965-b73662a8-5390-46ea-9450-b0043e6d2547.png">
 </td>
 </tr>
 </table>
@@ -660,7 +663,7 @@ cards:
 
 </td>
 <td>
-<img width="1048" height="321" alt="image" src="https://github.com/user-attachments/assets/cafc28e0-2a90-4062-8bd4-7a3a6f25ae40" />
+<img width="1048" height="321" alt="themed stacks" src="https://github.com/user-attachments/assets/cafc28e0-2a90-4062-8bd4-7a3a6f25ae40" />
 </td>
 </tr>
 </table>
@@ -700,7 +703,7 @@ grid_options:
 
 </td>
 <td>
-<img width="518" height="200" alt="image" src="https://github.com/user-attachments/assets/3c6827e9-daa8-46ed-9a09-3bf326a3c818" />
+<img width="518" height="200" alt="multirow buttons" src="https://github.com/user-attachments/assets/3c6827e9-daa8-46ed-9a09-3bf326a3c818" />
 </td>
 </tr>
 </table>
@@ -755,7 +758,7 @@ grid_options:
 
 </td>
 <td>
-<img width="793" height="116" alt="image" src="https://github.com/user-attachments/assets/b88d95a4-9f2a-4147-81e9-dafb2e09bc75" />
+<img width="793" height="116" alt="section headings" src="https://github.com/user-attachments/assets/b88d95a4-9f2a-4147-81e9-dafb2e09bc75" />
 
 </td>
 </tr>
@@ -788,7 +791,7 @@ card_mod:
 
 </td>
 <td>
-<img width="308" alt="image" src="https://user-images.githubusercontent.com/38670315/236198970-0c06be57-d331-41d8-b692-95741b68bf5e.png">
+<img width="308" alt="themed card" src="https://user-images.githubusercontent.com/38670315/236198970-0c06be57-d331-41d8-b692-95741b68bf5e.png">
 </td>
 </tr>
 </table>
@@ -816,7 +819,7 @@ card_mod:
 
 </td>
 <td>
-<img width="308" alt="image" src="https://github.com/th3jesta/ha-lcars/assets/38670315/41c38e14-5041-4355-8581-07c82c96ceca">
+<img width="308" alt="header with right aligned text" src="https://github.com/th3jesta/ha-lcars/assets/38670315/41c38e14-5041-4355-8581-07c82c96ceca">
 </td>
 </tr>
 </table>
@@ -848,7 +851,7 @@ card_mod:
 
 </td>
 <td>
-<img width="308" alt="image" src="https://github.com/th3jesta/ha-lcars/assets/38670315/8417b463-0d0b-447d-8a7b-374d47f1e251">
+<img width="308" alt="buttons with state-dependent background colors" src="https://github.com/th3jesta/ha-lcars/assets/38670315/8417b463-0d0b-447d-8a7b-374d47f1e251">
 
 </td>
 </tr>
@@ -882,6 +885,12 @@ cards:
     content: Galaxy Class Bar
     card_mod:
       class: bar-left
+
+Edit
+
+Preview
+Indent mode
+
       style: |
         :host {
           font-size: 64px !important;
@@ -890,7 +899,7 @@ cards:
 
 </td>
 <td>
-<img width="793" height="135" alt="image" src="https://github.com/user-attachments/assets/d1d992b0-608e-43f0-b17a-614b7a366435" />
+<img width="793" height="135" alt="bars with various sizes" src="https://github.com/user-attachments/assets/d1d992b0-608e-43f0-b17a-614b7a366435" />
 </td>
 </tr>
 </table>
@@ -926,3 +935,6 @@ LCARS design elements inspired by *Star Trek™* and adapted from resources at [
 This project is a non-commercial fan production. *Star Trek* and all related marks, logos, and characters are solely owned by CBS Studios Inc. This fan production is not endorsed by, sponsored by, nor affiliated with CBS, Paramount Pictures, or any other *Star Trek* franchise. 
 
 No commercial exhibition or distribution is permitted. No alleged independent rights will be asserted against CBS or Paramount Pictures. This work is intended for personal and recreational use only.
+
+[^1]: Tungsten is designed by Tobias Frere-Jones and Jonathan Hoefler with contributions from Sara Soskolne, Erin McLaughlin, and Aoife Mooney. Tungsten is a registered trademark of Hoefler & Co. 
+[^2]: Antonio is designed by Vernon Adams and is free to use in accordance with the SIL Open Font License, Version 1.1.
