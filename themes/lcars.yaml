@@ -240,7 +240,6 @@
   # Labels
   label-badge-background-color: "#23232E"
   label-badge-text-color: var(--lcars-text-dark)
-  label-badge-red: rgba(255, 159, 9, 0.7)
   # Cards
   card-background-color: var(--secondary-background-color)
   paper-listbox-background-color: var(--primary-background-color)
@@ -321,7 +320,6 @@
   state-climate-cool-color: var(--lcars-cyan)
   state-unknown-color: var(--lcars-starlight)
   energy-non-fossil-color: var(--lcars-alt-green)
-
 
 # ======================================================= #
 #                    CARD MODIFICATIONS                   #
@@ -1870,11 +1868,7 @@
             border-left: 5px var(--lcars-ui-tertiary) solid;
             border-right: 5px var(--lcars-ui-tertiary) solid;
           }
-        
-  
-        
         }
-
 
         &.user {
           background-color: var(--lcars-card-top-color);
@@ -2077,7 +2071,7 @@ LCARS Default:
   lcars-ui-app-header-text-color: var(--lcars-pearl)
   lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
   lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
-  lcars-ui-config-button: var(--lcars-ui-secondary)  
+  lcars-ui-config-button: var(--lcars-ui-secondary)
   lcars-ui-config-icon: var(--lcars-ui-secondary)
   # Card colors
   lcars-card-top-color: var(--lcars-bluey)
@@ -2105,8 +2099,8 @@ LCARS Classic:
   lcars-ui-app-header-text-color: var(--lcars-pearl)
   lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
   lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
-  lcars-ui-config-button: var(--lcars-cool)  
-  lcars-ui-config-icon: var(--lcars-cool)  
+  lcars-ui-config-button: var(--lcars-cool)
+  lcars-ui-config-icon: var(--lcars-cool)
   # Card colors
   lcars-card-top-color: var(--lcars-cool)
   lcars-card-mid-left-color: var(--lcars-ice)
@@ -2133,7 +2127,7 @@ LCARS Nemesis Blue:
   lcars-ui-app-header-text-color: var(--lcars-pearl)
   lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
   lcars-ui-sidebar-icon: var(--lcars-text-dark)
-  lcars-ui-config-button: var(--lcars-ice)  
+  lcars-ui-config-button: var(--lcars-ice)
   lcars-ui-config-icon: var(--lcars-ice)
   # Card colors
   lcars-card-top-color: var(--lcars-sky)
@@ -2161,7 +2155,7 @@ LCARS Lower Decks I:
   lcars-ui-app-header-text-color: var(--lcars-pearl)
   lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
   lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
-  lcars-ui-config-button: var(--lcars-ui-quaternary) 
+  lcars-ui-config-button: var(--lcars-ui-quaternary)
   lcars-ui-config-icon: var(--lcars-ui-quaternary)
   # Card colors
   lcars-card-top-color: var(--lcars-october-sunset)
@@ -2188,7 +2182,7 @@ LCARS Lower Decks II:
   lcars-ui-app-header-text-color: var(--lcars-pearl)
   lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
   lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
-  lcars-ui-config-button: var(--lcars-ui-quaternary)  
+  lcars-ui-config-button: var(--lcars-ui-quaternary)
   lcars-ui-config-icon: var(--lcars-ui-quaternary)
   # Card colors
   lcars-card-top-color: var(--lcars-orange)
@@ -2216,7 +2210,7 @@ LCARS Romulus:
   lcars-ui-app-header-text-color: var(--lcars-pearl)
   lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
   lcars-ui-sidebar-icon: var(--lcars-aqua)
-  lcars-ui-config-button: var(--lcars-aqua)  
+  lcars-ui-config-button: var(--lcars-aqua)
   lcars-ui-config-icon: var(--lcars-aqua)
   # Card colors
   lcars-card-top-color: var(--lcars-cardinal)
@@ -2244,7 +2238,7 @@ LCARS Kronos:
   lcars-ui-app-header-text-color: var(--lcars-pearl)
   lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
   lcars-ui-sidebar-icon: var(--lcars-peach)
-  lcars-ui-config-button: var(--lcars-mars)  
+  lcars-ui-config-button: var(--lcars-mars)
   lcars-ui-config-icon: var(--lcars-mars)
   # Card colors
   lcars-card-top-color: var(--lcars-mars)
@@ -2272,7 +2266,7 @@ LCARS Cardassia:
   lcars-ui-app-header-text-color: var(--lcars-pearl)
   lcars-ui-app-header-clock: var(--lcars-pearl)
   lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
-  lcars-ui-config-button: var(--lcars-aqua)  
+  lcars-ui-config-button: var(--lcars-aqua)
   lcars-ui-config-icon: var(--lcars-aqua)
   # Card colors
   lcars-card-top-color: var(--lcars-sky-blue)
@@ -2300,7 +2294,7 @@ LCARS Zeldaar:
   lcars-ui-app-header-text-color: var(--lcars-pearl)
   lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
   lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
-  lcars-ui-config-button: var(--lcars-african-violet)  
+  lcars-ui-config-button: var(--lcars-african-violet)
   lcars-ui-config-icon: var(--lcars-african-violet)
   # Card colors
   lcars-card-top-color: var(--lcars-bluey)
@@ -2328,7 +2322,7 @@ LCARS Modern:
   lcars-ui-app-header-text-color: var(--lcars-pearl)
   lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
   lcars-ui-sidebar-icon: var(--lcars-dark-gray)
-  lcars-ui-config-button: var(--lcars-gray)  
+  lcars-ui-config-button: var(--lcars-gray)
   lcars-ui-config-icon: var(--lcars-gray)
   # Card colors
   lcars-card-top-color: var(--lcars-gold)
@@ -2356,7 +2350,7 @@ LCARS Picard I:
   lcars-ui-app-header-text-color: var(--lcars-pearl)
   lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
   lcars-ui-sidebar-icon: var(--lcars-alt-dark-gray)
-  lcars-ui-config-button: var(--lcars-cyan)  
+  lcars-ui-config-button: var(--lcars-cyan)
   lcars-ui-config-icon: var(--lcars-cyan)
   # Card colors
   lcars-card-top-color: var(--lcars-mittelgrau)
@@ -2411,7 +2405,7 @@ LCARS Red Alert:
   lcars-ui-app-header-text-color: var(--lcars-pearl)
   lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
   lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
-  lcars-ui-config-button: var(--lcars-ui-secondary)  
+  lcars-ui-config-button: var(--lcars-ui-secondary)
   lcars-ui-config-icon: var(--lcars-ui-secondary)
   # Card colors
   lcars-card-top-color: "#bf1b1b"
@@ -2500,7 +2494,7 @@ LCARS Transporter:
   lcars-ui-app-header-text-color: var(--lcars-pearl)
   lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
   lcars-ui-sidebar-icon: var(--lcars-light-gray)
-  lcars-ui-config-button: var(--lcars-teal)  
+  lcars-ui-config-button: var(--lcars-teal)
   lcars-ui-config-icon: var(--lcars-teal)
   # Card colors
   lcars-card-top-color: var(--lcars-charcoal)
@@ -2527,7 +2521,7 @@ LCARS Navigation:
   lcars-ui-app-header-text-color: var(--lcars-pearl)
   lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
   lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
-  lcars-ui-config-button: var(--lcars-ui-secondary)  
+  lcars-ui-config-button: var(--lcars-ui-secondary)
   lcars-ui-config-icon: var(--lcars-ui-secondary)
   # Card colors
   lcars-card-top-color: var(--lcars-khaki-dark)
@@ -2555,7 +2549,7 @@ LCARS 25C:
   lcars-ui-app-header-text-color: var(--lcars-pearl)
   lcars-ui-app-header-clock: var(--lcars-pale-orange)
   lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
-  lcars-ui-config-button: var(--lcars-cyan)  
+  lcars-ui-config-button: var(--lcars-cyan)
   lcars-ui-config-icon: var(--lcars-cyan)
   # Card colors
   lcars-card-top-color: var(--lcars-alt-dark-gray)
@@ -2598,7 +2592,7 @@ LCARS 25C (Red Alert):
   lcars-ui-app-header-text-color: var(--lcars-alert-white)
   lcars-ui-app-header-clock: var(--lcars-alert-white)
   lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
-  lcars-ui-config-button: var(--lcars-ui-secondary)  
+  lcars-ui-config-button: var(--lcars-ui-secondary)
   lcars-ui-config-icon: var(--lcars-ui-secondary)
   # Card colors
   lcars-card-top-color: var(--lcars-alert-color)
@@ -2630,7 +2624,7 @@ LCARS 25C (Yellow Alert):
   lcars-ui-app-header-text-color: var(--lcars-alert-white)
   lcars-ui-app-header-clock: var(--lcars-alert-white)
   lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
-  lcars-ui-config-button: var(--lcars-ui-secondary)  
+  lcars-ui-config-button: var(--lcars-ui-secondary)
   lcars-ui-config-icon: var(--lcars-ui-secondary)
   # Card colors
   lcars-card-top-color: var(--lcars-alert-color)
@@ -2662,7 +2656,7 @@ LCARS 25C (Blue Alert):
   lcars-ui-app-header-text-color: var(--lcars-alert-white)
   lcars-ui-app-header-clock: var(--lcars-alert-white)
   lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
-  lcars-ui-config-button: var(--lcars-ui-secondary)  
+  lcars-ui-config-button: var(--lcars-ui-secondary)
   lcars-ui-config-icon: var(--lcars-ui-secondary)
   # Card colors
   lcars-card-top-color: var(--lcars-alert-color)
@@ -2693,7 +2687,7 @@ LCARS Breen:
   lcars-ui-app-header-text-color: var(--lcars-pearl)
   lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
   lcars-ui-sidebar-icon: var(--lcars-text-dark)
-  lcars-ui-config-button: var(--lcars-green-footer) 
+  lcars-ui-config-button: var(--lcars-green-footer)
   lcars-ui-config-icon: var(--lcars-green-footer)
   # Card colors
   lcars-card-top-color: var(--lcars-green-secondary)
