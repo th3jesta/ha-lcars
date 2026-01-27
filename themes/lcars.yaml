@@ -129,6 +129,7 @@
   lcars-green-tertiary: "#88de90"
   lcars-green-middle: "#0f5616"
   lcars-green-footer: "#37bd76"
+  lcars-background-color: "#000000"
 
   # LCARS 25C
   lcars-alt-dark-gray: "#2f3749"
@@ -182,7 +183,7 @@
 # ======================================================= #
 (DO NOT USE/MODIFY)=== Base customizations: &base
   primary-color: var(--lcars-ui-tertiary)
-  primary-background-color: black
+  primary-background-color: var(--lcars-background-color)
   secondary-background-color: var(--lcars-ui-quaternary)
   divider-color: transparent
   accent-color: var(--lcars-orange)
@@ -379,12 +380,12 @@
         border-radius: 0px;
         padding: 0px;
         box-sizing: border-box;
-        background: var(--lcars-card-top-color);
+        background-color: var(--lcars-card-top-color);
         text-transform: uppercase;
 
         > :not(style,card-mod) {
           border-radius: 0px;
-          background: black;
+          background-color: var(--lcars-background-color);
           padding-top: 6px;
           --primary-text-color: var(--lcars-text-gray);
           height: 100%;
@@ -447,7 +448,7 @@
                  .middle-blank
       ):not(div > *)  {
         display: block !important;
-        background: black;
+        background-color: var(--lcars-background-color);
         padding: 0px;
         box-sizing: border-box;
         border-radius: 0px;
@@ -456,7 +457,7 @@
 
         > :not(style,card-mod) {
           border-radius: 0px;
-          background: black;
+          background-color: var(--lcars-background-color);
           --primary-text-color: var(--lcars-text-gray);
           height: 100%;
           box-sizing: border-box;
@@ -515,12 +516,12 @@
         border-radius: 0px;
         border: 0px solid var(--lcars-card-bottom-color);
         border-bottom-width: var(--lcars-horizontal-border);
-        background: var(--lcars-card-bottom-color);
+        background-color: var(--lcars-card-bottom-color);
         text-transform: uppercase;
 
         > :not(style,card-mod) {
           border-radius: 0px;
-          background: black;
+          background-color: var(--lcars-background-color);
           padding-bottom: 6px;
           height: 100%;
           box-sizing: border-box;
@@ -540,7 +541,7 @@
       # ha-card.footer-right > span,
       # ha-card.footer-contained > span,
       # ha-card.footer-open > span {
-      #   background: black;
+      #   background-color: var(--lcars-background-color);
       #   width: 100%;
       #   margin-top: 0px;
       #   padding-top: 80px;
@@ -549,13 +550,13 @@
       # ha-card.footer-right > .entities,
       # ha-card.footer-contained > .entities,
       # ha-card.footer-open > .entities {
-      #   background: black;
+      #   background-color: var(--lcars-background-color);
       # }
       # ha-card.footer-left > #states,
       # ha-card.footer-right > #states,
       # ha-card.footer-contained > #states,
       # ha-card.footer-open > #states {
-      #   background: black;
+      #   background: var(--lcars-background-color);
       #   padding-top: 0px !important;
       #   padding-bottom: 0px !important;
       # }
@@ -900,7 +901,7 @@
 
         > ha-card, 
         > #aspect-ratio > ha-card {
-          background: var(--lcars-card-button);
+          background-color: var(--lcars-card-button);
           --primary-color: var(--lcars-ui-quaternary);
           text-transform: uppercase;
           --primary-text-color: var(--lcars-text-dark);
@@ -991,13 +992,13 @@
 
           > ha-state-icon {
             --mdc-icon-size: unset;
-            background: var(--lcars-card-top-color);
+            background-color: var(--lcars-card-top-color);
             position: absolute;
             left: 0;
             width: var(--lcars-vertical-border);
             height: 100% !important;
             max-height: 100% !important;
-            border-right: black solid 6px;
+            border-right: var(--lcars-background-color) solid 6px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1050,7 +1051,7 @@
             left: auto;
             right: 0;
             border-right: 0px;
-            border-left: black solid 6px;
+            border-left: var(--lcars-background-color) solid 6px;
           }
           
           > span {
@@ -1153,7 +1154,7 @@
             &:not(.state) { 
               color: var(--lcars-text-light);
               height: 100%;
-              background-color: black;
+              background-color: var(--lcars-background-color);
               padding-inline: 6px;
               padding-bottom: 0.05em;
               margin-top: -0.5em;
@@ -1200,7 +1201,7 @@
             left: auto;
             right: 0;
             border-right: 0px;
-            border-left: black solid 6px;
+            border-left: var(--lcars-background-color) solid 6px;
           }
 
           /* Big Slider Card */
@@ -1246,7 +1247,7 @@
 
         > :not(style,card-mod) {
           text-transform: uppercase;
-          background: black;
+          background-color: var(--lcars-background-color);
           border-radius: 0px;
           display: inline-block;
           padding: 0px 6px 0px 6px;
@@ -1489,7 +1490,7 @@
       .header,
       .toolbar,
       .edit-mode .toolbar {
-        background: var(--lcars-ui-primary) !important;
+        background-color: var(--lcars-ui-primary) !important;
       }
         .main-title {
         text-transform: uppercase;
@@ -1497,15 +1498,15 @@
       }
       ha-tab-group {
         margin-left: 30px;
-        border-left: solid black 4px;
+        border-left: solid var(--lcars-background-color) 4px;
         --ha-tab-indicator-color: transparent !important;
         font-family: var(--font-family) !important;
         text-transform: uppercase;
       }
       ha-tab-group-tab {
-        background: var(--lcars-ui-secondary);
+        background-color: var(--lcars-ui-secondary);
         color: var(--lcars-text-dark);
-        border-right: solid black 4px;
+        border-right: solid var(--lcars-background-color) 4px;
         height: 40px !important;
         flex: 1;
         text-align: center;
@@ -1513,7 +1514,7 @@
       }
       ha-tab-group-tab[aria-selected="true"],
       ha-tab-group-tab[active] {
-        background: var(--lcars-ui-tertiary) !important;
+        background-color: var(--lcars-ui-tertiary) !important;
       }
       .edit-mode ha-tab-group-tab[aria-selected=true]::part(base) {
         padding: 0px !important;
@@ -1524,10 +1525,10 @@
         height: 40px !important;
       }
       #add-view {
-        background: var(--lcars-card-top-color);
+        background-color: var(--lcars-card-top-color);
         height: 40px;
         border-radius: 0px 0px 0px 0px;
-        border-left: solid black 4px;
+        border-left: solid var(--lcars-background-color) 4px;
       }
       /* Code for the clock */
       .toolbar::after {
@@ -1538,11 +1539,11 @@
         font-family: var(--font-family);
         margin: 0px -12px 0px 0px;
         padding: 0px 0px 0px 0px;
-        background: black;
+        background-color: var(--lcars-background-color);
         vertical-align: middle;
         height: var(--header-height);
-        border-right: 5px solid black;
-        border-left: 5px solid black;
+        border-right: 5px solid var(--lcars-background-color);
+        border-left: 5px solid var(--lcars-background-color);
         text-transform: uppercase;
         white-space: nowrap;
         line-height: 0.95;
@@ -1551,8 +1552,8 @@
       /* ============== HA 2025.05 UPDATES ============= */
 
       #view {
-        --primary-background-color: black;
-        --lovelace-background: black;
+        --primary-background-color: var(--primary-background-color);
+        --lovelace-background: var(--primary-background-color);
         --primary-text-color: var(--lcars-text-gray);
         --secondary-text-color: var(--lcars-text-gray);
         --text-primary-color: var(--lcars-text-gray);
@@ -1586,13 +1587,13 @@
       
       .edit-mode > ha-tabs {
         --paper-tabs-selection-bar-color: transparent !important;
-        border-left: solid black 4px;
+        border-left: solid var(--lcars-background-color) 4px;
         margin-left: 0px !important;
       }
       @media screen and (max-width: 870px) {
         .toolbar::after {
           content: "";
-          border-left: 0px solid black;
+          border-left: 0px solid var(--lcars-background-color);
         }
         ha-button-menu > ha-icon-button {
           margin-right: -48px;
@@ -1622,7 +1623,7 @@
       .exit-edit-mode {
         --mdc-button-outline-color: transparent !important;
         --mdc-theme-primary: var(--lcars-text-dark) !important;
-        background: var(--lcars-ui-tertiary);
+        background-color: var(--lcars-ui-tertiary);
         border-radius: var(--lcars-outer-radius);
       }
       .edit-mode div[main-title] {
@@ -1642,18 +1643,18 @@
         --app-header-text-color: var(--lcars-text-dark);
       }
       #tabsContainer {
-        border-left: solid black 6px;
+        border-left: solid var(--lcars-background-color) 6px;
       }
       paper-tab.iron-selected {
         margin-left: -2px;
         margin-right: -2px;
-        background: var(--lcars-ui-tertiary);
+        background-color: var(--lcars-ui-tertiary);
       }
       paper-tab {
         margin-left: -2px;
         margin-right: -2px;
-        background: var(--lcars-ui-secondary);
-        border-right: 4px solid black;
+        background-color: var(--lcars-ui-secondary);
+        border-right: 4px solid var(--lcars-background-color);
       }
       ha-icon-button#add-view {
         margin-top: 4px;
@@ -1781,7 +1782,7 @@
       }
       ha-md-list.ha-scrollbar {
         margin-top: 70px;
-        border-top: 5px solid black;
+        border-top: 5px solid var(--lcars-background-color);
         padding-top: 0px !important;
         font-family: var(--font-family);
         height: calc(100% - var(--header-height) - 220px - env(safe-area-inset-bottom));
@@ -1794,7 +1795,7 @@
         margin: unset !important;
         padding-left: 0px;
         border-radius: unset !important;
-        border-color: black;
+        border-color: var(--lcars-background-color);
         color: var(--lcars-text-dark) !important;
 
         span.item-text,
@@ -1822,14 +1823,15 @@
           top: unset;
           left: 0px;
           bottom: 0px;
-          background-color: black;
+          background-color: var(--lcars-background-color);
           border-radius: 0px;
           height: 100%;
-          font-size: 50px;
+          font-size: 48px;
+          line-height: 1;
           min-width: 46px;
-          border-top: 0px solid black;
+          border-top: 0px solid var(--lcars-background-color);
           overflow: hidden;
-          padding: 0px;
+          padding: 0 0 5px 0;
           margin: 0px;
           text-align: center;
         }      
@@ -1839,7 +1841,7 @@
 
           > span.item-text {
             color: var(--lcars-ui-config-button);
-            background-color: black;
+            background-color: var(--lcars-background-color);
             border: 3px var(--lcars-ui-config-button) solid;
             position: absolute;
             top: 0px;
@@ -1891,7 +1893,7 @@
           }
           > span.item-text {
             color: var(--lcars-ui-app-header-clock);
-            background-color: black;
+            background-color: var(--lcars-background-color);
             border: 3px var(--lcars-ui-app-header-clock) solid;
             position: absolute;
             top: 0px;
@@ -1933,17 +1935,17 @@
         margin-right: 94px;
         margin-left: 0px;
       }
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 870px) {
         .ha-scrollbar::before {
           content: "";
           position: fixed;
           top: 40px;
           left: 56px;
-          border-left: 5px black solid;
-          border-top: 5px black solid;
+          border-left: 5px var(--lcars-background-color) solid;
+          border-top: 5px var(--lcars-background-color) solid;
           border-top-left-radius: calc(var(--lcars-inner-radius) + var(--lcars-outer-radius) / 2 );
           background: transparent;
-          width: 195px;
+          width: calc( var(--mdc-drawer-width,256px) - 61px );
           height: 70px;
         }
       }
@@ -1962,7 +1964,7 @@
         padding-right: 16px;
         padding-left: 16px;
         background-color: var(--lcars-ui-secondary);
-        border-right: 5px solid black;
+        border-right: 5px solid var(--lcars-background-color);
       }
 
       :host([expanded]) {
@@ -1979,7 +1981,7 @@
           margin-left: 7px !important;
           height: 19px;
           border-radius: var(--lcars-inner-radius);
-          background: var(--lcars-ui-tertiary);
+          background-color: var(--lcars-ui-tertiary);
           align-items: center;
         }
       }
@@ -2003,11 +2005,11 @@
         height: 100%;
         padding-right: 16px;
         padding-left: 16px;
-        border-right: 5px solid black;
+        border-right: 5px solid var(--lcars-background-color);
         background-color: var(--lcars-ui-primary);
       }
       .spacer {
-        border-bottom: 4px solid black;
+        border-bottom: 4px solid var(--lcars-background-color);
       }
       .divider {
         display: none;
@@ -2017,7 +2019,7 @@
       }
       ha-md-list:not(.ha-scrollbar) {
         padding: 54px 0px 0px 0px !important;
-        background-color: black;
+        background-color: var(--lcars-background-color);
       }
       /* ----------------------------------------------- */
       /*           Sidebar Texture and Gradient          */
