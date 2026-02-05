@@ -120,14 +120,21 @@ https://www.home-assistant.io/integrations/time_date/
 #### IV. Create the entities
 This theme has two controls for sound and textures that require creating simple toggle entities. Create them by going to ``Settings`` → ``Devices & Services`` → ``Helpers`` and create two of type **Toggle** and two of type **Number** named as below:
 - LCARS Sound (entity id should be `input_boolean.lcars_sound`)
+  - Toggles button and tap sounds 
 - LCARS Texture (entity id should be `input_boolean.lcars_texture`)
+  - Toggles a grain pattern and backlight effect 
 - LCARS Vertical (entity id should be `input_number.lcars_vertical`)
-    - Min value: 26
-    - Max value: 60
+  - Sets the width of vertical borders
+  - Min value: 26
+  - Max value: 60
 - LCARS Horizontal (entity id should be `input_number.lcars_horizontal`)
-    - Min value: 6
-    - Max value: 60
-<img width="644" alt="entities for LCARS sound, texture, and borders" src="https://github.com/user-attachments/assets/7fbd9425-65af-4729-85f2-d57c839c757f">
+  - Sets the width of horizontal borders
+  - Min value: 6
+  - Max value: 60
+- Optional: LCARS Header (entity id should be `sensor.lcars_header`)
+  - Add text to the clock area of the header
+  - Example Template: `{{ "LCARS " + states('sensor.time') }}`
+<img width="921" height="276" alt="entities for LCARS sound, texture, and borders" src="https://github.com/user-attachments/assets/bc9956d6-85bb-424f-9890-dcbc4bed19d7" />
 
 These entities can be controlled directly from viewing the entity, or you can even add buttons to your dashboard to control them, just like any other entity. 
 
