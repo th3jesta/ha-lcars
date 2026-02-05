@@ -534,200 +534,6 @@
           padding-block: 0px;
         }
       }
-      
-      # ha-card.footer-left > span,
-      # ha-card.footer-right > span,
-      # ha-card.footer-contained > span,
-      # ha-card.footer-open > span {
-      #   background-color: var(--lcars-background-color);
-      #   width: 100%;
-      #   margin-top: 0px;
-      #   padding-top: 80px;
-      # }
-      # ha-card.footer-left > .entities,
-      # ha-card.footer-right > .entities,
-      # ha-card.footer-contained > .entities,
-      # ha-card.footer-open > .entities {
-      #   background-color: var(--lcars-background-color);
-      # }
-      # ha-card.footer-left > #states,
-      # ha-card.footer-right > #states,
-      # ha-card.footer-contained > #states,
-      # ha-card.footer-open > #states {
-      #   background: var(--lcars-background-color);
-      #   padding-top: 0px !important;
-      #   padding-bottom: 0px !important;
-      # }
-      # ha-card.footer-left > ha-markdown,
-      # ha-card.footer-right > ha-markdown,
-      # ha-card.footer-contained > ha-markdown,
-      # ha-card.footer-open > ha-markdown {
-      #   height: 100%;
-      #   display: flex;
-      #   align-items: flex-end;
-      # }
-      # ha-card.footer-left > ha-state-icon,
-      # ha-card.footer-right > ha-state-icon,
-      # ha-card.footer-contained > ha-state-icon,
-      # ha-card.footer-open > ha-state-icon {
-      #   height: 100%;
-      #   display: flex;
-      #   justify-content: center;
-      #   align-items: center;
-      # }
-      # ha-card.footer-left > img,
-      # ha-card.footer-right > img,
-      # ha-card.footer-contained > img,
-      # ha-card.footer-open > img {
-      #   background: black;
-      #   box-sizing: border-box;
-      # }
-      # ha-card.footer-left > .header,
-      # ha-card.footer-left > .info,
-      # ha-card.footer-right > .header,
-      # ha-card.footer-right > .info,
-      # ha-card.footer-contained > .header,
-      # ha-card.footer-contained > .info,
-      # ha-card.footer-open > .header,
-      # ha-card.footer-open > .info {
-      #   background: black !important;
-      # }
-      # ha-card.footer-left > .content,
-      # ha-card.footer-right > .content,
-      # ha-card.footer-contained > .content,
-      # ha-card.footer-open > .content {
-      #   background: black;
-      # }
-      # ha-card.footer-left.type-thermostat,
-      # ha-card.footer-right.type-thermostat,
-      # ha-card.footer-contained.type-thermostat,
-      # ha-card.footer-open.type-thermostat {
-      #   border-bottom: 0px !important;
-      # }
-      # ha-card.footer-left.type-thermostat > p,
-      # ha-card.footer-right.type-thermostat > p,
-      # ha-card.footer-contained.type-thermostat > p,
-      # ha-card.footer-open.type-thermostat > p {
-      #   background: black;
-      # }
-      # ha-card.footer-left.type-custom-weather-card .current,
-      # ha-card.footer-right.type-custom-weather-card .current,
-      # ha-card.footer-contained.type-custom-weather-card .current,
-      # ha-card.footer-open.type-custom-weather-card .current  {
-      #   margin-bottom: unset;
-      #   padding-bottom: 3.5em;
-      #   background: black;
-      # }
-      # ha-card.footer-left.type-custom-weather-card .variations,
-      # ha-card.footer-right.type-custom-weather-card .variations,
-      # ha-card.footer-contained.type-custom-weather-card .variations,
-      # ha-card.footer-open.type-custom-weather-card .variations {
-      #   background: black;
-      # }
-      # ha-card.footer-left.type-entity .footer,
-      # ha-card.footer-right.type-entity .footer,
-      # ha-card.footer-contained.type-entity .footer,
-      # ha-card.footer-open.type-entity .footer {
-      #   background: black;
-      #   overflow: hidden;
-      #   position: static;
-      #   flex-grow: 1;
-      #   align-content: end;
-      # }
-      # ha-card.footer-left.type-thermostat > .container,
-      # ha-card.footer-right.type-thermostat > .container,
-      # ha-card.footer-contained.type-thermostat > .container,
-      # ha-card.footer-open.type-thermostat > .container {
-      #   background: black;
-      #   padding: unset;
-      #   width: 100%;
-      #   margin-bottom: 12px;
-      #   max-width: unset;
-      # }
-      # ha-card.footer-left.type-thermostat > hui-card-features,
-      # ha-card.footer-right.type-thermostat > hui-card-features,
-      # ha-card.footer-contained.type-thermostat > hui-card-features,
-      # ha-card.footer-open.type-thermostat > hui-card-features {
-      #   --primary-text-color: black;
-      # }
-      # ha-card.footer-left.type-button,
-      # ha-card.footer-right.type-button,
-      # ha-card.footer-contained.type-button,
-      # ha-card.footer-open.type-button {
-      #   display: flex;
-      #   justify-content: flex-start;
-      #   flex-direction: column-reverse;
-      # }
-      # ha-card.footer-left > ha-state-icon,
-      # ha-card.footer-right > ha-state-icon,
-      # ha-card.footer-contained > ha-state-icon,
-      # ha-card.footer-open > ha-state-icon {
-      #   background: black;
-      #   width: 100%;
-      #   height: 100%;
-      #   --mdc-icon-size: 96px;
-      #   position: absolute;
-      #   display: flex;
-      #   justify-content: center;
-      #   top: 0;
-      #   z-index: 0;
-      #   margin-bottom: 30px;
-      # }
-      # ha-card.footer-left > span.state,
-      # ha-card.footer-right > span.state,
-      # ha-card.footer-contained > span.state,
-      # ha-card.footer-open > span.state {
-      #   background: transparent;
-      #   border-radius: 0px 0px 0px 0px;
-      #   margin-top: 30px;
-      #   margin-bottom: -80px;
-      #   position: relative;
-      # }
-      # ha-card.footer-left > span.usps_update,
-      # ha-card.footer-right > span.usps_update,
-      # ha-card.footer-contained > span.usps_update,
-      # ha-card.footer-open > span.usps_update {
-      #   background: black;
-      #   width: 100%;
-      #   padding-left: 15px;
-      #   margin-top: -4px;
-      #   height: unset !important;
-      # }
-      # ha-card.footer-left.type-custom-mail-and-packages-card > span.usps_update,
-      # ha-card.footer-right.type-custom-mail-and-packages-card > span.usps_update,
-      # ha-card.footer-contained.type-custom-mail-and-packages-card > span.usps_update,
-      # ha-card.footer-open.type-custom-mail-and-packages-card > span.usps_update {
-      #   padding-top: unset;
-      # }
-      # ha-card.footer-left.type-entity > .info,
-      # ha-card.footer-right.type-entity > .info,
-      # ha-card.footer-contained.type-entity > .info,
-      # ha-card.footer-open.type-entity > .info {
-      #   border-radius: 0px 0px 0px 0px;
-      # }
-      # ha-card.footer-left.type-custom-html-card > div,
-      # ha-card.footer-left.type-custom-html-template-card > div,
-      # ha-card.footer-right.type-custom-html-card > div,
-      # ha-card.footer-right.type-custom-html-template-card > div,
-      # ha-card.footer-contained.type-custom-html-card > div,
-      # ha-card.footer-contained.type-custom-html-template-card > div,
-      # ha-card.footer-open.type-custom-html-card > div,
-      # ha-card.footer-open.type-custom-html-template-card > div {
-      #   background: black;
-      #   line-height: initial;
-      #   border-top: var(--lcars-horizontal-border);
-      #   padding: 0px 16px 0px 16px;
-      # }
-      # ha-card.footer-left.type-custom-html-card > div > h1,
-      # ha-card.footer-left.type-custom-html-template-card > div > h1,
-      # ha-card.footer-right.type-custom-html-card > div > h1,
-      # ha-card.footer-right.type-custom-html-template-card > div > h1,
-      # ha-card.footer-contained.type-custom-html-card > div > h1,
-      # ha-card.footer-contained.type-custom-html-template-card > div > h1,
-      # ha-card.footer-open.type-custom-html-card > div > h1,
-      # ha-card.footer-open.type-custom-html-template-card > div > h1 {
-      #   margin: 0px;
-      # }
 
       /* ----------------------------------------------- */
       /*              Specific Footer Styles             */
@@ -748,32 +554,6 @@
         }
       }
 
-      # ha-card.footer-left > span {
-      #   padding-left: 0px;
-      #   border-radius: 0px 0px 0px var(--lcars-inner-radius);
-      # }
-      # ha-card.footer-left > .entities,
-      # ha-card.footer-left > #states,
-      # ha-card.footer-left > ha-markdown,
-      # ha-card.footer-left > .content,
-      # ha-card.footer-left > ha-state-icon,
-      # ha-card.footer-left > .info,
-      # ha-card.footer-left.type-statistic > .info,
-      # ha-card.footer-left.type-thermostat > .container,
-      # ha-card.footer-left.type-media-control .color-block,
-      # ha-card.footer-left.type-custom-weather-card .variations,
-      # ha-card.footer-left.type-entity .footer{
-      #   border-radius: 0px 0px 0px var(--lcars-inner-radius);
-      # }
-      # ha-card.footer-left > img {
-      #   padding: 0px 0px 6px 6px;
-      #   border-bottom-left-radius: var(--lcars-inner-radius);
-      # }
-      # ha-card.footer-left.type-custom-html-card > div,
-      # ha-card.footer-left.type-custom-html-template-card > div {
-      #   border-radius: 0px 0px 0px var(--lcars-inner-radius);
-      # }
-
       /* ----------------Border on right---------------- */
       :host(.footer-right),
       :host(.footer-contained),
@@ -788,94 +568,6 @@
           padding-right: 6px;
         }
       }
-
-      # ha-card.footer-right > span {
-      #   padding-right: 0px;
-      #   border-radius: 0px 0px var(--lcars-inner-radius) 0px;
-      # }
-      # ha-card.footer-right > .entities,
-      # ha-card.footer-right > #states,
-      # ha-card.footer-right > ha-markdown,
-      # ha-card.footer-right > .content,
-      # ha-card.footer-right > ha-state-icon,
-      # ha-card.footer-right > .info,
-      # ha-card.footer-right.type-thermostat > .container,
-      # ha-card.footer-right.type-media-control .color-block,
-      # ha-card.footer-right.type-media-control .no-img,
-      # ha-card.footer-right.type-media-control .image,
-      # ha-card.footer-right.type-custom-weather-card .variations,
-      # ha-card.footer-right.type-entity .footer {
-      #   border-radius: 0px 0px var(--lcars-inner-radius) 0px;
-      # }
-      # ha-card.footer-right > img {
-      #   padding: 0px 6px 6px 0px;
-      #   border-bottom-right-radius: var(--lcars-inner-radius);
-      # }
-
-      # ha-card.footer-right.type-custom-html-card > div,
-      # ha-card.footer-right.type-custom-html-template-card > div {
-      #   border-radius: 0px 0px var(--lcars-inner-radius) 0px;
-      # }
-
-      /* --------------Border on both sides------------- */
-      # ha-card.footer-contained {
-      #   border-radius: 0px 0px var(--ha-card-border-radius) var(--ha-card-border-radius) !important;
-      #   border-left: var(--lcars-vertical-border) solid var(--lcars-card-bottom-color);
-      #   border-right: var(--lcars-vertical-border) solid var(--lcars-card-bottom-color);
-      # }
-      # ha-card.footer-contained > span {
-      #   padding-right: 0px;
-      #   padding-left: 0px;
-      #   border-radius: 0px 0px var(--lcars-inner-radius) var(--lcars-inner-radius);
-      # }
-      # ha-card.footer-contained > .entities,
-      # ha-card.footer-contained > #states,
-      # ha-card.footer-contained > ha-markdown,
-      # ha-card.footer-contained > .content,
-      # ha-card.footer-contained > ha-state-icon,
-      # ha-card.footer-contained > .info,
-      # ha-card.footer-contained.type-thermostat > .container,
-      # ha-card.footer-contained.type-media-control .color-block,
-      # ha-card.footer-contained.type-media-control .no-img,
-      # ha-card.footer-contained.type-media-control .image,
-      # ha-card.footer-contained.type-custom-weather-card .variations,
-      # ha-card.footer-contained.type-entity .footer {
-      #   border-radius: 0px 0px var(--lcars-inner-radius) var(--lcars-inner-radius);
-      # }
-      # ha-card.footer-contained > img {
-      #   padding: 0px 6px 6px 6px;
-      #   border-radius: 0px 0px var(--lcars-inner-radius) var(--lcars-inner-radius);
-      # }
-      # ha-card.footer-contained.type-custom-html-card > div,
-      # ha-card.footer-contained.type-custom-html-template-card > div {
-      #   border-radius: 0px 0px var(--lcars-inner-radius) var(--lcars-inner-radius);
-      # }
-
-      /* -------------Border on neither side------------ */
-      # ha-card.footer-open {
-      #   border-radius: 0px 0px 0px 0px !important;
-      # }
-      # ha-card.footer-open > span {
-      #   padding-right: 0px;
-      #   padding-left: 0px;
-      #   border-radius: 0px 0px 0px 0px;
-      # }
-      # ha-card.footer-open > .entities,
-      # ha-card.footer-open > #states,
-      # ha-card.footer-open > ha-markdown,
-      # ha-card.footer-open > .content,
-      # ha-card.footer-open > ha-state-icon,
-      # ha-card.footer-open > .info,
-      # ha-card.footer-open.type-thermostat > .container,
-      # ha-card.footer-open.type-media-control .color-block,
-      # ha-card.footer-open.type-custom-weather-card .variations,
-      # ha-card.footer-open.type-entity .footer {
-      #   border-radius: 0px 0px 0px 0px;
-      # }
-      # ha-card.footer-open.type-custom-html-card > div,
-      # ha-card.footer-open.type-custom-html-template-card > div {
-      #   border-radius: 0px 0px 0px 0px;
-      # }
 
       /* =============================================== */
       /*                     BUTTONS                     */
@@ -1294,24 +986,11 @@
       /* =============================================== */
       /*               MISCELLANEOUS STYLES              */
       /* =============================================== */
-      /* Hacky workaround to add middle-type class to horizontal and vertical stack cards */
-      /* More info: https://github.com/thomasloven/lovelace-card-mod#styling-cards-without-an-ha-card-element */
-      .type-custom-mod-card {
-        /* border-radius: 0px !important; */
-        /* border-left: var(--lcars-middle-vertical-border) solid var(--lcars-card-mid-left-color); */
-        /* padding-left: 6px !important; */
-      }
+
       /* WIP fix for aliasing ugliness on slider tracks */
       .type-light > .bar {
         stroke-width: 5px;
       }
-      /* ?Fix for markdown cards that are not headers? */
-      #ha-markdown {
-      #  background: black;
-      #  border-radius: unset;
-      #  padding-top: 0px !important;
-      #  padding-bottom: 0px !important;
-      #}
 
       /* ----------------------------------------------- */
       /*               Specific Card Fixes               */
@@ -1338,126 +1017,158 @@
         padding-top: 12px !important;
       }
 
-      # .type-thermostat > .content {
-      #   background: black;
-      #   padding-top: 0px !important;
-      #   padding-bottom: 0px !important;
-      # }
-      # .type.thermostat {
-      #   color: var(--lcars-text-gray)
-      # }
-      # .details {
-      #   margin-top: 1em;
-      # }
-      # .card-actions {
-      #   border-top: none;
-      #   padding: 5px 16px;
-      #   margin-top: 8px;
-      #   background: var(--lcars-ui-primary);
-      #   border-radius: var(--ha-card-border-radius) !important;
-      #   --primary-text-color: black;
-      #   --mdc-theme-primary: --lcars-ui-primary;
-      # }
-      # .panel > ha-card {
-      #   border-radius: var(--ha-card-border-radius) !important;
-      # }
-      # .button-small > .state,
-      # .button-large > .state,
-      # .button-lozenge-left > .state {
-      #   border-radius: 0px 0px 0px var(--lcars-inner-radius);
-      #   padding-bottom: 0px;
-      #   color: black;
-      # }
-      # ha-card.footer-left > .details {
-      #   background: black;
-      #   width: 100%;
-      #   margin: 0px;
-      # }
-      # .MailImg {
-      #   margin-top: 0;
-      #   border-radius: 0px !important;
-      #   padding: 0px 0px 6px 6px !important;
-      #   width: 100%;
-      # }
-      # .details > .title {
-      #   margin-left: 15px;
-      # }
-      # .usps_update {
-      #   border-radius: 0px 0px 0px var(--lcars-inner-radius);
-      #   display: flex;
-      # }
-      # .details > p {
-      #   margin-left: 15px;
-      # }
-      # ha-gauge {
-      #   --primary-text-color: black;
-      # }
-      # ha-card:has(ha-gauge) {
-      #   background: var(--lcars-card-top-color);
-      # }
-
-      # /* ----------------------------------------------- */
-      # /*                    MSD Styles                   */
-      # /* ----------------------------------------------- */
-      # :host(.msd-left) > ha-card {
-      #   margin: 0px 15px 23px 0px !important;
-      #   background: black !important;
-      #   font-size: 1.5em !important;
-      #   font-weight: 700 !important;
-      #   color: var(--lcars-orange) !important;
-      #   text-transform: uppercase !important;
-      #   text-align: right !important;
-      #   display: flex !important;
-      #   align-items: flex-end !important;
-      #   border-radius: 0 0 0 0 !important;
-      # }
-      # :host(.msd-right) > ha-card {
-      #   margin: 0px 15px 23px 18px !important;
-      #   background: black !important;
-      #   font-size: 1.5em !important;
-      #   font-weight: 700 !important;
-      #   color: var(--lcars-orange) !important;
-      #   text-transform: uppercase !important;
-      #   text-align: left !important;
-      #   display: flex !important;
-      #   align-items: flex-start !important;
-      #   flex-direction: column-reverse !important;
-      #   border-radius: 0 0 0 0 !important;
-      # }
-
-      # /* ----------------------------------------------- */
-      # /*               Mushroom Card Fixes               */
-      # /* ----------------------------------------------- */
-      # ha-card.type-custom-mushroom-chips-card > * {
-      #   --primary-text-color: black;
-      #   --chip-border-radius: var(--ha-card-border-radius);
-      #   text-transform: uppercase;
-      # }
-      # /* Mushroom Select Card */
-      # ha-card.type-custom-mushroom-select-card > * {
-      #   --mdc-shape-small: 0px;
-      # }
-      # ha-card.type-custom-mushroom-select-card,
-      # ha-card.type-custom-mushroom-lock-card,
-      # ha-card.type-custom-mushroom-number-card {
-      #   border-radius: 22px !important;
-      # }
-      # ha-card.type-custom-mushroom-number-card > * {
-      #   --control-border-radius: 0px !important;
-      # }
-
   # ===================================================== #
   #          TOOLBAR AND DASHBOARD MODIFICATIONS          #
   # ===================================================== #
   card-mod-root-yaml: &card-mod-root |
-    ha-tab-group-tab$: |
-      div.tab {
-        padding-inline-start: 5px !important;
-        padding-inline-end: 5px !important;
+    ha-tab-group$: |
+      :host {
+        margin-left: 30px;
+        border-left: solid var(--lcars-background-color) 4px;
+        --header-height: 40px;
+        height: 40px !important;
+        overflow-y: clip;
+        --ha-tab-indicator-color: transparent !important;
+        font-family: var(--font-family) !important;
+        text-transform: uppercase;
       }
+    ha-tab-group-tab$: |
+      :host {
+        --track-width: 0px;
+        --tab-bar-height: 48px;
+        --ha-tab-padding-start: 5px;
+        --ha-tab-padding-end: 5px ;
+        flex: 1;
+
+        > div.tab {
+          border-right: 4px solid var(--lcars-background-color);
+          text-align: center;
+          display: block;
+          min-height: 40px;
+        }
+      }
+      :host([aria-selected="true"]),
+      :host([active]) {
+        background-color: var(--lcars-ui-tertiary);
+      }
+    div.header: |
+      .toolbar {
+        color: var(--lcars-text-dark);
+        background-color: var(--lcars-ui-primary) !important;
+        --app-header-border-bottom: 0px;
+        border-right: 30px solid var(--lcars-card-top-color);
+        border-radius: 0px 0px 0px 0px;
+        margin-right: 1px;
+        padding: 0px 12px !important;
+
+        /* -------- Sidebar Toggle -------- */
+        ha-menu-button {
+          display: none;
+          color: transparent;
+          padding-right: 10px
+        }
+        @media screen and (max-width: 870px) {
+          ha-button-menu > ha-icon-button {
+            margin-right: -48px;
+            padding-right: unset !important;
+            margin-left: unset !important;
+          }
+          ha-icon-button {
+            padding-right: unset !important;
+            margin-left: unset !important;
+          }
+          ha-menu-button {
+            display: initial !important;
+            color: var(--lcars-text-dark) !important;
+            padding-right: 0px !important;
+            margin-right: -22px;
+            margin-left: -16px;
+          }
+        }
+        
+        /* -------- Inner elbow -------- */
+        &::before {
+          content: "";
+          position: fixed;
+          height: 40px;
+          width: 100px;
+          background-color: transparent;
+          border-top-left-radius: 40px;
+          box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+          margin-top: 80px;
+          margin-left: -12px;
+          z-index: 9997;
+          pointer-events: none;
+        }
+
+        /* -------- Clock -------- */
+        &::after {
+          content: "{{ states('sensor.lcars_header') if has_value('sensor.lcars_header') else states('sensor.time') if has_value('sensor.time') else 'LCARS' }}";
+          color: var(--lcars-ui-app-header-clock);
+          visibility: visible;
+          font-size: var(--header-font-size);
+          font-family: var(--font-family);
+          margin: 0px -12px 0px 0px;
+          padding: 0px 0px 0px 0px;
+          background-color: var(--lcars-background-color);
+          vertical-align: middle;
+          height: var(--header-height);
+          border-right: 5px solid var(--lcars-background-color);
+          border-left: 5px solid var(--lcars-background-color);
+          text-transform: uppercase;
+          white-space: nowrap;
+          line-height: 0.95;
+        }
+        @media screen and (max-width: 870px) {
+          &::after {
+            content: "";
+            border-left: 0px solid var(--lcars-background-color);
+          }
+        }
+      }
+
+
+    div.edit-mode: |
+      /* =============================================== */
+      /*            EDIT MODE SETTINGS                   */
+      /* =============================================== */
+      .tab-bar {
+        background: var(--lcars-background-color);
+        padding-left: 40px;
+      }
+      ha-tab-group {
+        margin-left: 0px;
+        border-left: none;
+        height: 40px !important;
+        color: var(--lcars-text-light);
+        --icon-primary-color: var(--lcars-text-light);
+      }
+      #add-view {
+        background-color: var(--lcars-card-top-color);
+        height: 40px;
+        border-radius: 0px 0px 0px 0px;
+        border-left: solid var(--lcars-background-color) 4px;
+      }
+      div.main-title {
+        color: var(--lcars-text-dark);
+
+        .edit-icon {
+          color: var(--lcars-text-dark) !important;
+        }
+      }
+      .exit-edit-mode {
+        --wa-color-fill-normal: var(--lcars-ui-tertiary);
+        --wa-color-on-normal: var(--lcars-text-light);
+        --button-color-fill-normal-hover:  color-mix(in srgb, var(--lcars-ui-tertiary), black 30%);;
+      }
+      .toolbar .action-items {
+        --text-primary-color: var(--lcars-text-dark);
+      }
+
+
     .: |
       /* =============================================== */
-      /*            SECTION-SPECIFIC SETTINGS            */
+      /*            VIEW AND PANEL SETTINGS              */
       /* =============================================== */
 
       hui-view {
@@ -1483,182 +1194,12 @@
           padding: 0px 0px 0px 0px !important;
         }
       }
-
-      /* ============== HA 2025.05 UPDATES ============= */
-      .header,
-      .toolbar,
-      .edit-mode .toolbar {
-        background-color: var(--lcars-ui-primary) !important;
-      }
-        .main-title {
-        text-transform: uppercase;
-        font-family: var(--font-family);
-      }
-      ha-tab-group {
-        margin-left: 30px;
-        border-left: solid var(--lcars-background-color) 4px;
-        --ha-tab-indicator-color: transparent !important;
-        font-family: var(--font-family) !important;
-        text-transform: uppercase;
-      }
-      ha-tab-group-tab {
-        background-color: var(--lcars-ui-secondary);
-        color: var(--lcars-text-dark);
-        border-right: solid var(--lcars-background-color) 4px;
-        height: 40px !important;
-        flex: 1;
-        text-align: center;
-        opacity: 1 !important;
-      }
-      ha-tab-group-tab[aria-selected="true"],
-      ha-tab-group-tab[active] {
-        background-color: var(--lcars-ui-tertiary) !important;
-      }
-      .edit-mode ha-tab-group-tab[aria-selected=true]::part(base) {
-        padding: 0px !important;
-      }
-      .edit-mode ha-tab-group {
-        margin-left: 0px;
-        border-left: none;
-        height: 40px !important;
-      }
-      #add-view {
-        background-color: var(--lcars-card-top-color);
-        height: 40px;
-        border-radius: 0px 0px 0px 0px;
-        border-left: solid var(--lcars-background-color) 4px;
-      }
-      /* Code for the clock */
-      .toolbar::after {
-        content: "{{ states('sensor.time') if has_value('sensor.time') else 'LCARS' }}";
-        color: var(--lcars-ui-app-header-clock);
-        visibility: visible;
-        font-size: var(--header-font-size);
-        font-family: var(--font-family);
-        margin: 0px -12px 0px 0px;
-        padding: 0px 0px 0px 0px;
-        background-color: var(--lcars-background-color);
-        vertical-align: middle;
-        height: var(--header-height);
-        border-right: 5px solid var(--lcars-background-color);
-        border-left: 5px solid var(--lcars-background-color);
-        text-transform: uppercase;
-        white-space: nowrap;
-        line-height: 0.95;
-      }
-
-      /* ============== HA 2025.05 UPDATES ============= */
-
       #view {
         --primary-background-color: var(--primary-background-color);
         --lovelace-background: var(--primary-background-color);
         --primary-text-color: var(--lcars-text-gray);
         --secondary-text-color: var(--lcars-text-gray);
         --text-primary-color: var(--lcars-text-gray);
-      }
-      {% if not is_state('input_boolean.lcars_sound', 'on') %}
-      .header {
-        --lcars-sound: false;
-      }
-      {% else %}
-      .header {
-        --lcars-sound: true;
-      }
-      {% endif %}
-      paper-icon-item::before {
-        inset: 2px !important;
-        margin-right: -9px !important;
-        margin-left: -1px !important;
-        border-radius: var(--lcars-inner-radius) !important;
-      }
-      .edit-mode .header {
-        height: 40px;
-        background: transparent;
-        color: var(--lcars-text-dark) !important;
-      }
-      .toolbar {
-        border-right: 30px solid var(--lcars-card-top-color);
-        border-radius: 0px 0px 0px 0px;
-        margin-right: 1px;
-        padding: 0px 12px !important;
-      }
-      
-      .edit-mode > ha-tabs {
-        --paper-tabs-selection-bar-color: transparent !important;
-        border-left: solid var(--lcars-background-color) 4px;
-        margin-left: 0px !important;
-      }
-      @media screen and (max-width: 870px) {
-        .toolbar::after {
-          content: "";
-          border-left: 0px solid var(--lcars-background-color);
-        }
-        ha-button-menu > ha-icon-button {
-          margin-right: -48px;
-          padding-right: unset !important;
-          margin-left: unset !important;
-        }
-        .exit-edit-mode {
-          margin-right: 0px !important;
-        }
-        ha-icon-button {
-          padding-right: unset !important;
-          margin-left: unset !important;
-        }
-        ha-menu-button {
-          display: initial !important;
-          color: var(--lcars-text-dark) !important;
-          padding-right: 0px !important;
-          margin-right: -22px;
-          margin-left: -16px;
-        }
-      }
-      ha-menu-button {
-        display: none;
-        color: transparent;
-        padding-right: 10px
-      }
-      .exit-edit-mode {
-        --mdc-button-outline-color: transparent !important;
-        --mdc-theme-primary: var(--lcars-text-dark) !important;
-        background-color: var(--lcars-ui-tertiary);
-        border-radius: var(--lcars-outer-radius);
-      }
-      .edit-mode div[main-title] {
-        color: var(--lcars-text-dark);
-      }
-      .edit-icon {
-        color: var(--lcars-text-dark) !important;
-      }
-      ha-button-menu > ha-icon-button, 
-      .toolbar > ha-icon-button, 
-      .menu-link > ha-icon-button {
-        margin-left: 0px;
-        color: var(--lcars-text-dark);
-      }
-      .header, .toolbar {
-        box-shadow: 30px 0px 0px 0px black;
-        --app-header-text-color: var(--lcars-text-dark);
-      }
-      #tabsContainer {
-        border-left: solid var(--lcars-background-color) 6px;
-      }
-      paper-tab.iron-selected {
-        margin-left: -2px;
-        margin-right: -2px;
-        background-color: var(--lcars-ui-tertiary);
-      }
-      paper-tab {
-        margin-left: -2px;
-        margin-right: -2px;
-        background-color: var(--lcars-ui-secondary);
-        border-right: 4px solid var(--lcars-background-color);
-      }
-      ha-icon-button#add-view {
-        margin-top: 4px;
-      }
-      ha-icon {
-        color: var(--lcars-text-dark) !important;
       }
       hui-view::-webkit-scrollbar {
         display: none;
@@ -1669,24 +1210,20 @@
       hui-masonry-view {
         padding-right: 23px;
       }
-      .toolbar::before {
-        content: "";
-        position: fixed;
-        height: 40px;
-        width: 100px;
-        background-color: transparent;
-        border-top-left-radius: 40px;
-        box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
-        margin-top: 80px;
-        margin-left: -12px;
-        z-index: 9997;
-        pointer-events: none;
+
+      {% if not is_state('input_boolean.lcars_sound', 'on') %}
+      .header {
+        --lcars-sound: false;
       }
-      hui-image {
-        cursor: pointer;
-        z-index: 9999;
+      {% else %}
+      .header {
+        --lcars-sound: true;
       }
+      {% endif %}
       {% if not is_state('input_boolean.lcars_texture', 'off') %}
+      /* ----------------------------------------------- */
+      /*      Toolbar/Dashbaord Texture and Gradient     */
+      /* ----------------------------------------------- */
       .header::before {
         content: linear-gradient(to left, transparent, #EEEEEE 30%, #222222 60%, transparent 90% );
         width: 100%;
@@ -1701,10 +1238,6 @@
         pointer-events: none;
         box-shadow: none;
       }
-
-      /* ----------------------------------------------- */
-      /*      Toolbar/Dashbaord Texture and Gradient     */
-      /* ----------------------------------------------- */
       .header::after {
         content: "";
         background: url(data:image/png;base64,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);
@@ -1752,8 +1285,6 @@
         pointer-events: none;
       }
       {% endif %}
-    ha-tabs$: |
-      paper-icon-button { display: none !important; }
 
   # ===================================================== #
   #                 SIDEBAR MODIFICATIONS                 #
@@ -1778,12 +1309,27 @@
       .title {
         display: none !important;
       }
+      .fade-top {
+        display: none;
+      }
+      .fade-bottom {
+        display: none;
+      }
+      .panels-list > .wrapper::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 56px;
+        height: calc(100% - 75px);
+        border-left: 5px solid var(--lcars-background-color);
+      
+      }
       ha-md-list.ha-scrollbar {
         margin-top: 70px;
         border-top: 5px solid var(--lcars-background-color);
         padding-top: 0px !important;
         font-family: var(--font-family);
-        height: calc(100% - var(--header-height) - 220px - env(safe-area-inset-bottom));
+        height: 100%;
       }
       ha-md-list-item {
         border-bottom: 5px solid;
@@ -1892,7 +1438,7 @@
             position: absolute;
             top: 0px;
             right: 0px;
-            width: 179px;
+            width: calc(100% - 78px);
             margin: 0px 0px 0px 0px;
             padding: 7px 5px 7px 5px;
           }    
@@ -1928,6 +1474,7 @@
         margin-top: 150px;
         margin-right: 94px;
         margin-left: 0px;
+        z-index: 99;
       }
       @media screen and (max-width: 870px) {
         .ha-scrollbar::before {
@@ -2007,9 +1554,6 @@
       }
       .divider {
         display: none;
-      }
-      ha-md-list {
-        padding: 0px !important;
       }
       ha-md-list:not(.ha-scrollbar) {
         padding: 54px 0px 0px 0px !important;
