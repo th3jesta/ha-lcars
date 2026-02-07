@@ -22,27 +22,46 @@ Vertical and horizontal stacks can now be themed. Examples include a horizontal 
 
 ### Buttons as bars
 New classes ``button-bar-left`` and ``button-bar-right`` allow buttons to appear like the bars, including icons and states. Thanks [@bobzer](https://github.com/bobzer) for the idea!
-<p align="center"><img width="635" height="138" alt="image" src="https://github.com/user-attachments/assets/17f72d65-9f86-419f-b8f8-f685e64481c7" /></p>
+<p align="center"><img width="500" alt="image" src="https://github.com/user-attachments/assets/17f72d65-9f86-419f-b8f8-f685e64481c7" /></p>
 
 ### LCARS Style Sidebar
 The sidebar menu has been given a LCARS facelift! Thanks @3of9 for this stunning work!  
 *Not all of the documentation images have been updated to reflect this addition.*
-<p align="center"><img width="185" alt="image" src="https://github.com/user-attachments/assets/b9e1e417-e597-4190-9fa8-d7d29792fb34" /></p>
+<p align="center"><img width="150" alt="themed sidebar" src="https://github.com/user-attachments/assets/b9e1e417-e597-4190-9fa8-d7d29792fb34" /></p>
 
+### Custom text in the header clock
+Using an optional helper, you can add text to the header clock!
+<p align="center"><img width="300" alt="custom text next to the clock" src="https://github.com/user-attachments/assets/cd276787-192b-4b7a-be1e-981bd53705cd" /></p>
 
 ## Examples
 ### Dashboard
-![image](https://user-images.githubusercontent.com/38670315/212081440-039e5481-ca2b-4c08-814c-2a83d6a5a377.png "Automations for hot Earl Grey Tea not included.")
+![default](https://github.com/user-attachments/assets/4c90a16c-fac8-4184-8720-a537609c0826)
 
 ### Edit modes
-![image](https://user-images.githubusercontent.com/38670315/212082080-d3543d1a-9cb2-4205-93cf-4e10829db8f8.png)
+<img width="2695" height="1566" alt="image" src="https://github.com/user-attachments/assets/f11f9f0b-108b-486c-8ef1-6954696873fe" />
+
 
 ### Mobile view
-<img src="https://user-images.githubusercontent.com/38670315/212080834-70b1554e-602a-42a6-8bf8-b42bf99463d5.png" width="360" /> <img src="https://user-images.githubusercontent.com/38670315/212081003-790ced32-f14d-47dc-9f13-cd711c5f02aa.png" width="360" />
+<img width="300" alt="mobile dashboard" src="https://github.com/user-attachments/assets/958b9880-5ac7-4d7e-a519-f02b33d415d1" />
+<img width="300" alt="mobile menu" src="https://github.com/user-attachments/assets/2e311e33-dad9-412c-9426-711999917b57" />
 
 ### Included themes
-![LCARS Themes](https://user-images.githubusercontent.com/38670315/210556056-26458f3d-60e4-400f-89df-f0b8cc68a6a2.png)
-Classic, Lower Decks, Romulus, Cardassia, Kronos, Nemesis (and more!).
+<div style="display: flex; gap: 30px;">
+    <img width="300" alt="classic" src="https://github.com/user-attachments/assets/f5636e72-4b21-446b-82e7-03d61e6fd6c8" />
+    <img width="300" alt="25C" src="https://github.com/user-attachments/assets/4ba26e42-f965-400c-a21a-96b0d9b8160d" />
+    <img width="300" alt="breen" src="https://github.com/user-attachments/assets/5487ad5c-2b1a-42b2-956e-9194b87ba226" />
+    <img width="300" alt="cardassia" src="https://github.com/user-attachments/assets/b4a7b0d7-25bd-4094-bb71-1c924f4e295c" />
+    <img width="300" alt="kronos" src="https://github.com/user-attachments/assets/3ffcbb74-7c46-4a7a-9bd5-f9589fa56ee3" />
+    <img width="300" alt="lower decks" src="https://github.com/user-attachments/assets/470e457f-45ae-4e64-98f0-c8488ca6302c" />
+    <img width="300" alt="next gen" src="https://github.com/user-attachments/assets/afbd0924-4ee8-49a1-922b-40392fba3c2d" />
+    <img width="300" alt="transporter" src="https://github.com/user-attachments/assets/d2ceb6ee-f23c-4db8-b1ba-da8fd91d47ff" />
+    <img width="300" alt="navigation" src="https://github.com/user-attachments/assets/ee1eb005-a09d-4c7d-a65f-ab8bca25600e" />
+    <img width="300" alt="romulan" src="https://github.com/user-attachments/assets/461eaa25-ae0b-43d4-8ff9-63139e1c6b7a" />
+    <img width="300" alt="red alert" src="https://github.com/user-attachments/assets/d1989f26-36f2-46a2-9df9-b3037b773a3f" />
+    <img width="300" alt="blue alert" src="https://github.com/user-attachments/assets/aca17e2c-e037-4b1d-9b77-a1d3ca5411ff" />
+    <img width="300" alt="yellow alert" src="https://github.com/user-attachments/assets/bc57cec2-f31b-43a3-a4cf-3cc6299763ef" />
+</div>
+Classic, 25th Century, Next Generation, Lower Decks, Romulus, Cardassia, Kronos, Nemesis (and more!).
     
 ## Preamble
 I am most definitely not a real web developer, and fumbled my way into the initial release with the help of Stack Exchange and various blogs on CSS techniques. My main goal was and still is to keep this theme 100% CSS/JS with no extra assets required besides the font. I'm positive there are better ways to implement anything and everything I've done thus far, so PRs are welcome. I will continue to improve things as I learn and add more comments to my CSS so that you can know what things do and maybe tell me how it can be better if you know. I have tested this theme with most of the out-of-the-box cards that ship with Home Assistant, and some available in HACS like the Mail and Packages card. However, I'm sure there are some that could still be terribly broken. Simply create an issue and I will address it. 
@@ -58,7 +77,7 @@ I am most definitely not a real web developer, and fumbled my way into the initi
 frontend:
   themes: !include_dir_merge_named themes
   extra_module_url:
-    - /local/community/lovelace-card-mod/card-mod.js #or wherever you ended up putting card-mod.js
+    - /www/community/lovelace-card-mod/card-mod.js?hacstag=1234567890 #or wherever you put card-mod
 ```
 3. Under the Home Assistant ``config`` folder, create a new folder named ``themes``   
 4. **Restart** Home assistant to apply the changes.
@@ -67,7 +86,7 @@ frontend:
 
 This theme requires you to add either the `Tungsten` font or the `Antonio` font. If both are available, the theme will use Tungsten. Tungsten is the actual font used in the later seasons of *Picard*. Antonio is a very similar and is slightly less horizontally compressed. 
 
-A. Tungsten[^1] is available free for personal use from [Font Dowloader](https://fontdownloader.net/tungsten-font/).  
+A. Tungsten[^1] is available free for personal use from [Font Downloader](https://fontdownloader.net/tungsten-font/).  
    1. Download and unzip the font files  
    2. Place `Tungsten-Medium.woff2` and `Tungsten-Bold.woff2` in `<home-assistant-directory>/www/community/fonts/`  
    3. Download Tungsten.css from the HA-LCARS GitHub and place it also in `<home-assistant-directory>/www/community/fonts/`  
@@ -89,8 +108,9 @@ A. Navigate to `Settings` → `Dashboards` → `3-dot menu` → `Resources` and 
 
 ##### -OR-
 
-B. If you don't trust someone's random JavaScript hosted on a CDN (I get it), you can download the `lcars.js` file directly from GitHub, audit it yourself, and place it in your `<home-assistant-directory>/www/community/`; **this will need to be done with every HA-LCARS update.**
-**Do not add `/local/community/lcars.js` to `extra_module_url`; it will not work there.**
+B. If you don't trust someone's random JavaScript hosted on a CDN (I get it), you can download the `lcars.js` file directly from GitHub, audit it yourself, and place it in your `<home-assistant-directory>/www/community/`. 
+   - **This will need to be done with every HA-LCARS update.**
+   - **Do not add `/local/community/lcars.js` to `extra_module_url`; it will not work there.**
 
 > [!WARNING]
 > **IF YOU USE CLOUDFLARE IN FRONT OF YOUR SITE:**  
@@ -117,8 +137,8 @@ https://www.home-assistant.io/integrations/time_date/
 > You may wish to remove these new Time & Date entities from Home Assistant's Recorder integration so they don't fill you database with updates every second. Examples on how to do that: https://www.home-assistant.io/integrations/recorder/#common-filtering-examples
 
 
-#### IV. Create the entities
-This theme has two controls for sound and textures that require creating simple toggle entities. Create them by going to ``Settings`` → ``Devices & Services`` → ``Helpers`` and create two of type **Toggle** and two of type **Number** named as below:
+#### IV. Create the helper entities
+This theme has toggle controls for sound and textures, number controls for border sizes, and an optional template sensor for adding custom text to the header. Create these helper entities by going to ``Settings`` → ``Devices & Services`` → ``Helpers`` and create two of type **Toggle**, two of type **Number**, and one of type **Template** named as below:
 - LCARS Sound (entity id should be `input_boolean.lcars_sound`)
   - Toggles button and tap sounds 
 - LCARS Texture (entity id should be `input_boolean.lcars_texture`)
@@ -134,7 +154,7 @@ This theme has two controls for sound and textures that require creating simple 
 - Optional: LCARS Header (entity id should be `sensor.lcars_header`)
   - Add text to the clock area of the header
   - Example Template: `{{ "LCARS " + states('sensor.time') }}`
-<img width="921" height="276" alt="entities for LCARS sound, texture, and borders" src="https://github.com/user-attachments/assets/bc9956d6-85bb-424f-9890-dcbc4bed19d7" />
+<img height="276" alt="entities for LCARS sound, texture, and borders" src="https://github.com/user-attachments/assets/bc9956d6-85bb-424f-9890-dcbc4bed19d7" />
 
 These entities can be controlled directly from viewing the entity, or you can even add buttons to your dashboard to control them, just like any other entity. 
 
@@ -144,8 +164,7 @@ Install via HACS by searching "LCARS" or download the [latest release](https://g
 ### Enable theme
 #### Option 1: Via profile
 1. Open your Home Assistant **Profile**
-2. Under, **Themes**, select one of the new LCARS themes
-3. Call the `frontend.reload_themes` service.
+2. Under **User Settings** → **Themes**, select one of the new LCARS themes
 
 #### Option 2: Setting the default `backend-selected` theme
 In order to have this theme set automatically as the backend selected default, add the following automation to your Home Assistant:
@@ -161,6 +180,7 @@ In order to have this theme set automatically as the backend selected default, a
       name: LCARS Default # or whichever other theme is available, like LCARS Lower Decks
     service: frontend.set_theme
 ```
+
 ## Usage instructions
 ### Classes
 The theme includes some classes that can be added to cards like this to give them special styling:
@@ -892,16 +912,6 @@ cards:
     content: Galaxy Class Bar
     card_mod:
       class: bar-left
-
-Edit
-
-Preview
-Indent mode
-
-      style: |
-        :host {
-          font-size: 64px !important;
-        }
 ```
 
 </td>
