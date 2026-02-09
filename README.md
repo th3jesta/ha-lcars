@@ -116,26 +116,25 @@ B. If you don't trust someone's random JavaScript hosted on a CDN (I get it), yo
 > **IF YOU USE CLOUDFLARE IN FRONT OF YOUR SITE:**  
 > Purge your site cache in CloudFlare (Purge Cache under Quick Actions) anytime you update the local file or if you are using the JSDelivr link and a new version of HA-LCARS is released. This needs to happen whether you are using the JSDelivr link or putting it in your www folder. Unless you tell it not to, CloudFlare caches anything in your site that it can.
 #### III. Set up the clock
-In order for the clock to work, you need to set up the Time & Date integration by adding the following to your configuration.yaml:
+In order for the clock to work, you need to set up the [Time & Date integration](https://www.home-assistant.io/integrations/time_date/).
+
+A. From the Integations menu
+   - Go to ``Settings`` → ``Devices & Services`` → ``+ Add Integration`` → ``Time & Date``
+   - Select the sensor type `Time`
+   - Click `Submit`
+
+##### -OR-
+
+B. Add the following to your configuration.yaml:
 ```yaml
 sensor:
   - platform: time_date
     display_options:
       - 'time'
-      - 'date'
-      - 'date_time'
-      - 'date_time_utc'
-      - 'date_time_iso'
-      - 'time_date'
-      - 'time_utc'
 ```
 
-More info:
-https://www.home-assistant.io/integrations/time_date/
-
-> [!NOTE]  
-> You may wish to remove these new Time & Date entities from Home Assistant's Recorder integration so they don't fill you database with updates every second. Examples on how to do that: https://www.home-assistant.io/integrations/recorder/#common-filtering-examples
-
+> [!IMPORTANT]  
+> You may wish to remove the new Time & Date entities from Home Assistant's Recorder integration so they don't fill you database with updates every second. Examples on how to do that: https://www.home-assistant.io/integrations/recorder/#common-filtering-examples
 
 #### IV. Create the helper entities
 This theme has toggle controls for sound and textures, number controls for border sizes, and an optional template sensor for adding custom text to the header. Create these helper entities by going to ``Settings`` → ``Devices & Services`` → ``Helpers`` and create two of type **Toggle**, two of type **Number**, and one of type **Template** named as below:
