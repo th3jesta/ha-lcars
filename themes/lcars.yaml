@@ -1290,25 +1290,21 @@
   #                 CONFIG MODIFICATIONS                  #
   # ===================================================== #
   card-mod-config-yaml: |
-    .: |
-      @media screen and (max-width: 870px) {
-        ha-config-integrations,
-        ha-config-devices,
-        ha-config-entities,
-        ha-config-helpers,
-        ha-config-automation,
-        ha-config-scene,
-        ha-config-script,
-        ha-config-blueprint,
-        ha-config-areas,
-        ha-config-labels,
-        ha-config-zone,
-        ha-config-voice-assistants,
-        zha-config-dashboard-router,
-        zwave_js-config-router {
-            --header-height: 50px;
+    "* $":
+      .: |
+        hass-subpage, hass-tabs-subpage {
+          ha-card {
+            overflow: hidden;
+          }
         }
-      }
+      "hass-tabs-subpage $": |
+        div.bottom-bar {
+          --header-height: 50px;
+        }
+      "hass-tabs-subpage-data-table $ hass-tabs-subpage $": |
+        div.bottom-bar {
+          --header-height: 50px;
+        }
 
   # ===================================================== #
   #                 SIDEBAR MODIFICATIONS                 #
