@@ -138,7 +138,7 @@ https://www.home-assistant.io/integrations/time_date/
 
 
 #### IV. Create the helper entities
-This theme has toggle controls for sound and textures, number controls for border sizes, and an optional template sensor for adding custom text to the header. Create these helper entities by going to ``Settings`` → ``Devices & Services`` → ``Helpers`` and create two of type **Toggle**, two of type **Number**, and one of type **Template** named as below:
+This theme has toggle controls for sound and textures, number controls for border sizes and menu font size, and an optional template sensor for adding custom text to the header. Create these helper entities by going to ``Settings`` → ``Devices & Services`` → ``Helpers`` and create two of type **Toggle**, two of type **Number**, and one of type **Template** named as below:
 - LCARS Sound (entity id should be `input_boolean.lcars_sound`)
   - Toggles button and tap sounds 
 - LCARS Texture (entity id should be `input_boolean.lcars_texture`)
@@ -151,6 +151,8 @@ This theme has toggle controls for sound and textures, number controls for borde
   - Sets the width of horizontal borders
   - Min value: 6
   - Max value: 60
+- Optional: LCARS Menu Font (entity id should be `input_number.lcars_menu_font`)
+  - Sets the font size (in px) of the sidebar menu
 - Optional: LCARS Header (entity id should be `sensor.lcars_header`)
   - Add text to the clock area of the header
   - Example Template: `{{ "LCARS " + states('sensor.time') }}`
