@@ -1362,7 +1362,7 @@
           min-height: 40px;
           margin: 0px 0px 0px 0px;
           padding: 9px 8px 11px 5px;
-          width: calc( var(--mdc-drawer-width,256px) - 61px );
+          width: calc( 100% + 3px );
         }
         span.badge {
           position: absolute;
