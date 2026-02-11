@@ -1017,6 +1017,12 @@
         padding-top: 12px !important;
       }
 
+    # Gauge cards on various themes and styles need a background color
+    "ha-card ha-gauge$": |
+      .gauge {
+        --primary-background-color: var(--lcars-dark-gray);
+      }
+
   # ===================================================== #
   #          TOOLBAR AND DASHBOARD MODIFICATIONS          #
   # ===================================================== #
