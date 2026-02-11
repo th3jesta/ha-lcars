@@ -1,11 +1,14 @@
-#
 # LCARS Theme
 # Color codes and font choice from https://www.thelcars.com
 #     --thanks Jim Robertus!
 # Custom themes can be created down at the bottom of this
-# file. Or, search for "===THEMES", which will take you
-# right there.
-(DO NOT USE/MODIFY)=== LCARS Colors: &lcars-colors
+# file. Or, search for "THEME DEFINITIONS", which will take
+# you right there.
+
+# ======================================================= #
+#                     LCARS VARIABLES                     #
+# ======================================================= #
+(DO NOT USE/MODIFY)=== LCARS variables: &lcars-variables
   lcars-space-white: "#f5f6fa"
   lcars-violet-creme: "#ddbbff"
   lcars-green: "#33cc99"
@@ -34,10 +37,11 @@
   lcars-midnight: "#1111ee"
   lcars-ghost: "#88bbff"
   lcars-wheat: "#ccaa88"
-  lcars-roseblush: "#ffcc99"
+  lcars-roseblush: "#cc6666"
   lcars-honey: "#ffcc99"
   lcars-cardinal: "#cc2233"
   lcars-pumpkinshade: "#ff7744"
+  lcars-darkpumpkin: "#91550b"
   lcars-tangerine: "#ff8833"
   lcars-martian: "#99dd66"
   lcars-text-blue: "#2266ff"
@@ -48,56 +52,146 @@
   lcars-october-sunset: "#ff4400"
   lcars-harvestgold: "#ffaa44"
   lcars-butter: "#ffeecc"
-  lcars-c43: "#5588ee"
-  lcars-c44: "#88ffff"
-  lcars-c45: "#344470"
-  lcars-c46: "#455580"
-  lcars-c47: "#7799dd"
-  lcars-c48: "#66ccff"
-  lcars-c49: "#99ccff"
-  lcars-c50: "#ff3500"
-  lcars-c51: "#552255"
-  lcars-c52: "#663366"
-  lcars-c53: "#774477"
-  lcars-c54: "#885588"
-  lcars-c55: "#996699"
-  lcars-c56: "#ff8800"
-  lcars-c57: "#d0b0a0"
-  lcars-c58: "#bbbbff"
-  lcars-c59: "#99aa66"
-  lcars-c60: "#00bb00"
-  lcars-c61: "#33ff33"
-  lcars-c62: "#ddffdd"
-  lcars-c63: "#ffebde"
-  lcars-c64: "#cc99cc"
-  lcars-c65: "#f6eef6"
-  lcars-c66: "#aa66aa"
-  lcars-c67: "#dd88dd"
-  lcars-c68: "#ff0000"
-  lcars-c69: "#cc0000"
-  lcars-70: "#ee0000"
-  lcars-c71: "#dfdfdf"
-  lcars-c72: "#f7f7f7"
-  lcars-lavender: "#c8f"
-  lcars-error: "f20"
+  lcars-steel-blue: "#5588ee" # lcars-c43
+  lcars-aqua: "#88ffff" # lcars-c44
+  lcars-deep-navy: "#344470" # lcars-c45
+  lcars-slate: "#455580" # lcars-c46
+  lcars-periwinkle: "#7799dd" # lcars-c47
+  lcars-sky-blue: "#66ccff" # lcars-c48
+  lcars-powder-blue: "#99ccff" # lcars-c49
+  lcars-vermilion: "#ff3500" # lcars-c50
+  lcars-plum: "#552255" # lcars-c51
+  lcars-eggplant: "#663366" # lcars-c52
+  lcars-mauve: "#774477" # lcars-c53
+  lcars-orchid: "#885588" # lcars-c54
+  lcars-lavender-rose: "#996699" # lcars-c55
+  lcars-yam: "#ff8800" # lcars-c56
+  lcars-taupe: "#d0b0a0" # lcars-c57
+  lcars-periwinkle-light: "#bbbbff" # lcars-c58
+  lcars-sage: "#99aa66" # lcars-c59
+  lcars-emerald: "#00bb00" # lcars-c60
+  lcars-lime: "#33ff33" # lcars-c61
+  lcars-mint: "#ddffdd" # lcars-c62
+  lcars-peach-light: "#ffebde" # lcars-c63
+  lcars-lilac-light: "#cc99cc" # lcars-c64
+  lcars-lavender-mist: "#f6eef6" # lcars-c65
+  lcars-plum-medium: "#aa66aa" # lcars-c66
+  lcars-orchid-light: "#dd88dd" # lcars-c67
+  lcars-scarlet: "#ff0000" # lcars-c68
+  lcars-crimson: "#cc0000" # lcars-c69
+  lcars-ruby: "#ee0000" # lcars-c70
+  lcars-silver: "#dfdfdf" # lcars-c71
+  lcars-pearl: "#f7f7f7" # lcars-c72
+
+  # LCARS Modern Theme Colors
+  lcars-modern-light-gray: "#9996BA"
+
+  # LCARS Transporter Theme Colors
+  lcars-navy-gray: "#2C374B" # lcars-c73
+  lcars-slate-gray: "#6E748C" # lcars-c74
+  lcars-teal: "#2A7092" # lcars-c75
+  lcars-coral: "#FA6851" # lcars-c76
+  lcars-charcoal: "#51596C" # lcars-c77
+
+  # LCARS Navigation Theme Colors
+  lcars-olive: "#827A53" # lcars-c79
+  lcars-sand: "#CDB972" # lcars-c80
+  lcars-lemon: "#F7EE51" # lcars-c81
+  lcars-cornflower: "#6499FF" # lcars-c82
+  lcars-khaki-dark: "#B8A666" # lcars-c83
+
+  # LCARS Picard S1 Colors
+  lcars-dunkelgrau: "#30374AFF"
+  lcars-mittelgrau: "#656B83FF"
+  lcars-hellgrau: "#9FA5BDFF"
+  lcars-feuerrot: "#E7432AFF"
+  lcars-mango: "#E5960C"
+  lcars-turquoise: "#6efaf9" # lcars-c84
+  lcars-beige: "#e2c599" # lcars-c85
+  lcars-cerulean: "#21bece" # lcars-c86
+  lcars-midnight-blue: "#012556" # lcars-c87
+  lcars-seafoam: "#d6f6f1" # lcars-c88
+  lcars-apricot: "#e1915c" # lcars-c89
+
+  # Additional Colors
+  lcars-lavender: "#cc88ff"
+  lcars-error: "#ff2200"
   lcars-text-gray: "#d3d3d3"
+  lcars-text-dark: "#000000"
+  lcars-text-light: "#FFFFFF"
   lcars-medium-gray: "#B6B6C1"
   lcars-dark-gray: "#3e3e3e"
   lcars-khaki: "#ffe399"
-  lcars-font: Antonio
+  lcars-cardassia-maroon: "#4f1a23"
+  lcars-dark-red: "#360000"
+  lcars-green-primary: "#288855"
+  lcars-green-secondary: "#229a6c"
+  lcars-green-tertiary: "#88de90"
+  lcars-green-middle: "#0f5616"
+  lcars-green-footer: "#37bd76"
+  lcars-background-color: "#000000"
 
-(DO NOT USE/MODIFY)=== Base customizations: &base # Global
-  lovelace-background: black
-  primary-color: black
-  light-primary-color: var(--lcars-medium-gray)
-  primary-background-color: black
-  secondary-background-color: var(--lcars-card-button)
+  # LCARS 25C
+  lcars-alt-dark-gray: "#2f3749"
+  lcars-medium-dark-gray: "#52596e"
+  lcars-primary-gray: "#6d748c"
+  lcars-light-gray: "#9ea5ba"
+  lcars-ghost-gray: "#d2d5df"
+  lcars-starlight: "#f3f4f7"
+  lcars-cyan: "#0ee"
+  lcars-alt-orange: "#e7442a"
+  lcars-light-orange: "#ff6753"
+  lcars-pale-orange: "#ff977b"
+  lcars-alt-blue: "#37a6d1"
+  lcars-medium-dark-blue: "#2a7193"
+  lcars-dark-blue: "#1c3c55"
+  lcars-alt-green: "#2B9032"
+  lcars-black-cherry: "#8c6d7c"
+  lcars-font-color: "#828ba6"
+
+  lcars-alert-red: var(--lcars-crimson)
+  lcars-alert-yellow: var(--lcars-gold)
+  lcars-alert-blue: var(--lcars-text-blue)
+  lcars-alert-white: var(--lcars-silver)
+  lcars-alert-uv: "#000080"
+  lcars-alert-uvc: "#68fffa"
+
+  # Shapes
+  lcars-vertical-border: 35px
+  lcars-horizontal-border: 10px
+  lcars-outer-radius: 34px
+  lcars-inner-radius: 20px
+  # Calculated
+  lcars-middle-vertical-border: "calc(var(--lcars-vertical-border) + 0px)"
+
+  # Font
+  lcars-font: Tungsten
+  lcars-fallback-font: Antonio
+
+  # MSD Colors:
+  msd-bright: "#fff1ab"
+  msd-medium: var(--lcars-yellow) ### "#ffcc33"
+  msd-normal: var(--lcars-orange) ### "#ff7700"
+  msd-dark: var(--lcars-october-sunset) ### "#ff4400"
+  msd-ra-bright: "#dca29e"
+  msd-ra-medium: "#e97369"
+  msd-ra-normal: "#ff1100"
+  msd-ra-dark: "#7f0800"
+
+# ======================================================= #
+#                   BASE CUSTOMIZATIONS                   #
+# ======================================================= #
+(DO NOT USE/MODIFY)=== Base customizations: &base
+  primary-color: var(--lcars-ui-tertiary)
+  primary-background-color: var(--lcars-background-color)
+  secondary-background-color: var(--lcars-ui-quaternary)
   divider-color: transparent
   accent-color: var(--lcars-orange)
   box-sizing: unset !important
   # Fonts
-  font-family: "var(--lcars-font), Segoe UI Variable Static Text, Segoe UI, SegoeUI, -apple-system,BlinkMacSystemFont, system-ui, sans-serif"
+  font-family: "var(--lcars-font), var(--lcars-fallback-font), Segoe UI Variable Static Text, Segoe UI, SegoeUI, -apple-system,BlinkMacSystemFont, system-ui, sans-serif"
   primary-font-family: var(--font-family)
+  ha-font-family-body: var(--font-family)
   paper-font-common-base_-_font-family: var(--primary-font-family)
   paper-font-common-code_-_font-family: var(--primary-font-family)
   paper-font-body1_-_font-family: var(--primary-font-family)
@@ -106,609 +200,2104 @@
   paper-font-caption_-_font-family: var(--primary-font-family)
   paper-font-title_-_font-family: var(--primary-font-family)
   ha-card-header-font-family: var(--primary-font-family)
+  header-font-size: 40px
+  button-font-size: 17px
   # Text
+  ha-card-header-color: var(--lcars-text-gray)
   primary-text-color: var(--lcars-text-gray)
   secondary-text-color: var(--lcars-text-gray)
   text-primary-color: var(--lcars-text-gray)
   disabled-text-color: "#555"
-  text-dark-color: black
+  text-dark-color: var(--lcars-text-dark)
   # Sidebar Menu
   sidebar-background-color: var(--lcars-ui-primary)
-  sidebar-icon-color: black
-  sidebar-text-color: black
+  sidebar-menu-button-background-color: var(--sidebar-background-color)
+  sidebar-icon-color: var(--lcars-text-dark)
+  sidebar-text-color: var(--lcars-text-dark)
   sidebar-selected-background-color: var(--lcars-ui-primary)
-  sidebar-selected-icon-color: black
-  sidebar-selected-text-color: black
+  sidebar-selected-icon-color: var(--lcars-text-dark)
+  sidebar-selected-text-color: var(--lcars-text-dark)
   app-drawer-width: 75px
+  sidebar-menu-button-text-color: var(--lcars-text-dark)
   # States and Badges
-  state-icon-color: white
+  state-inactive-color: var(--lcars-text-dark)
+  state-icon-color: var(--lcars-text-light)
   state-icon-active-color: var(--lcars-text-gray)
   state-icon-unavailable-color: var(--disabled-text-color)
   # Sliders
-  paper-slider-knob-color: white
+  paper-slider-knob-color: var(--lcars-text-light)
   paper-slider-knob-start-color: var(--paper-slider-knob-color)
   paper-slider-pin-color: var(--paper-slider-knob-color)
   paper-slider-active-color: "#0984ff"
   paper-slider-secondary-color: var(--paper-slider-knob-color)
   paper-slider-container-color: rgba(255, 255, 255, 0.5)
-  paper-slider-font-color: white
+  paper-slider-font-color: var(--lcars-text-dark)
   ha-slider-background: none !important
+  md-slider-handle-color: var(--lcars-dark-gray)
+  md-slider-active-track-color: var(--lcars-ui-tertiary)
+  round-slider-bar-color: var(--lcars-blue)
   # Labels
   label-badge-background-color: "#23232E"
-  label-badge-text-color: black
-  label-badge-red: rgba(255, 159, 9, 0.7)
+  label-badge-text-color: var(--lcars-text-dark)
   # Cards
   card-background-color: var(--secondary-background-color)
   paper-listbox-background-color: var(--primary-background-color)
-  ha-card-border-radius: 40px
-  ha-card-background: var(--lcars-card-button);
+  ha-card-border-radius: var(--lcars-outer-radius)
+  ha-card-background: var(--lcars-ui-secondary);
   paper-card-background-color: var(--ha-card-background)
+  ha-card-border-width: 0px
+  ha-config-card-border-radius: var(--ha-card-border-radius)
+  ha-heading-card-title-color: var(--lcars-ui-text-heading)
   # Toggles
   paper-toggle-button-checked-button-color: "#484848"
   paper-toggle-button-checked-bar-color: "#484848"
   paper-toggle-button-unchecked-button-color: var(--paper-toggle-button-checked-button-color)
   paper-toggle-button-unchecked-bar-color: var(--disabled-text-color)
-  # Table row
+  # Tables
   table-row-background-color: var(--primary-background-color)
   table-row-alternative-background-color: var(--secondary-background-color)
+  data-table-background-color: black
   # Switches
   switch-checked-color: "#30d257"
   switch-checked-track-color: "#30d158"
-  switch-checked-button-color: white
+  switch-checked-button-color: var(--lcars-text-light)
+  # Material Design Components
+  mdc-typography-button-font-family: var(--font-family)
+  mdc-typography-body2-font-family: var(--font-family)
+  mdc-theme-primary: var(--lcars-text-gray)
+  mdc-theme-secondary: var(--lcars-text-gray)
+  mdc-button-outline-color: transparent
+  mdc-typography-font-family: var(--font-family)
+  mdc-theme-on-primary: black
+  mdc-theme-on-secondary: black
+  mdc-theme-text-primary-on-background: var(--lcars-text-gray)
+  mdc-theme-text-secondary-on-background: var(--lcars-text-gray)
+  mdc-shape-small: 0px
+  mdc-text-field-label-ink-color: var(--lcars-text-gray)
+  mdc-text-field-fill-color: var(--lcars-ui-quaternary)
+  mdc-text-field-ink-color: var(--lcars-text-gray)
+  #App Header
+  app-header-edit-background-color: transparent
+  app-header-text-color: var(--lcars-ui-app-header-text-color, black)
+  header-height: 40px
+  # Switches
+  switch-unchecked-track-color: var(--lcars-text-gray)
+  switch-unchecked-button-color: var(--lcars-text-gray)
+  # Tabs
+  paper-tabs-selection-bar-color: transparent
+  ha-tab-padding-start: 5px;
+  ha-tab-padding-end: 5px;
+  #State
+  state-color: var(--lcars-ui-secondary)
+  #Code Editor
+  code-editor-background-color: black
   # Other
   paper-dialog-background-color: rgba(55, 55, 55)
   paper-item-icon-color: var(--lcars-dark-gray)
   more-info-header-background: rgba(25, 25, 25)
-  app-header-background-color: var(--lcars-ui-primary)
-  # Custom
-  mini-media-player-base-color: white
-  mini-media-player-icon-color: white
-  sidebar-menu-button-text-color: black
-  mdc-typography-button-font-family: var(--lcars-font)
-  mdc-theme-primary: var(--lcars-text-gray)
-  mdc-theme-secondary: var(--lcars-orange)
-  round-slider-bar-color: var(--lcars-blue)
-  app-header-edit-background-color: transparent
-  switch-unchecked-track-color: var(--lcars-text-gray)
-  switch-unchecked-button-color: var(--lcars-text-gray)
-  error-color: var(--lcars-error)
-  header-height: 40px
-  app-header-text-color: black
-  paper-tabs-selection-bar-color: transparent
-  mdc-button-outline-color: transparent
-  ha-config-card-border-radius: 40px
-  mdc-typography-font-family: Antonio
-  ha-card-border-width: 0px
+  app-header-background-color: var(--lcars-ui-app-header-background-color, var(--lcars-ui-primary))
+  mini-media-player-base-color: var(--lcars-text-gray)
+  mini-media-player-icon-color: var(--lcars-text-gray)
+  state-lock-unlocked-color: var(--lcars-dark-red)
+  rgb-state-media-player-color: var(--paper-item-icon-color)
   paper-yellow-a100: transparent
-  mdc-theme-on-primary: black
-  mdc-theme-on-secondary: var(--lcars-text-gray)
-  mdc-theme-text-primary-on-background: black
-  mdc-theme-text-secondary-on-background: black
-  data-table-background-color: black
+  input-dropdown-icon-color: var(--lcars-text-gray)
+  ha-outlined-field-container-color: var(--lcars-text-gray)
 
+  # Thermostat Card
+  label-badge-red: var(--lcars-alt-orange)
+  label-badge-yellow: var(--lcars-sunflower)
+  label-badge-grey: var(--lcars-medium-gray)
+  slider-track-color: var(--lcars-dark-gray)
+  state-climate-auto-color: var(--lcars-cyan)
+  state-climate-manual-color: var(--lcars-primary-gray)
+  state-climate-fan_only-color: var(--lcars-medium-gray)
+  state-climate-dry-color: var(--lcars-light-orange
+  state-climate-idle-color: var(--lcars-pale-orange)
+  state-climate-heat_cool-color: var(--lcars-alt-green)
+  state-climate-heat-color: var(--lcars-alt-orange)
+  state-climate-cool-color: var(--lcars-cyan)
+  state-unknown-color: var(--lcars-starlight)
+  energy-non-fossil-color: var(--lcars-alt-green)
+
+# ======================================================= #
+#                    CARD MODIFICATIONS                   #
+# ======================================================= #
 (DO NOT USE/MODIFY)=== card-mod CSS: &card-mod-css # Card modifications
-  card-mod-card: &card-mod-card |
-    ha-card.header {
-      background: var(--lcars-card-top-color) !important;
-      text-transform: uppercase;
-      border-radius: 40px 0px 0px 0px !important;
-      border-top: 10px solid var(--lcars-card-top-color);
-      border-left: 35px solid var(--lcars-card-top-color);
-    }
-    ha-card.middle {
-      background: black !important;
-      text-transform: uppercase;
-      border-radius: 0px !important;
-      border-left: 35.5px solid var(--lcars-card-mid-left-color);
-    }
-    ha-card.footer {
-      background: var(--lcars-card-bottom-color) !important;
-      text-transform: uppercase;
-      border-radius: 0px 0px 0px 40px !important;
-      border-bottom: 10px solid var(--lcars-card-bottom-color);
-      border-left: 35px solid var(--lcars-card-bottom-color);
-      margin-top: unset;
-    }
-    ha-card.button-small {
-      text-transform: uppercase;
-      color: black;
-      border-radius: 0px !important;
-    }
-    ha-card.button-large {
-      text-transform: uppercase;
-      color: black;
-    }
-    ha-card.button-lozenge {
-      text-transform: uppercase;
-      color: black;
-      min-height: 60px;
-    }
-    ha-card.button-lozenge > ha-state-icon {
-      --mdc-icon-size: unset;
-      text-align: left;
-      margin-left: -88px;
-      position: absolute;
-    }
-    ha-card.button-lozenge > span {
-      text-align: right;
-      align-items: unset;
-      width: 60%;
-      height: 100%;
-      margin-top: 0px;
-      margin-left: 15px;
-      padding-top: 35px;
-      border-left: black solid 10px;
-      box-shadow: -90px 0px 0px 0px var(--lcars-card-top-color);
-    }
-    ha-card.button-lozenge > span.state {
-      text-align: right;
-      align-items: unset;
-      width: 60%;
-      height: 100%;
-      margin-top: -60px;
-      margin-left: 25px;
-      padding-top: 0px;
-      border-left: none !important;
-      box-shadow: none !important;
-    }
-    .type-custom-mod-card {
-      border-radius: 0px !important;
-      border-left: 35.5px solid var(--lcars-card-mid-left-color);
-      padding-left: 6px !important;
-    }
-    ha-markdown.no-header {
-      background: black;
-      border-radius: 20px 0px 0px 0px;
-      padding-top: 0px !important;
-      padding-bottom: 0 !important;
-    }
-    .entities {
-      background: black;
-      border-radius: 0px 0px 0px 20px;
-    }
-    .type-thermostat > .content {
-      background: black;
-      border-radius: 0px 0px 0px 20px;
-      padding-top: 0px !important;
-      padding-bottom: 0 !important;
-    }
-    #states {
-      background: black;
-      border-radius: 0px 0px 0px 20px;
-      padding-top: 0px !important;
-      padding-bottom: 0 !important;
-    }
-    .details {
-      margin-top: 1em;
-    }
-    .color-block {
-      border-radius: 0px 0px 0px 20px;
-    }
-    .card-actions {
-      border-top: none;
-      padding: 5px 16px;
-      margin-top: 8px;
-      background: var(--lcars-ui-primary);
-      border-radius: 40px;
-      --primary-text-color: black;
-      --mdc-theme-primary: black;
-    }
-    .panel > ha-card {
-      border-radius: 40px !important;
-    }
-    ha-card.footer > ha-state-icon {
-      background: black;
-      width: 100%;
-      --mdc-icon-size: 40%
-    }
-    ha-card.footer > span {
-      background: black;
-      width: 100%;
-      padding-left: 0px;
-      margin-top: 0px;
-    }
-    ha-card.footer > span.usps_update {
-      background: black;
-      width: 100%;
-      padding-left: 15px;
-      margin-top: -4px;
-    }
-    .button-small > .state,
-    .button-large > .state,
-    .button-lozenge > .state {
-      border-radius: 0px 0px 0px 20px;
-      padding-bottom: 0px;
-      color: black;
-    }
-    ha-card.footer > .details {
-      background: black;
-      width: 100%;
-      margin: 0px;
-    }
-    .MailImg {
-      margin-top: 0;
-    }
-    .details > .title {
-      margin-left: 15px;
-    }
-    .usps_update {
-      border-radius: 0px 0px 0px 20px;
-      display: flex;
-    }
-    ha-card.footer > .content {
-      background: black;
-      border-radius: 0px 0px 0px 20px;
-    }
-    .details > p {
-      margin-left: 15px;
-    }
-    ha-card {
-      padding: 0px !important;
-      border-top-right-radius: 40px !important;
-      border-top-left-radius: 40px !important;
-    }
-    ha-config-updates {
-      color: black;
-    }
-    button#button.mdc-button {
-      color: black !important;
-    }
-  # Toolbar and dashboard modifications
-  card-mod-root: &card-mod-root |
-    ha-dialog > * {
-      color: black;
-    }
-    paper-tab.iron-selected {
-      background: var(--lcars-ui-primary) !important;
-      color: black;
-    }
-    paper-icon-item::before {
-      inset: 2px !important;
-      margin-right: -9px !important;
-      margin-left: -1px !important;
-      borer-radius: 20px !important;
-    }
-    .edit-mode app-header {
-      background: transparent !important;
-    }
-    .edit-mode app-toolbar {
-      background: var(--lcars-ui-primary) !important;
-    }
-    app-toolbar {
-      border-right: 30px solid var(--lcars-card-top-color);
-      border-radius: 0px 30px 30px 0px;
-    }
-    ha-tabs, paper-tabs {
-      --paper-tabs-selection-bar-color: transparent !important;
-    }
-    ha-button-menu::before {
-      content: "{{states('sensor.time')}}";
-      color: var(--text-primary-color);
-      visibility: visible;
-      position: absolute;
-      font-size: 42px;
-      right: -16px;
-      top: 4px;
-      background: black;
-      vertical-align: middle;
-      height: var(--header-height);
-      line-height: .8;
-      border-right: 5px solid black;
-      border-left: 5px solid black;
-    }
-    ha-menu-button {
-      display: none !important;
-      color: transparent;
-      padding-right: 10px
-    }
-    .exit-edit-mode {
-      margin-right: 95px;
-      --mdc-button-outline-color: transparent !important;
-      --mdc-theme-primary: black !important;
-      background: var(--lcars-ui-tertiary);
-      border-radius: 40px;
-    }
-    .edit-mode div[main-title] {
-      color: black;
-    }
-    .edit-icon {
-      color: black !important;
-    }
-    ha-button-menu > ha-icon-button, 
-    app-toolbar > ha-icon-button, 
-    .menu-link > ha-icon-button {
-      padding-right: 75px;
-      margin-left: -75px;
-      color: black;
-    }
-    app-header, app-toolbar {
-      box-shadow: 30px 0px 0px 0px black;
-    }
-    paper-tab.iron-selected {
-      background: var(--lcars-ui-tertiary);
-      border-radius: 30px;
-      height: 75%;
-      margin-top: 10px;
-    }
-    paper-tab {
-      background: var(--lcars-blue);
-      border-radius: 30px;
-      height: 75%;
-      margin-top: 10px;
-    }
-    ha-icon-button#add-view {
-      margin-top: 4px;
-    }
-    ha-icon {
-      color: black !important;
-    }
-    hui-masonry-view {
-      padding-right: 23px;
-    }
-    app-toolbar::before {
-      content: "";
-      height: 40px;
-      width: 100px;
-      background-color: transparent;
-      border-top-left-radius: 40px;
-      box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
-      margin-top: 80px;
-      margin-left: -16px;
-    }
-    hui-image {
-      cursor: pointer;
-      z-index: 9999;
-    }
-  # Sidebar modifications
-  card-mod-sidebar: &card-mod-sidebar |
-    :host {
-      content: "";
-      height: 100px;
-      width: 200px;
-      border-right: 0px !important;
-      border-top-left-radius: 80px;
-      box-shadow: black 0px -130px 0px 0px;
-    }
-    paper-listbox {
-      margin-top: 68px;
-      margin-bottom: -21px;
-      border-top: 4px solid black;
-      padding-top: 0px !important;
-      padding-bottom: 0px !important;
-      height: calc( 100% - var(--header-height) - 176px - env(safe-area-inset-bottom)) !important;
-    }
-    #sortable a {
-      display: block !important;
-    }
-    paper-icon-item.hidden-panel, 
-    paper-icon-item.hidden-panel span, 
-    paper-icon-item.hidden-panel 
-    ha-icon[slot="item-icon"] {
-      color: black !important;
-    }
-    paper-icon-item.hidden-panel {
-      display: block !important;
-    }
-    paper-icon-item {
-      margin: 0px !important;
-      padding-left: 16px !important;
-      height: 48px;
-      --paper-item-min-height: unset !important;
-    }
-    .hide-panel {
-      right: 175px !important;
-    }
-    .show-panel {
-      right: 172px !important;
-      top: 4px !important;
-    }
-    .hidden-panel > ha-icon {
-      padding-top: 10px;
-      margin-bottom: -10px;
-    }
-    .hidden-panel > ha-svg-icon {
-      padding-top: 12px;
-      margin-bottom: -12px;
-    }
-    :host([expanded]) .menu mwc-button {
-      margin-top: 152px !important;
-      margin-left: 7px !important;
-      height: 19px;
-      border-radius: 20px;
-      background: var(--lcars-ui-tertiary);
-      align-items: center;
-    }
-    .menu ha-icon-button {
-      color: var(--sidebar-icon-color);
-      margin-top: 150px;
-      margin-right: 96px;
-    }
-    .title {
-      text-transform: uppercase;
-      font-size: 15px;
-      padding-left: 5px;
-      padding-top: 150px;
-      font-family: var(--lcars-font) !important;
-      margin-left: 10px !important;
-    }
-    a {
-      border-bottom: 4px solid;
-      background-color: var(--lcars-ui-secondary);
-    }
-    .spacer {
-      border-bottom: 4px solid black;
-    }
-    .profile {
-      border-top: 4px solid black;
-    }
-    .notifications-container {
-      border-top: 4px solid black;
-    }
-    .item-text {
-      text-align: right;
-      margin-left: auto;
-      margin-right: -12px;
-      margin-bottom: -23px;
-      text-transform: uppercase;
-    }
-    .profile > paper-icon-item > .item-text {
-      margin-left: auto !important;
-      margin-bottom: -17px;
-    }
-    .profile > span {
-      margin-bottom: 1px !important;
-    }
-    .notification-badge, .configuration-badge {
-      left: calc(var(--app-drawer-width) - 30px) !important;
-      top: 5px;
-      max-height: 20px;
-    }
-    .profile paper-icon-item {
-      padding-left: 8px !important;
-    }
-    .menu {
-      --mdc-theme-primary: black;
-    }
-    paper-icon-item::before {
-      opacity: 0 !important;
-    }
+  card-mod-card-yaml: &card-mod-card |
+    .: |
+      /* =============================================== */
+      /*            SECTION-SPECIFIC SETTINGS            */
+      /* =============================================== */
+      :host > ha-card {
+        --paper-item-icon-color: var(--lcars-dark-gray);
+      }
+      :host, :host > ha-card {
+        --lcars-horizontal-border: {{ states('input_number.lcars_horizontal') if has_value('input_number.lcars_horizontal') else 10 }}px !important;
+        --lcars-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
+        --lcars-middle-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
+        --menu-font-size: {{ states('input_number.lcars_menu_font') if has_value('input_number.lcars_menu_font') else 24 }}px !important;
+        &:not(.type-undefined,.type-custom-grid-layout) {
+          height: 100%;
+        }
+        
+      }
+      :host > ha-card > .card-actions,
+      :host > ha-card > .card-actions .position-badge {
+        color: var(--lcars-text-dark);
+      }
 
-(DO NOT USE/MODIFY)=== card-mod-noise-gradients CSS: &card-mod-noise-gradients
-  card-mod-root: &card-mod-root |
-    app-header::before {
-      content: radial-gradient(ellipse farthest-corner at top right, white, transparent 70%);
-      background: url(data:image/png;base64,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);
-      width: 100%;
-      height: 40px;
-      z-index: 9999;
-      position: absolute;
-      mix-blend-mode: overlay;
-      opacity: .8;
-      right: unset;
-      bottom: unset;
-      left: unset;
-      pointer-events: none;
-      box-shadow: none;
-    }
-    hui-masonry-view::before {
-      content: radial-gradient(ellipse farthest-corner at center center, white 0%, transparent 60%);;
-      background: url(data:image/png;base64,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);
-      width: 100%;
-      height: 100%;
-      z-index: 9999;
-      position: absolute;
-      mix-blend-mode: overlay;
-      opacity: .8;
-      pointer-events: none;
-    }
-  card-mod-sidebar: &card-mod-sidebar |
-    paper-listbox::before {
-      content: radial-gradient(ellipse at 30% 110%, white 0%, transparent 60%);
-      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dmYRFZ60YiBhJRCgh1FYhiLAmdvX0CzTOpNE77ME0Zty/nWWzchDtiqrmQDeuv3powQ5ta2eN0FY0InkqDD73lT9c9lEzwUNqgFHs9VQce3TVClFCQrSTfOiYkVJQBmpbq2L6iZavPnAPcoU0dSw0SUTqz/GtrGuXfbyyBniKykOWQWGqwwMA7QiYAxi+IlPdqo+hYHnUt5ZPfnsHJyNiDtnpJyayNBkF6cWoYGAMY92U2hXHF/C1M8uP/ZtYdiuj26UdAdQQSXQErwSOMzt/XWRWAz5GuSBIkwG1H3FabJ2OsUOUhGC6tK4EMtJO0ttC6IBD3kM0ve0tJwMdSfjZo+EEISaeTr9P3wYrGjXqyC1krcKdhMpxEnt5JetoulscpyzhXN5FRpuPHvbeQaKxFAEB6EN+cYN6xD7RYGpXpNndMmZgM5Dcs3YSNFDHUo2LGfZuukSWyUYirJAdYbF3MfqEKmjM+I2EfhA94iG3L7uKrR+GdWD73ydlIB+6hgref1QTlmgmbM3/LeX5GI1Ux1RWpgxpLuZ2+I+IjzZ8wqE4nilvQdkUdfhzI5QDWy+kw5Wgg2pGpeEVeCCA7b85BO3F9DzxB3cdqvBzWcmzbyMiqhzuYqtHRVG2y4x+KOlnyqla8AoWWpuBoYRxzXrfKuILl6SfiWCbjxoZJUaCBj1CjH7GIaDbc9kqBY3W/Rgjda1iqQcOJu2WW+76pZC9QG7M00dffe9hNnseupFL53r8F7YHSwJWUKP2q+k7RdsxyOB11n0xtOvnW4irMMFNV4H0uqwS5ExsmP9AxbDTc9JwgneAT5vTiUSm1E7BSflSt3bfa1tv8Di3R8n3Af7MNWzs49hmauE2wP+ttrq+AsWpFG2awvsuOqbipWHgtuvuaAE+A1Z/7gC9hesnr+7wqCwG8c5yAg3AL1fm8T9AZtp/bbJGwl1pNrE7RuOX7PeMRUERVaPpEs+yqeoSmuOlokqw49pgomjLeh7icHNlG19yjs6XXOMedYm5xH2YxpV2tc0Ro2jJfxC50ApuxGob7lMsxfTbeUv07TyYxpeLucEH1gNd4IKH2LAg5TdVhlCafZvpskfncCfx8pOhJzd76bJWeYFnFciwcYfubRc12Ip/ppIhA1/mSZ/RxjFDrJC5xifFjJpY2Xl5zXdguFqYyTR1zSp1Y9p+tktDYYSNflcxI0iyO4TPBdlRcpeqjK/piF5bklq77VSEaA+z8qmJTFzIWiitbnzR794USKBUaT0NTEsVjZqLaFVqJoPN9ODG70IPbfBHKK+/q/AWR0tJzYHRULOa4MP+W/HfGadZUbfw177G7j/OGbIs8TahLyynl4X4RinF793Oz+BU0saXtUHrVBFT/DnA3ctNPoGbs4hRIjTok8i+algT1lTHi4SxFvONKNrgQFAq2/gFnWMXgwffgYMJpiKYkmW3tTg3ZQ9Jq+f8XN+A5eeUKHWvJWJ2sgJ1Sop+wwhqFVijqWaJhwtD8MNlSBeWNNWTa5Z5kPZw5+LbVT99wqTdx29lMUH4OIG/D86ruKEauBjvH5xy6um/Sfj7ei6UUVk4AIl3MyD4MSSTOFgSwsH/QJWaQ5as7ZcmgBZkzjjU1UrQ74ci1gWBCSGHtuV1H2mhSnO3Wp/3fEV5a+4wz//6qy8JxjZsmxxy5+4w9CDNJY09T072iKG0EnOS0arEYgXqYnXcYHwjTtUNAcMelOd4xpkoqiTYICWFq0JSiPfPDQdnt+4/wuqcXY47QILbgAAAABJRU5ErkJggg==);
-      width: 100%;
-      height: 120%;
-      z-index: 9999;
-      position: absolute;
-      mix-blend-mode: overlay;
-      opacity: .8;
-      pointer-events: none;
-    }
+      /* ----------------------------------------------- */
+      /*                Common Card Styles               */
+      /* ----------------------------------------------- */
+      :host > ha-card {
+        font-family: var(--font-family) !important;
+        --md-sys-color-primary: var(--lcars-ui-quaternary) !important;
+      }
+      #:host > ha-card > .name {
+      #  --primary-text-color: var(--lcars-text-dark);
+      #}
+      
+      /* =============================================== */
+      /*        HEADER CLASSES AND CARD TYPE FIXES       */
+      /* =============================================== */
+      
+      /* ------------- Common Header Styles ------------ */
+      :host(.header-left),
+      :host(.header-right),
+      :host(.header-contained),
+      :host(.header-open),
+      ha-card:is(.header-left,
+                 .header-right,
+                 .header-contained,
+                 .header-open
+      ):not(div > *) {
+        display: block !important;
+        border: 0px solid var(--lcars-card-top-color);
+        border-top-width: var(--lcars-horizontal-border);
+        border-radius: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        background-color: var(--lcars-card-top-color);
+        text-transform: uppercase;
 
-# ===THEMES================================================
+        > :not(style,card-mod) {
+          border-radius: 0px;
+          background-color: var(--lcars-background-color);
+          padding-top: 6px;
+          --primary-text-color: var(--lcars-text-gray);
+          height: 100%;
+          box-sizing: border-box;
+          
+          > .name {
+          --primary-text-color: var(--lcars-text-gray);
+          }
+        }
+        > ha-markdown,
+        > ha-card > ha-markdown {
+          padding-block: 0px;
+        }
+      }
+      
+      /* ----------------Border on left----------------- */
+      :host(.header-left),
+      :host(.header-contained),
+      ha-card:is(.header-left,
+                 .header-contained
+      ):not(div > *) {
+        border-top-left-radius: var(--ha-card-border-radius);
+        border-left-width: var(--lcars-vertical-border);
+
+        > :not(style,card-mod) {
+          border-top-left-radius: var(--lcars-inner-radius);
+          padding-left: 6px;
+          --primary-text-color: var(--lcars-text-gray);
+        }
+      }
+
+      /* ----------------Border on right---------------- */
+      :host(.header-right),
+      :host(.header-contained),
+      ha-card:is(.header-right,
+                 .header-contained
+      ):not(div > *) {
+        border-top-right-radius: var(--ha-card-border-radius);
+        border-right-width: var(--lcars-vertical-border);
+
+        > :not(style,card-mod) {
+          border-top-right-radius: var(--lcars-inner-radius);
+          padding-right: 6px;
+          --primary-text-color: var(--lcars-text-gray);
+        }
+      }
+
+      /* =============================================== */
+      /*        MIDDLE CLASSES AND CARD TYPE FIXES       */
+      /* =============================================== */
+
+      /* ------------- Common Middle Styles ------------ */
+      :host(.middle-left),
+      :host(.middle-right),
+      :host(.middle-contained),
+      :host(.middle-blank),
+      ha-card:is(.middle-left,
+                 .middle-right,
+                 .middle-contained,
+                 .middle-blank
+      ):not(div > *)  {
+        display: block !important;
+        background-color: var(--lcars-background-color);
+        padding: 0px;
+        box-sizing: border-box;
+        border-radius: 0px;
+        border-inline: 0px solid var(--lcars-card-mid-left-color);
+        text-transform: uppercase;
+
+        > :not(style,card-mod) {
+          border-radius: 0px;
+          background-color: var(--lcars-background-color);
+          --primary-text-color: var(--lcars-text-gray);
+          height: 100%;
+          box-sizing: border-box;
+          
+          > .name {
+          --primary-text-color: var(--lcars-text-gray);
+          }
+        }
+      }
+      > ha-markdown,
+      > ha-card > ha-markdown {
+        padding-block: 0px;
+      }
+      
+      /* -----------------Border on left---------------- */
+      :host(.middle-left),
+      :host(.middle-contained),
+      ha-card:is(.middle-left,
+                 .middle-contained
+      ):not(div > *) {
+        border-left-width: var(--lcars-vertical-border);
+        > :not(style,card-mod) {
+          padding-left: 6px;
+        }
+      }
+
+      /* ----------------Border on right---------------- */
+      :host(.middle-right),
+      :host(.middle-contained),
+      ha-card:is(.middle-right,
+                 .middle-contained
+      ):not(div > *) {
+        border-right-width: var(--lcars-vertical-border);
+        > :not(style,card-mod) {
+          padding-right: 6px;
+        }
+      }
+
+      /* =============================================== */
+      /*        FOOTER CLASSES AND CARD TYPE FIXES       */
+      /* =============================================== */
+      
+      /* ------------- Common Footer Styles ------------ */
+      :host(.footer-left),
+      :host(.footer-right),
+      :host(.footer-contained),
+      :host(.footer-open),
+      ha-card:is(.footer-left,
+                 .footer-right,
+                 .footer-contained,
+                 .footer-open
+      ):not(div > *) {
+        display: block !important;
+        padding: 0px;          
+        box-sizing: border-box;
+        border-radius: 0px;
+        border: 0px solid var(--lcars-card-bottom-color);
+        border-bottom-width: var(--lcars-horizontal-border);
+        background-color: var(--lcars-card-bottom-color);
+        text-transform: uppercase;
+
+        > :not(style,card-mod) {
+          border-radius: 0px;
+          background-color: var(--lcars-background-color);
+          padding-bottom: 6px;
+          height: 100%;
+          box-sizing: border-box;
+          --primary-text-color: var(--lcars-text-gray);
+
+          > .name {
+          --primary-text-color: var(--lcars-text-gray);
+          }
+        }
+        > ha-markdown,
+        > ha-card > ha-markdown {
+          padding-block: 0px;
+        }
+      }
+
+      /* ----------------------------------------------- */
+      /*              Specific Footer Styles             */
+      /* ----------------------------------------------- */
+
+      /* -----------------Border on left---------------- */
+      :host(.footer-left),
+      :host(.footer-contained),
+      ha-card:is(.footer-left,
+                 .footer-contained
+      ):not(div > *)  {
+        border-bottom-left-radius: var(--ha-card-border-radius) !important;
+        border-left-width: var(--lcars-vertical-border);
+
+        > :not(style,card-mod) {
+          border-bottom-left-radius: var(--lcars-inner-radius) !important;
+          padding-left: 6px;
+        }
+      }
+
+      /* ----------------Border on right---------------- */
+      :host(.footer-right),
+      :host(.footer-contained),
+      ha-card:is(.footer-right,
+                 .footer-contained
+      ):not(div > *)  {
+        border-bottom-right-radius: var(--ha-card-border-radius) !important;
+        border-right-width: var(--lcars-vertical-border);
+
+        > :not(style,card-mod) {
+          border-bottom-right-radius: var(--lcars-inner-radius) !important;
+          padding-right: 6px;
+        }
+      }
+
+      /* =============================================== */
+      /*                     BUTTONS                     */
+      /* =============================================== */
+
+      /* ----------------------------------------------- */
+      /*               Common Button Styles              */
+      /* ----------------------------------------------- */
+      :host(.button-small),
+      :host(.button-large),
+      :host(.button-lozenge-left),
+      :host(.button-lozenge-right),
+      :host(.button-bullet-left) ,
+      :host(.button-bullet-right),
+      :host(.button-capped-left),
+      :host(.button-capped-right),
+      :host(.button-barrel-left),
+      :host(.button-barrel-right),
+      :host(.button-bar-left),
+      :host(.button-bar-right) {
+
+        > ha-card, 
+        > #aspect-ratio > ha-card {
+          background-color: var(--lcars-card-button);
+          --primary-color: var(--lcars-ui-quaternary);
+          text-transform: uppercase;
+          --primary-text-color: var(--lcars-text-dark);
+          --secondary-text-color: var(--lcars-text-dark);
+        }
+      }
+
+      /* ----------------------------------------------- */
+      /*           Small Button Class and Fixes          */
+      /* ----------------------------------------------- */
+      :host(.button-small) {
+        > ha-card, 
+        > #aspect-ratio > ha-card {
+          display: flex;
+          border-radius: 0px !important;
+          position: relative;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          justify-content: center;
+        }
+      }
+      :host(.button-small) > ha-card > .more-info {
+        display: none;
+      }
+      :host(.button-small) > ha-card > .content > #controls {
+        display: flex;
+        place-content: flex-start center;
+        position: relative;
+        padding: 0px;
+      }
+      :host(.button-small) > ha-card > .content > #info {
+        text-align: right;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0px 6px 6px 0px;
+        margin-top: -24px;
+        position: relative;
+      }
+      :host(.button-small) > ha-card > span {
+        box-sizing: border-box;
+        text-align: right;
+        width: 100%;
+        padding: 6px;
+        margin: unset;
+        position: absolute;
+        bottom: 0;
+      }
+      :host(.button-small) > ha-card > span.state {
+        text-align: right;
+        width: 100%;
+        padding: 6px;
+        padding-bottom: 22px;
+        margin: unset;
+        position: absolute;
+        bottom: 0;
+      }
+
+      /* ----------------------------------------------- */
+      /*           Large Button Class and Fixes          */
+      /* ----------------------------------------------- */
+      :host(.button-large) > ha-card {
+      }
+      
+      /* =============================================== */
+      /*      BULLET/LOZENGE/CAPPED/BARREL BUTTONS       */
+      /* =============================================== */
+
+      :host(.button-lozenge-left),
+      :host(.button-bullet-left),
+      :host(.button-capped-left),
+      :host(.button-barrel-left),
+      :host(.button-lozenge-right),
+      :host(.button-bullet-right),
+      :host(.button-capped-right),
+      :host(.button-barrel-right),
+      :host(.button-bar-left),
+      :host(.button-bar-right) {
+
+        > ha-card#container,
+        > ha-card, 
+        > #aspect-ratio > ha-card {
+          min-height: 60px;
+          display: flex;
+          align-items: flex-end;
+          flex-direction: column-reverse;
+          border-radius: 0px;
+          padding-block: 0px;
+
+          > ha-state-icon {
+            --mdc-icon-size: unset;
+            background-color: var(--lcars-card-top-color);
+            position: absolute;
+            left: 0;
+            width: var(--lcars-vertical-border);
+            height: 100% !important;
+            max-height: 100% !important;
+            border-right: var(--lcars-background-color) solid 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          
+          > span {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            margin-top: unset;
+            padding: 6px;
+          }
+          
+          > span.state {
+            align-items: center;
+            color: var(--lcars-text-dark);
+          }
+
+          /* Big Slider Card */
+          &:is(#container) {
+            > #slider {
+              right: calc((1 - var(--bsc-percent) / 100% ) * ( 100% - var(--lcars-vertical-border) - 6px));
+              left: calc(var(--lcars-vertical-border) + 6px);
+            }
+            > #content {
+              padding-left: calc(var(--lcars-vertical-border) + 18px);
+              justify-content: right;
+            }
+          }
+        }
+      }
+      
+      /* ----------------------------------------------- */
+      /*               Flip Right Buttons                */
+      /* ----------------------------------------------- */
+      :host(.button-lozenge-right),
+      :host(.button-bullet-right),
+      :host(.button-capped-right),
+      :host(.button-barrel-right) {
+
+        > ha-card#container,
+        > ha-card, 
+        > #aspect-ratio > ha-card {
+
+          align-items: flex-start;
+
+          > ha-state-icon {
+            left: auto;
+            right: 0;
+            border-right: 0px;
+            border-left: var(--lcars-background-color) solid 6px;
+          }
+          
+          > span {
+            justify-content: flex-start;
+            left: var(--lcars-vertical-border);
+            padding-inline: 6px;
+          }
+          
+          /* Big Slider Card */
+          &:is(#container) {
+            > #slider {
+              right: calc(100% - (var(--bsc-percent)/100%)*(100% - var(--lcars-vertical-border) - 6px));
+              left: 0;
+            }
+            > #content {
+              padding-left: var(--ha-card-border-radius);
+              padding-right: 0px;
+              justify-content: left;
+            }
+          }
+        }
+      }
+
+
+      /* ----------------------------------------------- */
+      /*                   Corner Radii                  */
+      /* ----------------------------------------------- */
+      :host(.button-lozenge-left),
+      :host(.button-lozenge-right),
+      :host(.button-bullet-left),
+      :host(.button-capped-right),
+      :host(.button-bar-left),
+      :host(.button-bar-right) {
+        > ha-card#container,
+        > ha-card, 
+        > #aspect-ratio > ha-card {
+          border-top-right-radius: var(--ha-card-border-radius);
+          border-bottom-right-radius: var(--ha-card-border-radius);
+        }
+      }
+      :host(.button-lozenge-left),
+      :host(.button-lozenge-right),
+      :host(.button-bullet-right),
+      :host(.button-capped-left),
+      :host(.button-bar-left),
+      :host(.button-bar-right) {
+        > ha-card#container,
+        > ha-card, 
+        > #aspect-ratio > ha-card {
+      
+          border-top-left-radius: var(--ha-card-border-radius);
+          border-bottom-left-radius: var(--ha-card-border-radius);
+        }
+      }
+      :host(.button-lozenge-left), 
+      :host(.button-bullet-left) {
+        > ha-card#container,
+        > ha-card, 
+        > #aspect-ratio > ha-card {
+          > span {
+            padding-right: var(--ha-card-border-radius);
+          }
+        }
+      }
+      :host(.button-lozenge-right), 
+      :host(.button-bullet-right) {
+        > ha-card#container,
+        > ha-card, 
+        > #aspect-ratio > ha-card {
+          > span {
+            padding-left: var(--ha-card-border-radius);
+          }
+        }
+      }
+
+      /* ----------------------------------------------- */
+      /*                  Button Bar                     */
+      /* ----------------------------------------------- */
+      :host(.button-bar-left),
+      :host(.button-bar-right) {
+        > ha-card#container,
+        > ha-card, 
+        > #aspect-ratio > ha-card {
+
+          line-height: 60px;
+          font-size: 60px;
+          padding-left: var(--lcars-vertical-border);
+          flex-direction: row;
+          justify-content: space-between;
+
+          > span {
+            width: fit-content;
+            padding: 0px;
+
+            &:is(.state) {
+              padding-right: var(--ha-card-border-radius);
+              height: 100%;
+            }
+
+            &:not(.state) { 
+              color: var(--lcars-text-light);
+              height: 100%;
+              background-color: var(--lcars-background-color);
+              padding-inline: 6px;
+              padding-bottom: 0.05em;
+              margin-top: -0.5em;
+            }
+          }
+          
+          > ha-state-icon {
+            font-size: 0;
+          }
+          
+          /* Big Slider Card */
+          &:is(#container) {
+            > #slider {
+              right: calc(100% - (var(--bsc-percent)/100%)*(100% - var(--lcars-vertical-border) - 6px));
+              left: 0;
+            }
+            > #content {
+              position: relative;
+              padding-right: var(--ha-card-border-radius);
+              padding-left: 18px;
+              padding-bottom: 0.1em;
+              justify-content: left;
+            }
+          }
+          
+        }
+      }
+
+      :host(.button-bar-right) {
+        > ha-card#container,
+        > ha-card, 
+        > #aspect-ratio > ha-card {
+
+          flex-direction: row-reverse;
+          padding-left: 0;
+          padding-right: var(--lcars-vertical-border);
+
+          > span:is(.state) {
+              padding-left: var(--ha-card-border-radius);
+              padding-right: 0;
+          }
+
+          > ha-state-icon {
+            left: auto;
+            right: 0;
+            border-right: 0px;
+            border-left: var(--lcars-background-color) solid 6px;
+          }
+
+          /* Big Slider Card */
+          &:is(#container) {
+            > #slider {
+              right: calc(100% - (var(--bsc-percent)/100%)*(100% - var(--lcars-vertical-border) - 6px));
+              left: 0;
+            }
+            > #content {
+              padding-left: var(--ha-card-border-radius);
+              padding-right: 18px;
+              justify-content: right;
+            }
+          }
+        }
+        
+      }
+
+
+      /* =============================================== */
+      /*                    BAR STYLES                   */
+      /* =============================================== */
+
+      /* ----------------------------------------------- */
+      /*                Common Bar Styles                */
+      /* ----------------------------------------------- */
+      :host(.bar-left),
+      :host(.bar-right),
+      :host(.bar-large-left),
+      :host(.bar-large-right),
+      ha-card:is(.bar-left,
+                 .bar-large-left,
+                 .bar-right,
+                 .bar-large-right
+      ):not(div > *)   {
+        background-color: var(--lcars-card-top-color);
+        border-radius: 9999px;
+        display: block;
+        height: 1em;
+        font-size: 2em;
+        line-height: 1;
+        overflow:hidden;
+
+        > :not(style,card-mod) {
+          text-transform: uppercase;
+          background-color: var(--lcars-background-color);
+          border-radius: 0px;
+          display: inline-block;
+          padding: 0px 6px 0px 6px;
+          height: calc(100% + 0.4em);
+          vertical-align: top;
+          overflow: hidden;
+
+          > ha-markdown {
+            padding: 0px;
+            margin-top: -0.06em;
+          }
+        }
+
+        .title { 
+          font-size: inherit !important;
+          line-height: 1;
+          margin-top: -0.06em;
+        }
+      }
+      
+      :host(.bar-large-left),
+      :host(.bar-large-right),
+      ha-card:is(.bar-large-left,
+                 .bar-large-right
+      ):not(div > *) {
+          font-size: 3em;
+      }
+
+      :host(.bar-left),
+      :host(.bar-large-left),
+      ha-card:is(.bar-left,
+                 .bar-large-left
+      ):not(div > *) {
+        border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
+      }
+
+      :host(.bar-right),
+      :host(.bar-large-right),
+      ha-card:is(.bar-right,
+                 .bar-large-right
+      ):not(div > *) {
+        border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
+        text-align: right;
+      }
+
+      /* =============================================== */
+      /*               MISCELLANEOUS STYLES              */
+      /* =============================================== */
+
+      /* WIP fix for aliasing ugliness on slider tracks */
+      .type-light > .bar {
+        stroke-width: 5px;
+      }
+
+      /* ----------------------------------------------- */
+      /*               Specific Card Fixes               */
+      /* ----------------------------------------------- */
+
+      /* ----------- Calendar Card --------------------- */
+      :host(.type-calendar),
+      ha-card:is(.type-calendar) {
+        ha-full-calendar {
+          --card-background-color: black;
+          --table-header-background-color: var(--lcars-dark-gray);
+        }
+      }
+
+      /* ----------- HTML Template Card ---------------- */
+      :host, ha-card {
+        &:is(.type-custom-html-template-card, .type-custom-html-card) {
+          padding:0px !important;
+        }
+      }
+
+      /* ----------- Weather Card ---------------------- */
+      :host(.type-custom-weather-card) > ha-card {
+        padding-top: 12px !important;
+      }
+
+    # Gauge cards on various themes and styles need a background color
+    "ha-card ha-gauge$": |
+      .gauge {
+        --primary-background-color: var(--lcars-dark-gray);
+      }
+
+  # ===================================================== #
+  #          TOOLBAR AND DASHBOARD MODIFICATIONS          #
+  # ===================================================== #
+  card-mod-root-yaml: &card-mod-root |
+
+    ha-tab-group$: |
+      :host {
+        margin-left: 30px;
+        border-left: solid var(--lcars-background-color) 4px;
+        --header-height: 40px;
+        height: 40px !important;
+        overflow-y: clip;
+        --ha-tab-indicator-color: transparent !important;
+        font-family: var(--font-family) !important;
+        text-transform: uppercase;
+      }
+    ha-tab-group-tab$: |
+      :host {
+        --track-width: 0px;
+        --tab-bar-height: 48px;
+        --ha-tab-padding-start: 5px;
+        --ha-tab-padding-end: 5px ;
+        flex: 1;
+
+        > div.tab {
+          border-right: 4px solid var(--lcars-background-color);
+          text-align: center;
+          display: block;
+          min-height: 40px;
+        }
+      }
+      :host([aria-selected="true"]),
+      :host([active]) {
+        background-color: var(--lcars-ui-tertiary);
+      }
+    div.header: |
+      .toolbar {
+        color: var(--lcars-text-dark);
+        background-color: var(--lcars-ui-primary) !important;
+        --app-header-border-bottom: 0px;
+        border-right: 30px solid var(--lcars-card-top-color);
+        border-radius: 0px 0px 0px 0px;
+        margin-right: 1px;
+        padding: 0px 12px !important;
+
+        /* -------- Sidebar Toggle -------- */
+        ha-menu-button {
+          display: none;
+          color: transparent;
+          padding-right: 10px
+        }
+        @media screen and (max-width: 870px) {
+          ha-button-menu > ha-icon-button {
+            margin-right: -48px;
+            padding-right: unset !important;
+            margin-left: unset !important;
+          }
+          ha-icon-button {
+            padding-right: unset !important;
+            margin-left: unset !important;
+          }
+          ha-menu-button {
+            display: initial !important;
+            color: var(--lcars-text-dark) !important;
+            padding-right: 0px !important;
+            margin-right: -22px;
+            margin-left: -16px;
+          }
+        }
+        
+        /* -------- Inner elbow -------- */
+        &::before {
+          content: "";
+          position: fixed;
+          height: 40px;
+          width: 100px;
+          background-color: transparent;
+          border-top-left-radius: 40px;
+          box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+          margin-top: 80px;
+          margin-left: -12px;
+          z-index: 9997;
+          pointer-events: none;
+        }
+
+        /* -------- Clock -------- */
+        &::after {
+          content: "{{ states('sensor.lcars_header') if has_value('sensor.lcars_header') else states('sensor.time') if has_value('sensor.time') else 'LCARS' }}";
+          color: var(--lcars-ui-app-header-clock);
+          visibility: visible;
+          font-size: var(--header-font-size);
+          font-family: var(--font-family);
+          margin: 0px -12px 0px 0px;
+          padding: 0px 0px 0px 0px;
+          background-color: var(--lcars-background-color);
+          vertical-align: middle;
+          height: var(--header-height);
+          border-right: 5px solid var(--lcars-background-color);
+          border-left: 5px solid var(--lcars-background-color);
+          text-transform: uppercase;
+          white-space: nowrap;
+          line-height: 0.95;
+        }
+        @media screen and (max-width: 870px) {
+          &::after {
+            content: "";
+            border-left: 0px solid var(--lcars-background-color);
+          }
+        }
+      }
+
+
+    div.edit-mode: |
+      /* =============================================== */
+      /*            EDIT MODE SETTINGS                   */
+      /* =============================================== */
+      .tab-bar {
+        background: var(--lcars-background-color);
+        padding-left: 40px;
+      }
+      ha-tab-group {
+        margin-left: 0px;
+        border-left: none;
+        height: 40px !important;
+        color: var(--lcars-text-light);
+        --icon-primary-color: var(--lcars-text-light);
+      }
+      #add-view {
+        background-color: var(--lcars-card-top-color);
+        height: 40px;
+        border-radius: 0px 0px 0px 0px;
+        border-left: solid var(--lcars-background-color) 4px;
+      }
+      div.main-title {
+        color: var(--lcars-text-dark);
+
+        .edit-icon {
+          color: var(--lcars-text-dark) !important;
+        }
+      }
+      .exit-edit-mode {
+        --wa-color-fill-normal: var(--lcars-ui-tertiary);
+        --wa-color-on-normal: var(--lcars-text-light);
+        --button-color-fill-normal-hover:  color-mix(in srgb, var(--lcars-ui-tertiary), black 30%);;
+      }
+      .toolbar .action-items {
+        --text-primary-color: var(--lcars-text-dark);
+      }
+
+
+    .: |
+      /* =============================================== */
+      /*            VIEW AND PANEL SETTINGS              */
+      /* =============================================== */
+
+      hui-view {
+        container-type: inline-size;
+        container-name: view-container;
+      }
+
+      hui-panel-view {
+        overflow: hidden;
+      }      
+
+      @container view-container (min-width: 0px) {
+        hui-panel-view {
+          margin: 5px 0px 0px 5px !important;
+          max-height: calc(100vh - 45px);
+        }
+      }
+
+      @container view-container style(--kiosk-header-height: 0px) {
+        hui-panel-view {
+          max-height: 100vh;
+          margin: 0px 0px 0px 0px !important;
+          padding: 0px 0px 0px 0px !important;
+        }
+      }
+      #view {
+        --primary-background-color: var(--primary-background-color);
+        --lovelace-background: var(--primary-background-color);
+        --primary-text-color: var(--lcars-text-gray);
+        --secondary-text-color: var(--lcars-text-gray);
+        --text-primary-color: var(--lcars-text-gray);
+      }
+      hui-view::-webkit-scrollbar {
+        display: none;
+      }
+      hui-view {
+        scrollbar-width: none !important;
+      }
+      hui-masonry-view {
+        padding-right: 23px;
+      }
+
+      {% if not is_state('input_boolean.lcars_sound', 'on') %}
+      .header {
+        --lcars-sound: false;
+      }
+      {% else %}
+      .header {
+        --lcars-sound: true;
+      }
+      {% endif %}
+      {% if not is_state('input_boolean.lcars_texture', 'off') %}
+      /* ----------------------------------------------- */
+      /*      Toolbar/Dashbaord Texture and Gradient     */
+      /* ----------------------------------------------- */
+      .header::before {
+        content: linear-gradient(to left, transparent, #EEEEEE 30%, #222222 60%, transparent 90% );
+        width: 100%;
+        height: 40px;
+        z-index: 9998;
+        position: absolute;
+        mix-blend-mode: overlay;
+        opacity: .8;
+        right: unset;
+        bottom: unset;
+        left: unset;
+        pointer-events: none;
+        box-shadow: none;
+      }
+      .header::after {
+        content: "";
+        background: url(data:image/png;base64,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);
+        width: 100%;
+        height: 40px;
+        z-index: 9999;
+        position: absolute;
+        mix-blend-mode: overlay;
+        opacity: .8;
+        top: 0px;
+        right: unset;
+        bottom: unset;
+        left: unset;
+        pointer-events: none;
+        box-shadow: none;
+      }
+      hui-masonry-view::before,
+      vertical-layout::before,
+      horizontal-layout::before,
+      grid-layout::before,
+      masonry-layout::before {
+        content: radial-gradient(ellipse farthest-corner at center center, white 0%, transparent 60%);
+        width: 100%;
+        height: 100%;
+        z-index: 9990;
+        position: fixed;
+        mix-blend-mode: overlay;
+        opacity: .8;
+        pointer-events: none;
+      }
+      hui-masonry-view::after,
+      vertical-layout::after,
+      horizontal-layout::after,
+      grid-layout::after,
+      masonry-layout::after {
+        content: "";
+        background: url(data:image/png;base64,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);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        z-index: 9991;
+        mix-blend-mode: overlay;
+        opacity: .8;
+        pointer-events: none;
+      }
+      {% endif %}
+
+  # ===================================================== #
+  #                 CONFIG MODIFICATIONS                  #
+  # ===================================================== #
+  card-mod-config-yaml: |
+    "* $":
+      .: |
+        hass-subpage, hass-tabs-subpage {
+          --icon-primary-color: var(--sidebar-text-color);
+          --mdc-text-field-label-ink-color: var(--sidebar-text-color);
+          --mdc-text-field-ink-color: var(--sidebar-text-color);
+          font-family: var(--font-family);
+
+          ha-card {
+            overflow: hidden;
+          }
+        }
+      "hass-tabs-subpage $": |
+        div.bottom-bar {
+          --header-height: 50px;
+        }
+      "hass-tabs-subpage-data-table $ hass-tabs-subpage $": |
+        div.bottom-bar {
+          --header-height: 50px;
+        }
+
+  # ===================================================== #
+  #                 DIALOG MODIFICATIONS                  #
+  # ===================================================== #
+  card-mod-dialog-yaml: |
+    $: |
+      :host {
+        font-family: var(--font-family);
+      }
+  # ===================================================== #
+  #              MORE INFO MODIFICATIONS                  #
+  # ===================================================== #
+  card-mod-more-info-yaml: |
+    $: |
+      :host {
+        font-family: var(--font-family);
+      }
+
+    .: |
+      button.breadcrumb {
+        font-family: var(--font-family);
+      }
+
+  # ===================================================== #
+  #                 SIDEBAR MODIFICATIONS                 #
+  # ===================================================== #
+  card-mod-sidebar-yaml: &card-mod-sidebar |
+    ha-md-list-item$: |
+      md-item {
+        --md-list-item-leading-space: 0px;
+        --md-list-item-trailing-space: 3px;
+        --ha-md-list-item-gap: 0px;
+      }
+
+    ha-md-list$: |
+      :host {
+        --menu-font-size: {{ states('input_number.lcars_menu_font') if has_value('input_number.lcars_menu_font') else 24 }}px !important;
+      }
+
+    .: |
+      :host {
+        content: "";
+        border-right: 0px !important;
+        border-top-left-radius: 80px;
+        box-shadow: black 0px -130px 0px 0px;
+      }
+      .title {
+        display: none !important;
+      }
+      .fade-top {
+        display: none;
+      }
+      .fade-bottom {
+        display: none;
+      }
+      .panels-list > .wrapper::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 56px;
+        height: calc(100% - 75px);
+        border-left: 5px solid var(--lcars-background-color);
+      
+      }
+      ha-md-list.ha-scrollbar {
+        margin-top: 70px;
+        border-top: 5px solid var(--lcars-background-color);
+        padding-top: 0px !important;
+        font-family: var(--font-family);
+        height: 100%;
+      }
+      ha-md-list-item {
+        border-bottom: 5px solid;
+        background-color: var(--lcars-ui-secondary);
+        width: 100% !important;
+        margin: unset !important;
+        padding-left: 0px;
+        border-radius: unset !important;
+        border-color: var(--lcars-background-color);
+        color: var(--lcars-text-dark) !important;
+
+        span.item-text,
+        span.badge {
+          font-family: var(--font-family);
+          text-align: right;
+          text-transform: uppercase;
+          line-height: 1;
+          color: var(--lcars-text-dark); 
+        }
+        span.item-text {
+          font-size: var(--menu-font-size) !important;
+          align-content: center;
+          align-self: end;
+          box-sizing: border-box;
+          height: 100%;
+          min-height: 40px;
+          margin: 0px 0px 0px 0px;
+          padding: 9px 8px 11px 5px;
+          width: calc( 100% + 3px );
+        }
+        span.badge {
+          position: absolute;
+          display: block;
+          top: unset;
+          left: 0px;
+          bottom: 0px;
+          background-color: var(--lcars-background-color);
+          border-radius: 0px;
+          height: 100%;
+          font-size: 38px; 
+          line-height: 1;
+          min-width: 46px;
+          border-top: 0px solid var(--lcars-background-color);
+          overflow: hidden;
+          padding: 0 0 0 0;
+          margin: 0px;
+          text-align: center;
+        }      
+      
+        &.configuration {
+          background-color: var(--lcars-ui-config-button);
+
+          > span.item-text {
+            color: var(--lcars-ui-config-button);
+            background-color: var(--lcars-background-color);
+            border: 3px var(--lcars-ui-config-button) solid;
+            margin-right: -3px;
+            padding-top: 6px;
+            padding-bottom: 8px;
+          }
+
+          > span.badge {
+            color: var(--lcars-ui-config-icon);
+            border-left: 5px var(--lcars-ui-config-icon) solid;
+            border-right: 5px var(--lcars-ui-config-icon) solid;
+          }            
+          > ha-icon,
+          > ha-svg-icon {
+            color: var(--lcars-text-dark);
+            background-color: var(--lcars-ui-config-icon);
+          }     
+        }
+
+        &.notifications {
+          > span.badge {
+            color: var(--lcars-ui-tertiary) !important;
+            border-left: 5px var(--lcars-ui-tertiary) solid;
+            border-right: 5px var(--lcars-ui-tertiary) solid;
+          }
+        }
+
+        &.user {
+          background-color: var(--lcars-card-top-color);
+
+          &:not(.selected) span.item-text {
+            color: var(--lcars-ui-sidebar-icon);
+          }
+
+        }
+
+        &.selected {
+          background-color: var(--lcars-ui-app-header-clock);
+
+          &::before {
+            display: none;
+          }
+          > span.item-text {
+            color: var(--lcars-ui-app-header-clock);
+            background-color: var(--lcars-background-color);
+            border: 3px var(--lcars-ui-app-header-clock) solid;
+            margin-right: -3px;
+            padding-top: 6px;
+            padding-bottom: 8px;
+          }    
+          
+          > ha-icon,
+          > ha-user-badge,
+          > ha-svg-icon {
+            background-color: var(--lcars-ui-app-header-clock);
+          }  
+          > span.badge {
+            color: var(--lcars-ui-app-header-clock);
+            fill: var(--lcars-ui-app-header-clock);
+            border-left-color: var(--lcars-ui-app-header-clock);
+            border-right-color: var(--lcars-ui-app-header-clock);
+          }   
+        }
+
+        &.hidden-panel {
+          > ha-icon[slot=start],
+          > ha-svg-icon {
+            color: var(--lcars-text-dark) !important;
+            padding-top: unset !important;
+            margin-bottom: unset !important;
+          }
+          > span {
+            color: var(--lcars-text-dark) !important;
+          }
+
+        }
+      }
+
+      .menu ha-icon-button {
+        margin-top: 150px;
+        margin-right: 94px;
+        margin-left: 0px;
+        z-index: 99;
+      }
+      @media screen and (max-width: 870px) {
+        .ha-scrollbar::before {
+          content: "";
+          position: fixed;
+          top: 40px;
+          left: 56px;
+          border-left: 5px var(--lcars-background-color) solid;
+          border-top: 5px var(--lcars-background-color) solid;
+          border-top-left-radius: calc(var(--lcars-inner-radius) + var(--lcars-outer-radius) / 2 );
+          background: transparent;
+          width: calc( var(--mdc-drawer-width,256px) - 61px );
+          height: 70px;
+        }
+      }
+
+      :host ha-icon,
+      :host ha-svg-icon,
+      :host ha-user-badge {
+        left: 0px;
+        align-content: center;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-right: 16px;
+        padding-left: 16px;
+        min-height: 100%;
+        background-color: var(--lcars-ui-secondary);
+        border-right: 5px solid var(--lcars-background-color);
+      }
+      :host ha-user-badge {
+        box-sizing: border-box;
+        width: calc( var(--mdc-icon-size,24px) + 37px);
+        padding-block: 8px;
+      }
+
+      :host([expanded]) {
+        ha-md-list-item:not(.selected) {
+          ha-icon,
+          ha-user-badge,
+          ha-svg-icon {
+            color: var(--lcars-ui-sidebar-icon);
+            background-color: var(--lcars-card-top-color);
+          }
+        }
+        .menu mwc-button {
+          margin-top: 152px !important;
+          margin-left: 7px !important;
+          height: 19px;
+          border-radius: var(--lcars-inner-radius);
+          background-color: var(--lcars-ui-tertiary);
+          align-items: center;
+        }
+        span.badge {
+          font-size: max( 38px, var(--menu-font-size) + 10px );
+        }
+        ha-user-badge {
+          padding-block: max( 8px, var(--menu-font-size)/2 - 2px );
+        }
+      }
+
+      mwc-button {
+        --mdc-theme-primary: var(--lcars-text-dark);
+      }
+
+      ha-icon-button.hide-panel {
+        color: var(--lcars-text-dark) !important;
+      }
+
+      ha-md-list.ha-scrollbar > .spacer::before {
+        content: "";
+        position: relative;
+        display: block;
+        z-index: 9999;
+        top: 0px;
+        left: 0px;
+        width: 24px;
+        height: 100%;
+        padding-right: 16px;
+        padding-left: 16px;
+        border-right: 5px solid var(--lcars-background-color);
+        background-color: var(--lcars-ui-primary);
+      }
+      .spacer {
+        border-bottom: 4px solid var(--lcars-background-color);
+      }
+      .divider {
+        display: none;
+      }
+      ha-md-list:not(.ha-scrollbar) {
+        padding: 54px 0px 0px 0px !important;
+        background-color: var(--lcars-background-color);
+      }
+      /* ----------------------------------------------- */
+      /*           Sidebar Texture and Gradient          */
+      /* ----------------------------------------------- */
+      {% if not is_state('input_boolean.lcars_texture', 'off') %}
+      .menu::before {
+        content: "";
+        background: linear-gradient(to bottom left, transparent 10%, #AAAAAADD 30%, #000000AA 60%, transparent 90%);
+        width: var(--mdc-drawer-width,256px);
+        height: 120%;
+        bottom: 0;
+        left: 0;
+        z-index: 9999;
+        position: absolute;
+        mix-blend-mode: overlay;
+        opacity: .8;
+        pointer-events: none;
+      }
+      .menu::after {
+        content: "";
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dmYRFZ60YiBhJRCgh1FYhiLAmdvX0CzTOpNE77ME0Zty/nWWzchDtiqrmQDeuv3powQ5ta2eN0FY0InkqDD73lT9c9lEzwUNqgFHs9VQce3TVClFCQrSTfOiYkVJQBmpbq2L6iZavPnAPcoU0dSw0SUTqz/GtrGuXfbyyBniKykOWQWGqwwMA7QiYAxi+IlPdqo+hYHnUt5ZPfnsHJyNiDtnpJyayNBkF6cWoYGAMY92U2hXHF/C1M8uP/ZtYdiuj26UdAdQQSXQErwSOMzt/XWRWAz5GuSBIkwG1H3FabJ2OsUOUhGC6tK4EMtJO0ttC6IBD3kM0ve0tJwMdSfjZo+EEISaeTr9P3wYrGjXqyC1krcKdhMpxEnt5JetoulscpyzhXN5FRpuPHvbeQaKxFAEB6EN+cYN6xD7RYGpXpNndMmZgM5Dcs3YSNFDHUo2LGfZuukSWyUYirJAdYbF3MfqEKmjM+I2EfhA94iG3L7uKrR+GdWD73ydlIB+6hgref1QTlmgmbM3/LeX5GI1Ux1RWpgxpLuZ2+I+IjzZ8wqE4nilvQdkUdfhzI5QDWy+kw5Wgg2pGpeEVeCCA7b85BO3F9DzxB3cdqvBzWcmzbyMiqhzuYqtHRVG2y4x+KOlnyqla8AoWWpuBoYRxzXrfKuILl6SfiWCbjxoZJUaCBj1CjH7GIaDbc9kqBY3W/Rgjda1iqQcOJu2WW+76pZC9QG7M00dffe9hNnseupFL53r8F7YHSwJWUKP2q+k7RdsxyOB11n0xtOvnW4irMMFNV4H0uqwS5ExsmP9AxbDTc9JwgneAT5vTiUSm1E7BSflSt3bfa1tv8Di3R8n3Af7MNWzs49hmauE2wP+ttrq+AsWpFG2awvsuOqbipWHgtuvuaAE+A1Z/7gC9hesnr+7wqCwG8c5yAg3AL1fm8T9AZtp/bbJGwl1pNrE7RuOX7PeMRUERVaPpEs+yqeoSmuOlokqw49pgomjLeh7icHNlG19yjs6XXOMedYm5xH2YxpV2tc0Ro2jJfxC50ApuxGob7lMsxfTbeUv07TyYxpeLucEH1gNd4IKH2LAg5TdVhlCafZvpskfncCfx8pOhJzd76bJWeYFnFciwcYfubRc12Ip/ppIhA1/mSZ/RxjFDrJC5xifFjJpY2Xl5zXdguFqYyTR1zSp1Y9p+tktDYYSNflcxI0iyO4TPBdlRcpeqjK/piF5bklq77VSEaA+z8qmJTFzIWiitbnzR794USKBUaT0NTEsVjZqLaFVqJoPN9ODG70IPbfBHKK+/q/AWR0tJzYHRULOa4MP+W/HfGadZUbfw177G7j/OGbIs8TahLyynl4X4RinF793Oz+BU0saXtUHrVBFT/DnA3ctNPoGbs4hRIjTok8i+algT1lTHi4SxFvONKNrgQFAq2/gFnWMXgwffgYMJpiKYkmW3tTg3ZQ9Jq+f8XN+A5eeUKHWvJWJ2sgJ1Sop+wwhqFVijqWaJhwtD8MNlSBeWNNWTa5Z5kPZw5+LbVT99wqTdx29lMUH4OIG/D86ruKEauBjvH5xy6um/Sfj7ei6UUVk4AIl3MyD4MSSTOFgSwsH/QJWaQ5as7ZcmgBZkzjjU1UrQ74ci1gWBCSGHtuV1H2mhSnO3Wp/3fEV5a+4wz//6qy8JxjZsmxxy5+4w9CDNJY09T072iKG0EnOS0arEYgXqYnXcYHwjTtUNAcMelOd4xpkoqiTYICWFq0JSiPfPDQdnt+4/wuqcXY47QILbgAAAABJRU5ErkJggg==);
+        width: var(--mdc-drawer-width,256px);
+        height: 120%;
+        bottom: 0;
+        left: 0;
+        z-index: 9999;
+        position: absolute;
+        mix-blend-mode: overlay;
+        opacity: .8;
+        pointer-events: none;
+      }
+      {% endif %}
+
+# ======================================================= #
+#                    THEME DEFINITIONS                    #
+# ======================================================= #
+
 # To create your own theme, copy this LCARS Default section
 # to the bottom of the file and change the lcars-ui-* and
 # lcars-card-* variables to your liking, using the color
 # references at the top of this file, or define your own.
 LCARS Default:
   card-mod-theme: LCARS Default
-  <<: *lcars-colors
+  <<: *lcars-variables
   <<: *base
   <<: *card-mod-css
-  <<: *card-mod-noise-gradients
-  # ========================YOUR MODIFICATIONS BEGIN HERE |
-  # Header and sidebar colors                             V
+  # ======================= YOUR MODIFICATIONS BEGIN HERE |
+  # Primary colors                                        V
   lcars-ui-primary: var(--lcars-almond-creme)
   lcars-ui-secondary: var(--lcars-african-violet)
   lcars-ui-tertiary: var(--lcars-red)
+  lcars-ui-quaternary: var(--lcars-gray) # MUST look good with white text
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-pearl)
+  lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
+  lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
+  lcars-ui-config-button: var(--lcars-ui-secondary)
+  lcars-ui-config-icon: var(--lcars-ui-secondary)
   # Card colors
   lcars-card-top-color: var(--lcars-bluey)
   lcars-card-mid-left-color: var(--lcars-red)
   lcars-card-button: var(--lcars-red)
   lcars-card-bottom-color: var(--lcars-gray)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
 
 LCARS Classic:
-  card-mod-theme: LCARS Lower Decks
-  <<: *lcars-colors
+  card-mod-theme: LCARS Classic
+  <<: *lcars-variables
   <<: *base
   <<: *card-mod-css
-  <<: *card-mod-noise-gradients
+  # Primary colors
   lcars-ui-primary: var(--lcars-khaki)
-  lcars-ui-secondary: var(--lcars-roseblush)
+  lcars-ui-secondary: var(--lcars-khaki)
   lcars-ui-tertiary: var(--lcars-mars)
+  lcars-ui-quaternary: var(--lcars-gray)
+  lcars-alert-color: var(--lcars-alert-red)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-pearl)
+  lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
+  lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
+  lcars-ui-config-button: var(--lcars-cool)
+  lcars-ui-config-icon: var(--lcars-cool)
   # Card colors
-  lcars-card-top-color: var(--lcars-violet)
+  lcars-card-top-color: var(--lcars-cool)
   lcars-card-mid-left-color: var(--lcars-ice)
   lcars-card-button: var(--lcars-ice)
-  lcars-card-bottom-color: var(--lcars-honey)
+  lcars-card-bottom-color: var(--lcars-ice)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
 
 LCARS Nemesis Blue:
   card-mod-theme: LCARS Nemesis Blue
-  <<: *lcars-colors
+  <<: *lcars-variables
   <<: *base
   <<: *card-mod-css
-  <<: *card-mod-noise-gradients
-  lcars-ui-primary: var(--lcars-midnight)
-  lcars-ui-secondary: var(--lcars-tangerine)
+  # Primary colors
+  lcars-ui-primary: var(--lcars-evening)
+  lcars-ui-secondary: var(--lcars-wheat)
   lcars-ui-tertiary: var(--lcars-pumpkinshade)
+  lcars-ui-quaternary: var(--lcars-galaxy)
+  lcars-alert-color: var(--lcars-alert-red)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-pearl)
+  lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
+  lcars-ui-sidebar-icon: var(--lcars-text-dark)
+  lcars-ui-config-button: var(--lcars-ice)
+  lcars-ui-config-icon: var(--lcars-ice)
   # Card colors
-  lcars-card-top-color: var(--lcars-moonshine)
-  lcars-card-mid-left-color: var(--lcars-evening)
-  lcars-card-button: var(--lcars-roseblush)
+  lcars-card-top-color: var(--lcars-sky)
+  lcars-card-mid-left-color: var(--lcars-ice)
+  lcars-card-button: var(--lcars-honey)
   lcars-card-bottom-color: var(--lcars-cool)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
 
-LCARS Lower Decks:
-  card-mod-theme: LCARS Lower Decks
-  <<: *lcars-colors
+LCARS Lower Decks I:
+  card-mod-theme: LCARS Lower Decks I
+  <<: *lcars-variables
   <<: *base
   <<: *card-mod-css
-  <<: *card-mod-noise-gradients
+  # Primary colors
   lcars-ui-primary: var(--lcars-gold)
   lcars-ui-secondary: var(--lcars-butter)
   lcars-ui-tertiary: var(--lcars-orange)
+  lcars-ui-quaternary: var(--lcars-darkpumpkin)
+  lcars-alert-color: var(--lcars-alert-red)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-pearl)
+  lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
+  lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
+  lcars-ui-config-button: var(--lcars-ui-quaternary)
+  lcars-ui-config-icon: var(--lcars-ui-quaternary)
   # Card colors
   lcars-card-top-color: var(--lcars-october-sunset)
   lcars-card-mid-left-color: var(--lcars-harvestgold)
   lcars-card-button: var(--lcars-harvestgold)
   lcars-card-bottom-color: var(--lcars-honey)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
+
+LCARS Lower Decks II:
+  card-mod-theme: LCARS Lower Decks II
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  lcars-ui-primary: var(--lcars-gold)
+  lcars-ui-secondary: var(--lcars-butter)
+  lcars-ui-tertiary: var(--lcars-orange)
+  lcars-ui-quaternary: var(--lcars-darkpumpkin)
+  lcars-alert-color: var(--lcars-alert-red)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-pearl)
+  lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
+  lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
+  lcars-ui-config-button: var(--lcars-ui-quaternary)
+  lcars-ui-config-icon: var(--lcars-ui-quaternary)
+  # Card colors
+  lcars-card-top-color: var(--lcars-orange)
+  lcars-card-mid-left-color: var(--lcars-taupe)
+  lcars-card-button: var(--lcars-honey)
+  lcars-card-bottom-color: "#fff5c7"
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
 
 LCARS Romulus:
   card-mod-theme: LCARS Romulus
-  <<: *lcars-colors
+  <<: *lcars-variables
   <<: *base
   <<: *card-mod-css
-  <<: *card-mod-noise-gradients
+  # Primary colors
   lcars-ui-primary: var(--lcars-green)
   lcars-ui-secondary: var(--lcars-african-violet)
   lcars-ui-tertiary: var(--lcars-orange)
+  lcars-ui-quaternary: var(--lcars-gray)
+  lcars-alert-color: var(--lcars-alert-red)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-pearl)
+  lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
+  lcars-ui-sidebar-icon: var(--lcars-aqua)
+  lcars-ui-config-button: var(--lcars-aqua)
+  lcars-ui-config-icon: var(--lcars-aqua)
   # Card colors
   lcars-card-top-color: var(--lcars-cardinal)
   lcars-card-mid-left-color: var(--lcars-african-violet)
   lcars-card-button: var(--lcars-sky)
-  lcars-card-bottom-color: var(--lcars-c62)
+  lcars-card-bottom-color: var(--lcars-aqua)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
 
 LCARS Kronos:
   card-mod-theme: LCARS Kronos
-  <<: *lcars-colors
+  <<: *lcars-variables
   <<: *base
   <<: *card-mod-css
-  <<: *card-mod-noise-gradients
+  # Primary colors
   lcars-ui-primary: var(--lcars-mars)
   lcars-ui-secondary: var(--lcars-gold)
   lcars-ui-tertiary: var(--lcars-orange)
+  lcars-ui-quaternary: "#930a00"
+  lcars-alert-color: var(--lcars-alert-red)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-pearl)
+  lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
+  lcars-ui-sidebar-icon: var(--lcars-peach)
+  lcars-ui-config-button: var(--lcars-mars)
+  lcars-ui-config-icon: var(--lcars-mars)
   # Card colors
   lcars-card-top-color: var(--lcars-mars)
   lcars-card-mid-left-color: var(--lcars-october-sunset)
   lcars-card-button: var(--lcars-october-sunset)
   lcars-card-bottom-color: var(--lcars-peach)
-# Paste your themes here |
-#                        V
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
+
+LCARS Cardassia:
+  card-mod-theme: LCARS Cardassia
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  # Primary colors
+  lcars-ui-primary: var(--lcars-aqua)
+  lcars-ui-secondary: var(--lcars-lavender-rose)
+  lcars-ui-tertiary: var(--lcars-cardassia-maroon)
+  lcars-ui-quaternary: var(--lcars-cardassia-maroon)
+  lcars-alert-color: var(--lcars-alert-red)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-pearl)
+  lcars-ui-app-header-clock: var(--lcars-pearl)
+  lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
+  lcars-ui-config-button: var(--lcars-aqua)
+  lcars-ui-config-icon: var(--lcars-aqua)
+  # Card colors
+  lcars-card-top-color: var(--lcars-sky-blue)
+  lcars-card-mid-left-color: var(--lcars-cardassia-maroon)
+  lcars-card-button: var(--lcars-cardassia-maroon)
+  lcars-card-bottom-color: var(--lcars-eggplant)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
+
+LCARS Zeldaar:
+  card-mod-theme: LCARS Zeldaar
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  # Primary colors
+  lcars-ui-primary: var(--lcars-violet-creme)
+  lcars-ui-secondary: var(--lcars-honey)
+  lcars-ui-tertiary: var(--lcars-roseblush)
+  lcars-ui-quaternary: var(--lcars-mauve)
+  lcars-alert-color: var(--lcars-alert-red)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-pearl)
+  lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
+  lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
+  lcars-ui-config-button: var(--lcars-african-violet)
+  lcars-ui-config-icon: var(--lcars-african-violet)
+  # Card colors
+  lcars-card-top-color: var(--lcars-bluey)
+  lcars-card-mid-left-color: var(--lcars-khaki)
+  lcars-card-button: var(--lcars-african-violet)
+  lcars-card-bottom-color: var(--lcars-roseblush)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
+
+LCARS Modern:
+  card-mod-theme: LCARS Modern
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  # Primary colors
+  lcars-ui-primary: var(--lcars-violet-creme)
+  lcars-ui-secondary: var(--lcars-sky)
+  lcars-ui-tertiary: var(--lcars-gold)
+  lcars-ui-quaternary: var(--lcars-gray)
+  lcars-alert-color: var(--lcars-alert-red)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-pearl)
+  lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
+  lcars-ui-sidebar-icon: var(--lcars-dark-gray)
+  lcars-ui-config-button: var(--lcars-gray)
+  lcars-ui-config-icon: var(--lcars-gray)
+  # Card colors
+  lcars-card-top-color: var(--lcars-gold)
+  lcars-card-mid-left-color: var(--lcars-modern-light-gray)
+  lcars-card-button: var(--lcars-gray)
+  lcars-card-bottom-color: var(--lcars-sky)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-red)
+
+LCARS Picard I:
+  card-mod-theme: LCARS Picard I
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  # Primary colors
+  lcars-ui-primary: var(--lcars-hellgrau)
+  lcars-ui-secondary: var(--lcars-mittelgrau)
+  lcars-ui-tertiary: var(--lcars-feuerrot)
+  lcars-ui-quaternary: var(--lcars-mittelgrau)
+  lcars-alert-color: var(--lcars-alert-red)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-pearl)
+  lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
+  lcars-ui-sidebar-icon: var(--lcars-alt-dark-gray)
+  lcars-ui-config-button: var(--lcars-cyan)
+  lcars-ui-config-icon: var(--lcars-cyan)
+  # Card colors
+  lcars-card-top-color: var(--lcars-mittelgrau)
+  lcars-card-mid-left-color: var(--lcars-mango)
+  lcars-card-button: var(--lcars-feuerrot)
+  lcars-card-bottom-color: var(--lcars-dunkelgrau)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
+
+LCARS Picard II:
+  card-mod-theme: LCARS Picard II
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  # Primary colors
+  lcars-ui-primary: var(--lcars-turquoise)
+  lcars-ui-secondary: var(--lcars-cerulean)
+  lcars-ui-tertiary: var(--lcars-apricot)
+  lcars-ui-quaternary: var(--lcars-midnight-blue)
+  lcars-alert-color: var(--lcars-alert-red)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-pearl)
+  lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
+  lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
+  lcars-ui-config-button: var(--lcars-apricot)
+  lcars-ui-config-icon: var(--lcars-apricot)
+  # Card colors
+  lcars-card-top-color: var(--lcars-beige)
+  lcars-card-mid-left-color: var(--lcars-cerulean)
+  lcars-card-button: var(--lcars-cerulean)
+  lcars-card-bottom-color: var(--lcars-midnight-blue)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-red)
+
+LCARS Red Alert:
+  card-mod-theme: LCARS Red Alert
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  lcars-ui-primary: var(--lcars-cardinal)
+  lcars-ui-secondary: var(--lcars-silver)
+  lcars-ui-tertiary: var(--lcars-scarlet)
+  lcars-ui-quaternary: var(--lcars-gray)
+  lcars-alert-color: var(--lcars-alert-red)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-pearl)
+  lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
+  lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
+  lcars-ui-config-button: var(--lcars-ui-secondary)
+  lcars-ui-config-icon: var(--lcars-ui-secondary)
+  # Card colors
+  lcars-card-top-color: "#bf1b1b"
+  lcars-card-mid-left-color: "#9d361e"
+  lcars-card-button: "#d66a60"
+  lcars-card-bottom-color: "#91311c"
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
+
+LCARS TNG:
+  card-mod-theme: LCARS TNG
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+
+  # UI Colors
+  lcars-ui-primary: "#f5deb3" # Main Display Background (Wheat)
+  lcars-ui-secondary: "#ffcc66" # menu buttons unclicked (qing yellow)
+  lcars-ui-tertiary: "#cc99cc" # clicked menu buttons (lilac)
+  lcars-ui-quaternary: var(--lcars-galaxy)
+
+  # Card colors
+  lcars-card-top-color: "#f5deb3" #  header class
+  lcars-card-mid-left-color: "#c5b358" # middle bars
+  lcars-card-button: "#ffbb33" # main button colour
+  lcars-card-bottom-color: "#f5deb3" # footer class
+
+  # Header colors
+  lcars-ui-app-header-background-color: "#d2b48c" # Header Background
+  lcars-ui-app-header-text-color: "#f5deb3" # Header Text
+  lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
+  lcars-ui-sidebar-icon: var(--lcars-text-dark) # Must look OK over lcars-card-top-color
+  lcars-ui-config-button: "#c5b358"
+  lcars-ui-config-icon: "#c5b358"
+
+  # Misc
+  success-color: "#f0e68c" # Success (Khaki)
+  warning-color: "#dc143c" # Warning (Crimson)
+  error-color: "#8b0000" # Error (Dark Red)
+
+LCARS TNGbuttons:
+  card-mod-theme: LCARS TNGbuttons
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+
+  # UI Colors
+  lcars-ui-primary: "#F5cd9f" # Main Display Background
+  lcars-ui-secondary: "#ffcc66" # menu buttons unclicked (qing yellow)
+  lcars-ui-tertiary: "#cc99cc" # clicked menu buttons (lilac)
+  lcars-ui-quaternary: var(--lcars-galaxy)
+
+  # Card colors
+  lcars-card-top-color: "#F5CD9F" #  header class
+  lcars-card-mid-left-color: "#ffcc99" # middle bars
+  lcars-card-button: "#ffcc66" # main button colour
+  lcars-card-bottom-color: "#EFC861" # footer class
+
+  # Header colors
+  lcars-ui-app-header-background-color: "#d2b48c" # Header Background
+  lcars-ui-app-header-text-color: "#f5deb3" # Header Text
+  lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
+  lcars-ui-sidebar-icon: var(--lcars-text-dark)
+  lcars-ui-config-button: "#EFC861"
+  lcars-ui-config-icon: "#EFC861"
+
+  # Misc
+  success-color: "#99aa66" # Success (yellow Green)
+  warning-color: "#dc143c" # Warning (Crimson)
+  error-color: "#8b0000" # Error (Dark Red)
+
+LCARS Transporter:
+  card-mod-theme: LCARS Transporter
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  lcars-ui-primary: var(--lcars-navy-gray)
+  lcars-ui-secondary: var(--lcars-slate-gray)
+  lcars-ui-tertiary: var(--lcars-coral)
+  lcars-ui-quaternary: var(--lcars-navy-gray)
+  lcars-alert-color: var(--lcars-alert-red)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-pearl)
+  lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
+  lcars-ui-sidebar-icon: var(--lcars-light-gray)
+  lcars-ui-config-button: var(--lcars-teal)
+  lcars-ui-config-icon: var(--lcars-teal)
+  # Card colors
+  lcars-card-top-color: var(--lcars-charcoal)
+  lcars-card-mid-left-color: var(--lcars-charcoal)
+  lcars-card-button: var(--lcars-teal)
+  lcars-card-bottom-color: var(--lcars-navy-gray)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-dark-red)
+  error-color: var(--lcars-gold)
+
+LCARS Navigation:
+  card-mod-theme: LCARS Navigation
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  lcars-ui-primary: var(--lcars-olive)
+  lcars-ui-secondary: var(--lcars-sand)
+  lcars-ui-tertiary: var(--lcars-lemon)
+  lcars-ui-quaternary: var(--lcars-olive)
+  lcars-alert-color: var(--lcars-alert-red)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-pearl)
+  lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
+  lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
+  lcars-ui-config-button: var(--lcars-ui-secondary)
+  lcars-ui-config-icon: var(--lcars-ui-secondary)
+  # Card colors
+  lcars-card-top-color: var(--lcars-khaki-dark)
+  lcars-card-mid-left-color: var(--lcars-cornflower)
+  lcars-card-button: var(--lcars-olive)
+  lcars-card-bottom-color: var(--lcars-olive)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-dark-red)
+  error-color: var(--lcars-gold)
+
+LCARS 25C:
+  card-mod-theme: LCARS 25C
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  # Primary colors
+  lcars-ui-primary: var(--lcars-primary-gray)
+  lcars-ui-secondary: var(--lcars-medium-gray)
+  lcars-ui-tertiary: var(--lcars-alt-orange)
+  lcars-ui-quaternary: var(--lcars-primary-gray)
+  lcars-alert-color: var(--lcars-alert-red)
+  # Header colors
+  lcars-ui-app-header-background-color: "#000000"
+  lcars-ui-app-header-text-color: var(--lcars-pearl)
+  lcars-ui-app-header-clock: var(--lcars-pale-orange)
+  lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
+  lcars-ui-config-button: var(--lcars-cyan)
+  lcars-ui-config-icon: var(--lcars-cyan)
+  # Card colors
+  lcars-card-top-color: var(--lcars-alt-dark-gray)
+  lcars-card-mid-left-color: var(--lcars-primary-gray)
+  lcars-card-button: var(--lcars-medium-gray)
+  lcars-card-button-off: var(--lcars-primary-gray)
+  lcars-card-button-unavailable: var(--lcars-alt-dark-gray)
+  lcars-card-button-barrel: var(--lcars-primary-gray)
+  lcars-card-bottom-color: var(--lcars-alt-dark-gray)
+  lcars-card-background: var(--lcars-primary-gray)
+  # Misc
+  success-color: var(--lcars-alt-green)
+  warning-color: var(--lcars-light-orange)
+  error-color: var(--lcars-alt-orange)
+  #Inline SVGs to get around stupid limitations of Keyframe definitions
+  lcars-tab-selected-bg: >
+    url("data:image/svg+xml,%3C!-- sample rectangle --%3E%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='transparent'%3E%3Canimate attributeName='fill' values='
+    %23e7442a;
+    %23e7442a;
+    %236d748c'
+    begin='0s'
+    dur='5s'
+    calcMode='discrete'
+    repeatCount='indefinite'
+    /%3E%3C/rect%3E%3C/svg%3E")
+
+# Red Alert
+LCARS 25C (Red Alert):
+  card-mod-theme: LCARS 25C (Red Alert)
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  lcars-ui-primary: var(--lcars-alert-color)
+  lcars-ui-secondary: var(--lcars-alert-white)
+  lcars-ui-tertiary: var(--lcars-alert-color)
+  lcars-ui-quaternary: var(--lcars-alert-color)
+  lcars-alert-color: var(--lcars-alert-red)
+  # Header colors
+  lcars-ui-app-header-background-color: "#000000"
+  lcars-ui-app-header-text-color: var(--lcars-alert-white)
+  lcars-ui-app-header-clock: var(--lcars-alert-white)
+  lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
+  lcars-ui-config-button: var(--lcars-ui-secondary)
+  lcars-ui-config-icon: var(--lcars-ui-secondary)
+  # Card colors
+  lcars-card-top-color: var(--lcars-alert-color)
+  lcars-card-mid-left-color: var(--lcars-alert-color)
+  lcars-card-button: var(--lcars-alert-color)
+  lcars-card-button-off: var(--lcars-alert-white)
+  lcars-card-button-unavailable: var(--lcars-alert-color)
+  lcars-card-button-barrel: var(--lcars-alert-white)
+  lcars-card-bottom-color: var(--lcars-alert-color)
+  lcars-card-background: var(--lcars-alert-color)
+  # Misc
+  success-color: var(--lcars-alt-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-color)
+
+# Yellow Alert
+LCARS 25C (Yellow Alert):
+  card-mod-theme: LCARS 25C (Yellow Alert)
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  lcars-ui-primary: var(--lcars-alert-color)
+  lcars-ui-secondary: var(--lcars-alert-white)
+  lcars-ui-tertiary: var(--lcars-alert-color)
+  lcars-ui-quaternary: var(--lcars-gray)
+  lcars-alert-color: var(--lcars-alert-yellow)
+  # Header colors
+  lcars-ui-app-header-background-color: "#000000"
+  lcars-ui-app-header-text-color: var(--lcars-alert-white)
+  lcars-ui-app-header-clock: var(--lcars-alert-white)
+  lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
+  lcars-ui-config-button: var(--lcars-ui-secondary)
+  lcars-ui-config-icon: var(--lcars-ui-secondary)
+  # Card colors
+  lcars-card-top-color: var(--lcars-alert-color)
+  lcars-card-mid-left-color: var(--lcars-alert-color)
+  lcars-card-button: var(--lcars-alert-color)
+  lcars-card-button-off: var(--lcars-alert-white)
+  lcars-card-button-unavailable: var(--lcars-alert-color)
+  lcars-card-button-barrel: var(--lcars-alert-white)
+  lcars-card-bottom-color: var(--lcars-alert-color)
+  lcars-card-background: var(--lcars-alert-color)
+  # Misc
+  success-color: var(--lcars-alt-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-color)
+
+# Blue Alert
+LCARS 25C (Blue Alert):
+  card-mod-theme: LCARS 25C (Blue Alert)
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  lcars-ui-primary: var(--lcars-alert-color)
+  lcars-ui-secondary: var(--lcars-alert-white)
+  lcars-ui-tertiary: var(--lcars-alert-color)
+  lcars-ui-quaternary: var(--lcars-alert-color)
+  lcars-alert-color: var(--lcars-alert-blue)
+  # Header colors
+  lcars-ui-app-header-background-color: "#000000"
+  lcars-ui-app-header-text-color: var(--lcars-alert-white)
+  lcars-ui-app-header-clock: var(--lcars-alert-white)
+  lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
+  lcars-ui-config-button: var(--lcars-ui-secondary)
+  lcars-ui-config-icon: var(--lcars-ui-secondary)
+  # Card colors
+  lcars-card-top-color: var(--lcars-alert-color)
+  lcars-card-mid-left-color: var(--lcars-alert-color)
+  lcars-card-button: var(--lcars-alert-color)
+  lcars-card-button-off: var(--lcars-alert-white)
+  lcars-card-button-unavailable: var(--lcars-alert-color)
+  lcars-card-button-barrel: var(--lcars-alert-white)
+  lcars-card-bottom-color: var(--lcars-alert-color)
+  lcars-card-background: var(--lcars-alert-color)
+  # Misc
+  success-color: var(--lcars-alt-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-color)
+
+LCARS Breen:
+  card-mod-theme: LCARS Breen
+  <<: *lcars-variables
+  <<: *base
+  <<: *card-mod-css
+  # Primary colors
+  lcars-ui-primary: var(--lcars-green-primary)
+  lcars-ui-secondary: var(--lcars-green-secondary)
+  lcars-ui-tertiary: var(--lcars-green-tertiary)
+  lcars-ui-quaternary: var(--lcars-gray)
+  # Header colors
+  lcars-ui-app-header-background-color: "#272727"
+  lcars-ui-app-header-text-color: var(--lcars-pearl)
+  lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
+  lcars-ui-sidebar-icon: var(--lcars-text-dark)
+  lcars-ui-config-button: var(--lcars-green-footer)
+  lcars-ui-config-icon: var(--lcars-green-footer)
+  # Card colors
+  lcars-card-top-color: var(--lcars-green-secondary)
+  lcars-card-mid-left-color: var(--lcars-green-middle)
+  lcars-card-button: var(--lcars-green-tertiary)
+  lcars-card-bottom-color: var(--lcars-green-footer)
+  # Misc
+  success-color: var(--lcars-green)
+  warning-color: var(--lcars-sunflower)
+  error-color: var(--lcars-dark-red)
+# ================ Paste your themes here =============== |
+#                                                         V
