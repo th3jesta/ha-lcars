@@ -1294,6 +1294,53 @@
       {% endif %}
 
   # ===================================================== #
+  #                 CONFIG MODIFICATIONS                  #
+  # ===================================================== #
+  card-mod-config-yaml: |
+    "* $":
+      .: |
+        hass-subpage, hass-tabs-subpage {
+          --icon-primary-color: var(--sidebar-text-color);
+          --mdc-text-field-label-ink-color: var(--sidebar-text-color);
+          --mdc-text-field-ink-color: var(--sidebar-text-color);
+          font-family: var(--font-family);
+
+          ha-card {
+            overflow: hidden;
+          }
+        }
+      "hass-tabs-subpage $": |
+        div.bottom-bar {
+          --header-height: 50px;
+        }
+      "hass-tabs-subpage-data-table $ hass-tabs-subpage $": |
+        div.bottom-bar {
+          --header-height: 50px;
+        }
+
+  # ===================================================== #
+  #                 DIALOG MODIFICATIONS                  #
+  # ===================================================== #
+  card-mod-dialog-yaml: |
+    $: |
+      :host {
+        font-family: var(--font-family);
+      }
+  # ===================================================== #
+  #              MORE INFO MODIFICATIONS                  #
+  # ===================================================== #
+  card-mod-more-info-yaml: |
+    $: |
+      :host {
+        font-family: var(--font-family);
+      }
+
+    .: |
+      button.breadcrumb {
+        font-family: var(--font-family);
+      }
+
+  # ===================================================== #
   #                 SIDEBAR MODIFICATIONS                 #
   # ===================================================== #
   card-mod-sidebar-yaml: &card-mod-sidebar |
