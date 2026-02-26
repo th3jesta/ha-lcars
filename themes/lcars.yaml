@@ -373,6 +373,7 @@
                  .header-open
       ):not(div > *) {
         display: block !important;
+        height: 100%;
         border: 0px solid var(--lcars-card-top-color);
         border-top-width: var(--lcars-horizontal-border);
         border-radius: 0px;
@@ -446,6 +447,7 @@
                  .middle-blank
       ):not(div > *)  {
         display: block !important;
+        height: 100%;
         background-color: var(--lcars-background-color);
         padding: 0px;
         box-sizing: border-box;
@@ -509,6 +511,7 @@
                  .footer-open
       ):not(div > *) {
         display: block !important;
+        height: 100%;
         padding: 0px;          
         box-sizing: border-box;
         border-radius: 0px;
