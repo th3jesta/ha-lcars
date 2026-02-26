@@ -220,10 +220,7 @@
   app-drawer-width: 75px
   sidebar-menu-button-text-color: var(--lcars-text-dark)
   # States and Badges
-  state-inactive-color: var(--lcars-text-dark)
   state-icon-color: var(--lcars-text-light)
-  state-icon-active-color: var(--lcars-text-gray)
-  state-icon-unavailable-color: var(--disabled-text-color)
   # Sliders
   paper-slider-knob-color: var(--lcars-text-light)
   paper-slider-knob-start-color: var(--paper-slider-knob-color)
