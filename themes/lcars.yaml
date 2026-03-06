@@ -1091,6 +1091,10 @@
             margin-right: -22px;
             margin-left: -16px;
           }
+          .main-title
+          {
+            margin-left: 22px !important;
+          }
         }
         
         /* -------- Inner elbow -------- */
