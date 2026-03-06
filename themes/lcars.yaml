@@ -1519,11 +1519,15 @@
         }
       }
 
-      .menu ha-icon-button {
-        margin-top: 150px;
-        margin-right: 94px;
-        margin-left: 0px;
-        z-index: 99;
+      div.menu {
+        overflow: visible;
+
+        ha-icon-button {
+          margin-top: 150px;
+          margin-right: 94px;
+          margin-left: 0px;
+          z-index: 99;
+        }
       }
       @media screen and (max-width: 870px) {
         .ha-scrollbar::before {
