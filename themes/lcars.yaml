@@ -1300,7 +1300,18 @@
   # ===================================================== #
   #                 CONFIG MODIFICATIONS                  #
   # ===================================================== #
-  card-mod-config-yaml: |
+  card-mod-config-yaml: &card-mod-config |
+    "ha-config-logs $ hass-subpage div search-input.header $ ha-textfield$": |
+      label.mdc-text-field--filled {
+        height: var(--header-height);
+
+        span#label {
+          line-height: 1.25rem;
+        }
+        input.mdc-text-field__input {
+          align-self: end;
+        }
+      }
     "* $":
       .: |
         hass-subpage, hass-tabs-subpage {
