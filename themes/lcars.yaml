@@ -712,8 +712,9 @@
           /* Big Slider Card */
           &:is(#container) {
             > #slider {
-              right: calc((1 - var(--bsc-percent) / 100% ) * ( 100% - var(--lcars-vertical-border) - 6px));
+              right: 0;
               left: calc(var(--lcars-vertical-border) + 6px);
+              background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
             }
             > #content {
               padding-left: calc(var(--lcars-vertical-border) + 18px);
@@ -753,8 +754,9 @@
           /* Big Slider Card */
           &:is(#container) {
             > #slider {
-              right: calc(100% - (var(--bsc-percent)/100%)*(100% - var(--lcars-vertical-border) - 6px));
+              right: calc(var(--lcars-vertical-border) + 6px);
               left: 0;
+              background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
             }
             > #content {
               padding-left: var(--ha-card-border-radius);
@@ -858,8 +860,9 @@
           /* Big Slider Card */
           &:is(#container) {
             > #slider {
-              right: calc(100% - (var(--bsc-percent)/100%)*(100% - var(--lcars-vertical-border) - 6px));
-              left: 0;
+              right: 0;
+              left: calc(var(--lcars-vertical-border) + 6px);
+              background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
             }
             > #content {
               position: relative;
@@ -897,8 +900,9 @@
           /* Big Slider Card */
           &:is(#container) {
             > #slider {
-              right: calc(100% - (var(--bsc-percent)/100%)*(100% - var(--lcars-vertical-border) - 6px));
+              right: calc(var(--lcars-vertical-border) + 6px);
               left: 0;
+              background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
             }
             > #content {
               padding-left: var(--ha-card-border-radius);
