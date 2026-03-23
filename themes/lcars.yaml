@@ -309,7 +309,7 @@
   state-climate-auto-color: var(--lcars-cyan)
   state-climate-manual-color: var(--lcars-primary-gray)
   state-climate-fan_only-color: var(--lcars-medium-gray)
-  state-climate-dry-color: var(--lcars-light-orange
+  state-climate-dry-color: var(--lcars-light-orange)
   state-climate-idle-color: var(--lcars-pale-orange)
   state-climate-heat_cool-color: var(--lcars-alt-green)
   state-climate-heat-color: var(--lcars-alt-orange)
