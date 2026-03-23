@@ -580,17 +580,32 @@
       :host(.button-large),
       :host(.button-lozenge-left),
       :host(.button-lozenge-right),
-      :host(.button-bullet-left) ,
+      :host(.button-bullet-left),
       :host(.button-bullet-right),
       :host(.button-capped-left),
       :host(.button-capped-right),
       :host(.button-barrel-left),
       :host(.button-barrel-right),
       :host(.button-bar-left),
-      :host(.button-bar-right) {
+      :host(.button-bar-right),
+      ha-card:is(
+        .button-small,
+        .button-large,
+        .button-lozenge-left,
+        .button-lozenge-right,
+        .button-bullet-left,
+        .button-bullet-right,
+        .button-capped-left,
+        .button-capped-right,
+        .button-barrel-left,
+        .button-barrel-right,
+        .button-bar-left,
+        .button-bar-right
+      ) {
 
         > ha-card, 
-        > #aspect-ratio > ha-card {
+        > #aspect-ratio > ha-card,
+        &:is(ha-card) {
           background-color: var(--lcars-card-button);
           --primary-color: var(--lcars-ui-quaternary);
           text-transform: uppercase;
@@ -602,77 +617,101 @@
       /* ----------------------------------------------- */
       /*           Small Button Class and Fixes          */
       /* ----------------------------------------------- */
-      :host(.button-small) {
+      :host(.button-small),
+      ha-card:is(.button-small) {
         > ha-card, 
-        > #aspect-ratio > ha-card {
+        > #aspect-ratio > ha-card,
+        &:is(ha-card) {
           display: flex;
           border-radius: 0px !important;
           position: relative;
           flex-direction: column;
           flex-wrap: nowrap;
           justify-content: center;
+          
+          > .more-info {
+            display: none;
+          }
+          > .content {
+            > #controls {
+              display: flex;
+              place-content: flex-start center;
+              position: relative; 
+              padding: 0px;
+            }
+            > #info {
+              text-align: right;
+              box-sizing: border-box;
+              width: 100%;
+              padding: 0px 6px 6px 0px;
+              margin-top: -24px;
+              position: relative;
+            }
+          }
+
+          > span {
+            box-sizing: border-box;
+            text-align: right;
+            width: 100%;
+            padding: 6px;
+            margin: unset;
+            position: absolute;
+            bottom: 0;
+          }
+
+          > span.state {
+            text-align: right;
+            width: 100%;
+            padding: 6px;
+            padding-bottom: 22px;
+            margin: unset;
+            position: absolute;
+            bottom: 0;
+          }
         }
-      }
-      :host(.button-small) > ha-card > .more-info {
-        display: none;
-      }
-      :host(.button-small) > ha-card > .content > #controls {
-        display: flex;
-        place-content: flex-start center;
-        position: relative;
-        padding: 0px;
-      }
-      :host(.button-small) > ha-card > .content > #info {
-        text-align: right;
-        box-sizing: border-box;
-        width: 100%;
-        padding: 0px 6px 6px 0px;
-        margin-top: -24px;
-        position: relative;
-      }
-      :host(.button-small) > ha-card > span {
-        box-sizing: border-box;
-        text-align: right;
-        width: 100%;
-        padding: 6px;
-        margin: unset;
-        position: absolute;
-        bottom: 0;
-      }
-      :host(.button-small) > ha-card > span.state {
-        text-align: right;
-        width: 100%;
-        padding: 6px;
-        padding-bottom: 22px;
-        margin: unset;
-        position: absolute;
-        bottom: 0;
       }
 
       /* ----------------------------------------------- */
       /*           Large Button Class and Fixes          */
       /* ----------------------------------------------- */
-      :host(.button-large) > ha-card {
-      }
+      /* None... amazingly */
       
       /* =============================================== */
       /*      BULLET/LOZENGE/CAPPED/BARREL BUTTONS       */
       /* =============================================== */
+      /* These must handle all possible applications of  */
+      /* the classes by card-mod. That includes both     */
+      /* :host and ha-card because nesting a card in     */
+      /* stacks, layout-card, etc will affect where the  */
+      /* class is applied.                               */
 
       :host(.button-lozenge-left),
-      :host(.button-bullet-left),
-      :host(.button-capped-left),
-      :host(.button-barrel-left),
       :host(.button-lozenge-right),
+      :host(.button-bullet-left),
       :host(.button-bullet-right),
+      :host(.button-capped-left),
       :host(.button-capped-right),
+      :host(.button-barrel-left),
       :host(.button-barrel-right),
       :host(.button-bar-left),
-      :host(.button-bar-right) {
+      :host(.button-bar-right),
+      ha-card:is(
+        .button-lozenge-left,
+        .button-lozenge-right,
+        .button-bullet-left,
+        .button-bullet-right,
+        .button-capped-left,
+        .button-capped-right,
+        .button-barrel-left,
+        .button-barrel-right,
+        .button-bar-left,
+        .button-bar-right
+      ) {
 
-        > ha-card#container,
         > ha-card, 
-        > #aspect-ratio > ha-card {
+        > #aspect-ratio > ha-card,
+        &:is(ha-card) {
+        
           min-height: 60px;
           display: flex;
           align-items: flex-end;
@@ -730,11 +769,18 @@
       :host(.button-lozenge-right),
       :host(.button-bullet-right),
       :host(.button-capped-right),
-      :host(.button-barrel-right) {
+      :host(.button-barrel-right),
+      ha-card:is(
+        .button-lozenge-right,
+        .button-bullet-right,
+        .button-capped-right,
+        .button-barrel-right
+      ) {
 
         > ha-card#container,
         > ha-card, 
-        > #aspect-ratio > ha-card {
+        > #aspect-ratio > ha-card,
+        &:is(ha-card) {
 
           align-items: flex-start;
 
@@ -776,10 +822,19 @@
       :host(.button-bullet-left),
       :host(.button-capped-right),
       :host(.button-bar-left),
-      :host(.button-bar-right) {
+      :host(.button-bar-right),
+      ha-card:is(
+        .button-lozenge-left,
+        .button-bullet-left,
+        .button-bar-left,
+        .button-lozenge-right,
+        .button-capped-right,
+        .button-bar-right
+      ) {
         > ha-card#container,
         > ha-card, 
-        > #aspect-ratio > ha-card {
+        > #aspect-ratio > ha-card,
+        &:is(ha-card) {
           border-top-right-radius: var(--ha-card-border-radius);
           border-bottom-right-radius: var(--ha-card-border-radius);
         }
@@ -789,30 +844,49 @@
       :host(.button-bullet-right),
       :host(.button-capped-left),
       :host(.button-bar-left),
-      :host(.button-bar-right) {
+      :host(.button-bar-right),
+      ha-card:is(
+        .button-lozenge-left,
+        .button-capped-left,
+        .button-bar-left,
+        .button-lozenge-right,
+        .button-bullet-right,
+        .button-bar-right
+      ) {
         > ha-card#container,
         > ha-card, 
-        > #aspect-ratio > ha-card {
+        > #aspect-ratio > ha-card,
+        &:is(ha-card) {
       
           border-top-left-radius: var(--ha-card-border-radius);
           border-bottom-left-radius: var(--ha-card-border-radius);
         }
       }
       :host(.button-lozenge-left), 
-      :host(.button-bullet-left) {
+      :host(.button-bullet-left),
+      ha-card:is(
+        .button-lozenge-left,
+        .button-bullet-left
+      ) {
         > ha-card#container,
         > ha-card, 
-        > #aspect-ratio > ha-card {
+        > #aspect-ratio > ha-card,
+        &:is(ha-card) {
           > span {
             padding-right: var(--ha-card-border-radius);
           }
         }
       }
       :host(.button-lozenge-right), 
-      :host(.button-bullet-right) {
+      :host(.button-bullet-right),
+      ha-card:is(
+        .button-lozenge-right,
+        .button-bullet-right
+      ) {
         > ha-card#container,
         > ha-card, 
-        > #aspect-ratio > ha-card {
+        > #aspect-ratio > ha-card,
+        &:is(ha-card) {
           > span {
             padding-left: var(--ha-card-border-radius);
           }
@@ -823,10 +897,15 @@
       /*                  Button Bar                     */
       /* ----------------------------------------------- */
       :host(.button-bar-left),
-      :host(.button-bar-right) {
+      :host(.button-bar-right),
+      ha-card:is(
+        .button-bar-left,
+        .button-bar-right
+      ) {
         > ha-card#container,
         > ha-card, 
-        > #aspect-ratio > ha-card {
+        > #aspect-ratio > ha-card,
+        &:is(ha-card) {
 
           line-height: 60px;
           font-size: 60px;
@@ -876,10 +955,12 @@
         }
       }
 
-      :host(.button-bar-right) {
+      :host(.button-bar-right),
+      ha-card:is(.button-bar-right) {
         > ha-card#container,
         > ha-card, 
-        > #aspect-ratio > ha-card {
+        > #aspect-ratio > ha-card,
+        &:is(ha-card) {
 
           flex-direction: row-reverse;
           padding-left: 0;
