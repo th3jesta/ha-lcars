@@ -988,6 +988,64 @@
       }
 
       /* =============================================== */
+      /*               STACK STYLES                      */
+      /* =============================================== */
+      :host(.type-vertical-stack),
+      :host(.type-horizontal-stack) {
+        position: relative;
+        .card-header {
+          padding: 0px;
+          position: absolute;
+          left: calc( 0px - var(--lcars-vertical-border) /2);
+          top: 50%;
+          transform: translate(-50%, -50%);
+          background-color: transparent;
+        }
+      }
+      :host(.header-right.type-horizontal-stack),
+      :host(.middle-right.type-horizontal-stack),
+      :host(.footer-right.type-horizontal-stack),
+      :host(.header-right.type-vertical-stack),
+      :host(.middle-right.type-vertical-stack),
+      :host(.footer-right.type-vertical-stack) {
+        .card-header {
+          transform: translate(50%, -50%);
+          left: unset;
+          right: calc( 0px - var(--lcars-vertical-border) /2);
+        }
+      }
+      :host(.header-left.type-horizontal-stack),
+      :host(.header-right.type-horizontal-stack),
+      :host(.header-contained.type-horizontal-stack),
+      :host(.header-left.type-horizontal-stack),
+      :host(.header-right.type-horizontal-stack),
+      :host(.header-contained.type-horizontal-stack) {
+        .card-header {
+          color: var(--lcars-card-top-text);
+        }
+      }
+      :host(.middle-left.type-horizontal-stack),
+      :host(.middle-right.type-horizontal-stack),
+      :host(.middle-contained.type-horizontal-stack),
+      :host(.middle-left.type-horizontal-stack),
+      :host(.middle-right.type-horizontal-stack),
+      :host(.middle-contained.type-horizontal-stack) {
+        .card-header {
+          color: var(--lcars-card-mid-left-text);
+        }
+      }
+      :host(.footer-left.type-horizontal-stack),
+      :host(.footer-right.type-horizontal-stack),
+      :host(.footer-contained.type-horizontal-stack),
+      :host(.footer-left.type-horizontal-stack),
+      :host(.footer-right.type-horizontal-stack),
+      :host(.footer-contained.type-horizontal-stack) {
+        .card-header {
+          color: var(--lcars-card-bottom-text);
+        }
+      }
+      
+      /* =============================================== */
       /*               MISCELLANEOUS STYLES              */
       /* =============================================== */
 
