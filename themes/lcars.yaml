@@ -309,7 +309,7 @@
   state-climate-auto-color: var(--lcars-cyan)
   state-climate-manual-color: var(--lcars-primary-gray)
   state-climate-fan_only-color: var(--lcars-medium-gray)
-  state-climate-dry-color: var(--lcars-light-orange
+  state-climate-dry-color: var(--lcars-light-orange)
   state-climate-idle-color: var(--lcars-pale-orange)
   state-climate-heat_cool-color: var(--lcars-alt-green)
   state-climate-heat-color: var(--lcars-alt-orange)
@@ -329,46 +329,43 @@
       :host > ha-card {
         --paper-item-icon-color: var(--lcars-dark-gray);
       }
-      :host, :host > ha-card {
+      :host,
+      :host > ha-card {
         --lcars-horizontal-border: {{ states('input_number.lcars_horizontal') if has_value('input_number.lcars_horizontal') else 10 }}px !important;
         --lcars-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
         --lcars-middle-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
         --menu-font-size: {{ states('input_number.lcars_menu_font') if has_value('input_number.lcars_menu_font') else 24 }}px !important;
-        &:not(.type-undefined,.type-custom-grid-layout) {
-          height: 100%;
-        }
-        
+      }
+      :host:not(.type-undefined):not(.type-custom-grid-layout),
+      :host > ha-card:not(.type-undefined):not(.type-custom-grid-layout) {
+        height: 100%;
       }
       :host > ha-card > .card-actions,
       :host > ha-card > .card-actions .position-badge {
         color: var(--lcars-text-dark);
       }
-
-      /* ----------------------------------------------- */
-      /*                Common Card Styles               */
-      /* ----------------------------------------------- */
+      /*-----------------------------------------------*/
+      /*Common Card Styles*/
+      /*-----------------------------------------------*/
       :host > ha-card {
         font-family: var(--font-family) !important;
         --md-sys-color-primary: var(--lcars-ui-quaternary) !important;
       }
-      #:host > ha-card > .name {
-      #  --primary-text-color: var(--lcars-text-dark);
-      #}
-      
+      :host > ha-card > .name {
+        --primary-text-color: var(--lcars-text-dark);
+      }
       /* =============================================== */
-      /*        HEADER CLASSES AND CARD TYPE FIXES       */
+      /*       HEADER CLASSES AND CARD TYPE FIXES        */
       /* =============================================== */
-      
       /* ------------- Common Header Styles ------------ */
       :host(.header-left),
       :host(.header-right),
       :host(.header-contained),
       :host(.header-open),
-      ha-card:is(.header-left,
-                 .header-right,
-                 .header-contained,
-                 .header-open
-      ):not(div > *) {
+      ha-card.header-left,
+      ha-card.header-right,
+      ha-card.header-contained,
+      ha-card.header-open {
         display: block !important;
         height: 100%;
         border: 0px solid var(--lcars-card-top-color);
@@ -378,240 +375,321 @@
         box-sizing: border-box;
         background-color: var(--lcars-card-top-color);
         text-transform: uppercase;
-
-        > :not(style,card-mod) {
-          border-radius: 0px;
-          background-color: var(--lcars-background-color);
-          padding-top: 6px;
-          --primary-text-color: var(--lcars-text-gray);
-          height: 100%;
-          box-sizing: border-box;
-          
-          > .name {
-          --primary-text-color: var(--lcars-text-gray);
-          }
-        }
-        > ha-markdown,
-        > ha-card > ha-markdown {
-          padding-block: 0px;
-        }
       }
-      
+      :host(.header-left) > *:not(style):not(card-mod),
+      :host(.header-right) > *:not(style):not(card-mod),
+      :host(.header-contained) > *:not(style):not(card-mod),
+      :host(.header-open) > *:not(style):not(card-mod),
+      ha-card.header-left > *:not(style):not(card-mod),
+      ha-card.header-right > *:not(style):not(card-mod),
+      ha-card.header-contained > *:not(style):not(card-mod),
+      ha-card.header-open > *:not(style):not(card-mod) {
+        border-radius: 0px;
+        background-color: var(--lcars-background-color);
+        padding-top: 6px;
+        --primary-text-color: var(--lcars-text-gray);
+        height: 100%;
+        box-sizing: border-box;
+      }
+      :host(.header-left) > *:not(style):not(card-mod) > .name,
+      :host(.header-right) > *:not(style):not(card-mod) > .name,
+      :host(.header-contained) > *:not(style):not(card-mod) > .name,
+      :host(.header-open) > *:not(style):not(card-mod) > .name,
+      ha-card.header-left > *:not(style):not(card-mod) > .name,
+      ha-card.header-right > *:not(style):not(card-mod) > .name,
+      ha-card.header-contained > *:not(style):not(card-mod) > .name,
+      ha-card.header-open > *:not(style):not(card-mod) > .name {
+        --primary-text-color: var(--lcars-text-gray);
+      }
+      :host(.header-left) > ha-markdown,
+      :host(.header-left) > ha-card > ha-markdown,
+      :host(.header-right) > ha-markdown,
+      :host(.header-right) > ha-card > ha-markdown,
+      :host(.header-contained) > ha-markdown,
+      :host(.header-contained) > ha-card > ha-markdown,
+      :host(.header-open) > ha-markdown,
+      :host(.header-open) > ha-card > ha-markdown,
+      ha-card.header-left > ha-markdown,
+      ha-card.header-left > ha-card > ha-markdown,
+      ha-card.header-right > ha-markdown,
+      ha-card.header-right > ha-card > ha-markdown,
+      ha-card.header-contained > ha-markdown,
+      ha-card.header-contained > ha-card > ha-markdown,
+      ha-card.header-open > ha-markdown,
+      ha-card.header-open > ha-card > ha-markdown {
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+
       /* ----------------Border on left----------------- */
       :host(.header-left),
       :host(.header-contained),
-      ha-card:is(.header-left,
-                 .header-contained
-      ):not(div > *) {
+      ha-card.header-left,
+      ha-card.header-contained {
         border-top-left-radius: var(--ha-card-border-radius);
         border-left-width: var(--lcars-vertical-border);
-
-        > :not(style,card-mod) {
-          border-top-left-radius: var(--lcars-inner-radius);
-          padding-left: 6px;
-          --primary-text-color: var(--lcars-text-gray);
-        }
       }
-
+      :host(.header-left) > *:not(style):not(card-mod),
+      :host(.header-contained) > *:not(style):not(card-mod),
+      ha-card.header-left > *:not(style):not(card-mod),
+      ha-card.header-contained > *:not(style):not(card-mod) {
+        border-top-left-radius: var(--lcars-inner-radius);
+        padding-left: 6px;
+        --primary-text-color: var(--lcars-text-gray);
+      }
       /* ----------------Border on right---------------- */
       :host(.header-right),
       :host(.header-contained),
-      ha-card:is(.header-right,
-                 .header-contained
-      ):not(div > *) {
+      ha-card.header-right,
+      ha-card.header-contained {
         border-top-right-radius: var(--ha-card-border-radius);
         border-right-width: var(--lcars-vertical-border);
-
-        > :not(style,card-mod) {
-          border-top-right-radius: var(--lcars-inner-radius);
-          padding-right: 6px;
-          --primary-text-color: var(--lcars-text-gray);
-        }
       }
-
+      :host(.header-right) > *:not(style):not(card-mod),
+      :host(.header-contained) > *:not(style):not(card-mod),
+      ha-card.header-right > *:not(style):not(card-mod),
+      ha-card.header-contained > *:not(style):not(card-mod) {
+        border-top-right-radius: var(--lcars-inner-radius);
+        padding-right: 6px;
+        --primary-text-color: var(--lcars-text-gray);
+      }
       /* =============================================== */
       /*        MIDDLE CLASSES AND CARD TYPE FIXES       */
       /* =============================================== */
-
       /* ------------- Common Middle Styles ------------ */
       :host(.middle-left),
       :host(.middle-right),
       :host(.middle-contained),
       :host(.middle-blank),
-      ha-card:is(.middle-left,
-                 .middle-right,
-                 .middle-contained,
-                 .middle-blank
-      ):not(div > *)  {
+      ha-card.middle-left,
+      ha-card.middle-right,
+      ha-card.middle-contained,
+      ha-card.middle-blank {
         display: block !important;
         height: 100%;
         background-color: var(--lcars-background-color);
         padding: 0px;
         box-sizing: border-box;
         border-radius: 0px;
-        border-inline: 0px solid var(--lcars-card-mid-left-color);
+        border-left: 0px solid var(--lcars-card-mid-left-color);
+        border-right: 0px solid var(--lcars-card-mid-left-color);
         text-transform: uppercase;
-
-        > :not(style,card-mod) {
-          border-radius: 0px;
-          background-color: var(--lcars-background-color);
-          --primary-text-color: var(--lcars-text-gray);
-          height: 100%;
-          box-sizing: border-box;
-          
-          > .name {
-          --primary-text-color: var(--lcars-text-gray);
-          }
-        }
       }
-      > ha-markdown,
-      > ha-card > ha-markdown {
-        padding-block: 0px;
+      :host(.middle-left) > *:not(style):not(card-mod),
+      :host(.middle-right) > *:not(style):not(card-mod),
+      :host(.middle-contained) > *:not(style):not(card-mod),
+      :host(.middle-blank) > *:not(style):not(card-mod),
+      ha-card.middle-left > *:not(style):not(card-mod),
+      ha-card.middle-right > *:not(style):not(card-mod),
+      ha-card.middle-contained > *:not(style):not(card-mod),
+      ha-card.middle-blank > *:not(style):not(card-mod) {
+        border-radius: 0px;
+        background-color: var(--lcars-background-color);
+        --primary-text-color: var(--lcars-text-gray);
+        height: 100%;
+        box-sizing: border-box;
       }
-      
+      :host(.middle-left) > *:not(style):not(card-mod) > .name,
+      :host(.middle-right) > *:not(style):not(card-mod) > .name,
+      :host(.middle-contained) > *:not(style):not(card-mod) > .name,
+      :host(.middle-blank) > *:not(style):not(card-mod) > .name,
+      ha-card.middle-left > *:not(style):not(card-mod) > .name,
+      ha-card.middle-right > *:not(style):not(card-mod) > .name,
+      ha-card.middle-contained > *:not(style):not(card-mod) > .name,
+      ha-card.middle-blank > *:not(style):not(card-mod) > .name {
+        --primary-text-color: var(--lcars-text-gray);
+      }
+      :host(.middle-left) > ha-markdown,
+      :host(.middle-left) > ha-card > ha-markdown,
+      :host(.middle-right) > ha-markdown,
+      :host(.middle-right) > ha-card > ha-markdown,
+      :host(.middle-contained) > ha-markdown,
+      :host(.middle-contained) > ha-card > ha-markdown,
+      :host(.middle-blank) > ha-markdown,
+      :host(.middle-blank) > ha-card > ha-markdown,
+      ha-card.middle-left > ha-markdown,
+      ha-card.middle-left > ha-card > ha-markdown,
+      ha-card.middle-right > ha-markdown,
+      ha-card.middle-right > ha-card > ha-markdown,
+      ha-card.middle-contained > ha-markdown,
+      ha-card.middle-contained > ha-card > ha-markdown,
+      ha-card.middle-blank > ha-markdown,
+      ha-card.middle-blank > ha-card > ha-markdown {
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
       /* -----------------Border on left---------------- */
       :host(.middle-left),
       :host(.middle-contained),
-      ha-card:is(.middle-left,
-                 .middle-contained
-      ):not(div > *) {
+      ha-card.middle-left,
+      ha-card.middle-contained {
         border-left-width: var(--lcars-vertical-border);
-        > :not(style,card-mod) {
-          padding-left: 6px;
-        }
       }
-
+      :host(.middle-left) > *:not(style):not(card-mod),
+      :host(.middle-contained) > *:not(style):not(card-mod),
+      ha-card.middle-left > *:not(style):not(card-mod),
+      ha-card.middle-contained > *:not(style):not(card-mod) {
+        padding-left: 6px;
+      }
       /* ----------------Border on right---------------- */
       :host(.middle-right),
       :host(.middle-contained),
-      ha-card:is(.middle-right,
-                 .middle-contained
-      ):not(div > *) {
+      ha-card.middle-right,
+      ha-card.middle-contained {
         border-right-width: var(--lcars-vertical-border);
-        > :not(style,card-mod) {
-          padding-right: 6px;
-        }
       }
-
+      :host(.middle-right) > *:not(style):not(card-mod),
+      :host(.middle-contained) > *:not(style):not(card-mod),
+      ha-card.middle-right > *:not(style):not(card-mod),
+      ha-card.middle-contained > *:not(style):not(card-mod) {
+        padding-right: 6px;
+      }
       /* =============================================== */
       /*        FOOTER CLASSES AND CARD TYPE FIXES       */
       /* =============================================== */
-      
       /* ------------- Common Footer Styles ------------ */
       :host(.footer-left),
       :host(.footer-right),
       :host(.footer-contained),
       :host(.footer-open),
-      ha-card:is(.footer-left,
-                 .footer-right,
-                 .footer-contained,
-                 .footer-open
-      ):not(div > *) {
+      ha-card.footer-left,
+      ha-card.footer-right,
+      ha-card.footer-contained,
+      ha-card.footer-open {
         display: block !important;
         height: 100%;
-        padding: 0px;          
+        padding: 0px;
         box-sizing: border-box;
         border-radius: 0px;
         border: 0px solid var(--lcars-card-bottom-color);
         border-bottom-width: var(--lcars-horizontal-border);
         background-color: var(--lcars-card-bottom-color);
         text-transform: uppercase;
-
-        > :not(style,card-mod) {
-          border-radius: 0px;
-          background-color: var(--lcars-background-color);
-          padding-bottom: 6px;
-          height: 100%;
-          box-sizing: border-box;
-          --primary-text-color: var(--lcars-text-gray);
-
-          > .name {
-          --primary-text-color: var(--lcars-text-gray);
-          }
-        }
-        > ha-markdown,
-        > ha-card > ha-markdown {
-          padding-block: 0px;
-        }
       }
-
+      :host(.footer-left) > *:not(style):not(card-mod),
+      :host(.footer-right) > *:not(style):not(card-mod),
+      :host(.footer-contained) > *:not(style):not(card-mod),
+      :host(.footer-open) > *:not(style):not(card-mod),
+      ha-card.footer-left > *:not(style):not(card-mod),
+      ha-card.footer-right > *:not(style):not(card-mod),
+      ha-card.footer-contained > *:not(style):not(card-mod),
+      ha-card.footer-open > *:not(style):not(card-mod) {
+        border-radius: 0px;
+        background-color: var(--lcars-background-color);
+        padding-bottom: 6px;
+        height: 100%;
+        box-sizing: border-box;
+        --primary-text-color: var(--lcars-text-gray);
+      }
+      :host(.footer-left) > *:not(style):not(card-mod) > .name,
+      :host(.footer-right) > *:not(style):not(card-mod) > .name,
+      :host(.footer-contained) > *:not(style):not(card-mod) > .name,
+      :host(.footer-open) > *:not(style):not(card-mod) > .name,
+      ha-card.footer-left > *:not(style):not(card-mod) > .name,
+      ha-card.footer-right > *:not(style):not(card-mod) > .name,
+      ha-card.footer-contained > *:not(style):not(card-mod) > .name,
+      ha-card.footer-open > *:not(style):not(card-mod) > .name {
+        --primary-text-color: var(--lcars-text-gray);
+      }
+      :host(.footer-left) > ha-markdown,
+      :host(.footer-left) > ha-card > ha-markdown,
+      :host(.footer-right) > ha-markdown,
+      :host(.footer-right) > ha-card > ha-markdown,
+      :host(.footer-contained) > ha-markdown,
+      :host(.footer-contained) > ha-card > ha-markdown,
+      :host(.footer-open) > ha-markdown,
+      :host(.footer-open) > ha-card > ha-markdown,
+      ha-card.footer-left > ha-markdown,
+      ha-card.footer-left > ha-card > ha-markdown,
+      ha-card.footer-right > ha-markdown,
+      ha-card.footer-right > ha-card > ha-markdown,
+      ha-card.footer-contained > ha-markdown,
+      ha-card.footer-contained > ha-card > ha-markdown,
+      ha-card.footer-open > ha-markdown,
+      ha-card.footer-open > ha-card > ha-markdown {
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
       /* ----------------------------------------------- */
       /*              Specific Footer Styles             */
       /* ----------------------------------------------- */
-
       /* -----------------Border on left---------------- */
       :host(.footer-left),
       :host(.footer-contained),
-      ha-card:is(.footer-left,
-                 .footer-contained
-      ):not(div > *)  {
+      ha-card.footer-left,
+      ha-card.footer-contained {
         border-bottom-left-radius: var(--ha-card-border-radius) !important;
         border-left-width: var(--lcars-vertical-border);
-
-        > :not(style,card-mod) {
-          border-bottom-left-radius: var(--lcars-inner-radius) !important;
-          padding-left: 6px;
-        }
       }
-
+      :host(.footer-left) > *:not(style):not(card-mod),
+      :host(.footer-contained) > *:not(style):not(card-mod),
+      ha-card.footer-left > *:not(style):not(card-mod),
+      ha-card.footer-contained > *:not(style):not(card-mod) {
+        border-bottom-left-radius: var(--lcars-inner-radius) !important;
+        padding-left: 6px;
+      }
       /* ----------------Border on right---------------- */
       :host(.footer-right),
       :host(.footer-contained),
-      ha-card:is(.footer-right,
-                 .footer-contained
-      ):not(div > *)  {
+      ha-card.footer-right,
+      ha-card.footer-contained {
         border-bottom-right-radius: var(--ha-card-border-radius) !important;
         border-right-width: var(--lcars-vertical-border);
-
-        > :not(style,card-mod) {
-          border-bottom-right-radius: var(--lcars-inner-radius) !important;
-          padding-right: 6px;
-        }
       }
-
+      :host(.footer-right) > *:not(style):not(card-mod),
+      :host(.footer-contained) > *:not(style):not(card-mod),
+      ha-card.footer-right > *:not(style):not(card-mod),
+      ha-card.footer-contained > *:not(style):not(card-mod) {
+        border-bottom-right-radius: var(--lcars-inner-radius) !important;
+        padding-right: 6px;
+      }
       /* =============================================== */
       /*                     BUTTONS                     */
       /* =============================================== */
-
       /* ----------------------------------------------- */
       /*               Common Button Styles              */
       /* ----------------------------------------------- */
-      :host(.button-small),
-      :host(.button-large),
-      :host(.button-lozenge-left),
-      :host(.button-lozenge-right),
-      :host(.button-bullet-left) ,
-      :host(.button-bullet-right),
-      :host(.button-capped-left),
-      :host(.button-capped-right),
-      :host(.button-barrel-left),
-      :host(.button-barrel-right),
-      :host(.button-bar-left),
-      :host(.button-bar-right) {
-
-        > ha-card, 
-        > #aspect-ratio > ha-card {
-          background-color: var(--lcars-card-button);
-          --primary-color: var(--lcars-ui-quaternary);
-          text-transform: uppercase;
-          --primary-text-color: var(--lcars-text-dark);
-          --secondary-text-color: var(--lcars-text-dark);
-        }
+      :host(.button-small) > ha-card,
+      :host(.button-small) > #aspect-ratio > ha-card,
+      :host(.button-large) > ha-card,
+      :host(.button-large) > #aspect-ratio > ha-card,
+      :host(.button-lozenge-left) > ha-card,
+      :host(.button-lozenge-left) > #aspect-ratio > ha-card,
+      :host(.button-lozenge-right) > ha-card,
+      :host(.button-lozenge-right) > #aspect-ratio > ha-card,
+      :host(.button-bullet-left) > ha-card,
+      :host(.button-bullet-left) > #aspect-ratio > ha-card,
+      :host(.button-bullet-right) > ha-card,
+      :host(.button-bullet-right) > #aspect-ratio > ha-card,
+      :host(.button-capped-left) > ha-card,
+      :host(.button-capped-left) > #aspect-ratio > ha-card,
+      :host(.button-capped-right) > ha-card,
+      :host(.button-capped-right) > #aspect-ratio > ha-card,
+      :host(.button-barrel-left) > ha-card,
+      :host(.button-barrel-left) > #aspect-ratio > ha-card,
+      :host(.button-barrel-right) > ha-card,
+      :host(.button-barrel-right) > #aspect-ratio > ha-card,
+      :host(.button-bar-left) > ha-card,
+      :host(.button-bar-left) > #aspect-ratio > ha-card,
+      :host(.button-bar-right) > ha-card,
+      :host(.button-bar-right) > #aspect-ratio > ha-card {
+        background-color: var(--lcars-card-button);
+        --primary-color: var(--lcars-ui-quaternary);
+        text-transform: uppercase;
+        --primary-text-color: var(--lcars-text-dark);
+        --secondary-text-color: var(--lcars-text-dark);
       }
-
       /* ----------------------------------------------- */
       /*           Small Button Class and Fixes          */
       /* ----------------------------------------------- */
-      :host(.button-small) {
-        > ha-card, 
-        > #aspect-ratio > ha-card {
-          display: flex;
-          border-radius: 0px !important;
-          position: relative;
-          flex-direction: column;
-          flex-wrap: nowrap;
-          justify-content: center;
-        }
+      :host(.button-small) > ha-card,
+      :host(.button-small) > #aspect-ratio > ha-card {
+        display: flex;
+        border-radius: 0px !important;
+        position: relative;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
       }
       :host(.button-small) > ha-card > .more-info {
         display: none;
@@ -648,277 +726,484 @@
         position: absolute;
         bottom: 0;
       }
-
-      /* ----------------------------------------------- */
-      /*           Large Button Class and Fixes          */
-      /* ----------------------------------------------- */
-      :host(.button-large) > ha-card {
-      }
-      
       /* =============================================== */
       /*      BULLET/LOZENGE/CAPPED/BARREL BUTTONS       */
       /* =============================================== */
-
-      :host(.button-lozenge-left),
-      :host(.button-bullet-left),
-      :host(.button-capped-left),
-      :host(.button-barrel-left),
-      :host(.button-lozenge-right),
-      :host(.button-bullet-right),
-      :host(.button-capped-right),
-      :host(.button-barrel-right),
-      :host(.button-bar-left),
-      :host(.button-bar-right) {
-
-        > ha-card#container,
-        > ha-card, 
-        > #aspect-ratio > ha-card {
-          min-height: 60px;
-          display: flex;
-          align-items: flex-end;
-          flex-direction: column-reverse;
-          border-radius: 0px;
-          padding-block: 0px;
-
-          > ha-state-icon {
-            --mdc-icon-size: unset;
-            background-color: var(--lcars-card-top-color);
-            position: absolute;
-            left: 0;
-            width: var(--lcars-vertical-border);
-            height: 100% !important;
-            max-height: 100% !important;
-            border-right: var(--lcars-background-color) solid 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
-          
-          > span {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-end;
-            margin-top: unset;
-            padding: 6px;
-          }
-          
-          > span.state {
-            align-items: center;
-            color: var(--lcars-text-dark);
-          }
-
-          /* Big Slider Card */
-          &:is(#container) {
-            > #slider {
-              right: 0;
-              left: calc(var(--lcars-vertical-border) + 6px);
-              background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
-            }
-            > #content {
-              padding-left: calc(var(--lcars-vertical-border) + 18px);
-              justify-content: right;
-            }
-          }
-        }
+      :host(.button-lozenge-left) > ha-card#container,
+      :host(.button-lozenge-left) > ha-card,
+      :host(.button-lozenge-left) > #aspect-ratio > ha-card,
+      :host(.button-bullet-left) > ha-card#container,
+      :host(.button-bullet-left) > ha-card,
+      :host(.button-bullet-left) > #aspect-ratio > ha-card,
+      :host(.button-capped-left) > ha-card#container,
+      :host(.button-capped-left) > ha-card,
+      :host(.button-capped-left) > #aspect-ratio > ha-card,
+      :host(.button-barrel-left) > ha-card#container,
+      :host(.button-barrel-left) > ha-card,
+      :host(.button-barrel-left) > #aspect-ratio > ha-card,
+      :host(.button-lozenge-right) > ha-card#container,
+      :host(.button-lozenge-right) > ha-card,
+      :host(.button-lozenge-right) > #aspect-ratio > ha-card,
+      :host(.button-bullet-right) > ha-card#container,
+      :host(.button-bullet-right) > ha-card,
+      :host(.button-bullet-right) > #aspect-ratio > ha-card,
+      :host(.button-capped-right) > ha-card#container,
+      :host(.button-capped-right) > ha-card,
+      :host(.button-capped-right) > #aspect-ratio > ha-card,
+      :host(.button-barrel-right) > ha-card#container,
+      :host(.button-barrel-right) > ha-card,
+      :host(.button-barrel-right) > #aspect-ratio > ha-card,
+      :host(.button-bar-left) > ha-card#container,
+      :host(.button-bar-left) > ha-card,
+      :host(.button-bar-left) > #aspect-ratio > ha-card,
+      :host(.button-bar-right) > ha-card#container,
+      :host(.button-bar-right) > ha-card,
+      :host(.button-bar-right) > #aspect-ratio > ha-card {
+        min-height: 60px;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column-reverse;
+        border-radius: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
       }
-      
+      :host(.button-lozenge-left) > ha-card#container > ha-state-icon,
+      :host(.button-lozenge-left) > ha-card > ha-state-icon,
+      :host(.button-lozenge-left) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-bullet-left) > ha-card#container > ha-state-icon,
+      :host(.button-bullet-left) > ha-card > ha-state-icon,
+      :host(.button-bullet-left) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-capped-left) > ha-card#container > ha-state-icon,
+      :host(.button-capped-left) > ha-card > ha-state-icon,
+      :host(.button-capped-left) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-barrel-left) > ha-card#container > ha-state-icon,
+      :host(.button-barrel-left) > ha-card > ha-state-icon,
+      :host(.button-barrel-left) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-lozenge-right) > ha-card#container > ha-state-icon,
+      :host(.button-lozenge-right) > ha-card > ha-state-icon,
+      :host(.button-lozenge-right) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-bullet-right) > ha-card#container > ha-state-icon,
+      :host(.button-bullet-right) > ha-card > ha-state-icon,
+      :host(.button-bullet-right) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-capped-right) > ha-card#container > ha-state-icon,
+      :host(.button-capped-right) > ha-card > ha-state-icon,
+      :host(.button-capped-right) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-barrel-right) > ha-card#container > ha-state-icon,
+      :host(.button-barrel-right) > ha-card > ha-state-icon,
+      :host(.button-barrel-right) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-bar-left) > ha-card#container > ha-state-icon,
+      :host(.button-bar-left) > ha-card > ha-state-icon,
+      :host(.button-bar-left) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-bar-right) > ha-card#container > ha-state-icon,
+      :host(.button-bar-right) > ha-card > ha-state-icon,
+      :host(.button-bar-right) > #aspect-ratio > ha-card > ha-state-icon {
+        --mdc-icon-size: unset;
+        background-color: var(--lcars-card-top-color);
+        position: absolute;
+        left: 0;
+        width: var(--lcars-vertical-border);
+        height: 100% !important;
+        max-height: 100% !important;
+        border-right: var(--lcars-background-color) solid 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      :host(.button-lozenge-left) > ha-card#container > span,
+      :host(.button-lozenge-left) > ha-card > span,
+      :host(.button-lozenge-left) > #aspect-ratio > ha-card > span,
+      :host(.button-bullet-left) > ha-card#container > span,
+      :host(.button-bullet-left) > ha-card > span,
+      :host(.button-bullet-left) > #aspect-ratio > ha-card > span,
+      :host(.button-capped-left) > ha-card#container > span,
+      :host(.button-capped-left) > ha-card > span,
+      :host(.button-capped-left) > #aspect-ratio > ha-card > span,
+      :host(.button-barrel-left) > ha-card#container > span,
+      :host(.button-barrel-left) > ha-card > span,
+      :host(.button-barrel-left) > #aspect-ratio > ha-card > span,
+      :host(.button-lozenge-right) > ha-card#container > span,
+      :host(.button-lozenge-right) > ha-card > span,
+      :host(.button-lozenge-right) > #aspect-ratio > ha-card > span,
+      :host(.button-bullet-right) > ha-card#container > span,
+      :host(.button-bullet-right) > ha-card > span,
+      :host(.button-bullet-right) > #aspect-ratio > ha-card > span,
+      :host(.button-capped-right) > ha-card#container > span,
+      :host(.button-capped-right) > ha-card > span,
+      :host(.button-capped-right) > #aspect-ratio > ha-card > span,
+      :host(.button-barrel-right) > ha-card#container > span,
+      :host(.button-barrel-right) > ha-card > span,
+      :host(.button-barrel-right) > #aspect-ratio > ha-card > span,
+      :host(.button-bar-left) > ha-card#container > span,
+      :host(.button-bar-left) > ha-card > span,
+      :host(.button-bar-left) > #aspect-ratio > ha-card > span,
+      :host(.button-bar-right) > ha-card#container > span,
+      :host(.button-bar-right) > ha-card > span,
+      :host(.button-bar-right) > #aspect-ratio > ha-card > span {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        margin-top: unset;
+        padding: 6px;
+      }
+      :host(.button-lozenge-left) > ha-card#container > span.state,
+      :host(.button-lozenge-left) > ha-card > span.state,
+      :host(.button-lozenge-left) > #aspect-ratio > ha-card > span.state,
+      :host(.button-bullet-left) > ha-card#container > span.state,
+      :host(.button-bullet-left) > ha-card > span.state,
+      :host(.button-bullet-left) > #aspect-ratio > ha-card > span.state,
+      :host(.button-capped-left) > ha-card#container > span.state,
+      :host(.button-capped-left) > ha-card > span.state,
+      :host(.button-capped-left) > #aspect-ratio > ha-card > span.state,
+      :host(.button-barrel-left) > ha-card#container > span.state,
+      :host(.button-barrel-left) > ha-card > span.state,
+      :host(.button-barrel-left) > #aspect-ratio > ha-card > span.state,
+      :host(.button-lozenge-right) > ha-card#container > span.state,
+      :host(.button-lozenge-right) > ha-card > span.state,
+      :host(.button-lozenge-right) > #aspect-ratio > ha-card > span.state,
+      :host(.button-bullet-right) > ha-card#container > span.state,
+      :host(.button-bullet-right) > ha-card > span.state,
+      :host(.button-bullet-right) > #aspect-ratio > ha-card > span.state,
+      :host(.button-capped-right) > ha-card#container > span.state,
+      :host(.button-capped-right) > ha-card > span.state,
+      :host(.button-capped-right) > #aspect-ratio > ha-card > span.state,
+      :host(.button-barrel-right) > ha-card#container > span.state,
+      :host(.button-barrel-right) > ha-card > span.state,
+      :host(.button-barrel-right) > #aspect-ratio > ha-card > span.state,
+      :host(.button-bar-left) > ha-card#container > span.state,
+      :host(.button-bar-left) > ha-card > span.state,
+      :host(.button-bar-left) > #aspect-ratio > ha-card > span.state,
+      :host(.button-bar-right) > ha-card#container > span.state,
+      :host(.button-bar-right) > ha-card > span.state,
+      :host(.button-bar-right) > #aspect-ratio > ha-card > span.state {
+        align-items: center;
+        color: var(--lcars-text-dark);
+      }
+      :host(.button-lozenge-left) > ha-card#container > #slider,
+      :host(.button-lozenge-left) > ha-card#container > #slider,
+      :host(.button-lozenge-left) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-bullet-left) > ha-card#container > #slider,
+      :host(.button-bullet-left) > ha-card#container > #slider,
+      :host(.button-bullet-left) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-capped-left) > ha-card#container > #slider,
+      :host(.button-capped-left) > ha-card#container > #slider,
+      :host(.button-capped-left) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-barrel-left) > ha-card#container > #slider,
+      :host(.button-barrel-left) > ha-card#container > #slider,
+      :host(.button-barrel-left) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-lozenge-right) > ha-card#container > #slider,
+      :host(.button-lozenge-right) > ha-card#container > #slider,
+      :host(.button-lozenge-right) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-bullet-right) > ha-card#container > #slider,
+      :host(.button-bullet-right) > ha-card#container > #slider,
+      :host(.button-bullet-right) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-capped-right) > ha-card#container > #slider,
+      :host(.button-capped-right) > ha-card#container > #slider,
+      :host(.button-capped-right) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-barrel-right) > ha-card#container > #slider,
+      :host(.button-barrel-right) > ha-card#container > #slider,
+      :host(.button-barrel-right) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-bar-left) > ha-card#container > #slider,
+      :host(.button-bar-left) > ha-card#container > #slider,
+      :host(.button-bar-left) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-bar-right) > ha-card#container > #slider,
+      :host(.button-bar-right) > ha-card#container > #slider,
+      :host(.button-bar-right) > #aspect-ratio > ha-card#container > #slider {
+        right: 0;
+        left: calc(var(--lcars-vertical-border) + 6px);
+        background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
+      }
+      :host(.button-lozenge-left) > ha-card#container > #content,
+      :host(.button-lozenge-left) > ha-card#container > #content,
+      :host(.button-lozenge-left) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-bullet-left) > ha-card#container > #content,
+      :host(.button-bullet-left) > ha-card#container > #content,
+      :host(.button-bullet-left) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-capped-left) > ha-card#container > #content,
+      :host(.button-capped-left) > ha-card#container > #content,
+      :host(.button-capped-left) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-barrel-left) > ha-card#container > #content,
+      :host(.button-barrel-left) > ha-card#container > #content,
+      :host(.button-barrel-left) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-lozenge-right) > ha-card#container > #content,
+      :host(.button-lozenge-right) > ha-card#container > #content,
+      :host(.button-lozenge-right) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-bullet-right) > ha-card#container > #content,
+      :host(.button-bullet-right) > ha-card#container > #content,
+      :host(.button-bullet-right) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-capped-right) > ha-card#container > #content,
+      :host(.button-capped-right) > ha-card#container > #content,
+      :host(.button-capped-right) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-barrel-right) > ha-card#container > #content,
+      :host(.button-barrel-right) > ha-card#container > #content,
+      :host(.button-barrel-right) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-bar-left) > ha-card#container > #content,
+      :host(.button-bar-left) > ha-card#container > #content,
+      :host(.button-bar-left) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-bar-right) > ha-card#container > #content,
+      :host(.button-bar-right) > ha-card#container > #content,
+      :host(.button-bar-right) > #aspect-ratio > ha-card#container > #content {
+        padding-left: calc(var(--lcars-vertical-border) + 18px);
+        justify-content: right;
+      }
       /* ----------------------------------------------- */
       /*               Flip Right Buttons                */
       /* ----------------------------------------------- */
-      :host(.button-lozenge-right),
-      :host(.button-bullet-right),
-      :host(.button-capped-right),
-      :host(.button-barrel-right) {
-
-        > ha-card#container,
-        > ha-card, 
-        > #aspect-ratio > ha-card {
-
-          align-items: flex-start;
-
-          > ha-state-icon {
-            left: auto;
-            right: 0;
-            border-right: 0px;
-            border-left: var(--lcars-background-color) solid 6px;
-          }
-          
-          > span {
-            justify-content: flex-start;
-            left: var(--lcars-vertical-border);
-            padding-inline: 6px;
-          }
-          
-          /* Big Slider Card */
-          &:is(#container) {
-            > #slider {
-              right: calc(var(--lcars-vertical-border) + 6px);
-              left: 0;
-              background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
-            }
-            > #content {
-              padding-left: var(--ha-card-border-radius);
-              padding-right: 0px;
-              justify-content: left;
-            }
-          }
-        }
+      :host(.button-lozenge-right) > ha-card#container,
+      :host(.button-lozenge-right) > ha-card,
+      :host(.button-lozenge-right) > #aspect-ratio > ha-card,
+      :host(.button-bullet-right) > ha-card#container,
+      :host(.button-bullet-right) > ha-card,
+      :host(.button-bullet-right) > #aspect-ratio > ha-card,
+      :host(.button-capped-right) > ha-card#container,
+      :host(.button-capped-right) > ha-card,
+      :host(.button-capped-right) > #aspect-ratio > ha-card,
+      :host(.button-barrel-right) > ha-card#container,
+      :host(.button-barrel-right) > ha-card,
+      :host(.button-barrel-right) > #aspect-ratio > ha-card {
+        align-items: flex-start;
       }
-
-
+      :host(.button-lozenge-right) > ha-card#container > ha-state-icon,
+      :host(.button-lozenge-right) > ha-card > ha-state-icon,
+      :host(.button-lozenge-right) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-bullet-right) > ha-card#container > ha-state-icon,
+      :host(.button-bullet-right) > ha-card > ha-state-icon,
+      :host(.button-bullet-right) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-capped-right) > ha-card#container > ha-state-icon,
+      :host(.button-capped-right) > ha-card > ha-state-icon,
+      :host(.button-capped-right) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-barrel-right) > ha-card#container > ha-state-icon,
+      :host(.button-barrel-right) > ha-card > ha-state-icon,
+      :host(.button-barrel-right) > #aspect-ratio > ha-card > ha-state-icon {
+        left: auto;
+        right: 0;
+        border-right: 0px;
+        border-left: var(--lcars-background-color) solid 6px;
+      }
+      :host(.button-lozenge-right) > ha-card#container > span,
+      :host(.button-lozenge-right) > ha-card > span,
+      :host(.button-lozenge-right) > #aspect-ratio > ha-card > span,
+      :host(.button-bullet-right) > ha-card#container > span,
+      :host(.button-bullet-right) > ha-card > span,
+      :host(.button-bullet-right) > #aspect-ratio > ha-card > span,
+      :host(.button-capped-right) > ha-card#container > span,
+      :host(.button-capped-right) > ha-card > span,
+      :host(.button-capped-right) > #aspect-ratio > ha-card > span,
+      :host(.button-barrel-right) > ha-card#container > span,
+      :host(.button-barrel-right) > ha-card > span,
+      :host(.button-barrel-right) > #aspect-ratio > ha-card > span {
+        justify-content: flex-start;
+        left: var(--lcars-vertical-border);
+        padding-inline: 6px;
+      }
+      :host(.button-lozenge-right) > ha-card#container > #slider,
+      :host(.button-lozenge-right) > ha-card#container > #slider,
+      :host(.button-lozenge-right) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-bullet-right) > ha-card#container > #slider,
+      :host(.button-bullet-right) > ha-card#container > #slider,
+      :host(.button-bullet-right) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-capped-right) > ha-card#container > #slider,
+      :host(.button-capped-right) > ha-card#container > #slider,
+      :host(.button-capped-right) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-barrel-right) > ha-card#container > #slider,
+      :host(.button-barrel-right) > ha-card#container > #slider,
+      :host(.button-barrel-right) > #aspect-ratio > ha-card#container > #slider {
+        right: calc(var(--lcars-vertical-border) + 6px);
+        left: 0;
+        background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
+      }
+      :host(.button-lozenge-right) > ha-card#container > #content,
+      :host(.button-lozenge-right) > ha-card#container > #content,
+      :host(.button-lozenge-right) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-bullet-right) > ha-card#container > #content,
+      :host(.button-bullet-right) > ha-card#container > #content,
+      :host(.button-bullet-right) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-capped-right) > ha-card#container > #content,
+      :host(.button-capped-right) > ha-card#container > #content,
+      :host(.button-capped-right) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-barrel-right) > ha-card#container > #content,
+      :host(.button-barrel-right) > ha-card#container > #content,
+      :host(.button-barrel-right) > #aspect-ratio > ha-card#container > #content {
+        padding-left: var(--ha-card-border-radius);
+        padding-right: 0px;
+        justify-content: left;
+      }
       /* ----------------------------------------------- */
       /*                   Corner Radii                  */
       /* ----------------------------------------------- */
-      :host(.button-lozenge-left),
-      :host(.button-lozenge-right),
-      :host(.button-bullet-left),
-      :host(.button-capped-right),
-      :host(.button-bar-left),
-      :host(.button-bar-right) {
-        > ha-card#container,
-        > ha-card, 
-        > #aspect-ratio > ha-card {
-          border-top-right-radius: var(--ha-card-border-radius);
-          border-bottom-right-radius: var(--ha-card-border-radius);
-        }
+      :host(.button-lozenge-left) > ha-card#container,
+      :host(.button-lozenge-left) > ha-card,
+      :host(.button-lozenge-left) > #aspect-ratio > ha-card,
+      :host(.button-lozenge-right) > ha-card#container,
+      :host(.button-lozenge-right) > ha-card,
+      :host(.button-lozenge-right) > #aspect-ratio > ha-card,
+      :host(.button-bullet-left) > ha-card#container,
+      :host(.button-bullet-left) > ha-card,
+      :host(.button-bullet-left) > #aspect-ratio > ha-card,
+      :host(.button-capped-right) > ha-card#container,
+      :host(.button-capped-right) > ha-card,
+      :host(.button-capped-right) > #aspect-ratio > ha-card,
+      :host(.button-bar-left) > ha-card#container,
+      :host(.button-bar-left) > ha-card,
+      :host(.button-bar-left) > #aspect-ratio > ha-card,
+      :host(.button-bar-right) > ha-card#container,
+      :host(.button-bar-right) > ha-card,
+      :host(.button-bar-right) > #aspect-ratio > ha-card {
+        border-top-right-radius: var(--ha-card-border-radius);
+        border-bottom-right-radius: var(--ha-card-border-radius);
       }
-      :host(.button-lozenge-left),
-      :host(.button-lozenge-right),
-      :host(.button-bullet-right),
-      :host(.button-capped-left),
-      :host(.button-bar-left),
-      :host(.button-bar-right) {
-        > ha-card#container,
-        > ha-card, 
-        > #aspect-ratio > ha-card {
-      
-          border-top-left-radius: var(--ha-card-border-radius);
-          border-bottom-left-radius: var(--ha-card-border-radius);
-        }
+      :host(.button-lozenge-left) > ha-card#container,
+      :host(.button-lozenge-left) > ha-card,
+      :host(.button-lozenge-left) > #aspect-ratio > ha-card,
+      :host(.button-lozenge-right) > ha-card#container,
+      :host(.button-lozenge-right) > ha-card,
+      :host(.button-lozenge-right) > #aspect-ratio > ha-card,
+      :host(.button-bullet-right) > ha-card#container,
+      :host(.button-bullet-right) > ha-card,
+      :host(.button-bullet-right) > #aspect-ratio > ha-card,
+      :host(.button-capped-left) > ha-card#container,
+      :host(.button-capped-left) > ha-card,
+      :host(.button-capped-left) > #aspect-ratio > ha-card,
+      :host(.button-bar-left) > ha-card#container,
+      :host(.button-bar-left) > ha-card,
+      :host(.button-bar-left) > #aspect-ratio > ha-card,
+      :host(.button-bar-right) > ha-card#container,
+      :host(.button-bar-right) > ha-card,
+      :host(.button-bar-right) > #aspect-ratio > ha-card {
+        border-top-left-radius: var(--ha-card-border-radius);
+        border-bottom-left-radius: var(--ha-card-border-radius);
       }
-      :host(.button-lozenge-left), 
-      :host(.button-bullet-left) {
-        > ha-card#container,
-        > ha-card, 
-        > #aspect-ratio > ha-card {
-          > span {
-            padding-right: var(--ha-card-border-radius);
-          }
-        }
+      :host(.button-lozenge-left) > ha-card#container > span,
+      :host(.button-lozenge-left) > ha-card > span,
+      :host(.button-lozenge-left) > #aspect-ratio > ha-card > span,
+      :host(.button-bullet-left) > ha-card#container > span,
+      :host(.button-bullet-left) > ha-card > span,
+      :host(.button-bullet-left) > #aspect-ratio > ha-card > span {
+        padding-right: var(--ha-card-border-radius);
       }
-      :host(.button-lozenge-right), 
-      :host(.button-bullet-right) {
-        > ha-card#container,
-        > ha-card, 
-        > #aspect-ratio > ha-card {
-          > span {
-            padding-left: var(--ha-card-border-radius);
-          }
-        }
+      :host(.button-lozenge-right) > ha-card#container > span,
+      :host(.button-lozenge-right) > ha-card > span,
+      :host(.button-lozenge-right) > #aspect-ratio > ha-card > span,
+      :host(.button-bullet-right) > ha-card#container > span,
+      :host(.button-bullet-right) > ha-card > span,
+      :host(.button-bullet-right) > #aspect-ratio > ha-card > span {
+        padding-left: var(--ha-card-border-radius);
       }
-
       /* ----------------------------------------------- */
       /*                  Button Bar                     */
       /* ----------------------------------------------- */
-      :host(.button-bar-left),
-      :host(.button-bar-right) {
-        > ha-card#container,
-        > ha-card, 
-        > #aspect-ratio > ha-card {
-
-          line-height: 60px;
-          font-size: 60px;
-          padding-left: var(--lcars-vertical-border);
-          flex-direction: row;
-          justify-content: space-between;
-
-          > span {
-            width: fit-content;
-            padding: 0px;
-
-            &:is(.state) {
-              padding-right: var(--ha-card-border-radius);
-              height: 100%;
-            }
-
-            &:not(.state) { 
-              color: var(--lcars-text-light);
-              height: 100%;
-              background-color: var(--lcars-background-color);
-              padding-inline: 6px;
-              padding-bottom: 0.05em;
-              margin-top: -0.5em;
-            }
-          }
-          
-          > ha-state-icon {
-            font-size: 0;
-          }
-          
-          /* Big Slider Card */
-          &:is(#container) {
-            > #slider {
-              right: 0;
-              left: calc(var(--lcars-vertical-border) + 6px);
-              background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
-            }
-            > #content {
-              position: relative;
-              padding-right: var(--ha-card-border-radius);
-              padding-left: 18px;
-              padding-bottom: 0.1em;
-              justify-content: left;
-            }
-          }
-          
-        }
+      :host(.button-bar-left) > ha-card#container,
+      :host(.button-bar-left) > ha-card,
+      :host(.button-bar-left) > #aspect-ratio > ha-card,
+      :host(.button-bar-right) > ha-card#container,
+      :host(.button-bar-right) > ha-card,
+      :host(.button-bar-right) > #aspect-ratio > ha-card {
+        line-height: 60px;
+        font-size: 60px;
+        padding-left: var(--lcars-vertical-border);
+        flex-direction: row;
+        justify-content: space-between;
       }
-
-      :host(.button-bar-right) {
-        > ha-card#container,
-        > ha-card, 
-        > #aspect-ratio > ha-card {
-
-          flex-direction: row-reverse;
-          padding-left: 0;
-          padding-right: var(--lcars-vertical-border);
-
-          > span:is(.state) {
-              padding-left: var(--ha-card-border-radius);
-              padding-right: 0;
-          }
-
-          > ha-state-icon {
-            left: auto;
-            right: 0;
-            border-right: 0px;
-            border-left: var(--lcars-background-color) solid 6px;
-          }
-
-          /* Big Slider Card */
-          &:is(#container) {
-            > #slider {
-              right: calc(var(--lcars-vertical-border) + 6px);
-              left: 0;
-              background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
-            }
-            > #content {
-              padding-left: var(--ha-card-border-radius);
-              padding-right: 18px;
-              justify-content: right;
-            }
-          }
-        }
-        
+      :host(.button-bar-left) > ha-card#container > span,
+      :host(.button-bar-left) > ha-card > span,
+      :host(.button-bar-left) > #aspect-ratio > ha-card > span,
+      :host(.button-bar-right) > ha-card#container > span,
+      :host(.button-bar-right) > ha-card > span,
+      :host(.button-bar-right) > #aspect-ratio > ha-card > span {
+        width: fit-content;
+        padding: 0px;
       }
-
-
+      :host(.button-bar-left) > ha-card#container > span.state,
+      :host(.button-bar-left) > ha-card > span.state,
+      :host(.button-bar-left) > #aspect-ratio > ha-card > span.state,
+      :host(.button-bar-right) > ha-card#container > span.state,
+      :host(.button-bar-right) > ha-card > span.state,
+      :host(.button-bar-right) > #aspect-ratio > ha-card > span.state {
+        padding-right: var(--ha-card-border-radius);
+        height: 100%;
+      }
+      :host(.button-bar-left) > ha-card#container > span:not(.state),
+      :host(.button-bar-left) > ha-card > span:not(.state),
+      :host(.button-bar-left) > #aspect-ratio > ha-card > span:not(.state),
+      :host(.button-bar-right) > ha-card#container > span:not(.state),
+      :host(.button-bar-right) > ha-card > span:not(.state),
+      :host(.button-bar-right) > #aspect-ratio > ha-card > span:not(.state) {
+        color: var(--lcars-text-light);
+        height: 100%;
+        background-color: var(--lcars-background-color);
+        padding-inline: 6px;
+        padding-bottom: 0.05em;
+        margin-top: -0.5em;
+      }
+      :host(.button-bar-left) > ha-card#container > ha-state-icon,
+      :host(.button-bar-left) > ha-card > ha-state-icon,
+      :host(.button-bar-left) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-bar-right) > ha-card#container > ha-state-icon,
+      :host(.button-bar-right) > ha-card > ha-state-icon,
+      :host(.button-bar-right) > #aspect-ratio > ha-card > ha-state-icon {
+        font-size: 0;
+      }
+      :host(.button-bar-left) > ha-card#container > #slider,
+      :host(.button-bar-left) > ha-card#container > #slider,
+      :host(.button-bar-left) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-bar-right) > ha-card#container > #slider,
+      :host(.button-bar-right) > ha-card#container > #slider,
+      :host(.button-bar-right) > #aspect-ratio > ha-card#container > #slider {
+        right: 0;
+        left: calc(var(--lcars-vertical-border) + 6px);
+        background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
+      }
+      :host(.button-bar-left) > ha-card#container > #content,
+      :host(.button-bar-left) > ha-card#container > #content,
+      :host(.button-bar-left) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-bar-right) > ha-card#container > #content,
+      :host(.button-bar-right) > ha-card#container > #content,
+      :host(.button-bar-right) > #aspect-ratio > ha-card#container > #content {
+        position: relative;
+        padding-right: var(--ha-card-border-radius);
+        padding-left: 18px;
+        padding-bottom: 0.1em;
+        justify-content: left;
+      }
+      :host(.button-bar-right) > ha-card#container,
+      :host(.button-bar-right) > ha-card,
+      :host(.button-bar-right) > #aspect-ratio > ha-card {
+        flex-direction: row-reverse;
+        padding-left: 0;
+        padding-right: var(--lcars-vertical-border);
+      }
+      :host(.button-bar-right) > ha-card#container > span.state,
+      :host(.button-bar-right) > ha-card > span.state,
+      :host(.button-bar-right) > #aspect-ratio > ha-card > span.state {
+        padding-left: var(--ha-card-border-radius);
+        padding-right: 0;
+      }
+      :host(.button-bar-right) > ha-card#container > ha-state-icon,
+      :host(.button-bar-right) > ha-card > ha-state-icon,
+      :host(.button-bar-right) > #aspect-ratio > ha-card > ha-state-icon {
+        left: auto;
+        right: 0;
+        border-right: 0px;
+        border-left: var(--lcars-background-color) solid 6px;
+      }
+      :host(.button-bar-right) > ha-card#container > #slider,
+      :host(.button-bar-right) > ha-card#container > #slider,
+      :host(.button-bar-right) > #aspect-ratio > ha-card#container > #slider {
+        right: calc(var(--lcars-vertical-border) + 6px);
+        left: 0;
+        background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
+      }
+      :host(.button-bar-right) > ha-card#container > #content,
+      :host(.button-bar-right) > ha-card#container > #content,
+      :host(.button-bar-right) > #aspect-ratio > ha-card#container > #content {
+        padding-left: var(--ha-card-border-radius);
+        padding-right: 18px;
+        justify-content: right;
+      }
       /* =============================================== */
       /*                    BAR STYLES                   */
       /* =============================================== */
-
       /* ----------------------------------------------- */
       /*                Common Bar Styles                */
       /* ----------------------------------------------- */
@@ -926,107 +1211,109 @@
       :host(.bar-right),
       :host(.bar-large-left),
       :host(.bar-large-right),
-      ha-card:is(.bar-left,
-                 .bar-large-left,
-                 .bar-right,
-                 .bar-large-right
-      ):not(div > *)   {
+      ha-card.bar-left,
+      ha-card.bar-large-left,
+      ha-card.bar-right,
+      ha-card.bar-large-right:not(div > *) {
         background-color: var(--lcars-card-top-color);
         border-radius: 9999px;
         display: block;
         height: 1em;
         font-size: 2em;
         line-height: 1;
-        overflow:hidden;
-
-        > :not(style,card-mod) {
-          text-transform: uppercase;
-          background-color: var(--lcars-background-color);
-          border-radius: 0px;
-          display: inline-block;
-          padding: 0px 6px 0px 6px;
-          height: calc(100% + 0.4em);
-          vertical-align: top;
-          overflow: hidden;
-
-          > ha-markdown {
-            padding: 0px;
-            margin-top: -0.06em;
-          }
-        }
-
-        .title { 
-          font-size: inherit !important;
-          line-height: 1;
-          margin-top: -0.06em;
-        }
+        overflow: hidden;
       }
-      
+      :host(.bar-left) > *:not(style):not(card-mod),
+      :host(.bar-right) > *:not(style):not(card-mod),
+      :host(.bar-large-left) > *:not(style):not(card-mod),
+      :host(.bar-large-right) > *:not(style):not(card-mod),
+      ha-card.bar-left,
+      ha-card.bar-large-left,
+      ha-card.bar-right,
+      ha-card.bar-large-right:not(div > *) > *:not(style):not(card-mod) {
+        text-transform: uppercase;
+        background-color: var(--lcars-background-color);
+        border-radius: 0px;
+        display: inline-block;
+        padding: 0px 6px 0px 6px;
+        height: calc(100% + 0.4em);
+        vertical-align: top;
+        overflow: hidden;
+      }
+      :host(.bar-left) > *:not(style):not(card-mod) > ha-markdown,
+      :host(.bar-right) > *:not(style):not(card-mod) > ha-markdown,
+      :host(.bar-large-left) > *:not(style):not(card-mod) > ha-markdown,
+      :host(.bar-large-right) > *:not(style):not(card-mod) > ha-markdown,
+      ha-card.bar-left,
+      ha-card.bar-large-left,
+      ha-card.bar-right,
+      ha-card.bar-large-right:not(div > *) > *:not(style):not(card-mod) > ha-markdown {
+        padding: 0px;
+        margin-top: -0.06em;
+      }
+      :host(.bar-left) .title,
+      :host(.bar-right) .title,
+      :host(.bar-large-left) .title,
+      :host(.bar-large-right) .title,
+      ha-card.bar-left,
+      ha-card.bar-large-left,
+      ha-card.bar-right,
+      ha-card.bar-large-right:not(div > *) .title {
+        font-size: inherit !important;
+        line-height: 1;
+        margin-top: -0.06em;
+      }
       :host(.bar-large-left),
       :host(.bar-large-right),
-      ha-card:is(.bar-large-left,
-                 .bar-large-right
-      ):not(div > *) {
-          font-size: 3em;
+      ha-card.bar-large-left,
+      ha-card.bar-large-right:not(div > *) {
+        font-size: 3em;
       }
-
       :host(.bar-left),
       :host(.bar-large-left),
-      ha-card:is(.bar-left,
-                 .bar-large-left
-      ):not(div > *) {
+      ha-card.bar-left,
+      ha-card.bar-large-left:not(div > *) {
         border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
       }
-
       :host(.bar-right),
       :host(.bar-large-right),
-      ha-card:is(.bar-right,
-                 .bar-large-right
-      ):not(div > *) {
+      ha-card.bar-right,
+      ha-card.bar-large-right:not(div > *) {
         border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
         text-align: right;
       }
-
       /* =============================================== */
       /*               MISCELLANEOUS STYLES              */
       /* =============================================== */
-
       /* WIP fix for aliasing ugliness on slider tracks */
       .type-light > .bar {
         stroke-width: 5px;
       }
-
       /* ----------------------------------------------- */
       /*               Specific Card Fixes               */
       /* ----------------------------------------------- */
-
-      /* ----------- Calendar Card --------------------- */
-      :host(.type-calendar),
-      ha-card:is(.type-calendar) {
-        ha-full-calendar {
-          --card-background-color: black;
-          --table-header-background-color: var(--lcars-dark-gray);
-        }
+      /* ---------------- Calendar Card ---------------- */
+      :host(.type-calendar) ha-full-calendar,
+      ha-card.type-calendar ha-full-calendar {
+        --card-background-color: black;
+        --table-header-background-color: var(--lcars-dark-gray);
       }
-
       /* ----------- HTML Template Card ---------------- */
-      :host, ha-card {
-        &:is(.type-custom-html-template-card, .type-custom-html-card) {
-          padding:0px !important;
-        }
+      :host(.type-custom-html-template-card),
+      :host(.type-custom-html-card),
+      ha-card.type-custom-html-template-card,
+      ha-card.type-custom-html-card {
+        padding: 0px !important;
       }
-
       /* ----------- Weather Card ---------------------- */
       :host(.type-custom-weather-card) > ha-card {
         padding-top: 12px !important;
       }
-
     # Gauge cards on various themes and styles need a background color
     "ha-card ha-gauge$": |
       .gauge {
         --primary-background-color: var(--lcars-dark-gray);
       }
-
   # ===================================================== #
   #          TOOLBAR AND DASHBOARD MODIFICATIONS          #
   # ===================================================== #
@@ -1050,13 +1337,12 @@
         --ha-tab-padding-start: 5px;
         --ha-tab-padding-end: 5px ;
         flex: 1;
-
-        > div.tab {
-          border-right: 4px solid var(--lcars-background-color);
-          text-align: center;
-          display: block;
-          min-height: 40px;
-        }
+      }
+      :host > div.tab {
+        border-right: 4px solid var(--lcars-background-color);
+        text-align: center;
+        display: block;
+        min-height: 40px;
       }
       :host([aria-selected="true"]),
       :host([active]) {
@@ -1071,78 +1357,71 @@
         border-radius: 0px 0px 0px 0px;
         margin-right: 1px;
         padding: 0px 12px !important;
-
-        /* -------- Sidebar Toggle -------- */
-        ha-menu-button {
-          display: none;
-          color: transparent;
-          padding-right: 10px
+      }
+      .toolbar ha-menu-button {
+        display: none;
+        color: transparent;
+        padding-right: 10px;
+      }
+      @media screen and (max-width: 870px) {
+        .toolbar ha-button-menu > ha-icon-button {
+          margin-right: -48px;
+          padding-right: unset !important;
+          margin-left: unset !important;
         }
-        @media screen and (max-width: 870px) {
-          ha-button-menu > ha-icon-button {
-            margin-right: -48px;
-            padding-right: unset !important;
-            margin-left: unset !important;
-          }
-          ha-icon-button {
-            padding-right: unset !important;
-            margin-left: unset !important;
-          }
-          ha-menu-button {
-            display: initial !important;
-            color: var(--lcars-text-dark) !important;
-            padding-right: 0px !important;
-            margin-right: -22px;
-            margin-left: -16px;
-          }
-          .main-title
-          {
-            margin-left: 22px !important;
-          }
+        .toolbar ha-icon-button {
+          padding-right: unset !important;
+          margin-left: unset !important;
         }
-        
-        /* -------- Inner elbow -------- */
-        &::before {
-          content: "";
-          position: fixed;
-          height: 40px;
-          width: 100px;
-          background-color: transparent;
-          border-top-left-radius: 40px;
-          box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
-          margin-top: 80px;
-          margin-left: -12px;
-          z-index: 9997;
-          pointer-events: none;
+        .toolbar ha-menu-button {
+          display: initial !important;
+          color: var(--lcars-text-dark) !important;
+          padding-right: 0px !important;
+          margin-right: -22px;
+          margin-left: -16px;
         }
-
-        /* -------- Clock -------- */
-        &::after {
-          content: "{{ states('sensor.lcars_header') if has_value('sensor.lcars_header') else states('sensor.time') if has_value('sensor.time') else 'LCARS' }}";
-          color: var(--lcars-ui-app-header-clock);
-          visibility: visible;
-          font-size: var(--header-font-size);
-          font-family: var(--font-family);
-          margin: 0px -12px 0px 0px;
-          padding: 0px 0px 0px 0px;
-          background-color: var(--lcars-background-color);
-          vertical-align: middle;
-          height: var(--header-height);
-          border-right: 5px solid var(--lcars-background-color);
-          border-left: 5px solid var(--lcars-background-color);
-          text-transform: uppercase;
-          white-space: nowrap;
-          line-height: 0.95;
-        }
-        @media screen and (max-width: 870px) {
-          &::after {
-            content: "";
-            border-left: 0px solid var(--lcars-background-color);
-          }
+        .toolbar .main-title {
+          margin-left: 22px !important;
         }
       }
-
-
+      /* -------- Inner elbow -------- */
+      .toolbar::before {
+        content: "";
+        position: fixed;
+        height: 40px;
+        width: 100px;
+        background-color: transparent;
+        border-top-left-radius: 40px;
+        box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+        margin-top: 80px;
+        margin-left: -12px;
+        z-index: 9997;
+        pointer-events: none;
+      }
+      /* -------- Clock -------- */
+      .toolbar::after {
+        content: "{{ states('sensor.lcars_header') if has_value('sensor.lcars_header') else states('sensor.time') if has_value('sensor.time') else 'LCARS' }}";
+        color: var(--lcars-ui-app-header-clock);
+        visibility: visible;
+        font-size: var(--header-font-size);
+        font-family: var(--font-family);
+        margin: 0px -12px 0px 0px;
+        padding: 0px 0px 0px 0px;
+        background-color: var(--lcars-background-color);
+        vertical-align: middle;
+        height: var(--header-height);
+        border-right: 5px solid var(--lcars-background-color);
+        border-left: 5px solid var(--lcars-background-color);
+        text-transform: uppercase;
+        white-space: nowrap;
+        line-height: 0.95;
+      }
+      @media screen and (max-width: 870px) {
+        .toolbar::after {
+          content: "";
+          border-left: 0px solid var(--lcars-background-color);
+        }
+      }
     div.edit-mode: |
       /* =============================================== */
       /*            EDIT MODE SETTINGS                   */
@@ -1308,25 +1587,25 @@
     "ha-config-logs $ hass-subpage div search-input.header $ ha-textfield$": |
       label.mdc-text-field--filled {
         height: var(--header-height);
-
-        span#label {
-          line-height: 1.25rem;
-        }
-        input.mdc-text-field__input {
-          align-self: end;
-        }
+      }
+      label.mdc-text-field--filled span#label {
+        line-height: 1.25rem;
+      }
+      label.mdc-text-field--filled input.mdc-text-field__input {
+        align-self: end;
       }
     "* $":
       .: |
-        hass-subpage, hass-tabs-subpage {
+        hass-subpage,
+        hass-tabs-subpage {
           --icon-primary-color: var(--sidebar-text-color);
           --mdc-text-field-label-ink-color: var(--sidebar-text-color);
           --mdc-text-field-ink-color: var(--sidebar-text-color);
           font-family: var(--font-family);
-
-          ha-card {
-            overflow: hidden;
-          }
+        }
+        hass-subpage ha-card,
+        hass-tabs-subpage ha-card {
+          overflow: hidden;
         }
       "hass-tabs-subpage $": |
         div.bottom-bar {
@@ -1336,7 +1615,6 @@
         div.bottom-bar {
           --header-height: 50px;
         }
-
   # ===================================================== #
   #                 DIALOG MODIFICATIONS                  #
   # ===================================================== #
@@ -1353,12 +1631,10 @@
       :host {
         font-family: var(--font-family);
       }
-
     .: |
       button.breadcrumb {
         font-family: var(--font-family);
       }
-
   # ===================================================== #
   #                 SIDEBAR MODIFICATIONS                 #
   # ===================================================== #
@@ -1369,12 +1645,10 @@
         --md-list-item-trailing-space: 3px;
         --ha-md-list-item-gap: 0px;
       }
-
     ha-md-list$: |
       :host {
         --menu-font-size: {{ states('input_number.lcars_menu_font') if has_value('input_number.lcars_menu_font') else 24 }}px !important;
       }
-
     .: |
       :host {
         content: "";
@@ -1398,7 +1672,6 @@
         left: 56px;
         height: calc(100% - 75px);
         border-left: 5px solid var(--lcars-background-color);
-      
       }
       ha-md-list.ha-scrollbar {
         margin-top: 70px;
@@ -1416,137 +1689,118 @@
         border-radius: unset !important;
         border-color: var(--lcars-background-color);
         color: var(--lcars-text-dark) !important;
-
-        span.item-text,
-        span.badge {
-          font-family: var(--font-family);
-          text-align: right;
-          text-transform: uppercase;
-          line-height: 1;
-          color: var(--lcars-text-dark); 
-        }
-        span.item-text {
-          font-size: var(--menu-font-size) !important;
-          align-content: center;
-          align-self: end;
-          box-sizing: border-box;
-          height: 100%;
-          min-height: 40px;
-          margin: 0px 0px 0px 0px;
-          padding: 9px 8px 11px 5px;
-          width: calc( 100% + 3px );
-        }
-        span.badge {
-          position: absolute;
-          display: block;
-          top: unset;
-          left: 0px;
-          bottom: 0px;
-          background-color: var(--lcars-background-color);
-          border-radius: 0px;
-          height: 100%;
-          font-size: 38px; 
-          line-height: 1;
-          min-width: 46px;
-          border-top: 0px solid var(--lcars-background-color);
-          overflow: hidden;
-          padding: 0 0 0 0;
-          margin: 0px;
-          text-align: center;
-        }      
-      
-        &.configuration {
-          background-color: var(--lcars-ui-config-button);
-
-          > span.item-text {
-            color: var(--lcars-ui-config-button);
-            background-color: var(--lcars-background-color);
-            border: 3px var(--lcars-ui-config-button) solid;
-            margin-right: -3px;
-            padding-top: 6px;
-            padding-bottom: 8px;
-          }
-
-          > span.badge {
-            color: var(--lcars-ui-config-icon);
-            border-left: 5px var(--lcars-ui-config-icon) solid;
-            border-right: 5px var(--lcars-ui-config-icon) solid;
-          }            
-          > ha-icon,
-          > ha-svg-icon {
-            color: var(--lcars-text-dark);
-            background-color: var(--lcars-ui-config-icon);
-          }     
-        }
-
-        &.notifications {
-          > span.badge {
-            color: var(--lcars-ui-tertiary) !important;
-            border-left: 5px var(--lcars-ui-tertiary) solid;
-            border-right: 5px var(--lcars-ui-tertiary) solid;
-          }
-        }
-
-        &.user {
-          background-color: var(--lcars-card-top-color);
-
-          &:not(.selected) span.item-text {
-            color: var(--lcars-ui-sidebar-icon);
-          }
-
-        }
-
-        &.selected {
-          background-color: var(--lcars-ui-app-header-clock);
-
-          &::before {
-            display: none;
-          }
-          > span.item-text {
-            color: var(--lcars-ui-app-header-clock);
-            background-color: var(--lcars-background-color);
-            border: 3px var(--lcars-ui-app-header-clock) solid;
-            margin-right: -3px;
-            padding-top: 6px;
-            padding-bottom: 8px;
-          }    
-          
-          > ha-icon,
-          > ha-user-badge,
-          > ha-svg-icon {
-            background-color: var(--lcars-ui-app-header-clock);
-          }  
-          > span.badge {
-            color: var(--lcars-ui-app-header-clock);
-            fill: var(--lcars-ui-app-header-clock);
-            border-left-color: var(--lcars-ui-app-header-clock);
-            border-right-color: var(--lcars-ui-app-header-clock);
-          }   
-        }
-
-        &.hidden-panel {
-          > ha-icon[slot=start],
-          > ha-svg-icon {
-            color: var(--lcars-text-dark) !important;
-            padding-top: unset !important;
-            margin-bottom: unset !important;
-          }
-          > span {
-            color: var(--lcars-text-dark) !important;
-          }
-
-        }
       }
-
+      ha-md-list-item span.item-text,
+      ha-md-list-item span.badge {
+        font-family: var(--font-family);
+        text-align: right;
+        text-transform: uppercase;
+        line-height: 1;
+        color: var(--lcars-text-dark);
+      }
+      ha-md-list-item span.item-text {
+        font-size: var(--menu-font-size) !important;
+        align-content: center;
+        align-self: end;
+        box-sizing: border-box;
+        height: 100%;
+        min-height: 40px;
+        margin: 0px 0px 0px 0px;
+        padding: 9px 8px 11px 5px;
+        width: calc( 100% + 3px );
+      }
+      ha-md-list-item span.badge {
+        position: absolute;
+        display: block;
+        top: unset;
+        left: 0px;
+        bottom: 0px;
+        background-color: var(--lcars-background-color);
+        border-radius: 0px;
+        height: 100%;
+        font-size: 38px;
+        line-height: 1;
+        min-width: 46px;
+        border-top: 0px solid var(--lcars-background-color);
+        overflow: hidden;
+        padding: 0 0 0 0;
+        margin: 0px;
+        text-align: center;
+      }
+      ha-md-list-item.configuration {
+        background-color: var(--lcars-ui-config-button);
+      }
+      ha-md-list-item.configuration > span.item-text {
+        color: var(--lcars-ui-config-button);
+        background-color: var(--lcars-background-color);
+        border: 3px var(--lcars-ui-config-button) solid;
+        margin-right: -3px;
+        padding-top: 6px;
+        padding-bottom: 8px;
+      }
+      ha-md-list-item.configuration > span.badge {
+        color: var(--lcars-ui-config-icon);
+        border-left: 5px var(--lcars-ui-config-icon) solid;
+        border-right: 5px var(--lcars-ui-config-icon) solid;
+      }
+      ha-md-list-item.configuration > ha-icon,
+      ha-md-list-item.configuration > ha-svg-icon {
+        color: var(--lcars-text-dark);
+        background-color: var(--lcars-ui-config-icon);
+      }
+      ha-md-list-item.notifications > span.badge {
+        color: var(--lcars-ui-tertiary) !important;
+        border-left: 5px var(--lcars-ui-tertiary) solid;
+        border-right: 5px var(--lcars-ui-tertiary) solid;
+      }
+      ha-md-list-item.user {
+        background-color: var(--lcars-card-top-color);
+      }
+      ha-md-list-item.user:not(.selected) span.item-text {
+        color: var(--lcars-ui-sidebar-icon);
+      }
+      ha-md-list-item.selected {
+        background-color: var(--lcars-ui-app-header-clock);
+      }
+      ha-md-list-item.selected::before {
+        display: none;
+      }
+      ha-md-list-item.selected > span.item-text {
+        color: var(--lcars-ui-app-header-clock);
+        background-color: var(--lcars-background-color);
+        border: 3px var(--lcars-ui-app-header-clock) solid;
+        margin-right: -3px;
+        padding-top: 6px;
+        padding-bottom: 8px;
+      }
+      ha-md-list-item.selected > ha-icon,
+      ha-md-list-item.selected > ha-user-badge,
+      ha-md-list-item.selected > ha-svg-icon {
+        background-color: var(--lcars-ui-app-header-clock);
+      }
+      ha-md-list-item.selected > span.badge {
+        color: var(--lcars-ui-app-header-clock);
+        fill: var(--lcars-ui-app-header-clock);
+        border-left-color: var(--lcars-ui-app-header-clock);
+        border-right-color: var(--lcars-ui-app-header-clock);
+      }
+      ha-md-list-item.hidden-panel > ha-icon[slot=start],
+      ha-md-list-item.hidden-panel > ha-svg-icon {
+        color: var(--lcars-text-dark) !important;
+        padding-top: unset !important;
+        margin-bottom: unset !important;
+      }
+      ha-md-list-item.hidden-panel > span {
+        color: var(--lcars-text-dark) !important;
+      }
       div.menu {
         overflow: visible;
-
-        ha-icon-button {
-          margin-top: 150px;
-          margin-right: 94px;
-          margin-left: 0px;
-          z-index: 99;
-        }
+      }
+      div.menu ha-icon-button {
+        margin-top: 150px;
+        margin-right: 94px;
+        margin-left: 0px;
+        z-index: 99;
       }
       @media screen and (max-width: 870px) {
         .ha-scrollbar::before {
@@ -1562,12 +1816,13 @@
           height: 70px;
         }
       }
-
       :host ha-icon,
       :host ha-svg-icon,
       :host ha-user-badge {
         left: 0px;
         align-content: center;
+        box-sizing: border-box;
+        min-width: 61px;
         padding-top: 8px;
         padding-bottom: 8px;
         padding-right: 16px;
@@ -1579,42 +1834,36 @@
       :host ha-user-badge {
         box-sizing: border-box;
         width: calc( var(--mdc-icon-size,24px) + 37px);
-        padding-block: 8px;
+        padding-top: 8px;
+        padding-bottom: 8px;
       }
-
-      :host([expanded]) {
-        ha-md-list-item:not(.selected) {
-          ha-icon,
-          ha-user-badge,
-          ha-svg-icon {
-            color: var(--lcars-ui-sidebar-icon);
-            background-color: var(--lcars-card-top-color);
-          }
-        }
-        .menu mwc-button {
-          margin-top: 152px !important;
-          margin-left: 7px !important;
-          height: 19px;
-          border-radius: var(--lcars-inner-radius);
-          background-color: var(--lcars-ui-tertiary);
-          align-items: center;
-        }
-        span.badge {
-          font-size: max( 38px, var(--menu-font-size) + 10px );
-        }
-        ha-user-badge {
-          padding-block: max( 8px, var(--menu-font-size)/2 - 2px );
-        }
+      :host([expanded]) ha-md-list-item:not(.selected) ha-icon,
+      :host([expanded]) ha-md-list-item:not(.selected) ha-user-badge,
+      :host([expanded]) ha-md-list-item:not(.selected) ha-svg-icon {
+        color: var(--lcars-ui-sidebar-icon);
+        background-color: var(--lcars-card-top-color);
       }
-
+      :host([expanded]) .menu mwc-button {
+        margin-top: 152px !important;
+        margin-left: 7px !important;
+        height: 19px;
+        border-radius: var(--lcars-inner-radius);
+        background-color: var(--lcars-ui-tertiary);
+        align-items: center;
+      }
+      :host([expanded]) span.badge {
+        font-size: max( 38px, var(--menu-font-size) + 10px );
+      }
+      :host([expanded]) ha-user-badge {
+        padding-top: max( 8px, var(--menu-font-size)/2 - 2px );
+        padding-bottom: max( 8px, var(--menu-font-size)/2 - 2px );
+      }
       mwc-button {
         --mdc-theme-primary: var(--lcars-text-dark);
       }
-
       ha-icon-button.hide-panel {
         color: var(--lcars-text-dark) !important;
       }
-
       ha-md-list.ha-scrollbar > .spacer::before {
         content: "";
         position: relative;
