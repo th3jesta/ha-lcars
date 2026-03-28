@@ -33,6 +33,12 @@ The sidebar menu has been given a LCARS facelift! Thanks @3of9 for this stunning
 Using an optional helper, you can add text to the header clock!
 <p align="center"><img width="300" alt="custom text next to the clock" src="https://github.com/user-attachments/assets/cd276787-192b-4b7a-be1e-981bd53705cd" /></p>
 
+### LCARS Style Settings
+The Settings pages have been given LCARS styling! Lozenge-style lists, LCARS fonts, and many more touches.
+<p align="center"><img width="500" alt="themed settings page" src="https://github.com/user-attachments/assets/0533e438-02eb-4f44-9795-66e2ea59c223" />
+<img width="500" alt="themed developer tools menu" src="https://github.com/user-attachments/assets/c4cf35c0-d6ec-4fb0-8ef8-95a94020855b" />
+</p>
+
 ## Examples
 ### Dashboard
 ![default](https://github.com/user-attachments/assets/4c90a16c-fac8-4184-8720-a537609c0826)
