@@ -1386,6 +1386,17 @@
               pointer-events: none;
             }
           }
+          /* -------- Font Settings -------- */
+          hass-subpage, hass-tabs-subpage {
+            --icon-primary-color: var(--sidebar-text-color);
+            --mdc-text-field-label-ink-color: var(--sidebar-text-color);
+            --mdc-text-field-ink-color: var(--sidebar-text-color);
+            font-family: var(--font-family);
+
+            ha-card {
+              overflow: hidden;
+            }
+          }
         }
       "ha-top-app-bar-fixed ha-config-section": 
         "ha-card":
@@ -1486,6 +1497,17 @@
               pointer-events: none;
             }
           }
+          /* -------- Font Settings -------- */
+          hass-subpage, hass-tabs-subpage {
+            --icon-primary-color: var(--sidebar-text-color);
+            --mdc-text-field-label-ink-color: var(--sidebar-text-color);
+            --mdc-text-field-ink-color: var(--sidebar-text-color);
+            font-family: var(--font-family);
+
+            ha-card {
+              overflow: hidden;
+            }
+          }
         }
       "hass-subpage .content":
         "ha-card":
@@ -1537,6 +1559,17 @@
               pointer-events: none;
             }
           }
+          /* -------- Font Settings -------- */
+          hass-subpage, hass-tabs-subpage {
+            --icon-primary-color: var(--sidebar-text-color);
+            --mdc-text-field-label-ink-color: var(--sidebar-text-color);
+            --mdc-text-field-ink-color: var(--sidebar-text-color);
+            font-family: var(--font-family);
+
+            ha-card {
+              overflow: hidden;
+            }
+          }
         }
       "hass-subpage .content":
         "ha-card":
@@ -1586,6 +1619,17 @@
               margin-left: 0px;
               z-index: 3;
               pointer-events: none;
+            }
+          }
+          /* -------- Font Settings -------- */
+          hass-subpage, hass-tabs-subpage {
+            --icon-primary-color: var(--sidebar-text-color);
+            --mdc-text-field-label-ink-color: var(--sidebar-text-color);
+            --mdc-text-field-ink-color: var(--sidebar-text-color);
+            font-family: var(--font-family);
+
+            ha-card {
+              overflow: hidden;
             }
           }
         }
@@ -1640,6 +1684,17 @@
               margin-left: 0px;
               z-index: 3;
               pointer-events: none;
+            }
+          }
+          /* -------- Font Settings -------- */
+          hass-subpage, hass-tabs-subpage {
+            --icon-primary-color: var(--sidebar-text-color);
+            --mdc-text-field-label-ink-color: var(--sidebar-text-color);
+            --mdc-text-field-ink-color: var(--sidebar-text-color);
+            font-family: var(--font-family);
+
+            ha-card {
+              overflow: hidden;
             }
           }
         }
