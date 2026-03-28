@@ -12,6 +12,7 @@ Color codes and font choice from https://www.thelcars.com
 1. Home Assistant LCARS is built using the functionality of [card-mod](https://github.com/thomasloven/lovelace-card-mod "card-mod"). Version 4.x of card-mod includes numerous breaking changes to all themes, including Home Assistant LCARS. Most standard cards using this theme should update without any issues. Any cards with custom css applied using ``card-mod: style:`` may need to be manually updated to card-mod's new element selectors (i.e. ``hui-card`` instead of ``ha-card``). See card-mod's [README](https://github.com/thomasloven/lovelace-card-mod/blob/master/README.md) and [README-application](https://github.com/thomasloven/lovelace-card-mod/blob/master/README-application.md) as starting points.
 2. Because of the changes mentioned above, a few cards are no longer supported or need a special workaround. The workaround is to place the card inside a vertical or horizontal stack. This changes how card-mod sees the card and applies the theme. Cards known to have issues include:
    - ⚠️ custom-button-card: stack workaround required for some theme classes. Apply the desired theme class to the stack. Use Custom Button Cards style capabilities to make the button look how you want it.
+   - ⚠️ todo-list-card: stack workaround required when Todo List is located within a grid or layout card. 
 3. Bar cards can now be scaled by changing the font size of the card (see [Tips and Tricks](#custom-bar-sizes) below). Because of this, the markdown **must not** include any font sizing, such as the header ``#``.
 4. This is an almost complete rewrite, including several css optimizations. Dashboards designed using previous versions may need to be updated slightly due to small changes in spacing and padding. 
 
@@ -569,6 +570,43 @@ card_mod:
 </tr>
 </table>
 
+11. `list-<lozenge|bullet|capped|barrel>-<left|right>` - styled to-do lists using the `lozenge`, `bullet`, `capped`, and `barrel` styles in `left` and `right` variants similar to the `button-*` classes discussed above. 
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+type: todo-list
+entity: todo.testing
+title: To-do List
+theme: LCARS Default
+card_mod:
+  class: list-capped-right
+
+type: todo-list
+entity: todo.testing
+title: To-do List
+theme: LCARS Lower Decks I
+card_mod:
+  class: list-lozenge-left
+
+type: todo-list
+entity: todo.testing
+title: To-do List
+theme: LCARS Picard II
+card_mod:
+  class: list-barrel-left
+```
+
+</td>
+<td>
+<img width="700" alt="to-do lists" src="https://github.com/user-attachments/assets/d9280c2d-16a8-4c82-9e6a-88955262cc67" />
+</td>
+</tr>
+</table>
 
 ### Make your own color themes
 Custom themes can be created down at the bottom of `lcars.yaml`. Or, search for "===THEMES", which will take you right there. To create your own theme, copy the LCARS Default section to the bottom of the file and change the `lcars-ui-*` and `lcars-card-*` variables to your liking, using the color references at the top of the file, [The LCARS website](https://www.thelcars.com/colors.php), or define your own.
@@ -940,6 +978,7 @@ cards:
 - Thanks to @bobzer for the button-bar idea!
 - Thanks to @3of9 for the sidebar and themes!
 - Thanks to @adejong5 for the v.4 rewrite!
+- Thanks to @blazingdynamo for the to-do list ideas!
 
 ## Links
 **Discord:** https://discord.gg/gGxud6Y6WJ
