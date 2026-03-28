@@ -17,8 +17,8 @@ Color codes and font choice from https://www.thelcars.com
 
 # 🎉NEW FEATURES IN 4.0🎉
 ### Themed stacks 
-Vertical and horizontal stacks can now be themed. Examples include a horizontal stack header filled with buttons
-<p align="center"><img width="525" height="90" alt="image" src="https://github.com/user-attachments/assets/2ed71eb1-7de2-46be-a3ce-8b8183abd8fe" /></p>
+Vertical and horizontal stacks can now be themed and nested. Add a `header`, `middle`, or `footer` class and the stack title is placed in border
+<p align="center"><img width="500" alt="themed stacks" src="https://github.com/user-attachments/assets/3f20ba67-bf37-4477-a513-2417ea5f1176" /></p>
 
 ### Buttons as bars
 New classes ``button-bar-left`` and ``button-bar-right`` allow buttons to appear like the bars, including icons and states. Thanks [@bobzer](https://github.com/bobzer) for the idea!
