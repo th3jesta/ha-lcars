@@ -1469,6 +1469,428 @@
   #                 CONFIG MODIFICATIONS                  #
   # ===================================================== #
   card-mod-config-yaml: &card-mod-config |
+    "* $":
+      .: |
+        /* ------- Inner Elbow --------- */
+        :host{
+          @media screen and (min-width: 601px) {
+            &::before {
+              content: "";
+              position: fixed;
+              height: 40px;
+              width: 100px;
+              background-color: transparent;
+              border-top-left-radius: 40px;
+              box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+              margin-top: 40px;
+              margin-left: 0px;
+              z-index: 3;
+              pointer-events: none;
+            }
+          }
+        }
+        /* -------- Font Settings -------- */
+        hass-subpage, hass-tabs-subpage {
+          --icon-primary-color: var(--sidebar-text-color);
+          --mdc-text-field-label-ink-color: var(--sidebar-text-color);
+          --mdc-text-field-ink-color: var(--sidebar-text-color);
+          font-family: var(--font-family);
+
+          ha-card {
+            overflow: hidden;
+          }
+        }
+        /* -------- Submenu Settings -------- */
+        .header ha-tab-group {
+          background-color: var(--lcars-background-color);
+          border-top-left-radius: var(--lcars-inner-radius);
+          --track-width: unset;
+
+          ha-tab-group-tab {
+            border-radius: 99px;
+            background-color: var(--lcars-card-button);
+            color: var(--lcars-card-button-text);
+            margin: 10px;
+            padding-left: 40px;
+          }
+
+          ha-tab-group-tab[active] {
+            background-color: var(--lcars-ui-tertiary);
+            border-bottom: 0px;
+            margin-bottom: 10px;
+          }
+        }
+      "hass-tabs-subpage $": |
+        /* -------- Bottom bar sizing -------- */
+        div.bottom-bar {
+          --header-height: 50px;
+        }
+      "hass-tabs-subpage-data-table $ hass-tabs-subpage $": |
+        /* -------- Bottom bar sizing -------- */
+        div.bottom-bar {
+          --header-height: 50px;
+        }
+
+    "ha-config-dashboard$":
+      .: |
+        /* ------- Inner Elbow --------- */
+        :host{
+          @media screen and (min-width: 601px) {
+            &::before {
+              content: "";
+              position: fixed;
+              height: 40px;
+              width: 100px;
+              background-color: transparent;
+              border-top-left-radius: 40px;
+              box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+              margin-top: 40px;
+              margin-left: 0px;
+              z-index: 3;
+              pointer-events: none;
+            }
+          }
+          /* -------- Font Settings -------- */
+          hass-subpage, hass-tabs-subpage {
+            --icon-primary-color: var(--sidebar-text-color);
+            --mdc-text-field-label-ink-color: var(--sidebar-text-color);
+            --mdc-text-field-ink-color: var(--sidebar-text-color);
+            font-family: var(--font-family);
+
+            ha-card {
+              overflow: hidden;
+            }
+          }
+        }
+      "ha-top-app-bar-fixed ha-config-section": 
+        "ha-card":
+          "ha-config-navigation $ ha-navigation-list$": | 
+            /* -------- Settings Page Lists -------- */
+            ha-md-list {
+              --md-sys-color-surface: transparent !important;
+            
+              ha-md-list-item {
+                background-color: var(--lcars-card-mid-left-color);
+                --md-list-item-label-text-color: var(--lcars-card-mid-left-text);
+                --md-list-item-supporting-text-color: var(--lcars-card-mid-left-text);
+                border-radius: 999px;
+                margin-block: 5px;
+              }
+              ha-md-list-item:first-child {
+                background-color: var(--lcars-card-top-color);
+                --md-list-item-label-text-color: var(--lcars-card-top-text);
+                --md-list-item-supporting-text-color: var(--lcars-card-top-text);
+              }
+              ha-md-list-item:last-child {
+                background-color: var(--lcars-card-bottom-color);
+                --md-list-item-label-text-color: var(--lcars-card-bottom-text);
+                --md-list-item-supporting-text-color: var(--lcars-card-bottom-text);
+              }
+            }
+          "ha-config-repairs$": |
+            /* -------- Settings Page Repairs List -------- */
+            .title{
+              text-transform: uppercase;
+              font-size: 30px !important;
+              line-height: 1;
+              border-inline: 30px solid var(--lcars-alert-red);
+              border-top-left-radius: 25px;
+              padding-top: 8px !important;
+              padding-bottom: 12px !important;
+              background-color:  color-mix(in srgb, var(--lcars-alert-red), transparent 66%);
+              border-top-right-radius: 25px;
+              border-bottom-left-radius: 25px;
+              border-bottom-right-radius: 25px;
+            }
+            ha-md-list {
+              --md-sys-color-surface: transparent !important;
+              padding-block: 5px;
+
+              ha-md-list-item {
+                background-color: color-mix(in srgb, var(--lcars-alert-red), transparent 66%);
+                margin: 5px 30px;
+              }
+            }
+          "ha-config-updates$": |
+            /* -------- Settings Page Updates List -------- */
+            .title{
+              text-transform: uppercase;
+              font-size: 30px !important;
+              line-height: 1;
+              border-inline: 30px solid var(--lcars-alert-yellow);
+              border-top-left-radius: 25px;
+              padding-top: 8px !important;
+              padding-bottom: 12px !important;
+              background-color:  color-mix(in srgb, var(--lcars-alert-yellow), transparent 66%);
+              border-top-right-radius: 25px;
+              border-bottom-left-radius: 25px;
+              border-bottom-right-radius: 25px;
+            }
+            ha-md-list {
+              --md-sys-color-surface: transparent !important;
+              padding-block: 5px;
+
+              ha-md-list-item {
+                background-color: color-mix(in srgb, var(--lcars-alert-yellow), transparent 66%);
+                margin: 5px 30px;
+              }
+            }
+
+          "$": |
+            :host {
+              background-color: transparent !important;
+              border-radius: 0 !important;
+              margin-top: 32px !important;
+            }
+    "ha-config-section-updates$":
+      .: |
+        /* ------- Inner Elbow --------- */
+        :host{
+          @media screen and (min-width: 601px) {
+            &::before {
+              content: "";
+              position: fixed;
+              height: 40px;
+              width: 100px;
+              background-color: transparent;
+              border-top-left-radius: 40px;
+              box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+              margin-top: 40px;
+              margin-left: 0px;
+              z-index: 3;
+              pointer-events: none;
+            }
+          }
+          /* -------- Font Settings -------- */
+          hass-subpage, hass-tabs-subpage {
+            --icon-primary-color: var(--sidebar-text-color);
+            --mdc-text-field-label-ink-color: var(--sidebar-text-color);
+            --mdc-text-field-ink-color: var(--sidebar-text-color);
+            font-family: var(--font-family);
+
+            ha-card {
+              overflow: hidden;
+            }
+          }
+        }
+      "hass-subpage .content":
+        "ha-card":
+          "$": |
+            :host {
+              background-color: transparent !important;
+              border-radius: 0 !important;
+            }
+          ".card-content ha-config-updates$": |
+            /* -------- Settings Page Updates List -------- */
+            .title {
+              text-transform: uppercase;
+              font-size: 30px !important;
+              line-height: 1;
+              border-inline: 30px solid var(--lcars-alert-yellow);
+              border-top-left-radius: 25px;
+              padding-top: 8px !important;
+              padding-bottom: 12px !important;
+              background-color:  color-mix(in srgb, var(--lcars-alert-yellow), transparent 66%);
+              border-top-right-radius: 25px;
+              border-bottom-left-radius: 25px;
+              border-bottom-right-radius: 25px;
+            }
+            ha-md-list {
+              --md-sys-color-surface: transparent !important;
+              padding-block: 5px;
+
+              ha-md-list-item {
+                background-color: color-mix(in srgb, var(--lcars-alert-yellow), transparent 66%) !important;
+                margin: 5px 30px;
+              }
+            }
+    "ha-config-repairs-dashboard$":
+      .: |
+        /* ------- Inner Elbow --------- */
+        :host{
+          @media screen and (min-width: 601px) {
+            &::before {
+              content: "";
+              position: fixed;
+              height: 40px;
+              width: 100px;
+              background-color: transparent;
+              border-top-left-radius: 40px;
+              box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+              margin-top: 40px;
+              margin-left: 0px;
+              z-index: 3;
+              pointer-events: none;
+            }
+          }
+          /* -------- Font Settings -------- */
+          hass-subpage, hass-tabs-subpage {
+            --icon-primary-color: var(--sidebar-text-color);
+            --mdc-text-field-label-ink-color: var(--sidebar-text-color);
+            --mdc-text-field-ink-color: var(--sidebar-text-color);
+            font-family: var(--font-family);
+
+            ha-card {
+              overflow: hidden;
+            }
+          }
+        }
+      "hass-subpage .content":
+        "ha-card":
+          "$": |
+            :host {
+              background-color: transparent !important;
+              border-radius: 0 !important;
+            }
+          ".card-content ha-config-repairs$": |
+            /* -------- Settings Page Updates List -------- */
+            .title {
+              text-transform: uppercase;
+              font-size: 30px !important;
+              line-height: 1;
+              border-inline: 30px solid var(--lcars-alert-red);
+              border-top-left-radius: 25px;
+              padding-top: 8px !important;
+              padding-bottom: 12px !important;
+              background-color:  color-mix(in srgb, var(--lcars-alert-red), transparent 66%);
+              border-top-right-radius: 25px;
+              border-bottom-left-radius: 25px;
+              border-bottom-right-radius: 25px;
+            }
+            ha-md-list {
+              --md-sys-color-surface: transparent !important;
+              padding-block: 5px;
+
+              ha-md-list-item {
+                background-color: color-mix(in srgb, var(--lcars-alert-red), transparent 66%) !important;
+                margin: 5px 30px;
+              }
+            }
+    "ha-config-system-navigation$":  
+      .: |
+        /* ------- Inner Elbow --------- */
+        :host{
+          @media screen and (min-width: 601px) {
+            &::before {
+              content: "";
+              position: fixed;
+              height: 40px;
+              width: 100px;
+              background-color: transparent;
+              border-top-left-radius: 40px;
+              box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+              margin-top: 40px;
+              margin-left: 0px;
+              z-index: 3;
+              pointer-events: none;
+            }
+          }
+          /* -------- Font Settings -------- */
+          hass-subpage, hass-tabs-subpage {
+            --icon-primary-color: var(--sidebar-text-color);
+            --mdc-text-field-label-ink-color: var(--sidebar-text-color);
+            --mdc-text-field-ink-color: var(--sidebar-text-color);
+            font-family: var(--font-family);
+
+            ha-card {
+              overflow: hidden;
+            }
+          }
+        }
+      "hass-subpage ha-config-section ha-card": 
+        "ha-navigation-list$": |
+          /* -------- System Settings Page Lists -------- */
+          :host {
+            background-color: transparent !important;
+            border-radius: 0 !important;
+          }
+          ha-md-list {
+            --md-sys-color-surface: transparent !important;
+          
+            ha-md-list-item {
+              background-color: var(--lcars-card-mid-left-color);
+              --md-list-item-label-text-color: var(--lcars-card-mid-left-text);
+              --md-list-item-supporting-text-color: var(--lcars-card-mid-left-text);
+              border-radius: 999px;
+              margin-block: 5px;
+            }
+            ha-md-list-item:first-child {
+              background-color: var(--lcars-card-top-color);
+              --md-list-item-label-text-color: var(--lcars-card-top-text);
+              --md-list-item-supporting-text-color: var(--lcars-card-top-text);
+            }
+            ha-md-list-item:last-child {
+              background-color: var(--lcars-card-bottom-color);
+              --md-list-item-label-text-color: var(--lcars-card-bottom-text);
+              --md-list-item-supporting-text-color: var(--lcars-card-bottom-text);
+            }
+          }
+        "$": |
+          :host {
+            background-color: transparent !important;
+            border-radius: 0 !important;
+          }
+
+    "ha-config-info$":  
+      .: |
+        /* ------- Inner Elbow --------- */
+        :host{
+          @media screen and (min-width: 601px) {
+            &::before {
+              content: "";
+              position: fixed;
+              height: 40px;
+              width: 100px;
+              background-color: transparent;
+              border-top-left-radius: 40px;
+              box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+              margin-top: 40px;
+              margin-left: 0px;
+              z-index: 3;
+              pointer-events: none;
+            }
+          }
+          /* -------- Font Settings -------- */
+          hass-subpage, hass-tabs-subpage {
+            --icon-primary-color: var(--sidebar-text-color);
+            --mdc-text-field-label-ink-color: var(--sidebar-text-color);
+            --mdc-text-field-ink-color: var(--sidebar-text-color);
+            font-family: var(--font-family);
+
+            ha-card {
+              overflow: hidden;
+            }
+          }
+        }
+      "hass-subpage .content":
+        "ha-card": |
+          /* -------- System Info Page Lists -------- */
+          ha-md-list {
+            --md-sys-color-surface: transparent !important;
+          
+            ha-md-list-item {
+              background-color: var(--lcars-card-mid-left-color);
+              --md-list-item-label-text-color: var(--lcars-card-mid-left-text);
+              --md-list-item-supporting-text-color: var(--lcars-card-mid-left-text);
+              border-radius: 999px;
+              margin-block: 5px;
+            }
+            ha-md-list-item:first-child {
+              background-color: var(--lcars-card-top-color);
+              --md-list-item-label-text-color: var(--lcars-card-top-text);
+              --md-list-item-supporting-text-color: var(--lcars-card-top-text);
+            }
+            ha-md-list-item:last-child {
+              background-color: var(--lcars-card-bottom-color);
+              --md-list-item-label-text-color: var(--lcars-card-bottom-text);
+              --md-list-item-supporting-text-color: var(--lcars-card-bottom-text);
+            }
+          }
+        .: |
+          ha-card {
+            background-color: transparent !important;
+            border-radius: 0 !important;
+          }
     "ha-config-logs $ hass-subpage div search-input.header $ ha-textfield$": |
       label.mdc-text-field--filled {
         height: var(--header-height);
@@ -1480,26 +1902,6 @@
           align-self: end;
         }
       }
-    "* $":
-      .: |
-        hass-subpage, hass-tabs-subpage {
-          --icon-primary-color: var(--sidebar-text-color);
-          --mdc-text-field-label-ink-color: var(--sidebar-text-color);
-          --mdc-text-field-ink-color: var(--sidebar-text-color);
-          font-family: var(--font-family);
-
-          ha-card {
-            overflow: hidden;
-          }
-        }
-      "hass-tabs-subpage $": |
-        div.bottom-bar {
-          --header-height: 50px;
-        }
-      "hass-tabs-subpage-data-table $ hass-tabs-subpage $": |
-        div.bottom-bar {
-          --header-height: 50px;
-        }
 
   # ===================================================== #
   #                 DIALOG MODIFICATIONS                  #
@@ -1866,6 +2268,10 @@ LCARS Default:
   lcars-card-mid-left-color: var(--lcars-red)
   lcars-card-button: var(--lcars-red)
   lcars-card-bottom-color: var(--lcars-gray)
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-light)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -1894,6 +2300,10 @@ LCARS Classic:
   lcars-card-mid-left-color: var(--lcars-ice)
   lcars-card-button: var(--lcars-ice)
   lcars-card-bottom-color: var(--lcars-ice)
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-dark)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -1922,6 +2332,10 @@ LCARS Nemesis Blue:
   lcars-card-mid-left-color: var(--lcars-ice)
   lcars-card-button: var(--lcars-honey)
   lcars-card-bottom-color: var(--lcars-cool)
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-dark)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -1950,6 +2364,10 @@ LCARS Lower Decks I:
   lcars-card-mid-left-color: var(--lcars-harvestgold)
   lcars-card-button: var(--lcars-harvestgold)
   lcars-card-bottom-color: var(--lcars-honey)
+  lcars-card-top-text: var(--lcars-text-light)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-dark)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -1977,6 +2395,10 @@ LCARS Lower Decks II:
   lcars-card-mid-left-color: var(--lcars-taupe)
   lcars-card-button: var(--lcars-honey)
   lcars-card-bottom-color: "#fff5c7"
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-dark)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -2005,6 +2427,10 @@ LCARS Romulus:
   lcars-card-mid-left-color: var(--lcars-african-violet)
   lcars-card-button: var(--lcars-sky)
   lcars-card-bottom-color: var(--lcars-aqua)
+  lcars-card-top-text: var(--lcars-text-light)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-dark)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -2033,6 +2459,10 @@ LCARS Kronos:
   lcars-card-mid-left-color: var(--lcars-october-sunset)
   lcars-card-button: var(--lcars-october-sunset)
   lcars-card-bottom-color: var(--lcars-peach)
+  lcars-card-top-text: var(--lcars-text-light)
+  lcars-card-mid-left-text: var(--lcars-text-light)
+  lcars-card-button-text: var(--lcars-text-light)
+  lcars-card-bottom-text: var(--lcars-text-dark)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -2061,6 +2491,10 @@ LCARS Cardassia:
   lcars-card-mid-left-color: var(--lcars-cardassia-maroon)
   lcars-card-button: var(--lcars-cardassia-maroon)
   lcars-card-bottom-color: var(--lcars-eggplant)
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-light)
+  lcars-card-button-text: var(--lcars-text-light)
+  lcars-card-bottom-text: var(--lcars-text-light)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -2089,6 +2523,10 @@ LCARS Zeldaar:
   lcars-card-mid-left-color: var(--lcars-khaki)
   lcars-card-button: var(--lcars-african-violet)
   lcars-card-bottom-color: var(--lcars-roseblush)
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-dark)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -2117,6 +2555,10 @@ LCARS Modern:
   lcars-card-mid-left-color: var(--lcars-modern-light-gray)
   lcars-card-button: var(--lcars-gray)
   lcars-card-bottom-color: var(--lcars-sky)
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-dark)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -2145,6 +2587,10 @@ LCARS Picard I:
   lcars-card-mid-left-color: var(--lcars-mango)
   lcars-card-button: var(--lcars-feuerrot)
   lcars-card-bottom-color: var(--lcars-dunkelgrau)
+  lcars-card-top-text: var(--lcars-text-light)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-light)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -2173,6 +2619,10 @@ LCARS Picard II:
   lcars-card-mid-left-color: var(--lcars-cerulean)
   lcars-card-button: var(--lcars-cerulean)
   lcars-card-bottom-color: var(--lcars-midnight-blue)
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-light)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -2200,6 +2650,10 @@ LCARS Red Alert:
   lcars-card-mid-left-color: "#9d361e"
   lcars-card-button: "#d66a60"
   lcars-card-bottom-color: "#91311c"
+  lcars-card-top-text: var(--lcars-text-light)
+  lcars-card-mid-left-text: var(--lcars-text-light)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-light)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -2222,6 +2676,10 @@ LCARS TNG:
   lcars-card-mid-left-color: "#c5b358" # middle bars
   lcars-card-button: "#ffbb33" # main button colour
   lcars-card-bottom-color: "#f5deb3" # footer class
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-dark)
 
   # Header colors
   lcars-ui-app-header-background-color: "#d2b48c" # Header Background
@@ -2253,6 +2711,10 @@ LCARS TNGbuttons:
   lcars-card-mid-left-color: "#ffcc99" # middle bars
   lcars-card-button: "#ffcc66" # main button colour
   lcars-card-bottom-color: "#EFC861" # footer class
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-dark)
 
   # Header colors
   lcars-ui-app-header-background-color: "#d2b48c" # Header Background
@@ -2289,6 +2751,10 @@ LCARS Transporter:
   lcars-card-mid-left-color: var(--lcars-charcoal)
   lcars-card-button: var(--lcars-teal)
   lcars-card-bottom-color: var(--lcars-navy-gray)
+  lcars-card-top-text: var(--lcars-text-light)
+  lcars-card-mid-left-text: var(--lcars-text-light)
+  lcars-card-button-text: var(--lcars-text-light)
+  lcars-card-bottom-text: var(--lcars-text-light)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-dark-red)
@@ -2316,6 +2782,10 @@ LCARS Navigation:
   lcars-card-mid-left-color: var(--lcars-cornflower)
   lcars-card-button: var(--lcars-olive)
   lcars-card-bottom-color: var(--lcars-olive)
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-light)
+  lcars-card-bottom-text: var(--lcars-text-light)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-dark-red)
@@ -2348,6 +2818,10 @@ LCARS 25C:
   lcars-card-button-barrel: var(--lcars-primary-gray)
   lcars-card-bottom-color: var(--lcars-alt-dark-gray)
   lcars-card-background: var(--lcars-primary-gray)
+  lcars-card-top-text: var(--lcars-text-light)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-light)
   # Misc
   success-color: var(--lcars-alt-green)
   warning-color: var(--lcars-light-orange)
@@ -2391,6 +2865,10 @@ LCARS 25C (Red Alert):
   lcars-card-button-barrel: var(--lcars-alert-white)
   lcars-card-bottom-color: var(--lcars-alert-color)
   lcars-card-background: var(--lcars-alert-color)
+  lcars-card-top-text: var(--lcars-text-light)
+  lcars-card-mid-left-text: var(--lcars-text-light)
+  lcars-card-button-text: var(--lcars-text-light)
+  lcars-card-bottom-text: var(--lcars-text-light)
   # Misc
   success-color: var(--lcars-alt-green)
   warning-color: var(--lcars-sunflower)
@@ -2423,6 +2901,10 @@ LCARS 25C (Yellow Alert):
   lcars-card-button-barrel: var(--lcars-alert-white)
   lcars-card-bottom-color: var(--lcars-alert-color)
   lcars-card-background: var(--lcars-alert-color)
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-dark)
   # Misc
   success-color: var(--lcars-alt-green)
   warning-color: var(--lcars-sunflower)
@@ -2455,6 +2937,10 @@ LCARS 25C (Blue Alert):
   lcars-card-button-barrel: var(--lcars-alert-white)
   lcars-card-bottom-color: var(--lcars-alert-color)
   lcars-card-background: var(--lcars-alert-color)
+  lcars-card-top-text: var(--lcars-text-light)
+  lcars-card-mid-left-text: var(--lcars-text-light)
+  lcars-card-button-text: var(--lcars-text-light)
+  lcars-card-bottom-text: var(--lcars-text-light)
   # Misc
   success-color: var(--lcars-alt-green)
   warning-color: var(--lcars-sunflower)
@@ -2482,6 +2968,10 @@ LCARS Breen:
   lcars-card-mid-left-color: var(--lcars-green-middle)
   lcars-card-button: var(--lcars-green-tertiary)
   lcars-card-bottom-color: var(--lcars-green-footer)
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-light)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-dark)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
