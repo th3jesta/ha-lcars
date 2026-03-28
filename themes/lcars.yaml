@@ -1024,7 +1024,7 @@
       /* ----------- To-Do List Card ------------------- */
       :host(.type-todo-list) {
         --card-background-color: transparent !important;
-        --ha-card-border-radius: 0px;
+        --ha-card-border-radius: 0px !important;
         --active-color: var(--lcars-card-mid-left-color);
         --active-text-color: var(--lcars-card-mid-left-text);
         --completed-color: color-mix(in srgb, var(--active-color), black 70%);
