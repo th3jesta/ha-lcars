@@ -379,7 +379,7 @@
         background-color: var(--lcars-card-top-color);
         text-transform: uppercase;
 
-        > :not(style,card-mod) {
+        > :not(style,card-mod,h1) {
           border-radius: 0px;
           background-color: var(--lcars-background-color);
           padding-top: 6px;
@@ -452,7 +452,7 @@
         border-inline: 0px solid var(--lcars-card-mid-left-color);
         text-transform: uppercase;
 
-        > :not(style,card-mod) {
+        > :not(style,card-mod,h1) {
           border-radius: 0px;
           background-color: var(--lcars-background-color);
           --primary-text-color: var(--lcars-text-gray);
@@ -517,7 +517,7 @@
         background-color: var(--lcars-card-bottom-color);
         text-transform: uppercase;
 
-        > :not(style,card-mod) {
+        > :not(style,card-mod,h1) {
           border-radius: 0px;
           background-color: var(--lcars-background-color);
           padding-bottom: 6px;
@@ -939,7 +939,7 @@
         line-height: 1;
         overflow:hidden;
 
-        > :not(style,card-mod) {
+        > :not(style,card-mod,h1) {
           text-transform: uppercase;
           background-color: var(--lcars-background-color);
           border-radius: 0px;
