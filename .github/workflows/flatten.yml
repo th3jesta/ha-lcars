@@ -4,31 +4,10 @@ on:
     tags:
       - "*"
 jobs:
-  format-code:
-    runs-on: ubuntu-latest
-
-    permissions:
-      # Give the default GITHUB_TOKEN write permission to commit and push the
-      # added or changed files to the repository.
-      contents: write
-
-    steps:
-      - uses: actions/checkout@v5
-        with:
-          ref: ${{ github.head_ref }}
-          # Value already defaults to true, but `persist-credentials` is required to push new commits to the repository.
-          persist-credentials: true
-
-      # Other steps that change files in the repository go here
-      # …
-
-      # Commit all changed files back to the repository
-      - uses: stefanzweifel/git-auto-commit-action@v7
-
-Note
-jobs:
   flatten-css:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v5
         with:
