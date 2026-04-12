@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Tungsten';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  size-adjust: 120%;
+  ascent-override: 96%;
+  descent-override: 12.5%;
+  src: url(Tungsten-Medium.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Tungsten';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  size-adjust: 120%;
+  ascent-override: 96%;
+  descent-override: 12.5%;
+  src: url(Tungsten-Bold.woff2) format('woff2');
+}
