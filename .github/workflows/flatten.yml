@@ -13,7 +13,7 @@ jobs:
         uses: actions/setup-node@v4
 
       - name: Run Flatten Script
-        run: python py/flatten_ha_theme_css.py -o "themes/lcars_flat.yaml" "themes/LCARS.yaml" 
+        run: python py/flatten_ha_theme_css.py -o "themes/lcars_flat.yaml" "themes/lcars.yaml" 
 
       - name: Commit and Push
         uses: stefanzweifel/git-auto-commit-action@v5
