@@ -4,19 +4,42 @@ on:
     tags:
       - "*"
 jobs:
+  format-code:
+    runs-on: ubuntu-latest
+
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.head_ref }}
+          # Value already defaults to true, but `persist-credentials` is required to push new commits to the repository.
+          persist-credentials: true
+
+      # Other steps that change files in the repository go here
+      # …
+
+      # Commit all changed files back to the repository
+      - uses: stefanzweifel/git-auto-commit-action@v7
+
+Note
+jobs:
   flatten-css:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.head_ref }}
+          persist-credentials: true
 
       - name: Run Flatten Script
         run: python py/flatten_ha_theme_css.py -o "themes/lcars_flat.yaml" "themes/lcars.yaml" 
 
       - name: Commit and Push
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
-          commit_message: "chore: flatten and minify nested theme css"
+          commit_message: "chore: flatten nested theme css"
           file_pattern: "themes/lcars_flat.yaml"
