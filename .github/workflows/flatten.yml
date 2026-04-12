@@ -1,0 +1,22 @@
+name: Flatten Theme
+on:
+  push:
+    tags:
+      - "*"
+jobs:
+  flatten-css:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+
+      - name: Run Flatten Script
+        run: python py/flatten_theme.py
+
+      - name: Commit and Push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: flatten and minify nested theme css"
+          file_pattern: "lcars_flattened.yaml"
