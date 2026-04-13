@@ -1161,7 +1161,8 @@
       }
 
       /* ----------- To-Do List Card ------------------- */
-      :host(.type-todo-list) {
+      :host(.type-todo-list),
+      ha-card:is(.type-todo-list) {
         --card-background-color: transparent !important;
         --ha-card-border-radius: 0px !important;
         --active-color: var(--lcars-card-mid-left-color);
@@ -1170,115 +1171,133 @@
         --completed-text-color: var(--lcars-gray);
         --list-border-left: 0px;
         --list-border-right: 0px;
+
+        > ha-card, &:is(ha-card) {
+          div.addRow {
+            background-color: var(--lcars-card-bottom-color);
+            --mdc-text-field-fill-color: var(--lcars-card-bottom-color);
+            color: var(--lcars-card-bottom-text);
+            --mdc-text-field-ink-color: var(--lcars-card-bottom-text);
+            --mdc-text-field-label-ink-color: var(--lcars-card-bottom-text);
+            caret-color: currentColor;
+            border-top-left-radius: var(--list-border-left);
+            border-top-right-radius: var(--list-border-right);
+            border-bottom-left-radius: var(--list-border-left);
+            border-bottom-right-radius: var(--list-border-right);
+            margin-block: 5px;
+            padding: 5px max(15px, var(--list-border-right)) 5px max(15px, var(--list-border-left));
+            height: 50px;
+          }
+          ha-sortable > ha-list {
+            .header {
+              background-color: var(--lcars-card-top-color);
+              color: var(--lcars-card-top-text);
+              --primary-text-color: var(--lcars-card-top-text);
+              border-top-left-radius: var(--list-border-left);
+              border-top-right-radius: var(--list-border-right);
+              border-bottom-left-radius: var(--list-border-left);
+              border-bottom-right-radius: var(--list-border-right);
+              margin-block: 5px;
+              height: 60px;
+              padding: 0px max(15px, var(--list-border-right)) 0px max(15px, var(--list-border-left));
+              font-size: 1.2rem;
+
+              h2 {
+                padding-bottom: 0.15em;
+              }
+            }
+            
+            ha-check-list-item {
+              --check-border-right: 5px;
+              --check-border-left: 0px;
+              --flex-left: 1;
+
+              background-color: var(--active-color);
+              color: var(--active-text-color);
+              text-transform: uppercase;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              border-top-left-radius: var(--list-border-left);
+              border-top-right-radius: var(--list-border-right);
+              border-bottom-left-radius: var(--list-border-left);
+              border-bottom-right-radius: var(--list-border-right);
+              margin: 5px;
+              padding: 0px;
+              height: 60px;
+            }
+            ha-check-list-item.completed {
+              background-color: var(--completed-color);
+              color: var(--completed-text-color);
+            }
+            ha-check-list-item.completed ha-svg-icon {
+              background-color: var(--completed-text-color);
+            }
+            ha-check-list-item .mdc-checkbox {
+              background-color: red;
+              opacity: 1;
+              position: absolute;
+            }
+            .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~
+            .mdc-checkbox__background, .mdc-checkbox
+            .mdc-checkbox__native-control:enabled:indeterminate ~
+            .mdc-checkbox__background, .mdc-checkbox
+            .mdc-checkbox__native-control[data-indeterminate="true"]:enabled ~
+            .mdc-checkbox__background {
+              border-color: var(--lcars-background-color);
+              background-color: var(--lcars-background-color);
+            }
+            ha-check-list-item .summary {
+              font-size: 1.2rem;
+              position: absolute;
+              right: max(8px, var(--list-border-right));
+              bottom: 8px;
+            }
+          }
+        }
       }
       :host(.list-lozenge-left),
       :host(.list-lozenge-right),
       :host(.list-bullet-right),
-      :host(.list-capped-left) {
+      :host(.list-capped-left),
+      ha-card:is(.list-lozenge-left),
+      ha-card:is(.list-lozenge-right),
+      ha-card:is(.list-bullet-right),
+      ha-card:is(.list-capped-left) {
         --list-border-left: 30px;
         --left-border: 1;
       }
       :host(.list-lozenge-left),
       :host(.list-lozenge-right),
       :host(.list-bullet-left),
-      :host(.list-capped-right) {
+      :host(.list-capped-right),
+      ha-card:is(.list-lozenge-left),
+      ha-card:is(.list-lozenge-right),
+      ha-card:is(.list-bullet-left),
+      ha-card:is(.list-capped-right) {
         --list-border-right: 30px;
         --right-border: 1;
-      }
-      :host(.type-todo-list) > ha-card {
-        div.addRow {
-          background-color: var(--lcars-card-bottom-color);
-          --mdc-text-field-fill-color: var(--lcars-card-bottom-color);
-          color: var(--lcars-card-bottom-text);
-          --mdc-text-field-ink-color: var(--lcars-card-bottom-text);
-          border-top-left-radius: var(--list-border-left);
-          border-top-right-radius: var(--list-border-right);
-          border-bottom-left-radius: var(--list-border-left);
-          border-bottom-right-radius: var(--list-border-right);
-          margin-block: 5px;
-          padding: 5px max(15px, var(--list-border-right)) 5px max(15px, var(--list-border-left));
-          height: 50px;
-        }
-        ha-sortable > ha-list {
-          .header {
-            background-color: var(--lcars-card-top-color);
-            color: var(--lcars-card-top-text);
-            border-top-left-radius: var(--list-border-left);
-            border-top-right-radius: var(--list-border-right);
-            border-bottom-left-radius: var(--list-border-left);
-            border-bottom-right-radius: var(--list-border-right);
-            margin-block: 5px;
-            height: 60px;
-            padding: 0px max(15px, var(--list-border-right)) 0px max(15px, var(--list-border-left));
-            font-size: 1.2rem;
-
-            h2 {
-              padding-bottom: 0.15em;
-            }
-          }
-          
-          ha-check-list-item {
-            --check-border-right: 5px;
-            --check-border-left: 0px;
-            --flex-left: 1;
-
-            background-color: var(--active-color);
-            color: var(--active-text-color);
-            text-transform: uppercase;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            border-top-left-radius: var(--list-border-left);
-            border-top-right-radius: var(--list-border-right);
-            border-bottom-left-radius: var(--list-border-left);
-            border-bottom-right-radius: var(--list-border-right);
-            margin: 5px;
-            padding: 0px;
-            height: 60px;
-          }
-          ha-check-list-item.completed {
-            background-color: var(--completed-color);
-            color: var(--completed-text-color);
-          }
-          ha-check-list-item.completed ha-svg-icon {
-            background-color: var(--completed-text-color);
-          }
-          ha-check-list-item .mdc-checkbox {
-            background-color: red;
-            opacity: 1;
-            position: absolute;
-          }
-          .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~
-          .mdc-checkbox__background, .mdc-checkbox
-          .mdc-checkbox__native-control:enabled:indeterminate ~
-          .mdc-checkbox__background, .mdc-checkbox
-          .mdc-checkbox__native-control[data-indeterminate="true"]:enabled ~
-          .mdc-checkbox__background {
-            border-color: var(--lcars-background-color);
-            background-color: var(--lcars-background-color);
-          }
-          ha-check-list-item .summary {
-            font-size: 1.2rem;
-            position: absolute;
-            right: max(8px, var(--list-border-right));
-            bottom: 8px;
-          }
-        }
       }
       :host(.list-lozenge-right),
       :host(.list-bullet-right),
       :host(.list-capped-right),
-      :host(.list-barrel-right) {
-        & > ha-card > ha-sortable > ha-list > ha-check-list-item {
-          flex-direction: row-reverse;
-          --check-border-left: 5px;
-          --check-border-right: 0px;
-          --flex-left: 0;
-          --flex-right: 1;
+      :host(.list-barrel-right),
+      ha-card:is(.list-lozenge-right),
+      ha-card:is(.list-bullet-right),
+      ha-card:is(.list-capped-right),
+      ha-card:is(.list-barrel-right) {
+        & > ha-card, &:is(ha-card) {
+          > ha-sortable > ha-list > ha-check-list-item {
+            flex-direction: row-reverse;
+            --check-border-left: 5px;
+            --check-border-right: 0px;
+            --flex-left: 0;
+            --flex-right: 1;
 
-          .summary {
-            right: unset;
-            left: max(8px, var(--list-border-left));
+            .summary {
+              right: unset;
+              left: max(8px, var(--list-border-left));
+            }
           }
         }
       }
