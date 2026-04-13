@@ -14,7 +14,8 @@ Color codes and font choice from https://www.thelcars.com
    - ⚠️ custom-button-card: stack workaround required for some theme classes. Apply the desired theme class to the stack. Use Custom Button Cards style capabilities to make the button look how you want it.
    - ⚠️ todo-list-card: stack workaround required when Todo List is located within a grid or layout card. 
 3. Bar cards can now be scaled by changing the font size of the card (see [Tips and Tricks](#custom-bar-sizes) below). Because of this, the markdown **must not** include any font sizing, such as the header ``#``.
-4. This is an almost complete rewrite, including several css optimizations. Dashboards designed using previous versions may need to be updated slightly due to small changes in spacing and padding. 
+4. This is an almost complete rewrite, including several css optimizations. Dashboards designed using previous versions may need to be updated slightly due to small changes in spacing and padding.
+5. iOS16 and some Qt-based browsers (e.g. Ubuntu Touch 24) have mixed support for nested css which is used heavily in the theme. To help support these systems, a flattened version of theme has been added, `themes/lcars_flat.yaml`. This version of the theme can be installed by deleting the `lcars.yaml` placed in your Home Assistant's `config/themes` by HACS and placing `lcars_flat.yaml` there instead. Flattening removes support some some edge cases, but most of the theme should work as expected. This flattened version isn't regularly tested, so please report issues using GitHub or the Discord.
 
 # 🎉NEW FEATURES IN 4.0🎉
 ### Themed stacks 
