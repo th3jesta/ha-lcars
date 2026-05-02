@@ -247,6 +247,7 @@
   ha-heading-card-title-color: var(--lcars-ui-text-heading)
   # LCARS readout cards
   lcars-readout-gap: 8px
+  lcars-readout-min-height: 2em
   lcars-readout-value-bg: var(--lcars-background-color)
   lcars-readout-accent-color: var(--lcars-powder-blue)
   lcars-readout-label-color: var(--lcars-text-dark)
@@ -1480,10 +1481,12 @@
 
     # Entity card shell (single entity display)
     "hui-entity-card$": |
-      :host(.readout-bar-right) {
+      :host(.readout-bar-right),
+      :host(.readout-bar-large-right) {
         display: block;
       }
-      :host(.readout-bar-right) ha-card {
+      :host(.readout-bar-right) ha-card,
+      :host(.readout-bar-large-right) ha-card {
         display: grid;
         grid-template-columns: minmax(0, 0.8fr) 1fr;
         min-height: var(--lcars-readout-min-height);
@@ -1496,7 +1499,8 @@
         overflow: hidden;
         gap: 0;
       }
-      :host(.readout-bar-right) ha-card > .header {
+      :host(.readout-bar-right) ha-card > .header,
+      :host(.readout-bar-large-right) ha-card > .header {
         grid-column: 2;
         grid-row: 1;
         min-width: 0;
@@ -1516,7 +1520,8 @@
         white-space: nowrap;
         overflow: hidden;
       }
-      :host(.readout-bar-right) ha-card > .header .name {
+      :host(.readout-bar-right) ha-card > .header .name,
+      :host(.readout-bar-large-right) ha-card > .header .name {
         color: inherit !important;
         font-size: var(--lcars-readout-label-font-size) !important;
         font-weight: 700;
@@ -1526,10 +1531,12 @@
         text-overflow: ellipsis;
         white-space: nowrap;
       }
-      :host(.readout-bar-right) ha-card > .header .icon {
+      :host(.readout-bar-right) ha-card > .header .icon,
+      :host(.readout-bar-large-right) ha-card > .header .icon {
         display: none !important;
       }
-      :host(.readout-bar-right) ha-card > .info {
+      :host(.readout-bar-right) ha-card > .info,
+      :host(.readout-bar-large-right) ha-card > .info {
         grid-column: 1;
         grid-row: 1;
         min-width: 0;
@@ -1557,17 +1564,28 @@
         letter-spacing: 0.02em;
         white-space: nowrap;
       }
-      :host(.readout-bar-right) ha-card > .info .measurement {
+      :host(.readout-bar-large-right) ha-card > .info .value {
+        color: inherit !important;
+        font-size: var(--lcars-readout-large-value-font-size);
+        font-weight: 700;
+        line-height: 0.82;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+      }
+      :host(.readout-bar-right) ha-card > .info .measurement,
+      :host(.readout-bar-large-right) ha-card > .info .measurement {
         color: inherit !important;
         font-size: var(--lcars-readout-unit-font-size);
         line-height: 1;
         margin-bottom: 7px;
         margin-left: 2px;
       }
-      :host(.readout-bar-right) ha-card > .footer {
+      :host(.readout-bar-right) ha-card > .footer,
+      :host(.readout-bar-large-right) ha-card > .footer {
         display: none !important;
       }
-      :host(.readout-bar-right) .card-content {
+      :host(.readout-bar-right) .card-content,
+      :host(.readout-bar-large-right) .card-content {
         padding: 0 !important;
       }
 
