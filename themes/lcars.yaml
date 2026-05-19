@@ -181,10 +181,23 @@
 # ======================================================= #
 (DO NOT USE/MODIFY)=== Base customizations: &base
   primary-color: var(--lcars-ui-tertiary)
+  # Tonal palette derived from lcars-ui-tertiary (approximates HA's OKLCH palette generation)
+  ha-color-primary-05: "color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)"
+  ha-color-primary-10: "color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)"
+  ha-color-primary-20: "color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)"
+  ha-color-primary-30: "color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)"
+  ha-color-primary-40: "var(--lcars-ui-tertiary)"
+  ha-color-primary-50: "color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)"
+  ha-color-primary-60: "color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)"
+  ha-color-primary-70: "color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)"
+  ha-color-primary-80: "color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)"
+  ha-color-primary-90: "color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)"
+  ha-color-primary-95: "color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)"
   primary-background-color: var(--lcars-background-color)
   secondary-background-color: var(--lcars-ui-quaternary)
   divider-color: transparent
   accent-color: var(--lcars-ui-accent-color)
+  text-accent-color: var(--lcars-ui-accent-text)
   box-sizing: unset !important
   # Fonts
   font-family: "var(--lcars-font), var(--lcars-fallback-font), Segoe UI Variable Static Text, Segoe UI, SegoeUI, -apple-system,BlinkMacSystemFont, system-ui, sans-serif"
@@ -2480,6 +2493,8 @@ LCARS Default:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Theme-specific
+  lcars-ui-accent-text: var(--lcars-text-dark)
 
 LCARS Classic:
   card-mod-theme: LCARS Classic
@@ -2524,6 +2539,8 @@ LCARS Classic:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Theme-specific
+  lcars-ui-accent-text: var(--lcars-text-dark)
 
 LCARS Nemesis Blue:
   card-mod-theme: LCARS Nemesis Blue
@@ -2568,6 +2585,8 @@ LCARS Nemesis Blue:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Theme-specific
+  lcars-ui-accent-text: var(--lcars-text-dark)
 
 LCARS Lower Decks I:
   card-mod-theme: LCARS Lower Decks I
@@ -2612,6 +2631,8 @@ LCARS Lower Decks I:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Theme-specific
+  lcars-ui-accent-text: var(--lcars-text-dark)
 
 LCARS Lower Decks II:
   card-mod-theme: LCARS Lower Decks II
@@ -2656,6 +2677,8 @@ LCARS Lower Decks II:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Theme-specific
+  lcars-ui-accent-text: var(--lcars-text-dark)
 
 LCARS Romulus:
   card-mod-theme: LCARS Romulus
@@ -2700,6 +2723,8 @@ LCARS Romulus:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Theme-specific
+  lcars-ui-accent-text: var(--lcars-text-dark)
 
 LCARS Kronos:
   card-mod-theme: LCARS Kronos
@@ -2744,6 +2769,8 @@ LCARS Kronos:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Theme-specific
+  lcars-ui-accent-text: var(--lcars-text-dark)
 
 LCARS Cardassia:
   card-mod-theme: LCARS Cardassia
@@ -2788,6 +2815,8 @@ LCARS Cardassia:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Theme-specific
+  lcars-ui-accent-text: var(--lcars-text-dark)
 
 LCARS Zeldaar:
   card-mod-theme: LCARS Zeldaar
@@ -2832,6 +2861,8 @@ LCARS Zeldaar:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Theme-specific
+  lcars-ui-accent-text: var(--lcars-text-dark)
 
 LCARS Modern:
   card-mod-theme: LCARS Modern
@@ -2876,6 +2907,8 @@ LCARS Modern:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-red)
+  # Theme-specific
+  lcars-ui-accent-text: var(--lcars-text-dark)
 
 LCARS Picard I:
   card-mod-theme: LCARS Picard I
@@ -2920,6 +2953,8 @@ LCARS Picard I:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Theme-specific
+  lcars-ui-accent-text: var(--lcars-text-dark)
 
 LCARS Picard II:
   card-mod-theme: LCARS Picard II
@@ -2964,6 +2999,8 @@ LCARS Picard II:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-red)
+  # Theme-specific
+  lcars-ui-accent-text: var(--lcars-text-dark)
 
 LCARS Red Alert:
   card-mod-theme: LCARS Red Alert
@@ -3008,6 +3045,8 @@ LCARS Red Alert:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Theme-specific
+  lcars-ui-accent-text: var(--lcars-text-dark)
 
 LCARS TNG:
   card-mod-theme: LCARS TNG
@@ -3052,6 +3091,8 @@ LCARS TNG:
   success-color: "#f0e68c"
   warning-color: "#dc143c"
   error-color: "#8b0000"
+  # Theme-specific
+  lcars-ui-accent-text: var(--lcars-text-dark)
 
 LCARS TNGbuttons:
   card-mod-theme: LCARS TNGbuttons
@@ -3096,6 +3137,8 @@ LCARS TNGbuttons:
   success-color: "#99aa66"
   warning-color: "#dc143c"
   error-color: "#8b0000"
+  # Theme-specific
+  lcars-ui-accent-text: var(--lcars-text-dark)
 
 LCARS Transporter:
   card-mod-theme: LCARS Transporter
@@ -3140,6 +3183,8 @@ LCARS Transporter:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-dark-red)
   error-color: var(--lcars-gold)
+  # Theme-specific
+  lcars-ui-accent-text: var(--lcars-text-dark)
 
 LCARS Navigation:
   card-mod-theme: LCARS Navigation
@@ -3184,6 +3229,8 @@ LCARS Navigation:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-dark-red)
   error-color: var(--lcars-gold)
+  # Theme-specific
+  lcars-ui-accent-text: var(--lcars-text-dark)
 
 LCARS 25C:
   card-mod-theme: LCARS 25C
@@ -3229,6 +3276,7 @@ LCARS 25C:
   warning-color: var(--lcars-light-orange)
   error-color: var(--lcars-alt-orange)
   # Theme-specific
+  lcars-ui-accent-text: var(--lcars-text-dark)
   lcars-tab-selected-bg: url("data:image/svg+xml,%3C!-- sample rectangle --%3E%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='transparent'%3E%3Canimate attributeName='fill' values='%23e7442a;%23e7442a;%236d748c' begin='0s' dur='5s' calcMode='discrete' repeatCount='indefinite' /%3E%3C/rect%3E%3C/svg%3E")
 
 LCARS 25C (Red Alert):
@@ -3275,6 +3323,8 @@ LCARS 25C (Red Alert):
   success-color: var(--lcars-alt-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Theme-specific
+  lcars-ui-accent-text: var(--lcars-text-dark)
 
 LCARS 25C (Yellow Alert):
   card-mod-theme: LCARS 25C (Yellow Alert)
@@ -3320,6 +3370,8 @@ LCARS 25C (Yellow Alert):
   success-color: var(--lcars-alt-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Theme-specific
+  lcars-ui-accent-text: var(--lcars-text-dark)
 
 LCARS 25C (Blue Alert):
   card-mod-theme: LCARS 25C (Blue Alert)
@@ -3365,6 +3417,8 @@ LCARS 25C (Blue Alert):
   success-color: var(--lcars-alt-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Theme-specific
+  lcars-ui-accent-text: var(--lcars-text-dark)
 
 LCARS Breen:
   card-mod-theme: LCARS Breen
@@ -3409,6 +3463,8 @@ LCARS Breen:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Theme-specific
+  lcars-ui-accent-text: var(--lcars-text-dark)
 
 # ================ Paste your themes here =============== |
 # (or add a file to src/themes/ and run generate_themes.py)
