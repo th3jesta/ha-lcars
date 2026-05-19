@@ -1,0 +1,23 @@
+name: LCARS Breen
+
+lcars-ui-primary: var(--lcars-green-primary)
+lcars-ui-secondary: var(--lcars-green-secondary)
+lcars-ui-tertiary: var(--lcars-green-tertiary)
+lcars-ui-quaternary: var(--lcars-gray)
+
+lcars-ui-sidebar-icon: var(--lcars-text-dark)
+lcars-ui-config-button: var(--lcars-green-footer)
+
+lcars-card-top-color: var(--lcars-green-secondary)
+lcars-card-mid-color: var(--lcars-green-middle)
+lcars-card-button-color: var(--lcars-green-tertiary)
+lcars-card-bottom-color: var(--lcars-green-footer)
+
+lcars-card-top-text: var(--lcars-text-dark)
+lcars-card-mid-text: var(--lcars-text-light)
+lcars-card-button-text: var(--lcars-text-dark)
+lcars-card-bottom-text: var(--lcars-text-dark)
+
+success-color: var(--lcars-green)
+warning-color: var(--lcars-sunflower)
+error-color: var(--lcars-dark-red)

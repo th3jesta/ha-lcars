@@ -1,0 +1,22 @@
+name: LCARS Red Alert
+
+lcars-ui-primary: var(--lcars-cardinal)
+lcars-ui-secondary: var(--lcars-silver)
+lcars-ui-tertiary: var(--lcars-scarlet)
+lcars-ui-quaternary: var(--lcars-gray)
+
+lcars-ui-config-button: var(--lcars-ui-secondary)
+
+lcars-card-top-color: "#bf1b1b"
+lcars-card-mid-color: "#9d361e"
+lcars-card-button-color: "#d66a60"
+lcars-card-bottom-color: "#91311c"
+
+lcars-card-top-text: var(--lcars-text-light)
+lcars-card-mid-text: var(--lcars-text-light)
+lcars-card-button-text: var(--lcars-text-dark)
+lcars-card-bottom-text: var(--lcars-text-light)
+
+success-color: var(--lcars-green)
+warning-color: var(--lcars-sunflower)
+error-color: var(--lcars-dark-red)

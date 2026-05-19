@@ -1,0 +1,23 @@
+name: LCARS Kronos
+
+lcars-ui-primary: var(--lcars-mars)
+lcars-ui-secondary: var(--lcars-gold)
+lcars-ui-tertiary: var(--lcars-orange)
+lcars-ui-quaternary: "#930a00"
+
+lcars-ui-sidebar-icon: var(--lcars-peach)
+lcars-ui-config-button: var(--lcars-mars)
+
+lcars-card-top-color: var(--lcars-mars)
+lcars-card-mid-color: var(--lcars-october-sunset)
+lcars-card-button-color: var(--lcars-october-sunset)
+lcars-card-bottom-color: var(--lcars-peach)
+
+lcars-card-top-text: var(--lcars-text-light)
+lcars-card-mid-text: var(--lcars-text-light)
+lcars-card-button-text: var(--lcars-text-light)
+lcars-card-bottom-text: var(--lcars-text-dark)
+
+success-color: var(--lcars-green)
+warning-color: var(--lcars-sunflower)
+error-color: var(--lcars-dark-red)

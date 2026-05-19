@@ -1,0 +1,26 @@
+name: LCARS 25C (Yellow Alert)
+
+lcars-ui-primary: var(--lcars-alert-color)
+lcars-ui-secondary: var(--lcars-alert-white)
+lcars-ui-tertiary: var(--lcars-alert-color)
+lcars-ui-quaternary: var(--lcars-gray)
+lcars-alert-color: var(--lcars-alert-yellow)
+
+lcars-ui-app-header-background-color: "#000000"
+lcars-ui-app-header-text-color: var(--lcars-alert-white)
+lcars-ui-app-header-clock: var(--lcars-alert-white)
+lcars-ui-config-button: var(--lcars-ui-secondary)
+
+lcars-card-top-color: var(--lcars-alert-color)
+lcars-card-mid-color: var(--lcars-alert-color)
+lcars-card-button-color: var(--lcars-alert-color)
+lcars-card-bottom-color: var(--lcars-alert-color)
+
+lcars-card-top-text: var(--lcars-text-dark)
+lcars-card-mid-text: var(--lcars-text-dark)
+lcars-card-button-text: var(--lcars-text-dark)
+lcars-card-bottom-text: var(--lcars-text-dark)
+
+success-color: var(--lcars-alt-green)
+warning-color: var(--lcars-sunflower)
+error-color: var(--lcars-dark-red)

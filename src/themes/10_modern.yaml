@@ -1,0 +1,23 @@
+name: LCARS Modern
+
+lcars-ui-primary: var(--lcars-violet-creme)
+lcars-ui-secondary: var(--lcars-sky)
+lcars-ui-tertiary: var(--lcars-gold)
+lcars-ui-quaternary: var(--lcars-gray)
+
+lcars-ui-sidebar-icon: var(--lcars-dark-gray)
+lcars-ui-config-button: var(--lcars-gray)
+
+lcars-card-top-color: var(--lcars-gold)
+lcars-card-mid-color: var(--lcars-modern-light-gray)
+lcars-card-button-color: var(--lcars-gray)
+lcars-card-bottom-color: var(--lcars-sky)
+
+lcars-card-top-text: var(--lcars-text-dark)
+lcars-card-mid-text: var(--lcars-text-dark)
+lcars-card-button-text: var(--lcars-text-dark)
+lcars-card-bottom-text: var(--lcars-text-dark)
+
+success-color: var(--lcars-green)
+warning-color: var(--lcars-sunflower)
+error-color: var(--lcars-red)

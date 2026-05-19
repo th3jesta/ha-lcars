@@ -1,0 +1,38 @@
+# Default values applied to every theme unless the theme overrides them.
+# Only variables consumed by the preamble (base + card-mod CSS) but NOT defined
+# in the &lcars-variables palette block belong here.
+
+# UI Colors
+lcars-ui-primary: var(--lcars-almond-creme)
+lcars-ui-secondary: var(--lcars-african-violet)
+lcars-ui-tertiary: var(--lcars-red)
+lcars-ui-quaternary: var(--lcars-gray)
+lcars-background-color: "#000000"
+
+# Header / Sidebar
+lcars-ui-app-header-background-color: "#272727"
+lcars-ui-app-header-text-color: var(--lcars-pearl)
+lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
+lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
+lcars-ui-config-button: var(--lcars-ui-secondary)
+lcars-ui-config-icon: var(--lcars-ui-config-button)
+
+# UI Text
+lcars-ui-text-heading: var(--lcars-text-gray)
+
+# Card colors
+lcars-card-top-color: var(--lcars-bluey)
+lcars-card-mid-color: var(--lcars-red)
+lcars-card-button-color: var(--lcars-red)
+lcars-card-bottom-color: var(--lcars-gray)
+
+# Card text
+lcars-card-top-text: var(--lcars-text-dark)
+lcars-card-mid-text: var(--lcars-text-dark)
+lcars-card-button-text: var(--lcars-text-dark)
+lcars-card-bottom-text: var(--lcars-text-dark)
+
+# Status colors
+success-color: var(--lcars-green)
+warning-color: var(--lcars-sunflower)
+error-color: var(--lcars-dark-red)
