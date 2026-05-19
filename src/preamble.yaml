@@ -180,6 +180,7 @@
 #                   BASE CUSTOMIZATIONS                   #
 # ======================================================= #
 (DO NOT USE/MODIFY)=== Base customizations: &base
+  primary-color: var(--lcars-ui-tertiary)
   # Tonal palette derived from lcars-ui-tertiary (approximates HA's OKLCH palette generation)
   ha-color-primary-05: "color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)"
   ha-color-primary-10: "color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)"
@@ -202,13 +203,13 @@
   font-family: "var(--lcars-font), var(--lcars-fallback-font), Segoe UI Variable Static Text, Segoe UI, SegoeUI, -apple-system,BlinkMacSystemFont, system-ui, sans-serif"
   ha-font-family-body: var(--font-family)
   ha-card-header-font-family: var(--font-family)
+  header-font-size: calc(var(--header-height) * 0.8)
   # Text
   ha-card-header-color: var(--lcars-ui-secondary-text)
   primary-text-color: var(--lcars-ui-secondary-text)
   secondary-text-color: var(--lcars-ui-secondary-text)
   text-primary-color: var(--lcars-ui-secondary-text)
   disabled-text-color: "#555"
-  text-dark-color: var(--lcars-text-dark)
   # Sidebar Menu
   sidebar-background-color: var(--lcars-ui-primary)
   sidebar-menu-button-background-color: var(--sidebar-background-color)

@@ -14,6 +14,7 @@ DO NOT edit themes/lcars.yaml directly — run this script instead.
 
 from __future__ import annotations
 
+import re
 import sys
 from pathlib import Path
 
@@ -56,6 +57,7 @@ SECTIONS: dict[str, list[str]] = {
         "lcars-ui-quaternary",
         "lcars-ui-quaternary-text",
         "lcars-ui-accent-color",
+        "lcars-ui-accent-text",
         "lcars-background-color",
         "lcars-alert-color",
         "lcars-ui-text-heading",
@@ -97,6 +99,66 @@ SECTIONS: dict[str, list[str]] = {
 # Flattened set of all explicitly sectioned variables.
 _SECTIONED = {v for vs in SECTIONS.values() for v in vs}
 
+# HA standard variables for which we emit rgb-* counterparts.
+# The frontend skips auto-derivation when the value is var() rather than a hex,
+# so we resolve the chain here and inject the result explicitly.
+_RGB_TARGETS = [
+    "card-background-color",
+    "primary-text-color",
+    "secondary-text-color",
+    "primary-color",
+    "accent-color",
+    "primary-background-color",
+    "secondary-background-color",
+]
+
+_VAR_RE = re.compile(r"^var\(--([^,)]+)(?:,.*)?\)$")
+
+
+def load_preamble_vars(preamble_path: Path) -> tuple[dict, dict]:
+    """Return (palette, base_vars) extracted from preamble.yaml.
+
+    palette   — the &lcars-variables block (raw hex color names)
+    base_vars — the &base block (HA standard var mappings)
+    """
+    try:
+        data = yaml.safe_load(preamble_path.read_text())
+    except yaml.YAMLError as exc:
+        print(f"WARNING: could not parse preamble for rgb derivation: {exc}")
+        return {}, {}
+
+    palette: dict = {}
+    base_vars: dict = {}
+    for _key, value in (data or {}).items():
+        if not isinstance(value, dict):
+            continue
+        flat = {k: str(v) for k, v in value.items() if isinstance(v, (str, int, float))}
+        if "lcars-space-white" in flat:
+            palette = flat
+        elif "primary-color" in flat and "card-background-color" in flat:
+            base_vars = flat
+    return palette, base_vars
+
+
+def var_resolve(key: str, context: dict, depth: int = 0) -> str | None:
+    """Follow var(--foo) chains in *context* until a hex value or dead end."""
+    if depth > 15:
+        return None
+    value = context.get(key, "").strip()
+    if not value:
+        return None
+    m = _VAR_RE.match(value)
+    if m:
+        return var_resolve(m.group(1), context, depth + 1)
+    if value.startswith("#"):
+        return value
+    return None
+
+
+def hex_to_rgb(hex_color: str) -> str:
+    h = hex_color.lstrip("#")[:6]  # drop alpha channel if present
+    return f"{int(h[0:2], 16)},{int(h[2:4], 16)},{int(h[4:6], 16)}"
+
 
 def fmt(value: object) -> str:
     """Format a variable value for YAML output.
@@ -129,8 +191,15 @@ def render_theme(name: str, variables: dict) -> str:
             lines.append(f"  # {section_label}")
             lines.extend(section_lines)
 
+    # Derived rgb-* variables (resolved from var() chains by generate_themes.py).
+    rgb_vars = {k: v for k, v in variables.items() if k.startswith("rgb-")}
+    if rgb_vars:
+        lines.append("  # Derived RGB")
+        for k, v in rgb_vars.items():
+            lines.append(f'  {k}: "{v}"')
+
     # Anything left over (e.g. lcars-tab-selected-bg in 25C).
-    extras = {k: v for k, v in variables.items() if k not in _SECTIONED}
+    extras = {k: v for k, v in variables.items() if k not in _SECTIONED and not k.startswith("rgb-")}
     if extras:
         lines.append("  # Theme-specific")
         for k, v in extras.items():
@@ -190,6 +259,7 @@ def main() -> None:
             print(f"ERROR: {e}")
         sys.exit(1)
 
+    palette, base_vars = load_preamble_vars(PREAMBLE_FILE)
     preamble = PREAMBLE_FILE.read_text().rstrip()
 
     chunks: list[str] = [
@@ -205,6 +275,13 @@ def main() -> None:
     ]
 
     for name, variables in themes:
+        # Resolve var() chains to hex and inject rgb-* for HA standard vars.
+        # Context priority: theme/defaults > base_vars > palette (lowest).
+        context = {**palette, **base_vars, **variables}
+        for key in _RGB_TARGETS:
+            hex_val = var_resolve(key, context)
+            if hex_val:
+                variables[f"rgb-{key}"] = hex_to_rgb(hex_val)
         chunks.append(render_theme(name, variables))
         chunks.append("")
 
