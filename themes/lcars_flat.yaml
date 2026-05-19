@@ -373,14 +373,14 @@
         text-transform: uppercase;
       }
 
-      :host(.header-left) > *:not(style):not(card-mod),
-      :host(.header-right) > *:not(style):not(card-mod),
-      :host(.header-contained) > *:not(style):not(card-mod),
-      :host(.header-open) > *:not(style):not(card-mod),
-      ha-card.header-left > *:not(style):not(card-mod),
-      ha-card.header-right > *:not(style):not(card-mod),
-      ha-card.header-contained > *:not(style):not(card-mod),
-      ha-card.header-open > *:not(style):not(card-mod) {
+      :host(.header-left) > *:not(style):not(card-mod):not(h1),
+      :host(.header-right) > *:not(style):not(card-mod):not(h1),
+      :host(.header-contained) > *:not(style):not(card-mod):not(h1),
+      :host(.header-open) > *:not(style):not(card-mod):not(h1),
+      ha-card.header-left > *:not(style):not(card-mod):not(h1),
+      ha-card.header-right > *:not(style):not(card-mod):not(h1),
+      ha-card.header-contained > *:not(style):not(card-mod):not(h1),
+      ha-card.header-open > *:not(style):not(card-mod):not(h1) {
         border-radius: 0px;
         background-color: var(--lcars-background-color);
         padding-top: 6px;
@@ -389,14 +389,14 @@
         box-sizing: border-box;
       }
 
-      :host(.header-left) > *:not(style):not(card-mod) > .name,
-      :host(.header-right) > *:not(style):not(card-mod) > .name,
-      :host(.header-contained) > *:not(style):not(card-mod) > .name,
-      :host(.header-open) > *:not(style):not(card-mod) > .name,
-      ha-card.header-left > *:not(style):not(card-mod) > .name,
-      ha-card.header-right > *:not(style):not(card-mod) > .name,
-      ha-card.header-contained > *:not(style):not(card-mod) > .name,
-      ha-card.header-open > *:not(style):not(card-mod) > .name {
+      :host(.header-left) > *:not(style):not(card-mod):not(h1) > .name,
+      :host(.header-right) > *:not(style):not(card-mod):not(h1) > .name,
+      :host(.header-contained) > *:not(style):not(card-mod):not(h1) > .name,
+      :host(.header-open) > *:not(style):not(card-mod):not(h1) > .name,
+      ha-card.header-left > *:not(style):not(card-mod):not(h1) > .name,
+      ha-card.header-right > *:not(style):not(card-mod):not(h1) > .name,
+      ha-card.header-contained > *:not(style):not(card-mod):not(h1) > .name,
+      ha-card.header-open > *:not(style):not(card-mod):not(h1) > .name {
         --primary-text-color: var(--lcars-text-gray);
       }
 
@@ -471,14 +471,14 @@
         text-transform: uppercase;
       }
 
-      :host(.middle-left) > *:not(style):not(card-mod),
-      :host(.middle-right) > *:not(style):not(card-mod),
-      :host(.middle-contained) > *:not(style):not(card-mod),
-      :host(.middle-blank) > *:not(style):not(card-mod),
-      ha-card.middle-left > *:not(style):not(card-mod),
-      ha-card.middle-right > *:not(style):not(card-mod),
-      ha-card.middle-contained > *:not(style):not(card-mod),
-      ha-card.middle-blank > *:not(style):not(card-mod) {
+      :host(.middle-left) > *:not(style):not(card-mod):not(h1),
+      :host(.middle-right) > *:not(style):not(card-mod):not(h1),
+      :host(.middle-contained) > *:not(style):not(card-mod):not(h1),
+      :host(.middle-blank) > *:not(style):not(card-mod):not(h1),
+      ha-card.middle-left > *:not(style):not(card-mod):not(h1),
+      ha-card.middle-right > *:not(style):not(card-mod):not(h1),
+      ha-card.middle-contained > *:not(style):not(card-mod):not(h1),
+      ha-card.middle-blank > *:not(style):not(card-mod):not(h1) {
         border-radius: 0px;
         background-color: var(--lcars-background-color);
         --primary-text-color: var(--lcars-text-gray);
@@ -486,14 +486,14 @@
         box-sizing: border-box;
       }
 
-      :host(.middle-left) > *:not(style):not(card-mod) > .name,
-      :host(.middle-right) > *:not(style):not(card-mod) > .name,
-      :host(.middle-contained) > *:not(style):not(card-mod) > .name,
-      :host(.middle-blank) > *:not(style):not(card-mod) > .name,
-      ha-card.middle-left > *:not(style):not(card-mod) > .name,
-      ha-card.middle-right > *:not(style):not(card-mod) > .name,
-      ha-card.middle-contained > *:not(style):not(card-mod) > .name,
-      ha-card.middle-blank > *:not(style):not(card-mod) > .name {
+      :host(.middle-left) > *:not(style):not(card-mod):not(h1) > .name,
+      :host(.middle-right) > *:not(style):not(card-mod):not(h1) > .name,
+      :host(.middle-contained) > *:not(style):not(card-mod):not(h1) > .name,
+      :host(.middle-blank) > *:not(style):not(card-mod):not(h1) > .name,
+      ha-card.middle-left > *:not(style):not(card-mod):not(h1) > .name,
+      ha-card.middle-right > *:not(style):not(card-mod):not(h1) > .name,
+      ha-card.middle-contained > *:not(style):not(card-mod):not(h1) > .name,
+      ha-card.middle-blank > *:not(style):not(card-mod):not(h1) > .name {
         --primary-text-color: var(--lcars-text-gray);
       }
 
@@ -549,14 +549,14 @@
         text-transform: uppercase;
       }
 
-      :host(.footer-left) > *:not(style):not(card-mod),
-      :host(.footer-right) > *:not(style):not(card-mod),
-      :host(.footer-contained) > *:not(style):not(card-mod),
-      :host(.footer-open) > *:not(style):not(card-mod),
-      ha-card.footer-left > *:not(style):not(card-mod),
-      ha-card.footer-right > *:not(style):not(card-mod),
-      ha-card.footer-contained > *:not(style):not(card-mod),
-      ha-card.footer-open > *:not(style):not(card-mod) {
+      :host(.footer-left) > *:not(style):not(card-mod):not(h1),
+      :host(.footer-right) > *:not(style):not(card-mod):not(h1),
+      :host(.footer-contained) > *:not(style):not(card-mod):not(h1),
+      :host(.footer-open) > *:not(style):not(card-mod):not(h1),
+      ha-card.footer-left > *:not(style):not(card-mod):not(h1),
+      ha-card.footer-right > *:not(style):not(card-mod):not(h1),
+      ha-card.footer-contained > *:not(style):not(card-mod):not(h1),
+      ha-card.footer-open > *:not(style):not(card-mod):not(h1) {
         border-radius: 0px;
         background-color: var(--lcars-background-color);
         padding-bottom: 6px;
@@ -565,14 +565,14 @@
         --primary-text-color: var(--lcars-text-gray);
       }
 
-      :host(.footer-left) > *:not(style):not(card-mod) > .name,
-      :host(.footer-right) > *:not(style):not(card-mod) > .name,
-      :host(.footer-contained) > *:not(style):not(card-mod) > .name,
-      :host(.footer-open) > *:not(style):not(card-mod) > .name,
-      ha-card.footer-left > *:not(style):not(card-mod) > .name,
-      ha-card.footer-right > *:not(style):not(card-mod) > .name,
-      ha-card.footer-contained > *:not(style):not(card-mod) > .name,
-      ha-card.footer-open > *:not(style):not(card-mod) > .name {
+      :host(.footer-left) > *:not(style):not(card-mod):not(h1) > .name,
+      :host(.footer-right) > *:not(style):not(card-mod):not(h1) > .name,
+      :host(.footer-contained) > *:not(style):not(card-mod):not(h1) > .name,
+      :host(.footer-open) > *:not(style):not(card-mod):not(h1) > .name,
+      ha-card.footer-left > *:not(style):not(card-mod):not(h1) > .name,
+      ha-card.footer-right > *:not(style):not(card-mod):not(h1) > .name,
+      ha-card.footer-contained > *:not(style):not(card-mod):not(h1) > .name,
+      ha-card.footer-open > *:not(style):not(card-mod):not(h1) > .name {
         --primary-text-color: var(--lcars-text-gray);
       }
 
@@ -629,28 +629,76 @@
 
       :host(.button-small) > ha-card,
       :host(.button-small) > #aspect-ratio > ha-card,
+      :host(.button-small)ha-card,
       :host(.button-large) > ha-card,
       :host(.button-large) > #aspect-ratio > ha-card,
+      :host(.button-large)ha-card,
       :host(.button-lozenge-left) > ha-card,
       :host(.button-lozenge-left) > #aspect-ratio > ha-card,
+      :host(.button-lozenge-left)ha-card,
       :host(.button-lozenge-right) > ha-card,
       :host(.button-lozenge-right) > #aspect-ratio > ha-card,
+      :host(.button-lozenge-right)ha-card,
       :host(.button-bullet-left) > ha-card,
       :host(.button-bullet-left) > #aspect-ratio > ha-card,
+      :host(.button-bullet-left)ha-card,
       :host(.button-bullet-right) > ha-card,
       :host(.button-bullet-right) > #aspect-ratio > ha-card,
+      :host(.button-bullet-right)ha-card,
       :host(.button-capped-left) > ha-card,
       :host(.button-capped-left) > #aspect-ratio > ha-card,
+      :host(.button-capped-left)ha-card,
       :host(.button-capped-right) > ha-card,
       :host(.button-capped-right) > #aspect-ratio > ha-card,
+      :host(.button-capped-right)ha-card,
       :host(.button-barrel-left) > ha-card,
       :host(.button-barrel-left) > #aspect-ratio > ha-card,
+      :host(.button-barrel-left)ha-card,
       :host(.button-barrel-right) > ha-card,
       :host(.button-barrel-right) > #aspect-ratio > ha-card,
+      :host(.button-barrel-right)ha-card,
       :host(.button-bar-left) > ha-card,
       :host(.button-bar-left) > #aspect-ratio > ha-card,
+      :host(.button-bar-left)ha-card,
       :host(.button-bar-right) > ha-card,
-      :host(.button-bar-right) > #aspect-ratio > ha-card {
+      :host(.button-bar-right) > #aspect-ratio > ha-card,
+      :host(.button-bar-right)ha-card,
+      ha-card; .button-small > ha-card,
+      ha-card; .button-small > #aspect-ratio > ha-card,
+      ha-card; .button-smallha-card,
+      ha-card.button-large > ha-card,
+      ha-card.button-large > #aspect-ratio > ha-card,
+      ha-card.button-largeha-card,
+      ha-card.button-lozenge-left > ha-card,
+      ha-card.button-lozenge-left > #aspect-ratio > ha-card,
+      ha-card.button-lozenge-leftha-card,
+      ha-card.button-lozenge-right > ha-card,
+      ha-card.button-lozenge-right > #aspect-ratio > ha-card,
+      ha-card.button-lozenge-rightha-card,
+      ha-card.button-bullet-left > ha-card,
+      ha-card.button-bullet-left > #aspect-ratio > ha-card,
+      ha-card.button-bullet-leftha-card,
+      ha-card.button-bullet-right > ha-card,
+      ha-card.button-bullet-right > #aspect-ratio > ha-card,
+      ha-card.button-bullet-rightha-card,
+      ha-card.button-capped-left > ha-card,
+      ha-card.button-capped-left > #aspect-ratio > ha-card,
+      ha-card.button-capped-leftha-card,
+      ha-card.button-capped-right > ha-card,
+      ha-card.button-capped-right > #aspect-ratio > ha-card,
+      ha-card.button-capped-rightha-card,
+      ha-card.button-barrel-left > ha-card,
+      ha-card.button-barrel-left > #aspect-ratio > ha-card,
+      ha-card.button-barrel-leftha-card,
+      ha-card.button-barrel-right > ha-card,
+      ha-card.button-barrel-right > #aspect-ratio > ha-card,
+      ha-card.button-barrel-rightha-card,
+      ha-card.button-bar-left > ha-card,
+      ha-card.button-bar-left > #aspect-ratio > ha-card,
+      ha-card.button-bar-leftha-card,
+      ha-card.button-bar-right > ha-card,
+      ha-card.button-bar-right > #aspect-ratio > ha-card,
+      ha-card.button-bar-rightha-card {
         background-color: var(--lcars-card-button);
         --primary-color: var(--lcars-ui-quaternary);
         text-transform: uppercase;
@@ -659,7 +707,11 @@
       }
 
       :host(.button-small) > ha-card,
-      :host(.button-small) > #aspect-ratio > ha-card {
+      :host(.button-small) > #aspect-ratio > ha-card,
+      :host(.button-small)ha-card,
+      ha-card.button-small > ha-card,
+      ha-card.button-small > #aspect-ratio > ha-card,
+      ha-card.button-smallha-card {
         display: flex;
         border-radius: 0px !important;
         position: relative;
@@ -668,18 +720,33 @@
         justify-content: center;
       }
 
-      :host(.button-small) > ha-card > .more-info {
+      :host(.button-small) > ha-card > .more-info,
+      :host(.button-small) > #aspect-ratio > ha-card > .more-info,
+      :host(.button-small)ha-card > .more-info,
+      ha-card.button-small > ha-card > .more-info,
+      ha-card.button-small > #aspect-ratio > ha-card > .more-info,
+      ha-card.button-smallha-card > .more-info {
         display: none;
       }
 
-      :host(.button-small) > ha-card > .content > #controls {
+      :host(.button-small) > ha-card > .content > #controls,
+      :host(.button-small) > #aspect-ratio > ha-card > .content > #controls,
+      :host(.button-small)ha-card > .content > #controls,
+      ha-card.button-small > ha-card > .content > #controls,
+      ha-card.button-small > #aspect-ratio > ha-card > .content > #controls,
+      ha-card.button-smallha-card > .content > #controls {
         display: flex;
         place-content: flex-start center;
         position: relative;
         padding: 0px;
       }
 
-      :host(.button-small) > ha-card > .content > #info {
+      :host(.button-small) > ha-card > .content > #info,
+      :host(.button-small) > #aspect-ratio > ha-card > .content > #info,
+      :host(.button-small)ha-card > .content > #info,
+      ha-card.button-small > ha-card > .content > #info,
+      ha-card.button-small > #aspect-ratio > ha-card > .content > #info,
+      ha-card.button-smallha-card > .content > #info {
         text-align: right;
         box-sizing: border-box;
         width: 100%;
@@ -688,7 +755,12 @@
         position: relative;
       }
 
-      :host(.button-small) > ha-card > span {
+      :host(.button-small) > ha-card > span,
+      :host(.button-small) > #aspect-ratio > ha-card > span,
+      :host(.button-small)ha-card > span,
+      ha-card.button-small > ha-card > span,
+      ha-card.button-small > #aspect-ratio > ha-card > span,
+      ha-card.button-smallha-card > span {
         box-sizing: border-box;
         text-align: right;
         width: 100%;
@@ -698,7 +770,12 @@
         bottom: 0;
       }
 
-      :host(.button-small) > ha-card > span.state {
+      :host(.button-small) > ha-card > span.state,
+      :host(.button-small) > #aspect-ratio > ha-card > span.state,
+      :host(.button-small)ha-card > span.state,
+      ha-card.button-small > ha-card > span.state,
+      ha-card.button-small > #aspect-ratio > ha-card > span.state,
+      ha-card.button-smallha-card > span.state {
         text-align: right;
         width: 100%;
         padding: 6px;
@@ -708,36 +785,66 @@
         bottom: 0;
       }
 
-      :host(.button-lozenge-left) > ha-card#container,
       :host(.button-lozenge-left) > ha-card,
       :host(.button-lozenge-left) > #aspect-ratio > ha-card,
-      :host(.button-bullet-left) > ha-card#container,
-      :host(.button-bullet-left) > ha-card,
-      :host(.button-bullet-left) > #aspect-ratio > ha-card,
-      :host(.button-capped-left) > ha-card#container,
-      :host(.button-capped-left) > ha-card,
-      :host(.button-capped-left) > #aspect-ratio > ha-card,
-      :host(.button-barrel-left) > ha-card#container,
-      :host(.button-barrel-left) > ha-card,
-      :host(.button-barrel-left) > #aspect-ratio > ha-card,
-      :host(.button-lozenge-right) > ha-card#container,
+      :host(.button-lozenge-left)ha-card,
       :host(.button-lozenge-right) > ha-card,
       :host(.button-lozenge-right) > #aspect-ratio > ha-card,
-      :host(.button-bullet-right) > ha-card#container,
+      :host(.button-lozenge-right)ha-card,
+      :host(.button-bullet-left) > ha-card,
+      :host(.button-bullet-left) > #aspect-ratio > ha-card,
+      :host(.button-bullet-left)ha-card,
       :host(.button-bullet-right) > ha-card,
       :host(.button-bullet-right) > #aspect-ratio > ha-card,
-      :host(.button-capped-right) > ha-card#container,
+      :host(.button-bullet-right)ha-card,
+      :host(.button-capped-left) > ha-card,
+      :host(.button-capped-left) > #aspect-ratio > ha-card,
+      :host(.button-capped-left)ha-card,
       :host(.button-capped-right) > ha-card,
       :host(.button-capped-right) > #aspect-ratio > ha-card,
-      :host(.button-barrel-right) > ha-card#container,
+      :host(.button-capped-right)ha-card,
+      :host(.button-barrel-left) > ha-card,
+      :host(.button-barrel-left) > #aspect-ratio > ha-card,
+      :host(.button-barrel-left)ha-card,
       :host(.button-barrel-right) > ha-card,
       :host(.button-barrel-right) > #aspect-ratio > ha-card,
-      :host(.button-bar-left) > ha-card#container,
+      :host(.button-barrel-right)ha-card,
       :host(.button-bar-left) > ha-card,
       :host(.button-bar-left) > #aspect-ratio > ha-card,
-      :host(.button-bar-right) > ha-card#container,
+      :host(.button-bar-left)ha-card,
       :host(.button-bar-right) > ha-card,
-      :host(.button-bar-right) > #aspect-ratio > ha-card {
+      :host(.button-bar-right) > #aspect-ratio > ha-card,
+      :host(.button-bar-right)ha-card,
+      ha-card; .button-lozenge-left > ha-card,
+      ha-card; .button-lozenge-left > #aspect-ratio > ha-card,
+      ha-card; .button-lozenge-leftha-card,
+      ha-card.button-lozenge-right > ha-card,
+      ha-card.button-lozenge-right > #aspect-ratio > ha-card,
+      ha-card.button-lozenge-rightha-card,
+      ha-card.button-bullet-left > ha-card,
+      ha-card.button-bullet-left > #aspect-ratio > ha-card,
+      ha-card.button-bullet-leftha-card,
+      ha-card.button-bullet-right > ha-card,
+      ha-card.button-bullet-right > #aspect-ratio > ha-card,
+      ha-card.button-bullet-rightha-card,
+      ha-card.button-capped-left > ha-card,
+      ha-card.button-capped-left > #aspect-ratio > ha-card,
+      ha-card.button-capped-leftha-card,
+      ha-card.button-capped-right > ha-card,
+      ha-card.button-capped-right > #aspect-ratio > ha-card,
+      ha-card.button-capped-rightha-card,
+      ha-card.button-barrel-left > ha-card,
+      ha-card.button-barrel-left > #aspect-ratio > ha-card,
+      ha-card.button-barrel-leftha-card,
+      ha-card.button-barrel-right > ha-card,
+      ha-card.button-barrel-right > #aspect-ratio > ha-card,
+      ha-card.button-barrel-rightha-card,
+      ha-card.button-bar-left > ha-card,
+      ha-card.button-bar-left > #aspect-ratio > ha-card,
+      ha-card.button-bar-leftha-card,
+      ha-card.button-bar-right > ha-card,
+      ha-card.button-bar-right > #aspect-ratio > ha-card,
+      ha-card.button-bar-rightha-card {
         min-height: 60px;
         display: flex;
         align-items: flex-end;
@@ -746,36 +853,66 @@
         padding-block: 0px;
       }
 
-      :host(.button-lozenge-left) > ha-card#container > ha-state-icon,
       :host(.button-lozenge-left) > ha-card > ha-state-icon,
       :host(.button-lozenge-left) > #aspect-ratio > ha-card > ha-state-icon,
-      :host(.button-bullet-left) > ha-card#container > ha-state-icon,
-      :host(.button-bullet-left) > ha-card > ha-state-icon,
-      :host(.button-bullet-left) > #aspect-ratio > ha-card > ha-state-icon,
-      :host(.button-capped-left) > ha-card#container > ha-state-icon,
-      :host(.button-capped-left) > ha-card > ha-state-icon,
-      :host(.button-capped-left) > #aspect-ratio > ha-card > ha-state-icon,
-      :host(.button-barrel-left) > ha-card#container > ha-state-icon,
-      :host(.button-barrel-left) > ha-card > ha-state-icon,
-      :host(.button-barrel-left) > #aspect-ratio > ha-card > ha-state-icon,
-      :host(.button-lozenge-right) > ha-card#container > ha-state-icon,
+      :host(.button-lozenge-left)ha-card > ha-state-icon,
       :host(.button-lozenge-right) > ha-card > ha-state-icon,
       :host(.button-lozenge-right) > #aspect-ratio > ha-card > ha-state-icon,
-      :host(.button-bullet-right) > ha-card#container > ha-state-icon,
+      :host(.button-lozenge-right)ha-card > ha-state-icon,
+      :host(.button-bullet-left) > ha-card > ha-state-icon,
+      :host(.button-bullet-left) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-bullet-left)ha-card > ha-state-icon,
       :host(.button-bullet-right) > ha-card > ha-state-icon,
       :host(.button-bullet-right) > #aspect-ratio > ha-card > ha-state-icon,
-      :host(.button-capped-right) > ha-card#container > ha-state-icon,
+      :host(.button-bullet-right)ha-card > ha-state-icon,
+      :host(.button-capped-left) > ha-card > ha-state-icon,
+      :host(.button-capped-left) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-capped-left)ha-card > ha-state-icon,
       :host(.button-capped-right) > ha-card > ha-state-icon,
       :host(.button-capped-right) > #aspect-ratio > ha-card > ha-state-icon,
-      :host(.button-barrel-right) > ha-card#container > ha-state-icon,
+      :host(.button-capped-right)ha-card > ha-state-icon,
+      :host(.button-barrel-left) > ha-card > ha-state-icon,
+      :host(.button-barrel-left) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-barrel-left)ha-card > ha-state-icon,
       :host(.button-barrel-right) > ha-card > ha-state-icon,
       :host(.button-barrel-right) > #aspect-ratio > ha-card > ha-state-icon,
-      :host(.button-bar-left) > ha-card#container > ha-state-icon,
+      :host(.button-barrel-right)ha-card > ha-state-icon,
       :host(.button-bar-left) > ha-card > ha-state-icon,
       :host(.button-bar-left) > #aspect-ratio > ha-card > ha-state-icon,
-      :host(.button-bar-right) > ha-card#container > ha-state-icon,
+      :host(.button-bar-left)ha-card > ha-state-icon,
       :host(.button-bar-right) > ha-card > ha-state-icon,
-      :host(.button-bar-right) > #aspect-ratio > ha-card > ha-state-icon {
+      :host(.button-bar-right) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-bar-right)ha-card > ha-state-icon,
+      ha-card; .button-lozenge-left > ha-card > ha-state-icon,
+      ha-card; .button-lozenge-left > #aspect-ratio > ha-card > ha-state-icon,
+      ha-card; .button-lozenge-leftha-card > ha-state-icon,
+      ha-card.button-lozenge-right > ha-card > ha-state-icon,
+      ha-card.button-lozenge-right > #aspect-ratio > ha-card > ha-state-icon,
+      ha-card.button-lozenge-rightha-card > ha-state-icon,
+      ha-card.button-bullet-left > ha-card > ha-state-icon,
+      ha-card.button-bullet-left > #aspect-ratio > ha-card > ha-state-icon,
+      ha-card.button-bullet-leftha-card > ha-state-icon,
+      ha-card.button-bullet-right > ha-card > ha-state-icon,
+      ha-card.button-bullet-right > #aspect-ratio > ha-card > ha-state-icon,
+      ha-card.button-bullet-rightha-card > ha-state-icon,
+      ha-card.button-capped-left > ha-card > ha-state-icon,
+      ha-card.button-capped-left > #aspect-ratio > ha-card > ha-state-icon,
+      ha-card.button-capped-leftha-card > ha-state-icon,
+      ha-card.button-capped-right > ha-card > ha-state-icon,
+      ha-card.button-capped-right > #aspect-ratio > ha-card > ha-state-icon,
+      ha-card.button-capped-rightha-card > ha-state-icon,
+      ha-card.button-barrel-left > ha-card > ha-state-icon,
+      ha-card.button-barrel-left > #aspect-ratio > ha-card > ha-state-icon,
+      ha-card.button-barrel-leftha-card > ha-state-icon,
+      ha-card.button-barrel-right > ha-card > ha-state-icon,
+      ha-card.button-barrel-right > #aspect-ratio > ha-card > ha-state-icon,
+      ha-card.button-barrel-rightha-card > ha-state-icon,
+      ha-card.button-bar-left > ha-card > ha-state-icon,
+      ha-card.button-bar-left > #aspect-ratio > ha-card > ha-state-icon,
+      ha-card.button-bar-leftha-card > ha-state-icon,
+      ha-card.button-bar-right > ha-card > ha-state-icon,
+      ha-card.button-bar-right > #aspect-ratio > ha-card > ha-state-icon,
+      ha-card.button-bar-rightha-card > ha-state-icon {
         --mdc-icon-size: unset;
         background-color: var(--lcars-card-top-color);
         position: absolute;
@@ -789,36 +926,66 @@
         justify-content: center;
       }
 
-      :host(.button-lozenge-left) > ha-card#container > span,
       :host(.button-lozenge-left) > ha-card > span,
       :host(.button-lozenge-left) > #aspect-ratio > ha-card > span,
-      :host(.button-bullet-left) > ha-card#container > span,
-      :host(.button-bullet-left) > ha-card > span,
-      :host(.button-bullet-left) > #aspect-ratio > ha-card > span,
-      :host(.button-capped-left) > ha-card#container > span,
-      :host(.button-capped-left) > ha-card > span,
-      :host(.button-capped-left) > #aspect-ratio > ha-card > span,
-      :host(.button-barrel-left) > ha-card#container > span,
-      :host(.button-barrel-left) > ha-card > span,
-      :host(.button-barrel-left) > #aspect-ratio > ha-card > span,
-      :host(.button-lozenge-right) > ha-card#container > span,
+      :host(.button-lozenge-left)ha-card > span,
       :host(.button-lozenge-right) > ha-card > span,
       :host(.button-lozenge-right) > #aspect-ratio > ha-card > span,
-      :host(.button-bullet-right) > ha-card#container > span,
+      :host(.button-lozenge-right)ha-card > span,
+      :host(.button-bullet-left) > ha-card > span,
+      :host(.button-bullet-left) > #aspect-ratio > ha-card > span,
+      :host(.button-bullet-left)ha-card > span,
       :host(.button-bullet-right) > ha-card > span,
       :host(.button-bullet-right) > #aspect-ratio > ha-card > span,
-      :host(.button-capped-right) > ha-card#container > span,
+      :host(.button-bullet-right)ha-card > span,
+      :host(.button-capped-left) > ha-card > span,
+      :host(.button-capped-left) > #aspect-ratio > ha-card > span,
+      :host(.button-capped-left)ha-card > span,
       :host(.button-capped-right) > ha-card > span,
       :host(.button-capped-right) > #aspect-ratio > ha-card > span,
-      :host(.button-barrel-right) > ha-card#container > span,
+      :host(.button-capped-right)ha-card > span,
+      :host(.button-barrel-left) > ha-card > span,
+      :host(.button-barrel-left) > #aspect-ratio > ha-card > span,
+      :host(.button-barrel-left)ha-card > span,
       :host(.button-barrel-right) > ha-card > span,
       :host(.button-barrel-right) > #aspect-ratio > ha-card > span,
-      :host(.button-bar-left) > ha-card#container > span,
+      :host(.button-barrel-right)ha-card > span,
       :host(.button-bar-left) > ha-card > span,
       :host(.button-bar-left) > #aspect-ratio > ha-card > span,
-      :host(.button-bar-right) > ha-card#container > span,
+      :host(.button-bar-left)ha-card > span,
       :host(.button-bar-right) > ha-card > span,
-      :host(.button-bar-right) > #aspect-ratio > ha-card > span {
+      :host(.button-bar-right) > #aspect-ratio > ha-card > span,
+      :host(.button-bar-right)ha-card > span,
+      ha-card; .button-lozenge-left > ha-card > span,
+      ha-card; .button-lozenge-left > #aspect-ratio > ha-card > span,
+      ha-card; .button-lozenge-leftha-card > span,
+      ha-card.button-lozenge-right > ha-card > span,
+      ha-card.button-lozenge-right > #aspect-ratio > ha-card > span,
+      ha-card.button-lozenge-rightha-card > span,
+      ha-card.button-bullet-left > ha-card > span,
+      ha-card.button-bullet-left > #aspect-ratio > ha-card > span,
+      ha-card.button-bullet-leftha-card > span,
+      ha-card.button-bullet-right > ha-card > span,
+      ha-card.button-bullet-right > #aspect-ratio > ha-card > span,
+      ha-card.button-bullet-rightha-card > span,
+      ha-card.button-capped-left > ha-card > span,
+      ha-card.button-capped-left > #aspect-ratio > ha-card > span,
+      ha-card.button-capped-leftha-card > span,
+      ha-card.button-capped-right > ha-card > span,
+      ha-card.button-capped-right > #aspect-ratio > ha-card > span,
+      ha-card.button-capped-rightha-card > span,
+      ha-card.button-barrel-left > ha-card > span,
+      ha-card.button-barrel-left > #aspect-ratio > ha-card > span,
+      ha-card.button-barrel-leftha-card > span,
+      ha-card.button-barrel-right > ha-card > span,
+      ha-card.button-barrel-right > #aspect-ratio > ha-card > span,
+      ha-card.button-barrel-rightha-card > span,
+      ha-card.button-bar-left > ha-card > span,
+      ha-card.button-bar-left > #aspect-ratio > ha-card > span,
+      ha-card.button-bar-leftha-card > span,
+      ha-card.button-bar-right > ha-card > span,
+      ha-card.button-bar-right > #aspect-ratio > ha-card > span,
+      ha-card.button-bar-rightha-card > span {
         width: 100%;
         height: 100%;
         display: flex;
@@ -828,105 +995,195 @@
         padding: 6px;
       }
 
-      :host(.button-lozenge-left) > ha-card#container > span.state,
       :host(.button-lozenge-left) > ha-card > span.state,
       :host(.button-lozenge-left) > #aspect-ratio > ha-card > span.state,
-      :host(.button-bullet-left) > ha-card#container > span.state,
-      :host(.button-bullet-left) > ha-card > span.state,
-      :host(.button-bullet-left) > #aspect-ratio > ha-card > span.state,
-      :host(.button-capped-left) > ha-card#container > span.state,
-      :host(.button-capped-left) > ha-card > span.state,
-      :host(.button-capped-left) > #aspect-ratio > ha-card > span.state,
-      :host(.button-barrel-left) > ha-card#container > span.state,
-      :host(.button-barrel-left) > ha-card > span.state,
-      :host(.button-barrel-left) > #aspect-ratio > ha-card > span.state,
-      :host(.button-lozenge-right) > ha-card#container > span.state,
+      :host(.button-lozenge-left)ha-card > span.state,
       :host(.button-lozenge-right) > ha-card > span.state,
       :host(.button-lozenge-right) > #aspect-ratio > ha-card > span.state,
-      :host(.button-bullet-right) > ha-card#container > span.state,
+      :host(.button-lozenge-right)ha-card > span.state,
+      :host(.button-bullet-left) > ha-card > span.state,
+      :host(.button-bullet-left) > #aspect-ratio > ha-card > span.state,
+      :host(.button-bullet-left)ha-card > span.state,
       :host(.button-bullet-right) > ha-card > span.state,
       :host(.button-bullet-right) > #aspect-ratio > ha-card > span.state,
-      :host(.button-capped-right) > ha-card#container > span.state,
+      :host(.button-bullet-right)ha-card > span.state,
+      :host(.button-capped-left) > ha-card > span.state,
+      :host(.button-capped-left) > #aspect-ratio > ha-card > span.state,
+      :host(.button-capped-left)ha-card > span.state,
       :host(.button-capped-right) > ha-card > span.state,
       :host(.button-capped-right) > #aspect-ratio > ha-card > span.state,
-      :host(.button-barrel-right) > ha-card#container > span.state,
+      :host(.button-capped-right)ha-card > span.state,
+      :host(.button-barrel-left) > ha-card > span.state,
+      :host(.button-barrel-left) > #aspect-ratio > ha-card > span.state,
+      :host(.button-barrel-left)ha-card > span.state,
       :host(.button-barrel-right) > ha-card > span.state,
       :host(.button-barrel-right) > #aspect-ratio > ha-card > span.state,
-      :host(.button-bar-left) > ha-card#container > span.state,
+      :host(.button-barrel-right)ha-card > span.state,
       :host(.button-bar-left) > ha-card > span.state,
       :host(.button-bar-left) > #aspect-ratio > ha-card > span.state,
-      :host(.button-bar-right) > ha-card#container > span.state,
+      :host(.button-bar-left)ha-card > span.state,
       :host(.button-bar-right) > ha-card > span.state,
-      :host(.button-bar-right) > #aspect-ratio > ha-card > span.state {
+      :host(.button-bar-right) > #aspect-ratio > ha-card > span.state,
+      :host(.button-bar-right)ha-card > span.state,
+      ha-card; .button-lozenge-left > ha-card > span.state,
+      ha-card; .button-lozenge-left > #aspect-ratio > ha-card > span.state,
+      ha-card; .button-lozenge-leftha-card > span.state,
+      ha-card.button-lozenge-right > ha-card > span.state,
+      ha-card.button-lozenge-right > #aspect-ratio > ha-card > span.state,
+      ha-card.button-lozenge-rightha-card > span.state,
+      ha-card.button-bullet-left > ha-card > span.state,
+      ha-card.button-bullet-left > #aspect-ratio > ha-card > span.state,
+      ha-card.button-bullet-leftha-card > span.state,
+      ha-card.button-bullet-right > ha-card > span.state,
+      ha-card.button-bullet-right > #aspect-ratio > ha-card > span.state,
+      ha-card.button-bullet-rightha-card > span.state,
+      ha-card.button-capped-left > ha-card > span.state,
+      ha-card.button-capped-left > #aspect-ratio > ha-card > span.state,
+      ha-card.button-capped-leftha-card > span.state,
+      ha-card.button-capped-right > ha-card > span.state,
+      ha-card.button-capped-right > #aspect-ratio > ha-card > span.state,
+      ha-card.button-capped-rightha-card > span.state,
+      ha-card.button-barrel-left > ha-card > span.state,
+      ha-card.button-barrel-left > #aspect-ratio > ha-card > span.state,
+      ha-card.button-barrel-leftha-card > span.state,
+      ha-card.button-barrel-right > ha-card > span.state,
+      ha-card.button-barrel-right > #aspect-ratio > ha-card > span.state,
+      ha-card.button-barrel-rightha-card > span.state,
+      ha-card.button-bar-left > ha-card > span.state,
+      ha-card.button-bar-left > #aspect-ratio > ha-card > span.state,
+      ha-card.button-bar-leftha-card > span.state,
+      ha-card.button-bar-right > ha-card > span.state,
+      ha-card.button-bar-right > #aspect-ratio > ha-card > span.state,
+      ha-card.button-bar-rightha-card > span.state {
         align-items: center;
         color: var(--lcars-text-dark);
       }
 
       :host(.button-lozenge-left) > ha-card#container > #slider,
-      :host(.button-lozenge-left) > ha-card#container > #slider,
       :host(.button-lozenge-left) > #aspect-ratio > ha-card#container > #slider,
-      :host(.button-bullet-left) > ha-card#container > #slider,
-      :host(.button-bullet-left) > ha-card#container > #slider,
-      :host(.button-bullet-left) > #aspect-ratio > ha-card#container > #slider,
-      :host(.button-capped-left) > ha-card#container > #slider,
-      :host(.button-capped-left) > ha-card#container > #slider,
-      :host(.button-capped-left) > #aspect-ratio > ha-card#container > #slider,
-      :host(.button-barrel-left) > ha-card#container > #slider,
-      :host(.button-barrel-left) > ha-card#container > #slider,
-      :host(.button-barrel-left) > #aspect-ratio > ha-card#container > #slider,
-      :host(.button-lozenge-right) > ha-card#container > #slider,
+      :host(.button-lozenge-left)ha-card#container > #slider,
       :host(.button-lozenge-right) > ha-card#container > #slider,
       :host(.button-lozenge-right) > #aspect-ratio > ha-card#container > #slider,
-      :host(.button-bullet-right) > ha-card#container > #slider,
+      :host(.button-lozenge-right)ha-card#container > #slider,
+      :host(.button-bullet-left) > ha-card#container > #slider,
+      :host(.button-bullet-left) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-bullet-left)ha-card#container > #slider,
       :host(.button-bullet-right) > ha-card#container > #slider,
       :host(.button-bullet-right) > #aspect-ratio > ha-card#container > #slider,
-      :host(.button-capped-right) > ha-card#container > #slider,
+      :host(.button-bullet-right)ha-card#container > #slider,
+      :host(.button-capped-left) > ha-card#container > #slider,
+      :host(.button-capped-left) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-capped-left)ha-card#container > #slider,
       :host(.button-capped-right) > ha-card#container > #slider,
       :host(.button-capped-right) > #aspect-ratio > ha-card#container > #slider,
-      :host(.button-barrel-right) > ha-card#container > #slider,
+      :host(.button-capped-right)ha-card#container > #slider,
+      :host(.button-barrel-left) > ha-card#container > #slider,
+      :host(.button-barrel-left) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-barrel-left)ha-card#container > #slider,
       :host(.button-barrel-right) > ha-card#container > #slider,
       :host(.button-barrel-right) > #aspect-ratio > ha-card#container > #slider,
-      :host(.button-bar-left) > ha-card#container > #slider,
+      :host(.button-barrel-right)ha-card#container > #slider,
       :host(.button-bar-left) > ha-card#container > #slider,
       :host(.button-bar-left) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-bar-left)ha-card#container > #slider,
       :host(.button-bar-right) > ha-card#container > #slider,
-      :host(.button-bar-right) > ha-card#container > #slider,
-      :host(.button-bar-right) > #aspect-ratio > ha-card#container > #slider {
+      :host(.button-bar-right) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-bar-right)ha-card#container > #slider,
+      ha-card; .button-lozenge-left > ha-card#container > #slider,
+      ha-card; .button-lozenge-left > #aspect-ratio > ha-card#container > #slider,
+      ha-card; .button-lozenge-leftha-card#container > #slider,
+      ha-card.button-lozenge-right > ha-card#container > #slider,
+      ha-card.button-lozenge-right > #aspect-ratio > ha-card#container > #slider,
+      ha-card.button-lozenge-rightha-card#container > #slider,
+      ha-card.button-bullet-left > ha-card#container > #slider,
+      ha-card.button-bullet-left > #aspect-ratio > ha-card#container > #slider,
+      ha-card.button-bullet-leftha-card#container > #slider,
+      ha-card.button-bullet-right > ha-card#container > #slider,
+      ha-card.button-bullet-right > #aspect-ratio > ha-card#container > #slider,
+      ha-card.button-bullet-rightha-card#container > #slider,
+      ha-card.button-capped-left > ha-card#container > #slider,
+      ha-card.button-capped-left > #aspect-ratio > ha-card#container > #slider,
+      ha-card.button-capped-leftha-card#container > #slider,
+      ha-card.button-capped-right > ha-card#container > #slider,
+      ha-card.button-capped-right > #aspect-ratio > ha-card#container > #slider,
+      ha-card.button-capped-rightha-card#container > #slider,
+      ha-card.button-barrel-left > ha-card#container > #slider,
+      ha-card.button-barrel-left > #aspect-ratio > ha-card#container > #slider,
+      ha-card.button-barrel-leftha-card#container > #slider,
+      ha-card.button-barrel-right > ha-card#container > #slider,
+      ha-card.button-barrel-right > #aspect-ratio > ha-card#container > #slider,
+      ha-card.button-barrel-rightha-card#container > #slider,
+      ha-card.button-bar-left > ha-card#container > #slider,
+      ha-card.button-bar-left > #aspect-ratio > ha-card#container > #slider,
+      ha-card.button-bar-leftha-card#container > #slider,
+      ha-card.button-bar-right > ha-card#container > #slider,
+      ha-card.button-bar-right > #aspect-ratio > ha-card#container > #slider,
+      ha-card.button-bar-rightha-card#container > #slider {
         right: 0;
         left: calc(var(--lcars-vertical-border) + 6px);
         background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
       }
 
       :host(.button-lozenge-left) > ha-card#container > #content,
-      :host(.button-lozenge-left) > ha-card#container > #content,
       :host(.button-lozenge-left) > #aspect-ratio > ha-card#container > #content,
-      :host(.button-bullet-left) > ha-card#container > #content,
-      :host(.button-bullet-left) > ha-card#container > #content,
-      :host(.button-bullet-left) > #aspect-ratio > ha-card#container > #content,
-      :host(.button-capped-left) > ha-card#container > #content,
-      :host(.button-capped-left) > ha-card#container > #content,
-      :host(.button-capped-left) > #aspect-ratio > ha-card#container > #content,
-      :host(.button-barrel-left) > ha-card#container > #content,
-      :host(.button-barrel-left) > ha-card#container > #content,
-      :host(.button-barrel-left) > #aspect-ratio > ha-card#container > #content,
-      :host(.button-lozenge-right) > ha-card#container > #content,
+      :host(.button-lozenge-left)ha-card#container > #content,
       :host(.button-lozenge-right) > ha-card#container > #content,
       :host(.button-lozenge-right) > #aspect-ratio > ha-card#container > #content,
-      :host(.button-bullet-right) > ha-card#container > #content,
+      :host(.button-lozenge-right)ha-card#container > #content,
+      :host(.button-bullet-left) > ha-card#container > #content,
+      :host(.button-bullet-left) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-bullet-left)ha-card#container > #content,
       :host(.button-bullet-right) > ha-card#container > #content,
       :host(.button-bullet-right) > #aspect-ratio > ha-card#container > #content,
-      :host(.button-capped-right) > ha-card#container > #content,
+      :host(.button-bullet-right)ha-card#container > #content,
+      :host(.button-capped-left) > ha-card#container > #content,
+      :host(.button-capped-left) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-capped-left)ha-card#container > #content,
       :host(.button-capped-right) > ha-card#container > #content,
       :host(.button-capped-right) > #aspect-ratio > ha-card#container > #content,
-      :host(.button-barrel-right) > ha-card#container > #content,
+      :host(.button-capped-right)ha-card#container > #content,
+      :host(.button-barrel-left) > ha-card#container > #content,
+      :host(.button-barrel-left) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-barrel-left)ha-card#container > #content,
       :host(.button-barrel-right) > ha-card#container > #content,
       :host(.button-barrel-right) > #aspect-ratio > ha-card#container > #content,
-      :host(.button-bar-left) > ha-card#container > #content,
+      :host(.button-barrel-right)ha-card#container > #content,
       :host(.button-bar-left) > ha-card#container > #content,
       :host(.button-bar-left) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-bar-left)ha-card#container > #content,
       :host(.button-bar-right) > ha-card#container > #content,
-      :host(.button-bar-right) > ha-card#container > #content,
-      :host(.button-bar-right) > #aspect-ratio > ha-card#container > #content {
+      :host(.button-bar-right) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-bar-right)ha-card#container > #content,
+      ha-card; .button-lozenge-left > ha-card#container > #content,
+      ha-card; .button-lozenge-left > #aspect-ratio > ha-card#container > #content,
+      ha-card; .button-lozenge-leftha-card#container > #content,
+      ha-card.button-lozenge-right > ha-card#container > #content,
+      ha-card.button-lozenge-right > #aspect-ratio > ha-card#container > #content,
+      ha-card.button-lozenge-rightha-card#container > #content,
+      ha-card.button-bullet-left > ha-card#container > #content,
+      ha-card.button-bullet-left > #aspect-ratio > ha-card#container > #content,
+      ha-card.button-bullet-leftha-card#container > #content,
+      ha-card.button-bullet-right > ha-card#container > #content,
+      ha-card.button-bullet-right > #aspect-ratio > ha-card#container > #content,
+      ha-card.button-bullet-rightha-card#container > #content,
+      ha-card.button-capped-left > ha-card#container > #content,
+      ha-card.button-capped-left > #aspect-ratio > ha-card#container > #content,
+      ha-card.button-capped-leftha-card#container > #content,
+      ha-card.button-capped-right > ha-card#container > #content,
+      ha-card.button-capped-right > #aspect-ratio > ha-card#container > #content,
+      ha-card.button-capped-rightha-card#container > #content,
+      ha-card.button-barrel-left > ha-card#container > #content,
+      ha-card.button-barrel-left > #aspect-ratio > ha-card#container > #content,
+      ha-card.button-barrel-leftha-card#container > #content,
+      ha-card.button-barrel-right > ha-card#container > #content,
+      ha-card.button-barrel-right > #aspect-ratio > ha-card#container > #content,
+      ha-card.button-barrel-rightha-card#container > #content,
+      ha-card.button-bar-left > ha-card#container > #content,
+      ha-card.button-bar-left > #aspect-ratio > ha-card#container > #content,
+      ha-card.button-bar-leftha-card#container > #content,
+      ha-card.button-bar-right > ha-card#container > #content,
+      ha-card.button-bar-right > #aspect-ratio > ha-card#container > #content,
+      ha-card.button-bar-rightha-card#container > #content {
         padding-left: calc(var(--lcars-vertical-border) + 18px);
         justify-content: right;
       }
@@ -934,30 +1191,70 @@
       :host(.button-lozenge-right) > ha-card#container,
       :host(.button-lozenge-right) > ha-card,
       :host(.button-lozenge-right) > #aspect-ratio > ha-card,
+      :host(.button-lozenge-right)ha-card,
       :host(.button-bullet-right) > ha-card#container,
       :host(.button-bullet-right) > ha-card,
       :host(.button-bullet-right) > #aspect-ratio > ha-card,
+      :host(.button-bullet-right)ha-card,
       :host(.button-capped-right) > ha-card#container,
       :host(.button-capped-right) > ha-card,
       :host(.button-capped-right) > #aspect-ratio > ha-card,
+      :host(.button-capped-right)ha-card,
       :host(.button-barrel-right) > ha-card#container,
       :host(.button-barrel-right) > ha-card,
-      :host(.button-barrel-right) > #aspect-ratio > ha-card {
+      :host(.button-barrel-right) > #aspect-ratio > ha-card,
+      :host(.button-barrel-right)ha-card,
+      ha-card; .button-lozenge-right > ha-card#container,
+      ha-card; .button-lozenge-right > ha-card,
+      ha-card; .button-lozenge-right > #aspect-ratio > ha-card,
+      ha-card; .button-lozenge-rightha-card,
+      ha-card.button-bullet-right > ha-card#container,
+      ha-card.button-bullet-right > ha-card,
+      ha-card.button-bullet-right > #aspect-ratio > ha-card,
+      ha-card.button-bullet-rightha-card,
+      ha-card.button-capped-right > ha-card#container,
+      ha-card.button-capped-right > ha-card,
+      ha-card.button-capped-right > #aspect-ratio > ha-card,
+      ha-card.button-capped-rightha-card,
+      ha-card.button-barrel-right > ha-card#container,
+      ha-card.button-barrel-right > ha-card,
+      ha-card.button-barrel-right > #aspect-ratio > ha-card,
+      ha-card.button-barrel-rightha-card {
         align-items: flex-start;
       }
 
       :host(.button-lozenge-right) > ha-card#container > ha-state-icon,
       :host(.button-lozenge-right) > ha-card > ha-state-icon,
       :host(.button-lozenge-right) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-lozenge-right)ha-card > ha-state-icon,
       :host(.button-bullet-right) > ha-card#container > ha-state-icon,
       :host(.button-bullet-right) > ha-card > ha-state-icon,
       :host(.button-bullet-right) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-bullet-right)ha-card > ha-state-icon,
       :host(.button-capped-right) > ha-card#container > ha-state-icon,
       :host(.button-capped-right) > ha-card > ha-state-icon,
       :host(.button-capped-right) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-capped-right)ha-card > ha-state-icon,
       :host(.button-barrel-right) > ha-card#container > ha-state-icon,
       :host(.button-barrel-right) > ha-card > ha-state-icon,
-      :host(.button-barrel-right) > #aspect-ratio > ha-card > ha-state-icon {
+      :host(.button-barrel-right) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-barrel-right)ha-card > ha-state-icon,
+      ha-card; .button-lozenge-right > ha-card#container > ha-state-icon,
+      ha-card; .button-lozenge-right > ha-card > ha-state-icon,
+      ha-card; .button-lozenge-right > #aspect-ratio > ha-card > ha-state-icon,
+      ha-card; .button-lozenge-rightha-card > ha-state-icon,
+      ha-card.button-bullet-right > ha-card#container > ha-state-icon,
+      ha-card.button-bullet-right > ha-card > ha-state-icon,
+      ha-card.button-bullet-right > #aspect-ratio > ha-card > ha-state-icon,
+      ha-card.button-bullet-rightha-card > ha-state-icon,
+      ha-card.button-capped-right > ha-card#container > ha-state-icon,
+      ha-card.button-capped-right > ha-card > ha-state-icon,
+      ha-card.button-capped-right > #aspect-ratio > ha-card > ha-state-icon,
+      ha-card.button-capped-rightha-card > ha-state-icon,
+      ha-card.button-barrel-right > ha-card#container > ha-state-icon,
+      ha-card.button-barrel-right > ha-card > ha-state-icon,
+      ha-card.button-barrel-right > #aspect-ratio > ha-card > ha-state-icon,
+      ha-card.button-barrel-rightha-card > ha-state-icon {
         left: auto;
         right: 0;
         border-right: 0px;
@@ -967,15 +1264,35 @@
       :host(.button-lozenge-right) > ha-card#container > span,
       :host(.button-lozenge-right) > ha-card > span,
       :host(.button-lozenge-right) > #aspect-ratio > ha-card > span,
+      :host(.button-lozenge-right)ha-card > span,
       :host(.button-bullet-right) > ha-card#container > span,
       :host(.button-bullet-right) > ha-card > span,
       :host(.button-bullet-right) > #aspect-ratio > ha-card > span,
+      :host(.button-bullet-right)ha-card > span,
       :host(.button-capped-right) > ha-card#container > span,
       :host(.button-capped-right) > ha-card > span,
       :host(.button-capped-right) > #aspect-ratio > ha-card > span,
+      :host(.button-capped-right)ha-card > span,
       :host(.button-barrel-right) > ha-card#container > span,
       :host(.button-barrel-right) > ha-card > span,
-      :host(.button-barrel-right) > #aspect-ratio > ha-card > span {
+      :host(.button-barrel-right) > #aspect-ratio > ha-card > span,
+      :host(.button-barrel-right)ha-card > span,
+      ha-card; .button-lozenge-right > ha-card#container > span,
+      ha-card; .button-lozenge-right > ha-card > span,
+      ha-card; .button-lozenge-right > #aspect-ratio > ha-card > span,
+      ha-card; .button-lozenge-rightha-card > span,
+      ha-card.button-bullet-right > ha-card#container > span,
+      ha-card.button-bullet-right > ha-card > span,
+      ha-card.button-bullet-right > #aspect-ratio > ha-card > span,
+      ha-card.button-bullet-rightha-card > span,
+      ha-card.button-capped-right > ha-card#container > span,
+      ha-card.button-capped-right > ha-card > span,
+      ha-card.button-capped-right > #aspect-ratio > ha-card > span,
+      ha-card.button-capped-rightha-card > span,
+      ha-card.button-barrel-right > ha-card#container > span,
+      ha-card.button-barrel-right > ha-card > span,
+      ha-card.button-barrel-right > #aspect-ratio > ha-card > span,
+      ha-card.button-barrel-rightha-card > span {
         justify-content: flex-start;
         left: var(--lcars-vertical-border);
         padding-inline: 6px;
@@ -984,15 +1301,35 @@
       :host(.button-lozenge-right) > ha-card#container > #slider,
       :host(.button-lozenge-right) > ha-card#container > #slider,
       :host(.button-lozenge-right) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-lozenge-right)ha-card#container > #slider,
       :host(.button-bullet-right) > ha-card#container > #slider,
       :host(.button-bullet-right) > ha-card#container > #slider,
       :host(.button-bullet-right) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-bullet-right)ha-card#container > #slider,
       :host(.button-capped-right) > ha-card#container > #slider,
       :host(.button-capped-right) > ha-card#container > #slider,
       :host(.button-capped-right) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-capped-right)ha-card#container > #slider,
       :host(.button-barrel-right) > ha-card#container > #slider,
       :host(.button-barrel-right) > ha-card#container > #slider,
-      :host(.button-barrel-right) > #aspect-ratio > ha-card#container > #slider {
+      :host(.button-barrel-right) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-barrel-right)ha-card#container > #slider,
+      ha-card; .button-lozenge-right > ha-card#container > #slider,
+      ha-card; .button-lozenge-right > ha-card#container > #slider,
+      ha-card; .button-lozenge-right > #aspect-ratio > ha-card#container > #slider,
+      ha-card; .button-lozenge-rightha-card#container > #slider,
+      ha-card.button-bullet-right > ha-card#container > #slider,
+      ha-card.button-bullet-right > ha-card#container > #slider,
+      ha-card.button-bullet-right > #aspect-ratio > ha-card#container > #slider,
+      ha-card.button-bullet-rightha-card#container > #slider,
+      ha-card.button-capped-right > ha-card#container > #slider,
+      ha-card.button-capped-right > ha-card#container > #slider,
+      ha-card.button-capped-right > #aspect-ratio > ha-card#container > #slider,
+      ha-card.button-capped-rightha-card#container > #slider,
+      ha-card.button-barrel-right > ha-card#container > #slider,
+      ha-card.button-barrel-right > ha-card#container > #slider,
+      ha-card.button-barrel-right > #aspect-ratio > ha-card#container > #slider,
+      ha-card.button-barrel-rightha-card#container > #slider {
         right: calc(var(--lcars-vertical-border) + 6px);
         left: 0;
         background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
@@ -1001,15 +1338,35 @@
       :host(.button-lozenge-right) > ha-card#container > #content,
       :host(.button-lozenge-right) > ha-card#container > #content,
       :host(.button-lozenge-right) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-lozenge-right)ha-card#container > #content,
       :host(.button-bullet-right) > ha-card#container > #content,
       :host(.button-bullet-right) > ha-card#container > #content,
       :host(.button-bullet-right) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-bullet-right)ha-card#container > #content,
       :host(.button-capped-right) > ha-card#container > #content,
       :host(.button-capped-right) > ha-card#container > #content,
       :host(.button-capped-right) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-capped-right)ha-card#container > #content,
       :host(.button-barrel-right) > ha-card#container > #content,
       :host(.button-barrel-right) > ha-card#container > #content,
-      :host(.button-barrel-right) > #aspect-ratio > ha-card#container > #content {
+      :host(.button-barrel-right) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-barrel-right)ha-card#container > #content,
+      ha-card; .button-lozenge-right > ha-card#container > #content,
+      ha-card; .button-lozenge-right > ha-card#container > #content,
+      ha-card; .button-lozenge-right > #aspect-ratio > ha-card#container > #content,
+      ha-card; .button-lozenge-rightha-card#container > #content,
+      ha-card.button-bullet-right > ha-card#container > #content,
+      ha-card.button-bullet-right > ha-card#container > #content,
+      ha-card.button-bullet-right > #aspect-ratio > ha-card#container > #content,
+      ha-card.button-bullet-rightha-card#container > #content,
+      ha-card.button-capped-right > ha-card#container > #content,
+      ha-card.button-capped-right > ha-card#container > #content,
+      ha-card.button-capped-right > #aspect-ratio > ha-card#container > #content,
+      ha-card.button-capped-rightha-card#container > #content,
+      ha-card.button-barrel-right > ha-card#container > #content,
+      ha-card.button-barrel-right > ha-card#container > #content,
+      ha-card.button-barrel-right > #aspect-ratio > ha-card#container > #content,
+      ha-card.button-barrel-rightha-card#container > #content {
         padding-left: var(--ha-card-border-radius);
         padding-right: 0px;
         justify-content: left;
@@ -1018,21 +1375,51 @@
       :host(.button-lozenge-left) > ha-card#container,
       :host(.button-lozenge-left) > ha-card,
       :host(.button-lozenge-left) > #aspect-ratio > ha-card,
+      :host(.button-lozenge-left)ha-card,
       :host(.button-lozenge-right) > ha-card#container,
       :host(.button-lozenge-right) > ha-card,
       :host(.button-lozenge-right) > #aspect-ratio > ha-card,
+      :host(.button-lozenge-right)ha-card,
       :host(.button-bullet-left) > ha-card#container,
       :host(.button-bullet-left) > ha-card,
       :host(.button-bullet-left) > #aspect-ratio > ha-card,
+      :host(.button-bullet-left)ha-card,
       :host(.button-capped-right) > ha-card#container,
       :host(.button-capped-right) > ha-card,
       :host(.button-capped-right) > #aspect-ratio > ha-card,
+      :host(.button-capped-right)ha-card,
       :host(.button-bar-left) > ha-card#container,
       :host(.button-bar-left) > ha-card,
       :host(.button-bar-left) > #aspect-ratio > ha-card,
+      :host(.button-bar-left)ha-card,
       :host(.button-bar-right) > ha-card#container,
       :host(.button-bar-right) > ha-card,
-      :host(.button-bar-right) > #aspect-ratio > ha-card {
+      :host(.button-bar-right) > #aspect-ratio > ha-card,
+      :host(.button-bar-right)ha-card,
+      ha-card; .button-lozenge-left > ha-card#container,
+      ha-card; .button-lozenge-left > ha-card,
+      ha-card; .button-lozenge-left > #aspect-ratio > ha-card,
+      ha-card; .button-lozenge-leftha-card,
+      ha-card.button-bullet-left > ha-card#container,
+      ha-card.button-bullet-left > ha-card,
+      ha-card.button-bullet-left > #aspect-ratio > ha-card,
+      ha-card.button-bullet-leftha-card,
+      ha-card.button-bar-left > ha-card#container,
+      ha-card.button-bar-left > ha-card,
+      ha-card.button-bar-left > #aspect-ratio > ha-card,
+      ha-card.button-bar-leftha-card,
+      ha-card.button-lozenge-right > ha-card#container,
+      ha-card.button-lozenge-right > ha-card,
+      ha-card.button-lozenge-right > #aspect-ratio > ha-card,
+      ha-card.button-lozenge-rightha-card,
+      ha-card.button-capped-right > ha-card#container,
+      ha-card.button-capped-right > ha-card,
+      ha-card.button-capped-right > #aspect-ratio > ha-card,
+      ha-card.button-capped-rightha-card,
+      ha-card.button-bar-right > ha-card#container,
+      ha-card.button-bar-right > ha-card,
+      ha-card.button-bar-right > #aspect-ratio > ha-card,
+      ha-card.button-bar-rightha-card {
         border-top-right-radius: var(--ha-card-border-radius);
         border-bottom-right-radius: var(--ha-card-border-radius);
       }
@@ -1040,21 +1427,51 @@
       :host(.button-lozenge-left) > ha-card#container,
       :host(.button-lozenge-left) > ha-card,
       :host(.button-lozenge-left) > #aspect-ratio > ha-card,
+      :host(.button-lozenge-left)ha-card,
       :host(.button-lozenge-right) > ha-card#container,
       :host(.button-lozenge-right) > ha-card,
       :host(.button-lozenge-right) > #aspect-ratio > ha-card,
+      :host(.button-lozenge-right)ha-card,
       :host(.button-bullet-right) > ha-card#container,
       :host(.button-bullet-right) > ha-card,
       :host(.button-bullet-right) > #aspect-ratio > ha-card,
+      :host(.button-bullet-right)ha-card,
       :host(.button-capped-left) > ha-card#container,
       :host(.button-capped-left) > ha-card,
       :host(.button-capped-left) > #aspect-ratio > ha-card,
+      :host(.button-capped-left)ha-card,
       :host(.button-bar-left) > ha-card#container,
       :host(.button-bar-left) > ha-card,
       :host(.button-bar-left) > #aspect-ratio > ha-card,
+      :host(.button-bar-left)ha-card,
       :host(.button-bar-right) > ha-card#container,
       :host(.button-bar-right) > ha-card,
-      :host(.button-bar-right) > #aspect-ratio > ha-card {
+      :host(.button-bar-right) > #aspect-ratio > ha-card,
+      :host(.button-bar-right)ha-card,
+      ha-card; .button-lozenge-left > ha-card#container,
+      ha-card; .button-lozenge-left > ha-card,
+      ha-card; .button-lozenge-left > #aspect-ratio > ha-card,
+      ha-card; .button-lozenge-leftha-card,
+      ha-card.button-capped-left > ha-card#container,
+      ha-card.button-capped-left > ha-card,
+      ha-card.button-capped-left > #aspect-ratio > ha-card,
+      ha-card.button-capped-leftha-card,
+      ha-card.button-bar-left > ha-card#container,
+      ha-card.button-bar-left > ha-card,
+      ha-card.button-bar-left > #aspect-ratio > ha-card,
+      ha-card.button-bar-leftha-card,
+      ha-card.button-lozenge-right > ha-card#container,
+      ha-card.button-lozenge-right > ha-card,
+      ha-card.button-lozenge-right > #aspect-ratio > ha-card,
+      ha-card.button-lozenge-rightha-card,
+      ha-card.button-bullet-right > ha-card#container,
+      ha-card.button-bullet-right > ha-card,
+      ha-card.button-bullet-right > #aspect-ratio > ha-card,
+      ha-card.button-bullet-rightha-card,
+      ha-card.button-bar-right > ha-card#container,
+      ha-card.button-bar-right > ha-card,
+      ha-card.button-bar-right > #aspect-ratio > ha-card,
+      ha-card.button-bar-rightha-card {
         border-top-left-radius: var(--ha-card-border-radius);
         border-bottom-left-radius: var(--ha-card-border-radius);
       }
@@ -1062,27 +1479,57 @@
       :host(.button-lozenge-left) > ha-card#container > span,
       :host(.button-lozenge-left) > ha-card > span,
       :host(.button-lozenge-left) > #aspect-ratio > ha-card > span,
+      :host(.button-lozenge-left)ha-card > span,
       :host(.button-bullet-left) > ha-card#container > span,
       :host(.button-bullet-left) > ha-card > span,
-      :host(.button-bullet-left) > #aspect-ratio > ha-card > span {
+      :host(.button-bullet-left) > #aspect-ratio > ha-card > span,
+      :host(.button-bullet-left)ha-card > span,
+      ha-card; .button-lozenge-left > ha-card#container > span,
+      ha-card; .button-lozenge-left > ha-card > span,
+      ha-card; .button-lozenge-left > #aspect-ratio > ha-card > span,
+      ha-card; .button-lozenge-leftha-card > span,
+      ha-card.button-bullet-left > ha-card#container > span,
+      ha-card.button-bullet-left > ha-card > span,
+      ha-card.button-bullet-left > #aspect-ratio > ha-card > span,
+      ha-card.button-bullet-leftha-card > span {
         padding-right: var(--ha-card-border-radius);
       }
 
       :host(.button-lozenge-right) > ha-card#container > span,
       :host(.button-lozenge-right) > ha-card > span,
       :host(.button-lozenge-right) > #aspect-ratio > ha-card > span,
+      :host(.button-lozenge-right)ha-card > span,
       :host(.button-bullet-right) > ha-card#container > span,
       :host(.button-bullet-right) > ha-card > span,
-      :host(.button-bullet-right) > #aspect-ratio > ha-card > span {
+      :host(.button-bullet-right) > #aspect-ratio > ha-card > span,
+      :host(.button-bullet-right)ha-card > span,
+      ha-card; .button-lozenge-right > ha-card#container > span,
+      ha-card; .button-lozenge-right > ha-card > span,
+      ha-card; .button-lozenge-right > #aspect-ratio > ha-card > span,
+      ha-card; .button-lozenge-rightha-card > span,
+      ha-card.button-bullet-right > ha-card#container > span,
+      ha-card.button-bullet-right > ha-card > span,
+      ha-card.button-bullet-right > #aspect-ratio > ha-card > span,
+      ha-card.button-bullet-rightha-card > span {
         padding-left: var(--ha-card-border-radius);
       }
 
       :host(.button-bar-left) > ha-card#container,
       :host(.button-bar-left) > ha-card,
       :host(.button-bar-left) > #aspect-ratio > ha-card,
+      :host(.button-bar-left)ha-card,
       :host(.button-bar-right) > ha-card#container,
       :host(.button-bar-right) > ha-card,
-      :host(.button-bar-right) > #aspect-ratio > ha-card {
+      :host(.button-bar-right) > #aspect-ratio > ha-card,
+      :host(.button-bar-right)ha-card,
+      ha-card; .button-bar-left > ha-card#container,
+      ha-card; .button-bar-left > ha-card,
+      ha-card; .button-bar-left > #aspect-ratio > ha-card,
+      ha-card; .button-bar-leftha-card,
+      ha-card.button-bar-right > ha-card#container,
+      ha-card.button-bar-right > ha-card,
+      ha-card.button-bar-right > #aspect-ratio > ha-card,
+      ha-card.button-bar-rightha-card {
         line-height: 60px;
         font-size: 60px;
         padding-left: var(--lcars-vertical-border);
@@ -1093,9 +1540,19 @@
       :host(.button-bar-left) > ha-card#container > span,
       :host(.button-bar-left) > ha-card > span,
       :host(.button-bar-left) > #aspect-ratio > ha-card > span,
+      :host(.button-bar-left)ha-card > span,
       :host(.button-bar-right) > ha-card#container > span,
       :host(.button-bar-right) > ha-card > span,
-      :host(.button-bar-right) > #aspect-ratio > ha-card > span {
+      :host(.button-bar-right) > #aspect-ratio > ha-card > span,
+      :host(.button-bar-right)ha-card > span,
+      ha-card; .button-bar-left > ha-card#container > span,
+      ha-card; .button-bar-left > ha-card > span,
+      ha-card; .button-bar-left > #aspect-ratio > ha-card > span,
+      ha-card; .button-bar-leftha-card > span,
+      ha-card.button-bar-right > ha-card#container > span,
+      ha-card.button-bar-right > ha-card > span,
+      ha-card.button-bar-right > #aspect-ratio > ha-card > span,
+      ha-card.button-bar-rightha-card > span {
         width: fit-content;
         padding: 0px;
       }
@@ -1103,9 +1560,19 @@
       :host(.button-bar-left) > ha-card#container > span.state,
       :host(.button-bar-left) > ha-card > span.state,
       :host(.button-bar-left) > #aspect-ratio > ha-card > span.state,
+      :host(.button-bar-left)ha-card > span.state,
       :host(.button-bar-right) > ha-card#container > span.state,
       :host(.button-bar-right) > ha-card > span.state,
-      :host(.button-bar-right) > #aspect-ratio > ha-card > span.state {
+      :host(.button-bar-right) > #aspect-ratio > ha-card > span.state,
+      :host(.button-bar-right)ha-card > span.state,
+      ha-card; .button-bar-left > ha-card#container > span.state,
+      ha-card; .button-bar-left > ha-card > span.state,
+      ha-card; .button-bar-left > #aspect-ratio > ha-card > span.state,
+      ha-card; .button-bar-leftha-card > span.state,
+      ha-card.button-bar-right > ha-card#container > span.state,
+      ha-card.button-bar-right > ha-card > span.state,
+      ha-card.button-bar-right > #aspect-ratio > ha-card > span.state,
+      ha-card.button-bar-rightha-card > span.state {
         padding-right: var(--ha-card-border-radius);
         height: 100%;
       }
@@ -1113,9 +1580,19 @@
       :host(.button-bar-left) > ha-card#container > span:not(.state),
       :host(.button-bar-left) > ha-card > span:not(.state),
       :host(.button-bar-left) > #aspect-ratio > ha-card > span:not(.state),
+      :host(.button-bar-left)ha-card > span:not(.state),
       :host(.button-bar-right) > ha-card#container > span:not(.state),
       :host(.button-bar-right) > ha-card > span:not(.state),
-      :host(.button-bar-right) > #aspect-ratio > ha-card > span:not(.state) {
+      :host(.button-bar-right) > #aspect-ratio > ha-card > span:not(.state),
+      :host(.button-bar-right)ha-card > span:not(.state),
+      ha-card; .button-bar-left > ha-card#container > span:not(.state),
+      ha-card; .button-bar-left > ha-card > span:not(.state),
+      ha-card; .button-bar-left > #aspect-ratio > ha-card > span:not(.state),
+      ha-card; .button-bar-leftha-card > span:not(.state),
+      ha-card.button-bar-right > ha-card#container > span:not(.state),
+      ha-card.button-bar-right > ha-card > span:not(.state),
+      ha-card.button-bar-right > #aspect-ratio > ha-card > span:not(.state),
+      ha-card.button-bar-rightha-card > span:not(.state) {
         color: var(--lcars-text-light);
         height: 100%;
         background-color: var(--lcars-background-color);
@@ -1127,18 +1604,38 @@
       :host(.button-bar-left) > ha-card#container > ha-state-icon,
       :host(.button-bar-left) > ha-card > ha-state-icon,
       :host(.button-bar-left) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-bar-left)ha-card > ha-state-icon,
       :host(.button-bar-right) > ha-card#container > ha-state-icon,
       :host(.button-bar-right) > ha-card > ha-state-icon,
-      :host(.button-bar-right) > #aspect-ratio > ha-card > ha-state-icon {
+      :host(.button-bar-right) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-bar-right)ha-card > ha-state-icon,
+      ha-card; .button-bar-left > ha-card#container > ha-state-icon,
+      ha-card; .button-bar-left > ha-card > ha-state-icon,
+      ha-card; .button-bar-left > #aspect-ratio > ha-card > ha-state-icon,
+      ha-card; .button-bar-leftha-card > ha-state-icon,
+      ha-card.button-bar-right > ha-card#container > ha-state-icon,
+      ha-card.button-bar-right > ha-card > ha-state-icon,
+      ha-card.button-bar-right > #aspect-ratio > ha-card > ha-state-icon,
+      ha-card.button-bar-rightha-card > ha-state-icon {
         font-size: 0;
       }
 
       :host(.button-bar-left) > ha-card#container > #slider,
       :host(.button-bar-left) > ha-card#container > #slider,
       :host(.button-bar-left) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-bar-left)ha-card#container > #slider,
       :host(.button-bar-right) > ha-card#container > #slider,
       :host(.button-bar-right) > ha-card#container > #slider,
-      :host(.button-bar-right) > #aspect-ratio > ha-card#container > #slider {
+      :host(.button-bar-right) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-bar-right)ha-card#container > #slider,
+      ha-card; .button-bar-left > ha-card#container > #slider,
+      ha-card; .button-bar-left > ha-card#container > #slider,
+      ha-card; .button-bar-left > #aspect-ratio > ha-card#container > #slider,
+      ha-card; .button-bar-leftha-card#container > #slider,
+      ha-card.button-bar-right > ha-card#container > #slider,
+      ha-card.button-bar-right > ha-card#container > #slider,
+      ha-card.button-bar-right > #aspect-ratio > ha-card#container > #slider,
+      ha-card.button-bar-rightha-card#container > #slider {
         right: 0;
         left: calc(var(--lcars-vertical-border) + 6px);
         background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
@@ -1147,9 +1644,19 @@
       :host(.button-bar-left) > ha-card#container > #content,
       :host(.button-bar-left) > ha-card#container > #content,
       :host(.button-bar-left) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-bar-left)ha-card#container > #content,
       :host(.button-bar-right) > ha-card#container > #content,
       :host(.button-bar-right) > ha-card#container > #content,
-      :host(.button-bar-right) > #aspect-ratio > ha-card#container > #content {
+      :host(.button-bar-right) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-bar-right)ha-card#container > #content,
+      ha-card; .button-bar-left > ha-card#container > #content,
+      ha-card; .button-bar-left > ha-card#container > #content,
+      ha-card; .button-bar-left > #aspect-ratio > ha-card#container > #content,
+      ha-card; .button-bar-leftha-card#container > #content,
+      ha-card.button-bar-right > ha-card#container > #content,
+      ha-card.button-bar-right > ha-card#container > #content,
+      ha-card.button-bar-right > #aspect-ratio > ha-card#container > #content,
+      ha-card.button-bar-rightha-card#container > #content {
         position: relative;
         padding-right: var(--ha-card-border-radius);
         padding-left: 18px;
@@ -1159,7 +1666,12 @@
 
       :host(.button-bar-right) > ha-card#container,
       :host(.button-bar-right) > ha-card,
-      :host(.button-bar-right) > #aspect-ratio > ha-card {
+      :host(.button-bar-right) > #aspect-ratio > ha-card,
+      :host(.button-bar-right)ha-card,
+      ha-card.button-bar-right > ha-card#container,
+      ha-card.button-bar-right > ha-card,
+      ha-card.button-bar-right > #aspect-ratio > ha-card,
+      ha-card.button-bar-rightha-card {
         flex-direction: row-reverse;
         padding-left: 0;
         padding-right: var(--lcars-vertical-border);
@@ -1167,14 +1679,24 @@
 
       :host(.button-bar-right) > ha-card#container > span.state,
       :host(.button-bar-right) > ha-card > span.state,
-      :host(.button-bar-right) > #aspect-ratio > ha-card > span.state {
+      :host(.button-bar-right) > #aspect-ratio > ha-card > span.state,
+      :host(.button-bar-right)ha-card > span.state,
+      ha-card.button-bar-right > ha-card#container > span.state,
+      ha-card.button-bar-right > ha-card > span.state,
+      ha-card.button-bar-right > #aspect-ratio > ha-card > span.state,
+      ha-card.button-bar-rightha-card > span.state {
         padding-left: var(--ha-card-border-radius);
         padding-right: 0;
       }
 
       :host(.button-bar-right) > ha-card#container > ha-state-icon,
       :host(.button-bar-right) > ha-card > ha-state-icon,
-      :host(.button-bar-right) > #aspect-ratio > ha-card > ha-state-icon {
+      :host(.button-bar-right) > #aspect-ratio > ha-card > ha-state-icon,
+      :host(.button-bar-right)ha-card > ha-state-icon,
+      ha-card.button-bar-right > ha-card#container > ha-state-icon,
+      ha-card.button-bar-right > ha-card > ha-state-icon,
+      ha-card.button-bar-right > #aspect-ratio > ha-card > ha-state-icon,
+      ha-card.button-bar-rightha-card > ha-state-icon {
         left: auto;
         right: 0;
         border-right: 0px;
@@ -1183,7 +1705,12 @@
 
       :host(.button-bar-right) > ha-card#container > #slider,
       :host(.button-bar-right) > ha-card#container > #slider,
-      :host(.button-bar-right) > #aspect-ratio > ha-card#container > #slider {
+      :host(.button-bar-right) > #aspect-ratio > ha-card#container > #slider,
+      :host(.button-bar-right)ha-card#container > #slider,
+      ha-card.button-bar-right > ha-card#container > #slider,
+      ha-card.button-bar-right > ha-card#container > #slider,
+      ha-card.button-bar-right > #aspect-ratio > ha-card#container > #slider,
+      ha-card.button-bar-rightha-card#container > #slider {
         right: calc(var(--lcars-vertical-border) + 6px);
         left: 0;
         background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
@@ -1191,7 +1718,12 @@
 
       :host(.button-bar-right) > ha-card#container > #content,
       :host(.button-bar-right) > ha-card#container > #content,
-      :host(.button-bar-right) > #aspect-ratio > ha-card#container > #content {
+      :host(.button-bar-right) > #aspect-ratio > ha-card#container > #content,
+      :host(.button-bar-right)ha-card#container > #content,
+      ha-card.button-bar-right > ha-card#container > #content,
+      ha-card.button-bar-right > ha-card#container > #content,
+      ha-card.button-bar-right > #aspect-ratio > ha-card#container > #content,
+      ha-card.button-bar-rightha-card#container > #content {
         padding-left: var(--ha-card-border-radius);
         padding-right: 18px;
         justify-content: right;
@@ -1214,14 +1746,14 @@
         overflow:hidden;
       }
 
-      :host(.bar-left) > *:not(style):not(card-mod),
-      :host(.bar-right) > *:not(style):not(card-mod),
-      :host(.bar-large-left) > *:not(style):not(card-mod),
-      :host(.bar-large-right) > *:not(style):not(card-mod),
-      ha-card.bar-left > *:not(style):not(card-mod),
-      ha-card.bar-large-left:not(div > *) > *:not(style):not(card-mod),
-      ha-card.bar-right > *:not(style):not(card-mod),
-      ha-card.bar-large-right:not(div > *) > *:not(style):not(card-mod) {
+      :host(.bar-left) > *:not(style):not(card-mod):not(h1),
+      :host(.bar-right) > *:not(style):not(card-mod):not(h1),
+      :host(.bar-large-left) > *:not(style):not(card-mod):not(h1),
+      :host(.bar-large-right) > *:not(style):not(card-mod):not(h1),
+      ha-card.bar-left > *:not(style):not(card-mod):not(h1),
+      ha-card.bar-large-left:not(div > *) > *:not(style):not(card-mod):not(h1),
+      ha-card.bar-right > *:not(style):not(card-mod):not(h1),
+      ha-card.bar-large-right:not(div > *) > *:not(style):not(card-mod):not(h1) {
         text-transform: uppercase;
         background-color: var(--lcars-background-color);
         border-radius: 0px;
@@ -1232,14 +1764,14 @@
         overflow: hidden;
       }
 
-      :host(.bar-left) > *:not(style):not(card-mod) > ha-markdown,
-      :host(.bar-right) > *:not(style):not(card-mod) > ha-markdown,
-      :host(.bar-large-left) > *:not(style):not(card-mod) > ha-markdown,
-      :host(.bar-large-right) > *:not(style):not(card-mod) > ha-markdown,
-      ha-card.bar-left > *:not(style):not(card-mod) > ha-markdown,
-      ha-card.bar-large-left:not(div > *) > *:not(style):not(card-mod) > ha-markdown,
-      ha-card.bar-right > *:not(style):not(card-mod) > ha-markdown,
-      ha-card.bar-large-right:not(div > *) > *:not(style):not(card-mod) > ha-markdown {
+      :host(.bar-left) > *:not(style):not(card-mod):not(h1) > ha-markdown,
+      :host(.bar-right) > *:not(style):not(card-mod):not(h1) > ha-markdown,
+      :host(.bar-large-left) > *:not(style):not(card-mod):not(h1) > ha-markdown,
+      :host(.bar-large-right) > *:not(style):not(card-mod):not(h1) > ha-markdown,
+      ha-card.bar-left > *:not(style):not(card-mod):not(h1) > ha-markdown,
+      ha-card.bar-large-left:not(div > *) > *:not(style):not(card-mod):not(h1) > ha-markdown,
+      ha-card.bar-right > *:not(style):not(card-mod):not(h1) > ha-markdown,
+      ha-card.bar-large-right:not(div > *) > *:not(style):not(card-mod):not(h1) > ha-markdown {
         padding: 0px;
         margin-top: -0.06em;
       }
@@ -1279,6 +1811,59 @@
         text-align: right;
       }
 
+      :host(.type-vertical-stack),
+      :host(.type-horizontal-stack) {
+        position: relative;
+      }
+
+      :host(.type-vertical-stack) .card-header,
+      :host(.type-horizontal-stack) .card-header {
+        padding: 0px;
+        position: absolute;
+        left: calc( 0px - var(--lcars-vertical-border) /2);
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: transparent;
+      }
+
+      :host(.header-right.type-horizontal-stack) .card-header,
+      :host(.middle-right.type-horizontal-stack) .card-header,
+      :host(.footer-right.type-horizontal-stack) .card-header,
+      :host(.header-right.type-vertical-stack) .card-header,
+      :host(.middle-right.type-vertical-stack) .card-header,
+      :host(.footer-right.type-vertical-stack) .card-header {
+        transform: translate(50%, -50%);
+        left: unset;
+        right: calc( 0px - var(--lcars-vertical-border) /2);
+      }
+
+      :host(.header-left.type-horizontal-stack) .card-header,
+      :host(.header-right.type-horizontal-stack) .card-header,
+      :host(.header-contained.type-horizontal-stack) .card-header,
+      :host(.header-left.type-horizontal-stack) .card-header,
+      :host(.header-right.type-horizontal-stack) .card-header,
+      :host(.header-contained.type-horizontal-stack) .card-header {
+        color: var(--lcars-card-top-text);
+      }
+
+      :host(.middle-left.type-horizontal-stack) .card-header,
+      :host(.middle-right.type-horizontal-stack) .card-header,
+      :host(.middle-contained.type-horizontal-stack) .card-header,
+      :host(.middle-left.type-horizontal-stack) .card-header,
+      :host(.middle-right.type-horizontal-stack) .card-header,
+      :host(.middle-contained.type-horizontal-stack) .card-header {
+        color: var(--lcars-card-mid-left-text);
+      }
+
+      :host(.footer-left.type-horizontal-stack) .card-header,
+      :host(.footer-right.type-horizontal-stack) .card-header,
+      :host(.footer-contained.type-horizontal-stack) .card-header,
+      :host(.footer-left.type-horizontal-stack) .card-header,
+      :host(.footer-right.type-horizontal-stack) .card-header,
+      :host(.footer-contained.type-horizontal-stack) .card-header {
+        color: var(--lcars-card-bottom-text);
+      }
+
       .type-light > .bar {
         stroke-width: 5px;
       }
@@ -1299,11 +1884,174 @@
       :host(.type-custom-weather-card) > ha-card {
         padding-top: 12px !important;
       }
+
+      :host(.type-todo-list) {
+        --card-background-color: transparent !important;
+        --ha-card-border-radius: 0px !important;
+        --active-color: var(--lcars-card-mid-left-color);
+        --active-text-color: var(--lcars-card-mid-left-text);
+        --completed-color: color-mix(in srgb, var(--active-color), black 70%);
+        --completed-text-color: var(--lcars-gray);
+        --list-border-left: 0px;
+        --list-border-right: 0px;
+      }
+
+      :host(.list-lozenge-left),
+      :host(.list-lozenge-right),
+      :host(.list-bullet-right),
+      :host(.list-capped-left) {
+        --list-border-left: 30px;
+        --left-border: 1;
+      }
+
+      :host(.list-lozenge-left),
+      :host(.list-lozenge-right),
+      :host(.list-bullet-left),
+      :host(.list-capped-right) {
+        --list-border-right: 30px;
+        --right-border: 1;
+      }
+
+      :host(.type-todo-list) > ha-card div.addRow {
+        background-color: var(--lcars-card-bottom-color);
+        --mdc-text-field-fill-color: var(--lcars-card-bottom-color);
+        color: var(--lcars-card-bottom-text);
+        --mdc-text-field-ink-color: var(--lcars-card-bottom-text);
+        border-top-left-radius: var(--list-border-left);
+        border-top-right-radius: var(--list-border-right);
+        border-bottom-left-radius: var(--list-border-left);
+        border-bottom-right-radius: var(--list-border-right);
+        margin-block: 5px;
+        padding: 5px max(15px, var(--list-border-right)) 5px max(15px, var(--list-border-left));
+        height: 50px;
+      }
+
+      :host(.type-todo-list) > ha-card ha-sortable > ha-list .header {
+        background-color: var(--lcars-card-top-color);
+        color: var(--lcars-card-top-text);
+        border-top-left-radius: var(--list-border-left);
+        border-top-right-radius: var(--list-border-right);
+        border-bottom-left-radius: var(--list-border-left);
+        border-bottom-right-radius: var(--list-border-right);
+        margin-block: 5px;
+        height: 60px;
+        padding: 0px max(15px, var(--list-border-right)) 0px max(15px, var(--list-border-left));
+        font-size: 1.2rem;
+      }
+
+      :host(.type-todo-list) > ha-card ha-sortable > ha-list .header h2 {
+        padding-bottom: 0.15em;
+      }
+
+      :host(.type-todo-list) > ha-card ha-sortable > ha-list ha-check-list-item {
+        --check-border-right: 5px;
+        --check-border-left: 0px;
+        --flex-left: 1;
+        background-color: var(--active-color);
+        color: var(--active-text-color);
+        text-transform: uppercase;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-top-left-radius: var(--list-border-left);
+        border-top-right-radius: var(--list-border-right);
+        border-bottom-left-radius: var(--list-border-left);
+        border-bottom-right-radius: var(--list-border-right);
+        margin: 5px;
+        padding: 0px;
+        height: 60px;
+      }
+
+      :host(.type-todo-list) > ha-card ha-sortable > ha-list ha-check-list-item.completed {
+        background-color: var(--completed-color);
+        color: var(--completed-text-color);
+      }
+
+      :host(.type-todo-list) > ha-card ha-sortable > ha-list ha-check-list-item.completed ha-svg-icon {
+        background-color: var(--completed-text-color);
+      }
+
+      :host(.type-todo-list) > ha-card ha-sortable > ha-list ha-check-list-item .mdc-checkbox {
+        background-color: red;
+        opacity: 1;
+        position: absolute;
+      }
+
+      :host(.type-todo-list) > ha-card ha-sortable > ha-list .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
+      :host(.type-todo-list) > ha-card ha-sortable > ha-list .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background,
+      :host(.type-todo-list) > ha-card ha-sortable > ha-list .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate="true"]:enabled ~ .mdc-checkbox__background {
+        border-color: var(--lcars-background-color);
+        background-color: var(--lcars-background-color);
+      }
+
+      :host(.type-todo-list) > ha-card ha-sortable > ha-list ha-check-list-item .summary {
+        font-size: 1.2rem;
+        position: absolute;
+        right: max(8px, var(--list-border-right));
+        bottom: 8px;
+      }
+
+      :host(.list-lozenge-right) > ha-card > ha-sortable > ha-list > ha-check-list-item,
+      :host(.list-bullet-right) > ha-card > ha-sortable > ha-list > ha-check-list-item,
+      :host(.list-capped-right) > ha-card > ha-sortable > ha-list > ha-check-list-item,
+      :host(.list-barrel-right) > ha-card > ha-sortable > ha-list > ha-check-list-item {
+        flex-direction: row-reverse;
+        --check-border-left: 5px;
+        --check-border-right: 0px;
+        --flex-left: 0;
+        --flex-right: 1;
+      }
+
+      :host(.list-lozenge-right) > ha-card > ha-sortable > ha-list > ha-check-list-item .summary,
+      :host(.list-bullet-right) > ha-card > ha-sortable > ha-list > ha-check-list-item .summary,
+      :host(.list-capped-right) > ha-card > ha-sortable > ha-list > ha-check-list-item .summary,
+      :host(.list-barrel-right) > ha-card > ha-sortable > ha-list > ha-check-list-item .summary {
+        right: unset;
+        left: max(8px, var(--list-border-left));
+      }
     # Gauge cards on various themes and styles need a background color
     "ha-card ha-gauge$": |
       .gauge {
         --primary-background-color: var(--lcars-dark-gray);
       }
+    # To-Do List Card
+    "ha-card:has(ha-sortable)$": |
+      h1.card-header {
+        background-color: var(--lcars-card-top-color);
+        color: var(--lcars-card-top-text);
+        border-top-left-radius: var(--list-border-left);
+        border-top-right-radius: var(--list-border-right);
+        border-bottom-left-radius: var(--list-border-left);
+        border-bottom-right-radius: var(--list-border-right);
+        box-sizing: border-box;
+        margin-block: 5px;
+        padding-top: 0.15em;
+        padding-right: max(15px, var(--list-border-right));
+        padding-bottom: 0px;
+        padding-left: max(15px, var(--list-border-left));
+        height: 60px;
+      }
+    "ha-card ha-sortable ha-list":
+      "ha-check-list-item$": |
+        span {
+          height: 100%;
+          --mdc-list-item-graphic-margin: 0px;
+        }
+
+        span ha-checkbox {
+          border-right: var(--check-border-right) solid var(--lcars-background-color);
+          border-left: var(--check-border-left) solid var(--lcars-background-color);
+          height: 100%;
+          display: flex;
+          align-items: center;
+          --mdc-checkbox-checked-color: var(--completed-color);
+          --right-shift: calc( var(--flex-left) * var(--left-border) );
+          --left-shift: calc( var(--flex-right) * var(--right-border) );
+          margin-right: calc( 0px - 5px * var(--right-shift) );
+          padding-left: calc( 5px * var(--right-shift) );
+          margin-left: calc( 0px - 5px * var(--left-shift) );
+          padding-right: calc( 5px * var(--left-shift) );
+        }
   # ===================================================== #
   #          TOOLBAR AND DASHBOARD MODIFICATIONS          #
   # ===================================================== #
@@ -1589,20 +2337,24 @@
   #                 CONFIG MODIFICATIONS                  #
   # ===================================================== #
   card-mod-config-yaml: &card-mod-config |
-    "ha-config-logs $ hass-subpage div search-input.header $ ha-textfield$": |
-      label.mdc-text-field--filled {
-        height: var(--header-height);
-      }
-
-      label.mdc-text-field--filled span#label {
-        line-height: 1.25rem;
-      }
-
-      label.mdc-text-field--filled input.mdc-text-field__input {
-        align-self: end;
-      }
     "* $":
       .: |
+        @media screen and (min-width: 601px) {
+          :host::before {
+            content: "";
+            position: fixed;
+            height: 40px;
+            width: 100px;
+            background-color: transparent;
+            border-top-left-radius: 40px;
+            box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+            margin-top: 40px;
+            margin-left: 0px;
+            z-index: 3;
+            pointer-events: none;
+          }
+        }
+
         hass-subpage,
         hass-tabs-subpage {
           --icon-primary-color: var(--sidebar-text-color);
@@ -1615,6 +2367,26 @@
         hass-tabs-subpage ha-card {
           overflow: hidden;
         }
+
+        .header ha-tab-group {
+          background-color: var(--lcars-background-color);
+          border-top-left-radius: var(--lcars-inner-radius);
+          --track-width: unset;
+        }
+
+        .header ha-tab-group ha-tab-group-tab {
+          border-radius: 99px;
+          background-color: var(--lcars-card-button);
+          color: var(--lcars-card-button-text);
+          margin: 10px;
+          padding-left: 40px;
+        }
+
+        .header ha-tab-group ha-tab-group-tab[active] {
+          background-color: var(--lcars-ui-tertiary);
+          border-bottom: 0px;
+          margin-bottom: 10px;
+        }
       "hass-tabs-subpage $": |
         div.bottom-bar {
           --header-height: 50px;
@@ -1623,6 +2395,375 @@
         div.bottom-bar {
           --header-height: 50px;
         }
+    "ha-config-dashboard$":
+      .: |
+        @media screen and (min-width: 601px) {
+          :host::before {
+            content: "";
+            position: fixed;
+            height: 40px;
+            width: 100px;
+            background-color: transparent;
+            border-top-left-radius: 40px;
+            box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+            margin-top: 40px;
+            margin-left: 0px;
+            z-index: 3;
+            pointer-events: none;
+          }
+        }
+
+        :host hass-subpage,
+        :host hass-tabs-subpage {
+          --icon-primary-color: var(--sidebar-text-color);
+          --mdc-text-field-label-ink-color: var(--sidebar-text-color);
+          --mdc-text-field-ink-color: var(--sidebar-text-color);
+          font-family: var(--font-family);
+        }
+
+        :host hass-subpage ha-card,
+        :host hass-tabs-subpage ha-card {
+          overflow: hidden;
+        }
+      "ha-top-app-bar-fixed ha-config-section": 
+        "ha-card":
+          "ha-config-navigation $ ha-navigation-list$": | 
+            ha-md-list {
+              --md-sys-color-surface: transparent !important;
+            }
+
+            ha-md-list ha-md-list-item {
+              background-color: var(--lcars-card-mid-left-color);
+              --md-list-item-label-text-color: var(--lcars-card-mid-left-text);
+              --md-list-item-supporting-text-color: var(--lcars-card-mid-left-text);
+              border-radius: 999px;
+              margin-block: 5px;
+            }
+
+            ha-md-list ha-md-list-item:first-child {
+              background-color: var(--lcars-card-top-color);
+              --md-list-item-label-text-color: var(--lcars-card-top-text);
+              --md-list-item-supporting-text-color: var(--lcars-card-top-text);
+            }
+
+            ha-md-list ha-md-list-item:last-child {
+              background-color: var(--lcars-card-bottom-color);
+              --md-list-item-label-text-color: var(--lcars-card-bottom-text);
+              --md-list-item-supporting-text-color: var(--lcars-card-bottom-text);
+            }
+          "ha-config-repairs$": |
+            .title {
+              text-transform: uppercase;
+              font-size: 30px !important;
+              line-height: 1;
+              border-inline: 30px solid var(--lcars-alert-red);
+              border-top-left-radius: 25px;
+              padding-top: 8px !important;
+              padding-bottom: 12px !important;
+              background-color:  color-mix(in srgb, var(--lcars-alert-red), transparent 66%);
+              border-top-right-radius: 25px;
+              border-bottom-left-radius: 25px;
+              border-bottom-right-radius: 25px;
+            }
+
+            ha-md-list {
+              --md-sys-color-surface: transparent !important;
+              padding-block: 5px;
+            }
+
+            ha-md-list ha-md-list-item {
+              background-color: color-mix(in srgb, var(--lcars-alert-red), transparent 66%);
+              margin: 5px 30px;
+            }
+          "ha-config-updates$": |
+            .title {
+              text-transform: uppercase;
+              font-size: 30px !important;
+              line-height: 1;
+              border-inline: 30px solid var(--lcars-alert-yellow);
+              border-top-left-radius: 25px;
+              padding-top: 8px !important;
+              padding-bottom: 12px !important;
+              background-color:  color-mix(in srgb, var(--lcars-alert-yellow), transparent 66%);
+              border-top-right-radius: 25px;
+              border-bottom-left-radius: 25px;
+              border-bottom-right-radius: 25px;
+            }
+
+            ha-md-list {
+              --md-sys-color-surface: transparent !important;
+              padding-block: 5px;
+            }
+
+            ha-md-list ha-md-list-item {
+              background-color: color-mix(in srgb, var(--lcars-alert-yellow), transparent 66%);
+              margin: 5px 30px;
+            }
+          "$": |
+            :host {
+              background-color: transparent !important;
+              border-radius: 0 !important;
+              margin-top: 32px !important;
+            }
+    "ha-config-section-updates$":
+      .: |
+        @media screen and (min-width: 601px) {
+          :host::before {
+            content: "";
+            position: fixed;
+            height: 40px;
+            width: 100px;
+            background-color: transparent;
+            border-top-left-radius: 40px;
+            box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+            margin-top: 40px;
+            margin-left: 0px;
+            z-index: 3;
+            pointer-events: none;
+          }
+        }
+
+        :host hass-subpage,
+        :host hass-tabs-subpage {
+          --icon-primary-color: var(--sidebar-text-color);
+          --mdc-text-field-label-ink-color: var(--sidebar-text-color);
+          --mdc-text-field-ink-color: var(--sidebar-text-color);
+          font-family: var(--font-family);
+        }
+
+        :host hass-subpage ha-card,
+        :host hass-tabs-subpage ha-card {
+          overflow: hidden;
+        }
+      "hass-subpage .content":
+        "ha-card":
+          "$": |
+            :host {
+              background-color: transparent !important;
+              border-radius: 0 !important;
+            }
+          ".card-content ha-config-updates$": |
+            .title {
+              text-transform: uppercase;
+              font-size: 30px !important;
+              line-height: 1;
+              border-inline: 30px solid var(--lcars-alert-yellow);
+              border-top-left-radius: 25px;
+              padding-top: 8px !important;
+              padding-bottom: 12px !important;
+              background-color:  color-mix(in srgb, var(--lcars-alert-yellow), transparent 66%);
+              border-top-right-radius: 25px;
+              border-bottom-left-radius: 25px;
+              border-bottom-right-radius: 25px;
+            }
+
+            ha-md-list {
+              --md-sys-color-surface: transparent !important;
+              padding-block: 5px;
+            }
+
+            ha-md-list ha-md-list-item {
+              background-color: color-mix(in srgb, var(--lcars-alert-yellow), transparent 66%) !important;
+              margin: 5px 30px;
+            }
+    "ha-config-repairs-dashboard$":
+      .: |
+        @media screen and (min-width: 601px) {
+          :host::before {
+            content: "";
+            position: fixed;
+            height: 40px;
+            width: 100px;
+            background-color: transparent;
+            border-top-left-radius: 40px;
+            box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+            margin-top: 40px;
+            margin-left: 0px;
+            z-index: 3;
+            pointer-events: none;
+          }
+        }
+
+        :host hass-subpage,
+        :host hass-tabs-subpage {
+          --icon-primary-color: var(--sidebar-text-color);
+          --mdc-text-field-label-ink-color: var(--sidebar-text-color);
+          --mdc-text-field-ink-color: var(--sidebar-text-color);
+          font-family: var(--font-family);
+        }
+
+        :host hass-subpage ha-card,
+        :host hass-tabs-subpage ha-card {
+          overflow: hidden;
+        }
+      "hass-subpage .content":
+        "ha-card":
+          "$": |
+            :host {
+              background-color: transparent !important;
+              border-radius: 0 !important;
+            }
+          ".card-content ha-config-repairs$": |
+            .title {
+              text-transform: uppercase;
+              font-size: 30px !important;
+              line-height: 1;
+              border-inline: 30px solid var(--lcars-alert-red);
+              border-top-left-radius: 25px;
+              padding-top: 8px !important;
+              padding-bottom: 12px !important;
+              background-color:  color-mix(in srgb, var(--lcars-alert-red), transparent 66%);
+              border-top-right-radius: 25px;
+              border-bottom-left-radius: 25px;
+              border-bottom-right-radius: 25px;
+            }
+
+            ha-md-list {
+              --md-sys-color-surface: transparent !important;
+              padding-block: 5px;
+            }
+
+            ha-md-list ha-md-list-item {
+              background-color: color-mix(in srgb, var(--lcars-alert-red), transparent 66%) !important;
+              margin: 5px 30px;
+            }
+    "ha-config-system-navigation$":  
+      .: |
+        @media screen and (min-width: 601px) {
+          :host::before {
+            content: "";
+            position: fixed;
+            height: 40px;
+            width: 100px;
+            background-color: transparent;
+            border-top-left-radius: 40px;
+            box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+            margin-top: 40px;
+            margin-left: 0px;
+            z-index: 3;
+            pointer-events: none;
+          }
+        }
+
+        :host hass-subpage,
+        :host hass-tabs-subpage {
+          --icon-primary-color: var(--sidebar-text-color);
+          --mdc-text-field-label-ink-color: var(--sidebar-text-color);
+          --mdc-text-field-ink-color: var(--sidebar-text-color);
+          font-family: var(--font-family);
+        }
+
+        :host hass-subpage ha-card,
+        :host hass-tabs-subpage ha-card {
+          overflow: hidden;
+        }
+      "hass-subpage ha-config-section ha-card": 
+        "ha-navigation-list$": |
+          :host {
+            background-color: transparent !important;
+            border-radius: 0 !important;
+          }
+
+          ha-md-list {
+            --md-sys-color-surface: transparent !important;
+          }
+
+          ha-md-list ha-md-list-item {
+            background-color: var(--lcars-card-mid-left-color);
+            --md-list-item-label-text-color: var(--lcars-card-mid-left-text);
+            --md-list-item-supporting-text-color: var(--lcars-card-mid-left-text);
+            border-radius: 999px;
+            margin-block: 5px;
+          }
+
+          ha-md-list ha-md-list-item:first-child {
+            background-color: var(--lcars-card-top-color);
+            --md-list-item-label-text-color: var(--lcars-card-top-text);
+            --md-list-item-supporting-text-color: var(--lcars-card-top-text);
+          }
+
+          ha-md-list ha-md-list-item:last-child {
+            background-color: var(--lcars-card-bottom-color);
+            --md-list-item-label-text-color: var(--lcars-card-bottom-text);
+            --md-list-item-supporting-text-color: var(--lcars-card-bottom-text);
+          }
+        "$": |
+          :host {
+            background-color: transparent !important;
+            border-radius: 0 !important;
+          }
+    "ha-config-info$":  
+      .: |
+        @media screen and (min-width: 601px) {
+          :host::before {
+            content: "";
+            position: fixed;
+            height: 40px;
+            width: 100px;
+            background-color: transparent;
+            border-top-left-radius: 40px;
+            box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+            margin-top: 40px;
+            margin-left: 0px;
+            z-index: 3;
+            pointer-events: none;
+          }
+        }
+
+        :host hass-subpage,
+        :host hass-tabs-subpage {
+          --icon-primary-color: var(--sidebar-text-color);
+          --mdc-text-field-label-ink-color: var(--sidebar-text-color);
+          --mdc-text-field-ink-color: var(--sidebar-text-color);
+          font-family: var(--font-family);
+        }
+
+        :host hass-subpage ha-card,
+        :host hass-tabs-subpage ha-card {
+          overflow: hidden;
+        }
+      "hass-subpage .content":
+        "ha-card": |
+          ha-md-list {
+            --md-sys-color-surface: transparent !important;
+          }
+
+          ha-md-list ha-md-list-item {
+            background-color: var(--lcars-card-mid-left-color);
+            --md-list-item-label-text-color: var(--lcars-card-mid-left-text);
+            --md-list-item-supporting-text-color: var(--lcars-card-mid-left-text);
+            border-radius: 999px;
+            margin-block: 5px;
+          }
+
+          ha-md-list ha-md-list-item:first-child {
+            background-color: var(--lcars-card-top-color);
+            --md-list-item-label-text-color: var(--lcars-card-top-text);
+            --md-list-item-supporting-text-color: var(--lcars-card-top-text);
+          }
+
+          ha-md-list ha-md-list-item:last-child {
+            background-color: var(--lcars-card-bottom-color);
+            --md-list-item-label-text-color: var(--lcars-card-bottom-text);
+            --md-list-item-supporting-text-color: var(--lcars-card-bottom-text);
+          }
+        .: |
+          ha-card {
+            background-color: transparent !important;
+            border-radius: 0 !important;
+          }
+    "ha-config-logs $ hass-subpage div search-input.header $ ha-textfield$": |
+      label.mdc-text-field--filled {
+        height: var(--header-height);
+      }
+
+      label.mdc-text-field--filled span#label {
+        line-height: 1.25rem;
+      }
+
+      label.mdc-text-field--filled input.mdc-text-field__input {
+        align-self: end;
+      }
   # ===================================================== #
   #                 DIALOG MODIFICATIONS                  #
   # ===================================================== #
@@ -1993,6 +3134,10 @@ LCARS Default:
   lcars-card-mid-left-color: var(--lcars-red)
   lcars-card-button: var(--lcars-red)
   lcars-card-bottom-color: var(--lcars-gray)
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-light)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -2021,6 +3166,10 @@ LCARS Classic:
   lcars-card-mid-left-color: var(--lcars-ice)
   lcars-card-button: var(--lcars-ice)
   lcars-card-bottom-color: var(--lcars-ice)
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-dark)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -2049,6 +3198,10 @@ LCARS Nemesis Blue:
   lcars-card-mid-left-color: var(--lcars-ice)
   lcars-card-button: var(--lcars-honey)
   lcars-card-bottom-color: var(--lcars-cool)
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-dark)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -2077,6 +3230,10 @@ LCARS Lower Decks I:
   lcars-card-mid-left-color: var(--lcars-harvestgold)
   lcars-card-button: var(--lcars-harvestgold)
   lcars-card-bottom-color: var(--lcars-honey)
+  lcars-card-top-text: var(--lcars-text-light)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-dark)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -2104,6 +3261,10 @@ LCARS Lower Decks II:
   lcars-card-mid-left-color: var(--lcars-taupe)
   lcars-card-button: var(--lcars-honey)
   lcars-card-bottom-color: "#fff5c7"
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-dark)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -2132,6 +3293,10 @@ LCARS Romulus:
   lcars-card-mid-left-color: var(--lcars-african-violet)
   lcars-card-button: var(--lcars-sky)
   lcars-card-bottom-color: var(--lcars-aqua)
+  lcars-card-top-text: var(--lcars-text-light)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-dark)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -2160,6 +3325,10 @@ LCARS Kronos:
   lcars-card-mid-left-color: var(--lcars-october-sunset)
   lcars-card-button: var(--lcars-october-sunset)
   lcars-card-bottom-color: var(--lcars-peach)
+  lcars-card-top-text: var(--lcars-text-light)
+  lcars-card-mid-left-text: var(--lcars-text-light)
+  lcars-card-button-text: var(--lcars-text-light)
+  lcars-card-bottom-text: var(--lcars-text-dark)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -2188,6 +3357,10 @@ LCARS Cardassia:
   lcars-card-mid-left-color: var(--lcars-cardassia-maroon)
   lcars-card-button: var(--lcars-cardassia-maroon)
   lcars-card-bottom-color: var(--lcars-eggplant)
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-light)
+  lcars-card-button-text: var(--lcars-text-light)
+  lcars-card-bottom-text: var(--lcars-text-light)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -2216,6 +3389,10 @@ LCARS Zeldaar:
   lcars-card-mid-left-color: var(--lcars-khaki)
   lcars-card-button: var(--lcars-african-violet)
   lcars-card-bottom-color: var(--lcars-roseblush)
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-dark)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -2244,6 +3421,10 @@ LCARS Modern:
   lcars-card-mid-left-color: var(--lcars-modern-light-gray)
   lcars-card-button: var(--lcars-gray)
   lcars-card-bottom-color: var(--lcars-sky)
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-dark)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -2272,6 +3453,10 @@ LCARS Picard I:
   lcars-card-mid-left-color: var(--lcars-mango)
   lcars-card-button: var(--lcars-feuerrot)
   lcars-card-bottom-color: var(--lcars-dunkelgrau)
+  lcars-card-top-text: var(--lcars-text-light)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-light)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -2300,6 +3485,10 @@ LCARS Picard II:
   lcars-card-mid-left-color: var(--lcars-cerulean)
   lcars-card-button: var(--lcars-cerulean)
   lcars-card-bottom-color: var(--lcars-midnight-blue)
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-light)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -2327,6 +3516,10 @@ LCARS Red Alert:
   lcars-card-mid-left-color: "#9d361e"
   lcars-card-button: "#d66a60"
   lcars-card-bottom-color: "#91311c"
+  lcars-card-top-text: var(--lcars-text-light)
+  lcars-card-mid-left-text: var(--lcars-text-light)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-light)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
@@ -2349,6 +3542,10 @@ LCARS TNG:
   lcars-card-mid-left-color: "#c5b358" # middle bars
   lcars-card-button: "#ffbb33" # main button colour
   lcars-card-bottom-color: "#f5deb3" # footer class
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-dark)
 
   # Header colors
   lcars-ui-app-header-background-color: "#d2b48c" # Header Background
@@ -2380,6 +3577,10 @@ LCARS TNGbuttons:
   lcars-card-mid-left-color: "#ffcc99" # middle bars
   lcars-card-button: "#ffcc66" # main button colour
   lcars-card-bottom-color: "#EFC861" # footer class
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-dark)
 
   # Header colors
   lcars-ui-app-header-background-color: "#d2b48c" # Header Background
@@ -2416,6 +3617,10 @@ LCARS Transporter:
   lcars-card-mid-left-color: var(--lcars-charcoal)
   lcars-card-button: var(--lcars-teal)
   lcars-card-bottom-color: var(--lcars-navy-gray)
+  lcars-card-top-text: var(--lcars-text-light)
+  lcars-card-mid-left-text: var(--lcars-text-light)
+  lcars-card-button-text: var(--lcars-text-light)
+  lcars-card-bottom-text: var(--lcars-text-light)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-dark-red)
@@ -2443,6 +3648,10 @@ LCARS Navigation:
   lcars-card-mid-left-color: var(--lcars-cornflower)
   lcars-card-button: var(--lcars-olive)
   lcars-card-bottom-color: var(--lcars-olive)
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-light)
+  lcars-card-bottom-text: var(--lcars-text-light)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-dark-red)
@@ -2475,6 +3684,10 @@ LCARS 25C:
   lcars-card-button-barrel: var(--lcars-primary-gray)
   lcars-card-bottom-color: var(--lcars-alt-dark-gray)
   lcars-card-background: var(--lcars-primary-gray)
+  lcars-card-top-text: var(--lcars-text-light)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-light)
   # Misc
   success-color: var(--lcars-alt-green)
   warning-color: var(--lcars-light-orange)
@@ -2518,6 +3731,10 @@ LCARS 25C (Red Alert):
   lcars-card-button-barrel: var(--lcars-alert-white)
   lcars-card-bottom-color: var(--lcars-alert-color)
   lcars-card-background: var(--lcars-alert-color)
+  lcars-card-top-text: var(--lcars-text-light)
+  lcars-card-mid-left-text: var(--lcars-text-light)
+  lcars-card-button-text: var(--lcars-text-light)
+  lcars-card-bottom-text: var(--lcars-text-light)
   # Misc
   success-color: var(--lcars-alt-green)
   warning-color: var(--lcars-sunflower)
@@ -2550,6 +3767,10 @@ LCARS 25C (Yellow Alert):
   lcars-card-button-barrel: var(--lcars-alert-white)
   lcars-card-bottom-color: var(--lcars-alert-color)
   lcars-card-background: var(--lcars-alert-color)
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-dark)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-dark)
   # Misc
   success-color: var(--lcars-alt-green)
   warning-color: var(--lcars-sunflower)
@@ -2582,6 +3803,10 @@ LCARS 25C (Blue Alert):
   lcars-card-button-barrel: var(--lcars-alert-white)
   lcars-card-bottom-color: var(--lcars-alert-color)
   lcars-card-background: var(--lcars-alert-color)
+  lcars-card-top-text: var(--lcars-text-light)
+  lcars-card-mid-left-text: var(--lcars-text-light)
+  lcars-card-button-text: var(--lcars-text-light)
+  lcars-card-bottom-text: var(--lcars-text-light)
   # Misc
   success-color: var(--lcars-alt-green)
   warning-color: var(--lcars-sunflower)
@@ -2609,6 +3834,10 @@ LCARS Breen:
   lcars-card-mid-left-color: var(--lcars-green-middle)
   lcars-card-button: var(--lcars-green-tertiary)
   lcars-card-bottom-color: var(--lcars-green-footer)
+  lcars-card-top-text: var(--lcars-text-dark)
+  lcars-card-mid-left-text: var(--lcars-text-light)
+  lcars-card-button-text: var(--lcars-text-dark)
+  lcars-card-bottom-text: var(--lcars-text-dark)
   # Misc
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
