@@ -200,10 +200,10 @@
   # Sidebar Menu
   sidebar-background-color: var(--lcars-ui-primary)
   sidebar-menu-button-background-color: var(--sidebar-background-color)
-  sidebar-icon-color: var(--lcars-ui-primary-text)
-  sidebar-text-color: var(--lcars-ui-primary-text)
-  sidebar-selected-icon-color: var(--lcars-ui-primary-text)
-  sidebar-menu-button-text-color: var(--lcars-ui-primary-text)
+  sidebar-icon-color: var(--lcars-sidebar-text)
+  sidebar-text-color: var(--lcars-sidebar-text)
+  sidebar-selected-icon-color: var(--lcars-sidebar-text)
+  sidebar-menu-button-text-color: var(--lcars-sidebar-text)
   # States and Badges
   state-icon-color: var(--lcars-text-light)
   # Sliders
@@ -2143,17 +2143,13 @@
         --ha-md-list-item-gap: 0px;
       }
 
-    ha-md-list$: |
-      :host {
-        --menu-font-size: {{ states('input_number.lcars_menu_font') if has_value('input_number.lcars_menu_font') else 24 }}px !important;
-      }
-
     .: |
       :host {
         content: "";
         border-right: 0px !important;
         border-top-left-radius: 80px;
         box-shadow: black 0px -130px 0px 0px;
+        --menu-font-size: {{ states('input_number.lcars_menu_font') if has_value('input_number.lcars_menu_font') else 24 }}px;
       }
       .title {
         display: none !important;
@@ -2218,7 +2214,7 @@
           background-color: var(--lcars-background-color);
           border-radius: 0px;
           height: 100%;
-          font-size: 38px; 
+          font-size: 38px;
           line-height: 1;
           min-width: 46px;
           border-top: 0px solid var(--lcars-background-color);
@@ -2226,6 +2222,7 @@
           padding: 0 0 0 0;
           margin: 0px;
           text-align: center;
+          transition: font-size 0.2s ease;
         }      
       
         &.configuration {
@@ -2449,10 +2446,10 @@ LCARS Default:
   lcars-ui-primary: var(--lcars-almond-creme)
   lcars-ui-primary-text: var(--lcars-text-dark)
   lcars-ui-secondary: var(--lcars-african-violet)
-  lcars-ui-secondary-text: var(--lcars-text-gray)
+  lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: var(--lcars-red)
   lcars-ui-quaternary: var(--lcars-gray)
-  lcars-ui-quaternary-text: var(--lcars-text-gray)
+  lcars-ui-quaternary-text: var(--lcars-text-light)
   lcars-ui-accent-color: var(--lcars-orange)
   lcars-background-color: "#000000"
   lcars-ui-text-heading: var(--lcars-text-gray)
@@ -2464,7 +2461,7 @@ LCARS Default:
   lcars-ui-config-icon: var(--lcars-ui-config-button)
   # Sidebar
   lcars-sidebar-item-color: var(--lcars-ui-secondary)
-  lcars-sidebar-text: var(--lcars-text-dark)
+  lcars-sidebar-text: var(--lcars-ui-secondary-text)
   lcars-sidebar-icon-color: var(--lcars-ui-secondary)
   lcars-sidebar-icon-background: var(--lcars-card-top-color)
   lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
@@ -2493,10 +2490,10 @@ LCARS Classic:
   lcars-ui-primary: var(--lcars-khaki)
   lcars-ui-primary-text: var(--lcars-text-dark)
   lcars-ui-secondary: var(--lcars-khaki)
-  lcars-ui-secondary-text: var(--lcars-text-gray)
+  lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: var(--lcars-mars)
   lcars-ui-quaternary: var(--lcars-gray)
-  lcars-ui-quaternary-text: var(--lcars-text-gray)
+  lcars-ui-quaternary-text: var(--lcars-text-light)
   lcars-ui-accent-color: var(--lcars-orange)
   lcars-background-color: "#000000"
   lcars-ui-text-heading: var(--lcars-text-gray)
@@ -2508,7 +2505,7 @@ LCARS Classic:
   lcars-ui-config-icon: var(--lcars-ui-config-button)
   # Sidebar
   lcars-sidebar-item-color: var(--lcars-ui-secondary)
-  lcars-sidebar-text: var(--lcars-text-dark)
+  lcars-sidebar-text: var(--lcars-ui-secondary-text)
   lcars-sidebar-icon-color: var(--lcars-ui-secondary)
   lcars-sidebar-icon-background: var(--lcars-card-top-color)
   lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
@@ -2535,12 +2532,12 @@ LCARS Nemesis Blue:
   <<: *card-mod-css
   # UI Colors
   lcars-ui-primary: var(--lcars-evening)
-  lcars-ui-primary-text: var(--lcars-text-dark)
+  lcars-ui-primary-text: var(--lcars-text-light)
   lcars-ui-secondary: var(--lcars-wheat)
-  lcars-ui-secondary-text: var(--lcars-text-gray)
+  lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: var(--lcars-pumpkinshade)
   lcars-ui-quaternary: var(--lcars-galaxy)
-  lcars-ui-quaternary-text: var(--lcars-text-gray)
+  lcars-ui-quaternary-text: var(--lcars-text-light)
   lcars-ui-accent-color: var(--lcars-orange)
   lcars-background-color: "#000000"
   lcars-ui-text-heading: var(--lcars-text-gray)
@@ -2552,7 +2549,7 @@ LCARS Nemesis Blue:
   lcars-ui-config-icon: var(--lcars-ui-config-button)
   # Sidebar
   lcars-sidebar-item-color: var(--lcars-ui-secondary)
-  lcars-sidebar-text: var(--lcars-text-dark)
+  lcars-sidebar-text: var(--lcars-ui-secondary-text)
   lcars-sidebar-icon-color: var(--lcars-text-dark)
   lcars-sidebar-icon-background: var(--lcars-card-top-color)
   lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
@@ -2581,10 +2578,10 @@ LCARS Lower Decks I:
   lcars-ui-primary: var(--lcars-gold)
   lcars-ui-primary-text: var(--lcars-text-dark)
   lcars-ui-secondary: var(--lcars-butter)
-  lcars-ui-secondary-text: var(--lcars-text-gray)
+  lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: var(--lcars-orange)
   lcars-ui-quaternary: var(--lcars-darkpumpkin)
-  lcars-ui-quaternary-text: var(--lcars-text-gray)
+  lcars-ui-quaternary-text: var(--lcars-text-light)
   lcars-ui-accent-color: var(--lcars-orange)
   lcars-background-color: "#000000"
   lcars-ui-text-heading: var(--lcars-text-gray)
@@ -2596,7 +2593,7 @@ LCARS Lower Decks I:
   lcars-ui-config-icon: var(--lcars-ui-config-button)
   # Sidebar
   lcars-sidebar-item-color: var(--lcars-ui-secondary)
-  lcars-sidebar-text: var(--lcars-text-dark)
+  lcars-sidebar-text: var(--lcars-ui-secondary-text)
   lcars-sidebar-icon-color: var(--lcars-ui-secondary)
   lcars-sidebar-icon-background: var(--lcars-card-top-color)
   lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
@@ -2625,10 +2622,10 @@ LCARS Lower Decks II:
   lcars-ui-primary: var(--lcars-gold)
   lcars-ui-primary-text: var(--lcars-text-dark)
   lcars-ui-secondary: var(--lcars-butter)
-  lcars-ui-secondary-text: var(--lcars-text-gray)
+  lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: var(--lcars-orange)
   lcars-ui-quaternary: var(--lcars-darkpumpkin)
-  lcars-ui-quaternary-text: var(--lcars-text-gray)
+  lcars-ui-quaternary-text: var(--lcars-text-light)
   lcars-ui-accent-color: var(--lcars-orange)
   lcars-background-color: "#000000"
   lcars-ui-text-heading: var(--lcars-text-gray)
@@ -2640,7 +2637,7 @@ LCARS Lower Decks II:
   lcars-ui-config-icon: var(--lcars-ui-config-button)
   # Sidebar
   lcars-sidebar-item-color: var(--lcars-ui-secondary)
-  lcars-sidebar-text: var(--lcars-text-dark)
+  lcars-sidebar-text: var(--lcars-ui-secondary-text)
   lcars-sidebar-icon-color: var(--lcars-ui-secondary)
   lcars-sidebar-icon-background: var(--lcars-card-top-color)
   lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
@@ -2669,10 +2666,10 @@ LCARS Romulus:
   lcars-ui-primary: var(--lcars-green)
   lcars-ui-primary-text: var(--lcars-text-dark)
   lcars-ui-secondary: var(--lcars-african-violet)
-  lcars-ui-secondary-text: var(--lcars-text-gray)
+  lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: var(--lcars-orange)
   lcars-ui-quaternary: var(--lcars-gray)
-  lcars-ui-quaternary-text: var(--lcars-text-gray)
+  lcars-ui-quaternary-text: var(--lcars-text-light)
   lcars-ui-accent-color: var(--lcars-orange)
   lcars-background-color: "#000000"
   lcars-ui-text-heading: var(--lcars-text-gray)
@@ -2684,7 +2681,7 @@ LCARS Romulus:
   lcars-ui-config-icon: var(--lcars-ui-config-button)
   # Sidebar
   lcars-sidebar-item-color: var(--lcars-ui-secondary)
-  lcars-sidebar-text: var(--lcars-text-dark)
+  lcars-sidebar-text: var(--lcars-ui-secondary-text)
   lcars-sidebar-icon-color: var(--lcars-aqua)
   lcars-sidebar-icon-background: var(--lcars-card-top-color)
   lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
@@ -2713,10 +2710,10 @@ LCARS Kronos:
   lcars-ui-primary: var(--lcars-mars)
   lcars-ui-primary-text: var(--lcars-text-dark)
   lcars-ui-secondary: var(--lcars-gold)
-  lcars-ui-secondary-text: var(--lcars-text-gray)
+  lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: var(--lcars-orange)
   lcars-ui-quaternary: "#930a00"
-  lcars-ui-quaternary-text: var(--lcars-text-gray)
+  lcars-ui-quaternary-text: var(--lcars-text-light)
   lcars-ui-accent-color: var(--lcars-orange)
   lcars-background-color: "#000000"
   lcars-ui-text-heading: var(--lcars-text-gray)
@@ -2728,7 +2725,7 @@ LCARS Kronos:
   lcars-ui-config-icon: var(--lcars-ui-config-button)
   # Sidebar
   lcars-sidebar-item-color: var(--lcars-ui-secondary)
-  lcars-sidebar-text: var(--lcars-text-dark)
+  lcars-sidebar-text: var(--lcars-ui-secondary-text)
   lcars-sidebar-icon-color: var(--lcars-peach)
   lcars-sidebar-icon-background: var(--lcars-card-top-color)
   lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
@@ -2757,10 +2754,10 @@ LCARS Cardassia:
   lcars-ui-primary: var(--lcars-aqua)
   lcars-ui-primary-text: var(--lcars-text-dark)
   lcars-ui-secondary: var(--lcars-lavender-rose)
-  lcars-ui-secondary-text: var(--lcars-text-gray)
+  lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: var(--lcars-cardassia-maroon)
   lcars-ui-quaternary: var(--lcars-cardassia-maroon)
-  lcars-ui-quaternary-text: var(--lcars-text-gray)
+  lcars-ui-quaternary-text: var(--lcars-text-light)
   lcars-ui-accent-color: var(--lcars-orange)
   lcars-background-color: "#000000"
   lcars-ui-text-heading: var(--lcars-text-gray)
@@ -2772,7 +2769,7 @@ LCARS Cardassia:
   lcars-ui-config-icon: var(--lcars-ui-config-button)
   # Sidebar
   lcars-sidebar-item-color: var(--lcars-ui-secondary)
-  lcars-sidebar-text: var(--lcars-text-dark)
+  lcars-sidebar-text: var(--lcars-ui-secondary-text)
   lcars-sidebar-icon-color: var(--lcars-ui-secondary)
   lcars-sidebar-icon-background: var(--lcars-card-top-color)
   lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
@@ -2801,10 +2798,10 @@ LCARS Zeldaar:
   lcars-ui-primary: var(--lcars-violet-creme)
   lcars-ui-primary-text: var(--lcars-text-dark)
   lcars-ui-secondary: var(--lcars-honey)
-  lcars-ui-secondary-text: var(--lcars-text-gray)
+  lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: var(--lcars-roseblush)
   lcars-ui-quaternary: var(--lcars-mauve)
-  lcars-ui-quaternary-text: var(--lcars-text-gray)
+  lcars-ui-quaternary-text: var(--lcars-text-light)
   lcars-ui-accent-color: var(--lcars-orange)
   lcars-background-color: "#000000"
   lcars-ui-text-heading: var(--lcars-text-gray)
@@ -2816,7 +2813,7 @@ LCARS Zeldaar:
   lcars-ui-config-icon: var(--lcars-ui-config-button)
   # Sidebar
   lcars-sidebar-item-color: var(--lcars-ui-secondary)
-  lcars-sidebar-text: var(--lcars-text-dark)
+  lcars-sidebar-text: var(--lcars-ui-secondary-text)
   lcars-sidebar-icon-color: var(--lcars-ui-secondary)
   lcars-sidebar-icon-background: var(--lcars-card-top-color)
   lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
@@ -2845,10 +2842,10 @@ LCARS Modern:
   lcars-ui-primary: var(--lcars-violet-creme)
   lcars-ui-primary-text: var(--lcars-text-dark)
   lcars-ui-secondary: var(--lcars-sky)
-  lcars-ui-secondary-text: var(--lcars-text-gray)
+  lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: var(--lcars-gold)
   lcars-ui-quaternary: var(--lcars-gray)
-  lcars-ui-quaternary-text: var(--lcars-text-gray)
+  lcars-ui-quaternary-text: var(--lcars-text-light)
   lcars-ui-accent-color: var(--lcars-orange)
   lcars-background-color: "#000000"
   lcars-ui-text-heading: var(--lcars-text-gray)
@@ -2860,7 +2857,7 @@ LCARS Modern:
   lcars-ui-config-icon: var(--lcars-ui-config-button)
   # Sidebar
   lcars-sidebar-item-color: var(--lcars-ui-secondary)
-  lcars-sidebar-text: var(--lcars-text-dark)
+  lcars-sidebar-text: var(--lcars-ui-secondary-text)
   lcars-sidebar-icon-color: var(--lcars-dark-gray)
   lcars-sidebar-icon-background: var(--lcars-card-top-color)
   lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
@@ -2889,10 +2886,10 @@ LCARS Picard I:
   lcars-ui-primary: var(--lcars-hellgrau)
   lcars-ui-primary-text: var(--lcars-text-dark)
   lcars-ui-secondary: var(--lcars-mittelgrau)
-  lcars-ui-secondary-text: var(--lcars-text-gray)
+  lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: var(--lcars-feuerrot)
   lcars-ui-quaternary: var(--lcars-mittelgrau)
-  lcars-ui-quaternary-text: var(--lcars-text-gray)
+  lcars-ui-quaternary-text: var(--lcars-text-light)
   lcars-ui-accent-color: var(--lcars-orange)
   lcars-background-color: "#000000"
   lcars-ui-text-heading: var(--lcars-text-gray)
@@ -2904,7 +2901,7 @@ LCARS Picard I:
   lcars-ui-config-icon: var(--lcars-ui-config-button)
   # Sidebar
   lcars-sidebar-item-color: var(--lcars-ui-secondary)
-  lcars-sidebar-text: var(--lcars-text-dark)
+  lcars-sidebar-text: var(--lcars-ui-secondary-text)
   lcars-sidebar-icon-color: var(--lcars-alt-dark-gray)
   lcars-sidebar-icon-background: var(--lcars-card-top-color)
   lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
@@ -2933,10 +2930,10 @@ LCARS Picard II:
   lcars-ui-primary: var(--lcars-turquoise)
   lcars-ui-primary-text: var(--lcars-text-dark)
   lcars-ui-secondary: var(--lcars-cerulean)
-  lcars-ui-secondary-text: var(--lcars-text-gray)
+  lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: var(--lcars-apricot)
   lcars-ui-quaternary: var(--lcars-midnight-blue)
-  lcars-ui-quaternary-text: var(--lcars-text-gray)
+  lcars-ui-quaternary-text: var(--lcars-text-light)
   lcars-ui-accent-color: var(--lcars-orange)
   lcars-background-color: "#000000"
   lcars-ui-text-heading: var(--lcars-text-gray)
@@ -2948,7 +2945,7 @@ LCARS Picard II:
   lcars-ui-config-icon: var(--lcars-ui-config-button)
   # Sidebar
   lcars-sidebar-item-color: var(--lcars-ui-secondary)
-  lcars-sidebar-text: var(--lcars-text-dark)
+  lcars-sidebar-text: var(--lcars-ui-secondary-text)
   lcars-sidebar-icon-color: var(--lcars-ui-secondary)
   lcars-sidebar-icon-background: var(--lcars-card-top-color)
   lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
@@ -2975,12 +2972,12 @@ LCARS Red Alert:
   <<: *card-mod-css
   # UI Colors
   lcars-ui-primary: var(--lcars-cardinal)
-  lcars-ui-primary-text: var(--lcars-text-dark)
+  lcars-ui-primary-text: var(--lcars-text-light)
   lcars-ui-secondary: var(--lcars-silver)
-  lcars-ui-secondary-text: var(--lcars-text-gray)
+  lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: var(--lcars-scarlet)
   lcars-ui-quaternary: var(--lcars-gray)
-  lcars-ui-quaternary-text: var(--lcars-text-gray)
+  lcars-ui-quaternary-text: var(--lcars-text-light)
   lcars-ui-accent-color: var(--lcars-orange)
   lcars-background-color: "#000000"
   lcars-ui-text-heading: var(--lcars-text-gray)
@@ -2992,7 +2989,7 @@ LCARS Red Alert:
   lcars-ui-config-icon: var(--lcars-ui-config-button)
   # Sidebar
   lcars-sidebar-item-color: var(--lcars-ui-secondary)
-  lcars-sidebar-text: var(--lcars-text-dark)
+  lcars-sidebar-text: var(--lcars-ui-secondary-text)
   lcars-sidebar-icon-color: var(--lcars-ui-secondary)
   lcars-sidebar-icon-background: var(--lcars-card-top-color)
   lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
@@ -3021,10 +3018,10 @@ LCARS TNG:
   lcars-ui-primary: "#f5deb3"
   lcars-ui-primary-text: var(--lcars-text-dark)
   lcars-ui-secondary: "#ffcc66"
-  lcars-ui-secondary-text: var(--lcars-text-gray)
+  lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: "#cc99cc"
   lcars-ui-quaternary: var(--lcars-galaxy)
-  lcars-ui-quaternary-text: var(--lcars-text-gray)
+  lcars-ui-quaternary-text: var(--lcars-text-light)
   lcars-ui-accent-color: var(--lcars-orange)
   lcars-background-color: "#000000"
   lcars-ui-text-heading: var(--lcars-text-gray)
@@ -3036,7 +3033,7 @@ LCARS TNG:
   lcars-ui-config-icon: var(--lcars-ui-config-button)
   # Sidebar
   lcars-sidebar-item-color: var(--lcars-ui-secondary)
-  lcars-sidebar-text: var(--lcars-text-dark)
+  lcars-sidebar-text: var(--lcars-ui-secondary-text)
   lcars-sidebar-icon-color: var(--lcars-text-dark)
   lcars-sidebar-icon-background: var(--lcars-card-top-color)
   lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
@@ -3065,10 +3062,10 @@ LCARS TNGbuttons:
   lcars-ui-primary: "#F5cd9f"
   lcars-ui-primary-text: var(--lcars-text-dark)
   lcars-ui-secondary: "#ffcc66"
-  lcars-ui-secondary-text: var(--lcars-text-gray)
+  lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: "#cc99cc"
   lcars-ui-quaternary: var(--lcars-galaxy)
-  lcars-ui-quaternary-text: var(--lcars-text-gray)
+  lcars-ui-quaternary-text: var(--lcars-text-light)
   lcars-ui-accent-color: var(--lcars-orange)
   lcars-background-color: "#000000"
   lcars-ui-text-heading: var(--lcars-text-gray)
@@ -3080,7 +3077,7 @@ LCARS TNGbuttons:
   lcars-ui-config-icon: var(--lcars-ui-config-button)
   # Sidebar
   lcars-sidebar-item-color: var(--lcars-ui-secondary)
-  lcars-sidebar-text: var(--lcars-text-dark)
+  lcars-sidebar-text: var(--lcars-ui-secondary-text)
   lcars-sidebar-icon-color: var(--lcars-text-dark)
   lcars-sidebar-icon-background: var(--lcars-card-top-color)
   lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
@@ -3107,12 +3104,12 @@ LCARS Transporter:
   <<: *card-mod-css
   # UI Colors
   lcars-ui-primary: var(--lcars-navy-gray)
-  lcars-ui-primary-text: var(--lcars-text-dark)
+  lcars-ui-primary-text: var(--lcars-text-light)
   lcars-ui-secondary: var(--lcars-slate-gray)
-  lcars-ui-secondary-text: var(--lcars-text-gray)
+  lcars-ui-secondary-text: var(--lcars-text-light)
   lcars-ui-tertiary: var(--lcars-coral)
   lcars-ui-quaternary: var(--lcars-navy-gray)
-  lcars-ui-quaternary-text: var(--lcars-text-gray)
+  lcars-ui-quaternary-text: var(--lcars-text-light)
   lcars-ui-accent-color: var(--lcars-orange)
   lcars-background-color: "#000000"
   lcars-ui-text-heading: var(--lcars-text-gray)
@@ -3124,7 +3121,7 @@ LCARS Transporter:
   lcars-ui-config-icon: var(--lcars-ui-config-button)
   # Sidebar
   lcars-sidebar-item-color: var(--lcars-ui-secondary)
-  lcars-sidebar-text: var(--lcars-text-dark)
+  lcars-sidebar-text: var(--lcars-ui-secondary-text)
   lcars-sidebar-icon-color: var(--lcars-light-gray)
   lcars-sidebar-icon-background: var(--lcars-card-top-color)
   lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
@@ -3153,10 +3150,10 @@ LCARS Navigation:
   lcars-ui-primary: var(--lcars-olive)
   lcars-ui-primary-text: var(--lcars-text-dark)
   lcars-ui-secondary: var(--lcars-sand)
-  lcars-ui-secondary-text: var(--lcars-text-gray)
+  lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: var(--lcars-lemon)
   lcars-ui-quaternary: var(--lcars-olive)
-  lcars-ui-quaternary-text: var(--lcars-text-gray)
+  lcars-ui-quaternary-text: var(--lcars-text-dark)
   lcars-ui-accent-color: var(--lcars-orange)
   lcars-background-color: "#000000"
   lcars-ui-text-heading: var(--lcars-text-gray)
@@ -3168,7 +3165,7 @@ LCARS Navigation:
   lcars-ui-config-icon: var(--lcars-ui-config-button)
   # Sidebar
   lcars-sidebar-item-color: var(--lcars-ui-secondary)
-  lcars-sidebar-text: var(--lcars-text-dark)
+  lcars-sidebar-text: var(--lcars-ui-secondary-text)
   lcars-sidebar-icon-color: var(--lcars-ui-secondary)
   lcars-sidebar-icon-background: var(--lcars-card-top-color)
   lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
@@ -3195,12 +3192,12 @@ LCARS 25C:
   <<: *card-mod-css
   # UI Colors
   lcars-ui-primary: var(--lcars-primary-gray)
-  lcars-ui-primary-text: var(--lcars-text-dark)
+  lcars-ui-primary-text: var(--lcars-text-light)
   lcars-ui-secondary: var(--lcars-medium-gray)
-  lcars-ui-secondary-text: var(--lcars-text-gray)
+  lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: var(--lcars-alt-orange)
   lcars-ui-quaternary: var(--lcars-primary-gray)
-  lcars-ui-quaternary-text: var(--lcars-text-gray)
+  lcars-ui-quaternary-text: var(--lcars-text-light)
   lcars-ui-accent-color: var(--lcars-orange)
   lcars-background-color: "#000000"
   lcars-ui-text-heading: var(--lcars-text-gray)
@@ -3212,7 +3209,7 @@ LCARS 25C:
   lcars-ui-config-icon: var(--lcars-ui-config-button)
   # Sidebar
   lcars-sidebar-item-color: var(--lcars-ui-secondary)
-  lcars-sidebar-text: var(--lcars-text-dark)
+  lcars-sidebar-text: var(--lcars-ui-secondary-text)
   lcars-sidebar-icon-color: var(--lcars-ui-secondary)
   lcars-sidebar-icon-background: var(--lcars-card-top-color)
   lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
@@ -3241,12 +3238,12 @@ LCARS 25C (Red Alert):
   <<: *card-mod-css
   # UI Colors
   lcars-ui-primary: var(--lcars-alert-color)
-  lcars-ui-primary-text: var(--lcars-text-dark)
+  lcars-ui-primary-text: var(--lcars-text-light)
   lcars-ui-secondary: var(--lcars-alert-white)
-  lcars-ui-secondary-text: var(--lcars-text-gray)
+  lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: var(--lcars-alert-color)
   lcars-ui-quaternary: var(--lcars-alert-color)
-  lcars-ui-quaternary-text: var(--lcars-text-gray)
+  lcars-ui-quaternary-text: var(--lcars-text-light)
   lcars-ui-accent-color: var(--lcars-orange)
   lcars-background-color: "#000000"
   lcars-alert-color: var(--lcars-alert-red)
@@ -3259,7 +3256,7 @@ LCARS 25C (Red Alert):
   lcars-ui-config-icon: var(--lcars-ui-config-button)
   # Sidebar
   lcars-sidebar-item-color: var(--lcars-ui-secondary)
-  lcars-sidebar-text: var(--lcars-text-dark)
+  lcars-sidebar-text: var(--lcars-ui-secondary-text)
   lcars-sidebar-icon-color: var(--lcars-ui-secondary)
   lcars-sidebar-icon-background: var(--lcars-card-top-color)
   lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
@@ -3288,10 +3285,10 @@ LCARS 25C (Yellow Alert):
   lcars-ui-primary: var(--lcars-alert-color)
   lcars-ui-primary-text: var(--lcars-text-dark)
   lcars-ui-secondary: var(--lcars-alert-white)
-  lcars-ui-secondary-text: var(--lcars-text-gray)
+  lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: var(--lcars-alert-color)
   lcars-ui-quaternary: var(--lcars-gray)
-  lcars-ui-quaternary-text: var(--lcars-text-gray)
+  lcars-ui-quaternary-text: var(--lcars-text-light)
   lcars-ui-accent-color: var(--lcars-orange)
   lcars-background-color: "#000000"
   lcars-alert-color: var(--lcars-alert-yellow)
@@ -3304,7 +3301,7 @@ LCARS 25C (Yellow Alert):
   lcars-ui-config-icon: var(--lcars-ui-config-button)
   # Sidebar
   lcars-sidebar-item-color: var(--lcars-ui-secondary)
-  lcars-sidebar-text: var(--lcars-text-dark)
+  lcars-sidebar-text: var(--lcars-ui-secondary-text)
   lcars-sidebar-icon-color: var(--lcars-ui-secondary)
   lcars-sidebar-icon-background: var(--lcars-card-top-color)
   lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
@@ -3331,12 +3328,12 @@ LCARS 25C (Blue Alert):
   <<: *card-mod-css
   # UI Colors
   lcars-ui-primary: var(--lcars-alert-color)
-  lcars-ui-primary-text: var(--lcars-text-dark)
+  lcars-ui-primary-text: var(--lcars-text-light)
   lcars-ui-secondary: var(--lcars-alert-white)
-  lcars-ui-secondary-text: var(--lcars-text-gray)
+  lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: var(--lcars-alert-color)
   lcars-ui-quaternary: var(--lcars-alert-color)
-  lcars-ui-quaternary-text: var(--lcars-text-gray)
+  lcars-ui-quaternary-text: var(--lcars-text-light)
   lcars-ui-accent-color: var(--lcars-orange)
   lcars-background-color: "#000000"
   lcars-alert-color: var(--lcars-alert-blue)
@@ -3349,7 +3346,7 @@ LCARS 25C (Blue Alert):
   lcars-ui-config-icon: var(--lcars-ui-config-button)
   # Sidebar
   lcars-sidebar-item-color: var(--lcars-ui-secondary)
-  lcars-sidebar-text: var(--lcars-text-dark)
+  lcars-sidebar-text: var(--lcars-ui-secondary-text)
   lcars-sidebar-icon-color: var(--lcars-ui-secondary)
   lcars-sidebar-icon-background: var(--lcars-card-top-color)
   lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
@@ -3378,10 +3375,10 @@ LCARS Breen:
   lcars-ui-primary: var(--lcars-green-primary)
   lcars-ui-primary-text: var(--lcars-text-dark)
   lcars-ui-secondary: var(--lcars-green-secondary)
-  lcars-ui-secondary-text: var(--lcars-text-gray)
+  lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: var(--lcars-green-tertiary)
   lcars-ui-quaternary: var(--lcars-gray)
-  lcars-ui-quaternary-text: var(--lcars-text-gray)
+  lcars-ui-quaternary-text: var(--lcars-text-light)
   lcars-ui-accent-color: var(--lcars-orange)
   lcars-background-color: "#000000"
   lcars-ui-text-heading: var(--lcars-text-gray)
@@ -3393,7 +3390,7 @@ LCARS Breen:
   lcars-ui-config-icon: var(--lcars-ui-config-button)
   # Sidebar
   lcars-sidebar-item-color: var(--lcars-ui-secondary)
-  lcars-sidebar-text: var(--lcars-text-dark)
+  lcars-sidebar-text: var(--lcars-ui-secondary-text)
   lcars-sidebar-icon-color: var(--lcars-text-dark)
   lcars-sidebar-icon-background: var(--lcars-card-top-color)
   lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)

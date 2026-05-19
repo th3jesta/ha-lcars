@@ -10,13 +10,13 @@ lcars-ui-primary-text: var(--lcars-text-dark)
 # ha-card-background; default for lcars-ui-config-button
 lcars-ui-secondary: var(--lcars-african-violet)
 # ha-card-header-color, primary-text-color, secondary-text-color, mdc text-on-background
-lcars-ui-secondary-text: var(--lcars-text-gray)
+lcars-ui-secondary-text: var(--lcars-text-dark)
 # md-slider-active-track-color; default for lcars-ui-app-header-clock
 lcars-ui-tertiary: var(--lcars-red)
 # secondary-background-color (card-background-color, listbox); mdc-text-field-fill-color
 lcars-ui-quaternary: var(--lcars-gray)
 # mdc-text-field-label-ink-color, mdc-text-field-ink-color
-lcars-ui-quaternary-text: var(--lcars-text-gray)
+lcars-ui-quaternary-text: var(--lcars-text-light)
 # accent-color: notification badges, history graph fills, media seek slider, dashboard edit icons
 lcars-ui-accent-color: var(--lcars-orange)
 # primary-background-color; card interior and cutout borders throughout card-mod CSS
@@ -38,7 +38,7 @@ lcars-ui-config-icon: var(--lcars-ui-config-button)
 # nav item bar background color
 lcars-sidebar-item-color: var(--lcars-ui-secondary)
 # nav item label text color
-lcars-sidebar-text: var(--lcars-text-dark)
+lcars-sidebar-text: var(--lcars-ui-secondary-text)
 # icon glyph color (sidebar-icon-color in &base; card-mod CSS for expanded state)
 lcars-sidebar-icon-color: var(--lcars-ui-secondary)
 # icon column background (expanded) and user item background

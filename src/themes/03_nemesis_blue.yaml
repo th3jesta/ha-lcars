@@ -1,6 +1,7 @@
 name: LCARS Nemesis Blue
 
 lcars-ui-primary: var(--lcars-evening)
+lcars-ui-primary-text: var(--lcars-text-light)
 lcars-ui-secondary: var(--lcars-wheat)
 lcars-ui-tertiary: var(--lcars-pumpkinshade)
 lcars-ui-quaternary: var(--lcars-galaxy)

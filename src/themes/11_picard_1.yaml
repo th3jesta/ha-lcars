@@ -2,6 +2,7 @@ name: LCARS Picard I
 
 lcars-ui-primary: var(--lcars-hellgrau)
 lcars-ui-secondary: var(--lcars-mittelgrau)
+lcars-ui-secondary-text: var(--lcars-text-dark)
 lcars-ui-tertiary: var(--lcars-feuerrot)
 lcars-ui-quaternary: var(--lcars-mittelgrau)
 

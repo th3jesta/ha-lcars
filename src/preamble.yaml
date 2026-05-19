@@ -200,10 +200,10 @@
   # Sidebar Menu
   sidebar-background-color: var(--lcars-ui-primary)
   sidebar-menu-button-background-color: var(--sidebar-background-color)
-  sidebar-icon-color: var(--lcars-ui-primary-text)
-  sidebar-text-color: var(--lcars-ui-primary-text)
-  sidebar-selected-icon-color: var(--lcars-ui-primary-text)
-  sidebar-menu-button-text-color: var(--lcars-ui-primary-text)
+  sidebar-icon-color: var(--lcars-sidebar-text)
+  sidebar-text-color: var(--lcars-sidebar-text)
+  sidebar-selected-icon-color: var(--lcars-sidebar-text)
+  sidebar-menu-button-text-color: var(--lcars-sidebar-text)
   # States and Badges
   state-icon-color: var(--lcars-text-light)
   # Sliders
@@ -2143,17 +2143,13 @@
         --ha-md-list-item-gap: 0px;
       }
 
-    ha-md-list$: |
-      :host {
-        --menu-font-size: {{ states('input_number.lcars_menu_font') if has_value('input_number.lcars_menu_font') else 24 }}px !important;
-      }
-
     .: |
       :host {
         content: "";
         border-right: 0px !important;
         border-top-left-radius: 80px;
         box-shadow: black 0px -130px 0px 0px;
+        --menu-font-size: {{ states('input_number.lcars_menu_font') if has_value('input_number.lcars_menu_font') else 24 }}px;
       }
       .title {
         display: none !important;
@@ -2218,7 +2214,7 @@
           background-color: var(--lcars-background-color);
           border-radius: 0px;
           height: 100%;
-          font-size: 38px; 
+          font-size: 38px;
           line-height: 1;
           min-width: 46px;
           border-top: 0px solid var(--lcars-background-color);
@@ -2226,6 +2222,7 @@
           padding: 0 0 0 0;
           margin: 0px;
           text-align: center;
+          transition: font-size 0.2s ease;
         }      
       
         &.configuration {
