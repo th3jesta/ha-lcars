@@ -19,6 +19,8 @@ lcars-ui-quaternary: var(--lcars-gray)
 lcars-ui-quaternary-text: var(--lcars-text-light)
 # accent-color: notification badges, history graph fills, media seek slider, dashboard edit icons
 lcars-ui-accent-color: var(--lcars-orange)
+# any text over the accent-color background, such as notification badge text and dashboard edit icon text
+lcars-ui-accent-text: var(--lcars-text-dark)
 # primary-background-color; card interior and cutout borders throughout card-mod CSS
 lcars-background-color: "#000000"
 

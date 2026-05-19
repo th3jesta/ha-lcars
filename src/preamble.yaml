@@ -185,6 +185,7 @@
   secondary-background-color: var(--lcars-ui-quaternary)
   divider-color: transparent
   accent-color: var(--lcars-ui-accent-color)
+  text-accent-color: var(--lcars-ui-accent-text)
   box-sizing: unset !important
   # Fonts
   font-family: "var(--lcars-font), var(--lcars-fallback-font), Segoe UI Variable Static Text, Segoe UI, SegoeUI, -apple-system,BlinkMacSystemFont, system-ui, sans-serif"
