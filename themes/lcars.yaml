@@ -330,11 +330,7 @@
         --paper-item-icon-color: var(--lcars-dark-gray);
       }
       :host, :host > ha-card {
-        --lcars-horizontal-border: {{ states('input_number.lcars_horizontal') if has_value('input_number.lcars_horizontal') else 10 }}px !important;
-        --lcars-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
-        --lcars-middle-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
-        --menu-font-size: {{ states('input_number.lcars_menu_font') if has_value('input_number.lcars_menu_font') else 24 }}px !important;
-        &:not(.type-undefined,.type-custom-grid-layout) {
+          &:not(.type-undefined,.type-custom-grid-layout) {
           height: 100%;
         }
         
@@ -462,6 +458,10 @@
           > .name {
           --primary-text-color: var(--lcars-text-gray);
           }
+        }
+        /* entities card border */
+        div#states {
+          padding: 0px;
         }
       }
       > ha-markdown,
@@ -684,6 +684,11 @@
       /* :host and ha-card because nesting a card in     */
       /* stacks, layout-card, etc will affect where the  */
       /* class is applied.                               */
+      /* Notes:                                                               */
+      /* - #aspect-ratio handles custom:button-card                           */
+      /* - ha-card#container increases specificity for big-slider-card        */
+      /* - &:is(ha-card) selects cases when card-mod applies class to ha-card */
+      /*   while also allowing `> ha-card` to continue                        */
 
       :host(.button-lozenge-left),
       :host(.button-lozenge-right),
@@ -709,55 +714,90 @@
       ) {
 
         > ha-card, 
+        > ha-card#container, 
         > #aspect-ratio > ha-card,
         &:is(ha-card) {
         
           min-height: 60px;
-          display: flex;
-          align-items: flex-end;
-          flex-direction: column-reverse;
           border-radius: 0px;
           padding-block: 0px;
 
-          > ha-state-icon {
-            --mdc-icon-size: unset;
-            background-color: var(--lcars-card-top-color);
-            position: absolute;
-            left: 0;
-            width: var(--lcars-vertical-border);
-            height: 100% !important;
-            max-height: 100% !important;
-            border-right: var(--lcars-background-color) solid 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
-          
-          > span {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-end;
-            margin-top: unset;
-            padding: 6px;
-          }
-          
-          > span.state {
-            align-items: center;
-            color: var(--lcars-text-dark);
+          /* In button cards, the grid is the ha-card. In custom:button-cards */
+          /* the grid is the div#container.                                   */
+          &:not(:has(div#container)),
+          > div#container {
+            display: grid;
+            grid-template-columns: calc(var(--lcars-vertical-border) + 6px) 1fr;
+            grid-template-rows: 20px 20px 20px;
+            grid-template-areas:
+              'i l'
+              'i s'
+              'i n';
+
+            > ha-state-icon,
+            > div#img-cell {
+              grid-area: i;
+              --mdc-icon-size: unset;
+              background-color: var(--lcars-card-top-color);
+              border-right: 6px solid var(--lcars-background-color);
+              box-sizing: border-box;
+              width: 100%;
+              height: 100%;
+              max-height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              > ha-state-icon#icon {
+                --mdc-icon-size: unset;
+                align-content: center;
+              }
+            }
+            
+            > span,
+            > div#content,
+            > div#name {
+              grid-area: n;
+              justify-self: flex-end;
+              justify-content: flex-end;
+              margin-top: unset;
+              padding: 6px;
+              color: var(--lcars-card-button-text);
+            }
+            
+            > span.state,
+            > div#state {
+              grid-area: s;
+              align-items: center;
+              align-content: center;
+              justify-self: flex-end;
+              justify-content: flex-end;
+              padding-inline: 6px;
+              color: var(--lcars-card-button-text);
+            }
+            
+            > div#label {
+              grid-area: l;
+              align-items: center;
+              justify-self: flex-end;
+              justify-content: flex-end;
+              padding-inline: 6px;
+              color: var(--lcars-card-button-text);
+            }
           }
 
           /* Big Slider Card */
           &:is(#container) {
+            > ha-state-icon#icon {
+              position: unset;
+            }
+            > div#content > p.label {
+              margin-block: 0px;
+            }
             > #slider {
               right: 0;
               left: calc(var(--lcars-vertical-border) + 6px);
               background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
-            }
-            > #content {
-              padding-left: calc(var(--lcars-vertical-border) + 18px);
-              justify-content: right;
             }
           }
         }
@@ -781,20 +821,31 @@
         > ha-card, 
         > #aspect-ratio > ha-card,
         &:is(ha-card) {
-
-          align-items: flex-start;
-
-          > ha-state-icon {
-            left: auto;
-            right: 0;
-            border-right: 0px;
-            border-left: var(--lcars-background-color) solid 6px;
-          }
+          /* In button cards, the grid is the ha-card. In custom:button-cards */
+          /* the grid is the div#container.                                   */
+          &:not(:has(div#container)),
+          > div#container {
+            grid-template-columns: 1fr calc(var(--lcars-vertical-border) + 6px);
+            grid-template-rows: 20px 20px 20px;
+            grid-template-areas:
+              'l i'
+              's i'
+              'n i';
+            
+            > ha-state-icon,
+            > div#img-cell {
+              border-right: 0px;
+              border-left: var(--lcars-background-color) solid 6px;
+            }
           
-          > span {
-            justify-content: flex-start;
-            left: var(--lcars-vertical-border);
-            padding-inline: 6px;
+            > span,
+            > div#content,
+            > div#state,
+            > div#name,
+            > div#label {
+              justify-self: flex-start;
+              justify-content: flex-start;
+            }
           }
           
           /* Big Slider Card */
@@ -803,11 +854,6 @@
               right: calc(var(--lcars-vertical-border) + 6px);
               left: 0;
               background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
-            }
-            > #content {
-              padding-left: var(--ha-card-border-radius);
-              padding-right: 0px;
-              justify-content: left;
             }
           }
         }
@@ -872,8 +918,18 @@
         > ha-card, 
         > #aspect-ratio > ha-card,
         &:is(ha-card) {
-          > span {
-            padding-right: var(--ha-card-border-radius);
+          /* In button cards, the grid is the ha-card. In custom:button-cards */
+          /* the grid is the div#container.                                   */
+          &:not(:has(div#container)),
+          > div#container {
+            > span,
+            > span.state,
+            > div#content,
+            > div#state,
+            > div#name,
+            > div#label {
+              padding-right: var(--ha-card-border-radius);
+            }
           }
         }
       }
@@ -887,8 +943,18 @@
         > ha-card, 
         > #aspect-ratio > ha-card,
         &:is(ha-card) {
-          > span {
-            padding-left: var(--ha-card-border-radius);
+          /* In button cards, the grid is the ha-card. In custom:button-cards */
+          /* the grid is the div#container.                                   */
+          &:not(:has(div#container)),
+          > div#container {
+            > span,
+            > span.state,
+            > div#content,
+            > div#state,
+            > div#name,
+            > div#label {
+              padding-left: var(--ha-card-border-radius);
+            }
           }
         }
       }
@@ -907,33 +973,44 @@
         > #aspect-ratio > ha-card,
         &:is(ha-card) {
 
-          line-height: 60px;
-          font-size: 60px;
-          padding-left: var(--lcars-vertical-border);
-          flex-direction: row;
-          justify-content: space-between;
+          line-height: 1;
 
-          > span {
-            width: fit-content;
-            padding: 0px;
+          /* In button cards, the grid is the ha-card. In custom:button-cards */
+          /* the grid is the div#container.                                   */
+          &:not(:has(div#container)),
+          > div#container {
+            grid-template-columns: calc(var(--lcars-vertical-border) + 6px) min-content 1fr;
+            grid-template-rows: 20px 20px 20px;
+            grid-template-areas:
+              'i n blank'
+              'i n s'
+              'i n l';
 
-            &:is(.state) {
+            > span.state,
+            > div#state,
+            > div#label {
               padding-right: var(--ha-card-border-radius);
-              height: 100%;
             }
 
-            &:not(.state) { 
-              color: var(--lcars-text-light);
+            > span,
+            > div#name {
+              padding: 0px;
               height: 100%;
-              background-color: var(--lcars-background-color);
-              padding-inline: 6px;
-              padding-bottom: 0.05em;
-              margin-top: -0.5em;
+              white-space: nowrap;
+
+              &:is(span):not(.state),
+              &:is(div) { 
+                font-size: 60px;
+                color: var(--lcars-text-light);
+                background-color: var(--lcars-background-color);
+                padding-inline: 6px; 
+                padding-bottom: 0.1em;
+              }
             }
-          }
-          
-          > ha-state-icon {
-            font-size: 0;
+            
+            > ha-state-icon {
+              font-size: 0;
+            }
           }
           
           /* Big Slider Card */
@@ -944,10 +1021,11 @@
               background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
             }
             > #content {
+              white-space: nowrap;
               position: relative;
+              top: -0.08em;
               padding-right: var(--ha-card-border-radius);
               padding-left: 18px;
-              padding-bottom: 0.1em;
               justify-content: left;
             }
           }
@@ -962,22 +1040,33 @@
         > #aspect-ratio > ha-card,
         &:is(ha-card) {
 
-          flex-direction: row-reverse;
-          padding-left: 0;
-          padding-right: var(--lcars-vertical-border);
+          /* In button cards, the grid is the ha-card. In custom:button-cards */
+          /* the grid is the div#container.                                   */
+          &:not(:has(div#container)),
+          > div#container {
+            grid-template-columns: 1fr min-content calc(var(--lcars-vertical-border) + 6px);
+            grid-template-rows: 20px 20px 20px;
+            grid-template-areas:
+              'blank n i'
+              's n i'
+              'l n i';
 
-          > span:is(.state) {
-              padding-left: var(--ha-card-border-radius);
-              padding-right: 0;
+            > span.state,
+            > div#state,
+            > div#label {
+                padding-left: var(--ha-card-border-radius);
+                padding-right: 0;
+                justify-content: flex-start;
+                justify-self: flex-start;
+            }
+
+            > ha-state-icon,
+            > div#img-cell {
+              border-right: 0px;
+              border-left: var(--lcars-background-color) solid 6px;
+            }
           }
-
-          > ha-state-icon {
-            left: auto;
-            right: 0;
-            border-right: 0px;
-            border-left: var(--lcars-background-color) solid 6px;
-          }
-
+          
           /* Big Slider Card */
           &:is(#container) {
             > #slider {
@@ -992,7 +1081,6 @@
             }
           }
         }
-        
       }
 
 
@@ -1161,7 +1249,8 @@
       }
 
       /* ----------- To-Do List Card ------------------- */
-      :host(.type-todo-list) {
+      :host(.type-todo-list),
+      ha-card:is(.type-todo-list) {
         --card-background-color: transparent !important;
         --ha-card-border-radius: 0px !important;
         --active-color: var(--lcars-card-mid-left-color);
@@ -1170,115 +1259,133 @@
         --completed-text-color: var(--lcars-gray);
         --list-border-left: 0px;
         --list-border-right: 0px;
+
+        > ha-card, &:is(ha-card) {
+          div.addRow {
+            background-color: var(--lcars-card-bottom-color);
+            --mdc-text-field-fill-color: var(--lcars-card-bottom-color);
+            color: var(--lcars-card-bottom-text);
+            --mdc-text-field-ink-color: var(--lcars-card-bottom-text);
+            --mdc-text-field-label-ink-color: var(--lcars-card-bottom-text);
+            caret-color: currentColor;
+            border-top-left-radius: var(--list-border-left);
+            border-top-right-radius: var(--list-border-right);
+            border-bottom-left-radius: var(--list-border-left);
+            border-bottom-right-radius: var(--list-border-right);
+            margin-block: 5px;
+            padding: 5px max(15px, var(--list-border-right)) 5px max(15px, var(--list-border-left));
+            height: 50px;
+          }
+          ha-sortable > ha-list {
+            .header {
+              background-color: var(--lcars-card-top-color);
+              color: var(--lcars-card-top-text);
+              --primary-text-color: var(--lcars-card-top-text);
+              border-top-left-radius: var(--list-border-left);
+              border-top-right-radius: var(--list-border-right);
+              border-bottom-left-radius: var(--list-border-left);
+              border-bottom-right-radius: var(--list-border-right);
+              margin-block: 5px;
+              height: 60px;
+              padding: 0px max(15px, var(--list-border-right)) 0px max(15px, var(--list-border-left));
+              font-size: 1.2rem;
+
+              h2 {
+                padding-bottom: 0.15em;
+              }
+            }
+            
+            ha-check-list-item {
+              --check-border-right: 5px;
+              --check-border-left: 0px;
+              --flex-left: 1;
+
+              background-color: var(--active-color);
+              color: var(--active-text-color);
+              text-transform: uppercase;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              border-top-left-radius: var(--list-border-left);
+              border-top-right-radius: var(--list-border-right);
+              border-bottom-left-radius: var(--list-border-left);
+              border-bottom-right-radius: var(--list-border-right);
+              margin: 5px;
+              padding: 0px;
+              height: 60px;
+            }
+            ha-check-list-item.completed {
+              background-color: var(--completed-color);
+              color: var(--completed-text-color);
+            }
+            ha-check-list-item.completed ha-svg-icon {
+              background-color: var(--completed-text-color);
+            }
+            ha-check-list-item .mdc-checkbox {
+              background-color: red;
+              opacity: 1;
+              position: absolute;
+            }
+            .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~
+            .mdc-checkbox__background, .mdc-checkbox
+            .mdc-checkbox__native-control:enabled:indeterminate ~
+            .mdc-checkbox__background, .mdc-checkbox
+            .mdc-checkbox__native-control[data-indeterminate="true"]:enabled ~
+            .mdc-checkbox__background {
+              border-color: var(--lcars-background-color);
+              background-color: var(--lcars-background-color);
+            }
+            ha-check-list-item .summary {
+              font-size: 1.2rem;
+              position: absolute;
+              right: max(8px, var(--list-border-right));
+              bottom: 8px;
+            }
+          }
+        }
       }
       :host(.list-lozenge-left),
       :host(.list-lozenge-right),
       :host(.list-bullet-right),
-      :host(.list-capped-left) {
+      :host(.list-capped-left),
+      ha-card:is(.list-lozenge-left),
+      ha-card:is(.list-lozenge-right),
+      ha-card:is(.list-bullet-right),
+      ha-card:is(.list-capped-left) {
         --list-border-left: 30px;
         --left-border: 1;
       }
       :host(.list-lozenge-left),
       :host(.list-lozenge-right),
       :host(.list-bullet-left),
-      :host(.list-capped-right) {
+      :host(.list-capped-right),
+      ha-card:is(.list-lozenge-left),
+      ha-card:is(.list-lozenge-right),
+      ha-card:is(.list-bullet-left),
+      ha-card:is(.list-capped-right) {
         --list-border-right: 30px;
         --right-border: 1;
-      }
-      :host(.type-todo-list) > ha-card {
-        div.addRow {
-          background-color: var(--lcars-card-bottom-color);
-          --mdc-text-field-fill-color: var(--lcars-card-bottom-color);
-          color: var(--lcars-card-bottom-text);
-          --mdc-text-field-ink-color: var(--lcars-card-bottom-text);
-          border-top-left-radius: var(--list-border-left);
-          border-top-right-radius: var(--list-border-right);
-          border-bottom-left-radius: var(--list-border-left);
-          border-bottom-right-radius: var(--list-border-right);
-          margin-block: 5px;
-          padding: 5px max(15px, var(--list-border-right)) 5px max(15px, var(--list-border-left));
-          height: 50px;
-        }
-        ha-sortable > ha-list {
-          .header {
-            background-color: var(--lcars-card-top-color);
-            color: var(--lcars-card-top-text);
-            border-top-left-radius: var(--list-border-left);
-            border-top-right-radius: var(--list-border-right);
-            border-bottom-left-radius: var(--list-border-left);
-            border-bottom-right-radius: var(--list-border-right);
-            margin-block: 5px;
-            height: 60px;
-            padding: 0px max(15px, var(--list-border-right)) 0px max(15px, var(--list-border-left));
-            font-size: 1.2rem;
-
-            h2 {
-              padding-bottom: 0.15em;
-            }
-          }
-          
-          ha-check-list-item {
-            --check-border-right: 5px;
-            --check-border-left: 0px;
-            --flex-left: 1;
-
-            background-color: var(--active-color);
-            color: var(--active-text-color);
-            text-transform: uppercase;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            border-top-left-radius: var(--list-border-left);
-            border-top-right-radius: var(--list-border-right);
-            border-bottom-left-radius: var(--list-border-left);
-            border-bottom-right-radius: var(--list-border-right);
-            margin: 5px;
-            padding: 0px;
-            height: 60px;
-          }
-          ha-check-list-item.completed {
-            background-color: var(--completed-color);
-            color: var(--completed-text-color);
-          }
-          ha-check-list-item.completed ha-svg-icon {
-            background-color: var(--completed-text-color);
-          }
-          ha-check-list-item .mdc-checkbox {
-            background-color: red;
-            opacity: 1;
-            position: absolute;
-          }
-          .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~
-          .mdc-checkbox__background, .mdc-checkbox
-          .mdc-checkbox__native-control:enabled:indeterminate ~
-          .mdc-checkbox__background, .mdc-checkbox
-          .mdc-checkbox__native-control[data-indeterminate="true"]:enabled ~
-          .mdc-checkbox__background {
-            border-color: var(--lcars-background-color);
-            background-color: var(--lcars-background-color);
-          }
-          ha-check-list-item .summary {
-            font-size: 1.2rem;
-            position: absolute;
-            right: max(8px, var(--list-border-right));
-            bottom: 8px;
-          }
-        }
       }
       :host(.list-lozenge-right),
       :host(.list-bullet-right),
       :host(.list-capped-right),
-      :host(.list-barrel-right) {
-        & > ha-card > ha-sortable > ha-list > ha-check-list-item {
-          flex-direction: row-reverse;
-          --check-border-left: 5px;
-          --check-border-right: 0px;
-          --flex-left: 0;
-          --flex-right: 1;
+      :host(.list-barrel-right),
+      ha-card:is(.list-lozenge-right),
+      ha-card:is(.list-bullet-right),
+      ha-card:is(.list-capped-right),
+      ha-card:is(.list-barrel-right) {
+        & > ha-card, &:is(ha-card) {
+          > ha-sortable > ha-list > ha-check-list-item {
+            flex-direction: row-reverse;
+            --check-border-left: 5px;
+            --check-border-right: 0px;
+            --flex-left: 0;
+            --flex-right: 1;
 
-          .summary {
-            right: unset;
-            left: max(8px, var(--list-border-left));
+            .summary {
+              right: unset;
+              left: max(8px, var(--list-border-left));
+            }
           }
         }
       }
@@ -1329,7 +1436,78 @@
             padding-right: calc( 5px * var(--left-shift) );
           }
         }
+    "div#states":
+      "div":
+        "hui-sensor-entity-row:is(.entity-lozenge-left,.entity-capped-left,.entity-bullet-left,.entity-barrel-left,.entity-lozenge-right,.entity-capped-right,.entity-bullet-right,.entity-barrel-right) $": 
+          .: |
+            :host(.entity-lozenge-left),
+            :host(.entity-lozenge-right),
+            :host(.entity-capped-left),
+            :host(.entity-bullet-right) {
+              --lcars-left-radius: 1;
+            }
+            :host(.entity-lozenge-left),
+            :host(.entity-lozenge-right),
+            :host(.entity-capped-right),
+            :host(.entity-bullet-left) {
+              --lcars-right-radius: 1;
+            }
+            :host(.entity-lozenge-right),
+            :host(.entity-capped-right),
+            :host(.entity-bullet-right),
+            :host(.entity-barrel-right) {
+              --lcars-flex-right: 1;
+              --lcars-flex-left: 0;
+              --lcars-direction: rtl;
+            }
+            :host(.entity-lozenge-left),
+            :host(.entity-capped-left),
+            :host(.entity-bullet-left),
+            :host(.entity-barrel-left) {
+              --lcars-flex-right: 0;
+              --lcars-flex-left: 1;
+              --lcars-direction: ltr;
+            }
+            :host(.no-icon) {
+              --lcars-hide-icon: 0;
+            }
+          "hui-generic-entity-row $": |
+            div.row {
+              background: var(--lcars-card-top-color);
+              color: var(--lcars-card-top-text);
+              border-top-left-radius: calc(999px * var(--lcars-left-radius));
+              border-bottom-left-radius: calc(999px * var(--lcars-left-radius));
+              border-top-right-radius: calc(999px * var(--lcars-right-radius));
+              border-bottom-right-radius: calc(999px * var(--lcars-right-radius));
+              min-height: 60px;
+              direction: var(--lcars-direction, ltr);
 
+              state-badge { 
+                order: 1;
+
+              }
+              div.value {
+                order: 2;
+                background: var(--lcars-background-color);
+                color: var(--lcars-text-light);
+                min-height: 1.05em;
+                margin-top: -0.05em;
+                min-width: calc(var(--lcars-vertical-border) - 52px);
+                line-height: 1;
+                font-size: 60px;
+                padding-inline: 6px;
+                overflow: hidden;
+              }
+              div.info {
+                order: 3;
+                align-self: flex-end;
+                text-align: end;
+                padding-top: 0px;
+                padding-right: calc(6px + 19px * var(--lcars-right-radius,0) * var(--lcars-flex-left,0)); 
+                padding-bottom: 6px; 
+                padding-left: calc(6px + 19px * var(--lcars-left-radius,0) * var(--lcars-flex-right,0));
+              }
+            }
   # ===================================================== #
   #          TOOLBAR AND DASHBOARD MODIFICATIONS          #
   # ===================================================== #
@@ -1422,12 +1600,17 @@
         /* -------- Clock -------- */
         &::after {
           content: "{{ states('sensor.lcars_header') if has_value('sensor.lcars_header') else states('sensor.time') if has_value('sensor.time') else 'LCARS' }}";
+          background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/d2/UFP_Flag.png?_=20160720020639');
+          background-size: contain;
+          background-repeat: no-repeat;
+          padding: 0px 0px 0px 80px;
+
           color: var(--lcars-ui-app-header-clock);
           visibility: visible;
           font-size: var(--header-font-size);
           font-family: var(--font-family);
           margin: 0px -12px 0px 0px;
-          padding: 0px 0px 0px 0px;
+          
           background-color: var(--lcars-background-color);
           vertical-align: middle;
           height: var(--header-height);
@@ -1489,6 +1672,12 @@
       /*            VIEW AND PANEL SETTINGS              */
       /* =============================================== */
 
+      :host {
+        --lcars-horizontal-border: {{ states('input_number.lcars_horizontal') if has_value('input_number.lcars_horizontal') else 10 }}px;
+        --lcars-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px;
+        --lcars-middle-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px;
+        --menu-font-size: {{ states('input_number.lcars_menu_font') if has_value('input_number.lcars_menu_font') else 24 }}px;
+      }
       hui-view {
         container-type: inline-size;
         container-name: view-container;
@@ -1576,11 +1765,12 @@
       vertical-layout::before,
       horizontal-layout::before,
       grid-layout::before,
-      masonry-layout::before {
+      masonry-layout::before,
+      hui-sections-view::before {
         content: radial-gradient(ellipse farthest-corner at center center, white 0%, transparent 60%);
         width: 100%;
         height: 100%;
-        z-index: 9990;
+        z-index: 9998;
         position: fixed;
         mix-blend-mode: overlay;
         opacity: .8;
@@ -1590,14 +1780,15 @@
       vertical-layout::after,
       horizontal-layout::after,
       grid-layout::after,
-      masonry-layout::after {
+      masonry-layout::after,
+      hui-sections-view::after {
         content: "";
         background: url(data:image/png;base64,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);
         width: 100%;
         height: 100%;
         position: absolute;
         top: 0px;
-        z-index: 9991;
+        z-index: 9999;
         mix-blend-mode: overlay;
         opacity: .8;
         pointer-events: none;
@@ -1608,149 +1799,302 @@
   #                 CONFIG MODIFICATIONS                  #
   # ===================================================== #
   card-mod-config-yaml: &card-mod-config |
-    "* $":
-      .: |
-        /* ------- Inner Elbow --------- */
-        :host{
+    .: |
+      ha-panel-config{
+        &::before {
           @media screen and (min-width: 601px) {
-            &::before {
-              content: "";
-              position: fixed;
-              height: 40px;
-              width: 100px;
-              background-color: transparent;
-              border-top-left-radius: 40px;
-              box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
-              margin-top: 40px;
-              margin-left: 0px;
-              z-index: 3;
-              pointer-events: none;
-            }
+            content: "";
+            position: fixed;
+            height: 40px;
+            width: 100px;
+            background-color: transparent;
+            border-top-left-radius: 40px;
+            box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+            margin-top: 40px;
+            margin-left: 0px;
+            z-index: 3;
+            pointer-events: none;
           }
         }
-        /* -------- Font Settings -------- */
-        hass-subpage, hass-tabs-subpage {
-          --icon-primary-color: var(--sidebar-text-color);
-          --mdc-text-field-label-ink-color: var(--sidebar-text-color);
-          --mdc-text-field-ink-color: var(--sidebar-text-color);
-          font-family: var(--font-family);
-
-          ha-card {
-            overflow: hidden;
+        > ha-config-apps,
+        > ha-config-areas,
+        > ha-config-automation,
+        > ha-config-backup,
+        > ha-config-blueprint,
+        > ha-config-cloud,
+        > ha-config-dashboard,
+        > ha-config-devices,
+        > ha-config-entities,
+        > ha-config-helpers,
+        > ha-config-info
+        > ha-config-integrations,
+        > ha-config-labels,
+        > ha-config-logs,
+        > ha-config-lovelace,
+        > ha-config-person,
+        > ha-config-repairs-dashboard,
+        > ha-config-section-analytics,
+        > ha-config-section-updates,
+        > ha-config-scene,
+        > ha-config-script,
+        > ha-config-system-navigation,
+        > ha-config-tags,
+        > ha-config-users,
+        > ha-config-voice-assistants,
+        > ha-config-zone,
+        > ha-panel-developer-tools,
+        > zha-config-dashboard-router,
+        > zwave_js-config-router {
+          {% if not is_state('input_boolean.lcars_texture', 'off') %}
+          /* ----------------------------------------------- */
+          /*      Toolbar/Dashbaord Texture and Gradient     */
+          /* ----------------------------------------------- */
+          &::before {
+            content: radial-gradient(ellipse farthest-corner at center center, white 0%, transparent 60%);
+            width: 100%;
+            height: 100%;
+            z-index: 9990;
+            position: fixed;
+            mix-blend-mode: overlay;
+            opacity: .8;
+            pointer-events: none;
           }
+          &::after {
+            content: "";
+            background: url(data:image/png;base64,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);
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 9991;
+            mix-blend-mode: overlay;
+            opacity: .8;
+            pointer-events: none;
+          }
+          {% endif %}
+
+    # ------------------- Dev Tools Submenu ---------------------------------- #
+    "ha-panel-developer-tools $": |
+      .header ha-tab-group {
+        background-color: var(--lcars-background-color);
+        border-top-left-radius: var(--lcars-inner-radius);
+        --track-width: unset;
+
+        ha-tab-group-tab {
+          border-radius: 99px;
+          background-color: var(--lcars-card-button);
+          color: var(--lcars-card-button-text);
+          margin: 10px 10px 0px 10px;
+          padding-left: 40px;
         }
-        /* -------- Submenu Settings -------- */
-        .header ha-tab-group {
-          background-color: var(--lcars-background-color);
-          border-top-left-radius: var(--lcars-inner-radius);
-          --track-width: unset;
 
-          ha-tab-group-tab {
-            border-radius: 99px;
-            background-color: var(--lcars-card-button);
-            color: var(--lcars-card-button-text);
-            margin: 10px;
-            padding-left: 40px;
-          }
-
-          ha-tab-group-tab[active] {
-            background-color: var(--lcars-ui-tertiary);
-            border-bottom: 0px;
-            margin-bottom: 10px;
-          }
+        ha-tab-group-tab[active] {
+          background-color: var(--lcars-ui-tertiary);
+          border-bottom: 0px;
+          margin-bottom: 0px;
         }
+        
+      }
+      developer-tools-router {
+        padding-top: 112px !important;
+      }
+
+    # ------------------- Bottom Nav Menu Fixes ------------------------------ #
+    # Disappointingly, "* $ hass-tabs-subpage $" doesn't seem to work?
+    # So I have to enumerate anywhere the bottom bar nav appears
+    "ha-config-automation $ hass-tabs-subpage $": |
+      /* -------- Bottom bar sizing -------- */
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-blueprint $ hass-tabs-subpage $": |
+      /* -------- Bottom bar sizing -------- */
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-script $ hass-tabs-subpage $": |
+      /* -------- Bottom bar sizing -------- */
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-scene $ hass-tabs-subpage $": |
+      /* -------- Bottom bar sizing -------- */
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-integrations $ hass-tabs-subpage $": |
+      /* -------- Bottom bar sizing -------- */
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-devices $ hass-tabs-subpage $": |
+      /* -------- Bottom bar sizing -------- */
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-entities $ hass-tabs-subpage $": |
+      /* -------- Bottom bar sizing -------- */
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-helpers $ hass-tabs-subpage $": |
+      /* -------- Bottom bar sizing -------- */
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-areas $ hass-tabs-subpage $": |
+      /* -------- Bottom bar sizing -------- */
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-labels $ hass-tabs-subpage $": |
+      /* -------- Bottom bar sizing -------- */
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-zone $ hass-tabs-subpage $": |
+      /* -------- Bottom bar sizing -------- */
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-person $ hass-tabs-subpage $": |
+      /* -------- Bottom bar sizing -------- */
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-users $ hass-tabs-subpage $": |
+      /* -------- Bottom bar sizing -------- */
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-voice-assistants ha-config-voice-assistants-assistants $":
       "hass-tabs-subpage $": |
         /* -------- Bottom bar sizing -------- */
         div.bottom-bar {
           --header-height: 50px;
         }
-      "hass-tabs-subpage-data-table $ hass-tabs-subpage $": |
-        /* -------- Bottom bar sizing -------- */
-        div.bottom-bar {
-          --header-height: 50px;
+    "ha-config-voice-assistants ha-config-voice-assistants-expose $ hass-tabs-subpage-data-table $ hass-tabs-subpage $": |
+      /* -------- Bottom bar sizing -------- */
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-system-navigation $ hass-subpage ha-config-section ha-card":
+      "$": |
+        :host {
+          background-color: transparent !important;
+          border-radius: 0 !important;
+          margin-top: 32px !important;
         }
-
-    "ha-config-dashboard$":
-      .: |
-        /* ------- Inner Elbow --------- */
-        :host{
-          @media screen and (min-width: 601px) {
-            &::before {
-              content: "";
-              position: fixed;
-              height: 40px;
-              width: 100px;
-              background-color: transparent;
-              border-top-left-radius: 40px;
-              box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
-              margin-top: 40px;
-              margin-left: 0px;
-              z-index: 3;
-              pointer-events: none;
-            }
+      "ha-navigation-list $": |
+        ha-md-list {
+          --md-sys-color-surface: transparent !important;
+        
+          ha-md-list-item {
+            background-color: var(--lcars-card-mid-left-color);
+            --md-list-item-label-text-color: var(--lcars-card-mid-left-text);
+            --md-list-item-supporting-text-color: var(--lcars-card-mid-left-text);
+            border-radius: 999px;
+            margin-block: 5px;
           }
-          /* -------- Font Settings -------- */
-          hass-subpage, hass-tabs-subpage {
-            --icon-primary-color: var(--sidebar-text-color);
-            --mdc-text-field-label-ink-color: var(--sidebar-text-color);
-            --mdc-text-field-ink-color: var(--sidebar-text-color);
-            font-family: var(--font-family);
-
-            ha-card {
-              overflow: hidden;
-            }
+          ha-md-list-item:first-child {
+            background-color: var(--lcars-card-top-color);
+            --md-list-item-label-text-color: var(--lcars-card-top-text);
+            --md-list-item-supporting-text-color: var(--lcars-card-top-text);
+          }
+          ha-md-list-item:last-child {
+            background-color: var(--lcars-card-bottom-color);
+            --md-list-item-label-text-color: var(--lcars-card-bottom-text);
+            --md-list-item-supporting-text-color: var(--lcars-card-bottom-text);
           }
         }
-      "ha-top-app-bar-fixed ha-config-section": 
-        "ha-card":
-          "ha-config-navigation $ ha-navigation-list$": | 
-            /* -------- Settings Page Lists -------- */
-            ha-md-list {
-              --md-sys-color-surface: transparent !important;
-            
-              ha-md-list-item {
-                background-color: var(--lcars-card-mid-left-color);
-                --md-list-item-label-text-color: var(--lcars-card-mid-left-text);
-                --md-list-item-supporting-text-color: var(--lcars-card-mid-left-text);
-                border-radius: 999px;
-                margin-block: 5px;
-              }
-              ha-md-list-item:first-child {
-                background-color: var(--lcars-card-top-color);
-                --md-list-item-label-text-color: var(--lcars-card-top-text);
-                --md-list-item-supporting-text-color: var(--lcars-card-top-text);
-              }
-              ha-md-list-item:last-child {
-                background-color: var(--lcars-card-bottom-color);
-                --md-list-item-label-text-color: var(--lcars-card-bottom-text);
-                --md-list-item-supporting-text-color: var(--lcars-card-bottom-text);
-              }
+    "ha-config-dashboard $ ha-top-app-bar-fixed ha-config-section":
+      "ha-card":
+        "ha-config-navigation $ ha-navigation-list$": | 
+          /* -------- Settings Page Lists -------- */
+          ha-md-list {
+            --md-sys-color-surface: transparent !important;
+          
+            ha-md-list-item {
+              background-color: var(--lcars-card-mid-left-color);
+              --md-list-item-label-text-color: var(--lcars-card-mid-left-text);
+              --md-list-item-supporting-text-color: var(--lcars-card-mid-left-text);
+              border-radius: 999px;
+              margin-block: 5px;
             }
-          "ha-config-repairs$": |
-            /* -------- Settings Page Repairs List -------- */
-            .title{
-              text-transform: uppercase;
-              font-size: 30px !important;
-              line-height: 1;
-              border-inline: 30px solid var(--lcars-alert-red);
-              border-top-left-radius: 25px;
-              padding-top: 8px !important;
-              padding-bottom: 12px !important;
-              background-color:  color-mix(in srgb, var(--lcars-alert-red), transparent 66%);
-              border-top-right-radius: 25px;
-              border-bottom-left-radius: 25px;
-              border-bottom-right-radius: 25px;
+            ha-md-list-item:first-child {
+              background-color: var(--lcars-card-top-color);
+              --md-list-item-label-text-color: var(--lcars-card-top-text);
+              --md-list-item-supporting-text-color: var(--lcars-card-top-text);
             }
-            ha-md-list {
-              --md-sys-color-surface: transparent !important;
-              padding-block: 5px;
+            ha-md-list-item:last-child {
+              background-color: var(--lcars-card-bottom-color);
+              --md-list-item-label-text-color: var(--lcars-card-bottom-text);
+              --md-list-item-supporting-text-color: var(--lcars-card-bottom-text);
+            }
+          }
+        "ha-config-repairs$": |
+          /* -------- Settings Page Repairs List -------- */
+          .title{
+            text-transform: uppercase;
+            font-size: 30px !important;
+            line-height: 1;
+            border-inline: 30px solid var(--lcars-alert-red);
+            border-top-left-radius: 25px;
+            padding-top: 8px !important;
+            padding-bottom: 12px !important;
+            background-color:  color-mix(in srgb, var(--lcars-alert-red), transparent 66%);
+            border-top-right-radius: 25px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+          }
+          ha-md-list {
+            --md-sys-color-surface: transparent !important;
+            padding-block: 5px;
 
-              ha-md-list-item {
-                background-color: color-mix(in srgb, var(--lcars-alert-red), transparent 66%);
-                margin: 5px 30px;
-              }
+            ha-md-list-item {
+              background-color: color-mix(in srgb, var(--lcars-alert-red), transparent 66%);
+              margin: 5px 30px;
             }
-          "ha-config-updates$": |
+          }
+        "ha-config-updates$": |
+          /* -------- Settings Page Updates List -------- */
+          .title{
+            text-transform: uppercase;
+            font-size: 30px !important;
+            line-height: 1;
+            border-inline: 30px solid var(--lcars-alert-yellow);
+            border-top-left-radius: 25px;
+            padding-top: 8px !important;
+            padding-bottom: 12px !important;
+            background-color:  color-mix(in srgb, var(--lcars-alert-yellow), transparent 66%);
+            border-top-right-radius: 25px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+          }
+          ha-md-list {
+            --md-sys-color-surface: transparent !important;
+            padding-block: 5px;
+
+            ha-md-list-item {
+              background-color: color-mix(in srgb, var(--lcars-alert-yellow), transparent 66%);
+              margin: 5px 30px;
+            }
+          }
+        "$": |
+          :host {
+            background-color: transparent !important;
+            border-radius: 0 !important;
+            margin-top: 32px !important;
+          }
+    "ha-config-section-updates $ hass-subpage div.content":
+      "ha-card":
+        "$": |
+          :host {
+            background-color: transparent !important;
+            border-radius: 0 !important;
+            margin-top: 32px !important;
+          }
+        "div.card-content ha-config-updates$": |
             /* -------- Settings Page Updates List -------- */
             .title{
               text-transform: uppercase;
@@ -1774,261 +2118,37 @@
                 margin: 5px 30px;
               }
             }
-
-          "$": |
-            :host {
-              background-color: transparent !important;
-              border-radius: 0 !important;
-              margin-top: 32px !important;
-            }
-    "ha-config-section-updates$":
-      .: |
-        /* ------- Inner Elbow --------- */
-        :host{
-          @media screen and (min-width: 601px) {
-            &::before {
-              content: "";
-              position: fixed;
-              height: 40px;
-              width: 100px;
-              background-color: transparent;
-              border-top-left-radius: 40px;
-              box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
-              margin-top: 40px;
-              margin-left: 0px;
-              z-index: 3;
-              pointer-events: none;
-            }
-          }
-          /* -------- Font Settings -------- */
-          hass-subpage, hass-tabs-subpage {
-            --icon-primary-color: var(--sidebar-text-color);
-            --mdc-text-field-label-ink-color: var(--sidebar-text-color);
-            --mdc-text-field-ink-color: var(--sidebar-text-color);
-            font-family: var(--font-family);
-
-            ha-card {
-              overflow: hidden;
-            }
-          }
-        }
-      "hass-subpage .content":
-        "ha-card":
-          "$": |
-            :host {
-              background-color: transparent !important;
-              border-radius: 0 !important;
-            }
-          ".card-content ha-config-updates$": |
-            /* -------- Settings Page Updates List -------- */
-            .title {
-              text-transform: uppercase;
-              font-size: 30px !important;
-              line-height: 1;
-              border-inline: 30px solid var(--lcars-alert-yellow);
-              border-top-left-radius: 25px;
-              padding-top: 8px !important;
-              padding-bottom: 12px !important;
-              background-color:  color-mix(in srgb, var(--lcars-alert-yellow), transparent 66%);
-              border-top-right-radius: 25px;
-              border-bottom-left-radius: 25px;
-              border-bottom-right-radius: 25px;
-            }
-            ha-md-list {
-              --md-sys-color-surface: transparent !important;
-              padding-block: 5px;
-
-              ha-md-list-item {
-                background-color: color-mix(in srgb, var(--lcars-alert-yellow), transparent 66%) !important;
-                margin: 5px 30px;
-              }
-            }
-    "ha-config-repairs-dashboard$":
-      .: |
-        /* ------- Inner Elbow --------- */
-        :host{
-          @media screen and (min-width: 601px) {
-            &::before {
-              content: "";
-              position: fixed;
-              height: 40px;
-              width: 100px;
-              background-color: transparent;
-              border-top-left-radius: 40px;
-              box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
-              margin-top: 40px;
-              margin-left: 0px;
-              z-index: 3;
-              pointer-events: none;
-            }
-          }
-          /* -------- Font Settings -------- */
-          hass-subpage, hass-tabs-subpage {
-            --icon-primary-color: var(--sidebar-text-color);
-            --mdc-text-field-label-ink-color: var(--sidebar-text-color);
-            --mdc-text-field-ink-color: var(--sidebar-text-color);
-            font-family: var(--font-family);
-
-            ha-card {
-              overflow: hidden;
-            }
-          }
-        }
-      "hass-subpage .content":
-        "ha-card":
-          "$": |
-            :host {
-              background-color: transparent !important;
-              border-radius: 0 !important;
-            }
-          ".card-content ha-config-repairs$": |
-            /* -------- Settings Page Updates List -------- */
-            .title {
-              text-transform: uppercase;
-              font-size: 30px !important;
-              line-height: 1;
-              border-inline: 30px solid var(--lcars-alert-red);
-              border-top-left-radius: 25px;
-              padding-top: 8px !important;
-              padding-bottom: 12px !important;
-              background-color:  color-mix(in srgb, var(--lcars-alert-red), transparent 66%);
-              border-top-right-radius: 25px;
-              border-bottom-left-radius: 25px;
-              border-bottom-right-radius: 25px;
-            }
-            ha-md-list {
-              --md-sys-color-surface: transparent !important;
-              padding-block: 5px;
-
-              ha-md-list-item {
-                background-color: color-mix(in srgb, var(--lcars-alert-red), transparent 66%) !important;
-                margin: 5px 30px;
-              }
-            }
-    "ha-config-system-navigation$":  
-      .: |
-        /* ------- Inner Elbow --------- */
-        :host{
-          @media screen and (min-width: 601px) {
-            &::before {
-              content: "";
-              position: fixed;
-              height: 40px;
-              width: 100px;
-              background-color: transparent;
-              border-top-left-radius: 40px;
-              box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
-              margin-top: 40px;
-              margin-left: 0px;
-              z-index: 3;
-              pointer-events: none;
-            }
-          }
-          /* -------- Font Settings -------- */
-          hass-subpage, hass-tabs-subpage {
-            --icon-primary-color: var(--sidebar-text-color);
-            --mdc-text-field-label-ink-color: var(--sidebar-text-color);
-            --mdc-text-field-ink-color: var(--sidebar-text-color);
-            font-family: var(--font-family);
-
-            ha-card {
-              overflow: hidden;
-            }
-          }
-        }
-      "hass-subpage ha-config-section ha-card": 
-        "ha-navigation-list$": |
-          /* -------- System Settings Page Lists -------- */
-          :host {
-            background-color: transparent !important;
-            border-radius: 0 !important;
-          }
-          ha-md-list {
-            --md-sys-color-surface: transparent !important;
-          
-            ha-md-list-item {
-              background-color: var(--lcars-card-mid-left-color);
-              --md-list-item-label-text-color: var(--lcars-card-mid-left-text);
-              --md-list-item-supporting-text-color: var(--lcars-card-mid-left-text);
-              border-radius: 999px;
-              margin-block: 5px;
-            }
-            ha-md-list-item:first-child {
-              background-color: var(--lcars-card-top-color);
-              --md-list-item-label-text-color: var(--lcars-card-top-text);
-              --md-list-item-supporting-text-color: var(--lcars-card-top-text);
-            }
-            ha-md-list-item:last-child {
-              background-color: var(--lcars-card-bottom-color);
-              --md-list-item-label-text-color: var(--lcars-card-bottom-text);
-              --md-list-item-supporting-text-color: var(--lcars-card-bottom-text);
-            }
-          }
+    "ha-config-repairs-dashboard $ hass-subpage div.content":
+      "ha-card":
         "$": |
           :host {
             background-color: transparent !important;
             border-radius: 0 !important;
+            margin-top: 32px !important;
           }
-
-    "ha-config-info$":  
-      .: |
-        /* ------- Inner Elbow --------- */
-        :host{
-          @media screen and (min-width: 601px) {
-            &::before {
-              content: "";
-              position: fixed;
-              height: 40px;
-              width: 100px;
-              background-color: transparent;
-              border-top-left-radius: 40px;
-              box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
-              margin-top: 40px;
-              margin-left: 0px;
-              z-index: 3;
-              pointer-events: none;
-            }
+        "div.card-content ha-config-repairs$": |
+          /* -------- Settings Page Repairs List -------- */
+          .title{
+            text-transform: uppercase;
+            font-size: 30px !important;
+            line-height: 1;
+            border-inline: 30px solid var(--lcars-alert-red);
+            border-top-left-radius: 25px;
+            padding-top: 8px !important;
+            padding-bottom: 12px !important;
+            background-color:  color-mix(in srgb, var(--lcars-alert-red), transparent 66%);
+            border-top-right-radius: 25px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
           }
-          /* -------- Font Settings -------- */
-          hass-subpage, hass-tabs-subpage {
-            --icon-primary-color: var(--sidebar-text-color);
-            --mdc-text-field-label-ink-color: var(--sidebar-text-color);
-            --mdc-text-field-ink-color: var(--sidebar-text-color);
-            font-family: var(--font-family);
-
-            ha-card {
-              overflow: hidden;
-            }
-          }
-        }
-      "hass-subpage .content":
-        "ha-card": |
-          /* -------- System Info Page Lists -------- */
           ha-md-list {
             --md-sys-color-surface: transparent !important;
-          
+            padding-block: 5px;
+
             ha-md-list-item {
-              background-color: var(--lcars-card-mid-left-color);
-              --md-list-item-label-text-color: var(--lcars-card-mid-left-text);
-              --md-list-item-supporting-text-color: var(--lcars-card-mid-left-text);
-              border-radius: 999px;
-              margin-block: 5px;
+              background-color: color-mix(in srgb, var(--lcars-alert-red), transparent 66%);
+              margin: 5px 30px;
             }
-            ha-md-list-item:first-child {
-              background-color: var(--lcars-card-top-color);
-              --md-list-item-label-text-color: var(--lcars-card-top-text);
-              --md-list-item-supporting-text-color: var(--lcars-card-top-text);
-            }
-            ha-md-list-item:last-child {
-              background-color: var(--lcars-card-bottom-color);
-              --md-list-item-label-text-color: var(--lcars-card-bottom-text);
-              --md-list-item-supporting-text-color: var(--lcars-card-bottom-text);
-            }
-          }
-        .: |
-          ha-card {
-            background-color: transparent !important;
-            border-radius: 0 !important;
           }
     "ha-config-logs $ hass-subpage div search-input.header $ ha-textfield$": |
       label.mdc-text-field--filled {
@@ -2040,6 +2160,137 @@
         input.mdc-text-field__input {
           align-self: end;
         }
+      }
+    "ha-config-info $ hass-subpage div.content":
+      "ha-card": |
+        :is(.header) {
+          border-top: var(--lcars-horizontal-border) solid var(--lcars-card-top-color);
+          border-inline: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
+          border-top-left-radius: var(--lcars-outer-radius);
+          border-top-right-radius: var(--lcars-outer-radius);
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0px;
+          background-color: transparent;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: calc(2 * var(--lcars-inner-radius) + 2px);
+            width: calc(2 * var(--lcars-inner-radius) + 2px);
+            background-color: transparent;
+            border-top-left-radius: var(--lcars-inner-radius);
+            box-shadow: calc(var(--lcars-inner-radius) * -1) 0 0 0 var(--lcars-card-top-color);
+            margin-top: 0px;
+            margin-left: 0px;
+            z-index: 3;
+            pointer-events: none;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: calc(2 * var(--lcars-inner-radius) + 2px);
+            width: calc(2 * var(--lcars-inner-radius) + 2px);
+            background-color: transparent;
+            border-top-right-radius: var(--lcars-inner-radius);
+            box-shadow: calc(var(--lcars-inner-radius)) 0 0 0 var(--lcars-card-top-color);
+            margin-top: 0px;
+            margin-right: 0px;
+            z-index: 3;
+            pointer-events: none;
+          }
+        }
+        :is(.ohf) {
+          border-bottom: var(--lcars-horizontal-border) solid var(--lcars-card-bottom-color);
+          border-inline: var(--lcars-vertical-border) solid var(--lcars-card-bottom-color);
+          border-bottom-left-radius: var(--lcars-outer-radius);
+          border-bottom-right-radius: var(--lcars-outer-radius);
+          border-top-left-radius: 0px;
+          border-top-right-radius: 0px;
+          background-color: transparent;
+          margin-bottom: 6px;
+
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: calc(2 * var(--lcars-inner-radius) + 2px);
+            width: calc(2 * var(--lcars-inner-radius) + 2px);
+            background-color: transparent;
+            border-bottom-left-radius: var(--lcars-inner-radius);
+            box-shadow: calc(var(--lcars-inner-radius) * -1) 0 0 0 var(--lcars-card-bottom-color);
+            margin-top: 0px;
+            margin-left: 0px;
+            z-index: 3;
+            pointer-events: none;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: calc(2 * var(--lcars-inner-radius) + 2px);
+            width: calc(2 * var(--lcars-inner-radius) + 2px);
+            background-color: transparent;
+            border-bottom-right-radius: var(--lcars-inner-radius);
+            box-shadow: calc(var(--lcars-inner-radius)) 0 0 0 var(--lcars-card-bottom-color);
+            margin-top: 0px;
+            margin-right: 0px;
+            z-index: 3;
+            pointer-events: none;
+          }
+
+        }
+        :is(.pages) {
+          background-color: transparent !important;
+          border-radius: 0 !important;
+          margin-top: 6px !important;
+          padding: 0px;
+
+          ha-md-list {
+            --md-sys-color-surface: transparent !important;
+            padding-top: 0px;
+          
+            ha-md-list-item {
+              background-color: var(--lcars-card-mid-left-color);
+              --md-list-item-label-text-color: var(--lcars-card-mid-left-text);
+              --md-list-item-supporting-text-color: var(--lcars-card-mid-left-text);
+              border-radius: 999px;
+              margin-block: 5px;
+            }
+            ha-md-list-item:first-child {
+              background-color: var(--lcars-card-top-color);
+              --md-list-item-label-text-color: var(--lcars-card-top-text);
+              --md-list-item-supporting-text-color: var(--lcars-card-top-text);
+            }
+            ha-md-list-item:last-child {
+              background-color: var(--lcars-card-bottom-color);
+              --md-list-item-label-text-color: var(--lcars-card-bottom-text);
+              --md-list-item-supporting-text-color: var(--lcars-card-bottom-text);
+            }
+          }
+        }
+  # ===================================================== #
+  #             USER PROFILE MODIFICATIONS                #
+  # ===================================================== #
+  card-mod-profile-yaml: |
+    $: |
+      :host {
+        font-family: var(--font-family);
+      }
+    "ha-profile-section-general $ hass-tabs-subpage $": |
+      /* -------- Bottom bar sizing -------- */
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-profile-section-security $ hass-tabs-subpage $": |
+      /* -------- Bottom bar sizing -------- */
+      div.bottom-bar {
+        --header-height: 50px;
       }
 
   # ===================================================== #
@@ -2273,8 +2524,6 @@
       :host ha-user-badge {
         left: 0px;
         align-content: center;
-        box-sizing: border-box;
-        min-width: 61px;
         padding-top: 8px;
         padding-bottom: 8px;
         padding-right: 16px;
@@ -2326,7 +2575,7 @@
         content: "";
         position: relative;
         display: block;
-        z-index: 9999;
+        z-index: 9980;
         top: 0px;
         left: 0px;
         width: 24px;
@@ -2357,7 +2606,7 @@
         height: 120%;
         bottom: 0;
         left: 0;
-        z-index: 9999;
+        z-index: 9998;
         position: absolute;
         mix-blend-mode: overlay;
         opacity: .8;
