@@ -1,0 +1,24 @@
+name: Flatten Theme
+on:
+  push:
+    tags:
+      - "*"
+jobs:
+  flatten-css:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: "master"
+          persist-credentials: true
+
+      - name: Run Flatten Script
+        run: python py/flatten_ha_theme_css.py -o "themes/lcars_flat.yaml" "themes/lcars.yaml" 
+
+      - name: Commit and Push
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "chore: flatten nested theme css"
+          file_pattern: "themes/lcars_flat.yaml"
