@@ -219,47 +219,27 @@
   sidebar-menu-button-text-color: var(--lcars-sidebar-text)
   # States and Badges
   state-icon-color: var(--lcars-text-light)
+  state-active-color: var(--lcars-sunflower)
   # Sliders
-  paper-slider-knob-color: var(--lcars-text-light)
-  paper-slider-knob-start-color: var(--paper-slider-knob-color)
-  paper-slider-pin-color: var(--paper-slider-knob-color)
-  paper-slider-active-color: "#0984ff"
-  paper-slider-secondary-color: var(--paper-slider-knob-color)
-  paper-slider-container-color: rgba(255, 255, 255, 0.5)
-  paper-slider-font-color: var(--lcars-text-dark)
   ha-slider-background: none !important
-  md-slider-handle-color: var(--lcars-dark-gray)
-  md-slider-active-track-color: var(--lcars-ui-tertiary)
-  round-slider-bar-color: var(--lcars-blue)
   # Labels
-  label-badge-background-color: "#23232E"
   label-badge-text-color: var(--lcars-text-dark)
   # Badges
   label-badge-red: var(--lcars-alt-orange)
   label-badge-yellow: var(--lcars-sunflower)
+  label-badge-blue: var(--lcars-blue)
+  label-badge-green: var(--lcars-green)
   label-badge-grey: var(--lcars-medium-gray)
   # Cards
   card-background-color: var(--secondary-background-color)
-  paper-listbox-background-color: var(--primary-background-color)
   ha-card-border-radius: var(--lcars-outer-radius)
   ha-card-background: var(--lcars-ui-secondary);
-  paper-card-background-color: var(--ha-card-background)
   ha-card-border-width: 0px
-  ha-config-card-border-radius: var(--ha-card-border-radius)
   ha-heading-card-title-color: var(--lcars-ui-text-heading)
-  # Toggles
-  paper-toggle-button-checked-button-color: "#484848"
-  paper-toggle-button-checked-bar-color: "#484848"
-  paper-toggle-button-unchecked-button-color: var(--paper-toggle-button-checked-button-color)
-  paper-toggle-button-unchecked-bar-color: var(--disabled-text-color)
   # Tables
   table-row-background-color: var(--primary-background-color)
   table-row-alternative-background-color: var(--secondary-background-color)
   data-table-background-color: black
-  # Switches
-  switch-checked-color: "#30d257"
-  switch-checked-track-color: "#30d158"
-  switch-checked-button-color: var(--lcars-text-light)
   # Material Design Components
   mdc-typography-button-font-family: var(--font-family)
   mdc-typography-body2-font-family: var(--font-family)
@@ -279,11 +259,7 @@
   app-header-edit-background-color: transparent
   app-header-text-color: var(--lcars-ui-app-header-text-color, black)
   header-height: 40px
-  # Switches
-  switch-unchecked-track-color: var(--lcars-text-gray)
-  switch-unchecked-button-color: var(--lcars-text-gray)
   # Tabs
-  paper-tabs-selection-bar-color: transparent
   ha-tab-padding-start: 5px;
   ha-tab-padding-end: 5px;
   #State
@@ -291,15 +267,16 @@
   #Code Editor
   code-editor-background-color: black
   # Other
-  paper-dialog-background-color: rgba(55, 55, 55)
-  paper-item-icon-color: var(--lcars-dark-gray)
   more-info-header-background: rgba(25, 25, 25)
   app-header-background-color: var(--lcars-ui-app-header-background-color, var(--lcars-ui-primary))
   mini-media-player-base-color: var(--lcars-text-gray)
   mini-media-player-icon-color: var(--lcars-text-gray)
+  state-lock-locked-color: var(--lcars-green)
   state-lock-unlocked-color: var(--lcars-dark-red)
-  rgb-state-media-player-color: var(--paper-item-icon-color)
-  paper-yellow-a100: transparent
+  state-lock-locking-color: var(--lcars-yellow)
+  state-lock-unlocking-color: var(--lcars-yellow)
+  state-lock-open-color: var(--lcars-red)
+  state-lock-jammed-color: var(--lcars-scarlet)
   input-dropdown-icon-color: var(--lcars-text-gray)
   ha-outlined-field-container-color: var(--lcars-text-gray)
 
@@ -1700,6 +1677,13 @@
             pointer-events: none;
           }
           {% endif %}
+
+    # ------------------- Data Table Text ------------------------------------ #
+    "ha-data-table $": |
+      :host {
+        --primary-text-color: var(--lcars-text-light);
+        --secondary-text-color: var(--lcars-text-light);
+      }
 
     # ------------------- Dev Tools Submenu ---------------------------------- #
     "ha-panel-developer-tools $": |
