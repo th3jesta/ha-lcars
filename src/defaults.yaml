@@ -3,33 +3,67 @@
 # in the &lcars-variables palette block belong here.
 
 # UI Colors
+# sidebar-background-color
 lcars-ui-primary: var(--lcars-almond-creme)
+# ha-card-background; default for lcars-ui-config-button
 lcars-ui-secondary: var(--lcars-african-violet)
+# md-slider-active-track-color; default for lcars-ui-app-header-clock
 lcars-ui-tertiary: var(--lcars-red)
+# secondary-background-color (card-background-color, listbox); mdc-text-field-fill-color
 lcars-ui-quaternary: var(--lcars-gray)
+# accent-color: notification badges, history graph fills, media seek slider, dashboard edit icons
+lcars-ui-accent-color: var(--lcars-orange)
+# primary-background-color; card interior and cutout borders throughout card-mod CSS
 lcars-background-color: "#000000"
 
 # Header / Sidebar
+# app-header-background-color
 lcars-ui-app-header-background-color: "#272727"
+# app-header-text-color
 lcars-ui-app-header-text-color: var(--lcars-pearl)
+# clock display in the app header (card-mod CSS)
 lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
-lcars-ui-sidebar-icon: var(--lcars-ui-secondary)
+# config/gear button background (card-mod CSS)
 lcars-ui-config-button: var(--lcars-ui-secondary)
+# config/gear icon color (card-mod CSS)
 lcars-ui-config-icon: var(--lcars-ui-config-button)
 
+# Sidebar
+# nav item bar background color
+lcars-sidebar-item-color: var(--lcars-ui-secondary)
+# nav item label text color
+lcars-sidebar-text: var(--lcars-text-dark)
+# icon glyph color (sidebar-icon-color in &base; card-mod CSS for expanded state)
+lcars-sidebar-icon-color: var(--lcars-ui-secondary)
+# icon column background (expanded) and user item background
+lcars-sidebar-icon-background: var(--lcars-card-top-color)
+# selected item accent: background, border, badge, icon background
+lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
+# notification badge color
+lcars-sidebar-notification-color: var(--lcars-ui-tertiary)
+
 # UI Text
+# ha-heading-card-title-color
 lcars-ui-text-heading: var(--lcars-text-gray)
 
 # Card colors
+# top bar background of LCARS card sections
 lcars-card-top-color: var(--lcars-bluey)
+# mid bar background of LCARS card sections
 lcars-card-mid-color: var(--lcars-red)
+# button background in LCARS card sections
 lcars-card-button-color: var(--lcars-red)
+# bottom bar background of LCARS card sections
 lcars-card-bottom-color: var(--lcars-gray)
 
 # Card text
+# label color on card top bars
 lcars-card-top-text: var(--lcars-text-dark)
+# label color on card mid bars
 lcars-card-mid-text: var(--lcars-text-dark)
+# text color on card buttons
 lcars-card-button-text: var(--lcars-text-dark)
+# label color on card bottom bars
 lcars-card-bottom-text: var(--lcars-text-dark)
 
 # Status colors

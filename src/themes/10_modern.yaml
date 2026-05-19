@@ -5,7 +5,7 @@ lcars-ui-secondary: var(--lcars-sky)
 lcars-ui-tertiary: var(--lcars-gold)
 lcars-ui-quaternary: var(--lcars-gray)
 
-lcars-ui-sidebar-icon: var(--lcars-dark-gray)
+lcars-sidebar-icon-color: var(--lcars-dark-gray)
 lcars-ui-config-button: var(--lcars-gray)
 
 lcars-card-top-color: var(--lcars-gold)

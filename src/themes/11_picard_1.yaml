@@ -5,7 +5,7 @@ lcars-ui-secondary: var(--lcars-mittelgrau)
 lcars-ui-tertiary: var(--lcars-feuerrot)
 lcars-ui-quaternary: var(--lcars-mittelgrau)
 
-lcars-ui-sidebar-icon: var(--lcars-alt-dark-gray)
+lcars-sidebar-icon-color: var(--lcars-alt-dark-gray)
 lcars-ui-config-button: var(--lcars-cyan)
 
 lcars-card-top-color: var(--lcars-mittelgrau)

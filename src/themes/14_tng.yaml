@@ -7,7 +7,7 @@ lcars-ui-quaternary: var(--lcars-galaxy)
 
 lcars-ui-app-header-background-color: "#d2b48c"
 lcars-ui-app-header-text-color: "#f5deb3"
-lcars-ui-sidebar-icon: var(--lcars-text-dark)
+lcars-sidebar-icon-color: var(--lcars-text-dark)
 lcars-ui-config-button: "#c5b358"
 
 lcars-card-top-color: "#f5deb3"

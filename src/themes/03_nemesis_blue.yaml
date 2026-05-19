@@ -5,7 +5,7 @@ lcars-ui-secondary: var(--lcars-wheat)
 lcars-ui-tertiary: var(--lcars-pumpkinshade)
 lcars-ui-quaternary: var(--lcars-galaxy)
 
-lcars-ui-sidebar-icon: var(--lcars-text-dark)
+lcars-sidebar-icon-color: var(--lcars-text-dark)
 lcars-ui-config-button: var(--lcars-ice)
 
 lcars-card-top-color: var(--lcars-sky)
