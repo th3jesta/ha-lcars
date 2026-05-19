@@ -49,9 +49,12 @@ REQUIRED_VARS = [
 SECTIONS: dict[str, list[str]] = {
     "UI Colors": [
         "lcars-ui-primary",
+        "lcars-ui-primary-text",
         "lcars-ui-secondary",
+        "lcars-ui-secondary-text",
         "lcars-ui-tertiary",
         "lcars-ui-quaternary",
+        "lcars-ui-quaternary-text",
         "lcars-ui-accent-color",
         "lcars-background-color",
         "lcars-alert-color",

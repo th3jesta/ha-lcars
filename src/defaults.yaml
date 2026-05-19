@@ -5,12 +5,18 @@
 # UI Colors
 # sidebar-background-color
 lcars-ui-primary: var(--lcars-almond-creme)
+# sidebar-text-color, sidebar-menu-button-text-color
+lcars-ui-primary-text: var(--lcars-text-dark)
 # ha-card-background; default for lcars-ui-config-button
 lcars-ui-secondary: var(--lcars-african-violet)
+# ha-card-header-color, primary-text-color, secondary-text-color, mdc text-on-background
+lcars-ui-secondary-text: var(--lcars-text-gray)
 # md-slider-active-track-color; default for lcars-ui-app-header-clock
 lcars-ui-tertiary: var(--lcars-red)
 # secondary-background-color (card-background-color, listbox); mdc-text-field-fill-color
 lcars-ui-quaternary: var(--lcars-gray)
+# mdc-text-field-label-ink-color, mdc-text-field-ink-color
+lcars-ui-quaternary-text: var(--lcars-text-gray)
 # accent-color: notification badges, history graph fills, media seek slider, dashboard edit icons
 lcars-ui-accent-color: var(--lcars-orange)
 # primary-background-color; card interior and cutout borders throughout card-mod CSS
