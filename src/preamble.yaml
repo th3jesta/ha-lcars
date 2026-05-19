@@ -200,9 +200,9 @@
   # Sidebar Menu
   sidebar-background-color: var(--lcars-ui-primary)
   sidebar-menu-button-background-color: var(--sidebar-background-color)
-  sidebar-icon-color: var(--lcars-sidebar-icon-color)
+  sidebar-icon-color: var(--lcars-ui-primary-text)
   sidebar-text-color: var(--lcars-ui-primary-text)
-  sidebar-selected-icon-color: var(--lcars-sidebar-selected-color)
+  sidebar-selected-icon-color: var(--lcars-ui-primary-text)
   sidebar-menu-button-text-color: var(--lcars-ui-primary-text)
   # States and Badges
   state-icon-color: var(--lcars-text-light)
