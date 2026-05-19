@@ -595,8 +595,8 @@
           background-color: var(--lcars-card-button-color);
           --primary-color: var(--lcars-ui-quaternary);
           text-transform: uppercase;
-          --primary-text-color: var(--lcars-text-dark);
-          --secondary-text-color: var(--lcars-text-dark);
+          --primary-text-color: var(--lcars-card-button-text);
+          --secondary-text-color: var(--lcars-card-button-text);
         }
       }
 
@@ -731,7 +731,7 @@
           
           > span.state {
             align-items: center;
-            color: var(--lcars-text-dark);
+            color: var(--lcars-card-button-text);
           }
 
           /* Big Slider Card */
@@ -1129,7 +1129,7 @@
       :host(.type-calendar),
       ha-card:is(.type-calendar) {
         ha-full-calendar {
-          --card-background-color: black;
+          --card-background-color: var(--lcars-background-color);
           --table-header-background-color: var(--lcars-dark-gray);
         }
       }
@@ -1220,7 +1220,6 @@
               background-color: var(--completed-text-color);
             }
             ha-check-list-item .mdc-checkbox {
-              background-color: red;
               opacity: 1;
               position: absolute;
             }
@@ -1372,7 +1371,7 @@
       }
     div.header: |
       .toolbar {
-        color: var(--lcars-text-dark);
+        color: var(--lcars-ui-primary-text);
         background-color: var(--lcars-ui-primary) !important;
         --app-header-border-bottom: 0px;
         border-right: 30px solid var(--lcars-card-top-color);
@@ -1398,7 +1397,7 @@
           }
           ha-menu-button {
             display: initial !important;
-            color: var(--lcars-text-dark) !important;
+            color: var(--lcars-ui-primary-text) !important;
             padding-right: 0px !important;
             margin-right: -22px;
             margin-left: -16px;
@@ -1473,10 +1472,10 @@
         border-left: solid var(--lcars-background-color) 4px;
       }
       div.main-title {
-        color: var(--lcars-text-dark);
+        color: var(--lcars-ui-primary-text);
 
         .edit-icon {
-          color: var(--lcars-text-dark) !important;
+          color: var(--lcars-ui-primary-text) !important;
         }
       }
       .exit-edit-mode {
@@ -1485,7 +1484,7 @@
         --button-color-fill-normal-hover:  color-mix(in srgb, var(--lcars-ui-tertiary), black 30%);;
       }
       .toolbar .action-items {
-        --text-primary-color: var(--lcars-text-dark);
+        --text-primary-color: var(--lcars-ui-primary-text);
       }
 
 
@@ -2148,7 +2147,7 @@
         content: "";
         border-right: 0px !important;
         border-top-left-radius: 80px;
-        box-shadow: black 0px -130px 0px 0px;
+        box-shadow: var(--lcars-background-color) 0px -130px 0px 0px;
         --menu-font-size: {{ states('input_number.lcars_menu_font') if has_value('input_number.lcars_menu_font') else 24 }}px;
       }
       .title {
@@ -2204,6 +2203,7 @@
           margin: 0px 0px 0px 0px;
           padding: 9px 8px 11px 5px;
           width: calc( 100% + 3px );
+          max-width: calc( 100% + 3px );
         }
         span.badge {
           position: absolute;
@@ -2371,7 +2371,7 @@
       }
 
       ha-icon-button.hide-panel {
-        color: var(--lcars-text-dark) !important;
+        color: var(--lcars-ui-primary-text) !important;
       }
 
       ha-md-list.ha-scrollbar > .spacer::before {
