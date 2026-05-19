@@ -582,6 +582,55 @@ card_mod:
 </tr>
 </table>
 
+12. `readout-bar-right` `readout-bar-large-right` – Sensor-Anzeige: zweispaltiges Layout mit dem numerischen Wert links und dem Entitätsnamen (Beschriftung) rechts. Gedacht für `entity`-Karten (Einzelwert) und `entities`-Karten (gestapelte Sensorzeilen). Die große Variante verwendet eine größere Wertschrift. Anpassbar über die `lcars-readout-*`-Variablen (Farben, Schriftgrößen, Abstände).
+<table>
+<tr>
+<td> YAML </td> <td> Hinweise </td>
+</tr>
+<tr>
+<td>
+
+```yaml
+# Einzelne Entität – Standardgröße
+type: entity
+entity: sensor.temperature
+name: TEMP
+card_mod:
+  class: readout-bar-right
+
+# Einzelne Entität – groß
+type: entity
+entity: sensor.temperature
+name: TEMP
+card_mod:
+  class: readout-bar-large-right
+
+# Mehrere Sensoren gestapelt – Standardgröße
+type: entities
+card_mod:
+  class: readout-bar-right
+entities:
+  - sensor.temperature
+  - sensor.humidity
+
+# Mehrere Sensoren gestapelt – groß
+type: entities
+card_mod:
+  class: readout-bar-large-right
+entities:
+  - sensor.temperature
+  - sensor.humidity
+```
+
+</td>
+<td>
+
+Wert (linke Spalte) zeigt den Sensorstatus in der Akzentfarbe auf dunklem Hintergrund, getrennt durch einen linken Rahmen in der Akzentfarbe. Beschriftung (rechte Spalte) zeigt den Entitätsnamen in Großbuchstaben auf der Karten-Kopffarbe. `readout-bar-large-right` verwendet eine größere Wertanzeige (`lcars-readout-large-value-font-size`, Standard `3em`).
+
+</td>
+</tr>
+</table>
+
 ### Eigene Farb-Themes erstellen
 Benutzerdefinierte Themes können am Ende der Datei `lcars.yaml` erstellt werden. Alternativ suchen Sie nach "===THEMES", um direkt dorthin zu springen.  
 Um ein eigenes Theme zu erstellen, kopieren Sie den Abschnitt LCARS Default ans Ende der Datei und ändern die Variablen `lcars-ui-*` und `lcars-card-*` nach Belieben, unter Verwendung der Farbreferenzen am Anfang der Datei, der [LCARS Website](https://www.thelcars.com/colors.php) oder durch eigene Definitionen.

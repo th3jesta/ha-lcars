@@ -245,6 +245,16 @@
   ha-card-border-width: 0px
   ha-config-card-border-radius: var(--ha-card-border-radius)
   ha-heading-card-title-color: var(--lcars-ui-text-heading)
+  # LCARS readout cards
+  lcars-readout-gap: 8px
+  lcars-readout-min-height: 2em
+  lcars-readout-value-bg: var(--lcars-background-color)
+  lcars-readout-accent-color: var(--lcars-powder-blue)
+  lcars-readout-label-color: var(--lcars-text-dark)
+  lcars-readout-value-font-size: 2em
+  lcars-readout-unit-font-size: 18px
+  lcars-readout-label-font-size: 24px
+  lcars-readout-large-value-font-size: 3em
   # Toggles
   paper-toggle-button-checked-button-color: "#484848"
   paper-toggle-button-checked-bar-color: "#484848"
@@ -1349,6 +1359,279 @@
           }
         }
 
+    # Sensor entity row (used inside readout-bar-right entities cards)
+    "hui-sensor-entity-row$":
+      .: |
+        :host-context(.readout-bar-right),
+        :host-context(.readout-bar-large-right) {
+          display: block;
+          padding: 0;
+          margin: 0;
+          --mdc-icon-size: 0px;
+        }
+      "hui-generic-entity-row$": |
+        :host-context(.readout-bar-right),
+        :host-context(.readout-bar-large-right) {
+          display: block;
+          width: 100%;
+        }
+        :host-context(.readout-bar-right) .row,
+        :host-context(.readout-bar-large-right) .row {
+          display: grid !important;
+          grid-template-columns: minmax(0, 0.8fr) 1fr;
+          gap: 0;
+          padding: 0 !important;
+          margin: 0;
+          height: 1em;
+          width: 100%;
+          align-items: stretch;
+          overflow: hidden;
+          background: transparent !important;
+          box-sizing: border-box;
+        }
+        :host-context(.readout-bar-right) .row {
+          font-size: var(--lcars-readout-value-font-size);
+        }
+        :host-context(.readout-bar-large-right) .row {
+          font-size: var(--lcars-readout-large-value-font-size);
+        }
+        :host-context(.readout-bar-right) state-badge,
+        :host-context(.readout-bar-right) .icon,
+        :host-context(.readout-bar-right) .secondary,
+        :host-context(.readout-bar-large-right) state-badge,
+        :host-context(.readout-bar-large-right) .icon,
+        :host-context(.readout-bar-large-right) .secondary {
+          display: none !important;
+        }
+        :host-context(.readout-bar-right) .text-content.value,
+        :host-context(.readout-bar-right) .value.text-content,
+        :host-context(.readout-bar-large-right) .text-content.value,
+        :host-context(.readout-bar-large-right) .value.text-content {
+          grid-column: 1;
+          grid-row: 1;
+          min-width: 0;
+          width: 100%;
+          height: 100%;
+          display: flex !important;
+          align-items: flex-end;
+          justify-content: flex-end;
+          gap: 0;
+          background: var(--lcars-readout-value-bg) !important;
+          border-left: var(--lcars-vertical-border) solid var(--lcars-readout-accent-color);
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+          padding: 0 8px 0 0;
+          box-sizing: border-box;
+          font-size: 1em;
+          font-weight: 700;
+          line-height: 1;
+          letter-spacing: 0.02em;
+          color: var(--lcars-readout-accent-color) !important;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+        :host-context(.readout-bar-right) .text-content.value .state,
+        :host-context(.readout-bar-right) .value.text-content .state,
+        :host-context(.readout-bar-large-right) .text-content.value .state,
+        :host-context(.readout-bar-large-right) .value.text-content .state {
+          display: flex !important;
+          align-items: flex-end;
+          justify-content: flex-end;
+          text-align: right;
+          min-width: 0;
+          width: 100%;
+          overflow: hidden;
+          white-space: nowrap;
+          color: inherit !important;
+          font: inherit;
+        }
+        :host-context(.readout-bar-right) .text-content.value .state slot,
+        :host-context(.readout-bar-right) .value.text-content .state slot,
+        :host-context(.readout-bar-large-right) .text-content.value .state slot,
+        :host-context(.readout-bar-large-right) .value.text-content .state slot {
+          display: block;
+          min-width: 0;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          color: inherit !important;
+          font: inherit;
+        }
+        :host-context(.readout-bar-right) .info,
+        :host-context(.readout-bar-right) .info.text-content,
+        :host-context(.readout-bar-right) .text-content.info,
+        :host-context(.readout-bar-large-right) .info,
+        :host-context(.readout-bar-large-right) .info.text-content,
+        :host-context(.readout-bar-large-right) .text-content.info {
+          grid-column: 2;
+          grid-row: 1;
+          min-width: 0;
+          height: 100%;
+          display: flex !important;
+          align-items: flex-end;
+          justify-content: flex-end;
+          background: var(--lcars-card-top-color) !important;
+          color: var(--lcars-readout-label-color) !important;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+          padding: 0 12px 0;
+          box-sizing: border-box;
+          text-align: right;
+          text-transform: uppercase;
+          font-size: 0.75em !important;
+          font-weight: 700;
+          letter-spacing: 0.04em;
+          line-height: 1;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+        :host-context(.readout-bar-right) .info .name,
+        :host-context(.readout-bar-right) .info.text-content .name,
+        :host-context(.readout-bar-right) .text-content.info .name,
+        :host-context(.readout-bar-large-right) .info .name,
+        :host-context(.readout-bar-large-right) .info.text-content .name,
+        :host-context(.readout-bar-large-right) .text-content.info .name {
+          color: inherit !important;
+          font: inherit;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+    # Entity card shell (single entity display)
+    "hui-entity-card$": |
+      :host(.readout-bar-right),
+      :host(.readout-bar-large-right) {
+        display: block;
+      }
+      :host(.readout-bar-right) ha-card,
+      :host(.readout-bar-large-right) ha-card {
+        display: grid;
+        grid-template-columns: minmax(0, 0.8fr) 1fr;
+        min-height: var(--lcars-readout-min-height);
+        width: 100%;
+        background: transparent !important;
+        box-shadow: none !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        overflow: hidden;
+        gap: 0;
+      }
+      :host(.readout-bar-right) ha-card > .header,
+      :host(.readout-bar-large-right) ha-card > .header {
+        grid-column: 2;
+        grid-row: 1;
+        min-width: 0;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        padding: 0 12px 0;
+        margin: 0;
+        background: var(--lcars-card-top-color) !important;
+        color: var(--lcars-readout-label-color) !important;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        text-align: right;
+        text-transform: uppercase;
+        box-sizing: border-box;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      :host(.readout-bar-right) ha-card > .header .name,
+      :host(.readout-bar-large-right) ha-card > .header .name {
+        color: inherit !important;
+        font-size: var(--lcars-readout-label-font-size) !important;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: 0.04em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      :host(.readout-bar-right) ha-card > .header .icon,
+      :host(.readout-bar-large-right) ha-card > .header .icon {
+        display: none !important;
+      }
+      :host(.readout-bar-right) ha-card > .info,
+      :host(.readout-bar-large-right) ha-card > .info {
+        grid-column: 1;
+        grid-row: 1;
+        min-width: 0;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        gap: 0;
+        padding: 0 8px 0 0;
+        margin: 0;
+        background: var(--lcars-readout-value-bg) !important;
+        color: var(--lcars-readout-accent-color) !important;
+        border-left: var(--lcars-vertical-border) solid var(--lcars-readout-accent-color);
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        box-sizing: border-box;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      :host(.readout-bar-right) ha-card > .info .value {
+        color: inherit !important;
+        font-size: var(--lcars-readout-value-font-size);
+        font-weight: 700;
+        line-height: 0.82;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+      }
+      :host(.readout-bar-large-right) ha-card > .info .value {
+        color: inherit !important;
+        font-size: var(--lcars-readout-large-value-font-size);
+        font-weight: 700;
+        line-height: 0.82;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+      }
+      :host(.readout-bar-right) ha-card > .info .measurement,
+      :host(.readout-bar-large-right) ha-card > .info .measurement {
+        color: inherit !important;
+        font-size: var(--lcars-readout-unit-font-size);
+        line-height: 1;
+        margin-bottom: 7px;
+        margin-left: 2px;
+      }
+      :host(.readout-bar-right) ha-card > .footer,
+      :host(.readout-bar-large-right) ha-card > .footer {
+        display: none !important;
+      }
+      :host(.readout-bar-right) .card-content,
+      :host(.readout-bar-large-right) .card-content {
+        padding: 0 !important;
+      }
+
+    # Entities card shell (list of readout rows)
+    "hui-entities-card$": |
+      :host(.readout-bar-right) ha-card,
+      :host(.readout-bar-large-right) ha-card {
+        background: transparent !important;
+        box-shadow: none !important;
+        border: 0 !important;
+      }
+      :host(.readout-bar-right) #states,
+      :host(.readout-bar-large-right) #states {
+        display: flex;
+        flex-direction: column;
+        gap: var(--lcars-readout-gap);
+        padding: 0 !important;
+      }
+      :host(.readout-bar-right) #states > div,
+      :host(.readout-bar-large-right) #states > div {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      :host(.readout-bar-right) .card-content,
+      :host(.readout-bar-large-right) .card-content {
+        padding: 0 !important;
+      }
   # ===================================================== #
   #          TOOLBAR AND DASHBOARD MODIFICATIONS          #
   # ===================================================== #

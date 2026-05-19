@@ -577,7 +577,8 @@ card_mod:
 </tr>
 </table>
 
-11. `list-<lozenge|bullet|capped|barrel>-<left|right>` - styled to-do lists using the `lozenge`, `bullet`, `capped`, and `barrel` styles in `left` and `right` variants similar to the `button-*` classes discussed above. 
+11. `list-<lozenge|bullet|capped|barrel>-<left|right>` - styled to-do lists using the `lozenge`, `bullet`, `capped`, and `barrel` styles in `left` and `right` variants similar to the `button-*` classes discussed above.
+
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -611,6 +612,55 @@ card_mod:
 </td>
 <td>
 <img width="700" alt="to-do lists" src="https://github.com/user-attachments/assets/d9280c2d-16a8-4c82-9e6a-88955262cc67" />
+</td>
+</tr>
+</table>
+
+12. `readout-bar-right` `readout-bar-large-right` - sensor readout display: a two-column layout with the numeric value on the left and the entity name (label) on the right. Designed for `entity` cards (single value) and `entities` cards (stacked rows of sensor values). The large variant uses a bigger value font. See [Customization](#customization) for the `lcars-readout-*` variables that control colors, font sizes, and spacing.
+<table>
+<tr>
+<td> YAML </td> <td> Notes </td>
+</tr>
+<tr>
+<td>
+
+```yaml
+# Single entity — standard size
+type: entity
+entity: sensor.temperature
+name: TEMP
+card_mod:
+  class: readout-bar-right
+
+# Single entity — large size
+type: entity
+entity: sensor.temperature
+name: TEMP
+card_mod:
+  class: readout-bar-large-right
+
+# Multiple sensors stacked — standard size
+type: entities
+card_mod:
+  class: readout-bar-right
+entities:
+  - sensor.temperature
+  - sensor.humidity
+
+# Multiple sensors stacked — large size
+type: entities
+card_mod:
+  class: readout-bar-large-right
+entities:
+  - sensor.temperature
+  - sensor.humidity
+```
+
+</td>
+<td>
+
+Value (left column) shows the sensor state in the accent color against a dark background, separated by a left border in the accent color. Label (right column) shows the entity name uppercased against the card top color. Use `readout-bar-large-right` for a bigger value display (`lcars-readout-large-value-font-size`, default `3em`).
+
 </td>
 </tr>
 </table>
