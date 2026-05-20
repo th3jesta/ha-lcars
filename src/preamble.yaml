@@ -233,7 +233,6 @@
   # Cards
   card-background-color: var(--secondary-background-color)
   ha-card-border-radius: var(--lcars-outer-radius)
-  ha-card-background: var(--lcars-ui-secondary);
   ha-card-border-width: 0px
   ha-heading-card-title-color: var(--lcars-ui-text-heading)
   # Tables

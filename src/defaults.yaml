@@ -3,55 +3,55 @@
 # in the &lcars-variables palette block belong here.
 
 # UI Colors
-# sidebar-background-color
+# sidebar background; app header background
 lcars-ui-primary: var(--lcars-almond-creme)
-# sidebar-text-color, sidebar-menu-button-text-color
+# text on the sidebar and app header
 lcars-ui-primary-text: var(--lcars-text-dark)
-# ha-card-background; default for lcars-ui-config-button
+# sidebar nav item bars and icons; config/gear button; entity state indicator ("on" color); drag ghost in automation/script editors
 lcars-ui-secondary: var(--lcars-african-violet)
-# ha-card-header-color, primary-text-color, secondary-text-color, mdc text-on-background
+# sidebar nav text
 lcars-ui-secondary-text: var(--lcars-text-dark)
-# md-slider-active-track-color; default for lcars-ui-app-header-clock
+# slider active track; header clock color; sidebar notification badges
 lcars-ui-tertiary: var(--lcars-red)
-# secondary-background-color (card-background-color, listbox); mdc-text-field-fill-color
+# default card background; chip/filter pill backgrounds; alternating table row backgrounds; card-background-color fallback
 lcars-ui-quaternary: var(--lcars-gray)
-# mdc-text-field-label-ink-color, mdc-text-field-ink-color
+# text inside input fields and filter chips
 lcars-ui-quaternary-text: var(--lcars-text-light)
-# accent-color: notification badges, history graph fills, media seek slider, dashboard edit icons
+# notification badge backgrounds; history graph fills; media seek bar; dashboard edit-mode icons
 lcars-ui-accent-color: var(--lcars-orange)
-# any text over the accent-color background, such as notification badge text and dashboard edit icon text
+# text on accent-colored surfaces (badge counts, edit-mode icon labels)
 lcars-ui-accent-text: var(--lcars-text-dark)
-# primary-background-color; card interior and cutout borders throughout card-mod CSS
+# page background; cutout borders and interior voids throughout LCARS card frames
 lcars-background-color: "#000000"
 
-# Header / Sidebar
-# app-header-background-color
+# Header/Big Elbow
+# top app bar background
 lcars-ui-app-header-background-color: var(--lcars-ui-primary)
-# app-header-text-color
+# top app bar text and icons
 lcars-ui-app-header-text-color: var(--lcars-ui-primary-text)
-# clock display in the app header (card-mod CSS)
+# clock / header label displayed at the right of the app bar
 lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
-# config/gear button background (card-mod CSS)
+# Settings button background
 lcars-ui-config-button: var(--lcars-ui-secondary)
-# config/gear icon color (card-mod CSS)
+# Settings icon color
 lcars-ui-config-icon: var(--lcars-ui-config-button)
 
-# Sidebar
-# nav item bar background color
+# Sidebar Menu
+# colored bar behind each nav item label
 lcars-sidebar-item-color: var(--lcars-ui-secondary)
-# nav item label text color
+# nav item label text
 lcars-sidebar-text: var(--lcars-ui-secondary-text)
-# icon glyph color (sidebar-icon-color in &base; card-mod CSS for expanded state)
-lcars-sidebar-icon-color: var(--lcars-ui-secondary)
-# icon column background (expanded) and user item background
+# icon glyphs in the collapsed sidebar; icon column background when expanded
+lcars-sidebar-icon-color: var(--lcars-card-top-text)
+# icon column background (expanded sidebar) and user-account item background
 lcars-sidebar-icon-background: var(--lcars-card-top-color)
-# selected item accent: background, border, badge, icon background
-lcars-sidebar-selected-color: var(--lcars-ui-app-header-clock)
-# notification badge color
+# highlight color for the active/selected nav item (bar, border, badge, icon)
+lcars-sidebar-selected-color: var(--lcars-ui-tertiary)
+# unread-notification badge on nav items
 lcars-sidebar-notification-color: var(--lcars-ui-tertiary)
 
 # UI Text
-# ha-heading-card-title-color
+# section/view heading titles on dashboards
 lcars-ui-text-heading: var(--lcars-text-gray)
 
 # Card colors
