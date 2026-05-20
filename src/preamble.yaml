@@ -279,6 +279,11 @@
   input-dropdown-icon-color: var(--lcars-text-gray)
   ha-outlined-field-container-color: var(--lcars-text-gray)
 
+  # Fields
+  ha-color-form-background: rgba(0, 0, 0, 0)
+  ha-color-form-background-hover: rgba(255, 255, 255, 0.05)
+  ha-color-form-background-disabled: rgba(0, 0, 0, 0.1)
+
   # Thermostat Card  # ha-frontend: src/panels/lovelace/cards/hui-thermostat-card.ts, src/components/ha-control-circular-slider.ts
   control-circular-slider-background: var(--lcars-dark-gray)
   state-climate-auto-color: var(--lcars-cyan)
