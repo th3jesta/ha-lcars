@@ -203,7 +203,7 @@
   font-family: "var(--lcars-font), var(--lcars-fallback-font), Segoe UI Variable Static Text, Segoe UI, SegoeUI, -apple-system,BlinkMacSystemFont, system-ui, sans-serif"
   ha-font-family-body: var(--font-family)
   ha-card-header-font-family: var(--font-family)
-  header-font-size: calc(var(--header-height) * 0.8)
+  header-font-size: calc(var(--header-height) * 0.93)
   # Text
   ha-card-header-color: var(--lcars-ui-secondary-text)
   primary-text-color: var(--lcars-text-light)
