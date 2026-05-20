@@ -1323,7 +1323,11 @@
             padding-right: calc( 5px * var(--left-shift) );
           }
         }
-
+    # Markdown h1 fix
+    "ha-card ha-markdown$": |
+      h1 {
+        font-weight: normal;
+      }
   # ===================================================== #
   #          TOOLBAR AND DASHBOARD MODIFICATIONS          #
   # ===================================================== #
