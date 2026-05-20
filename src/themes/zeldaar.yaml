@@ -3,7 +3,6 @@ name: LCARS Zeldaar
 lcars-ui-primary: var(--lcars-violet-creme)
 lcars-ui-secondary: var(--lcars-honey)
 lcars-ui-tertiary: var(--lcars-roseblush)
-lcars-ui-tertiary-text: var(--lcars-text-dark)
 lcars-ui-quaternary: var(--lcars-mauve)
 
 lcars-ui-config-button: var(--lcars-african-violet)

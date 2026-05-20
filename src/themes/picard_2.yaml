@@ -3,7 +3,6 @@ name: LCARS Picard II
 lcars-ui-primary: var(--lcars-turquoise)
 lcars-ui-secondary: var(--lcars-cerulean)
 lcars-ui-tertiary: var(--lcars-apricot)
-lcars-ui-tertiary-text: var(--lcars-text-dark)
 lcars-ui-quaternary: var(--lcars-midnight-blue)
 
 lcars-ui-config-button: var(--lcars-apricot)

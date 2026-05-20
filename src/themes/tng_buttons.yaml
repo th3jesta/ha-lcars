@@ -3,7 +3,6 @@ name: LCARS TNGbuttons
 lcars-ui-primary: var(--lcars-peach-cream)
 lcars-ui-secondary: var(--lcars-sunflower)
 lcars-ui-tertiary: var(--lcars-lilac-light)
-lcars-ui-tertiary-text: var(--lcars-text-dark)
 lcars-ui-quaternary: var(--lcars-galaxy)
 
 lcars-ui-app-header-background-color: var(--lcars-tan)

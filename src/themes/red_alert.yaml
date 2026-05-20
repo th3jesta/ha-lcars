@@ -4,7 +4,6 @@ lcars-ui-primary: var(--lcars-cardinal)
 lcars-ui-primary-text: var(--lcars-text-light)
 lcars-ui-secondary: var(--lcars-silver)
 lcars-ui-tertiary: var(--lcars-scarlet)
-lcars-ui-tertiary-text: var(--lcars-text-dark)
 lcars-ui-quaternary: var(--lcars-dark-red)
 
 lcars-ui-config-button: var(--lcars-ui-secondary)

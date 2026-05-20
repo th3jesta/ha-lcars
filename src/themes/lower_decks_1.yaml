@@ -3,7 +3,6 @@ name: LCARS Lower Decks I
 lcars-ui-primary: var(--lcars-gold)
 lcars-ui-secondary: var(--lcars-butter)
 lcars-ui-tertiary: var(--lcars-orange)
-lcars-ui-tertiary-text: var(--lcars-text-dark)
 lcars-ui-quaternary: var(--lcars-darkpumpkin)
 
 lcars-ui-config-button: var(--lcars-ui-quaternary)
