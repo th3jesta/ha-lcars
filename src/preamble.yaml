@@ -1074,9 +1074,9 @@
       :host(.header-left.type-horizontal-stack),
       :host(.header-right.type-horizontal-stack),
       :host(.header-contained.type-horizontal-stack),
-      :host(.header-left.type-horizontal-stack),
-      :host(.header-right.type-horizontal-stack),
-      :host(.header-contained.type-horizontal-stack) {
+      :host(.header-left.type-vertical-stack),
+      :host(.header-right.type-vertical-stack),
+      :host(.header-contained.type-vertical-stack) {
         .card-header {
           color: var(--lcars-card-top-text);
         }
@@ -1084,9 +1084,9 @@
       :host(.middle-left.type-horizontal-stack),
       :host(.middle-right.type-horizontal-stack),
       :host(.middle-contained.type-horizontal-stack),
-      :host(.middle-left.type-horizontal-stack),
-      :host(.middle-right.type-horizontal-stack),
-      :host(.middle-contained.type-horizontal-stack) {
+      :host(.middle-left.type-vertical-stack),
+      :host(.middle-right.type-vertical-stack),
+      :host(.middle-contained.type-vertical-stack) {
         .card-header {
           color: var(--lcars-card-mid-text);
         }
@@ -1094,9 +1094,9 @@
       :host(.footer-left.type-horizontal-stack),
       :host(.footer-right.type-horizontal-stack),
       :host(.footer-contained.type-horizontal-stack),
-      :host(.footer-left.type-horizontal-stack),
-      :host(.footer-right.type-horizontal-stack),
-      :host(.footer-contained.type-horizontal-stack) {
+      :host(.footer-left.type-vertical-stack),
+      :host(.footer-right.type-vertical-stack),
+      :host(.footer-contained.type-vertical-stack) {
         .card-header {
           color: var(--lcars-card-bottom-text);
         }

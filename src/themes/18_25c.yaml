@@ -1,7 +1,7 @@
 name: LCARS 25C
 
 lcars-ui-primary: var(--lcars-primary-gray)
-lcars-ui-primary-text: var(--lcars-text-light)
+lcars-ui-primary-text: var(--lcars-text-dark)
 lcars-ui-secondary: var(--lcars-medium-gray)
 lcars-ui-tertiary: var(--lcars-alt-orange)
 lcars-ui-quaternary: var(--lcars-primary-gray)
