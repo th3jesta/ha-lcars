@@ -3,7 +3,7 @@ name: LCARS Breen
 lcars-ui-primary: var(--lcars-green-primary)
 lcars-ui-secondary: var(--lcars-green-secondary)
 lcars-ui-tertiary: var(--lcars-green-tertiary)
-lcars-ui-quaternary: var(--lcars-gray)
+lcars-ui-quaternary: var(--lcars-green-middle)
 
 lcars-sidebar-icon-color: var(--lcars-text-dark)
 lcars-ui-config-button: var(--lcars-green-footer)
