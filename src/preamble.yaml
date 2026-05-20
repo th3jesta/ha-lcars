@@ -2134,7 +2134,7 @@
     ha-md-list-item$: |
       md-item {
         --md-list-item-leading-space: 0px;
-        --md-list-item-trailing-space: 3px;
+        --md-list-item-trailing-space: 0px;
         --ha-md-list-item-gap: 0px;
       }
 
@@ -2198,8 +2198,7 @@
           min-height: 40px;
           margin: 0px 0px 0px 0px;
           padding: 9px 8px 11px 5px;
-          width: calc( 100% + 3px );
-          max-width: calc( 100% + 3px );
+          width: 100%;
         }
         span.badge {
           position: absolute;
@@ -2228,7 +2227,6 @@
             color: var(--lcars-ui-config-button);
             background-color: var(--lcars-background-color);
             border: 3px var(--lcars-ui-config-button) solid;
-            margin-right: -3px;
             padding-top: 6px;
             padding-bottom: 8px;
           }
@@ -2272,7 +2270,6 @@
             color: var(--lcars-sidebar-selected-color);
             background-color: var(--lcars-background-color);
             border: 3px var(--lcars-sidebar-selected-color) solid;
-            margin-right: -3px;
             padding-top: 6px;
             padding-bottom: 8px;
           }
@@ -2287,6 +2284,9 @@
             fill: var(--lcars-sidebar-selected-color);
             border-left-color: var(--lcars-sidebar-selected-color);
             border-right-color: var(--lcars-sidebar-selected-color);
+          }
+          > ha-user-badge {
+            margin-right: 0px;
           }
         }
       }
