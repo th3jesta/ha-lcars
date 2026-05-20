@@ -94,6 +94,7 @@ SECTIONS: dict[str, list[str]] = {
         "warning-color",
         "error-color",
     ],
+
 }
 
 # Flattened set of all explicitly sectioned variables.

@@ -206,9 +206,9 @@
   header-font-size: calc(var(--header-height) * 0.8)
   # Text
   ha-card-header-color: var(--lcars-ui-secondary-text)
-  primary-text-color: var(--lcars-ui-secondary-text)
-  secondary-text-color: var(--lcars-ui-secondary-text)
-  text-primary-color: var(--lcars-ui-secondary-text)
+  primary-text-color: var(--lcars-text-light)
+  secondary-text-color: var(--lcars-text-light)
+  text-primary-color: var(--lcars-text-light)
   disabled-text-color: "#555"
   # Sidebar Menu
   sidebar-background-color: var(--lcars-ui-primary)
@@ -257,7 +257,7 @@
   mdc-text-field-ink-color: var(--lcars-ui-quaternary-text)
   #App Header
   app-header-edit-background-color: transparent
-  app-header-text-color: var(--lcars-ui-app-header-text-color, black)
+  app-header-text-color: var(--lcars-ui-app-header-text-color, var(--lcars-ui-primary-text))
   header-height: 40px
   # Tabs
   ha-tab-padding-start: 5px;
@@ -306,10 +306,6 @@
         --paper-item-icon-color: var(--lcars-dark-gray);
       }
       :host, :host > ha-card {
-        --lcars-horizontal-border: {{ states('input_number.lcars_horizontal') if has_value('input_number.lcars_horizontal') else 10 }}px !important;
-        --lcars-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
-        --lcars-middle-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
-        --menu-font-size: {{ states('input_number.lcars_menu_font') if has_value('input_number.lcars_menu_font') else 24 }}px !important;
         &:not(.type-undefined,.type-custom-grid-layout) {
           height: 100%;
         }
@@ -1512,6 +1508,10 @@
         --primary-text-color: var(--lcars-text-gray);
         --secondary-text-color: var(--lcars-text-gray);
         --text-primary-color: var(--lcars-text-gray);
+        --lcars-horizontal-border: {{ states('input_number.lcars_horizontal') if has_value('input_number.lcars_horizontal') else 10 }}px !important;
+        --lcars-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
+        --lcars-middle-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
+        --menu-font-size: {{ states('input_number.lcars_menu_font') if has_value('input_number.lcars_menu_font') else 24 }}px !important;
       }
       hui-view::-webkit-scrollbar {
         display: none;
@@ -1678,13 +1678,6 @@
           }
           {% endif %}
 
-    # ------------------- Data Table Text ------------------------------------ #
-    "ha-data-table $": |
-      :host {
-        --primary-text-color: var(--lcars-text-light);
-        --secondary-text-color: var(--lcars-text-light);
-      }
-
     # ------------------- Dev Tools Submenu ---------------------------------- #
     "ha-panel-developer-tools $": |
       .header ha-tab-group {
@@ -1714,79 +1707,75 @@
     # ------------------- Bottom Nav Menu Fixes ------------------------------ #
     # Disappointingly, "* $ hass-tabs-subpage $" doesn't seem to work?
     # So I have to enumerate anywhere the bottom bar nav appears
+    # ------------------- Automation/Script Editor Drag States --------------- #
+    "ha-config-automation $ ha-automation-editor $": |
+      .sortable-ghost,
+      .sortable-drag {
+        background-color: var(--lcars-ui-secondary) !important;
+      }
+    "ha-config-script $ ha-script-editor $": |
+      .sortable-ghost,
+      .sortable-drag {
+        background-color: var(--lcars-ui-secondary) !important;
+      }
     "ha-config-automation $ hass-tabs-subpage $": |
-      /* -------- Bottom bar sizing -------- */
       div.bottom-bar {
         --header-height: 50px;
       }
     "ha-config-blueprint $ hass-tabs-subpage $": |
-      /* -------- Bottom bar sizing -------- */
       div.bottom-bar {
         --header-height: 50px;
       }
     "ha-config-script $ hass-tabs-subpage $": |
-      /* -------- Bottom bar sizing -------- */
       div.bottom-bar {
         --header-height: 50px;
       }
     "ha-config-scene $ hass-tabs-subpage $": |
-      /* -------- Bottom bar sizing -------- */
       div.bottom-bar {
         --header-height: 50px;
       }
     "ha-config-integrations $ hass-tabs-subpage $": |
-      /* -------- Bottom bar sizing -------- */
       div.bottom-bar {
         --header-height: 50px;
       }
     "ha-config-devices $ hass-tabs-subpage $": |
-      /* -------- Bottom bar sizing -------- */
       div.bottom-bar {
         --header-height: 50px;
       }
     "ha-config-entities $ hass-tabs-subpage $": |
-      /* -------- Bottom bar sizing -------- */
       div.bottom-bar {
         --header-height: 50px;
       }
     "ha-config-helpers $ hass-tabs-subpage $": |
-      /* -------- Bottom bar sizing -------- */
       div.bottom-bar {
         --header-height: 50px;
       }
     "ha-config-areas $ hass-tabs-subpage $": |
-      /* -------- Bottom bar sizing -------- */
       div.bottom-bar {
         --header-height: 50px;
       }
     "ha-config-labels $ hass-tabs-subpage $": |
-      /* -------- Bottom bar sizing -------- */
       div.bottom-bar {
         --header-height: 50px;
       }
     "ha-config-zone $ hass-tabs-subpage $": |
-      /* -------- Bottom bar sizing -------- */
       div.bottom-bar {
         --header-height: 50px;
       }
     "ha-config-person $ hass-tabs-subpage $": |
-      /* -------- Bottom bar sizing -------- */
       div.bottom-bar {
         --header-height: 50px;
       }
     "ha-config-users $ hass-tabs-subpage $": |
-      /* -------- Bottom bar sizing -------- */
       div.bottom-bar {
         --header-height: 50px;
       }
     "ha-config-voice-assistants ha-config-voice-assistants-assistants $":
       "hass-tabs-subpage $": |
-        /* -------- Bottom bar sizing -------- */
         div.bottom-bar {
           --header-height: 50px;
         }
-    "ha-config-voice-assistants ha-config-voice-assistants-expose $ hass-tabs-subpage-data-table $ hass-tabs-subpage $": |
-      /* -------- Bottom bar sizing -------- */
+    "ha-config-voice-assistants ha-config-voice-assistants-expose $ hass-tabs-subpage $": |
       div.bottom-bar {
         --header-height: 50px;
       }
@@ -1895,6 +1884,8 @@
         "$": |
           :host {
             background-color: transparent !important;
+            --primary-text-color: var(--lcars-text-light);
+            --secondary-text-color: var(--lcars-text-light);
             border-radius: 0 !important;
             margin-top: 32px !important;
           }
@@ -1903,6 +1894,8 @@
         "$": |
           :host {
             background-color: transparent !important;
+            --primary-text-color: var(--lcars-text-light);
+            --secondary-text-color: var(--lcars-text-light);
             border-radius: 0 !important;
             margin-top: 32px !important;
           }
@@ -1935,6 +1928,8 @@
         "$": |
           :host {
             background-color: transparent !important;
+            --primary-text-color: var(--lcars-text-light);
+            --secondary-text-color: var(--lcars-text-light);
             border-radius: 0 !important;
             margin-top: 32px !important;
           }
@@ -2059,6 +2054,8 @@
         }
         :is(.pages) {
           background-color: transparent !important;
+          --primary-text-color: var(--lcars-text-light);
+          --secondary-text-color: var(--lcars-text-light);
           border-radius: 0 !important;
           margin-top: 6px !important;
           padding: 0px;
@@ -2096,12 +2093,10 @@
         font-family: var(--font-family);
       }
     "ha-profile-section-general $ hass-tabs-subpage $": |
-      /* -------- Bottom bar sizing -------- */
       div.bottom-bar {
         --header-height: 50px;
       }
     "ha-profile-section-security $ hass-tabs-subpage $": |
-      /* -------- Bottom bar sizing -------- */
       div.bottom-bar {
         --header-height: 50px;
       }

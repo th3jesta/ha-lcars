@@ -26,9 +26,9 @@ lcars-background-color: "#000000"
 
 # Header / Sidebar
 # app-header-background-color
-lcars-ui-app-header-background-color: "#272727"
+lcars-ui-app-header-background-color: var(--lcars-ui-primary)
 # app-header-text-color
-lcars-ui-app-header-text-color: var(--lcars-pearl)
+lcars-ui-app-header-text-color: var(--lcars-ui-primary-text)
 # clock display in the app header (card-mod CSS)
 lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
 # config/gear button background (card-mod CSS)
