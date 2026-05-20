@@ -37,6 +37,8 @@ lcars-ui-config-button: var(--lcars-ui-secondary)
 lcars-ui-config-icon: var(--lcars-ui-config-button)
 
 # Sidebar Menu
+# color of elbow and empty space
+lcars-sidebar-background: var(--lcars-ui-primary)
 # colored bar behind each nav item label
 lcars-sidebar-item-color: var(--lcars-ui-secondary)
 # nav item label text

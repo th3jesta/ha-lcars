@@ -199,46 +199,57 @@
   accent-color: var(--lcars-ui-accent-color)
   text-accent-color: var(--lcars-ui-accent-text)
   box-sizing: unset !important
+
   # Fonts
   font-family: "var(--lcars-font), var(--lcars-fallback-font), Segoe UI Variable Static Text, Segoe UI, SegoeUI, -apple-system,BlinkMacSystemFont, system-ui, sans-serif"
   ha-font-family-body: var(--font-family)
   ha-card-header-font-family: var(--font-family)
   header-font-size: calc(var(--header-height) * 0.93)
+
   # Text
-  ha-card-header-color: var(--lcars-ui-secondary-text)
+  # Default card is quaternary
+  ha-card-header-color: var(--lcars-ui-quaternary-text)
+  # Text over black backgrounds. Override elsewhere if you need -dark variants
   primary-text-color: var(--lcars-text-light)
   secondary-text-color: var(--lcars-text-light)
   text-primary-color: var(--lcars-text-light)
   disabled-text-color: "#555"
+
   # Sidebar Menu
-  sidebar-background-color: var(--lcars-ui-primary)
+  sidebar-background-color: var(--lcars-sidebar-background)
   sidebar-menu-button-background-color: var(--sidebar-background-color)
   sidebar-icon-color: var(--lcars-sidebar-text)
   sidebar-text-color: var(--lcars-sidebar-text)
   sidebar-selected-icon-color: var(--lcars-sidebar-text)
   sidebar-menu-button-text-color: var(--lcars-sidebar-text)
+
   # States and Badges
   state-icon-color: var(--lcars-text-light)
   state-active-color: var(--lcars-sunflower)
+
   # Sliders
   ha-slider-background: none !important
-  # Labels
-  label-badge-text-color: var(--lcars-text-dark)
+
   # Badges
+  label-badge-text-color: var(--lcars-text-dark)
   label-badge-red: var(--lcars-alt-orange)
   label-badge-yellow: var(--lcars-sunflower)
   label-badge-blue: var(--lcars-blue)
   label-badge-green: var(--lcars-green)
   label-badge-grey: var(--lcars-medium-gray)
+
   # Cards
   card-background-color: var(--secondary-background-color)
   ha-card-border-radius: var(--lcars-outer-radius)
   ha-card-border-width: 0px
   ha-heading-card-title-color: var(--lcars-ui-text-heading)
+  
   # Tables
+  # TODO: Test this. this alternates between black and quaternary?
   table-row-background-color: var(--primary-background-color)
   table-row-alternative-background-color: var(--secondary-background-color)
-  data-table-background-color: black
+  data-table-background-color: var(--lcars-background-color)
+
   # Material Design Components
   mdc-typography-button-font-family: var(--font-family)
   mdc-typography-body2-font-family: var(--font-family)
@@ -296,6 +307,9 @@
   state-climate-cool-color: var(--lcars-cyan)
   state-unknown-color: var(--lcars-starlight)
   energy-non-fossil-color: var(--lcars-alt-green)
+
+  # Calendar card and panel
+  table-header-background-color: var(--ha-color-primary-10)
 
 # ======================================================= #
 #                    CARD MODIFICATIONS                   #
@@ -1120,7 +1134,6 @@
       ha-card:is(.type-calendar) {
         ha-full-calendar {
           --card-background-color: var(--lcars-background-color);
-          --table-header-background-color: var(--lcars-dark-gray);
         }
       }
 
@@ -1199,7 +1212,7 @@
               border-bottom-left-radius: var(--list-border-left);
               border-bottom-right-radius: var(--list-border-right);
               margin: 5px;
-              padding: 0px;
+              padding-top: 0px var(--list-border-right) 0px var(--list-border-left);
               height: 60px;
             }
             ha-check-list-item.completed {
