@@ -2391,7 +2391,7 @@
         display: none;
       }
       ha-md-list:not(.ha-scrollbar) {
-        padding: 54px 0px 0px 0px !important;
+        padding: 0px 0px 0px 0px !important;
         background-color: var(--lcars-background-color);
       }
       /* ----------------------------------------------- */
