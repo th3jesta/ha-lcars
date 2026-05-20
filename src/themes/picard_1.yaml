@@ -4,6 +4,7 @@ lcars-ui-primary: var(--lcars-hellgrau)
 lcars-ui-secondary: var(--lcars-mittelgrau)
 lcars-ui-secondary-text: var(--lcars-text-dark)
 lcars-ui-tertiary: var(--lcars-feuerrot)
+lcars-ui-tertiary-text: var(--lcars-text-dark)
 lcars-ui-quaternary: var(--lcars-mittelgrau)
 
 lcars-sidebar-icon-color: var(--lcars-alt-dark-gray)

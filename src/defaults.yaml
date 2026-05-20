@@ -13,6 +13,8 @@ lcars-ui-secondary: var(--lcars-african-violet)
 lcars-ui-secondary-text: var(--lcars-text-dark)
 # slider active track; header clock color; sidebar notification badges
 lcars-ui-tertiary: var(--lcars-red)
+# text on lcars-ui-tertiary surfaces (auto-computed by generate_themes.py)
+lcars-ui-tertiary-text: var(--lcars-text-dark)
 # default card background; chip/filter pill backgrounds; alternating table row backgrounds; card-background-color fallback
 lcars-ui-quaternary: var(--lcars-gray)
 # text inside input fields and filter chips
@@ -22,7 +24,7 @@ lcars-ui-accent-color: var(--lcars-orange)
 # text on accent-colored surfaces (badge counts, edit-mode icon labels)
 lcars-ui-accent-text: var(--lcars-text-dark)
 # page background; cutout borders and interior voids throughout LCARS card frames
-lcars-background-color: "#000000"
+lcars-background-color: var(--lcars-black)
 
 # Header/Big Elbow
 # top app bar background

@@ -4,10 +4,11 @@ lcars-ui-primary: var(--lcars-alert-color)
 lcars-ui-primary-text: var(--lcars-text-light)
 lcars-ui-secondary: var(--lcars-alert-white)
 lcars-ui-tertiary: var(--lcars-alert-color)
+lcars-ui-tertiary-text: var(--lcars-text-light)
 lcars-ui-quaternary: var(--lcars-alert-color)
 lcars-alert-color: var(--lcars-alert-red)
 
-lcars-ui-app-header-background-color: "#000000"
+lcars-ui-app-header-background-color: var(--lcars-black)
 lcars-ui-app-header-text-color: var(--lcars-alert-white)
 lcars-ui-app-header-clock: var(--lcars-alert-white)
 lcars-ui-config-button: var(--lcars-ui-secondary)

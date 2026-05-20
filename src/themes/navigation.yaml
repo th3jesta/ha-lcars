@@ -3,6 +3,7 @@ name: LCARS Navigation
 lcars-ui-primary: var(--lcars-olive)
 lcars-ui-secondary: var(--lcars-sand)
 lcars-ui-tertiary: var(--lcars-lemon)
+lcars-ui-tertiary-text: var(--lcars-text-dark)
 lcars-ui-quaternary: var(--lcars-olive)
 lcars-ui-quaternary-text: var(--lcars-text-dark)
 

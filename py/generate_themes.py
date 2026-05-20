@@ -3,7 +3,7 @@
 Generate themes/lcars.yaml from src/
 
 Usage:
-    python generate_themes.py
+    python3 py/generate_themes.py
 
 Theme files live in src/themes/*.yaml (numbered for output order).
 Shared palette, base settings, and card-mod CSS live in src/preamble.yaml.
@@ -20,7 +20,7 @@ from pathlib import Path
 
 import yaml
 
-REPO_ROOT = Path(__file__).parent
+REPO_ROOT = Path(__file__).parent.parent
 SRC = REPO_ROOT / "src"
 PREAMBLE_FILE = SRC / "preamble.yaml"
 DEFAULTS_FILE = SRC / "defaults.yaml"
@@ -54,6 +54,7 @@ SECTIONS: dict[str, list[str]] = {
         "lcars-ui-secondary",
         "lcars-ui-secondary-text",
         "lcars-ui-tertiary",
+        "lcars-ui-tertiary-text",
         "lcars-ui-quaternary",
         "lcars-ui-quaternary-text",
         "lcars-ui-accent-color",
@@ -159,6 +160,7 @@ def var_resolve(key: str, context: dict, depth: int = 0) -> str | None:
 def hex_to_rgb(hex_color: str) -> str:
     h = hex_color.lstrip("#")[:6]  # drop alpha channel if present
     return f"{int(h[0:2], 16)},{int(h[2:4], 16)},{int(h[4:6], 16)}"
+
 
 
 def fmt(value: object) -> str:

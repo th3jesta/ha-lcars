@@ -3,6 +3,7 @@ name: LCARS Modern
 lcars-ui-primary: var(--lcars-violet-creme)
 lcars-ui-secondary: var(--lcars-sky)
 lcars-ui-tertiary: var(--lcars-gold)
+lcars-ui-tertiary-text: var(--lcars-text-dark)
 lcars-ui-quaternary: var(--lcars-gray)
 
 lcars-sidebar-icon-color: var(--lcars-dark-gray)

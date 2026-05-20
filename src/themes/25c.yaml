@@ -4,9 +4,10 @@ lcars-ui-primary: var(--lcars-primary-gray)
 lcars-ui-primary-text: var(--lcars-text-dark)
 lcars-ui-secondary: var(--lcars-medium-gray)
 lcars-ui-tertiary: var(--lcars-alt-orange)
+lcars-ui-tertiary-text: var(--lcars-text-dark)
 lcars-ui-quaternary: var(--lcars-primary-gray)
 
-lcars-ui-app-header-background-color: "#000000"
+lcars-ui-app-header-background-color: var(--lcars-black)
 lcars-ui-app-header-clock: var(--lcars-pale-orange)
 lcars-ui-config-button: var(--lcars-cyan)
 

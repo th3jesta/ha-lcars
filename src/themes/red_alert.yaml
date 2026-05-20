@@ -4,14 +4,15 @@ lcars-ui-primary: var(--lcars-cardinal)
 lcars-ui-primary-text: var(--lcars-text-light)
 lcars-ui-secondary: var(--lcars-silver)
 lcars-ui-tertiary: var(--lcars-scarlet)
+lcars-ui-tertiary-text: var(--lcars-text-dark)
 lcars-ui-quaternary: var(--lcars-dark-red)
 
 lcars-ui-config-button: var(--lcars-ui-secondary)
 
-lcars-card-top-color: "#bf1b1b"
-lcars-card-mid-color: "#9d361e"
-lcars-card-button-color: "#d66a60"
-lcars-card-bottom-color: "#91311c"
+lcars-card-top-color: var(--lcars-brick-red)
+lcars-card-mid-color: var(--lcars-mahogany)
+lcars-card-button-color: var(--lcars-muted-coral)
+lcars-card-bottom-color: var(--lcars-sienna)
 
 lcars-card-top-text: var(--lcars-text-light)
 lcars-card-mid-text: var(--lcars-text-light)

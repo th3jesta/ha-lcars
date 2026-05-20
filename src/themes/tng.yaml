@@ -1,25 +1,26 @@
 name: LCARS TNG
 
-lcars-ui-primary: "#f5deb3"
-lcars-ui-secondary: "#ffcc66"
-lcars-ui-tertiary: "#cc99cc"
+lcars-ui-primary: var(--lcars-wheat-light)
+lcars-ui-secondary: var(--lcars-sunflower)
+lcars-ui-tertiary: var(--lcars-lilac-light)
+lcars-ui-tertiary-text: var(--lcars-text-dark)
 lcars-ui-quaternary: var(--lcars-galaxy)
 
-lcars-ui-app-header-background-color: "#d2b48c"
-lcars-ui-app-header-text-color: "#f5deb3"
+lcars-ui-app-header-background-color: var(--lcars-tan)
+lcars-ui-app-header-text-color: var(--lcars-wheat-light)
 lcars-sidebar-icon-color: var(--lcars-text-dark)
-lcars-ui-config-button: "#c5b358"
+lcars-ui-config-button: var(--lcars-antique-gold)
 
-lcars-card-top-color: "#f5deb3"
-lcars-card-mid-color: "#c5b358"
-lcars-card-button-color: "#ffbb33"
-lcars-card-bottom-color: "#f5deb3"
+lcars-card-top-color: var(--lcars-wheat-light)
+lcars-card-mid-color: var(--lcars-antique-gold)
+lcars-card-button-color: var(--lcars-amber)
+lcars-card-bottom-color: var(--lcars-wheat-light)
 
 lcars-card-top-text: var(--lcars-text-dark)
 lcars-card-mid-text: var(--lcars-text-dark)
 lcars-card-button-text: var(--lcars-text-dark)
 lcars-card-bottom-text: var(--lcars-text-dark)
 
-success-color: "#f0e68c"
-warning-color: "#dc143c"
-error-color: "#8b0000"
+success-color: var(--lcars-khaki-light)
+warning-color: var(--lcars-vivid-crimson)
+error-color: var(--lcars-maroon)

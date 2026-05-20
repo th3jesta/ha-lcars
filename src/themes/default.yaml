@@ -3,6 +3,7 @@ name: LCARS Default
 lcars-ui-primary: var(--lcars-almond-creme)
 lcars-ui-secondary: var(--lcars-african-violet)
 lcars-ui-tertiary: var(--lcars-red)
+lcars-ui-tertiary-text: var(--lcars-text-dark)
 lcars-ui-quaternary: var(--lcars-gray)
 
 lcars-ui-config-button: var(--lcars-ui-secondary)

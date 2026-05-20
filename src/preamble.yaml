@@ -154,6 +154,33 @@
   lcars-alert-uv: "#000080"
   lcars-alert-uvc: "#68fffa"
 
+  # General
+  lcars-black: "#000000"
+  lcars-graphite: "#555555"
+
+  # TNG Theme Colors
+  lcars-wheat-light: "#f5deb3"
+  lcars-peach-cream: "#f5cd9f"
+  lcars-tan: "#d2b48c"
+  lcars-antique-gold: "#c5b358"
+  lcars-warm-gold: "#efc861"
+  lcars-amber: "#ffbb33"
+  lcars-khaki-light: "#f0e68c"
+  lcars-vivid-crimson: "#dc143c"
+  lcars-maroon: "#8b0000"
+
+  # Lower Decks II Colors
+  lcars-vanilla: "#fff5c7"
+
+  # Kronos Colors
+  lcars-deep-maroon: "#930a00"
+
+  # Red Alert Colors
+  lcars-brick-red: "#bf1b1b"
+  lcars-mahogany: "#9d361e"
+  lcars-muted-coral: "#d66a60"
+  lcars-sienna: "#91311c"
+
   # Shapes
   lcars-vertical-border: 35px
   lcars-horizontal-border: 10px
@@ -213,7 +240,7 @@
   primary-text-color: var(--lcars-text-light)
   secondary-text-color: var(--lcars-text-light)
   text-primary-color: var(--lcars-text-light)
-  disabled-text-color: "#555"
+  disabled-text-color: var(--lcars-graphite)
 
   # Sidebar Menu
   sidebar-background-color: var(--lcars-sidebar-background)

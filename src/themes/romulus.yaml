@@ -3,6 +3,7 @@ name: LCARS Romulus
 lcars-ui-primary: var(--lcars-green)
 lcars-ui-secondary: var(--lcars-african-violet)
 lcars-ui-tertiary: var(--lcars-orange)
+lcars-ui-tertiary-text: var(--lcars-text-dark)
 lcars-ui-quaternary: var(--lcars-green-middle)
 
 lcars-sidebar-icon-color: var(--lcars-aqua)
