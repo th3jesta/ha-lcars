@@ -25,6 +25,8 @@ lcars-ui-accent-color: var(--lcars-orange)
 lcars-ui-accent-text: var(--lcars-text-dark)
 # page background; cutout borders and interior voids throughout LCARS card frames
 lcars-background-color: var(--lcars-black)
+# text on lcars-background-color surfaces
+lcars-background-text: var(--lcars-text-light)
 
 # Header/Big Elbow
 # top app bar background

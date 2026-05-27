@@ -1,7 +1,6 @@
 name: LCARS 25C (Blue Alert)
 
 lcars-ui-primary: var(--lcars-alert-color)
-lcars-ui-primary-text: var(--lcars-text-light)
 lcars-ui-secondary: var(--lcars-alert-white)
 lcars-ui-tertiary: var(--lcars-alert-color)
 lcars-ui-quaternary: var(--lcars-alert-color)
@@ -26,3 +25,13 @@ lcars-card-bottom-text: var(--lcars-text-light)
 success-color: var(--lcars-alt-green)
 warning-color: var(--lcars-sunflower)
 error-color: var(--lcars-dark-red)
+
+modes:
+  light:
+    lcars-ui-primary-text: var(--lcars-text-light)
+    lcars-ui-tertiary-text: var(--lcars-text-light)
+    lcars-ui-quaternary-text: var(--lcars-text-light)
+  dark:
+    lcars-ui-primary-text: var(--lcars-text-dark)
+    lcars-ui-tertiary-text: var(--lcars-text-dark)
+    lcars-ui-quaternary-text: var(--lcars-text-dark)

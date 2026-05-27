@@ -175,7 +175,7 @@ def fmt(value: object) -> str:
     return s
 
 
-def render_theme(name: str, variables: dict) -> str:
+def render_theme(name: str, variables: dict, modes: dict | None = None) -> str:
     lines: list[str] = [
         f"{name}:",
         f"  card-mod-theme: {name}",
@@ -208,10 +208,17 @@ def render_theme(name: str, variables: dict) -> str:
         for k, v in extras.items():
             lines.append(f"  {k}: {fmt(v)}")
 
+    if modes:
+        lines.append("  modes:")
+        for mode_name, mode_vars in modes.items():
+            lines.append(f"    {mode_name}:")
+            for k, v in (mode_vars or {}).items():
+                lines.append(f"      {k}: {fmt(v)}")
+
     return "\n".join(lines)
 
 
-def load_theme(path: Path, defaults: dict) -> tuple[str, dict]:
+def load_theme(path: Path, defaults: dict) -> tuple[str, dict, dict | None]:
     with path.open() as f:
         data: dict = yaml.safe_load(f)
 
@@ -219,9 +226,9 @@ def load_theme(path: Path, defaults: dict) -> tuple[str, dict]:
     if not name:
         raise ValueError(f"{path.name}: missing required 'name' field")
 
-    # defaults first, theme values override
-    variables = {**defaults, **{k: v for k, v in data.items() if k != "name"}}
-    return name, variables
+    modes: dict | None = data.get("modes") or None
+    variables = {**defaults, **{k: v for k, v in data.items() if k not in ("name", "modes")}}
+    return name, variables, modes
 
 
 def validate(name: str, variables: dict, errors: list[str]) -> None:
@@ -245,17 +252,17 @@ def main() -> None:
     if not theme_files:
         sys.exit(f"ERROR: no theme files found in {THEMES_DIR}")
 
-    themes: list[tuple[str, dict]] = []
+    themes: list[tuple[str, dict, dict | None]] = []
     errors: list[str] = []
 
     for path in theme_files:
         try:
-            name, variables = load_theme(path, defaults)
+            name, variables, modes = load_theme(path, defaults)
         except (ValueError, yaml.YAMLError) as exc:
             errors.append(str(exc))
             continue
         validate(name, variables, errors)
-        themes.append((name, variables))
+        themes.append((name, variables, modes))
 
     if errors:
         for e in errors:
@@ -277,7 +284,7 @@ def main() -> None:
         "",
     ]
 
-    for name, variables in themes:
+    for name, variables, modes in themes:
         # Resolve var() chains to hex and inject rgb-* for HA standard vars.
         # Context priority: theme/defaults > base_vars > palette (lowest).
         context = {**palette, **base_vars, **variables}
@@ -285,7 +292,7 @@ def main() -> None:
             hex_val = var_resolve(key, context)
             if hex_val:
                 variables[f"rgb-{key}"] = hex_to_rgb(hex_val)
-        chunks.append(render_theme(name, variables))
+        chunks.append(render_theme(name, variables, modes))
         chunks.append("")
 
     chunks.append("# ================ Paste your themes here =============== |")
@@ -295,7 +302,7 @@ def main() -> None:
     OUTPUT_FILE.write_text("\n".join(chunks) + "\n")
 
     print(f"Written {OUTPUT_FILE} ({len(themes)} themes):")
-    for name, _ in themes:
+    for name, _, __ in themes:
         print(f"  {name}")
 
 

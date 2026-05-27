@@ -237,9 +237,9 @@
   # Default card is quaternary
   ha-card-header-color: var(--lcars-ui-quaternary-text)
   # Text over black backgrounds. Override elsewhere if you need -dark variants
-  primary-text-color: var(--lcars-text-light)
-  secondary-text-color: var(--lcars-text-light)
-  text-primary-color: var(--lcars-text-light)
+  primary-text-color: var(--lcars-background-text)
+  secondary-text-color: var(--lcars-background-text)
+  text-primary-color: var(--lcars-background-text)
   disabled-text-color: var(--lcars-graphite)
 
   # Sidebar Menu
@@ -344,33 +344,21 @@
 (DO NOT USE/MODIFY)=== card-mod CSS: &card-mod-css # Card modifications
   card-mod-card-yaml: &card-mod-card |
     .: |
-      /* =============================================== */
-      /*            SECTION-SPECIFIC SETTINGS            */
-      /* =============================================== */
-      :host > ha-card {
-        --paper-item-icon-color: var(--lcars-dark-gray);
-      }
-      :host, :host > ha-card {
-        &:not(.type-undefined,.type-custom-grid-layout) {
-          height: 100%;
-        }
-        
-      }
-      :host > ha-card > .card-actions,
-      :host > ha-card > .card-actions .position-badge {
-        color: var(--lcars-text-dark);
-      }
-
       /* ----------------------------------------------- */
       /*                Common Card Styles               */
       /* ----------------------------------------------- */
-      :host > ha-card {
+      :host, :host > ha-card {
+
+        /* unclassed card has quaternary background */
+        --primary-text-color: var(--lcars-ui-quaternary-text);
         font-family: var(--font-family) !important;
         --md-sys-color-primary: var(--lcars-ui-quaternary) !important;
+
+        &:not(.type-undefined,.type-custom-grid-layout) {
+          height: 100%;
+        }
+
       }
-      #:host > ha-card > .name {
-      #  --primary-text-color: var(--lcars-text-dark);
-      #}
       
       /* =============================================== */
       /*        HEADER CLASSES AND CARD TYPE FIXES       */
@@ -395,6 +383,7 @@
         box-sizing: border-box;
         background-color: var(--lcars-card-top-color);
         text-transform: uppercase;
+        primary-text-color: var(--lcars-background-text);
 
         > :not(style,card-mod,h1) {
           border-radius: 0px;
@@ -468,6 +457,7 @@
         border-radius: 0px;
         border-inline: 0px solid var(--lcars-card-mid-color);
         text-transform: uppercase;
+        primary-text-color: var(--lcars-background-text);
 
         > :not(style,card-mod,h1) {
           border-radius: 0px;
@@ -533,6 +523,7 @@
         border-bottom-width: var(--lcars-horizontal-border);
         background-color: var(--lcars-card-bottom-color);
         text-transform: uppercase;
+        primary-text-color: var(--lcars-background-text);
 
         > :not(style,card-mod,h1) {
           border-radius: 0px;
@@ -2531,8 +2522,16 @@ LCARS 25C:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "109,116,140"
   # Theme-specific
+  lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
   lcars-tab-selected-bg: url("data:image/svg+xml,%3C!-- sample rectangle --%3E%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='transparent'%3E%3Canimate attributeName='fill' values='%23e7442a;%23e7442a;%236d748c' begin='0s' dur='5s' calcMode='discrete' repeatCount='indefinite' /%3E%3C/rect%3E%3C/svg%3E")
+  modes:
+    light:
+      lcars-ui-primary-text: var(--lcars-text-light)
+      lcars-ui-quaternary-text: var(--lcars-text-light)
+    dark:
+      lcars-ui-primary-text: var(--lcars-text-dark)
+      lcars-ui-quaternary-text: var(--lcars-text-dark)
 
 LCARS 25C (Blue Alert):
   card-mod-theme: LCARS 25C (Blue Alert)
@@ -2541,7 +2540,7 @@ LCARS 25C (Blue Alert):
   <<: *card-mod-css
   # UI Colors
   lcars-ui-primary: var(--lcars-alert-color)
-  lcars-ui-primary-text: var(--lcars-text-light)
+  lcars-ui-primary-text: var(--lcars-text-dark)
   lcars-ui-secondary: var(--lcars-alert-white)
   lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: var(--lcars-alert-color)
@@ -2589,7 +2588,17 @@ LCARS 25C (Blue Alert):
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "34,102,255"
   # Theme-specific
+  lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
+  modes:
+    light:
+      lcars-ui-primary-text: var(--lcars-text-light)
+      lcars-ui-tertiary-text: var(--lcars-text-light)
+      lcars-ui-quaternary-text: var(--lcars-text-light)
+    dark:
+      lcars-ui-primary-text: var(--lcars-text-dark)
+      lcars-ui-tertiary-text: var(--lcars-text-dark)
+      lcars-ui-quaternary-text: var(--lcars-text-dark)
 
 LCARS 25C (Red Alert):
   card-mod-theme: LCARS 25C (Red Alert)
@@ -2646,6 +2655,7 @@ LCARS 25C (Red Alert):
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "204,0,0"
   # Theme-specific
+  lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
 
 LCARS 25C (Yellow Alert):
@@ -2703,6 +2713,7 @@ LCARS 25C (Yellow Alert):
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "255,170,0"
   # Theme-specific
+  lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
 
 LCARS Breen:
@@ -2759,6 +2770,7 @@ LCARS Breen:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "15,86,22"
   # Theme-specific
+  lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
 
 LCARS Cardassia:
@@ -2815,6 +2827,7 @@ LCARS Cardassia:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "79,26,35"
   # Theme-specific
+  lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
 
 LCARS Classic:
@@ -2871,7 +2884,13 @@ LCARS Classic:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "102,102,136"
   # Theme-specific
+  lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
+  modes:
+    light:
+      lcars-ui-quaternary-text: var(--lcars-text-light)
+    dark:
+      lcars-ui-quaternary-text: var(--lcars-text-dark)
 
 LCARS Default:
   card-mod-theme: LCARS Default
@@ -2927,7 +2946,13 @@ LCARS Default:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "102,102,136"
   # Theme-specific
+  lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
+  modes:
+    light:
+      lcars-ui-quaternary-text: var(--lcars-text-light)
+    dark:
+      lcars-ui-quaternary-text: var(--lcars-text-dark)
 
 LCARS Kronos:
   card-mod-theme: LCARS Kronos
@@ -2983,6 +3008,7 @@ LCARS Kronos:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "147,10,0"
   # Theme-specific
+  lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
 
 LCARS Lower Decks I:
@@ -3039,6 +3065,7 @@ LCARS Lower Decks I:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "145,85,11"
   # Theme-specific
+  lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
 
 LCARS Lower Decks II:
@@ -3095,6 +3122,7 @@ LCARS Lower Decks II:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "145,85,11"
   # Theme-specific
+  lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
 
 LCARS Modern:
@@ -3151,7 +3179,13 @@ LCARS Modern:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "102,102,136"
   # Theme-specific
+  lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
+  modes:
+    light:
+      lcars-ui-quaternary-text: var(--lcars-text-light)
+    dark:
+      lcars-ui-quaternary-text: var(--lcars-text-dark)
 
 LCARS Navigation:
   card-mod-theme: LCARS Navigation
@@ -3207,6 +3241,7 @@ LCARS Navigation:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "130,122,83"
   # Theme-specific
+  lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
 
 LCARS Nemesis Blue:
@@ -3216,7 +3251,7 @@ LCARS Nemesis Blue:
   <<: *card-mod-css
   # UI Colors
   lcars-ui-primary: var(--lcars-evening)
-  lcars-ui-primary-text: var(--lcars-text-light)
+  lcars-ui-primary-text: var(--lcars-text-dark)
   lcars-ui-secondary: var(--lcars-wheat)
   lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: var(--lcars-pumpkinshade)
@@ -3263,7 +3298,13 @@ LCARS Nemesis Blue:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "68,74,119"
   # Theme-specific
+  lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
+  modes:
+    light:
+      lcars-ui-primary-text: var(--lcars-text-light)
+    dark:
+      lcars-ui-primary-text: var(--lcars-text-dark)
 
 LCARS Picard I:
   card-mod-theme: LCARS Picard I
@@ -3319,7 +3360,15 @@ LCARS Picard I:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "101,107,131"
   # Theme-specific
+  lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
+  modes:
+    light:
+      lcars-ui-secondary-text: var(--lcars-text-light)
+      lcars-ui-quaternary-text: var(--lcars-text-light)
+    dark:
+      lcars-ui-secondary-text: var(--lcars-text-dark)
+      lcars-ui-quaternary-text: var(--lcars-text-dark)
 
 LCARS Picard II:
   card-mod-theme: LCARS Picard II
@@ -3375,6 +3424,7 @@ LCARS Picard II:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "1,37,86"
   # Theme-specific
+  lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
 
 LCARS Red Alert:
@@ -3431,7 +3481,13 @@ LCARS Red Alert:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "54,0,0"
   # Theme-specific
+  lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
+  modes:
+    light:
+      lcars-ui-primary-text: var(--lcars-text-light)
+    dark:
+      lcars-ui-primary-text: var(--lcars-text-dark)
 
 LCARS Romulus:
   card-mod-theme: LCARS Romulus
@@ -3487,6 +3543,7 @@ LCARS Romulus:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "15,86,22"
   # Theme-specific
+  lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
 
 LCARS TNG:
@@ -3543,6 +3600,7 @@ LCARS TNG:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "68,74,119"
   # Theme-specific
+  lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
 
 LCARS TNGbuttons:
@@ -3599,6 +3657,7 @@ LCARS TNGbuttons:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "68,74,119"
   # Theme-specific
+  lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
 
 LCARS Transporter:
@@ -3610,7 +3669,7 @@ LCARS Transporter:
   lcars-ui-primary: var(--lcars-navy-gray)
   lcars-ui-primary-text: var(--lcars-text-light)
   lcars-ui-secondary: var(--lcars-slate-gray)
-  lcars-ui-secondary-text: var(--lcars-text-light)
+  lcars-ui-secondary-text: var(--lcars-text-dark)
   lcars-ui-tertiary: var(--lcars-coral)
   lcars-ui-tertiary-text: var(--lcars-text-dark)
   lcars-ui-quaternary: var(--lcars-navy-gray)
@@ -3655,7 +3714,13 @@ LCARS Transporter:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "44,55,75"
   # Theme-specific
+  lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
+  modes:
+    light:
+      lcars-ui-secondary-text: var(--lcars-text-light)
+    dark:
+      lcars-ui-secondary-text: var(--lcars-text-dark)
 
 LCARS Zeldaar:
   card-mod-theme: LCARS Zeldaar
@@ -3711,6 +3776,7 @@ LCARS Zeldaar:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "119,68,119"
   # Theme-specific
+  lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
 
 # ================ Paste your themes here =============== |

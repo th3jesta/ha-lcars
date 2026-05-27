@@ -237,9 +237,9 @@
   # Default card is quaternary
   ha-card-header-color: var(--lcars-ui-quaternary-text)
   # Text over black backgrounds. Override elsewhere if you need -dark variants
-  primary-text-color: var(--lcars-text-light)
-  secondary-text-color: var(--lcars-text-light)
-  text-primary-color: var(--lcars-text-light)
+  primary-text-color: var(--lcars-background-text)
+  secondary-text-color: var(--lcars-background-text)
+  text-primary-color: var(--lcars-background-text)
   disabled-text-color: var(--lcars-graphite)
 
   # Sidebar Menu
@@ -344,33 +344,21 @@
 (DO NOT USE/MODIFY)=== card-mod CSS: &card-mod-css # Card modifications
   card-mod-card-yaml: &card-mod-card |
     .: |
-      /* =============================================== */
-      /*            SECTION-SPECIFIC SETTINGS            */
-      /* =============================================== */
-      :host > ha-card {
-        --paper-item-icon-color: var(--lcars-dark-gray);
-      }
-      :host, :host > ha-card {
-        &:not(.type-undefined,.type-custom-grid-layout) {
-          height: 100%;
-        }
-        
-      }
-      :host > ha-card > .card-actions,
-      :host > ha-card > .card-actions .position-badge {
-        color: var(--lcars-text-dark);
-      }
-
       /* ----------------------------------------------- */
       /*                Common Card Styles               */
       /* ----------------------------------------------- */
-      :host > ha-card {
+      :host, :host > ha-card {
+
+        /* unclassed card has quaternary background */
+        --primary-text-color: var(--lcars-ui-quaternary-text);
         font-family: var(--font-family) !important;
         --md-sys-color-primary: var(--lcars-ui-quaternary) !important;
+
+        &:not(.type-undefined,.type-custom-grid-layout) {
+          height: 100%;
+        }
+
       }
-      #:host > ha-card > .name {
-      #  --primary-text-color: var(--lcars-text-dark);
-      #}
       
       /* =============================================== */
       /*        HEADER CLASSES AND CARD TYPE FIXES       */
@@ -395,6 +383,7 @@
         box-sizing: border-box;
         background-color: var(--lcars-card-top-color);
         text-transform: uppercase;
+        primary-text-color: var(--lcars-background-text);
 
         > :not(style,card-mod,h1) {
           border-radius: 0px;
@@ -468,6 +457,7 @@
         border-radius: 0px;
         border-inline: 0px solid var(--lcars-card-mid-color);
         text-transform: uppercase;
+        primary-text-color: var(--lcars-background-text);
 
         > :not(style,card-mod,h1) {
           border-radius: 0px;
@@ -533,6 +523,7 @@
         border-bottom-width: var(--lcars-horizontal-border);
         background-color: var(--lcars-card-bottom-color);
         text-transform: uppercase;
+        primary-text-color: var(--lcars-background-text);
 
         > :not(style,card-mod,h1) {
           border-radius: 0px;

@@ -1,7 +1,6 @@
 name: LCARS Nemesis Blue
 
 lcars-ui-primary: var(--lcars-evening)
-lcars-ui-primary-text: var(--lcars-text-light)
 lcars-ui-secondary: var(--lcars-wheat)
 lcars-ui-tertiary: var(--lcars-pumpkinshade)
 lcars-ui-quaternary: var(--lcars-galaxy)
@@ -22,3 +21,9 @@ lcars-card-bottom-text: var(--lcars-text-dark)
 success-color: var(--lcars-green)
 warning-color: var(--lcars-sunflower)
 error-color: var(--lcars-dark-red)
+
+modes:
+  light:
+    lcars-ui-primary-text: var(--lcars-text-light)
+  dark:
+    lcars-ui-primary-text: var(--lcars-text-dark)

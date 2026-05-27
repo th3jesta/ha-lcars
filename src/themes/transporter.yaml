@@ -3,7 +3,6 @@ name: LCARS Transporter
 lcars-ui-primary: var(--lcars-navy-gray)
 lcars-ui-primary-text: var(--lcars-text-light)
 lcars-ui-secondary: var(--lcars-slate-gray)
-lcars-ui-secondary-text: var(--lcars-text-light)
 lcars-ui-tertiary: var(--lcars-coral)
 lcars-ui-quaternary: var(--lcars-navy-gray)
 
@@ -23,3 +22,9 @@ lcars-card-bottom-text: var(--lcars-text-light)
 success-color: var(--lcars-green)
 warning-color: var(--lcars-dark-red)
 error-color: var(--lcars-gold)
+
+modes:
+  light:
+    lcars-ui-secondary-text: var(--lcars-text-light)
+  dark:
+    lcars-ui-secondary-text: var(--lcars-text-dark)
