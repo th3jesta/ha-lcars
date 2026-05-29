@@ -342,6 +342,36 @@
 #                    CARD MODIFICATIONS                   #
 # ======================================================= #
 (DO NOT USE/MODIFY)=== card-mod CSS: &card-mod-css # Card modifications
+  card-mod-drawer: |
+    :host {
+      /* ----------------------------------------------- */
+      /*         Dashbaord Texture and Gradient          */
+      /* ----------------------------------------------- */
+      {% if not is_state('input_boolean.lcars_texture', 'off') %}
+      &::before {
+        content: radial-gradient(ellipse farthest-corner at center center, var(--lcars-backlight-center) 0%, var(--lcars-backlight-middle) var(--lcars-backlight-middle-location), var(--lcars-backlight-outer) 100%);
+        width: 100%;
+        height: 100%;
+        z-index: 9990;
+        position: fixed;
+        mix-blend-mode: overlay;
+        opacity: .8;
+        pointer-events: none;
+      }
+      &::after {
+        content: "";
+        background: url(data:image/png;base64,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);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        z-index: 9991;
+        mix-blend-mode: overlay;
+        opacity: .8;
+        pointer-events: none;
+      }
+      {% endif %}
+    }
   card-mod-card-yaml: &card-mod-card |
     .: |
       /* ----------------------------------------------- */
@@ -1571,73 +1601,6 @@
         --lcars-sound: true;
       }
       {% endif %}
-      {% if not is_state('input_boolean.lcars_texture', 'off') %}
-      /* ----------------------------------------------- */
-      /*      Toolbar/Dashbaord Texture and Gradient     */
-      /* ----------------------------------------------- */
-      .header::before {
-        content: linear-gradient(to left, transparent, #EEEEEE 30%, #222222 60%, transparent 90% );
-        width: 100%;
-        height: 40px;
-        z-index: 9998;
-        position: absolute;
-        mix-blend-mode: overlay;
-        opacity: .8;
-        right: unset;
-        bottom: unset;
-        left: unset;
-        pointer-events: none;
-        box-shadow: none;
-      }
-      .header::after {
-        content: "";
-        background: url(data:image/png;base64,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);
-        width: 100%;
-        height: 40px;
-        z-index: 9999;
-        position: absolute;
-        mix-blend-mode: overlay;
-        opacity: .8;
-        top: 0px;
-        right: unset;
-        bottom: unset;
-        left: unset;
-        pointer-events: none;
-        box-shadow: none;
-      }
-      hui-masonry-view::before,
-      vertical-layout::before,
-      horizontal-layout::before,
-      grid-layout::before,
-      masonry-layout::before,
-      hui-sections-view::before {
-        content: radial-gradient(ellipse farthest-corner at center center, white 0%, transparent 60%);
-        width: 100%;
-        height: 100%;
-        z-index: 9990;
-        position: fixed;
-        mix-blend-mode: overlay;
-        opacity: .8;
-        pointer-events: none;
-      }
-      hui-masonry-view::after,
-      vertical-layout::after,
-      horizontal-layout::after,
-      grid-layout::after,
-      masonry-layout::after,
-      hui-sections-view::after {
-        content: "";
-        background: url(data:image/png;base64,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);
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0px;
-        z-index: 9991;
-        mix-blend-mode: overlay;
-        opacity: .8;
-        pointer-events: none;
-      }
-      {% endif %}
 
   # ===================================================== #
   #                 CONFIG MODIFICATIONS                  #
@@ -1656,66 +1619,10 @@
             box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
             margin-top: 40px;
             margin-left: 0px;
-            z-index: 3;
+            z-index: 5;
             pointer-events: none;
           }
         }
-        > ha-config-apps,
-        > ha-config-areas,
-        > ha-config-automation,
-        > ha-config-backup,
-        > ha-config-blueprint,
-        > ha-config-cloud,
-        > ha-config-dashboard,
-        > ha-config-devices,
-        > ha-config-entities,
-        > ha-config-helpers,
-        > ha-config-info
-        > ha-config-integrations,
-        > ha-config-labels,
-        > ha-config-logs,
-        > ha-config-lovelace,
-        > ha-config-person,
-        > ha-config-repairs-dashboard,
-        > ha-config-section-analytics,
-        > ha-config-section-updates,
-        > ha-config-scene,
-        > ha-config-script,
-        > ha-config-system-navigation,
-        > ha-config-tags,
-        > ha-config-users,
-        > ha-config-voice-assistants,
-        > ha-config-zone,
-        > ha-panel-developer-tools,
-        > zha-config-dashboard-router,
-        > zwave_js-config-router {
-          {% if not is_state('input_boolean.lcars_texture', 'off') %}
-          /* ----------------------------------------------- */
-          /*      Toolbar/Dashbaord Texture and Gradient     */
-          /* ----------------------------------------------- */
-          &::before {
-            content: radial-gradient(ellipse farthest-corner at center center, white 0%, transparent 60%);
-            width: 100%;
-            height: 100%;
-            z-index: 9990;
-            position: fixed;
-            mix-blend-mode: overlay;
-            opacity: .8;
-            pointer-events: none;
-          }
-          &::after {
-            content: "";
-            background: url(data:image/png;base64,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);
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            top: 0;
-            z-index: 9991;
-            mix-blend-mode: overlay;
-            opacity: .8;
-            pointer-events: none;
-          }
-          {% endif %}
 
     # ------------------- Dev Tools Submenu ---------------------------------- #
     "ha-panel-developer-tools $": |
@@ -2030,7 +1937,7 @@
             box-shadow: calc(var(--lcars-inner-radius) * -1) 0 0 0 var(--lcars-card-top-color);
             margin-top: 0px;
             margin-left: 0px;
-            z-index: 3;
+            z-index: 5;
             pointer-events: none;
           }
           &::after {
@@ -2045,7 +1952,7 @@
             box-shadow: calc(var(--lcars-inner-radius)) 0 0 0 var(--lcars-card-top-color);
             margin-top: 0px;
             margin-right: 0px;
-            z-index: 3;
+            z-index: 5;
             pointer-events: none;
           }
         }
@@ -2071,7 +1978,7 @@
             box-shadow: calc(var(--lcars-inner-radius) * -1) 0 0 0 var(--lcars-card-bottom-color);
             margin-top: 0px;
             margin-left: 0px;
-            z-index: 3;
+            z-index: 5;
             pointer-events: none;
           }
           &::after {
@@ -2086,7 +1993,7 @@
             box-shadow: calc(var(--lcars-inner-radius)) 0 0 0 var(--lcars-card-bottom-color);
             margin-top: 0px;
             margin-right: 0px;
-            z-index: 3;
+            z-index: 5;
             pointer-events: none;
           }
 
@@ -2429,37 +2336,6 @@
         padding: 0px 0px 0px 0px !important;
         background-color: var(--lcars-background-color);
       }
-      /* ----------------------------------------------- */
-      /*           Sidebar Texture and Gradient          */
-      /* ----------------------------------------------- */
-      {% if not is_state('input_boolean.lcars_texture', 'off') %}
-      .menu::before {
-        content: "";
-        background: linear-gradient(to bottom left, transparent 10%, #AAAAAADD 30%, #000000AA 60%, transparent 90%);
-        width: var(--mdc-drawer-width,256px);
-        height: 120%;
-        bottom: 0;
-        left: 0;
-        z-index: 9999;
-        position: absolute;
-        mix-blend-mode: overlay;
-        opacity: .8;
-        pointer-events: none;
-      }
-      .menu::after {
-        content: "";
-        background: url(data:image/png;base64,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);
-        width: var(--mdc-drawer-width,256px);
-        height: 120%;
-        bottom: 0;
-        left: 0;
-        z-index: 9999;
-        position: absolute;
-        mix-blend-mode: overlay;
-        opacity: .8;
-        pointer-events: none;
-      }
-      {% endif %}
 
 # ======================================================= #
 #                    THEME DEFINITIONS                    #
@@ -2526,12 +2402,20 @@ LCARS 25C:
   lcars-sidebar-background: var(--lcars-ui-primary)
   lcars-tab-selected-bg: url("data:image/svg+xml,%3C!-- sample rectangle --%3E%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='transparent'%3E%3Canimate attributeName='fill' values='%23e7442a;%23e7442a;%236d748c' begin='0s' dur='5s' calcMode='discrete' repeatCount='indefinite' /%3E%3C/rect%3E%3C/svg%3E")
   modes:
-    light:
-      lcars-ui-primary-text: var(--lcars-text-light)
-      lcars-ui-quaternary-text: var(--lcars-text-light)
     dark:
+      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: black
       lcars-ui-primary-text: var(--lcars-text-dark)
       lcars-ui-quaternary-text: var(--lcars-text-dark)
+    light:
+      lcars-backlight-center: white
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-ui-primary-text: var(--lcars-text-light)
+      lcars-ui-quaternary-text: var(--lcars-text-light)
 
 LCARS 25C (Blue Alert):
   card-mod-theme: LCARS 25C (Blue Alert)
@@ -2591,14 +2475,22 @@ LCARS 25C (Blue Alert):
   lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
   modes:
-    light:
-      lcars-ui-primary-text: var(--lcars-text-light)
-      lcars-ui-tertiary-text: var(--lcars-text-light)
-      lcars-ui-quaternary-text: var(--lcars-text-light)
     dark:
+      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: black
       lcars-ui-primary-text: var(--lcars-text-dark)
       lcars-ui-tertiary-text: var(--lcars-text-dark)
       lcars-ui-quaternary-text: var(--lcars-text-dark)
+    light:
+      lcars-backlight-center: white
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-ui-primary-text: var(--lcars-text-light)
+      lcars-ui-tertiary-text: var(--lcars-text-light)
+      lcars-ui-quaternary-text: var(--lcars-text-light)
 
 LCARS 25C (Red Alert):
   card-mod-theme: LCARS 25C (Red Alert)
@@ -2657,6 +2549,17 @@ LCARS 25C (Red Alert):
   # Theme-specific
   lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
+  modes:
+    dark:
+      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: black
+    light:
+      lcars-backlight-center: white
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
 
 LCARS 25C (Yellow Alert):
   card-mod-theme: LCARS 25C (Yellow Alert)
@@ -2715,6 +2618,17 @@ LCARS 25C (Yellow Alert):
   # Theme-specific
   lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
+  modes:
+    dark:
+      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: black
+    light:
+      lcars-backlight-center: white
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
 
 LCARS Breen:
   card-mod-theme: LCARS Breen
@@ -2772,6 +2686,17 @@ LCARS Breen:
   # Theme-specific
   lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
+  modes:
+    dark:
+      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: black
+    light:
+      lcars-backlight-center: white
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
 
 LCARS Cardassia:
   card-mod-theme: LCARS Cardassia
@@ -2829,6 +2754,17 @@ LCARS Cardassia:
   # Theme-specific
   lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
+  modes:
+    dark:
+      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: black
+    light:
+      lcars-backlight-center: white
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
 
 LCARS Classic:
   card-mod-theme: LCARS Classic
@@ -2887,10 +2823,18 @@ LCARS Classic:
   lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
   modes:
-    light:
-      lcars-ui-quaternary-text: var(--lcars-text-light)
     dark:
+      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: black
       lcars-ui-quaternary-text: var(--lcars-text-dark)
+    light:
+      lcars-backlight-center: white
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-ui-quaternary-text: var(--lcars-text-light)
 
 LCARS Default:
   card-mod-theme: LCARS Default
@@ -2949,10 +2893,18 @@ LCARS Default:
   lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
   modes:
-    light:
-      lcars-ui-quaternary-text: var(--lcars-text-light)
     dark:
+      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: black
       lcars-ui-quaternary-text: var(--lcars-text-dark)
+    light:
+      lcars-backlight-center: white
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-ui-quaternary-text: var(--lcars-text-light)
 
 LCARS Kronos:
   card-mod-theme: LCARS Kronos
@@ -3010,6 +2962,17 @@ LCARS Kronos:
   # Theme-specific
   lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
+  modes:
+    dark:
+      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: black
+    light:
+      lcars-backlight-center: white
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
 
 LCARS Lower Decks I:
   card-mod-theme: LCARS Lower Decks I
@@ -3067,6 +3030,17 @@ LCARS Lower Decks I:
   # Theme-specific
   lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
+  modes:
+    dark:
+      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: black
+    light:
+      lcars-backlight-center: white
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
 
 LCARS Lower Decks II:
   card-mod-theme: LCARS Lower Decks II
@@ -3124,6 +3098,17 @@ LCARS Lower Decks II:
   # Theme-specific
   lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
+  modes:
+    dark:
+      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: black
+    light:
+      lcars-backlight-center: white
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
 
 LCARS Modern:
   card-mod-theme: LCARS Modern
@@ -3182,10 +3167,18 @@ LCARS Modern:
   lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
   modes:
-    light:
-      lcars-ui-quaternary-text: var(--lcars-text-light)
     dark:
+      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: black
       lcars-ui-quaternary-text: var(--lcars-text-dark)
+    light:
+      lcars-backlight-center: white
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-ui-quaternary-text: var(--lcars-text-light)
 
 LCARS Navigation:
   card-mod-theme: LCARS Navigation
@@ -3243,6 +3236,17 @@ LCARS Navigation:
   # Theme-specific
   lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
+  modes:
+    dark:
+      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: black
+    light:
+      lcars-backlight-center: white
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
 
 LCARS Nemesis Blue:
   card-mod-theme: LCARS Nemesis Blue
@@ -3301,10 +3305,18 @@ LCARS Nemesis Blue:
   lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
   modes:
-    light:
-      lcars-ui-primary-text: var(--lcars-text-light)
     dark:
+      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: black
       lcars-ui-primary-text: var(--lcars-text-dark)
+    light:
+      lcars-backlight-center: white
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-ui-primary-text: var(--lcars-text-light)
 
 LCARS Picard I:
   card-mod-theme: LCARS Picard I
@@ -3363,12 +3375,20 @@ LCARS Picard I:
   lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
   modes:
-    light:
-      lcars-ui-secondary-text: var(--lcars-text-light)
-      lcars-ui-quaternary-text: var(--lcars-text-light)
     dark:
+      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: black
       lcars-ui-secondary-text: var(--lcars-text-dark)
       lcars-ui-quaternary-text: var(--lcars-text-dark)
+    light:
+      lcars-backlight-center: white
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-ui-secondary-text: var(--lcars-text-light)
+      lcars-ui-quaternary-text: var(--lcars-text-light)
 
 LCARS Picard II:
   card-mod-theme: LCARS Picard II
@@ -3426,6 +3446,17 @@ LCARS Picard II:
   # Theme-specific
   lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
+  modes:
+    dark:
+      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: black
+    light:
+      lcars-backlight-center: white
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
 
 LCARS Red Alert:
   card-mod-theme: LCARS Red Alert
@@ -3484,10 +3515,18 @@ LCARS Red Alert:
   lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
   modes:
-    light:
-      lcars-ui-primary-text: var(--lcars-text-light)
     dark:
+      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: black
       lcars-ui-primary-text: var(--lcars-text-dark)
+    light:
+      lcars-backlight-center: white
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-ui-primary-text: var(--lcars-text-light)
 
 LCARS Romulus:
   card-mod-theme: LCARS Romulus
@@ -3545,6 +3584,17 @@ LCARS Romulus:
   # Theme-specific
   lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
+  modes:
+    dark:
+      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: black
+    light:
+      lcars-backlight-center: white
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
 
 LCARS TNG:
   card-mod-theme: LCARS TNG
@@ -3602,6 +3652,17 @@ LCARS TNG:
   # Theme-specific
   lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
+  modes:
+    dark:
+      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: black
+    light:
+      lcars-backlight-center: white
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
 
 LCARS TNGbuttons:
   card-mod-theme: LCARS TNGbuttons
@@ -3659,6 +3720,17 @@ LCARS TNGbuttons:
   # Theme-specific
   lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
+  modes:
+    dark:
+      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: black
+    light:
+      lcars-backlight-center: white
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
 
 LCARS Transporter:
   card-mod-theme: LCARS Transporter
@@ -3717,10 +3789,18 @@ LCARS Transporter:
   lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
   modes:
-    light:
-      lcars-ui-secondary-text: var(--lcars-text-light)
     dark:
+      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: black
       lcars-ui-secondary-text: var(--lcars-text-dark)
+    light:
+      lcars-backlight-center: white
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-ui-secondary-text: var(--lcars-text-light)
 
 LCARS Zeldaar:
   card-mod-theme: LCARS Zeldaar
@@ -3778,6 +3858,17 @@ LCARS Zeldaar:
   # Theme-specific
   lcars-background-text: var(--lcars-text-light)
   lcars-sidebar-background: var(--lcars-ui-primary)
+  modes:
+    dark:
+      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: black
+    light:
+      lcars-backlight-center: white
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
 
 # ================ Paste your themes here =============== |
 # (or add a file to src/themes/ and run generate_themes.py)

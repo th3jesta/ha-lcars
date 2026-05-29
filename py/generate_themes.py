@@ -226,8 +226,17 @@ def load_theme(path: Path, defaults: dict) -> tuple[str, dict, dict | None]:
     if not name:
         raise ValueError(f"{path.name}: missing required 'name' field")
 
-    modes: dict | None = data.get("modes") or None
-    variables = {**defaults, **{k: v for k, v in data.items() if k not in ("name", "modes")}}
+    # Deep-merge modes: default modes are the base, theme modes override per-key.
+    default_modes: dict = defaults.get("modes") or {}
+    theme_modes: dict = data.get("modes") or {}
+    all_mode_keys = set(default_modes) | set(theme_modes)
+    modes: dict | None = (
+        {mk: {**(default_modes.get(mk) or {}), **(theme_modes.get(mk) or {})} for mk in all_mode_keys}
+        if all_mode_keys else None
+    )
+
+    base_defaults = {k: v for k, v in defaults.items() if k != "modes"}
+    variables = {**base_defaults, **{k: v for k, v in data.items() if k not in ("name", "modes")}}
     return name, variables, modes
 
 
