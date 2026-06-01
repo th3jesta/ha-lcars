@@ -381,6 +381,7 @@
 
         /* unclassed card has quaternary background */
         --primary-text-color: var(--lcars-ui-quaternary-text);
+        --secondary-text-color: var(--lcars-ui-quaternary-text);
         font-family: var(--font-family) !important;
         --md-sys-color-primary: var(--lcars-ui-quaternary) !important;
 
@@ -413,7 +414,8 @@
         box-sizing: border-box;
         background-color: var(--lcars-card-top-color);
         text-transform: uppercase;
-        primary-text-color: var(--lcars-background-text);
+        --primary-text-color: var(--lcars-background-text);
+        --secondary-text-color: var(--lcars-background-text);
 
         > :not(style,card-mod,h1) {
           border-radius: 0px;
@@ -487,7 +489,8 @@
         border-radius: 0px;
         border-inline: 0px solid var(--lcars-card-mid-color);
         text-transform: uppercase;
-        primary-text-color: var(--lcars-background-text);
+        --primary-text-color: var(--lcars-background-text);
+        --secondary-text-color: var(--lcars-background-text);
 
         > :not(style,card-mod,h1) {
           border-radius: 0px;
@@ -553,7 +556,8 @@
         border-bottom-width: var(--lcars-horizontal-border);
         background-color: var(--lcars-card-bottom-color);
         text-transform: uppercase;
-        primary-text-color: var(--lcars-background-text);
+        --primary-text-color: var(--lcars-background-text);
+        --secondary-text-color: var(--lcars-background-text);
 
         > :not(style,card-mod,h1) {
           border-radius: 0px;
@@ -624,8 +628,6 @@
       :host(.button-capped-right),
       :host(.button-barrel-left),
       :host(.button-barrel-right),
-      :host(.button-bar-left),
-      :host(.button-bar-right),
       ha-card:is(
         .button-small,
         .button-large,
@@ -636,12 +638,10 @@
         .button-capped-left,
         .button-capped-right,
         .button-barrel-left,
-        .button-barrel-right,
-        .button-bar-left,
-        .button-bar-right
+        .button-barrel-right
       ) {
 
-        > ha-card, 
+        > ha-card,
         > #aspect-ratio > ha-card,
         &:is(ha-card) {
           background-color: var(--lcars-card-button-color);
@@ -649,6 +649,24 @@
           text-transform: uppercase;
           --primary-text-color: var(--lcars-card-button-text);
           --secondary-text-color: var(--lcars-card-button-text);
+        }
+      }
+
+      :host(.button-bar-left),
+      :host(.button-bar-right),
+      ha-card:is(
+        .button-bar-left,
+        .button-bar-right
+      ) {
+
+        > ha-card,
+        > #aspect-ratio > ha-card,
+        &:is(ha-card) {
+          background-color: var(--lcars-card-button-color);
+          --primary-color: var(--lcars-ui-quaternary);
+          text-transform: uppercase;
+          --primary-text-color: var(--lcars-background-text);
+          --secondary-text-color: var(--lcars-background-text);
         }
       }
 
@@ -1051,6 +1069,8 @@
                  .bar-large-right
       ):not(div > *)   {
         background-color: var(--lcars-card-top-color);
+        --primary-text-color: var(--lcars-background-text);
+        --secondary-text-color: var(--lcars-background-text);
         border-radius: 9999px;
         display: block;
         height: 1em;
