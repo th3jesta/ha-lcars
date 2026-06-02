@@ -234,12 +234,14 @@
   header-font-size: calc(var(--header-height) * 0.93)
 
   # Text
-  # Default card is quaternary
-  ha-card-header-color: var(--lcars-ui-quaternary-text)
-  # Text over black backgrounds. Override elsewhere if you need -dark variants
-  primary-text-color: var(--lcars-background-text)
-  secondary-text-color: var(--lcars-background-text)
-  text-primary-color: var(--lcars-background-text)
+  # Default card is quaternary, but various classes change that, so pipe everything to a semantic variable
+  lcars-primary-text: var(--lcars-ui-quaternary-text)
+  lcars-secondary-text: color-mix(in oklch, var(--lcars-ui-quaternary-text) 80%, var(--lcars-ui-mix-color))
+  # This should be a list of all varaibles that control the color of text which is over the card's background.
+  ha-card-header-color: var(--lcars-primary-text)
+  primary-text-color: var(--lcars-primary-text)
+  secondary-text-color: var(--lcars-primary-text)
+  text-primary-color: var(--lcars-primary-text)
   disabled-text-color: var(--lcars-graphite)
 
   # Sidebar Menu
@@ -379,9 +381,6 @@
       /* ----------------------------------------------- */
       :host, :host > ha-card {
 
-        /* unclassed card has quaternary background */
-        --primary-text-color: var(--lcars-ui-quaternary-text);
-        --secondary-text-color: var(--lcars-ui-quaternary-text);
         font-family: var(--font-family) !important;
         --md-sys-color-primary: var(--lcars-ui-quaternary) !important;
 
@@ -414,20 +413,15 @@
         box-sizing: border-box;
         background-color: var(--lcars-card-top-color);
         text-transform: uppercase;
-        --primary-text-color: var(--lcars-background-text);
-        --secondary-text-color: var(--lcars-background-text);
+        --lcars-primary-text: var(--lcars-background-text);
 
         > :not(style,card-mod,h1) {
-          border-radius: 0px;
           background-color: var(--lcars-background-color);
+          --lcars-primary-text: var(--lcars-background-text);
+          border-radius: 0px;
           padding-top: 6px;
-          --primary-text-color: var(--lcars-text-gray);
           height: 100%;
           box-sizing: border-box;
-          
-          > .name {
-          --primary-text-color: var(--lcars-text-gray);
-          }
         }
         > ha-markdown,
         > ha-card > ha-markdown {
@@ -447,7 +441,6 @@
         > :not(style,card-mod) {
           border-top-left-radius: var(--lcars-inner-radius);
           padding-left: 6px;
-          --primary-text-color: var(--lcars-text-gray);
         }
       }
 
@@ -463,7 +456,6 @@
         > :not(style,card-mod) {
           border-top-right-radius: var(--lcars-inner-radius);
           padding-right: 6px;
-          --primary-text-color: var(--lcars-text-gray);
         }
       }
 
@@ -484,24 +476,20 @@
         display: block !important;
         height: 100%;
         background-color: var(--lcars-background-color);
+        --lcars-primary-text: var(--lcars-background-text);
         padding: 0px;
         box-sizing: border-box;
         border-radius: 0px;
         border-inline: 0px solid var(--lcars-card-mid-color);
         text-transform: uppercase;
-        --primary-text-color: var(--lcars-background-text);
-        --secondary-text-color: var(--lcars-background-text);
 
         > :not(style,card-mod,h1) {
           border-radius: 0px;
           background-color: var(--lcars-background-color);
-          --primary-text-color: var(--lcars-text-gray);
+          --lcars-primary-text: var(--lcars-background-text);
           height: 100%;
           box-sizing: border-box;
           
-          > .name {
-          --primary-text-color: var(--lcars-text-gray);
-          }
         }
       }
       > ha-markdown,
@@ -555,21 +543,17 @@
         border: 0px solid var(--lcars-card-bottom-color);
         border-bottom-width: var(--lcars-horizontal-border);
         background-color: var(--lcars-card-bottom-color);
+        --lcars-primary-text: var(--lcars-background-text);
         text-transform: uppercase;
-        --primary-text-color: var(--lcars-background-text);
-        --secondary-text-color: var(--lcars-background-text);
 
         > :not(style,card-mod,h1) {
           border-radius: 0px;
           background-color: var(--lcars-background-color);
+          --lcars-primary-text: var(--lcars-background-text);
           padding-bottom: 6px;
           height: 100%;
           box-sizing: border-box;
-          --primary-text-color: var(--lcars-text-gray);
 
-          > .name {
-          --primary-text-color: var(--lcars-text-gray);
-          }
         }
         > ha-markdown,
         > ha-card > ha-markdown {
@@ -645,10 +629,8 @@
         > #aspect-ratio > ha-card,
         &:is(ha-card) {
           background-color: var(--lcars-card-button-color);
-          --primary-color: var(--lcars-ui-quaternary);
+          --lcars-primary-text: var(--lcars-card-button-text);
           text-transform: uppercase;
-          --primary-text-color: var(--lcars-card-button-text);
-          --secondary-text-color: var(--lcars-card-button-text);
         }
       }
 
@@ -663,10 +645,8 @@
         > #aspect-ratio > ha-card,
         &:is(ha-card) {
           background-color: var(--lcars-card-button-color);
-          --primary-color: var(--lcars-ui-quaternary);
+          --lcars-primary-text: var(--lcars-card-button-text);
           text-transform: uppercase;
-          --primary-text-color: var(--lcars-background-text);
-          --secondary-text-color: var(--lcars-background-text);
         }
       }
 
@@ -979,7 +959,7 @@
             }
 
             &:not(.state) { 
-              color: var(--lcars-text-light);
+              color: var(--lcars-background-text);
               height: 100%;
               background-color: var(--lcars-background-color);
               padding-inline: 6px;
@@ -1069,8 +1049,7 @@
                  .bar-large-right
       ):not(div > *)   {
         background-color: var(--lcars-card-top-color);
-        --primary-text-color: var(--lcars-background-text);
-        --secondary-text-color: var(--lcars-background-text);
+        --lcars-primary-text: var(--lcars-card-top-text);
         border-radius: 9999px;
         display: block;
         height: 1em;
@@ -1081,6 +1060,7 @@
         > :not(style,card-mod,h1) {
           text-transform: uppercase;
           background-color: var(--lcars-background-color);
+          --lcars-primary-text: var(--lcars-background-text);
           border-radius: 0px;
           display: inline-block;
           padding: 0px 6px 0px 6px;
@@ -1202,6 +1182,7 @@
       ha-card:is(.type-calendar) {
         ha-full-calendar {
           --card-background-color: var(--lcars-background-color);
+          --lcars-primary-text: var(--lcars-background-text);
         }
       }
 
@@ -1594,9 +1575,6 @@
       #view {
         --primary-background-color: var(--primary-background-color);
         --lovelace-background: var(--primary-background-color);
-        --primary-text-color: var(--lcars-text-gray);
-        --secondary-text-color: var(--lcars-text-gray);
-        --text-primary-color: var(--lcars-text-gray);
         --lcars-horizontal-border: {{ states('input_number.lcars_horizontal') if has_value('input_number.lcars_horizontal') else 10 }}px !important;
         --lcars-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
         --lcars-middle-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;

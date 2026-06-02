@@ -17,7 +17,6 @@ from __future__ import annotations
 import re
 import sys
 from pathlib import Path
-
 import yaml
 
 REPO_ROOT = Path(__file__).parent.parent
@@ -60,6 +59,7 @@ SECTIONS: dict[str, list[str]] = {
         "lcars-ui-accent-color",
         "lcars-ui-accent-text",
         "lcars-background-color",
+        "lcars-background-text",
         "lcars-alert-color",
         "lcars-ui-text-heading",
     ],
@@ -71,6 +71,7 @@ SECTIONS: dict[str, list[str]] = {
         "lcars-ui-config-icon",
     ],
     "Sidebar": [
+        "lcars-sidebar-background",
         "lcars-sidebar-item-color",
         "lcars-sidebar-text",
         "lcars-sidebar-icon-color",
