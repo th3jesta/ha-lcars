@@ -87,12 +87,14 @@ error-color: var(--lcars-dark-red)
 
 modes:
   light:
-    lcars-backlight-center: white
+    lcars-ui-mix-color: black
+    lcars-backlight-center: "#ffffff30"
     lcars-backlight-middle: transparent
     lcars-backlight-middle-location: 60%
     lcars-backlight-outer: transparent
   dark:
-    lcars-backlight-center: rgba(255, 255, 255, 0.5)
+    lcars-ui-mix-color: white
+    lcars-backlight-center: "#ffffff10"
     lcars-backlight-middle: transparent
     lcars-backlight-middle-location: 70%
-    lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+    lcars-backlight-outer: "#00000080"

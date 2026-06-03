@@ -234,16 +234,26 @@
   header-font-size: calc(var(--header-height) * 0.93)
 
   # Text
-  # Default card is quaternary, but various classes change that, so pipe everything to a semantic variable
+  # Default card has a quaternary background. When the card background changes
+  # or when there's a black background (e.g. /config/devices/dashboard), these
+  # are overriden in the card_mod CSS.
   lcars-primary-text: var(--lcars-ui-quaternary-text)
-  lcars-secondary-text: color-mix(in oklch, var(--lcars-ui-quaternary-text) 80%, var(--lcars-ui-mix-color))
-  # This should be a list of all varaibles that control the color of text which is over the card's background.
+  lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color))
+  # This should be a list of all varaibles that control the color of text in
+  #   every part of the UI and in every card. 
   ha-card-header-color: var(--lcars-primary-text)
+  ha-color-text-primary: var(--lcars-primary-text)
   primary-text-color: var(--lcars-primary-text)
   secondary-text-color: var(--lcars-primary-text)
   text-primary-color: var(--lcars-primary-text)
   disabled-text-color: var(--lcars-graphite)
-
+  mdc-select-label-ink-color: var(--lcars-secondary-text)
+  mdc-select-ink-color: var(--lcars-primary-text)
+  mdc-text-field-label-ink-color: var(--lcars-primary-text)
+  mdc-text-field-fill-color: transparent
+  mdc-text-field-ink-color: var(--lcars-primary-text)
+  wa-form-control-value-color: var(--lcars-primary-text);
+ 
   # Sidebar Menu
   sidebar-background-color: var(--lcars-sidebar-background)
   sidebar-menu-button-background-color: var(--sidebar-background-color)
@@ -253,7 +263,7 @@
   sidebar-menu-button-text-color: var(--lcars-sidebar-text)
 
   # States and Badges
-  state-icon-color: var(--lcars-text-light)
+  state-icon-color: var(--lcars-primary-text)
   state-active-color: var(--lcars-sunflower)
 
   # Sliders
@@ -291,9 +301,7 @@
   mdc-theme-text-primary-on-background: var(--lcars-ui-secondary-text)
   mdc-theme-text-secondary-on-background: var(--lcars-ui-secondary-text)
   mdc-shape-small: 0px
-  mdc-text-field-label-ink-color: var(--lcars-ui-quaternary-text)
-  mdc-text-field-fill-color: var(--lcars-ui-quaternary)
-  mdc-text-field-ink-color: var(--lcars-ui-quaternary-text)
+  
   #App Header
   app-header-edit-background-color: transparent
   app-header-text-color: var(--lcars-ui-app-header-text-color, var(--lcars-ui-primary-text))
@@ -357,7 +365,7 @@
         z-index: 9990;
         position: fixed;
         mix-blend-mode: overlay;
-        opacity: .8;
+        opacity: 1;
         pointer-events: none;
       }
       &::after {
@@ -369,7 +377,7 @@
         top: 0px;
         z-index: 9991;
         mix-blend-mode: overlay;
-        opacity: .8;
+        opacity: 1;
         pointer-events: none;
       }
       {% endif %}
@@ -380,9 +388,23 @@
       /*                Common Card Styles               */
       /* ----------------------------------------------- */
       :host, :host > ha-card {
-
+        /* Default card has quaternary background. */
         font-family: var(--font-family) !important;
         --md-sys-color-primary: var(--lcars-ui-quaternary) !important;
+
+        /* Force these to be recomputed to prevent eager variable resolution */
+        --ha-card-header-color: var(--lcars-primary-text);
+        --ha-color-text-primary: var(--lcars-primary-text);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+        --text-primary-color: var(--lcars-primary-text);
+        --mdc-select-label-ink-color: var(--lcars-secondary-text);
+        --mdc-select-ink-color: var(--lcars-primary-text);
+        --mdc-text-field-label-ink-color: var(--lcars-primary-text);
+        --mdc-text-field-fill-color: transparent;
+        --mdc-text-field-ink-color: var(--lcars-primary-text);
+        --wa-form-control-value-color: var(--lcars-primary-text);
+        --state-icon-color: var(--lcars-primary-text);
 
         &:not(.type-undefined,.type-custom-grid-layout) {
           height: 100%;
@@ -414,10 +436,12 @@
         background-color: var(--lcars-card-top-color);
         text-transform: uppercase;
         --lcars-primary-text: var(--lcars-background-text);
+        --state-icon-color: var(--lcars-primary-text);
 
         > :not(style,card-mod,h1) {
           background-color: var(--lcars-background-color);
           --lcars-primary-text: var(--lcars-background-text);
+          --state-icon-color: var(--lcars-primary-text);
           border-radius: 0px;
           padding-top: 6px;
           height: 100%;
@@ -477,6 +501,7 @@
         height: 100%;
         background-color: var(--lcars-background-color);
         --lcars-primary-text: var(--lcars-background-text);
+        --state-icon-color: var(--lcars-primary-text);
         padding: 0px;
         box-sizing: border-box;
         border-radius: 0px;
@@ -487,9 +512,9 @@
           border-radius: 0px;
           background-color: var(--lcars-background-color);
           --lcars-primary-text: var(--lcars-background-text);
+          --state-icon-color: var(--lcars-primary-text);
           height: 100%;
           box-sizing: border-box;
-          
         }
       }
       > ha-markdown,
@@ -544,12 +569,14 @@
         border-bottom-width: var(--lcars-horizontal-border);
         background-color: var(--lcars-card-bottom-color);
         --lcars-primary-text: var(--lcars-background-text);
+        --state-icon-color: var(--lcars-primary-text);
         text-transform: uppercase;
 
         > :not(style,card-mod,h1) {
           border-radius: 0px;
           background-color: var(--lcars-background-color);
           --lcars-primary-text: var(--lcars-background-text);
+          --state-icon-color: var(--lcars-primary-text);
           padding-bottom: 6px;
           height: 100%;
           box-sizing: border-box;
@@ -630,6 +657,7 @@
         &:is(ha-card) {
           background-color: var(--lcars-card-button-color);
           --lcars-primary-text: var(--lcars-card-button-text);
+          --state-icon-color: var(--lcars-primary-text);
           text-transform: uppercase;
         }
       }
@@ -646,6 +674,7 @@
         &:is(ha-card) {
           background-color: var(--lcars-card-button-color);
           --lcars-primary-text: var(--lcars-card-button-text);
+          --state-icon-color: var(--lcars-primary-text);
           text-transform: uppercase;
         }
       }
@@ -1061,6 +1090,7 @@
           text-transform: uppercase;
           background-color: var(--lcars-background-color);
           --lcars-primary-text: var(--lcars-background-text);
+          --state-icon-color: var(--lcars-primary-text);
           border-radius: 0px;
           display: inline-block;
           padding: 0px 6px 0px 6px;
@@ -1394,7 +1424,6 @@
   #          TOOLBAR AND DASHBOARD MODIFICATIONS          #
   # ===================================================== #
   card-mod-root-yaml: &card-mod-root |
-
     ha-tab-group$: |
       :host {
         margin-left: 30px;
@@ -1605,6 +1634,20 @@
   # ===================================================== #
   card-mod-config-yaml: &card-mod-config |
     .: |
+      :host {
+        /* Force these to be recomputed to prevent eager variable resolution */
+        --ha-card-header-color: var(--lcars-primary-text);
+        --ha-color-text-primary: var(--lcars-primary-text);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+        --text-primary-color: var(--lcars-primary-text);
+        --mdc-select-label-ink-color: var(--lcars-secondary-text);
+        --mdc-select-ink-color: var(--lcars-primary-text);
+        --mdc-text-field-label-ink-color: var(--lcars-primary-text);
+        --mdc-text-field-fill-color: transparent;
+        --mdc-text-field-ink-color: var(--lcars-primary-text);
+        --wa-form-control-value-color: var(--lcars-primary-text);
+      }
       ha-panel-config{
         &::before {
           @media screen and (min-width: 601px) {
@@ -1922,6 +1965,9 @@
           border-bottom-left-radius: 0px;
           border-bottom-right-radius: 0px;
           background-color: transparent;
+          --lcars-primary-text: var(--lcars-text-light);
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color))
+
 
           &::before {
             content: "";
@@ -1962,6 +2008,8 @@
           border-top-left-radius: 0px;
           border-top-right-radius: 0px;
           background-color: transparent;
+          --lcars-primary-text: var(--lcars-background-text);
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
           margin-bottom: 6px;
 
           &::before {
@@ -1998,8 +2046,8 @@
         }
         :is(.pages) {
           background-color: transparent !important;
-          --primary-text-color: var(--lcars-text-light);
-          --secondary-text-color: var(--lcars-text-light);
+          --primary-text-color: var(--lcars-background-text);
+          --secondary-text-color: var(--lcars-background-text);
           border-radius: 0 !important;
           margin-top: 6px !important;
           padding: 0px;
@@ -2028,6 +2076,182 @@
           }
         }
 
+    # ------------------------ Text Color Fixes ------------------------------ #
+    # By default the text is colored to be over quaternary color, which works in
+    # cards on many of the settings pages. There are several places in the
+    # settings where a black background is used. In those cases, force the text
+    # to be light regardless of light/dark mode. 
+    # ------------------- Automation/Script Editor Drag States --------------- #
+    "ha-automation-picker $ hass-tabs-subpage-data-table $ hass-tabs-subpage":
+      "ha-data-table$": |
+        div.mdc-data-table {
+          --lcars-primary-text: var(--lcars-background-text);
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+          --primary-text-color: var(--lcars-primary-text);
+          --secondary-text-color: var(--lcars-primary-text);
+        }
+      .: |
+        div.pane {
+        --lcars-primary-text: var(--lcars-background-text);
+        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+        }
+    "ha-blueprint-overview $ hass-tabs-subpage-data-table $ hass-tabs-subpage":
+      "ha-data-table$": |
+        div.mdc-data-table {
+          --lcars-primary-text: var(--lcars-background-text);
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+          --primary-text-color: var(--lcars-primary-text);
+          --secondary-text-color: var(--lcars-primary-text);
+        }
+      .: |
+        div.pane {
+        --lcars-primary-text: var(--lcars-background-text);
+        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+        }
+    "ha-config-devices-dashboard $ hass-tabs-subpage-data-table $ hass-tabs-subpage":
+      "ha-data-table$": |
+        div.mdc-data-table {
+          --lcars-primary-text: var(--lcars-background-text);
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+          --primary-text-color: var(--lcars-primary-text);
+          --secondary-text-color: var(--lcars-primary-text);
+        }
+      .: |
+        div.pane {
+        --lcars-primary-text: var(--lcars-background-text);
+        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+        }
+    "ha-config-entities $ hass-tabs-subpage-data-table $ hass-tabs-subpage":
+      "ha-data-table$": |
+        div.mdc-data-table {
+          --lcars-primary-text: var(--lcars-background-text);
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+          --primary-text-color: var(--lcars-primary-text);
+          --secondary-text-color: var(--lcars-primary-text);
+        }
+      .: |
+        div.pane {
+        --lcars-primary-text: var(--lcars-background-text);
+        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+        }
+    "ha-config-helpers $ hass-tabs-subpage-data-table $ hass-tabs-subpage":
+      "ha-data-table$": |
+        div.mdc-data-table {
+          --lcars-primary-text: var(--lcars-background-text);
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+          --primary-text-color: var(--lcars-primary-text);
+          --secondary-text-color: var(--lcars-primary-text);
+        }
+      .: |
+        div.pane {
+        --lcars-primary-text: var(--lcars-background-text);
+        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+        }
+    "ha-config-labels $ hass-tabs-subpage-data-table $ hass-tabs-subpage":
+      "ha-data-table$": |
+        div.mdc-data-table {
+          --lcars-primary-text: var(--lcars-background-text);
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+          --primary-text-color: var(--lcars-primary-text);
+          --secondary-text-color: var(--lcars-primary-text);
+        }
+      .: |
+        div.pane {
+        --lcars-primary-text: var(--lcars-background-text);
+        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+        }
+    "ha-config-lovelace-dashboards $ hass-tabs-subpage-data-table $ hass-tabs-subpage ha-data-table$": |
+      div.mdc-data-table {
+        --lcars-primary-text: var(--lcars-background-text);
+        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+      }
+    "ha-config-lovelace-resources $ hass-tabs-subpage-data-table $ hass-tabs-subpage ha-data-table$": |
+      div.mdc-data-table {
+        --lcars-primary-text: var(--lcars-background-text);
+        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+      }
+    "ha-config-tags $ hass-tabs-subpage-data-table $ hass-tabs-subpage ha-data-table$": |
+      div.mdc-data-table {
+        --lcars-primary-text: var(--lcars-background-text);
+        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+      }
+    "ha-config-users $ hass-tabs-subpage-data-table $ hass-tabs-subpage ha-data-table $": |
+      div.mdc-data-table {
+        --lcars-primary-text: var(--lcars-background-text);
+        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+      }
+    "ha-config-voice-assistants-expose $ hass-tabs-subpage-data-table hass-tabs-subpage ha-data-table$": |
+      div.mdc-data-table {
+        --lcars-primary-text: var(--lcars-background-text);
+        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+      }
+    "ha-scene-dashboard $ hass-tabs-subpage-data-table hass-tabs-subpage ha-data-table$": |
+      div.mdc-data-table {
+        --lcars-primary-text: var(--lcars-background-text);
+        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+      }
+    "ha-script-picker $ hass-tabs-subpage-data-table hass-tabs-subpage ha-data-table$": |
+      div.mdc-data-table {
+        --lcars-primary-text: var(--lcars-background-text);
+        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+      }
+    "ha-config-zone hass-tabs-subpage$":
+      "ha-location-editor $ ha-map$": |
+        div#map {
+          --lcars-primary-text: var(--lcars-background-text);
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+        }
+      "div.overflow": |
+        ha-list {
+          --lcars-primary-text: var(--lcars-background-text);
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+        }
+    "ha-config-section-general hass-subpage ha-card $ ha-map$": |
+      div#map {
+        --lcars-primary-text: var(--lcars-background-text);
+        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+      }
+    "ha-config-integrations ha-config-integrations-dashboard $":
+      "hass-tabs-subpage": |
+        h1, div.search {
+          --lcars-primary-text: var(--lcars-background-text);
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
+          --primary-text-color: var(--lcars-primary-text);
+          --secondary-text-color: var(--lcars-primary-text);
+          color: var(--lcars-primary-text);
+        }
   # ===================================================== #
   #             USER PROFILE MODIFICATIONS                #
   # ===================================================== #
@@ -2401,17 +2625,19 @@ LCARS 25C:
   lcars-tab-selected-bg: url("data:image/svg+xml,%3C!-- sample rectangle --%3E%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='transparent'%3E%3Canimate attributeName='fill' values='%23e7442a;%23e7442a;%236d748c' begin='0s' dur='5s' calcMode='discrete' repeatCount='indefinite' /%3E%3C/rect%3E%3C/svg%3E")
   modes:
     light:
-      lcars-backlight-center: white
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-ui-primary-text: var(--lcars-text-light)
       lcars-ui-quaternary-text: var(--lcars-text-light)
     dark:
-      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+      lcars-backlight-outer: "#00000080"
       lcars-ui-primary-text: var(--lcars-text-dark)
       lcars-ui-quaternary-text: var(--lcars-text-dark)
 
@@ -2425,7 +2651,7 @@ LCARS 25C (Blue Alert):
   lcars-ui-primary-text: var(--lcars-text-dark)
   lcars-ui-secondary: var(--lcars-alert-white)
   lcars-ui-secondary-text: var(--lcars-text-dark)
-  lcars-ui-tertiary: var(--lcars-alert-color)
+  lcars-ui-tertiary: var(--lcars-steel-blue)
   lcars-ui-tertiary-text: var(--lcars-text-dark)
   lcars-ui-quaternary: var(--lcars-alert-color)
   lcars-ui-quaternary-text: var(--lcars-text-dark)
@@ -2467,13 +2693,14 @@ LCARS 25C (Blue Alert):
   rgb-card-background-color: "34,102,255"
   rgb-primary-text-color: "0,0,0"
   rgb-secondary-text-color: "0,0,0"
-  rgb-primary-color: "34,102,255"
+  rgb-primary-color: "85,136,238"
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "34,102,255"
   modes:
     light:
-      lcars-backlight-center: white
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
@@ -2481,10 +2708,11 @@ LCARS 25C (Blue Alert):
       lcars-ui-tertiary-text: var(--lcars-text-light)
       lcars-ui-quaternary-text: var(--lcars-text-light)
     dark:
-      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+      lcars-backlight-outer: "#00000080"
       lcars-ui-primary-text: var(--lcars-text-dark)
       lcars-ui-tertiary-text: var(--lcars-text-dark)
       lcars-ui-quaternary-text: var(--lcars-text-dark)
@@ -2499,7 +2727,7 @@ LCARS 25C (Red Alert):
   lcars-ui-primary-text: var(--lcars-text-light)
   lcars-ui-secondary: var(--lcars-alert-white)
   lcars-ui-secondary-text: var(--lcars-text-dark)
-  lcars-ui-tertiary: var(--lcars-alert-color)
+  lcars-ui-tertiary: var(--lcars-maroon)
   lcars-ui-tertiary-text: var(--lcars-text-light)
   lcars-ui-quaternary: var(--lcars-alert-color)
   lcars-ui-quaternary-text: var(--lcars-text-light)
@@ -2541,21 +2769,23 @@ LCARS 25C (Red Alert):
   rgb-card-background-color: "204,0,0"
   rgb-primary-text-color: "255,255,255"
   rgb-secondary-text-color: "255,255,255"
-  rgb-primary-color: "204,0,0"
+  rgb-primary-color: "139,0,0"
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "204,0,0"
   modes:
     light:
-      lcars-backlight-center: white
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
     dark:
-      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+      lcars-backlight-outer: "#00000080"
 
 LCARS 25C (Yellow Alert):
   card-mod-theme: LCARS 25C (Yellow Alert)
@@ -2567,7 +2797,7 @@ LCARS 25C (Yellow Alert):
   lcars-ui-primary-text: var(--lcars-text-dark)
   lcars-ui-secondary: var(--lcars-alert-white)
   lcars-ui-secondary-text: var(--lcars-text-dark)
-  lcars-ui-tertiary: var(--lcars-alert-color)
+  lcars-ui-tertiary: var(--lcars-sunflower)
   lcars-ui-tertiary-text: var(--lcars-text-dark)
   lcars-ui-quaternary: var(--lcars-alert-color)
   lcars-ui-quaternary-text: var(--lcars-text-dark)
@@ -2609,21 +2839,23 @@ LCARS 25C (Yellow Alert):
   rgb-card-background-color: "255,170,0"
   rgb-primary-text-color: "0,0,0"
   rgb-secondary-text-color: "0,0,0"
-  rgb-primary-color: "255,170,0"
+  rgb-primary-color: "255,204,102"
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "255,170,0"
   modes:
     light:
-      lcars-backlight-center: white
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
     dark:
-      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+      lcars-backlight-outer: "#00000080"
 
 LCARS Breen:
   card-mod-theme: LCARS Breen
@@ -2682,15 +2914,17 @@ LCARS Breen:
   rgb-secondary-background-color: "15,86,22"
   modes:
     light:
-      lcars-backlight-center: white
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
     dark:
-      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+      lcars-backlight-outer: "#00000080"
 
 LCARS Cardassia:
   card-mod-theme: LCARS Cardassia
@@ -2749,15 +2983,17 @@ LCARS Cardassia:
   rgb-secondary-background-color: "79,26,35"
   modes:
     light:
-      lcars-backlight-center: white
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
     dark:
-      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+      lcars-backlight-outer: "#00000080"
 
 LCARS Classic:
   card-mod-theme: LCARS Classic
@@ -2816,16 +3052,18 @@ LCARS Classic:
   rgb-secondary-background-color: "102,102,136"
   modes:
     light:
-      lcars-backlight-center: white
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-ui-quaternary-text: var(--lcars-text-light)
     dark:
-      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+      lcars-backlight-outer: "#00000080"
       lcars-ui-quaternary-text: var(--lcars-text-dark)
 
 LCARS Default:
@@ -2885,16 +3123,18 @@ LCARS Default:
   rgb-secondary-background-color: "102,102,136"
   modes:
     light:
-      lcars-backlight-center: white
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-ui-quaternary-text: var(--lcars-text-light)
     dark:
-      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+      lcars-backlight-outer: "#00000080"
       lcars-ui-quaternary-text: var(--lcars-text-dark)
 
 LCARS Kronos:
@@ -2954,15 +3194,17 @@ LCARS Kronos:
   rgb-secondary-background-color: "147,10,0"
   modes:
     light:
-      lcars-backlight-center: white
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
     dark:
-      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+      lcars-backlight-outer: "#00000080"
 
 LCARS Lower Decks I:
   card-mod-theme: LCARS Lower Decks I
@@ -3021,15 +3263,17 @@ LCARS Lower Decks I:
   rgb-secondary-background-color: "145,85,11"
   modes:
     light:
-      lcars-backlight-center: white
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
     dark:
-      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+      lcars-backlight-outer: "#00000080"
 
 LCARS Lower Decks II:
   card-mod-theme: LCARS Lower Decks II
@@ -3088,15 +3332,17 @@ LCARS Lower Decks II:
   rgb-secondary-background-color: "145,85,11"
   modes:
     light:
-      lcars-backlight-center: white
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
     dark:
-      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+      lcars-backlight-outer: "#00000080"
 
 LCARS Modern:
   card-mod-theme: LCARS Modern
@@ -3155,16 +3401,18 @@ LCARS Modern:
   rgb-secondary-background-color: "102,102,136"
   modes:
     light:
-      lcars-backlight-center: white
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-ui-quaternary-text: var(--lcars-text-light)
     dark:
-      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+      lcars-backlight-outer: "#00000080"
       lcars-ui-quaternary-text: var(--lcars-text-dark)
 
 LCARS Navigation:
@@ -3224,15 +3472,17 @@ LCARS Navigation:
   rgb-secondary-background-color: "130,122,83"
   modes:
     light:
-      lcars-backlight-center: white
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
     dark:
-      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+      lcars-backlight-outer: "#00000080"
 
 LCARS Nemesis Blue:
   card-mod-theme: LCARS Nemesis Blue
@@ -3291,16 +3541,18 @@ LCARS Nemesis Blue:
   rgb-secondary-background-color: "68,74,119"
   modes:
     light:
-      lcars-backlight-center: white
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-ui-primary-text: var(--lcars-text-light)
     dark:
-      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+      lcars-backlight-outer: "#00000080"
       lcars-ui-primary-text: var(--lcars-text-dark)
 
 LCARS Picard I:
@@ -3360,17 +3612,19 @@ LCARS Picard I:
   rgb-secondary-background-color: "101,107,131"
   modes:
     light:
-      lcars-backlight-center: white
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-ui-secondary-text: var(--lcars-text-light)
       lcars-ui-quaternary-text: var(--lcars-text-light)
     dark:
-      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+      lcars-backlight-outer: "#00000080"
       lcars-ui-secondary-text: var(--lcars-text-dark)
       lcars-ui-quaternary-text: var(--lcars-text-dark)
 
@@ -3431,15 +3685,17 @@ LCARS Picard II:
   rgb-secondary-background-color: "1,37,86"
   modes:
     light:
-      lcars-backlight-center: white
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
     dark:
-      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+      lcars-backlight-outer: "#00000080"
 
 LCARS Red Alert:
   card-mod-theme: LCARS Red Alert
@@ -3498,16 +3754,18 @@ LCARS Red Alert:
   rgb-secondary-background-color: "54,0,0"
   modes:
     light:
-      lcars-backlight-center: white
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-ui-primary-text: var(--lcars-text-light)
     dark:
-      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+      lcars-backlight-outer: "#00000080"
       lcars-ui-primary-text: var(--lcars-text-dark)
 
 LCARS Romulus:
@@ -3567,15 +3825,17 @@ LCARS Romulus:
   rgb-secondary-background-color: "15,86,22"
   modes:
     light:
-      lcars-backlight-center: white
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
     dark:
-      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+      lcars-backlight-outer: "#00000080"
 
 LCARS TNG:
   card-mod-theme: LCARS TNG
@@ -3634,15 +3894,17 @@ LCARS TNG:
   rgb-secondary-background-color: "68,74,119"
   modes:
     light:
-      lcars-backlight-center: white
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
     dark:
-      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+      lcars-backlight-outer: "#00000080"
 
 LCARS TNGbuttons:
   card-mod-theme: LCARS TNGbuttons
@@ -3701,15 +3963,17 @@ LCARS TNGbuttons:
   rgb-secondary-background-color: "68,74,119"
   modes:
     light:
-      lcars-backlight-center: white
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
     dark:
-      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+      lcars-backlight-outer: "#00000080"
 
 LCARS Transporter:
   card-mod-theme: LCARS Transporter
@@ -3768,16 +4032,18 @@ LCARS Transporter:
   rgb-secondary-background-color: "44,55,75"
   modes:
     light:
-      lcars-backlight-center: white
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-ui-secondary-text: var(--lcars-text-light)
     dark:
-      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+      lcars-backlight-outer: "#00000080"
       lcars-ui-secondary-text: var(--lcars-text-dark)
 
 LCARS Zeldaar:
@@ -3837,15 +4103,17 @@ LCARS Zeldaar:
   rgb-secondary-background-color: "119,68,119"
   modes:
     light:
-      lcars-backlight-center: white
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
     dark:
-      lcars-backlight-center: rgba(255, 255, 255, 0.5)
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
       lcars-backlight-middle: transparent
       lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: rbga(0, 0, 0, 0.5)
+      lcars-backlight-outer: "#00000080"
 
 # ================ Paste your themes here =============== |
 # (or add a file to src/themes/ and run generate_themes.py)
