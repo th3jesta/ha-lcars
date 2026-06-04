@@ -1429,11 +1429,15 @@
         margin-left: 30px;
         border-left: solid var(--lcars-background-color) 4px;
         --header-height: 40px;
-        height: 40px !important;
-        overflow-y: clip;
         --ha-tab-indicator-color: transparent !important;
         font-family: var(--font-family) !important;
         text-transform: uppercase;
+      }
+      .tab-group-top {
+        --safe-track-width: 0px;
+      }
+      .tabs {
+        overflow-y: hidden;
       }
     ha-tab-group-tab$: |
       :host {
@@ -1456,8 +1460,10 @@
       }
     div.header: |
       .toolbar {
-        color: var(--lcars-ui-primary-text);
-        background-color: var(--lcars-ui-primary) !important;
+        /* hack fix for rounding errors the cause slight gap between header and sidebar */
+        box-shadow: -1px 0px var(--lcars-sidebar-background);
+        color: var(--lcars-sidebar-text);
+        background-color: var(--lcars-sidebar-background);
         --app-header-border-bottom: 0px;
         border-right: 30px solid var(--lcars-card-top-color);
         border-radius: 0px 0px 0px 0px;
@@ -1468,7 +1474,6 @@
         ha-menu-button {
           display: none;
           color: transparent;
-          padding-right: 10px
         }
         @media screen and (max-width: 870px) {
           ha-button-menu > ha-icon-button {
@@ -1785,48 +1790,67 @@
           border-radius: 0 !important;
           margin-top: 32px !important;
         }
-      "ha-navigation-list $": |
-        ha-md-list {
-          --md-sys-color-surface: transparent !important;
+      "ha-config-navigation-list $": |
+        ha-list-nav {
         
-          ha-md-list-item {
+          ha-list-item-button {
             background-color: var(--lcars-card-mid-color);
-            --md-list-item-label-text-color: var(--lcars-card-mid-text);
-            --md-list-item-supporting-text-color: var(--lcars-card-mid-text);
+            --primary-text-color: var(--lcars-card-mid-text);
+            --secondary-text-color: color-mix(in oklch, var(--primary-text-color) 80%, transparent);
             border-radius: 999px;
             margin-block: 5px;
           }
-          ha-md-list-item:first-child {
+          ha-list-item-button:first-child {
             background-color: var(--lcars-card-top-color);
-            --md-list-item-label-text-color: var(--lcars-card-top-text);
-            --md-list-item-supporting-text-color: var(--lcars-card-top-text);
+            --primary-text-color: var(--lcars-card-top-text);
+            --secondary-text-color: color-mix(in oklch, var(--primary-text-color) 80%, transparent);
           }
-          ha-md-list-item:last-child {
+          ha-list-item-button:last-child {
             background-color: var(--lcars-card-bottom-color);
-            --md-list-item-label-text-color: var(--lcars-card-bottom-text);
+            --primary-text-color: var(--lcars-card-bottom-text);
+            --secondary-text-color: color-mix(in oklch, var(--primary-text-color) 80%, transparent);
             --md-list-item-supporting-text-color: var(--lcars-card-bottom-text);
           }
         }
     "ha-config-dashboard $ ha-top-app-bar-fixed ha-config-section":
+      .: |
+        ha-card:has(ha-config-repairs) {
+          --lcars-alert-color: var(--lcars-alert-red);
+        }
+        ha-card:has(ha-config-updates) {
+          --lcars-alert-color: var(--lcars-alert-yellow);
+        }
       "ha-card":
-        "ha-config-navigation $ ha-navigation-list$": | 
+        .: |
+          div.dashboard-alert-title {
+            text-transform: uppercase;
+            font-size: 30px !important;
+            line-height: 1;
+            border-inline: 30px solid var(--lcars-alert-color);
+            border-top-left-radius: 25px;
+            padding-top: 8px !important;
+            padding-bottom: 12px !important;
+            background-color:  color-mix(in srgb, var(--lcars-alert-color), transparent 66%);
+            border-top-right-radius: 25px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+          }
+        "ha-config-navigation $ ha-config-navigation-list$": | 
           /* -------- Settings Page Lists -------- */
-          ha-md-list {
-            --md-sys-color-surface: transparent !important;
-          
-            ha-md-list-item {
+          ha-list-nav {
+            ha-list-item-button {
               background-color: var(--lcars-card-mid-color);
               --md-list-item-label-text-color: var(--lcars-card-mid-text);
               --md-list-item-supporting-text-color: var(--lcars-card-mid-text);
               border-radius: 999px;
               margin-block: 5px;
             }
-            ha-md-list-item:first-child {
+            ha-list-item-button:first-child {
               background-color: var(--lcars-card-top-color);
               --md-list-item-label-text-color: var(--lcars-card-top-text);
               --md-list-item-supporting-text-color: var(--lcars-card-top-text);
             }
-            ha-md-list-item:last-child {
+            ha-list-item-button:last-child {
               background-color: var(--lcars-card-bottom-color);
               --md-list-item-label-text-color: var(--lcars-card-bottom-text);
               --md-list-item-supporting-text-color: var(--lcars-card-bottom-text);
@@ -1834,30 +1858,44 @@
           }
         "ha-config-repairs$": |
           /* -------- Settings Page Repairs List -------- */
-          .title{
-            text-transform: uppercase;
-            font-size: 30px !important;
-            line-height: 1;
-            border-inline: 30px solid var(--lcars-alert-red);
-            border-top-left-radius: 25px;
-            padding-top: 8px !important;
-            padding-bottom: 12px !important;
-            background-color:  color-mix(in srgb, var(--lcars-alert-red), transparent 66%);
-            border-top-right-radius: 25px;
-            border-bottom-left-radius: 25px;
-            border-bottom-right-radius: 25px;
-          }
-          ha-md-list {
-            --md-sys-color-surface: transparent !important;
+          ha-list-base {
             padding-block: 5px;
 
-            ha-md-list-item {
+            ha-list-item-button {
               background-color: color-mix(in srgb, var(--lcars-alert-red), transparent 66%);
               margin: 5px 30px;
             }
           }
         "ha-config-updates$": |
           /* -------- Settings Page Updates List -------- */
+          ha-list-base {
+            padding-block: 5px;
+
+            ha-list-item-button {
+              background-color: color-mix(in srgb, var(--lcars-alert-yellow), transparent 66%);
+              margin: 5px 30px;
+            }
+          }
+        "$": |
+          :host {
+            background-color: transparent !important;
+            --primary-text-color: var(--lcars-background-text);
+            --secondary-text-color: var(--lcars-background-text);
+            border-radius: 0 !important;
+            margin-top: 32px !important;
+          }
+    "ha-config-section-updates $ hass-subpage div.content":
+      "ha-card":
+        "$": |
+          /* -------- Updates Page List -------- */
+          :host {
+            background-color: transparent !important;
+            --primary-text-color: var(--lcars-background-text);
+            --secondary-text-color: var(--lcars-background-text);
+            border-radius: 0 !important;
+            margin-top: 32px !important;
+          }
+        .: |
           .title{
             text-transform: uppercase;
             font-size: 30px !important;
@@ -1871,53 +1909,13 @@
             border-bottom-left-radius: 25px;
             border-bottom-right-radius: 25px;
           }
-          ha-md-list {
-            --md-sys-color-surface: transparent !important;
-            padding-block: 5px;
-
-            ha-md-list-item {
-              background-color: color-mix(in srgb, var(--lcars-alert-yellow), transparent 66%);
-              margin: 5px 30px;
-            }
-          }
-        "$": |
-          :host {
-            background-color: transparent !important;
-            --primary-text-color: var(--lcars-text-light);
-            --secondary-text-color: var(--lcars-text-light);
-            border-radius: 0 !important;
-            margin-top: 32px !important;
-          }
-    "ha-config-section-updates $ hass-subpage div.content":
-      "ha-card":
-        "$": |
-          :host {
-            background-color: transparent !important;
-            --primary-text-color: var(--lcars-text-light);
-            --secondary-text-color: var(--lcars-text-light);
-            border-radius: 0 !important;
-            margin-top: 32px !important;
-          }
         "div.card-content ha-config-updates$": |
-            /* -------- Settings Page Updates List -------- */
-            .title{
-              text-transform: uppercase;
-              font-size: 30px !important;
-              line-height: 1;
-              border-inline: 30px solid var(--lcars-alert-yellow);
-              border-top-left-radius: 25px;
-              padding-top: 8px !important;
-              padding-bottom: 12px !important;
-              background-color:  color-mix(in srgb, var(--lcars-alert-yellow), transparent 66%);
-              border-top-right-radius: 25px;
-              border-bottom-left-radius: 25px;
-              border-bottom-right-radius: 25px;
-            }
-            ha-md-list {
+            
+            ha-list-base {
               --md-sys-color-surface: transparent !important;
               padding-block: 5px;
 
-              ha-md-list-item {
+              ha-list-item-button {
                 background-color: color-mix(in srgb, var(--lcars-alert-yellow), transparent 66%);
                 margin: 5px 30px;
               }
@@ -1925,15 +1923,15 @@
     "ha-config-repairs-dashboard $ hass-subpage div.content":
       "ha-card":
         "$": |
+          /* -------- Repairs Page List -------- */
           :host {
             background-color: transparent !important;
-            --primary-text-color: var(--lcars-text-light);
-            --secondary-text-color: var(--lcars-text-light);
+            --primary-text-color: var(--lcars-background-text);
+            --secondary-text-color: var(--lcars-background-text);
             border-radius: 0 !important;
             margin-top: 32px !important;
           }
-        "div.card-content ha-config-repairs$": |
-          /* -------- Settings Page Repairs List -------- */
+        .: |
           .title{
             text-transform: uppercase;
             font-size: 30px !important;
@@ -1947,11 +1945,12 @@
             border-bottom-left-radius: 25px;
             border-bottom-right-radius: 25px;
           }
-          ha-md-list {
+        "div.card-content ha-config-repairs$": |
+          ha-list-base {
             --md-sys-color-surface: transparent !important;
             padding-block: 5px;
 
-            ha-md-list-item {
+            ha-list-item-button {
               background-color: color-mix(in srgb, var(--lcars-alert-red), transparent 66%);
               margin: 5px 30px;
             }
@@ -2158,11 +2157,11 @@
   #                 SIDEBAR MODIFICATIONS                 #
   # ===================================================== #
   card-mod-sidebar-yaml: &card-mod-sidebar |
-    ha-md-list-item$: |
-      md-item {
-        --md-list-item-leading-space: 0px;
-        --md-list-item-trailing-space: 0px;
-        --ha-md-list-item-gap: 0px;
+    ha-list-item-button$: |
+      #item {
+        column-gap: 0;
+        padding: 0;
+        align-items: stretch;
       }
 
     .: |
@@ -2191,19 +2190,23 @@
         border-left: 5px solid var(--lcars-background-color);
       
       }
-      ha-md-list.ha-scrollbar {
+      ha-list-nav.before-spacer {
         margin-top: 70px;
-        border-top: 5px solid var(--lcars-background-color);
-        padding-top: 0px !important;
-        font-family: var(--font-family);
+        margin-bottom: 0px;
         height: 100%;
+        border-bottom: 5px solid var(--lcars-background-color);
+        border-top: 5px solid var(--lcars-background-color);
+        font-family: var(--font-family);
       }
-      ha-md-list-item {
+      ha-list-nav.after-spacer {
+        padding: 0;
+        margin: 0;
+      }
+      ha-list-item-button {
         border-bottom: 5px solid;
         background-color: var(--lcars-sidebar-item-color);
         width: 100% !important;
         margin: unset !important;
-        padding-left: 0px;
         border-radius: unset !important;
         border-color: var(--lcars-background-color);
         color: var(--lcars-sidebar-text) !important;
@@ -2343,43 +2346,33 @@
         }
       }
 
-      :host ha-icon,
-      :host ha-svg-icon,
-      :host ha-user-badge {
+      ha-icon,
+      ha-svg-icon,
+      ha-user-badge {
         left: 0px;
         align-content: center;
         box-sizing: border-box;
         min-width: 61px;
-        padding-top: 8px;
-        padding-bottom: 8px;
         padding-right: 16px;
         padding-left: 16px;
         min-height: 100%;
         background-color: var(--lcars-sidebar-item-color);
         border-right: 5px solid var(--lcars-background-color);
       }
-      :host ha-user-badge {
+      ha-user-badge {
         box-sizing: border-box;
         width: calc( var(--mdc-icon-size,24px) + 37px);
         padding-block: 8px;
       }
 
       :host([expanded]) {
-        ha-md-list-item:not(.selected) {
+        ha-list-item-button:not(.selected) {
           ha-icon,
           ha-user-badge,
           ha-svg-icon {
             color: var(--lcars-sidebar-icon-color);
             background-color: var(--lcars-sidebar-icon-background);
           }
-        }
-        .menu mwc-button {
-          margin-top: 152px !important;
-          margin-left: 7px !important;
-          height: 19px;
-          border-radius: var(--lcars-inner-radius);
-          background-color: var(--lcars-ui-tertiary);
-          align-items: center;
         }
         span.badge {
           font-size: max( 38px, var(--menu-font-size) + 10px );
@@ -2388,38 +2381,8 @@
           padding-block: max( 8px, var(--menu-font-size)/2 - 2px );
         }
       }
-
-      mwc-button {
-        --mdc-theme-primary: var(--lcars-text-dark);
-      }
-
-      ha-icon-button.hide-panel {
-        color: var(--lcars-ui-primary-text) !important;
-      }
-
-      ha-md-list.ha-scrollbar > .spacer::before {
-        content: "";
-        position: relative;
-        display: block;
-        z-index: 9999;
-        top: 0px;
-        left: 0px;
-        width: 24px;
-        height: 100%;
-        padding-right: 16px;
-        padding-left: 16px;
-        border-right: 5px solid var(--lcars-background-color);
-        background-color: var(--lcars-ui-primary);
-      }
-      .spacer {
-        border-bottom: 4px solid var(--lcars-background-color);
-      }
       .divider {
         display: none;
-      }
-      ha-md-list:not(.ha-scrollbar) {
-        padding: 0px 0px 0px 0px !important;
-        background-color: var(--lcars-background-color);
       }
 
 # ======================================================= #
