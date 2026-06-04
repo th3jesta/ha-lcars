@@ -2366,6 +2366,9 @@
       }
 
       :host([expanded]) {
+        /* as of 2026.06, the 100% width isn't filling the slot */
+        width: var(--ha-sidebar-width);
+
         ha-list-item-button:not(.selected) {
           ha-icon,
           ha-user-badge,

@@ -1460,8 +1460,6 @@
       }
     div.header: |
       .toolbar {
-        /* hack fix for rounding errors the cause slight gap between header and sidebar */
-        box-shadow: -1px 0px var(--lcars-sidebar-background);
         color: var(--lcars-sidebar-text);
         background-color: var(--lcars-sidebar-background);
         --app-header-border-bottom: 0px;
@@ -2366,6 +2364,9 @@
       }
 
       :host([expanded]) {
+        /* as of 2026.06, the 100% width isn't filling the slot */
+        width: var(--ha-sidebar-width);
+
         ha-list-item-button:not(.selected) {
           ha-icon,
           ha-user-badge,
