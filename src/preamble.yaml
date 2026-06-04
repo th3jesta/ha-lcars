@@ -326,6 +326,7 @@
   state-lock-jammed-color: var(--lcars-scarlet)
   input-dropdown-icon-color: var(--lcars-text-gray)
   ha-outlined-field-container-color: var(--lcars-text-gray)
+  markdown-code-text-color: var(--lcars-text-light)
 
   # Fields
   ha-color-form-background: rgba(0, 0, 0, 0)
@@ -2134,6 +2135,33 @@
   #                 DIALOG MODIFICATIONS                  #
   # ===================================================== #
   card-mod-dialog-yaml: |
+    .: |
+      :host {
+        /* Force these to be recomputed to prevent eager variable resolution    */
+        /* There are too many places in the settings pages that use light and   */
+        /* dark font on various background colors. We can't track them all.     */
+        /* The solution is to use a medium luminance background and default     */
+        /* to light text. Some places will use black, but that's still legible. */
+        --lcars-primary-text: var(--lcars-text-light);
+        --lcars-secondary-text: var(--lcars-text-light);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-secondary-text);
+        --card-background-color: var(--lcars-settings-card-color);
+        --ha-card-background: var(--lcars-settings-card-color);
+        --ha-card-background-color: var(--lcars-settings-card-color);
+        --md-sys-color-surface: var(--lcars-settings-card-color);
+        --ha-card-header-color: var(--lcars-primary-text);
+        --ha-color-text-primary: var(--lcars-primary-text);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+        --text-primary-color: var(--lcars-primary-text);
+        --mdc-select-label-ink-color: var(--lcars-secondary-text);
+        --mdc-select-ink-color: var(--lcars-primary-text);
+        --mdc-text-field-label-ink-color: var(--lcars-primary-text);
+        --mdc-text-field-fill-color: transparent;
+        --mdc-text-field-ink-color: var(--lcars-primary-text);
+        --wa-form-control-value-color: var(--lcars-primary-text);
+      }
     $: |
       :host {
         font-family: var(--font-family);
@@ -2142,13 +2170,38 @@
   #              MORE INFO MODIFICATIONS                  #
   # ===================================================== #
   card-mod-more-info-yaml: |
-    $: |
+    .: |
       :host {
+        /* Force these to be recomputed to prevent eager variable resolution    */
+        /* There are too many places in the settings pages that use light and   */
+        /* dark font on various background colors. We can't track them all.     */
+        /* The solution is to use a medium luminance background and default     */
+        /* to light text. Some places will use black, but that's still legible. */
+        --lcars-primary-text: var(--lcars-text-light);
+        --lcars-secondary-text: var(--lcars-text-light);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-secondary-text);
+        --card-background-color: var(--lcars-settings-card-color);
+        --ha-card-background: var(--lcars-settings-card-color);
+        --ha-card-background-color: var(--lcars-settings-card-color);
+        --md-sys-color-surface: var(--lcars-settings-card-color);
+        --ha-card-header-color: var(--lcars-primary-text);
+        --ha-color-text-primary: var(--lcars-primary-text);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+        --text-primary-color: var(--lcars-primary-text);
+        --mdc-select-label-ink-color: var(--lcars-secondary-text);
+        --mdc-select-ink-color: var(--lcars-primary-text);
+        --mdc-text-field-label-ink-color: var(--lcars-primary-text);
+        --mdc-text-field-fill-color: transparent;
+        --mdc-text-field-ink-color: var(--lcars-primary-text);
+        --wa-form-control-value-color: var(--lcars-primary-text);
+      }
+      button.breadcrumb {
         font-family: var(--font-family);
       }
-
-    .: |
-      button.breadcrumb {
+    $: |
+      :host {
         font-family: var(--font-family);
       }
 
