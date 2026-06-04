@@ -14,6 +14,7 @@ lcars-card-top-color: var(--lcars-peach-cream)
 lcars-card-mid-color: var(--lcars-honey)
 lcars-card-button-color: var(--lcars-sunflower)
 lcars-card-bottom-color: var(--lcars-warm-gold)
+lcars-settings-card-color: "#6B72A3"
 
 lcars-card-top-text: var(--lcars-text-dark)
 lcars-card-mid-text: var(--lcars-text-dark)

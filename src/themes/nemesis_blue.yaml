@@ -12,6 +12,7 @@ lcars-card-top-color: var(--lcars-sky)
 lcars-card-mid-color: var(--lcars-ice)
 lcars-card-button-color: var(--lcars-honey)
 lcars-card-bottom-color: var(--lcars-cool)
+lcars-settings-card-color: "#6B72A3"
 
 lcars-card-top-text: var(--lcars-text-dark)
 lcars-card-mid-text: var(--lcars-text-dark)

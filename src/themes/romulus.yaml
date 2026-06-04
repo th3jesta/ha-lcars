@@ -12,6 +12,7 @@ lcars-card-top-color: var(--lcars-cardinal)
 lcars-card-mid-color: var(--lcars-african-violet)
 lcars-card-button-color: var(--lcars-sky)
 lcars-card-bottom-color: var(--lcars-aqua)
+lcars-settings-card-color: "#428343"
 
 lcars-card-top-text: var(--lcars-text-light)
 lcars-card-mid-text: var(--lcars-text-dark)

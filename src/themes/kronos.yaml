@@ -12,6 +12,7 @@ lcars-card-top-color: var(--lcars-mars)
 lcars-card-mid-color: var(--lcars-october-sunset)
 lcars-card-button-color: var(--lcars-october-sunset)
 lcars-card-bottom-color: var(--lcars-peach)
+lcars-settings-card-color: "#CB4A39"
 
 lcars-card-top-text: var(--lcars-text-light)
 lcars-card-mid-text: var(--lcars-text-light)

@@ -12,6 +12,7 @@ lcars-card-top-color: var(--lcars-khaki-dark)
 lcars-card-mid-color: var(--lcars-cornflower)
 lcars-card-button-color: var(--lcars-olive)
 lcars-card-bottom-color: var(--lcars-olive)
+lcars-settings-card-color: "#7E764F"
 
 lcars-card-top-text: var(--lcars-text-dark)
 lcars-card-mid-text: var(--lcars-text-dark)

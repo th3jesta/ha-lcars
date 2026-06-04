@@ -14,6 +14,7 @@ lcars-card-top-color: var(--lcars-mittelgrau)
 lcars-card-mid-color: var(--lcars-mango)
 lcars-card-button-color: var(--lcars-feuerrot)
 lcars-card-bottom-color: var(--lcars-dunkelgrau)
+lcars-settings-card-color: "#6E758D"
 
 lcars-card-top-text: var(--lcars-text-light)
 lcars-card-mid-text: var(--lcars-text-dark)

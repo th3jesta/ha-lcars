@@ -13,6 +13,7 @@ lcars-card-top-color: var(--lcars-charcoal)
 lcars-card-mid-color: var(--lcars-charcoal)
 lcars-card-button-color: var(--lcars-teal)
 lcars-card-bottom-color: var(--lcars-navy-gray)
+lcars-settings-card-color: "#69768D"
 
 lcars-card-top-text: var(--lcars-text-light)
 lcars-card-mid-text: var(--lcars-text-light)

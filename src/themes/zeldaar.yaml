@@ -11,6 +11,7 @@ lcars-card-top-color: var(--lcars-bluey)
 lcars-card-mid-color: var(--lcars-khaki)
 lcars-card-button-color: var(--lcars-african-violet)
 lcars-card-bottom-color: var(--lcars-roseblush)
+lcars-settings-card-color: "#986398"
 
 lcars-card-top-text: var(--lcars-text-dark)
 lcars-card-mid-text: var(--lcars-text-dark)

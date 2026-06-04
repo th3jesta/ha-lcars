@@ -1635,7 +1635,19 @@
   card-mod-config-yaml: &card-mod-config |
     .: |
       :host {
-        /* Force these to be recomputed to prevent eager variable resolution */
+        /* Force these to be recomputed to prevent eager variable resolution    */
+        /* There are too many places in the settings pages that use light and   */
+        /* dark font on various background colors. We can't track them all.     */
+        /* The solution is to use a medium luminance background and default     */
+        /* to light text. Some places will use black, but that's still legible. */
+        --lcars-primary-text: var(--lcars-text-light);
+        --lcars-secondary-text: var(--lcars-text-light);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-secondary-text);
+        --card-background-color: var(--lcars-settings-card-color);
+        --ha-card-background: var(--lcars-settings-card-color);
+        --ha-card-background-color: var(--lcars-settings-card-color);
+        --md-sys-color-surface: var(--lcars-settings-card-color);
         --ha-card-header-color: var(--lcars-primary-text);
         --ha-color-text-primary: var(--lcars-primary-text);
         --primary-text-color: var(--lcars-primary-text);
@@ -2076,186 +2088,37 @@
           }
         }
 
-    # ------------------------ Text Color Fixes ------------------------------ #
-    # By default the text is colored to be over quaternary color, which works in
-    # cards on many of the settings pages. There are several places in the
-    # settings where a black background is used. In those cases, force the text
-    # to be light regardless of light/dark mode. 
-    # ------------------- Automation/Script Editor Drag States --------------- #
-    "ha-automation-picker $ hass-tabs-subpage-data-table $ hass-tabs-subpage":
-      "ha-data-table$": |
-        div.mdc-data-table {
-          --lcars-primary-text: var(--lcars-background-text);
-          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-          --primary-text-color: var(--lcars-primary-text);
-          --secondary-text-color: var(--lcars-primary-text);
-        }
-      .: |
-        div.pane {
-        --lcars-primary-text: var(--lcars-background-text);
-        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-        --primary-text-color: var(--lcars-primary-text);
-        --secondary-text-color: var(--lcars-primary-text);
-        }
-    "ha-blueprint-overview $ hass-tabs-subpage-data-table $ hass-tabs-subpage":
-      "ha-data-table$": |
-        div.mdc-data-table {
-          --lcars-primary-text: var(--lcars-background-text);
-          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-          --primary-text-color: var(--lcars-primary-text);
-          --secondary-text-color: var(--lcars-primary-text);
-        }
-      .: |
-        div.pane {
-        --lcars-primary-text: var(--lcars-background-text);
-        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-        --primary-text-color: var(--lcars-primary-text);
-        --secondary-text-color: var(--lcars-primary-text);
-        }
-    "ha-config-devices-dashboard $ hass-tabs-subpage-data-table $ hass-tabs-subpage":
-      "ha-data-table$": |
-        div.mdc-data-table {
-          --lcars-primary-text: var(--lcars-background-text);
-          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-          --primary-text-color: var(--lcars-primary-text);
-          --secondary-text-color: var(--lcars-primary-text);
-        }
-      .: |
-        div.pane {
-        --lcars-primary-text: var(--lcars-background-text);
-        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-        --primary-text-color: var(--lcars-primary-text);
-        --secondary-text-color: var(--lcars-primary-text);
-        }
-    "ha-config-entities $ hass-tabs-subpage-data-table $ hass-tabs-subpage":
-      "ha-data-table$": |
-        div.mdc-data-table {
-          --lcars-primary-text: var(--lcars-background-text);
-          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-          --primary-text-color: var(--lcars-primary-text);
-          --secondary-text-color: var(--lcars-primary-text);
-        }
-      .: |
-        div.pane {
-        --lcars-primary-text: var(--lcars-background-text);
-        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-        --primary-text-color: var(--lcars-primary-text);
-        --secondary-text-color: var(--lcars-primary-text);
-        }
-    "ha-config-helpers $ hass-tabs-subpage-data-table $ hass-tabs-subpage":
-      "ha-data-table$": |
-        div.mdc-data-table {
-          --lcars-primary-text: var(--lcars-background-text);
-          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-          --primary-text-color: var(--lcars-primary-text);
-          --secondary-text-color: var(--lcars-primary-text);
-        }
-      .: |
-        div.pane {
-        --lcars-primary-text: var(--lcars-background-text);
-        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-        --primary-text-color: var(--lcars-primary-text);
-        --secondary-text-color: var(--lcars-primary-text);
-        }
-    "ha-config-labels $ hass-tabs-subpage-data-table $ hass-tabs-subpage":
-      "ha-data-table$": |
-        div.mdc-data-table {
-          --lcars-primary-text: var(--lcars-background-text);
-          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-          --primary-text-color: var(--lcars-primary-text);
-          --secondary-text-color: var(--lcars-primary-text);
-        }
-      .: |
-        div.pane {
-        --lcars-primary-text: var(--lcars-background-text);
-        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-        --primary-text-color: var(--lcars-primary-text);
-        --secondary-text-color: var(--lcars-primary-text);
-        }
-    "ha-config-lovelace-dashboards $ hass-tabs-subpage-data-table $ hass-tabs-subpage ha-data-table$": |
-      div.mdc-data-table {
-        --lcars-primary-text: var(--lcars-background-text);
-        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-        --primary-text-color: var(--lcars-primary-text);
-        --secondary-text-color: var(--lcars-primary-text);
-      }
-    "ha-config-lovelace-resources $ hass-tabs-subpage-data-table $ hass-tabs-subpage ha-data-table$": |
-      div.mdc-data-table {
-        --lcars-primary-text: var(--lcars-background-text);
-        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-        --primary-text-color: var(--lcars-primary-text);
-        --secondary-text-color: var(--lcars-primary-text);
-      }
-    "ha-config-tags $ hass-tabs-subpage-data-table $ hass-tabs-subpage ha-data-table$": |
-      div.mdc-data-table {
-        --lcars-primary-text: var(--lcars-background-text);
-        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-        --primary-text-color: var(--lcars-primary-text);
-        --secondary-text-color: var(--lcars-primary-text);
-      }
-    "ha-config-users $ hass-tabs-subpage-data-table $ hass-tabs-subpage ha-data-table $": |
-      div.mdc-data-table {
-        --lcars-primary-text: var(--lcars-background-text);
-        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-        --primary-text-color: var(--lcars-primary-text);
-        --secondary-text-color: var(--lcars-primary-text);
-      }
-    "ha-config-voice-assistants-expose $ hass-tabs-subpage-data-table hass-tabs-subpage ha-data-table$": |
-      div.mdc-data-table {
-        --lcars-primary-text: var(--lcars-background-text);
-        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-        --primary-text-color: var(--lcars-primary-text);
-        --secondary-text-color: var(--lcars-primary-text);
-      }
-    "ha-scene-dashboard $ hass-tabs-subpage-data-table hass-tabs-subpage ha-data-table$": |
-      div.mdc-data-table {
-        --lcars-primary-text: var(--lcars-background-text);
-        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-        --primary-text-color: var(--lcars-primary-text);
-        --secondary-text-color: var(--lcars-primary-text);
-      }
-    "ha-script-picker $ hass-tabs-subpage-data-table hass-tabs-subpage ha-data-table$": |
-      div.mdc-data-table {
-        --lcars-primary-text: var(--lcars-background-text);
-        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-        --primary-text-color: var(--lcars-primary-text);
-        --secondary-text-color: var(--lcars-primary-text);
-      }
-    "ha-config-zone hass-tabs-subpage$":
-      "ha-location-editor $ ha-map$": |
-        div#map {
-          --lcars-primary-text: var(--lcars-background-text);
-          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-        --primary-text-color: var(--lcars-primary-text);
-        --secondary-text-color: var(--lcars-primary-text);
-        }
-      "div.overflow": |
-        ha-list {
-          --lcars-primary-text: var(--lcars-background-text);
-          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-        --primary-text-color: var(--lcars-primary-text);
-        --secondary-text-color: var(--lcars-primary-text);
-        }
-    "ha-config-section-general hass-subpage ha-card $ ha-map$": |
-      div#map {
-        --lcars-primary-text: var(--lcars-background-text);
-        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-        --primary-text-color: var(--lcars-primary-text);
-        --secondary-text-color: var(--lcars-primary-text);
-      }
-    "ha-config-integrations ha-config-integrations-dashboard $":
-      "hass-tabs-subpage": |
-        h1, div.search {
-          --lcars-primary-text: var(--lcars-background-text);
-          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, white);
-          --primary-text-color: var(--lcars-primary-text);
-          --secondary-text-color: var(--lcars-primary-text);
-          color: var(--lcars-primary-text);
-        }
   # ===================================================== #
   #             USER PROFILE MODIFICATIONS                #
   # ===================================================== #
   card-mod-profile-yaml: |
+    .: |
+      :host {
+        /* Force these to be recomputed to prevent eager variable resolution    */
+        /* There are too many places in the settings pages that use light and   */
+        /* dark font on various background colors. We can't track them all.     */
+        /* The solution is to use a medium luminance background and default     */
+        /* to light text. Some places will use black, but that's still legible. */
+        --lcars-primary-text: var(--lcars-text-light);
+        --lcars-secondary-text: var(--lcars-text-light);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-secondary-text);
+        --card-background-color: var(--lcars-settings-card-color);
+        --ha-card-background: var(--lcars-settings-card-color);
+        --ha-card-background-color: var(--lcars-settings-card-color);
+        --md-sys-color-surface: var(--lcars-settings-card-color);
+        --ha-card-header-color: var(--lcars-primary-text);
+        --ha-color-text-primary: var(--lcars-primary-text);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+        --text-primary-color: var(--lcars-primary-text);
+        --mdc-select-label-ink-color: var(--lcars-secondary-text);
+        --mdc-select-ink-color: var(--lcars-primary-text);
+        --mdc-text-field-label-ink-color: var(--lcars-primary-text);
+        --mdc-text-field-fill-color: transparent;
+        --mdc-text-field-ink-color: var(--lcars-primary-text);
+        --wa-form-control-value-color: var(--lcars-primary-text);
+      }
     $: |
       :host {
         font-family: var(--font-family);

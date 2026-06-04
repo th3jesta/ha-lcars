@@ -12,6 +12,7 @@ lcars-card-top-color: var(--lcars-sky-blue)
 lcars-card-mid-color: var(--lcars-cardassia-maroon)
 lcars-card-button-color: var(--lcars-cardassia-maroon)
 lcars-card-bottom-color: var(--lcars-eggplant)
+lcars-settings-card-color: "#A2646B"
 
 lcars-card-top-text: var(--lcars-text-dark)
 lcars-card-mid-text: var(--lcars-text-light)

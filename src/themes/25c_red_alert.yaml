@@ -17,6 +17,7 @@ lcars-card-top-color: var(--lcars-alert-color)
 lcars-card-mid-color: var(--lcars-alert-color)
 lcars-card-button-color: var(--lcars-alert-color)
 lcars-card-bottom-color: var(--lcars-alert-color)
+lcars-settings-card-color: "#E12B1F"
 
 lcars-card-top-text: var(--lcars-text-light)
 lcars-card-mid-text: var(--lcars-text-light)

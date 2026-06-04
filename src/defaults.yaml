@@ -69,6 +69,8 @@ lcars-card-mid-color: var(--lcars-red)
 lcars-card-button-color: var(--lcars-red)
 # bottom bar background of LCARS card sections
 lcars-card-bottom-color: var(--lcars-gray)
+# cards in the settings menus. This must be medium contrast with both light and dark text.
+lcars-settings-card-color: "#727295"
 
 # Card text
 # label color on card top bars
