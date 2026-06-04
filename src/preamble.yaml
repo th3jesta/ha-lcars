@@ -1809,7 +1809,6 @@
             background-color: var(--lcars-card-bottom-color);
             --primary-text-color: var(--lcars-card-bottom-text);
             --secondary-text-color: color-mix(in oklch, var(--primary-text-color) 80%, transparent);
-            --md-list-item-supporting-text-color: var(--lcars-card-bottom-text);
           }
         }
     "ha-config-dashboard $ ha-top-app-bar-fixed ha-config-section":
@@ -1840,20 +1839,20 @@
           ha-list-nav {
             ha-list-item-button {
               background-color: var(--lcars-card-mid-color);
-              --md-list-item-label-text-color: var(--lcars-card-mid-text);
-              --md-list-item-supporting-text-color: var(--lcars-card-mid-text);
+              --primary-text-color: var(--lcars-card-mid-text);
+              --secondary-text-color: color-mix(in oklch, var(--primary-text-color) 80%, transparent);
               border-radius: 999px;
               margin-block: 5px;
             }
             ha-list-item-button:first-child {
               background-color: var(--lcars-card-top-color);
-              --md-list-item-label-text-color: var(--lcars-card-top-text);
-              --md-list-item-supporting-text-color: var(--lcars-card-top-text);
+              --primary-text-color: var(--lcars-card-top-text);
+              --secondary-text-color: color-mix(in oklch, var(--primary-text-color) 80%, transparent);
             }
             ha-list-item-button:last-child {
               background-color: var(--lcars-card-bottom-color);
-              --md-list-item-label-text-color: var(--lcars-card-bottom-text);
-              --md-list-item-supporting-text-color: var(--lcars-card-bottom-text);
+              --primary-text-color: var(--lcars-card-bottom-text);
+              --secondary-text-color: color-mix(in oklch, var(--primary-text-color) 80%, transparent);
             }
           }
         "ha-config-repairs$": |
