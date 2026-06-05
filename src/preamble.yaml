@@ -237,7 +237,7 @@
   # Default card has a quaternary background. When the card background changes
   # or when there's a black background (e.g. /config/devices/dashboard), these
   # are overriden in the card_mod CSS.
-  lcars-primary-text: var(--lcars-ui-quaternary-text)
+  lcars-primary-text: var(--lcars-text-light)
   lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color))
   # This should be a list of all varaibles that control the color of text in
   #   every part of the UI and in every card. 
@@ -394,6 +394,9 @@
         --md-sys-color-primary: var(--lcars-ui-quaternary) !important;
 
         /* Force these to be recomputed to prevent eager variable resolution */
+        /* Force these to be recomputed to prevent eager variable resolution */
+        --lcars-primary-text: var(--lcars-ui-quaternary-text) !important;
+        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
         --ha-card-header-color: var(--lcars-primary-text);
         --ha-color-text-primary: var(--lcars-primary-text);
         --primary-text-color: var(--lcars-primary-text);

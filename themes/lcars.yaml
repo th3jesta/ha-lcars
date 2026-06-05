@@ -237,7 +237,7 @@
   # Default card has a quaternary background. When the card background changes
   # or when there's a black background (e.g. /config/devices/dashboard), these
   # are overriden in the card_mod CSS.
-  lcars-primary-text: var(--lcars-ui-quaternary-text)
+  lcars-primary-text: var(--lcars-text-light)
   lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color))
   # This should be a list of all varaibles that control the color of text in
   #   every part of the UI and in every card. 
@@ -394,6 +394,9 @@
         --md-sys-color-primary: var(--lcars-ui-quaternary) !important;
 
         /* Force these to be recomputed to prevent eager variable resolution */
+        /* Force these to be recomputed to prevent eager variable resolution */
+        --lcars-primary-text: var(--lcars-ui-quaternary-text) !important;
+        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color))
         --ha-card-header-color: var(--lcars-primary-text);
         --ha-color-text-primary: var(--lcars-primary-text);
         --primary-text-color: var(--lcars-primary-text);
@@ -2496,8 +2499,8 @@ LCARS 25C:
   error-color: var(--lcars-alt-orange)
   # Derived RGB
   rgb-card-background-color: "109,116,140"
-  rgb-primary-text-color: "0,0,0"
-  rgb-secondary-text-color: "0,0,0"
+  rgb-primary-text-color: "255,255,255"
+  rgb-secondary-text-color: "255,255,255"
   rgb-primary-color: "231,68,42"
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
@@ -2573,8 +2576,8 @@ LCARS 25C (Blue Alert):
   error-color: var(--lcars-dark-red)
   # Derived RGB
   rgb-card-background-color: "34,102,255"
-  rgb-primary-text-color: "0,0,0"
-  rgb-secondary-text-color: "0,0,0"
+  rgb-primary-text-color: "255,255,255"
+  rgb-secondary-text-color: "255,255,255"
   rgb-primary-color: "85,136,238"
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
@@ -2723,8 +2726,8 @@ LCARS 25C (Yellow Alert):
   error-color: var(--lcars-dark-red)
   # Derived RGB
   rgb-card-background-color: "255,170,0"
-  rgb-primary-text-color: "0,0,0"
-  rgb-secondary-text-color: "0,0,0"
+  rgb-primary-text-color: "255,255,255"
+  rgb-secondary-text-color: "255,255,255"
   rgb-primary-color: "255,204,102"
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
@@ -2936,8 +2939,8 @@ LCARS Classic:
   error-color: var(--lcars-dark-red)
   # Derived RGB
   rgb-card-background-color: "102,102,136"
-  rgb-primary-text-color: "0,0,0"
-  rgb-secondary-text-color: "0,0,0"
+  rgb-primary-text-color: "255,255,255"
+  rgb-secondary-text-color: "255,255,255"
   rgb-primary-color: "255,34,0"
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
@@ -3009,8 +3012,8 @@ LCARS Default:
   error-color: var(--lcars-dark-red)
   # Derived RGB
   rgb-card-background-color: "102,102,136"
-  rgb-primary-text-color: "0,0,0"
-  rgb-secondary-text-color: "0,0,0"
+  rgb-primary-text-color: "255,255,255"
+  rgb-secondary-text-color: "255,255,255"
   rgb-primary-color: "221,68,68"
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
@@ -3295,8 +3298,8 @@ LCARS Modern:
   error-color: var(--lcars-red)
   # Derived RGB
   rgb-card-background-color: "102,102,136"
-  rgb-primary-text-color: "0,0,0"
-  rgb-secondary-text-color: "0,0,0"
+  rgb-primary-text-color: "255,255,255"
+  rgb-secondary-text-color: "255,255,255"
   rgb-primary-color: "255,170,0"
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
@@ -3368,8 +3371,8 @@ LCARS Navigation:
   error-color: var(--lcars-gold)
   # Derived RGB
   rgb-card-background-color: "130,122,83"
-  rgb-primary-text-color: "0,0,0"
-  rgb-secondary-text-color: "0,0,0"
+  rgb-primary-text-color: "255,255,255"
+  rgb-secondary-text-color: "255,255,255"
   rgb-primary-color: "247,238,81"
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
@@ -3512,8 +3515,8 @@ LCARS Picard I:
   error-color: var(--lcars-dark-red)
   # Derived RGB
   rgb-card-background-color: "101,107,131"
-  rgb-primary-text-color: "0,0,0"
-  rgb-secondary-text-color: "0,0,0"
+  rgb-primary-text-color: "255,255,255"
+  rgb-secondary-text-color: "255,255,255"
   rgb-primary-color: "231,67,42"
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
