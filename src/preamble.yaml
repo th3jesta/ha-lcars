@@ -691,6 +691,18 @@
         &:is(ha-card) {
           background-color: var(--lcars-card-button-color);
           --lcars-primary-text: var(--lcars-card-button-text);
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
+          --ha-card-header-color: var(--lcars-primary-text);
+          --ha-color-text-primary: var(--lcars-primary-text);
+          --primary-text-color: var(--lcars-primary-text);
+          --secondary-text-color: var(--lcars-primary-text);
+          --text-primary-color: var(--lcars-primary-text);
+          --mdc-select-label-ink-color: var(--lcars-secondary-text);
+          --mdc-select-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-label-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-fill-color: transparent;
+          --mdc-text-field-ink-color: var(--lcars-primary-text);
+          --wa-form-control-value-color: var(--lcars-primary-text);
           --state-icon-color: var(--lcars-primary-text);
           text-transform: uppercase;
         }
