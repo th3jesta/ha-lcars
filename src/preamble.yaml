@@ -388,12 +388,11 @@
       /* ----------------------------------------------- */
       /*                Common Card Styles               */
       /* ----------------------------------------------- */
-      :host, :host > ha-card {
-        /* Default card has quaternary background. */
+      :host {
+        * Default card has quaternary background. */
         font-family: var(--font-family) !important;
         --md-sys-color-primary: var(--lcars-ui-quaternary) !important;
 
-        /* Force these to be recomputed to prevent eager variable resolution */
         /* Force these to be recomputed to prevent eager variable resolution */
         --lcars-primary-text: var(--lcars-ui-quaternary-text) !important;
         --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
@@ -409,7 +408,8 @@
         --mdc-text-field-ink-color: var(--lcars-primary-text);
         --wa-form-control-value-color: var(--lcars-primary-text);
         --state-icon-color: var(--lcars-primary-text);
-
+      }
+      :host, :host > ha-card {
         &:not(.type-undefined,.type-custom-grid-layout) {
           height: 100%;
         }
@@ -439,12 +439,22 @@
         box-sizing: border-box;
         background-color: var(--lcars-card-top-color);
         text-transform: uppercase;
-        --lcars-primary-text: var(--lcars-background-text);
-        --state-icon-color: var(--lcars-primary-text);
 
         > :not(style,card-mod,h1) {
           background-color: var(--lcars-background-color);
           --lcars-primary-text: var(--lcars-background-text);
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
+          --ha-card-header-color: var(--lcars-primary-text);
+          --ha-color-text-primary: var(--lcars-primary-text);
+          --primary-text-color: var(--lcars-primary-text);
+          --secondary-text-color: var(--lcars-primary-text);
+          --text-primary-color: var(--lcars-primary-text);
+          --mdc-select-label-ink-color: var(--lcars-secondary-text);
+          --mdc-select-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-label-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-fill-color: transparent;
+          --mdc-text-field-ink-color: var(--lcars-primary-text);
+          --wa-form-control-value-color: var(--lcars-primary-text);
           --state-icon-color: var(--lcars-primary-text);
           border-radius: 0px;
           padding-top: 6px;
@@ -504,8 +514,6 @@
         display: block !important;
         height: 100%;
         background-color: var(--lcars-background-color);
-        --lcars-primary-text: var(--lcars-background-text);
-        --state-icon-color: var(--lcars-primary-text);
         padding: 0px;
         box-sizing: border-box;
         border-radius: 0px;
@@ -516,6 +524,18 @@
           border-radius: 0px;
           background-color: var(--lcars-background-color);
           --lcars-primary-text: var(--lcars-background-text);
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
+          --ha-card-header-color: var(--lcars-primary-text);
+          --ha-color-text-primary: var(--lcars-primary-text);
+          --primary-text-color: var(--lcars-primary-text);
+          --secondary-text-color: var(--lcars-primary-text);
+          --text-primary-color: var(--lcars-primary-text);
+          --mdc-select-label-ink-color: var(--lcars-secondary-text);
+          --mdc-select-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-label-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-fill-color: transparent;
+          --mdc-text-field-ink-color: var(--lcars-primary-text);
+          --wa-form-control-value-color: var(--lcars-primary-text);
           --state-icon-color: var(--lcars-primary-text);
           height: 100%;
           box-sizing: border-box;
@@ -572,14 +592,24 @@
         border: 0px solid var(--lcars-card-bottom-color);
         border-bottom-width: var(--lcars-horizontal-border);
         background-color: var(--lcars-card-bottom-color);
-        --lcars-primary-text: var(--lcars-background-text);
-        --state-icon-color: var(--lcars-primary-text);
         text-transform: uppercase;
 
         > :not(style,card-mod,h1) {
           border-radius: 0px;
           background-color: var(--lcars-background-color);
           --lcars-primary-text: var(--lcars-background-text);
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
+          --ha-card-header-color: var(--lcars-primary-text);
+          --ha-color-text-primary: var(--lcars-primary-text);
+          --primary-text-color: var(--lcars-primary-text);
+          --secondary-text-color: var(--lcars-primary-text);
+          --text-primary-color: var(--lcars-primary-text);
+          --mdc-select-label-ink-color: var(--lcars-secondary-text);
+          --mdc-select-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-label-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-fill-color: transparent;
+          --mdc-text-field-ink-color: var(--lcars-primary-text);
+          --wa-form-control-value-color: var(--lcars-primary-text);
           --state-icon-color: var(--lcars-primary-text);
           padding-bottom: 6px;
           height: 100%;
@@ -1094,6 +1124,18 @@
           text-transform: uppercase;
           background-color: var(--lcars-background-color);
           --lcars-primary-text: var(--lcars-background-text);
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
+          --ha-card-header-color: var(--lcars-primary-text);
+          --ha-color-text-primary: var(--lcars-primary-text);
+          --primary-text-color: var(--lcars-primary-text);
+          --secondary-text-color: var(--lcars-primary-text);
+          --text-primary-color: var(--lcars-primary-text);
+          --mdc-select-label-ink-color: var(--lcars-secondary-text);
+          --mdc-select-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-label-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-fill-color: transparent;
+          --mdc-text-field-ink-color: var(--lcars-primary-text);
+          --wa-form-control-value-color: var(--lcars-primary-text);
           --state-icon-color: var(--lcars-primary-text);
           border-radius: 0px;
           display: inline-block;
@@ -1215,8 +1257,20 @@
       :host(.type-calendar),
       ha-card:is(.type-calendar) {
         ha-full-calendar {
-          --card-background-color: var(--lcars-background-color);
           --lcars-primary-text: var(--lcars-background-text);
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
+          --ha-card-header-color: var(--lcars-primary-text);
+          --ha-color-text-primary: var(--lcars-primary-text);
+          --primary-text-color: var(--lcars-primary-text);
+          --secondary-text-color: var(--lcars-primary-text);
+          --text-primary-color: var(--lcars-primary-text);
+          --mdc-select-label-ink-color: var(--lcars-secondary-text);
+          --mdc-select-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-label-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-fill-color: transparent;
+          --mdc-text-field-ink-color: var(--lcars-primary-text);
+          --wa-form-control-value-color: var(--lcars-primary-text);
+          --state-icon-color: var(--lcars-primary-text);
         }
       }
 
