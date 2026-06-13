@@ -1,0 +1,26 @@
+name: LCARS TNGbuttons
+
+lcars-ui-primary: var(--lcars-peach-cream)
+lcars-ui-secondary: var(--lcars-sunflower)
+lcars-ui-tertiary: var(--lcars-lilac-light)
+lcars-ui-quaternary: var(--lcars-galaxy)
+
+lcars-ui-app-header-background-color: var(--lcars-tan)
+lcars-ui-app-header-text-color: var(--lcars-wheat-light)
+lcars-sidebar-icon-color: var(--lcars-text-dark)
+lcars-ui-config-button: var(--lcars-warm-gold)
+
+lcars-card-top-color: var(--lcars-peach-cream)
+lcars-card-mid-color: var(--lcars-honey)
+lcars-card-button-color: var(--lcars-sunflower)
+lcars-card-bottom-color: var(--lcars-warm-gold)
+lcars-settings-card-color: "#6B72A3"
+
+lcars-card-top-text: var(--lcars-text-dark)
+lcars-card-mid-text: var(--lcars-text-dark)
+lcars-card-button-text: var(--lcars-text-dark)
+lcars-card-bottom-text: var(--lcars-text-dark)
+
+success-color: var(--lcars-sage)
+warning-color: var(--lcars-vivid-crimson)
+error-color: var(--lcars-maroon)

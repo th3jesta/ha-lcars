@@ -1,0 +1,37 @@
+name: HA-Frontend Release Impact Analysis
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # every 6 hours
+  workflow_dispatch:          # manual trigger
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: "master"
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install anthropic requests
+
+      - name: Run release impact analyzer
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python py/release_impact.py
+
+      - name: Commit and push new analyses
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "chore: add ha-frontend release impact analyses"
+          file_pattern: "docs/release-impact/*.md docs/release-impact/.state.json"
