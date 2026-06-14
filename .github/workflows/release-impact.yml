@@ -13,9 +13,15 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
-          ref: "master"
+          ref: "ha-frontend-release-impact-analysis"
           persist-credentials: true
-
+          fetch-depth: 0
+          
+      - name: Rebase Branch
+        uses: martincostello/rebaser@v3.0.1
+        with:
+          branch: master
+          
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
