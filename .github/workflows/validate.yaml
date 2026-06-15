@@ -14,9 +14,9 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v6
+        persist-credentials: true
       - name: Run Generation Script
         run: python py/generate_themes.py
-
       - name: Commit and Push
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
@@ -47,6 +47,7 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v6
+        persist-credentials: true
       - name: Run Flatten Script
         run: python py/flatten_ha_theme_css.py -o "themes/lcars_flat.yaml" "themes/lcars.yaml" 
       - name: Commit and Push
