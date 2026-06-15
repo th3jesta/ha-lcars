@@ -1,4 +1,4 @@
-name: Validate
+name: Build-and-Validate
 
 on:
   push:
@@ -7,11 +7,50 @@ on:
     - cron: "0 0 * * *"
 
 jobs:
-  validate:
-    runs-on: "ubuntu-latest"
+  generate-theme:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    permissions:
+      contents: write
     steps:
-      - uses: "actions/checkout@v2"
+      - uses: actions/checkout@v6
+      - name: Run Generation Script
+        run: python py/generate_themes.py
+
+      - name: Commit and Push
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "chore: generate theme file"
+          file_pattern: "themes/lcars.yaml"
+
+  validate-hacs:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: "actions/checkout@v6"
       - name: HACS validation
         uses: "hacs/action@main"
         with:
           category: "theme"
+
+  validate-hassfest:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+        - uses: "actions/checkout@v6"
+        - uses: "home-assistant/actions/hassfest@master"
+  
+  flatten-css:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+      - name: Run Flatten Script
+        run: python py/flatten_ha_theme_css.py -o "themes/lcars_flat.yaml" "themes/lcars.yaml" 
+      - name: Commit and Push
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "chore: flatten nested theme css"
+          file_pattern: "themes/lcars_flat.yaml"
