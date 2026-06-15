@@ -181,6 +181,61 @@
   lcars-muted-coral: "#d66a60"
   lcars-sienna: "#91311c"
 
+  # ── LCARdS Palette Colors ──────────────────────────────────────────────────
+  # Self-contained hex definitions — do not convert to var() references.
+  # LCARdS card components depend on the full --lcards-* spectrum.
+
+  # Orange family
+  lcards-orange-darkest:      "#d91604"
+  lcards-orange-dark:         "#ef1d10"
+  lcards-orange-medium-dark:  "#e7442a"
+  lcards-orange:              "#ff6753"
+  lcards-orange-medium:       "#ff6753"
+  lcards-orange-medium-light: "#ff8470"
+  lcards-orange-light:        "#ff977b"
+  lcards-orange-lightest:     "#ffb399"
+
+  # Gray family
+  lcards-gray-darkest:        "#1e2229"
+  lcards-gray-dark:           "#2f3749"
+  lcards-gray-medium-dark:    "#52596e"
+  lcards-gray:                "#6d748c"
+  lcards-gray-medium:         "#6d748c"
+  lcards-gray-medium-light:   "#9ea5ba"
+  lcards-gray-light:          "#d2d5df"
+  lcards-gray-lightest:       "#f3f4f7"
+  lcards-moonlight:           "#dfe1e8"
+
+  # Blue family
+  lcards-blue-darkest:        "#002241"
+  lcards-blue-dark:           "#1c3c55"
+  lcards-blue-medium-dark:    "#2a7193"
+  lcards-blue:                "#37a6d1"
+  lcards-blue-medium:         "#37a6d1"
+  lcards-blue-medium-light:   "#67caf0"
+  lcards-blue-light:          "#93e1ff"
+  lcards-blue-lightest:       "#00eeee"
+
+  # Green family
+  lcards-green-darkest:       "#0c2a15"
+  lcards-green-dark:          "#083717"
+  lcards-green-medium-dark:   "#095320"
+  lcards-green:               "#266239"
+  lcards-green-medium:        "#266239"
+  lcards-green-medium-light:  "#458359"
+  lcards-green-light:         "#80bb93"
+  lcards-green-lightest:      "#b8e0c1"
+
+  # Yellow family
+  lcards-yellow-darkest:      "#70602c"
+  lcards-yellow-dark:         "#ac943b"
+  lcards-yellow-medium-dark:  "#d2bf50"
+  lcards-yellow:              "#f9ef97"
+  lcards-yellow-medium:       "#f9ef97"
+  lcards-yellow-medium-light: "#fffac9"
+  lcards-yellow-light:        "#e7e6de"
+  lcards-yellow-lightest:     "#f5f5dc"
+
   # Shapes
   lcars-vertical-border: 35px
   lcars-horizontal-border: 10px

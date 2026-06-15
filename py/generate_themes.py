@@ -84,6 +84,7 @@ SECTIONS: dict[str, list[str]] = {
         "lcars-card-mid-color",
         "lcars-card-button-color",
         "lcars-card-bottom-color",
+        "lcars-settings-card-color",
     ],
     "Card text": [
         "lcars-card-top-text",
@@ -95,6 +96,29 @@ SECTIONS: dict[str, list[str]] = {
         "success-color",
         "warning-color",
         "error-color",
+    ],
+
+    "HA Color Palette": [
+        "ha-color-primary-05", "ha-color-primary-10", "ha-color-primary-20",
+        "ha-color-primary-30", "ha-color-primary-40", "ha-color-primary-50",
+        "ha-color-primary-60", "ha-color-primary-70", "ha-color-primary-80",
+        "ha-color-primary-90", "ha-color-primary-95",
+        "ha-color-neutral-05", "ha-color-neutral-10", "ha-color-neutral-20",
+        "ha-color-neutral-30", "ha-color-neutral-40", "ha-color-neutral-50",
+        "ha-color-neutral-60", "ha-color-neutral-70", "ha-color-neutral-80",
+        "ha-color-neutral-90", "ha-color-neutral-95",
+        "ha-color-orange-05", "ha-color-orange-10", "ha-color-orange-20",
+        "ha-color-orange-30", "ha-color-orange-40", "ha-color-orange-50",
+        "ha-color-orange-60", "ha-color-orange-70", "ha-color-orange-80",
+        "ha-color-orange-90", "ha-color-orange-95",
+        "ha-color-red-05", "ha-color-red-10", "ha-color-red-20",
+        "ha-color-red-30", "ha-color-red-40", "ha-color-red-50",
+        "ha-color-red-60", "ha-color-red-70", "ha-color-red-80",
+        "ha-color-red-90", "ha-color-red-95",
+        "ha-color-green-05", "ha-color-green-10", "ha-color-green-20",
+        "ha-color-green-30", "ha-color-green-40", "ha-color-green-50",
+        "ha-color-green-60", "ha-color-green-70", "ha-color-green-80",
+        "ha-color-green-90", "ha-color-green-95",
     ],
 
 }
@@ -246,7 +270,14 @@ def validate(name: str, variables: dict, errors: list[str]) -> None:
     if missing:
         errors.append(f"{name}: missing required variables: {', '.join(missing)}")
 
-    known = _SECTIONED | {"lcars-tab-selected-bg", "lcars-alert-color"}  # extend as new specials emerge
+    known = _SECTIONED | {
+        "lcars-tab-selected-bg", "lcars-alert-color",
+        # Direct HA var overrides used in modes blocks
+        "ha-color-form-background",
+        # Backward-compat aliases: existed in master, renamed/dropped in v4.1.0-beta
+        "lcars-card-mid-left-color", "lcars-card-button",
+        "lcars-card-button-off", "lcars-card-button-barrel", "lcars-card-background",
+    }
     unknown = [k for k in variables if k not in known]
     if unknown:
         # Warn but don't fail — new variables may be legitimately added.
