@@ -2287,6 +2287,211 @@
         font-weight: normal;
       }
   # ===================================================== #
+  #             Entities Cards Modifications              #
+  # ===================================================== #
+  card-mod-row-yaml: &card-mod-row |
+    .: |
+      :host {
+        --lcars-height: 60px;
+        --lcars-global-readout-width: {{ states('sensor.lcars_readout_width') if has_value('sensor.lcars_readout_width') else 'unset' }};
+        --lcars-inner-readout-width: var(--lcars-readout-width, var(--lcars-global-readout-width, var(--lcars-vertical-border, 150px)));
+      }
+
+      :host(.no-cap) {
+        --lcars-capped: false;
+      }
+
+      :host(.entity-lozenge-left) {
+        --lcars-entity-class: "entity-lozenge-left";
+      }
+
+      :host(.entity-bullet-left) {
+        --lcars-entity-class: "entity-bullet-left";
+      }
+
+      :host(.entity-capped-left) {
+        --lcars-entity-class: "entity-capped-left";
+      }
+
+      :host(.entity-barrel-left) {
+        --lcars-entity-class: "entity-barrel-left";
+      }
+
+      :host(.entity-lozenge-right) {
+        --lcars-entity-class: "entity-lozenge-right";
+      }
+
+      :host(.entity-bullet-right) {
+        --lcars-entity-class: "entity-bullet-right";
+      }
+
+      :host(.entity-capped-right) {
+        --lcars-entity-class: "entity-capped-right";
+      }
+
+      :host(.entity-barrel-right) {
+        --lcars-entity-class: "entity-barrel-right";
+      }
+
+      @container style(--lcars-entity-class) {
+        div:not(.what):not(.when):not(.text-content) {
+          order: 1;
+          box-sizing: border-box;
+          padding: 0px 6px;
+          min-width: var(--lcars-inner-readout-width);
+        }
+      }
+
+      @container style(--lcars-entity-class) {
+        div.flex {
+          flex-grow: 0;
+        }
+      }
+    "hui-generic-entity-row $": |
+      @container style(--lcars-entity-class) {
+        state-badge {
+          order: 0;
+          background-color: var(--lcars-card-button-color);
+          --state-icon-color: var(--lcars-card-button-text);
+          color: var(--lcars-card-button-text);
+          border-top-right-radius: 0px;
+          border-bottom-right-radius: 0px;
+          border-top-left-radius: 0px;
+          border-bottom-left-radius: 0px;
+          height: var(--lcars-height);
+        }
+      }
+
+      @container style(--lcars-entity-class) {
+        div.info.text-content {
+          order: 2;
+          background-color: var(--lcars-card-button-color);
+          --primary-text-color: var(--lcars-card-button-text);
+          color: var(--lcars-card-button-text);
+          border-top-right-radius: 0px;
+          border-bottom-right-radius: 0px;
+          border-top-left-radius: 0px;
+          border-bottom-left-radius: 0px;
+          padding: 0px 12px 6px 3px;
+          white-space: unset;
+          font-size: 14px;
+          box-sizing: border-box;
+          height: var(--lcars-height);
+          display: flex;
+          align-items: flex-end;
+          justify-content: end;
+        }
+      }
+
+      @container style(--lcars-entity-class) {
+        div.value.text-content,
+        slot {
+          order: 1;
+          background-color: transparent;
+          --primary-text-color: var(--lcars-background-text);
+          color: var(--lcars-background-text);
+          border-top-right-radius: 0px;
+          border-bottom-right-radius: 0px;
+          border-top-left-radius: 0px;
+          border-bottom-left-radius: 0px;
+          line-height: 1;
+          font-size: calc(var(--lcars-height) * 0.8);
+          box-sizing: border-box;
+          padding: 0 12px 0.2em 6px;
+          min-width: var(--lcars-inner-readout-width);
+          white-space: nowrap;
+        }
+      }
+
+      @container style(--lcars-entity-class: "entity-lozenge-right") 
+              or style(--lcars-entity-class: "entity-barrel-right") 
+              or style(--lcars-entity-class: "entity-bullet-right")  
+              or style(--lcars-entity-class: "entity-capped-right") {
+        state-badge {
+          order: 2;
+        }
+      }
+
+      @container style(--lcars-entity-class: "entity-lozenge-right") 
+              or style(--lcars-entity-class: "entity-barrel-right") 
+              or style(--lcars-entity-class: "entity-bullet-right")  
+              or style(--lcars-entity-class: "entity-capped-right") {
+        div.info.text-content {
+          order: 0;
+          padding: 0px 3px 6px 12px;
+          justify-content: start;
+        }
+      }
+
+      @container style(--lcars-entity-class: "entity-lozenge-right") 
+              or style(--lcars-entity-class: "entity-barrel-right") 
+              or style(--lcars-entity-class: "entity-bullet-right")  
+              or style(--lcars-entity-class: "entity-capped-right") {
+        div.value.text-content .state {
+          text-align: left;
+        }
+      }
+
+      :host {
+        overflow: hidden;
+      }
+
+      @container style(--lcars-entity-class: "entity-lozenge-left") 
+              or style(--lcars-entity-class: "entity-lozenge-right") 
+              or style(--lcars-entity-class: "entity-bullet-left")  
+              or style(--lcars-entity-class: "entity-capped-right") {
+        :host {
+          border-top-left-radius: 9999px;
+          border-bottom-left-radius: 9999px;
+        }
+      }
+
+      @container style(--lcars-entity-class: "entity-lozenge-left") 
+              or style(--lcars-entity-class: "entity-lozenge-right") 
+              or style(--lcars-entity-class: "entity-bullet-right")  
+              or style(--lcars-entity-class: "entity-capped-left") {
+        :host {
+          border-top-right-radius: 9999px;
+          border-bottom-right-radius: 9999px;
+        }
+      }
+
+      @container style(--lcars-capped: false) {
+        state-badge {
+          display: none;
+        }
+      }
+
+      @container style(--lcars-capped: false) {
+        div.value.text-content {
+          min-width: calc(var(--lcars-inner-readout-width) + 40px);
+        }
+      }
+
+      @container style(--lcars-capped: false) {
+        @container style(--lcars-entity-class: "entity-lozenge-left") 
+                or style(--lcars-entity-class: "entity-bullet-left") 
+                or style(--lcars-entity-class: "entity-barrel-left")  
+                or style(--lcars-entity-class: "entity-capped-left") {
+          :host {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+          }
+        }
+      }
+
+      @container style(--lcars-capped: false) {
+        @container style(--lcars-entity-class: "entity-lozenge-right") 
+                or style(--lcars-entity-class: "entity-barrel-right") 
+                or style(--lcars-entity-class: "entity-bullet-right")  
+                or style(--lcars-entity-class: "entity-capped-right") {
+          :host {
+            border-top-right-radius: 9999px;
+            border-bottom-right-radius: 9999px;
+          }
+        }
+      }
+  # ===================================================== #
   #          TOOLBAR AND DASHBOARD MODIFICATIONS          #
   # ===================================================== #
   card-mod-root-yaml: &card-mod-root |
