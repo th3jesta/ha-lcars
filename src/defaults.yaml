@@ -1,0 +1,102 @@
+# Default values applied to every theme unless the theme overrides them.
+# Only variables consumed by the preamble (base + card-mod CSS) but NOT defined
+# in the &lcars-variables palette block belong here.
+
+# UI Colors
+# sidebar background; app header background
+lcars-ui-primary: var(--lcars-almond-creme)
+# text on the sidebar and app header
+lcars-ui-primary-text: var(--lcars-text-dark)
+# sidebar nav item bars and icons; config/gear button; entity state indicator ("on" color); drag ghost in automation/script editors
+lcars-ui-secondary: var(--lcars-african-violet)
+# sidebar nav text
+lcars-ui-secondary-text: var(--lcars-text-dark)
+# slider active track; header clock color; sidebar notification badges
+lcars-ui-tertiary: var(--lcars-red)
+# text on lcars-ui-tertiary surfaces (auto-computed by generate_themes.py)
+lcars-ui-tertiary-text: var(--lcars-text-dark)
+# default card background; chip/filter pill backgrounds; alternating table row backgrounds; card-background-color fallback
+lcars-ui-quaternary: var(--lcars-gray)
+# text inside input fields and filter chips
+lcars-ui-quaternary-text: var(--lcars-text-light)
+# notification badge backgrounds; history graph fills; media seek bar; dashboard edit-mode icons
+lcars-ui-accent-color: var(--lcars-orange)
+# text on accent-colored surfaces (badge counts, edit-mode icon labels)
+lcars-ui-accent-text: var(--lcars-text-dark)
+# page background; cutout borders and interior voids throughout LCARS card frames
+lcars-background-color: var(--lcars-black)
+# text on lcars-background-color surfaces
+lcars-background-text: var(--lcars-text-light)
+
+# Header/Big Elbow
+# top app bar background
+lcars-ui-app-header-background-color: var(--lcars-ui-primary)
+# top app bar text and icons
+lcars-ui-app-header-text-color: var(--lcars-ui-primary-text)
+# clock / header label displayed at the right of the app bar
+lcars-ui-app-header-clock: var(--lcars-ui-tertiary)
+# Settings button background
+lcars-ui-config-button: var(--lcars-ui-secondary)
+# Settings icon color
+lcars-ui-config-icon: var(--lcars-ui-config-button)
+
+# Sidebar Menu
+# color of elbow and empty space
+lcars-sidebar-background: var(--lcars-ui-primary)
+# colored bar behind each nav item label
+lcars-sidebar-item-color: var(--lcars-ui-secondary)
+# nav item label text
+lcars-sidebar-text: var(--lcars-ui-secondary-text)
+# icon glyphs in the collapsed sidebar; icon column background when expanded
+lcars-sidebar-icon-color: var(--lcars-card-top-text)
+# icon column background (expanded sidebar) and user-account item background
+lcars-sidebar-icon-background: var(--lcars-card-top-color)
+# highlight color for the active/selected nav item (bar, border, badge, icon)
+lcars-sidebar-selected-color: var(--lcars-ui-tertiary)
+# unread-notification badge on nav items
+lcars-sidebar-notification-color: var(--lcars-ui-tertiary)
+
+# UI Text
+# section/view heading titles on dashboards
+lcars-ui-text-heading: var(--lcars-text-gray)
+
+# Card colors
+# top bar background of LCARS card sections
+lcars-card-top-color: var(--lcars-bluey)
+# mid bar background of LCARS card sections
+lcars-card-mid-color: var(--lcars-red)
+# button background in LCARS card sections
+lcars-card-button-color: var(--lcars-red)
+# bottom bar background of LCARS card sections
+lcars-card-bottom-color: var(--lcars-gray)
+# cards in the settings menus. This must be medium contrast with both light and dark text.
+lcars-settings-card-color: "#727295"
+
+# Card text
+# label color on card top bars
+lcars-card-top-text: var(--lcars-text-dark)
+# label color on card mid bars
+lcars-card-mid-text: var(--lcars-text-dark)
+# text color on card buttons
+lcars-card-button-text: var(--lcars-text-dark)
+# label color on card bottom bars
+lcars-card-bottom-text: var(--lcars-text-dark)
+
+# Status colors
+success-color: var(--lcars-green)
+warning-color: var(--lcars-sunflower)
+error-color: var(--lcars-dark-red)
+
+modes:
+  light:
+    lcars-ui-mix-color: black
+    lcars-backlight-center: "#ffffff30"
+    lcars-backlight-middle: transparent
+    lcars-backlight-middle-location: 60%
+    lcars-backlight-outer: transparent
+  dark:
+    lcars-ui-mix-color: white
+    lcars-backlight-center: "#ffffff10"
+    lcars-backlight-middle: transparent
+    lcars-backlight-middle-location: 70%
+    lcars-backlight-outer: "#00000080"
