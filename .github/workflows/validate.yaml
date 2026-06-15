@@ -7,7 +7,7 @@ on:
     - cron: "0 0 * * *"
 
 jobs:
-  generate:
+  build-and-validate:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -17,42 +17,16 @@ jobs:
          persist-credentials: true
       - name: Run Generation Script
         run: python py/generate_themes.py
-      - name: Commit and Push
-        uses: stefanzweifel/git-auto-commit-action@v7
-        with:
-          commit_message: "chore: generate theme file"
-          file_pattern: "themes/lcars.yaml"
-
-  validate-hacs:
-    needs: generate
-    runs-on: ubuntu-latest
-    steps:
-      - uses: "actions/checkout@v6"
-      - name: HACS validation
-        uses: "hacs/action@main"
-        with:
-          category: "theme"
-
-  validate-hassfest:
-    needs: generate
-    runs-on: ubuntu-latest
-    steps:
-        - uses: "actions/checkout@v6"
-        - uses: "home-assistant/actions/hassfest@master"
-  
-  flatten-css:
-    needs: generate
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v6
-        with:
-         persist-credentials: true
       - name: Run Flatten Script
         run: python py/flatten_ha_theme_css.py -o "themes/lcars_flat.yaml" "themes/lcars.yaml" 
       - name: Commit and Push
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
-          commit_message: "chore: flatten nested theme css"
-          file_pattern: "themes/lcars_flat.yaml"
+          commit_message: "chore: generate theme files"
+          file_pattern: "themes/lcars.yaml themes/lcars_flat.yaml"
+      - name: HACS Validation
+        uses: "hacs/action@main"
+        with:
+          category: "theme"
+      - name: Hassfest Validation
+        uses: "home-assistant/actions/hassfest@master"
