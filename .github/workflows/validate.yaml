@@ -15,6 +15,7 @@ jobs:
       - uses: actions/checkout@v6
         with:
          persist-credentials: true
+         ref: ${{ github.head_ref || github.ref_name }}
       - name: Run Generation Script
         run: python py/generate_themes.py
       - name: Run Flatten Script
