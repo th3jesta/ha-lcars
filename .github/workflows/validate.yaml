@@ -30,5 +30,3 @@ jobs:
         uses: "hacs/action@main"
         with:
           category: "theme"
-      - name: Hassfest Validation
-        uses: "home-assistant/actions/hassfest@master"
