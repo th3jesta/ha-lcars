@@ -1,4 +1,4 @@
-name: Validate
+name: Build and Validate
 
 on:
   push:
@@ -7,11 +7,26 @@ on:
     - cron: "0 0 * * *"
 
 jobs:
-  validate:
-    runs-on: "ubuntu-latest"
+  build-and-validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - uses: "actions/checkout@v2"
-      - name: HACS validation
+      - uses: actions/checkout@v6
+        with:
+         persist-credentials: true
+         ref: ${{ github.head_ref || github.ref_name }}
+      - name: Run Generation Script
+        run: python py/generate_themes.py
+      - name: Run Flatten Script
+        run: python py/flatten_ha_theme_css.py -o "themes/lcars_flat.yaml" "themes/lcars.yaml" 
+      - name: Commit and Push
+        if: github.event_name != 'pull_request'
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "chore: generate theme files"
+          file_pattern: "themes/lcars.yaml themes/lcars_flat.yaml"
+      - name: HACS Validation
         uses: "hacs/action@main"
         with:
           category: "theme"
