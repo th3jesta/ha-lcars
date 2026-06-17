@@ -8,38 +8,20 @@ Star Trek LCARS theme for Home Assistant
 Color codes and font choice from https://www.thelcars.com
     --thanks Jim Robertus!
 
-# 💥BREAKING CHANGES IN 4.0💥
-1. Home Assistant LCARS is built using the functionality of [card-mod](https://github.com/thomasloven/lovelace-card-mod "card-mod"). Version 4.x of card-mod includes numerous breaking changes to all themes, including Home Assistant LCARS. Most standard cards using this theme should update without any issues. Any cards with custom css applied using ``card-mod: style:`` may need to be manually updated to card-mod's new element selectors (i.e. ``hui-card`` instead of ``ha-card``). See card-mod's [README](https://github.com/thomasloven/lovelace-card-mod/blob/master/README.md) and [README-application](https://github.com/thomasloven/lovelace-card-mod/blob/master/README-application.md) as starting points.
-2. Because of the changes mentioned above, a few cards are no longer supported or need a special workaround. The workaround is to place the card inside a vertical or horizontal stack. This changes how card-mod sees the card and applies the theme. Cards known to have issues include:
-   - ⚠️ custom-button-card: stack workaround required for some theme classes. Apply the desired theme class to the stack. Use Custom Button Cards style capabilities to make the button look how you want it.
-   - ⚠️ todo-list-card: stack workaround required when Todo List is located within a grid or layout card. 
-3. Bar cards can now be scaled by changing the font size of the card (see [Tips and Tricks](#custom-bar-sizes) below). Because of this, the markdown **must not** include any font sizing, such as the header ``#``.
-4. This is an almost complete rewrite, including several css optimizations. Dashboards designed using previous versions may need to be updated slightly due to small changes in spacing and padding.
-5. iOS16 and some Qt-based browsers (e.g. Ubuntu Touch 24) have mixed support for nested css which is used heavily in the theme. To help support these systems, a flattened version of theme has been added, `themes/lcars_flat.yaml`. This version of the theme can be installed by deleting the `lcars.yaml` placed in your Home Assistant's `config/themes` by HACS and placing `lcars_flat.yaml` there instead. Flattening removes support some some edge cases, but most of the theme should work as expected. This flattened version isn't regularly tested, so please report issues using GitHub or the Discord.
+# 🎉NEW FEATURES IN 4.1🎉
+### Themed Entities Lists 
+Entities Cards and Auto-Entities Cards can now theme the entities into readouts with `lozenge`, `bullet`, `capped`, and `barrel` shapes!
+<p align="center"><img width="427" height="692" alt="image" src="https://github.com/user-attachments/assets/37854632-62df-40bb-89e5-1fc39916b8b8" /></p>
 
-# 🎉NEW FEATURES IN 4.0🎉
-### Themed stacks 
-Vertical and horizontal stacks can now be themed and nested. Add a `header`, `middle`, or `footer` class and the stack title is placed in border
-<p align="center"><img width="500" alt="themed stacks" src="https://github.com/user-attachments/assets/3f20ba67-bf37-4477-a513-2417ea5f1176" /></p>
-
-### Buttons as bars
-New classes ``button-bar-left`` and ``button-bar-right`` allow buttons to appear like the bars, including icons and states. Thanks [@bobzer](https://github.com/bobzer) for the idea!
-<p align="center"><img width="500" alt="image" src="https://github.com/user-attachments/assets/17f72d65-9f86-419f-b8f8-f685e64481c7" /></p>
-
-### LCARS Style Sidebar
-The sidebar menu has been given a LCARS facelift! Thanks @3of9 for this stunning work!  
-*Not all of the documentation images have been updated to reflect this addition.*
-<p align="center"><img width="150" alt="themed sidebar" src="https://github.com/user-attachments/assets/b9e1e417-e597-4190-9fa8-d7d29792fb34" /></p>
-
-### Custom text in the header clock
-Using an optional helper, you can add text to the header clock!
-<p align="center"><img width="300" alt="custom text next to the clock" src="https://github.com/user-attachments/assets/cd276787-192b-4b7a-be1e-981bd53705cd" /></p>
-
-### LCARS Style Settings
-The Settings pages have been given LCARS styling! Lozenge-style lists, LCARS fonts, and many more touches.
-<p align="center"><img width="500" alt="themed settings page" src="https://github.com/user-attachments/assets/0533e438-02eb-4f44-9795-66e2ea59c223" />
-<img width="500" alt="themed developer tools menu" src="https://github.com/user-attachments/assets/c4cf35c0-d6ec-4fb0-8ef8-95a94020855b" />
+### Themed To-Do Lists
+To-do lists can now be themed into `lozenge`, `bullet`, `capped`, and `barrel` shapes, including completed tasks and adding new tasks!
+<p align="center"><img width="435" height="552" alt="image" src="https://github.com/user-attachments/assets/c62180b1-679c-49ed-8af9-7cb4e8578349" />
 </p>
+
+### Light and Dark Theme Options
+Every theme now includes light and dark modes! For most the themes the change is subtle. The LCARS panesl found in _Star Trek_ do not always comply with modern web accesssiblity standards for contrast. In situations where a theme has dark text on a darkish background, a light theme has been added to switch the text to light and improve contrast. In a few cases, the theme's background colors have been lightened instead. The light/dark mode also affects how the backlight effect is applied if you have tg=he LCARS Texture helper turned on. Give them a try, and be sure to hop on Discord or GitHub to let us know if you find situations where it doesn't work! 
+
+
 
 ## Examples
 ### Dashboard
