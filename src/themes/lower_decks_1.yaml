@@ -13,7 +13,7 @@ lcars-card-button-color: var(--lcars-harvestgold)
 lcars-card-bottom-color: var(--lcars-honey)
 lcars-settings-card-color: "#A56726"
 
-lcars-card-top-text: var(--lcars-text-light)
+lcars-card-top-text: var(--lcars-text-dark)
 lcars-card-mid-text: var(--lcars-text-dark)
 lcars-card-button-text: var(--lcars-text-dark)
 lcars-card-bottom-text: var(--lcars-text-dark)
@@ -21,3 +21,7 @@ lcars-card-bottom-text: var(--lcars-text-dark)
 success-color: var(--lcars-green)
 warning-color: var(--lcars-sunflower)
 error-color: var(--lcars-dark-red)
+
+modes:
+  dark:
+    lcars-ui-quaternary-text: var(--lcars-text-dark)

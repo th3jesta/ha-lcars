@@ -22,3 +22,9 @@ lcars-card-bottom-text: var(--lcars-text-light)
 success-color: var(--lcars-green)
 warning-color: var(--lcars-sunflower)
 error-color: var(--lcars-dark-red)
+
+modes:
+  dark:
+    lcars-ui-quaternary-text: var(--lcars-text-gray)
+    lcars-card-mid-text: var(--lcars-text-gray)
+    lcars-card-button-text: var(--lcars-text-gray)

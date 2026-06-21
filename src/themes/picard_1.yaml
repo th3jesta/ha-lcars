@@ -2,10 +2,10 @@ name: LCARS Picard I
 
 lcars-ui-primary: var(--lcars-hellgrau)
 lcars-ui-secondary: var(--lcars-mittelgrau)
-lcars-ui-secondary-text: var(--lcars-text-dark)
+lcars-ui-secondary-text: var(--lcars-text-light)
 lcars-ui-tertiary: var(--lcars-feuerrot)
 lcars-ui-quaternary: var(--lcars-mittelgrau)
-lcars-ui-quaternary-text: var(--lcars-text-dark)
+lcars-ui-quaternary-text: var(--lcars-text-light)
 
 lcars-sidebar-icon-color: var(--lcars-alt-dark-gray)
 lcars-ui-config-button: var(--lcars-cyan)
@@ -26,9 +26,8 @@ warning-color: var(--lcars-sunflower)
 error-color: var(--lcars-dark-red)
 
 modes:
-  light:
-    lcars-ui-secondary-text: var(--lcars-text-light)
-    lcars-ui-quaternary-text: var(--lcars-text-light)
   dark:
     lcars-ui-secondary-text: var(--lcars-text-dark)
     lcars-ui-quaternary-text: var(--lcars-text-dark)
+    lcars-card-top-text: var(--lcars-text-dark)
+    lcars-card-bottom-text: var(--lcars-text-gray)

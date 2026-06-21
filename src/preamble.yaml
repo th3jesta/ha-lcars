@@ -116,9 +116,17 @@
   # Additional Colors
   lcars-lavender: "#cc88ff"
   lcars-error: "#ff2200"
-  lcars-text-gray: "#d3d3d3"
-  lcars-text-dark: "#000000"
-  lcars-text-light: "#FFFFFF"
+  # Grayscale text scale, perceptually spaced (CIE L*).
+  # Use these for text on backgrounds: pick the darkest step (on dark bg) or
+  # lightest step (on light bg) that still clears the WCAG ratio you need.
+  # Ordered black -> white. The existing dark/gray/light anchors are preserved.
+  lcars-text-dark: "#000000"     # L*=0  — pure black, max contrast
+  lcars-text-coal: "#292929"     # L*=17 — near-black, softens stark black on bright surfaces
+  lcars-text-smoke: "#4E4E4E"    # L*=33 — dark gray
+  lcars-text-stone: "#777777"    # L*=50 — mid gray
+  lcars-text-mist: "#A2A2A2"     # L*=67 — light-mid gray
+  lcars-text-gray: "#d3d3d3"     # L*=84 — light gray (off-white), softens stark white on dark surfaces
+  lcars-text-light: "#FFFFFF"    # L*=100 — pure white, max contrast
   lcars-medium-gray: "#B6B6C1"
   lcars-dark-gray: "#3e3e3e"
   lcars-khaki: "#ffe399"

@@ -24,7 +24,7 @@ warning-color: var(--lcars-sunflower)
 error-color: var(--lcars-dark-red)
 
 modes:
-  light:
-    lcars-ui-primary-text: var(--lcars-text-light)
   dark:
     lcars-ui-primary-text: var(--lcars-text-dark)
+    lcars-ui-quaternary-text: var(--lcars-text-mist)
+    lcars-card-top-text: var(--lcars-text-dark)

@@ -30,9 +30,6 @@ error-color: var(--lcars-alt-orange)
 lcars-tab-selected-bg: "url(\"data:image/svg+xml,%3C!-- sample rectangle --%3E%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='transparent'%3E%3Canimate attributeName='fill' values='%23e7442a;%23e7442a;%236d748c' begin='0s' dur='5s' calcMode='discrete' repeatCount='indefinite' /%3E%3C/rect%3E%3C/svg%3E\")"
 
 modes:
-  light:
-    lcars-ui-primary-text: var(--lcars-text-light)
-    lcars-ui-quaternary-text: var(--lcars-text-light)
   dark:
-    lcars-ui-primary-text: var(--lcars-text-dark)
-    lcars-ui-quaternary-text: var(--lcars-text-dark)
+    lcars-card-top-text: var(--lcars-text-gray)
+    lcars-card-bottom-text: var(--lcars-text-gray)
