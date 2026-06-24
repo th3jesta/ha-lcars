@@ -34,7 +34,7 @@ cards:
 
 # 🎉NEW FEATURES IN 4.1🎉
 ### Themed Entities Lists 
-Entities Cards and Auto-Entities Cards can now theme the entities into readouts with `lozenge`, `bullet`, `capped`, and `barrel` shapes!
+Entities Cards and Auto-Entities Cards can now theme the entities into readouts with `lozenge`, `bullet`, `capped`, and `barrel` shapes! Additionally, the icon cap can be hidden by applying the `no-cap` class.
 <p align="center"><img width="250" alt="Themed Entities List" src="https://github.com/user-attachments/assets/37854632-62df-40bb-89e5-1fc39916b8b8" /></p>
 
 ### Themed To-Do Lists
@@ -627,7 +627,7 @@ card_mod:
 </tr>
 </table>
 
-12. `entity-<lozenge|bullet|capped|barrel>-<left|right>` - styled entities lists (from Entities Card and [Auto-Entities Cards](https://github.com/thomasloven/lovelace-auto-entities)) using the `lozenge`, `bullet`, `capped`, and `barrel` styles in `left` and `right` variants similar to the `button-*` classes discussed above. The class is applied using card_mod _to each entity in the Entities Card_, or using `options:` in each filter of an auto-entities card.
+12. `entity-<lozenge|bullet|capped|barrel>-<left|right>` - styled entities lists (from Entities Card and [Auto-Entities Cards](https://github.com/thomasloven/lovelace-auto-entities)) using the `lozenge`, `bullet`, `capped`, and `barrel` styles in `left` and `right` variants similar to the `button-*` classes discussed above. Additionally, the icon cap can be hidden by applying the `no-cap` class. The class is applied using card_mod _to each entity in the Entities Card_, or using `options:` in each filter of an auto-entities card.
 
 Unique to this set of classes is the width of the readout area where the entity states are shown. This is can be set using a css variable `--lcars-readout-width` to one of the cards containing the entities list, as seen in the examples below. In the first example, the variable is set in the `vertical-stack` containing the entities card -- this would apply to all entities cards in that stack. In the second example, the varaible is set in the `card:` section of the auto-entities card which specifies options for the created `entities card`.  
 
