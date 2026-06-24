@@ -4,5 +4,5 @@
   "render_readme": true,
   "filename": "lcars.yaml",
   "country": ["US", "GB"],
-  "homeassistant": "2026.2"
+  "homeassistant": "2026.6"
 }
