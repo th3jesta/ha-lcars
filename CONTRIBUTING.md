@@ -125,6 +125,27 @@ python3 py/flatten_ha_theme_css.py -o themes/lcars_flat.yaml themes/lcars.yaml
 
 7. Create a PR to merge the new theme into `master`.
 
+### Choosing text colors (light vs. dark)
+
+LCARS is a dark-text design. The rule below keeps that aesthetic by default and only swaps to light when staying dark would be illegible.
+
+For each background variable (`lcars-ui-primary`, `lcars-ui-secondary`, `lcars-ui-tertiary`, `lcars-ui-quaternary`, `lcars-card-top-color`, `lcars-card-mid-color`, `lcars-card-button-color`, `lcars-card-bottom-color`), compute the WCAG contrast ratio of the background hex against `#000000` (`dark_ratio`), then pick the text color per mode:
+
+| Mode | Rule |
+|------|------|
+| **Light mode** (theme top-level values) | text is **dark** iff `dark_ratio > 4.5` — otherwise **light**. |
+| **Dark mode** (`modes.dark` block) | text is **dark** iff `dark_ratio > 3.0` — otherwise **light**. |
+
+Then:
+
+1. Set the top-level `*-text` variable to the **light-mode** result.
+2. If the **dark-mode** result differs (the same background, or a `modes.dark` override of the background, lands on a different recommendation), override the `*-text` variable inside the `modes.dark` block.
+
+Why these thresholds:
+
+- The light-mode `4.5:1` floor is WCAG AA for normal text. Dark text only stays put if it clears AA outright; otherwise we switch to light, which is always the better choice when `dark_ratio < 4.5` (since `dark_ratio · light_ratio = 21` always, so `dark_ratio < 4.5` implies `light_ratio > 4.67`).
+- The dark-mode `3.0` floor is the WCAG AA-Large minimum. Below 3:1 dark text becomes unreadable; above it, dark text reads as canonical LCARS even when light has a numerically higher contrast.
+
 ---
 
 ## Adding a new semantic variable

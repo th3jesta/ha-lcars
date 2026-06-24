@@ -8,38 +8,50 @@ Star Trek LCARS theme for Home Assistant
 Color codes and font choice from https://www.thelcars.com
     --thanks Jim Robertus!
 
-# 💥BREAKING CHANGES IN 4.0💥
-1. Home Assistant LCARS is built using the functionality of [card-mod](https://github.com/thomasloven/lovelace-card-mod "card-mod"). Version 4.x of card-mod includes numerous breaking changes to all themes, including Home Assistant LCARS. Most standard cards using this theme should update without any issues. Any cards with custom css applied using ``card-mod: style:`` may need to be manually updated to card-mod's new element selectors (i.e. ``hui-card`` instead of ``ha-card``). See card-mod's [README](https://github.com/thomasloven/lovelace-card-mod/blob/master/README.md) and [README-application](https://github.com/thomasloven/lovelace-card-mod/blob/master/README-application.md) as starting points.
-2. Because of the changes mentioned above, a few cards are no longer supported or need a special workaround. The workaround is to place the card inside a vertical or horizontal stack. This changes how card-mod sees the card and applies the theme. Cards known to have issues include:
-   - ⚠️ custom-button-card: stack workaround required for some theme classes. Apply the desired theme class to the stack. Use Custom Button Cards style capabilities to make the button look how you want it.
-   - ⚠️ todo-list-card: stack workaround required when Todo List is located within a grid or layout card. 
-3. Bar cards can now be scaled by changing the font size of the card (see [Tips and Tricks](#custom-bar-sizes) below). Because of this, the markdown **must not** include any font sizing, such as the header ``#``.
-4. This is an almost complete rewrite, including several css optimizations. Dashboards designed using previous versions may need to be updated slightly due to small changes in spacing and padding.
-5. iOS16 and some Qt-based browsers (e.g. Ubuntu Touch 24) have mixed support for nested css which is used heavily in the theme. To help support these systems, a flattened version of theme has been added, `themes/lcars_flat.yaml`. This version of the theme can be installed by deleting the `lcars.yaml` placed in your Home Assistant's `config/themes` by HACS and placing `lcars_flat.yaml` there instead. Flattening removes support some some edge cases, but most of the theme should work as expected. This flattened version isn't regularly tested, so please report issues using GitHub or the Discord.
+# 💥BREAKING CHANGES IN 4.1💥
+1. Stack titles have moved to into the borders. While this opens up many possibilities for alternate layouts, it could wreck the look and spacing of existing dashboards. If the in-border placement is not what you want, the workaround is to add a markdown card as the fist card of the stack with `conten: "# This stacks's title`. 
+<table><tr><td>
+    
+```yaml
+type: vertical-stack
+title: Old Title
+card_mod:
+  class: header-left
+cards:
+  - type: markdown
+    content: "# My New Title"
+    card_mod:
+      class: middle-blank
+  - type: button
+    entity: light.living_room_lamp
+    card_mod:
+      class: button-small
+```
+</td><td>
+<img width="400" alt="Stack title exampls" src="https://github.com/user-attachments/assets/82bee145-44a1-489d-8526-27fc12f5cd64" />
+</td></tr></table>
 
-# 🎉NEW FEATURES IN 4.0🎉
-### Themed stacks 
-Vertical and horizontal stacks can now be themed and nested. Add a `header`, `middle`, or `footer` class and the stack title is placed in border
-<p align="center"><img width="500" alt="themed stacks" src="https://github.com/user-attachments/assets/3f20ba67-bf37-4477-a513-2417ea5f1176" /></p>
 
-### Buttons as bars
-New classes ``button-bar-left`` and ``button-bar-right`` allow buttons to appear like the bars, including icons and states. Thanks [@bobzer](https://github.com/bobzer) for the idea!
-<p align="center"><img width="500" alt="image" src="https://github.com/user-attachments/assets/17f72d65-9f86-419f-b8f8-f685e64481c7" /></p>
+# 🎉NEW FEATURES IN 4.1🎉
+### Themed Entities Lists 
+Entities Cards and Auto-Entities Cards can now theme the entities into readouts with `lozenge`, `bullet`, `capped`, and `barrel` shapes! Additionally, the icon cap can be hidden by applying the `no-cap` class.
+<p align="center"><img width="250" alt="Themed Entities List" src="https://github.com/user-attachments/assets/37854632-62df-40bb-89e5-1fc39916b8b8" /></p>
 
-### LCARS Style Sidebar
-The sidebar menu has been given a LCARS facelift! Thanks @3of9 for this stunning work!  
-*Not all of the documentation images have been updated to reflect this addition.*
-<p align="center"><img width="150" alt="themed sidebar" src="https://github.com/user-attachments/assets/b9e1e417-e597-4190-9fa8-d7d29792fb34" /></p>
-
-### Custom text in the header clock
-Using an optional helper, you can add text to the header clock!
-<p align="center"><img width="300" alt="custom text next to the clock" src="https://github.com/user-attachments/assets/cd276787-192b-4b7a-be1e-981bd53705cd" /></p>
-
-### LCARS Style Settings
-The Settings pages have been given LCARS styling! Lozenge-style lists, LCARS fonts, and many more touches.
-<p align="center"><img width="500" alt="themed settings page" src="https://github.com/user-attachments/assets/0533e438-02eb-4f44-9795-66e2ea59c223" />
-<img width="500" alt="themed developer tools menu" src="https://github.com/user-attachments/assets/c4cf35c0-d6ec-4fb0-8ef8-95a94020855b" />
+### Themed To-Do Lists
+To-do lists can now be themed into `lozenge`, `bullet`, `capped`, and `barrel` shapes, including completed tasks and adding new tasks!
+<p align="center"><img width="250" alt="Themed ToDo List" src="https://github.com/user-attachments/assets/c62180b1-679c-49ed-8af9-7cb4e8578349" />
 </p>
+
+### Stack Titles in Borders
+Stack titles have moved into the borders.
+<p align="center"><img width="1205" alt="Themed stacks" src="https://github.com/user-attachments/assets/31709d54-16e6-46ba-b028-614fbac4beb1" /></p>
+
+### Light and Dark Theme Options
+Every theme now includes light and dark modes! For most the themes the change is subtle. The LCARS panels found in _Star Trek_ do not always comply with modern web accesssiblity standards for contrast. In situations where a theme has dark text on a darkish background, a light theme has been added to switch the text to light and improve contrast. In a few cases, the theme's background colors have been lightened instead. The light/dark mode also affects how the backlight effect is applied if you have the LCARS Texture helper turned on. Give them a try, and be sure to hop on Discord or GitHub to let us know if you find situations where it doesn't work! 
+
+<p align="center"><img width="800" alt="Transporter Light Mode" src="https://github.com/user-attachments/assets/91c9ce05-d1c1-41e5-b7e1-ba5d3c000d7c" /><img width="800" alt="Transporter Dark Mode" src="https://github.com/user-attachments/assets/789d794b-f26c-439f-8f99-6fce4f0758d2" /></p>
+
+
 
 ## Examples
 ### Dashboard
@@ -615,6 +627,116 @@ card_mod:
 </tr>
 </table>
 
+12. `entity-<lozenge|bullet|capped|barrel>-<left|right>` - styled entities lists (from Entities Card and [Auto-Entities Cards](https://github.com/thomasloven/lovelace-auto-entities)) using the `lozenge`, `bullet`, `capped`, and `barrel` styles in `left` and `right` variants similar to the `button-*` classes discussed above. Additionally, the icon cap can be hidden by applying the `no-cap` class. The class is applied using card_mod _to each entity in the Entities Card_, or using `options:` in each filter of an auto-entities card.
+
+Unique to this set of classes is the width of the readout area where the entity states are shown. This is can be set using a css variable `--lcars-readout-width` to one of the cards containing the entities list, as seen in the examples below. In the first example, the variable is set in the `vertical-stack` containing the entities card -- this would apply to all entities cards in that stack. In the second example, the varaible is set in the `card:` section of the auto-entities card which specifies options for the created `entities card`.  
+
+<table>
+<tr>
+<td> YAML </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+type: vertical-stack
+cards:
+  - type: markdown
+    content: "# Entities Card"
+    card_mod:
+      class: header-left
+  - type: entities
+    entities:
+      - entity: sensor.mudroom_motion_temperature
+        icon: none
+        card_mod:
+          class: entity-lozenge-left
+      - entity: sensor.kitchen_current_temperature
+        card_mod:
+          class: entity-capped-left
+      - entity: sensor.family_room_motion_temperature
+        card_mod:
+          class: entity-bullet-left
+      - entity: sensor.office_motion_temperature
+        card_mod:
+          class: entity-barrel-left no-cap
+      - entity: sensor.living_room_current_temperature
+        card_mod:
+          class: entity-lozenge-right
+      - entity: sensor.nursery_temperature
+        card_mod:
+          class: entity-capped-right no-cap
+      - entity: sensor.master_bedroom_temperature
+        card_mod:
+          class: entity-bullet-right
+      - entity: sensor.foyer_motion_temperature
+        card_mod:
+          class: entity-barrel-right
+    card_mod:
+      class: middle-blank
+  - type: markdown
+    content: |
+      # &nbsp;
+    card_mod:
+      class: footer-right
+grid_options:
+  rows: auto
+  columns: 12
+card_mod:
+  style: |
+    :host{
+      --lcars-readout-width: 150px;
+      --lcars-vertical-border: 40px;
+    }
+```
+
+</td>
+<td>
+<img width="600" alt="Themed Entities List" src="https://github.com/user-attachments/assets/37854632-62df-40bb-89e5-1fc39916b8b8" />
+</td>
+</tr>
+<tr>
+<td>
+    
+```yaml
+type: vertical-stack
+cards:
+  - type: markdown
+    content: "# Auto-Entities Card"
+    card_mod:
+      class: header-right
+  - type: custom:auto-entities
+    card:
+      type: entities
+      card_mod:
+        class: footer-right
+        style: |
+          :host {
+            --lcars-readout-width: 125px;
+          }
+    filter:
+      include:
+        - options:
+            card_mod:
+              class: entity-lozenge-left
+          area: mudroom
+          label: security_sensor
+        - options:
+            card_mod:
+              class: entity-lozenge-right
+          area: "Family Room"
+          label: security_sensor
+      exclude: []
+</table>
+```
+
+</td>
+<td>
+<img width="600" alt="Themed auto-entities card" src="https://github.com/user-attachments/assets/1c271ba7-7857-4f0e-b62a-166f9281f540" />
+</td>
+</tr>
+</table>
+
 ### Make your own color themes
 Custom themes can be created down at the bottom of `lcars.yaml`. Or, search for "===THEMES", which will take you right there. To create your own theme, copy the LCARS Default section to the bottom of the file and change the `lcars-ui-*` and `lcars-card-*` variables to your liking, using the color references at the top of the file, [The LCARS website](https://www.thelcars.com/colors.php), or define your own.
 
@@ -655,7 +777,7 @@ cards:
 </tr>
 </table>
 
-Additionally, since version 4.0, vertical and horizontal stacks can be themed. This allows multiple cards to be stacked evenly within LCARS framing:
+Additionally, since version 4.0, vertical and horizontal stacks can be themed. Stack titles are placed in the side border. This allows multiple cards to be stacked evenly within LCARS framing:
 <table>
 <tr>
 <td> YAML </td> <td> Result </td>
@@ -665,11 +787,7 @@ Additionally, since version 4.0, vertical and horizontal stacks can be themed. T
     
 ```yaml
 type: vertical-stack
-grid_options:
-  columns: 48
-  rows: auto
-card_mod:
-  class: header-left
+title: Big Stack
 cards:
   - type: heading
     heading_style: title
@@ -685,6 +803,7 @@ cards:
     card_mod:
       style: ":host .title {font-size:2em;}"
   - type: horizontal-stack
+    title: top
     card_mod:
       class: header-right
     cards:
@@ -701,6 +820,7 @@ cards:
         card_mod:
           class: button-lozenge-right
   - type: horizontal-stack
+    title: middle
     card_mod:
       class: middle-right
     cards:
@@ -717,6 +837,7 @@ cards:
         card_mod:
           class: button-lozenge-right
   - type: horizontal-stack
+    title: bottom
     card_mod:
       class: footer-right
     cards:
@@ -732,11 +853,16 @@ cards:
         entity: light.stoop_light
         card_mod:
           class: button-lozenge-right
+grid_options:
+  columns: 48
+  rows: auto
+card_mod:
+  class: header-left
 ```
 
 </td>
 <td>
-<img width="1048" height="321" alt="themed stacks" src="https://github.com/user-attachments/assets/cafc28e0-2a90-4062-8bd4-7a3a6f25ae40" />
+<img width="1205" alt="Themed stacks" src="https://github.com/user-attachments/assets/31709d54-16e6-46ba-b028-614fbac4beb1" />
 </td>
 </tr>
 </table>
@@ -969,7 +1095,6 @@ cards:
 
 ## Known issues
 * Font and sidebar and header CSS styles only load when a dashboard has been loaded first. If you navigate directly to a non-dashboard page without loading a dashboard first, things will look pretty awful, though still functional. Simply load a dashboard and hit the back button. This is a quirk of the [card-mod](https://github.com/thomasloven/lovelace-card-mod) addon on which this theme relies, so it's outside my ability to fix.
-* Menu pages like Development Tools and Profile are functional, but not great. Unfortunately, there's not much I can do to address this as card-mod does not provide a method to change some of these pages. Issues raised for anything comepletely broken and unsuable that I may have missed are welcome, as are PRs to make to make things better.
 * Sometimes when a dashboard loads, not all CSS styles will load and all or most cards will end up looking like the `button-large` cards. This is more prevalent on large dashboards. Try reloading the page, and if that doesn't work, load a smaller dashboard and then go back to the offending dashboard.
 
 ## Acknowledgements
@@ -985,7 +1110,9 @@ cards:
 - Thanks to @bobzer for the button-bar idea!
 - Thanks to @3of9 for the sidebar and themes!
 - Thanks to @adejong5 for the v.4 rewrite!
+- Thanks to @snootched for many code reviews!
 - Thanks to @blazingdynamo for the to-do list ideas!
+- Thanks to @Stanojoski and @KoenDierckx for entities list design ideas!
 
 ## Links
 **Discord:** https://discord.gg/gGxud6Y6WJ

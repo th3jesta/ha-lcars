@@ -16,8 +16,8 @@ lcars-settings-card-color: "#7E764F"
 
 lcars-card-top-text: var(--lcars-text-dark)
 lcars-card-mid-text: var(--lcars-text-dark)
-lcars-card-button-text: var(--lcars-text-light)
-lcars-card-bottom-text: var(--lcars-text-light)
+lcars-card-button-text: var(--lcars-text-dark)
+lcars-card-bottom-text: var(--lcars-text-dark)
 
 success-color: var(--lcars-green)
 warning-color: var(--lcars-dark-red)

@@ -116,9 +116,17 @@
   # Additional Colors
   lcars-lavender: "#cc88ff"
   lcars-error: "#ff2200"
-  lcars-text-gray: "#d3d3d3"
-  lcars-text-dark: "#000000"
-  lcars-text-light: "#FFFFFF"
+  # Grayscale text scale, perceptually spaced (CIE L*).
+  # Use these for text on backgrounds: pick the darkest step (on dark bg) or
+  # lightest step (on light bg) that still clears the WCAG ratio you need.
+  # Ordered black -> white. The existing dark/gray/light anchors are preserved.
+  lcars-text-dark: "#000000"     # L*=0  — pure black, max contrast
+  lcars-text-coal: "#292929"     # L*=17 — near-black, softens stark black on bright surfaces
+  lcars-text-smoke: "#4E4E4E"    # L*=33 — dark gray
+  lcars-text-stone: "#777777"    # L*=50 — mid gray
+  lcars-text-mist: "#A2A2A2"     # L*=67 — light-mid gray
+  lcars-text-gray: "#d3d3d3"     # L*=84 — light gray (off-white), softens stark white on dark surfaces
+  lcars-text-light: "#FFFFFF"    # L*=100 — pure white, max contrast
   lcars-medium-gray: "#B6B6C1"
   lcars-dark-gray: "#3e3e3e"
   lcars-khaki: "#ffe399"
@@ -387,6 +395,7 @@
   ha-color-form-background: rgba(0, 0, 0, 0)
   ha-color-form-background-hover: rgba(255, 255, 255, 0.05)
   ha-color-form-background-disabled: rgba(0, 0, 0, 0.1)
+  ha-color-fill-primary-quiet-resting: rgba(255, 255, 255, 0.1)
 
   # Thermostat Card  # ha-frontend: src/panels/lovelace/cards/hui-thermostat-card.ts, src/components/ha-control-circular-slider.ts
   control-circular-slider-background: var(--lcars-dark-gray)
@@ -415,7 +424,8 @@
       /* ----------------------------------------------- */
       {% if not is_state('input_boolean.lcars_texture', 'off') %}
       &::before {
-        content: radial-gradient(ellipse farthest-corner at center center, var(--lcars-backlight-center) 0%, var(--lcars-backlight-middle) var(--lcars-backlight-middle-location), var(--lcars-backlight-outer) 100%);
+        content: "";
+        background: radial-gradient(ellipse farthest-corner at center center, var(--lcars-backlight-center) 0%, var(--lcars-backlight-middle) var(--lcars-backlight-middle-location), var(--lcars-backlight-outer) 100%);
         width: 100%;
         height: 100%;
         z-index: 9990;
@@ -1544,6 +1554,179 @@
     "ha-card ha-markdown$": |
       h1 {
         font-weight: normal;
+      }
+
+  # ===================================================== #
+  #             Entities Cards Modifications              #
+  # ===================================================== #
+  card-mod-row-yaml: &card-mod-row |
+    .: |
+      :host {
+        --lcars-height: 60px;
+        /* Uses `lcars-readout-width` if the user specifies it in card_mod. Otherwise a global value is set, otherwise, vertical border, or a default value). */
+        --lcars-global-readout-width: {{ states('sensor.lcars_readout_width') if has_value('sensor.lcars_readout_width') else 'unset' }};
+        --lcars-inner-readout-width: var(--lcars-readout-width, var(--lcars-global-readout-width, var(--lcars-vertical-border, 150px)));
+      }
+      /* Can't theme inside hui-generic-entity-row's dom from here */
+      /* So set variables to describe the behavior which are inherited into the dom */
+      :host(.no-cap) {
+        --lcars-capped: false;
+      }
+      :host(.entity-lozenge-left) {
+        --lcars-entity-class: "entity-lozenge-left";
+      }
+      :host(.entity-bullet-left) {
+        --lcars-entity-class: "entity-bullet-left";
+      }
+      :host(.entity-capped-left) {
+        --lcars-entity-class: "entity-capped-left";
+      }
+      :host(.entity-barrel-left) {
+        --lcars-entity-class: "entity-barrel-left";
+      }
+      :host(.entity-lozenge-right) {
+        --lcars-entity-class: "entity-lozenge-right";
+      }
+      :host(.entity-bullet-right) {
+        --lcars-entity-class: "entity-bullet-right";
+      }
+      :host(.entity-capped-right) {
+        --lcars-entity-class: "entity-capped-right";
+      }
+      :host(.entity-barrel-right) {
+        --lcars-entity-class: "entity-barrel-right";
+      }
+      /* Handle row types that have a div outside the shadow dom */
+      /* .when and .what handle the event-type row */
+      /* .text-content handles the timer-type row */
+      /* .flex handles the number and input_number slider rows */
+      @container style(--lcars-entity-class) {
+        div:not(.what):not(.when):not(.text-content) {
+          order: 1;
+          box-sizing: border-box;
+          padding: 0px 6px;
+          min-width: var(--lcars-inner-readout-width);
+          @container style(--lcars-capped: false) {
+            min-width: calc(var(--lcars-inner-readout-width) + 40px);
+          }
+        }
+        div.flex {
+          flex-grow: 0;
+        }
+      }
+    "hui-generic-entity-row $": |
+      @container style(--lcars-entity-class) {
+        state-badge{
+          order: 0;
+          background-color: var(--lcars-card-button-color);
+          --state-icon-color: var(--lcars-card-button-text);
+          color: var(--lcars-card-button-text);
+          border-top-right-radius: 0px;
+          border-bottom-right-radius: 0px;
+          border-top-left-radius: 0px;
+          border-bottom-left-radius: 0px;
+          height: var(--lcars-height);
+        }
+        div.info.text-content {
+          order: 2;
+          background-color: var(--lcars-card-button-color);
+          --primary-text-color: var(--lcars-card-button-text);
+          color: var(--lcars-card-button-text);
+          border-top-right-radius: 0px;
+          border-bottom-right-radius: 0px;
+          border-top-left-radius: 0px;
+          border-bottom-left-radius: 0px;
+          padding: 0px 12px 6px 3px;
+          white-space: unset;
+          font-size: 14px;
+          box-sizing: border-box;
+          height: var(--lcars-height);
+          display: flex;
+          align-items: flex-end;
+          justify-content: end;
+        }
+        div.value.text-content, slot {
+          order: 1;
+          background-color: transparent;
+          --primary-text-color: var(--lcars-background-text);
+          color: var(--lcars-background-text);
+          border-top-right-radius: 0px;
+          border-bottom-right-radius: 0px;
+          border-top-left-radius: 0px;
+          border-bottom-left-radius: 0px;
+          line-height: 1;
+          font-size: calc(var(--lcars-height) * 0.8);
+          box-sizing: border-box;
+          padding: 0 12px 0.2em 6px;
+          min-width: var(--lcars-inner-readout-width);
+          white-space: nowrap;
+        }
+      }
+      @container style(--lcars-entity-class: "entity-lozenge-right") 
+              or style(--lcars-entity-class: "entity-barrel-right") 
+              or style(--lcars-entity-class: "entity-bullet-right")  
+              or style(--lcars-entity-class: "entity-capped-right") {
+        state-badge {
+          order: 2;
+        }
+        div.info.text-content {
+          order: 0;
+          padding: 0px 3px 6px 12px;
+          justify-content: start;
+        }
+        div.value.text-content {
+          .state {
+            text-align: left;
+          }
+        }
+      }
+      :host {
+        overflow: hidden;
+      }
+      @container style(--lcars-entity-class: "entity-lozenge-left") 
+              or style(--lcars-entity-class: "entity-lozenge-right") 
+              or style(--lcars-entity-class: "entity-bullet-left")  
+              or style(--lcars-entity-class: "entity-capped-right") {
+        :host {
+          border-top-left-radius: 9999px;
+          border-bottom-left-radius: 9999px;
+        }
+      }
+      @container style(--lcars-entity-class: "entity-lozenge-left") 
+              or style(--lcars-entity-class: "entity-lozenge-right") 
+              or style(--lcars-entity-class: "entity-bullet-right")  
+              or style(--lcars-entity-class: "entity-capped-left") {
+        :host {
+          border-top-right-radius: 9999px;
+          border-bottom-right-radius: 9999px;
+        }
+      }
+      @container style(--lcars-capped: false) {
+        state-badge {
+          display: none;
+        }
+        div.value.text-content {
+          min-width: calc(var(--lcars-inner-readout-width) + 40px);
+        }
+        @container style(--lcars-entity-class: "entity-lozenge-left") 
+                or style(--lcars-entity-class: "entity-bullet-left") 
+                or style(--lcars-entity-class: "entity-barrel-left")  
+                or style(--lcars-entity-class: "entity-capped-left") {
+          :host {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+          }
+        }
+        @container style(--lcars-entity-class: "entity-lozenge-right") 
+                or style(--lcars-entity-class: "entity-barrel-right") 
+                or style(--lcars-entity-class: "entity-bullet-right")  
+                or style(--lcars-entity-class: "entity-capped-right") {
+          :host {
+            border-top-right-radius: 9999px;
+            border-bottom-right-radius: 9999px;
+          }
+        }
+
       }
   # ===================================================== #
   #          TOOLBAR AND DASHBOARD MODIFICATIONS          #
