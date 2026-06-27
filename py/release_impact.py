@@ -6,6 +6,7 @@ Usage:
     python3 py/release_impact.py              # process all new releases since last run
     python3 py/release_impact.py --since 20260101.0  # process releases after this tag
     python3 py/release_impact.py --tag 20260527.2    # process a specific release
+    python3 py/release_impact.py --latest-beta       # process the latest pre-release/beta only (no state update)
     python3 py/release_impact.py --list              # list recent releases without processing
 
 Requires:
@@ -216,8 +217,17 @@ def analyze_with_claude(
     release: dict,
     diff_text: str,
     lcars_context: str,
+    pipeline_releases: list[dict] | None = None,
+    base_tag: str | None = None,
 ) -> str:
-    """Call Claude Sonnet and return the raw markdown analysis."""
+    """Call Claude Sonnet and return the raw markdown analysis.
+
+    When *pipeline_releases* is provided, the prompt is framed as a single
+    analysis spanning the full pre-release pipeline from *base_tag* (the last
+    stable release) up to *release* (the latest beta). The release notes from
+    every intermediate pre-release are concatenated so Claude sees the whole
+    window, not just the head tag.
+    """
     import anthropic
 
     client = anthropic.Anthropic()
@@ -261,12 +271,33 @@ Format rules:
   from both the diff and the LCARS theme source. Do not be vague.
 """
 
-    user = f"""\
-# ha-frontend Release: {tag} ({release_type})
-Published: {published}
+    if pipeline_releases:
+        # Single report covering the whole upcoming-release pipeline.
+        notes_blocks: list[str] = []
+        for r in pipeline_releases:
+            r_body = (r.get("body") or "_(no release notes)_").strip()
+            notes_blocks.append(
+                f"### {r['tag_name']} — {r['published_at']} "
+                f"({'pre-release' if r.get('prerelease') else 'stable'})\n\n{r_body}"
+            )
+        notes_section = "\n\n".join(notes_blocks)
+        header = (
+            f"# ha-frontend Pre-Release Pipeline Analysis\n"
+            f"Last stable: `{base_tag}`  →  Latest beta head: `{tag}`\n"
+            f"Releases covered: {len(pipeline_releases)} "
+            f"({sum(1 for r in pipeline_releases if r.get('prerelease'))} pre-release(s))\n\n"
+            f"## Release Notes (chronological, all releases in window)\n"
+        )
+        body_for_prompt = f"{header}\n{notes_section}"
+    else:
+        body_for_prompt = (
+            f"# ha-frontend Release: {tag} ({release_type})\n"
+            f"Published: {published}\n\n"
+            f"## Release Notes\n{body}"
+        )
 
-## Release Notes
-{body}
+    user = f"""\
+{body_for_prompt}
 
 ## Changed Files (diff)
 {diff_text}
@@ -312,7 +343,13 @@ Do NOT report:
 # Output
 # ──────────────────────────────────────────────────────────────────────────────
 
-def build_markdown(release: dict, analysis: str, all_changed_files: list[str]) -> str:
+def build_markdown(
+    release: dict,
+    analysis: str,
+    all_changed_files: list[str],
+    pipeline_releases: list[dict] | None = None,
+    base_tag: str | None = None,
+) -> str:
     tag = release["tag_name"]
     published = release["published_at"]
     is_pre = release.get("prerelease", False)
@@ -321,22 +358,57 @@ def build_markdown(release: dict, analysis: str, all_changed_files: list[str]) -
 
     now = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 
-    lines = [
-        RELEASE_FILE_PREAMBLE.strip(),
-        "",
-        f"# ha-frontend {tag} — LCARS Theme Impact Analysis",
-        "",
-        f"| Field | Value |",
-        f"|-------|-------|",
-        f"| Release tag | `{tag}` |",
-        f"| Type | {release_type} |",
-        f"| Published | {published} |",
-        f"| Analyzed | {now} |",
-        f"| Changed files | {len(all_changed_files)} |",
-        "",
-        "## Release Notes",
-        "",
-        body if body else "_No release notes provided._",
+    if pipeline_releases is not None:
+        title = f"# ha-frontend Pre-Release Pipeline — LCARS Theme Impact Analysis"
+        meta_rows = [
+            "| Field | Value |",
+            "|-------|-------|",
+            f"| Last stable | `{base_tag}` |",
+            f"| Latest beta head | `{tag}` |",
+            f"| Releases in window | {len(pipeline_releases)} |",
+            f"| Pre-releases | {sum(1 for r in pipeline_releases if r.get('prerelease'))} |",
+            f"| Analyzed | {now} |",
+            f"| Changed files | {len(all_changed_files)} |",
+        ]
+        notes_blocks: list[str] = []
+        for r in pipeline_releases:
+            r_body = (r.get("body") or "_No release notes provided._").strip()
+            rtype = "pre-release" if r.get("prerelease") else "stable"
+            notes_blocks.append(
+                f"### {r['tag_name']} — {r['published_at']} ({rtype})\n\n{r_body}"
+            )
+        notes_section = "\n\n".join(notes_blocks)
+        lines = [
+            RELEASE_FILE_PREAMBLE.strip(),
+            "",
+            title,
+            "",
+            *meta_rows,
+            "",
+            "## Release Notes (chronological, all releases in window)",
+            "",
+            notes_section if notes_section else "_No release notes provided._",
+        ]
+    else:
+        lines = [
+            RELEASE_FILE_PREAMBLE.strip(),
+            "",
+            f"# ha-frontend {tag} — LCARS Theme Impact Analysis",
+            "",
+            f"| Field | Value |",
+            f"|-------|-------|",
+            f"| Release tag | `{tag}` |",
+            f"| Type | {release_type} |",
+            f"| Published | {published} |",
+            f"| Analyzed | {now} |",
+            f"| Changed files | {len(all_changed_files)} |",
+            "",
+            "## Release Notes",
+            "",
+            body if body else "_No release notes provided._",
+        ]
+
+    lines += [
         "",
         "---",
         "",
@@ -383,14 +455,40 @@ def find_previous_tag(releases: list[dict], current_tag: str) -> str | None:
         return None
 
 
+def find_previous_stable_tag(releases: list[dict], current_tag: str) -> str | None:
+    """Return the latest non-prerelease tag strictly before current_tag."""
+    by_tag = {r["tag_name"]: r for r in releases}
+    sorted_tags = sorted(by_tag.keys(), key=tag_sort_key)
+    try:
+        idx = sorted_tags.index(current_tag)
+    except ValueError:
+        return None
+    for tag in reversed(sorted_tags[:idx]):
+        if not by_tag[tag].get("prerelease", False):
+            return tag
+    return None
+
+
 # ──────────────────────────────────────────────────────────────────────────────
 # Core processing
 # ──────────────────────────────────────────────────────────────────────────────
 
-def process_release(release: dict, prev_tag: str | None, token: str, lcars_context: str, dry_run: bool = False) -> Path:
+def process_release(
+    release: dict,
+    prev_tag: str | None,
+    token: str,
+    lcars_context: str,
+    dry_run: bool = False,
+    pipeline_releases: list[dict] | None = None,
+    output_basename: str | None = None,
+) -> Path:
     tag = release["tag_name"]
     print(f"\n{'='*60}")
-    print(f"Processing: {tag}")
+    if pipeline_releases:
+        print(f"Processing pipeline: {prev_tag} -> {tag}")
+        print(f"Releases in window: {len(pipeline_releases)}")
+    else:
+        print(f"Processing: {tag}")
     print(f"Published:  {release['published_at']}")
     print(f"Pre-release: {release.get('prerelease', False)}")
 
@@ -404,22 +502,30 @@ def process_release(release: dict, prev_tag: str | None, token: str, lcars_conte
     diff_text, all_files = format_diff_for_prompt(compare)
     print(f"Diff: {len(compare.get('files', []))} files changed, {len([f for f in compare.get('files', []) if is_relevant(f['filename'])])} relevant")
 
+    out_name = output_basename or tag
+
     if dry_run:
         print("\n[dry-run] Diff text that would be sent to Claude:")
         print(diff_text[:2000])
         print(f"\n[dry-run] LCARS context: {len(lcars_context):,} chars")
         print("[dry-run] Skipping Claude API call and file write.")
-        return OUTPUT_DIR / f"{tag}.md"
+        return OUTPUT_DIR / f"{out_name}.md"
 
     print("Calling Claude Sonnet for analysis...")
     try:
-        analysis = analyze_with_claude(release, diff_text, lcars_context)
+        analysis = analyze_with_claude(
+            release, diff_text, lcars_context,
+            pipeline_releases=pipeline_releases, base_tag=prev_tag,
+        )
     except RuntimeError as e:
         print(f"ERROR: {e}")
         sys.exit(1)
 
-    content = build_markdown(release, analysis, all_files)
-    out_path = write_output(tag, content)
+    content = build_markdown(
+        release, analysis, all_files,
+        pipeline_releases=pipeline_releases, base_tag=prev_tag,
+    )
+    out_path = write_output(out_name, content)
     print(f"Written: {out_path}")
     return out_path
 
@@ -432,6 +538,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--since", metavar="TAG", help="process all releases after this tag (exclusive)")
     parser.add_argument("--tag", metavar="TAG", help="process a single specific release")
+    parser.add_argument("--latest-beta", action="store_true", help="process the latest pre-release/beta only; do not update state file")
     parser.add_argument("--list", action="store_true", help="list recent releases and exit")
     parser.add_argument("--count", type=int, default=50, help="number of releases to fetch from GitHub (default 50)")
     parser.add_argument("--dry-run", action="store_true", help="print diff and prompt context but do not call Claude or write files")
@@ -453,6 +560,41 @@ def main() -> None:
 
     lcars_context = load_lcars_context()
     print(f"Loaded LCARS context: {len(lcars_context):,} chars")
+
+    if args.latest_beta:
+        # Find the most recent pre-release; compare against the last stable
+        # before it so the diff covers the whole upcoming release window.
+        # Emits a single pipeline report — release notes for every intermediate
+        # release in the window are concatenated. Does not touch the state file
+        # (the scheduled stable run owns that).
+        betas = [r for r in releases if r.get("prerelease")]
+        if not betas:
+            print("No pre-releases found in the recent release list.")
+            return
+        latest = max(betas, key=lambda r: tag_sort_key(r["tag_name"]))
+        prev_tag = find_previous_stable_tag(releases, latest["tag_name"])
+        if prev_tag is None:
+            print("No prior stable release found; falling back to the immediately preceding tag.")
+            prev_tag = find_previous_tag(releases, latest["tag_name"])
+
+        # Collect every release strictly between prev_tag and latest, inclusive of latest.
+        latest_key = tag_sort_key(latest["tag_name"])
+        prev_key = tag_sort_key(prev_tag) if prev_tag else (0, 0)
+        window = sorted(
+            [r for r in releases if prev_key < tag_sort_key(r["tag_name"]) <= latest_key],
+            key=lambda r: tag_sort_key(r["tag_name"]),
+        )
+
+        print(f"Latest pre-release: {latest['tag_name']}")
+        print(f"Comparing against latest stable: {prev_tag}")
+        print(f"Releases in pipeline window: {[r['tag_name'] for r in window]}")
+        process_release(
+            latest, prev_tag, token, lcars_context,
+            dry_run=args.dry_run,
+            pipeline_releases=window,
+            output_basename=f"pipeline-{latest['tag_name']}",
+        )
+        return
 
     if args.tag:
         # Process a single specific tag
