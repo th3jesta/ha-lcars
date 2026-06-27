@@ -86,13 +86,22 @@ def normalise_css_source(text: str) -> str:
 
     for line in text.splitlines():
         stripped = line.lstrip()
+        # A line beginning with # inside CSS is usually an ID selector (#view,
+        # #item, #add-view).  The older version treated every such line as a
+        # commented-out CSS line and removed the hash, which broke the HA
+        # header/menu/sidebar selectors.  Real YAML/CSS comments should stay
+        # comments or disappear, not be converted into live CSS.
         if stripped.startswith("#"):
-            indent = line[: len(line) - len(stripped)]
-            uncommented = stripped[1:]
-            if uncommented.startswith(" "):
-                uncommented = uncommented[1:]
-            if uncommented.strip():
-                unhashed.append(indent + uncommented)
+            after_hash = stripped[1:].lstrip()
+            if after_hash.startswith((".", ":", "[", ">", "+", "~", "@")):
+                # Optional compatibility escape hatch: allow commented-out CSS
+                # fragments like '# .foo {' to be revived, but never '#id'.
+                indent = line[: len(line) - len(stripped)]
+                unhashed.append(indent + after_hash)
+            else:
+                # Preserve ID selectors and ignore ordinary YAML-style comments.
+                # The CSS parser will skip true comments; selectors remain intact.
+                unhashed.append(line)
             continue
         unhashed.append(line)
 
@@ -268,6 +277,45 @@ def normalise_selector(selector: str) -> str:
 
 
 
+def simplify_self_is_pseudo(selector: str) -> str:
+    """Simplify cases created by nesting such as ha-card.foo:is(ha-card).
+
+    CSS nesting often uses &:is(ha-card) to mean "the current element, when it is
+    an ha-card". A string-only expansion would concatenate the tag and produce
+    ha-card.fooha-card. This removes the :is(tag) part when the current compound
+    selector already starts with that tag.
+    """
+    pattern = re.compile(r":is\(([^()]*)\)")
+
+    def previous_compound(text: str, pos: int) -> str:
+        # Last compound selector before the pseudo, after combinators/commas/spaces.
+        j = pos - 1
+        while j >= 0 and text[j].isspace():
+            j -= 1
+        k = j
+        while k >= 0 and text[k] not in " >+~,{\n":
+            k -= 1
+        return text[k + 1:j + 1]
+
+    def repl(match: re.Match[str]) -> str:
+        inner = match.group(1)
+        opts = [o.strip() for o in split_top_level_commas(inner)]
+        compound = previous_compound(selector, match.start())
+        tag_match = re.match(r"^[A-Za-z][\w-]*", compound)
+        if tag_match and any(o == tag_match.group(0) for o in opts):
+            remaining = [o for o in opts if o != tag_match.group(0)]
+            if not remaining:
+                return ""
+            return ":is(" + ", ".join(remaining) + ")"
+        return match.group(0)
+
+    previous = None
+    while previous != selector:
+        previous = selector
+        selector = pattern.sub(repl, selector)
+    return selector
+
+
 def expand_is_pseudo(selector: str) -> List[str]:
     """Expand simple :is(...) selector lists into separate selectors."""
     start = selector.find(":is(")
@@ -367,6 +415,9 @@ def rewrite_multi_not(selector: str) -> str:
 
 
 def clean_legacy_selector(selector: str) -> List[str]:
+    selector = simplify_self_is_pseudo(selector)
+    if ":has(" in selector:
+        return []
     selectors = expand_is_pseudo(selector)
     cleaned: List[str] = []
 
@@ -376,11 +427,25 @@ def clean_legacy_selector(selector: str) -> List[str]:
         item = re.sub(r">\s+:not\(", "> *:not(", item)
         item = re.sub(r"(#[A-Za-z0-9_-]+)(?:\1)+", r"\1", item)
 
-        if "ha-card." in item and ":not(div > *)" in item:
-            if not re.search(r"ha-card\.bar-large-(?:left|right)\b", item):
-                item = item.replace(":not(div > *)", "")
-                item = normalise_selector(item)
+        # Legacy selector engines do not support complex selectors inside :not().
+        # This rule used to spare bar-large-left/right, which left exactly the
+        # compatibility problem this script is supposed to remove.
+        if ":not(div > *)" in item:
+            # The source uses `ha-card:is(...):not(div > *)` to avoid styling
+            # nested/internal ha-cards. Simply deleting the complex :not() makes
+            # the rule much too broad and breaks the inner header rounding.
+            # For legacy selector engines, narrow those ha-card selectors to the
+            # direct card below the card-mod host instead.
+            item = re.sub(
+                r"(?<![\w-])ha-card((?:\.[A-Za-z0-9_-]+)+):not\(div > \*\)",
+                r":host > ha-card\1",
+                item,
+            )
+            item = item.replace(":not(div > *)", "")
+            item = normalise_selector(item)
 
+        if ";" in item or "__HA_CONTROL_LINE_" in item:
+            continue
         cleaned.append(item)
 
     out: List[str] = []
@@ -607,28 +672,23 @@ def render_flat_css(flat_rules: List[Tuple[List[str], List[str], List[str]]]) ->
 def flatten_css_block(css_text: str) -> str:
     cleaned = normalise_css_source(css_text)
 
-    control_line_mapping: Dict[str, str] = {}
+    # Jinja control lines are not CSS. If they are parsed as selectors, they get
+    # combined with their parent selector and produce invalid CSS such as
+    # ":host __HA_CONTROL_LINE_0__". Keep the CSS valid for legacy engines by
+    # removing those control lines before parsing. Template expressions inside
+    # declarations are still masked/restored below.
     protected_lines: List[str] = []
-    counter = 0
     for line in cleaned.splitlines():
         stripped = line.strip()
         if stripped.startswith("{%") and stripped.endswith("%}"):
-            token = f"__HA_CONTROL_LINE_{counter}__"
-            control_line_mapping[token] = stripped
-            protected_lines.append(token + " {\n  --ha-control-line: 1;\n}")
-            counter += 1
-        else:
-            protected_lines.append(line)
+            continue
+        protected_lines.append(line)
 
     masked, mapping = mask_templates("\n".join(protected_lines))
     parsed = parse_css(masked)
     flattened = flatten_css_rules(parsed)
     rendered = render_flat_css(flattened)
     restored = restore_templates(rendered, mapping)
-
-    for token, original in control_line_mapping.items():
-        pattern = rf"^\s*{re.escape(token)} \{{\n\s*--ha-control-line: 1;\n\}}\n?"
-        restored = re.sub(pattern, original + "\n", restored, flags=re.M)
 
     return restored
 
@@ -692,13 +752,58 @@ def indent_text(text: str, indent: int) -> str:
     return "".join(prefix + line if line.strip() else line for line in text.splitlines(keepends=True))
 
 
+def strip_has_pseudo_from_selector_text(text: str) -> str:
+    """Remove :has(...) from selector text without being fooled by nested parens."""
+    out: List[str] = []
+    i = 0
+    while i < len(text):
+        if text.startswith(":has(", i):
+            j = i + 5
+            depth = 0
+            quote = None
+            while j < len(text):
+                ch = text[j]
+                if quote is not None:
+                    if ch == "\\" and j + 1 < len(text):
+                        j += 2
+                        continue
+                    if ch == quote:
+                        quote = None
+                    j += 1
+                    continue
+                if ch in ("'", '"'):
+                    quote = ch
+                    j += 1
+                    continue
+                if ch == "(":
+                    depth += 1
+                elif ch == ")":
+                    if depth == 0:
+                        j += 1
+                        break
+                    depth -= 1
+                j += 1
+            i = j
+            continue
+        out.append(text[i])
+        i += 1
+    return "".join(out)
+
+
+def normalise_legacy_yaml_selector_line(line: str) -> str:
+    # card-mod also uses selector strings as YAML keys, e.g.
+    # "ha-card:has(ha-sortable)$": |. Older selector engines reject :has().
+    if ":has(" not in line:
+        return line
+    return strip_has_pseudo_from_selector_text(line)
+
 def process_text(text: str) -> str:
     lines = text.splitlines(keepends=True)
     out: List[str] = []
     i = 0
 
     while i < len(lines):
-        line = lines[i]
+        line = normalise_legacy_yaml_selector_line(lines[i])
         match = _LITERAL_RE.match(normalise_literal_marker_line_for_match(line.rstrip("\n")))
 
         if not match:
@@ -731,6 +836,132 @@ def process_text(text: str) -> str:
 
     return "".join(out)
 
+def insert_legacy_sidebar_menu_icon_centering(text: str) -> str:
+    """Add an old iOS/QtWebKit centering fix for sidebar menu icons."""
+
+    anchor = (
+        '      ha-user-badge {\n'
+        '        box-sizing: border-box;\n'
+        '        width: calc( var(--mdc-icon-size,24px) + 37px);\n'
+        '        padding-block: 8px;\n'
+        '      }\n'
+    )
+    fix = (
+        '\n'
+        '      ha-list-item-button:not(.configuration):not(.user) > ha-icon,\n'
+        '      ha-list-item-button:not(.configuration):not(.user) > ha-svg-icon {\n'
+        '        display: flex;\n'
+        '        align-items: center;\n'
+        '        justify-content: center;\n'
+        '        box-sizing: border-box;\n'
+        '        min-width: 61px;\n'
+        '        height: 100%;\n'
+        '      }\n'
+    )
+    if anchor in text:
+        return text.replace(anchor, anchor + fix, 1)
+
+
+def postprocess_lcars_compat(text: str) -> str:
+    """Repair cases where flattening creates CSS that is syntactically invalid or loses HA Jinja guards.
+
+    This is deliberately conservative: it removes selectors that can never match
+    because they combine :host(...) directly with a light-DOM ha-card/id, removes
+    orphaned comment tails from malformed source comments, and restores the two
+    standalone Home Assistant template guards used by lcars.yaml.
+    """
+    text = re.sub(r'^\s*\*[^\n]*\*/\s*\n', '', text, flags=re.M)
+
+    kept: List[str] = []
+    for line in text.splitlines(keepends=True):
+        if re.search(r':host\([^)]*\)(?:ha-card|#[A-Za-z0-9_-])', line):
+            continue
+        kept.append(line)
+    text = ''.join(kept)
+    text = re.sub(r',\n(\s*\{)', r'\n\1', text)
+
+    def find_block_end(source: str, start: int) -> int:
+        i = source.find('{', start)
+        if i < 0:
+            return -1
+        depth = 0
+        quote: Optional[str] = None
+        escaped = False
+        while i < len(source):
+            ch = source[i]
+            if quote is not None:
+                if escaped:
+                    escaped = False
+                elif ch == '\\':
+                    escaped = True
+                elif ch == quote:
+                    quote = None
+            else:
+                if ch in ('"', "'"):
+                    quote = ch
+                elif ch == '{':
+                    depth += 1
+                elif ch == '}':
+                    depth -= 1
+                    if depth == 0:
+                        return i + 1
+            i += 1
+        return -1
+
+    drawer_anchor = '  card-mod-drawer: |\n'
+    drawer_index = text.find(drawer_anchor)
+    if drawer_index >= 0 and "{% if not is_state('input_boolean.lcars_texture', 'off') %}" not in text[drawer_index:drawer_index + 400]:
+        before_start = text.find('    :host::before {', drawer_index)
+        if before_start >= 0:
+            before_end = find_block_end(text, before_start)
+            after_start = text.find('    :host::after {', before_end)
+            if before_end >= 0 and after_start >= 0:
+                after_end = find_block_end(text, after_start)
+                if after_end >= 0:
+                    segment = text[before_start:after_end]
+                    wrapped = (
+                        "    {% if not is_state('input_boolean.lcars_texture', 'off') %}\n"
+                        + segment
+                        + "\n    {% endif %}"
+                    )
+                    text = text[:before_start] + wrapped + text[after_end:]
+
+    sound_pair = (
+        '      .header {\n'
+        '        --lcars-sound: false;\n'
+        '      }\n\n'
+        '      .header {\n'
+        '        --lcars-sound: true;\n'
+        '      }'
+    )
+    sound_guarded = (
+        "      {% if not is_state('input_boolean.lcars_sound', 'on') %}\n"
+        "      .header {\n"
+        "        --lcars-sound: false;\n"
+        "      }\n"
+        "      {% else %}\n"
+        "      .header {\n"
+        "        --lcars-sound: true;\n"
+        "      }\n"
+        "      {% endif %}"
+    )
+    text = text.replace(sound_pair, sound_guarded)
+
+    # Rewriting `:not(a,b,c)` to `:not(a):not(b):not(c)` is needed for
+    # older selector engines, but it increases selector specificity. In the
+    # header rules the common child reset then beats the later inner-radius
+    # rule. Footer worked because the source already used !important there.
+    # Make the corresponding header inner-radius declarations equally explicit.
+    text = text.replace(
+        'border-top-left-radius: var(--lcars-inner-radius);',
+        'border-top-left-radius: var(--lcars-inner-radius) !important;',
+    )
+    text = text.replace(
+        'border-top-right-radius: var(--lcars-inner-radius);',
+        'border-top-right-radius: var(--lcars-inner-radius) !important;',
+    )
+    text = insert_legacy_sidebar_menu_icon_centering(text)
+    return text
 
 def main() -> int:
     parser = argparse.ArgumentParser(
@@ -745,7 +976,7 @@ def main() -> int:
         parser.error("Use either --in-place or --output, not both.")
 
     source = args.input.read_text(encoding="utf-8")
-    transformed = process_text(source)
+    transformed = postprocess_lcars_compat(process_text(source))
 
     if args.in_place:
         args.input.write_text(transformed, encoding="utf-8")
