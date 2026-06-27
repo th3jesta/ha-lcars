@@ -2813,6 +2813,13 @@ LCARS 25C:
   # Theme-specific
   lcars-tab-selected-bg: url("data:image/svg+xml,%3C!-- sample rectangle --%3E%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='transparent'%3E%3Canimate attributeName='fill' values='%23e7442a;%23e7442a;%236d748c' begin='0s' dur='5s' calcMode='discrete' repeatCount='indefinite' /%3E%3C/rect%3E%3C/svg%3E")
   modes:
+    light:
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-settings-card-text: var(--lcars-text-light)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -2822,13 +2829,6 @@ LCARS 25C:
       lcars-settings-card-text: var(--lcars-text-dark)
       lcars-card-top-text: var(--lcars-text-gray)
       lcars-card-bottom-text: var(--lcars-text-gray)
-    light:
-      lcars-ui-mix-color: black
-      lcars-backlight-center: "#ffffff30"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 60%
-      lcars-backlight-outer: transparent
-      lcars-settings-card-text: var(--lcars-text-light)
 
 LCARS 25C (Blue Alert):
   card-mod-theme: LCARS 25C (Blue Alert)
@@ -2888,6 +2888,13 @@ LCARS 25C (Blue Alert):
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "34,102,255"
   modes:
+    light:
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-settings-card-text: var(--lcars-text-light)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -2901,13 +2908,6 @@ LCARS 25C (Blue Alert):
       lcars-card-mid-text: var(--lcars-text-dark)
       lcars-card-button-text: var(--lcars-text-dark)
       lcars-card-bottom-text: var(--lcars-text-dark)
-    light:
-      lcars-ui-mix-color: black
-      lcars-backlight-center: "#ffffff30"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 60%
-      lcars-backlight-outer: transparent
-      lcars-settings-card-text: var(--lcars-text-light)
 
 LCARS 25C (Red Alert):
   card-mod-theme: LCARS 25C (Red Alert)
@@ -2967,6 +2967,13 @@ LCARS 25C (Red Alert):
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "204,0,0"
   modes:
+    light:
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-settings-card-text: var(--lcars-text-light)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -2980,13 +2987,6 @@ LCARS 25C (Red Alert):
       lcars-card-mid-text: var(--lcars-text-dark)
       lcars-card-button-text: var(--lcars-text-dark)
       lcars-card-bottom-text: var(--lcars-text-dark)
-    light:
-      lcars-ui-mix-color: black
-      lcars-backlight-center: "#ffffff30"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 60%
-      lcars-backlight-outer: transparent
-      lcars-settings-card-text: var(--lcars-text-light)
 
 LCARS 25C (Yellow Alert):
   card-mod-theme: LCARS 25C (Yellow Alert)
@@ -3046,13 +3046,6 @@ LCARS 25C (Yellow Alert):
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "255,170,0"
   modes:
-    dark:
-      lcars-ui-mix-color: white
-      lcars-backlight-center: "#ffffff10"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: "#00000080"
-      lcars-settings-card-text: var(--lcars-text-dark)
     light:
       lcars-ui-mix-color: black
       lcars-backlight-center: "#ffffff30"
@@ -3060,6 +3053,13 @@ LCARS 25C (Yellow Alert):
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
+    dark:
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: "#00000080"
+      lcars-settings-card-text: var(--lcars-text-dark)
 
 LCARS Breen:
   card-mod-theme: LCARS Breen
@@ -3118,13 +3118,6 @@ LCARS Breen:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "15,86,22"
   modes:
-    dark:
-      lcars-ui-mix-color: white
-      lcars-backlight-center: "#ffffff10"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: "#00000080"
-      lcars-settings-card-text: var(--lcars-text-dark)
     light:
       lcars-ui-mix-color: black
       lcars-backlight-center: "#ffffff30"
@@ -3132,6 +3125,13 @@ LCARS Breen:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
+    dark:
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: "#00000080"
+      lcars-settings-card-text: var(--lcars-text-dark)
 
 LCARS Cardassia:
   card-mod-theme: LCARS Cardassia
@@ -3190,6 +3190,13 @@ LCARS Cardassia:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "79,26,35"
   modes:
+    light:
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-settings-card-text: var(--lcars-text-light)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -3200,13 +3207,6 @@ LCARS Cardassia:
       lcars-ui-quaternary-text: var(--lcars-text-gray)
       lcars-card-mid-text: var(--lcars-text-gray)
       lcars-card-button-text: var(--lcars-text-gray)
-    light:
-      lcars-ui-mix-color: black
-      lcars-backlight-center: "#ffffff30"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 60%
-      lcars-backlight-outer: transparent
-      lcars-settings-card-text: var(--lcars-text-light)
 
 LCARS Classic:
   card-mod-theme: LCARS Classic
@@ -3265,6 +3265,13 @@ LCARS Classic:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "102,102,136"
   modes:
+    light:
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-settings-card-text: var(--lcars-text-light)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -3273,13 +3280,6 @@ LCARS Classic:
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
       lcars-ui-quaternary-text: var(--lcars-text-dark)
-    light:
-      lcars-ui-mix-color: black
-      lcars-backlight-center: "#ffffff30"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 60%
-      lcars-backlight-outer: transparent
-      lcars-settings-card-text: var(--lcars-text-light)
 
 LCARS Default:
   card-mod-theme: LCARS Default
@@ -3338,6 +3338,13 @@ LCARS Default:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "102,102,136"
   modes:
+    light:
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-settings-card-text: var(--lcars-text-light)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -3347,13 +3354,6 @@ LCARS Default:
       lcars-settings-card-text: var(--lcars-text-dark)
       lcars-ui-quaternary-text: var(--lcars-text-dark)
       lcars-card-bottom-text: var(--lcars-text-dark)
-    light:
-      lcars-ui-mix-color: black
-      lcars-backlight-center: "#ffffff30"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 60%
-      lcars-backlight-outer: transparent
-      lcars-settings-card-text: var(--lcars-text-light)
 
 LCARS Kronos:
   card-mod-theme: LCARS Kronos
@@ -3412,13 +3412,6 @@ LCARS Kronos:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "147,10,0"
   modes:
-    dark:
-      lcars-ui-mix-color: white
-      lcars-backlight-center: "#ffffff10"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: "#00000080"
-      lcars-settings-card-text: var(--lcars-text-dark)
     light:
       lcars-ui-mix-color: black
       lcars-backlight-center: "#ffffff30"
@@ -3426,6 +3419,13 @@ LCARS Kronos:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
+    dark:
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: "#00000080"
+      lcars-settings-card-text: var(--lcars-text-dark)
 
 LCARS Picard [LCARdS Blue Accent]:
   card-mod-theme: LCARS Picard [LCARdS Blue Accent]
@@ -3547,6 +3547,22 @@ LCARS Picard [LCARdS Blue Accent]:
   lcars-card-button-barrel: var(--lcards-gray-medium-dark)
   lcars-card-background: var(--lcards-gray-medium-light)
   modes:
+    light:
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-settings-card-text: var(--lcars-text-light)
+      ha-color-form-background: color-mix(in srgb, var(--lcards-moonlight) 40%, transparent)
+      lcars-ui-primary: var(--lcards-gray-medium-light)
+      lcars-ui-secondary: var(--lcards-gray-light)
+      lcars-ui-tertiary: var(--lcards-blue)
+      lcars-ui-quaternary: var(--lcards-gray-medium-dark)
+      lcars-alert-color: var(--lcards-orange-medium-dark)
+      success-color: var(--lcards-green)
+      warning-color: var(--lcards-orange-medium-light)
+      error-color: var(--lcards-orange)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -3566,22 +3582,6 @@ LCARS Picard [LCARdS Blue Accent]:
       lcars-ui-quaternary-text: var(--lcars-text-gray)
       lcars-card-top-text: var(--lcars-text-dark)
       lcars-card-bottom-text: var(--lcars-text-gray)
-    light:
-      lcars-ui-mix-color: black
-      lcars-backlight-center: "#ffffff30"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 60%
-      lcars-backlight-outer: transparent
-      lcars-settings-card-text: var(--lcars-text-light)
-      ha-color-form-background: color-mix(in srgb, var(--lcards-moonlight) 40%, transparent)
-      lcars-ui-primary: var(--lcards-gray-medium-light)
-      lcars-ui-secondary: var(--lcards-gray-light)
-      lcars-ui-tertiary: var(--lcards-blue)
-      lcars-ui-quaternary: var(--lcards-gray-medium-dark)
-      lcars-alert-color: var(--lcards-orange-medium-dark)
-      success-color: var(--lcards-green)
-      warning-color: var(--lcards-orange-medium-light)
-      error-color: var(--lcards-orange)
 
 LCARS Picard [LCARdS Red Accent]:
   card-mod-theme: LCARS Picard [LCARdS Red Accent]
@@ -3703,6 +3703,22 @@ LCARS Picard [LCARdS Red Accent]:
   lcars-card-button-barrel: var(--lcards-gray-medium-dark)
   lcars-card-background: var(--lcards-gray-medium-light)
   modes:
+    light:
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-settings-card-text: var(--lcars-text-light)
+      ha-color-form-background: color-mix(in srgb, var(--lcards-moonlight) 40%, transparent)
+      lcars-ui-primary: var(--lcards-gray-medium-light)
+      lcars-ui-secondary: var(--lcards-gray-light)
+      lcars-ui-tertiary: var(--lcards-orange)
+      lcars-ui-quaternary: var(--lcards-gray-medium-dark)
+      lcars-alert-color: var(--lcards-orange-medium-dark)
+      success-color: var(--lcards-green)
+      warning-color: var(--lcards-orange-medium-light)
+      error-color: var(--lcards-orange)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -3722,22 +3738,6 @@ LCARS Picard [LCARdS Red Accent]:
       lcars-ui-quaternary-text: var(--lcars-text-gray)
       lcars-card-top-text: var(--lcars-text-dark)
       lcars-card-bottom-text: var(--lcars-text-gray)
-    light:
-      lcars-ui-mix-color: black
-      lcars-backlight-center: "#ffffff30"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 60%
-      lcars-backlight-outer: transparent
-      lcars-settings-card-text: var(--lcars-text-light)
-      ha-color-form-background: color-mix(in srgb, var(--lcards-moonlight) 40%, transparent)
-      lcars-ui-primary: var(--lcards-gray-medium-light)
-      lcars-ui-secondary: var(--lcards-gray-light)
-      lcars-ui-tertiary: var(--lcards-orange)
-      lcars-ui-quaternary: var(--lcards-gray-medium-dark)
-      lcars-alert-color: var(--lcards-orange-medium-dark)
-      success-color: var(--lcards-green)
-      warning-color: var(--lcards-orange-medium-light)
-      error-color: var(--lcards-orange)
 
 LCARS Lower Decks I:
   card-mod-theme: LCARS Lower Decks I
@@ -3796,6 +3796,13 @@ LCARS Lower Decks I:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "145,85,11"
   modes:
+    light:
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-settings-card-text: var(--lcars-text-light)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -3804,13 +3811,6 @@ LCARS Lower Decks I:
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
       lcars-ui-quaternary-text: var(--lcars-text-dark)
-    light:
-      lcars-ui-mix-color: black
-      lcars-backlight-center: "#ffffff30"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 60%
-      lcars-backlight-outer: transparent
-      lcars-settings-card-text: var(--lcars-text-light)
 
 LCARS Lower Decks II:
   card-mod-theme: LCARS Lower Decks II
@@ -3869,6 +3869,13 @@ LCARS Lower Decks II:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "145,85,11"
   modes:
+    light:
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-settings-card-text: var(--lcars-text-light)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -3877,13 +3884,6 @@ LCARS Lower Decks II:
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
       lcars-ui-quaternary-text: var(--lcars-text-dark)
-    light:
-      lcars-ui-mix-color: black
-      lcars-backlight-center: "#ffffff30"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 60%
-      lcars-backlight-outer: transparent
-      lcars-settings-card-text: var(--lcars-text-light)
 
 LCARS Modern:
   card-mod-theme: LCARS Modern
@@ -3942,6 +3942,13 @@ LCARS Modern:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "102,102,136"
   modes:
+    light:
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-settings-card-text: var(--lcars-text-light)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -3951,13 +3958,6 @@ LCARS Modern:
       lcars-settings-card-text: var(--lcars-text-dark)
       lcars-ui-quaternary-text: var(--lcars-text-dark)
       lcars-card-button-text: var(--lcars-text-dark)
-    light:
-      lcars-ui-mix-color: black
-      lcars-backlight-center: "#ffffff30"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 60%
-      lcars-backlight-outer: transparent
-      lcars-settings-card-text: var(--lcars-text-light)
 
 LCARS Navigation:
   card-mod-theme: LCARS Navigation
@@ -4016,13 +4016,6 @@ LCARS Navigation:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "130,122,83"
   modes:
-    dark:
-      lcars-ui-mix-color: white
-      lcars-backlight-center: "#ffffff10"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: "#00000080"
-      lcars-settings-card-text: var(--lcars-text-dark)
     light:
       lcars-ui-mix-color: black
       lcars-backlight-center: "#ffffff30"
@@ -4030,6 +4023,13 @@ LCARS Navigation:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
+    dark:
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: "#00000080"
+      lcars-settings-card-text: var(--lcars-text-dark)
 
 LCARS Nemesis Blue:
   card-mod-theme: LCARS Nemesis Blue
@@ -4088,6 +4088,13 @@ LCARS Nemesis Blue:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "68,74,119"
   modes:
+    light:
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-settings-card-text: var(--lcars-text-light)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -4096,13 +4103,6 @@ LCARS Nemesis Blue:
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
       lcars-ui-primary-text: var(--lcars-text-dark)
-    light:
-      lcars-ui-mix-color: black
-      lcars-backlight-center: "#ffffff30"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 60%
-      lcars-backlight-outer: transparent
-      lcars-settings-card-text: var(--lcars-text-light)
 
 LCARS Picard I:
   card-mod-theme: LCARS Picard I
@@ -4161,6 +4161,13 @@ LCARS Picard I:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "101,107,131"
   modes:
+    light:
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-settings-card-text: var(--lcars-text-light)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -4172,13 +4179,6 @@ LCARS Picard I:
       lcars-ui-quaternary-text: var(--lcars-text-dark)
       lcars-card-top-text: var(--lcars-text-dark)
       lcars-card-bottom-text: var(--lcars-text-gray)
-    light:
-      lcars-ui-mix-color: black
-      lcars-backlight-center: "#ffffff30"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 60%
-      lcars-backlight-outer: transparent
-      lcars-settings-card-text: var(--lcars-text-light)
 
 LCARS Picard II:
   card-mod-theme: LCARS Picard II
@@ -4237,6 +4237,13 @@ LCARS Picard II:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "1,37,86"
   modes:
+    light:
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-settings-card-text: var(--lcars-text-light)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -4246,13 +4253,6 @@ LCARS Picard II:
       lcars-settings-card-text: var(--lcars-text-dark)
       lcars-ui-quaternary-text: var(--lcars-text-gray)
       lcars-card-bottom-text: var(--lcars-text-gray)
-    light:
-      lcars-ui-mix-color: black
-      lcars-backlight-center: "#ffffff30"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 60%
-      lcars-backlight-outer: transparent
-      lcars-settings-card-text: var(--lcars-text-light)
 
 LCARS Red Alert:
   card-mod-theme: LCARS Red Alert
@@ -4311,6 +4311,13 @@ LCARS Red Alert:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "54,0,0"
   modes:
+    light:
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-settings-card-text: var(--lcars-text-light)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -4321,13 +4328,6 @@ LCARS Red Alert:
       lcars-ui-primary-text: var(--lcars-text-dark)
       lcars-ui-quaternary-text: var(--lcars-text-mist)
       lcars-card-top-text: var(--lcars-text-dark)
-    light:
-      lcars-ui-mix-color: black
-      lcars-backlight-center: "#ffffff30"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 60%
-      lcars-backlight-outer: transparent
-      lcars-settings-card-text: var(--lcars-text-light)
 
 LCARS Romulus:
   card-mod-theme: LCARS Romulus
@@ -4386,6 +4386,13 @@ LCARS Romulus:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "15,86,22"
   modes:
+    light:
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-settings-card-text: var(--lcars-text-light)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -4394,13 +4401,6 @@ LCARS Romulus:
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
       lcars-card-top-text: var(--lcars-text-dark)
-    light:
-      lcars-ui-mix-color: black
-      lcars-backlight-center: "#ffffff30"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 60%
-      lcars-backlight-outer: transparent
-      lcars-settings-card-text: var(--lcars-text-light)
 
 LCARS TNG:
   card-mod-theme: LCARS TNG
@@ -4459,13 +4459,6 @@ LCARS TNG:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "68,74,119"
   modes:
-    dark:
-      lcars-ui-mix-color: white
-      lcars-backlight-center: "#ffffff10"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: "#00000080"
-      lcars-settings-card-text: var(--lcars-text-dark)
     light:
       lcars-ui-mix-color: black
       lcars-backlight-center: "#ffffff30"
@@ -4473,6 +4466,13 @@ LCARS TNG:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
+    dark:
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: "#00000080"
+      lcars-settings-card-text: var(--lcars-text-dark)
 
 LCARS TNGbuttons:
   card-mod-theme: LCARS TNGbuttons
@@ -4531,13 +4531,6 @@ LCARS TNGbuttons:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "68,74,119"
   modes:
-    dark:
-      lcars-ui-mix-color: white
-      lcars-backlight-center: "#ffffff10"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: "#00000080"
-      lcars-settings-card-text: var(--lcars-text-dark)
     light:
       lcars-ui-mix-color: black
       lcars-backlight-center: "#ffffff30"
@@ -4545,6 +4538,13 @@ LCARS TNGbuttons:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
+    dark:
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: "#00000080"
+      lcars-settings-card-text: var(--lcars-text-dark)
 
 LCARS Transporter:
   card-mod-theme: LCARS Transporter
@@ -4603,6 +4603,13 @@ LCARS Transporter:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "44,55,75"
   modes:
+    light:
+      lcars-ui-mix-color: black
+      lcars-backlight-center: "#ffffff30"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 60%
+      lcars-backlight-outer: transparent
+      lcars-settings-card-text: var(--lcars-text-light)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -4614,13 +4621,6 @@ LCARS Transporter:
       lcars-ui-quaternary-text: var(--lcars-text-gray)
       lcars-card-button-text: var(--lcars-text-dark)
       lcars-card-bottom-text: var(--lcars-text-gray)
-    light:
-      lcars-ui-mix-color: black
-      lcars-backlight-center: "#ffffff30"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 60%
-      lcars-backlight-outer: transparent
-      lcars-settings-card-text: var(--lcars-text-light)
 
 LCARS Zeldaar:
   card-mod-theme: LCARS Zeldaar
@@ -4679,13 +4679,6 @@ LCARS Zeldaar:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "119,68,119"
   modes:
-    dark:
-      lcars-ui-mix-color: white
-      lcars-backlight-center: "#ffffff10"
-      lcars-backlight-middle: transparent
-      lcars-backlight-middle-location: 70%
-      lcars-backlight-outer: "#00000080"
-      lcars-settings-card-text: var(--lcars-text-dark)
     light:
       lcars-ui-mix-color: black
       lcars-backlight-center: "#ffffff30"
@@ -4693,6 +4686,13 @@ LCARS Zeldaar:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
+    dark:
+      lcars-ui-mix-color: white
+      lcars-backlight-center: "#ffffff10"
+      lcars-backlight-middle: transparent
+      lcars-backlight-middle-location: 70%
+      lcars-backlight-outer: "#00000080"
+      lcars-settings-card-text: var(--lcars-text-dark)
 
 # ================ Paste your themes here =============== |
 # (or add a file to src/themes/ and run generate_themes.py)

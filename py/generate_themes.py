@@ -267,9 +267,13 @@ def load_theme(path: Path, defaults: dict) -> tuple[str, dict, dict | None]:
         raise ValueError(f"{path.name}: missing required 'name' field")
 
     # Deep-merge modes: default modes are the base, theme modes override per-key.
+    # Preserve declaration order (defaults.yaml first, then theme-only modes) so
+    # the generated YAML is byte-stable across runs. set() iteration is
+    # hash-randomised per process, which would otherwise emit `light` and `dark`
+    # in either order from one run to the next and produce meaningless diffs.
     default_modes: dict = defaults.get("modes") or {}
     theme_modes: dict = data.get("modes") or {}
-    all_mode_keys = set(default_modes) | set(theme_modes)
+    all_mode_keys = list(dict.fromkeys([*default_modes, *theme_modes]))
     modes: dict | None = (
         {mk: {**(default_modes.get(mk) or {}), **(theme_modes.get(mk) or {})} for mk in all_mode_keys}
         if all_mode_keys else None
