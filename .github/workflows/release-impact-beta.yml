@@ -1,0 +1,45 @@
+name: HA-Frontend Beta Release Impact Analysis
+
+# Manual-only counterpart to release-impact.yml. Runs the analyzer on the
+# latest ha-frontend pre-release/beta without advancing the shared state file
+# used by the scheduled stable run.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: "ha-frontend-release-impact-analysis"
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Rebase Branch
+        uses: martincostello/rebaser@v3.0.1
+        with:
+          branch: master
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install anthropic requests
+
+      - name: Run release impact analyzer on latest beta
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python py/release_impact.py --latest-beta
+
+      - name: Commit and push new analysis
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "chore: add ha-frontend pre-release pipeline impact analysis"
+          file_pattern: "docs/release-impact/pipeline-*.md"
