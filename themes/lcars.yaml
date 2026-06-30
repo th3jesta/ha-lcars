@@ -454,7 +454,7 @@
       /*                Common Card Styles               */
       /* ----------------------------------------------- */
       :host {
-        * Default card has quaternary background. */
+        /* Default card has quaternary background. */
         font-family: var(--font-family) !important;
         --md-sys-color-primary: var(--lcars-ui-quaternary) !important;
 

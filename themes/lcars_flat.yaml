@@ -453,7 +453,6 @@
   card-mod-card-yaml: &card-mod-card |
     .: |
       :host {
-        * Default card has quaternary background. */
         font-family: var(--font-family) !important;
         --md-sys-color-primary: var(--lcars-ui-quaternary) !important;
         --lcars-primary-text: var(--lcars-ui-quaternary-text) !important;
