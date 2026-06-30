@@ -3280,7 +3280,7 @@ LCARS Classic:
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
       lcars-ui-quaternary-text: var(--lcars-text-dark)
-      
+
 LCARS Default:
   card-mod-theme: LCARS Default
   <<: *lcars-variables
