@@ -2,8 +2,10 @@ name: HA-Frontend Release Impact Analysis
 
 on:
   schedule:
-    - cron: "0 */6 * * *"   # every 6 hours
-  workflow_dispatch:          # manual trigger
+    # Daily at 21:00 UTC — after Home Assistant's typical 15:00-20:00 UTC
+    # release window, so a same-day pin bump lands before the next fire.
+    - cron: "0 21 * * *"
+  workflow_dispatch:
 
 jobs:
   analyze:
