@@ -1,24 +1,37 @@
 #!/usr/bin/env python3
 """
-Monitor ha-frontend GitHub releases and analyze their impact on the ha-lcars theme.
+Monitor Home Assistant Core's ha-frontend pin and analyze pin bumps for
+impact on the ha-lcars theme.
+
+Auto mode (no args) follows the frontend version currently pinned by the
+latest home-assistant/core release (stable or pre-release). When that pin
+differs from the last analyzed pin (`.state.json:last_analyzed_pin`) it
+emits one report keyed to the Core release tag that carried the bump.
+Every intermediate ha-frontend release in the range — including tags Core
+skipped — is enumerated in the report's release-notes section.
 
 Usage:
-    python3 py/release_impact.py              # process all new releases since last run
-    python3 py/release_impact.py --since 20260101.0  # process releases after this tag
-    python3 py/release_impact.py --tag 20260527.2    # process a specific release
-    python3 py/release_impact.py --list              # list recent releases without processing
+    python3 py/release_impact.py                   # scheduled: watch the Core pin
+    python3 py/release_impact.py --latest-beta     # pipeline: latest Core pre-release pin (no state update)
+    python3 py/release_impact.py --since 20260101.0  # force a base frontend tag (backfill)
+    python3 py/release_impact.py --tag 20260527.2    # single-frontend-release analysis (backfill)
+    python3 py/release_impact.py --list             # list recent frontend releases and exit
 
 Requires:
     ANTHROPIC_API_KEY environment variable
     GitHub CLI (gh) authenticated, or GITHUB_TOKEN environment variable
 
-State is stored in docs/release-impact/.state.json
+State is stored in docs/release-impact/.state.json:
+    last_analyzed_pin     — frontend version last analyzed
+    last_analyzed_core_tag — Core release that carried that pin
+    last_run              — ISO 8601 UTC
 """
 from __future__ import annotations
 
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 from datetime import UTC, datetime
@@ -124,13 +137,118 @@ def get_release_by_tag(token: str, tag: str) -> dict:
 
 
 # ──────────────────────────────────────────────────────────────────────────────
+# home-assistant/core lookup (pin tracking)
+# ──────────────────────────────────────────────────────────────────────────────
+
+CORE_REPO = "home-assistant/core"
+
+
+def get_core_releases(token: str, per_page: int = 50) -> list[dict]:
+    """Fetch home-assistant/core releases (both stable and pre-release)."""
+    return gh_get(f"repos/{CORE_REPO}/releases", token, params={"per_page": per_page})  # type: ignore[return-value]
+
+
+def get_core_release_manifest_pin(core_tag: str) -> str | None:
+    """Return the ha-frontend version pinned by Core at *core_tag*.
+
+    Reads homeassistant/components/frontend/manifest.json via the raw file
+    endpoint. Public repo — no auth required. Returns None if the manifest is
+    missing, malformed, or has no frontend requirement.
+    """
+    url = (
+        f"https://raw.githubusercontent.com/{CORE_REPO}/{core_tag}"
+        f"/homeassistant/components/frontend/manifest.json"
+    )
+    try:
+        resp = requests.get(url, timeout=20)
+        if resp.status_code != 200:
+            return None
+        manifest = resp.json()
+    except (requests.RequestException, ValueError):
+        return None
+    for req in manifest.get("requirements") or []:
+        if isinstance(req, str) and req.startswith("home-assistant-frontend=="):
+            return req.split("==", 1)[1].strip()
+    return None
+
+
+_CORE_TAG_RE = re.compile(r"^(\d{4})\.(\d+)\.(\d+)(?:b(\d+))?$")
+
+
+def core_tag_sort_key(tag: str) -> tuple:
+    """Sort Core tags (YYYY.M.PATCH[bN]).
+
+    Betas sort before the same-version stable: 2026.6.0b3 < 2026.6.0.
+    """
+    m = _CORE_TAG_RE.match(tag or "")
+    if not m:
+        return (0, 0, 0, 1, 0)
+    year, month, patch, beta = m.groups()
+    is_stable = 1 if beta is None else 0
+    return (int(year), int(month), int(patch), is_stable, int(beta or 0))
+
+
+def resolve_latest_pinning_release(
+    core_releases: list[dict],
+    prerelease_ok: bool = True,
+) -> tuple[dict | None, str | None]:
+    """Walk Core releases newest-first; return (release, frontend_pin) for the
+    first one that actually pins a frontend version.
+
+    Skips releases whose manifest is unavailable. When *prerelease_ok* is False,
+    also skips pre-releases (so callers can find the last stable pin).
+    """
+    sorted_releases = sorted(
+        core_releases,
+        key=lambda r: core_tag_sort_key(r["tag_name"]),
+        reverse=True,
+    )
+    for r in sorted_releases:
+        if not prerelease_ok and r.get("prerelease"):
+            continue
+        pin = get_core_release_manifest_pin(r["tag_name"])
+        if pin:
+            return r, pin
+    return None, None
+
+
+def intermediate_frontend_releases(
+    frontend_releases: list[dict],
+    base_pin: str,
+    head_pin: str,
+) -> list[dict]:
+    """Return every ha-frontend release strictly newer than *base_pin* up to and
+    including *head_pin*, sorted oldest-first. Handles the case where base > head
+    (a pin was reverted) by swapping ends.
+    """
+    lo = tag_sort_key(base_pin) if base_pin else (0, 0)
+    hi = tag_sort_key(head_pin)
+    if lo > hi:
+        lo, hi = hi, lo
+    return sorted(
+        [r for r in frontend_releases if lo < tag_sort_key(r["tag_name"]) <= hi],
+        key=lambda r: tag_sort_key(r["tag_name"]),
+    )
+
+
+# ──────────────────────────────────────────────────────────────────────────────
 # State management
 # ──────────────────────────────────────────────────────────────────────────────
 
 def load_state() -> dict:
-    if STATE_FILE.exists():
-        return json.loads(STATE_FILE.read_text())
-    return {}
+    """Load state and migrate legacy keys.
+
+    Legacy schema (pre pin-tracking): `last_processed_tag: <frontend_tag>`.
+    New schema: `last_analyzed_pin`, `last_analyzed_core_tag`.
+    """
+    if not STATE_FILE.exists():
+        return {}
+    state = json.loads(STATE_FILE.read_text())
+    # One-shot migration: adopt any legacy last_processed_tag as the current pin.
+    if state.get("last_processed_tag") and not state.get("last_analyzed_pin"):
+        state["last_analyzed_pin"] = state.pop("last_processed_tag")
+        state["state_migrated_from_last_processed_tag"] = True
+    return state
 
 
 def save_state(state: dict) -> None:
@@ -216,8 +334,29 @@ def analyze_with_claude(
     release: dict,
     diff_text: str,
     lcars_context: str,
+    pipeline_releases: list[dict] | None = None,
+    base_tag: str | None = None,
+    core_release: dict | None = None,
+    pin_mode: str | None = None,
 ) -> str:
-    """Call Claude Sonnet and return the raw markdown analysis."""
+    """Call Claude Sonnet and return the raw markdown analysis.
+
+    Three prompt framings:
+
+    * `pipeline_releases` is set and `pin_mode is None` → the legacy pre-release
+      pipeline framing (see PR #220): "one report covers this batch of beta
+      frontend releases from the last stable frontend to the current head."
+    * `pin_mode == "shipped"` → Core just pinned a new frontend on a released
+      Core tag; the report covers `base_tag → release.tag_name` on the frontend
+      repo, with intermediate frontend release notes attached. Filename lands on
+      the Core tag that carried the pin.
+    * `pin_mode == "pipeline"` → same, but for a Core pre-release; the base is
+      whatever the last stable Core pinned. Used by --latest-beta.
+
+    In both pin_mode framings, *core_release* is the Core release dict that
+    bumped the pin, and *base_tag* is the previous frontend pin (before the
+    bump).
+    """
     import anthropic
 
     client = anthropic.Anthropic()
@@ -261,12 +400,57 @@ Format rules:
   from both the diff and the LCARS theme source. Do not be vague.
 """
 
-    user = f"""\
-# ha-frontend Release: {tag} ({release_type})
-Published: {published}
+    if pin_mode is not None and core_release is not None:
+        # Core just bumped its frontend pin. Frame as "these frontend versions
+        # ship together in this Core release" so Claude reasons about the whole
+        # range users are about to receive.
+        core_tag = core_release["tag_name"]
+        core_type = "pre-release" if core_release.get("prerelease") else "stable"
+        span_label = "Upcoming Core release" if pin_mode == "pipeline" else "Core release"
+        notes_blocks: list[str] = []
+        for r in pipeline_releases or []:
+            r_body = (r.get("body") or "_(no release notes)_").strip()
+            r_type = "pre-release" if r.get("prerelease") else "stable"
+            notes_blocks.append(
+                f"### {r['tag_name']} — {r['published_at']} ({r_type})\n\n{r_body}"
+            )
+        notes_section = "\n\n".join(notes_blocks) if notes_blocks else \
+            f"### {tag} — {published}\n\n{body}"
+        header = (
+            f"# {span_label}: Core `{core_tag}` ({core_type})\n"
+            f"Frontend pin bumped: `{base_tag or '(none)'}`  →  `{tag}`\n"
+            f"Frontend versions included: "
+            f"{', '.join(r['tag_name'] for r in (pipeline_releases or [release]))}\n\n"
+            f"## Release Notes (each ha-frontend release in this pin bump)\n"
+        )
+        body_for_prompt = f"{header}\n{notes_section}"
+    elif pipeline_releases:
+        # Legacy pre-release pipeline framing (no Core context supplied).
+        notes_blocks = []
+        for r in pipeline_releases:
+            r_body = (r.get("body") or "_(no release notes)_").strip()
+            notes_blocks.append(
+                f"### {r['tag_name']} — {r['published_at']} "
+                f"({'pre-release' if r.get('prerelease') else 'stable'})\n\n{r_body}"
+            )
+        notes_section = "\n\n".join(notes_blocks)
+        header = (
+            f"# ha-frontend Pre-Release Pipeline Analysis\n"
+            f"Last stable: `{base_tag}`  →  Latest beta head: `{tag}`\n"
+            f"Releases covered: {len(pipeline_releases)} "
+            f"({sum(1 for r in pipeline_releases if r.get('prerelease'))} pre-release(s))\n\n"
+            f"## Release Notes (chronological, all releases in window)\n"
+        )
+        body_for_prompt = f"{header}\n{notes_section}"
+    else:
+        body_for_prompt = (
+            f"# ha-frontend Release: {tag} ({release_type})\n"
+            f"Published: {published}\n\n"
+            f"## Release Notes\n{body}"
+        )
 
-## Release Notes
-{body}
+    user = f"""\
+{body_for_prompt}
 
 ## Changed Files (diff)
 {diff_text}
@@ -312,7 +496,15 @@ Do NOT report:
 # Output
 # ──────────────────────────────────────────────────────────────────────────────
 
-def build_markdown(release: dict, analysis: str, all_changed_files: list[str]) -> str:
+def build_markdown(
+    release: dict,
+    analysis: str,
+    all_changed_files: list[str],
+    pipeline_releases: list[dict] | None = None,
+    base_tag: str | None = None,
+    core_release: dict | None = None,
+    pin_mode: str | None = None,
+) -> str:
     tag = release["tag_name"]
     published = release["published_at"]
     is_pre = release.get("prerelease", False)
@@ -321,22 +513,106 @@ def build_markdown(release: dict, analysis: str, all_changed_files: list[str]) -
 
     now = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 
-    lines = [
-        RELEASE_FILE_PREAMBLE.strip(),
-        "",
-        f"# ha-frontend {tag} — LCARS Theme Impact Analysis",
-        "",
-        f"| Field | Value |",
-        f"|-------|-------|",
-        f"| Release tag | `{tag}` |",
-        f"| Type | {release_type} |",
-        f"| Published | {published} |",
-        f"| Analyzed | {now} |",
-        f"| Changed files | {len(all_changed_files)} |",
-        "",
-        "## Release Notes",
-        "",
-        body if body else "_No release notes provided._",
+    def _mode_notes_section() -> str:
+        # Concatenated ha-frontend release notes for the releases in scope.
+        notes_blocks: list[str] = []
+        source = pipeline_releases if pipeline_releases is not None else [release]
+        for r in source:
+            r_body = (r.get("body") or "_No release notes provided._").strip()
+            rtype = "pre-release" if r.get("prerelease") else "stable"
+            notes_blocks.append(
+                f"### {r['tag_name']} — {r['published_at']} ({rtype})\n\n{r_body}"
+            )
+        return "\n\n".join(notes_blocks) or "_No release notes provided._"
+
+    if pin_mode is not None and core_release is not None:
+        # Pin-tracking framing: report is keyed to a Core release that carried
+        # the frontend pin bump. Callers write the file with the Core tag as
+        # the basename.
+        core_tag = core_release["tag_name"]
+        core_type = "Pre-release / Beta" if core_release.get("prerelease") else "Stable"
+        heading = (
+            "# Upcoming HA Core — LCARS Theme Impact Analysis"
+            if pin_mode == "pipeline"
+            else "# HA Core Release — LCARS Theme Impact Analysis"
+        )
+        included = pipeline_releases if pipeline_releases is not None else [release]
+        included_tags = ", ".join(f"`{r['tag_name']}`" for r in included)
+        skipped = [
+            r for r in included
+            if r["tag_name"] != tag and r["tag_name"] != base_tag
+        ]
+        skipped_note = (
+            f" ({len(skipped)} frontend tag(s) between base and head that Core skipped)"
+            if len(included) > 1 else ""
+        )
+        meta_rows = [
+            "| Field | Value |",
+            "|-------|-------|",
+            f"| Core release | `{core_tag}` |",
+            f"| Core type | {core_type} |",
+            f"| Core published | {core_release.get('published_at', 'unknown')} |",
+            f"| Previous frontend pin | `{base_tag or '(none)'}` |",
+            f"| New frontend pin | `{tag}` |",
+            f"| Frontend versions included | {included_tags}{skipped_note} |",
+            f"| Analyzed | {now} |",
+            f"| Changed files | {len(all_changed_files)} |",
+        ]
+        lines = [
+            RELEASE_FILE_PREAMBLE.strip(),
+            "",
+            heading,
+            "",
+            *meta_rows,
+            "",
+            "## Release Notes (each ha-frontend release in this pin bump)",
+            "",
+            _mode_notes_section(),
+        ]
+    elif pipeline_releases is not None:
+        # Legacy pre-release pipeline framing (used when no Core context).
+        title = "# ha-frontend Pre-Release Pipeline — LCARS Theme Impact Analysis"
+        meta_rows = [
+            "| Field | Value |",
+            "|-------|-------|",
+            f"| Last stable | `{base_tag}` |",
+            f"| Latest beta head | `{tag}` |",
+            f"| Releases in window | {len(pipeline_releases)} |",
+            f"| Pre-releases | {sum(1 for r in pipeline_releases if r.get('prerelease'))} |",
+            f"| Analyzed | {now} |",
+            f"| Changed files | {len(all_changed_files)} |",
+        ]
+        lines = [
+            RELEASE_FILE_PREAMBLE.strip(),
+            "",
+            title,
+            "",
+            *meta_rows,
+            "",
+            "## Release Notes (chronological, all releases in window)",
+            "",
+            _mode_notes_section(),
+        ]
+    else:
+        lines = [
+            RELEASE_FILE_PREAMBLE.strip(),
+            "",
+            f"# ha-frontend {tag} — LCARS Theme Impact Analysis",
+            "",
+            f"| Field | Value |",
+            f"|-------|-------|",
+            f"| Release tag | `{tag}` |",
+            f"| Type | {release_type} |",
+            f"| Published | {published} |",
+            f"| Analyzed | {now} |",
+            f"| Changed files | {len(all_changed_files)} |",
+            "",
+            "## Release Notes",
+            "",
+            body if body else "_No release notes provided._",
+        ]
+
+    lines += [
         "",
         "---",
         "",
@@ -383,16 +659,58 @@ def find_previous_tag(releases: list[dict], current_tag: str) -> str | None:
         return None
 
 
+def find_previous_stable_tag(releases: list[dict], current_tag: str) -> str | None:
+    """Return the latest non-prerelease tag strictly before current_tag."""
+    by_tag = {r["tag_name"]: r for r in releases}
+    sorted_tags = sorted(by_tag.keys(), key=tag_sort_key)
+    try:
+        idx = sorted_tags.index(current_tag)
+    except ValueError:
+        return None
+    for tag in reversed(sorted_tags[:idx]):
+        if not by_tag[tag].get("prerelease", False):
+            return tag
+    return None
+
+
 # ──────────────────────────────────────────────────────────────────────────────
 # Core processing
 # ──────────────────────────────────────────────────────────────────────────────
 
-def process_release(release: dict, prev_tag: str | None, token: str, lcars_context: str, dry_run: bool = False) -> Path:
+def process_release(
+    release: dict,
+    prev_tag: str | None,
+    token: str,
+    lcars_context: str,
+    dry_run: bool = False,
+    pipeline_releases: list[dict] | None = None,
+    output_basename: str | None = None,
+    core_release: dict | None = None,
+    pin_mode: str | None = None,
+) -> Path:
+    """Run the analyzer over a single frontend range and write one report.
+
+    When *core_release* is provided the report is keyed to the Core release
+    tag (that tag becomes the filename via *output_basename*, chosen by the
+    caller). The *pin_mode* string ("shipped" or "pipeline") controls the
+    heading and framing of the report.
+    """
     tag = release["tag_name"]
     print(f"\n{'='*60}")
-    print(f"Processing: {tag}")
-    print(f"Published:  {release['published_at']}")
-    print(f"Pre-release: {release.get('prerelease', False)}")
+    if core_release is not None:
+        print(f"Processing pin bump: {prev_tag or '(none)'} -> {tag}")
+        print(f"Carried by Core:     {core_release['tag_name']} "
+              f"({'pre-release' if core_release.get('prerelease') else 'stable'})")
+        if pipeline_releases:
+            print(f"Frontend tags in range: "
+                  f"{[r['tag_name'] for r in pipeline_releases]}")
+    elif pipeline_releases:
+        print(f"Processing pipeline: {prev_tag} -> {tag}")
+        print(f"Releases in window: {len(pipeline_releases)}")
+    else:
+        print(f"Processing: {tag}")
+    print(f"Frontend published:  {release['published_at']}")
+    print(f"Frontend pre-release: {release.get('prerelease', False)}")
 
     if prev_tag:
         print(f"Comparing:  {prev_tag}...{tag}")
@@ -402,24 +720,35 @@ def process_release(release: dict, prev_tag: str | None, token: str, lcars_conte
         compare = {"files": [], "commits": []}
 
     diff_text, all_files = format_diff_for_prompt(compare)
-    print(f"Diff: {len(compare.get('files', []))} files changed, {len([f for f in compare.get('files', []) if is_relevant(f['filename'])])} relevant")
+    print(f"Diff: {len(compare.get('files', []))} files changed, "
+          f"{len([f for f in compare.get('files', []) if is_relevant(f['filename'])])} relevant")
+
+    out_name = output_basename or tag
 
     if dry_run:
         print("\n[dry-run] Diff text that would be sent to Claude:")
         print(diff_text[:2000])
         print(f"\n[dry-run] LCARS context: {len(lcars_context):,} chars")
         print("[dry-run] Skipping Claude API call and file write.")
-        return OUTPUT_DIR / f"{tag}.md"
+        return OUTPUT_DIR / f"{out_name}.md"
 
     print("Calling Claude Sonnet for analysis...")
     try:
-        analysis = analyze_with_claude(release, diff_text, lcars_context)
+        analysis = analyze_with_claude(
+            release, diff_text, lcars_context,
+            pipeline_releases=pipeline_releases, base_tag=prev_tag,
+            core_release=core_release, pin_mode=pin_mode,
+        )
     except RuntimeError as e:
         print(f"ERROR: {e}")
         sys.exit(1)
 
-    content = build_markdown(release, analysis, all_files)
-    out_path = write_output(tag, content)
+    content = build_markdown(
+        release, analysis, all_files,
+        pipeline_releases=pipeline_releases, base_tag=prev_tag,
+        core_release=core_release, pin_mode=pin_mode,
+    )
+    out_path = write_output(out_name, content)
     print(f"Written: {out_path}")
     return out_path
 
@@ -432,6 +761,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--since", metavar="TAG", help="process all releases after this tag (exclusive)")
     parser.add_argument("--tag", metavar="TAG", help="process a single specific release")
+    parser.add_argument("--latest-beta", action="store_true", help="process the latest pre-release/beta only; do not update state file")
     parser.add_argument("--list", action="store_true", help="list recent releases and exit")
     parser.add_argument("--count", type=int, default=50, help="number of releases to fetch from GitHub (default 50)")
     parser.add_argument("--dry-run", action="store_true", help="print diff and prompt context but do not call Claude or write files")
@@ -454,6 +784,60 @@ def main() -> None:
     lcars_context = load_lcars_context()
     print(f"Loaded LCARS context: {len(lcars_context):,} chars")
 
+    if args.latest_beta:
+        # Pipeline framing (pin-driven): compare the frontend pin at the latest
+        # Core release of any type (typically a pre-release) against the pin at
+        # the latest stable Core release. Emits a single report keyed to the
+        # Core pre-release tag. Does not touch the state file (the scheduled
+        # run owns that).
+        print("Fetching home-assistant/core releases...")
+        core_releases = get_core_releases(token, per_page=50)
+
+        head_core, head_pin = resolve_latest_pinning_release(core_releases, prerelease_ok=True)
+        base_core, base_pin = resolve_latest_pinning_release(core_releases, prerelease_ok=False)
+        if head_core is None or head_pin is None:
+            print("No recent Core release pins a frontend version. Nothing to analyze.")
+            return
+        if base_pin is None:
+            print("No stable Core release pins a frontend version — using no base for the diff.")
+            base_pin = None
+        print(f"Latest Core (any type):  {head_core['tag_name']} pins ha-frontend {head_pin}")
+        print(f"Latest stable Core:      "
+              f"{base_core['tag_name'] if base_core else '(none)'} "
+              f"pins ha-frontend {base_pin}")
+
+        if base_pin and head_pin == base_pin:
+            print("Head pin equals stable pin — no upcoming Core changes to report.")
+            return
+
+        # Resolve the head release object for release-notes context. Head
+        # frontend tag may not be in the top-N cached list; fetch by tag if so.
+        head_release = releases_by_tag.get(head_pin)
+        if head_release is None:
+            try:
+                head_release = get_release_by_tag(token, head_pin)
+                releases.append(head_release)
+                releases_by_tag[head_pin] = head_release
+            except Exception as e:
+                sys.exit(f"ERROR: could not fetch head frontend release {head_pin}: {e}")
+
+        window = intermediate_frontend_releases(releases, base_pin or "", head_pin)
+        # If the API window didn't return enough releases (e.g. base_pin is old),
+        # widen to include the head at minimum.
+        if not window:
+            window = [head_release]
+        print(f"Frontend tags in window: {[r['tag_name'] for r in window]}")
+
+        process_release(
+            head_release, base_pin, token, lcars_context,
+            dry_run=args.dry_run,
+            pipeline_releases=window,
+            output_basename=f"pipeline-{head_core['tag_name']}",
+            core_release=head_core,
+            pin_mode="pipeline",
+        )
+        return
+
     if args.tag:
         # Process a single specific tag
         if args.tag not in releases_by_tag:
@@ -469,45 +853,85 @@ def main() -> None:
         process_release(release, prev_tag, token, lcars_context, dry_run=args.dry_run)
         return
 
-    # Auto-mode: process all new releases since last run (or --since)
+    # Auto-mode: pin-driven. On each run, ask what frontend Core currently pins.
+    # If it differs from the pin we last analyzed, produce one report covering
+    # the range base_pin → head_pin, keyed to the Core release tag that carried
+    # the bump. Intermediate frontend tags that Core skipped are included in
+    # the release-notes section so nothing goes unrecorded.
+    #
+    # `--since <frontend_tag>` still works but overrides the pin comparison:
+    # it forces the base to that frontend tag. Useful for backfills.
     state = load_state()
-    last_tag = args.since or state.get("last_processed_tag")
+    last_pin = args.since or state.get("last_analyzed_pin")
 
-    tags_sorted = sorted(releases_by_tag.keys(), key=tag_sort_key)
-
-    if last_tag:
-        try:
-            cutoff_idx = tags_sorted.index(last_tag)
-            new_tags = tags_sorted[cutoff_idx + 1:]
-        except ValueError:
-            print(f"Warning: last_tag '{last_tag}' not found in recent releases. Processing all.")
-            new_tags = tags_sorted
-    else:
-        # First run — only process the most recent release to avoid blasting the API
-        print("No previous state found. Processing only the latest release.")
-        print("To process more, use --since <tag> or --tag <tag>.")
-        new_tags = tags_sorted[-1:] if tags_sorted else []
-
-    if not new_tags:
-        print("No new releases to process.")
-        if tags_sorted:
-            print(f"Last seen tag: {last_tag}")
-            print(f"Latest available: {tags_sorted[-1]}")
+    print("Fetching home-assistant/core releases...")
+    core_releases = get_core_releases(token, per_page=50)
+    head_core, head_pin = resolve_latest_pinning_release(core_releases, prerelease_ok=True)
+    if head_core is None or head_pin is None:
+        print("No recent Core release pins a frontend version. Nothing to analyze.")
         return
 
-    print(f"\nNew releases to process: {new_tags}")
+    print(f"Current pinning Core release: {head_core['tag_name']} "
+          f"({'pre-release' if head_core.get('prerelease') else 'stable'}) "
+          f"→ ha-frontend {head_pin}")
+    print(f"Last analyzed pin:            {last_pin or '(none — first run)'}")
 
-    for tag in new_tags:
-        release = releases_by_tag[tag]
-        prev_tag = find_previous_tag(releases, tag)
-        process_release(release, prev_tag, token, lcars_context, dry_run=args.dry_run)
+    if last_pin and head_pin == last_pin:
+        print("Head pin matches last analyzed pin — nothing new to report.")
         if not args.dry_run:
-            # Update state after each success so a failure mid-run doesn't reprocess
-            state["last_processed_tag"] = tag
             state["last_run"] = datetime.now(UTC).isoformat()
             save_state(state)
+        return
 
-    print(f"\nDone. Processed {len(new_tags)} release(s).")
+    if not last_pin:
+        # Bootstrap: adopt the current pin without emitting a report. Otherwise
+        # first runs would blast the API trying to diff against nothing.
+        print("Bootstrapping state — recording current pin without analysis.")
+        if not args.dry_run:
+            state["last_analyzed_pin"] = head_pin
+            state["last_analyzed_core_tag"] = head_core["tag_name"]
+            state["last_run"] = datetime.now(UTC).isoformat()
+            save_state(state)
+        return
+
+    # Resolve the head frontend release object for release-notes context.
+    head_release = releases_by_tag.get(head_pin)
+    if head_release is None:
+        try:
+            head_release = get_release_by_tag(token, head_pin)
+            releases.append(head_release)
+            releases_by_tag[head_pin] = head_release
+        except Exception as e:
+            sys.exit(f"ERROR: could not fetch head frontend release {head_pin}: {e}")
+
+    # Every ha-frontend release strictly newer than base_pin up to head_pin.
+    window = intermediate_frontend_releases(releases, last_pin, head_pin)
+    if not window:
+        # Guard: if none of the cached releases fall in range (e.g. base pin
+        # is older than the top-N cutoff), fall back to the head release only.
+        window = [head_release]
+    print(f"Frontend tags in this pin bump: {[r['tag_name'] for r in window]}")
+
+    reverted = tag_sort_key(head_pin) < tag_sort_key(last_pin)
+    if reverted:
+        print("NOTE: pin moved backward — reporting as a pin revert.")
+
+    process_release(
+        head_release, last_pin, token, lcars_context,
+        dry_run=args.dry_run,
+        pipeline_releases=window,
+        output_basename=head_core["tag_name"],
+        core_release=head_core,
+        pin_mode="shipped",
+    )
+
+    if not args.dry_run:
+        state["last_analyzed_pin"] = head_pin
+        state["last_analyzed_core_tag"] = head_core["tag_name"]
+        state["last_run"] = datetime.now(UTC).isoformat()
+        save_state(state)
+
+    print("\nDone.")
 
 
 if __name__ == "__main__":
