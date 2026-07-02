@@ -4,7 +4,7 @@ lcars-ui-primary: var(--lcars-khaki)
 lcars-ui-secondary: var(--lcars-khaki)
 lcars-ui-tertiary: var(--lcars-mars)
 lcars-ui-quaternary: var(--lcars-gray)
-lcars-ui-quaternary-text: var(--lcars-text-dark)
+lcars-ui-quaternary-text: var(--lcars-text-light)
 
 lcars-ui-config-button: var(--lcars-cool)
 
@@ -24,7 +24,5 @@ warning-color: var(--lcars-sunflower)
 error-color: var(--lcars-dark-red)
 
 modes:
-  light:
-    lcars-ui-quaternary-text: var(--lcars-text-light)
   dark:
     lcars-ui-quaternary-text: var(--lcars-text-dark)

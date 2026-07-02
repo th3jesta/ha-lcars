@@ -1,10 +1,11 @@
 name: LCARS 25C (Blue Alert)
 
 lcars-ui-primary: var(--lcars-alert-color)
+lcars-ui-primary-text: var(--lcars-text-light)
 lcars-ui-secondary: var(--lcars-alert-white)
 lcars-ui-tertiary: var(--lcars-steel-blue)
 lcars-ui-quaternary: var(--lcars-alert-color)
-lcars-ui-quaternary-text: var(--lcars-text-dark)
+lcars-ui-quaternary-text: var(--lcars-text-light)
 lcars-alert-color: var(--lcars-alert-blue)
 
 lcars-ui-app-header-background-color: var(--lcars-black)
@@ -28,11 +29,10 @@ warning-color: var(--lcars-sunflower)
 error-color: var(--lcars-dark-red)
 
 modes:
-  light:
-    lcars-ui-primary-text: var(--lcars-text-light)
-    lcars-ui-tertiary-text: var(--lcars-text-light)
-    lcars-ui-quaternary-text: var(--lcars-text-light)
   dark:
     lcars-ui-primary-text: var(--lcars-text-dark)
-    lcars-ui-tertiary-text: var(--lcars-text-dark)
     lcars-ui-quaternary-text: var(--lcars-text-dark)
+    lcars-card-top-text: var(--lcars-text-dark)
+    lcars-card-mid-text: var(--lcars-text-dark)
+    lcars-card-button-text: var(--lcars-text-dark)
+    lcars-card-bottom-text: var(--lcars-text-dark)

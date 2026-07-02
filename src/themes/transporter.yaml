@@ -25,7 +25,8 @@ warning-color: var(--lcars-dark-red)
 error-color: var(--lcars-gold)
 
 modes:
-  light:
-    lcars-ui-secondary-text: var(--lcars-text-light)
   dark:
-    lcars-ui-secondary-text: var(--lcars-text-dark)
+    lcars-ui-primary-text: var(--lcars-text-gray)
+    lcars-ui-quaternary-text: var(--lcars-text-gray)
+    lcars-card-button-text: var(--lcars-text-dark)
+    lcars-card-bottom-text: var(--lcars-text-gray)

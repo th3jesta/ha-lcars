@@ -4,7 +4,7 @@ lcars-ui-primary: var(--lcars-violet-creme)
 lcars-ui-secondary: var(--lcars-sky)
 lcars-ui-tertiary: var(--lcars-gold)
 lcars-ui-quaternary: var(--lcars-gray)
-lcars-ui-quaternary-text: var(--lcars-text-dark)
+lcars-ui-quaternary-text: var(--lcars-text-light)
 
 lcars-sidebar-icon-color: var(--lcars-dark-gray)
 lcars-ui-config-button: var(--lcars-gray)
@@ -17,7 +17,7 @@ lcars-settings-card-color: "#727295"
 
 lcars-card-top-text: var(--lcars-text-dark)
 lcars-card-mid-text: var(--lcars-text-dark)
-lcars-card-button-text: var(--lcars-text-dark)
+lcars-card-button-text: var(--lcars-text-light)
 lcars-card-bottom-text: var(--lcars-text-dark)
 
 success-color: var(--lcars-green)
@@ -25,7 +25,7 @@ warning-color: var(--lcars-sunflower)
 error-color: var(--lcars-red)
 
 modes:
-  light:
-    lcars-ui-quaternary-text: var(--lcars-text-light)
   dark:
     lcars-ui-quaternary-text: var(--lcars-text-dark)
+    lcars-card-button-text: var(--lcars-text-dark)
+
