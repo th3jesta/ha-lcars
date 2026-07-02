@@ -463,6 +463,7 @@
         --mdc-text-field-ink-color: var(--lcars-primary-text);
         --wa-form-control-value-color: var(--lcars-primary-text);
         --state-icon-color: var(--lcars-primary-text);
+        color: var(--primary-text-color);
       }
 
       :host:not(.type-undefined):not(.type-custom-grid-layout),
@@ -512,6 +513,7 @@
         --mdc-text-field-ink-color: var(--lcars-primary-text);
         --wa-form-control-value-color: var(--lcars-primary-text);
         --state-icon-color: var(--lcars-primary-text);
+        color: var(--primary-text-color);
         border-radius: 0px;
         padding-top: 6px;
         height: 100%;
@@ -611,6 +613,7 @@
         --mdc-text-field-ink-color: var(--lcars-primary-text);
         --wa-form-control-value-color: var(--lcars-primary-text);
         --state-icon-color: var(--lcars-primary-text);
+        color: var(--primary-text-color);
         height: 100%;
         box-sizing: border-box;
       }
@@ -646,6 +649,10 @@
       :host > ha-card.middle-right > *:not(style):not(card-mod),
       :host > ha-card.middle-contained > *:not(style):not(card-mod) {
         padding-right: 6px;
+      }
+
+      :host(.middle-blank) #states {
+        padding: 0px;
       }
 
       :host(.footer-left),
@@ -691,6 +698,7 @@
         --mdc-text-field-ink-color: var(--lcars-primary-text);
         --wa-form-control-value-color: var(--lcars-primary-text);
         --state-icon-color: var(--lcars-primary-text);
+        color: var(--primary-text-color);
         padding-bottom: 6px;
         height: 100%;
         box-sizing: border-box;
@@ -809,6 +817,7 @@
         --mdc-text-field-ink-color: var(--lcars-primary-text);
         --wa-form-control-value-color: var(--lcars-primary-text);
         --state-icon-color: var(--lcars-primary-text);
+        color: var(--primary-text-color);
         text-transform: uppercase;
       }
 
@@ -1687,6 +1696,7 @@
         --mdc-text-field-ink-color: var(--lcars-primary-text);
         --wa-form-control-value-color: var(--lcars-primary-text);
         --state-icon-color: var(--lcars-primary-text);
+        color: var(--primary-text-color);
         border-radius: 0px;
         display: inline-block;
         padding: 0px 6px 0px 6px;
@@ -2045,7 +2055,7 @@
           padding-right: calc( 5px * var(--left-shift) );
         }
     # Markdown h1 fix
-    "ha-card ha-markdown$": |
+    "ha-markdown$": |
       h1 {
         font-weight: normal;
       }

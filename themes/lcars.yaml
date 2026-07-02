@@ -473,6 +473,7 @@
         --mdc-text-field-ink-color: var(--lcars-primary-text);
         --wa-form-control-value-color: var(--lcars-primary-text);
         --state-icon-color: var(--lcars-primary-text);
+        color: var(--primary-text-color);
       }
       :host, :host > ha-card {
         &:not(.type-undefined,.type-custom-grid-layout) {
@@ -521,6 +522,7 @@
           --mdc-text-field-ink-color: var(--lcars-primary-text);
           --wa-form-control-value-color: var(--lcars-primary-text);
           --state-icon-color: var(--lcars-primary-text);
+          color: var(--primary-text-color);
           border-radius: 0px;
           padding-top: 6px;
           height: 100%;
@@ -602,6 +604,7 @@
           --mdc-text-field-ink-color: var(--lcars-primary-text);
           --wa-form-control-value-color: var(--lcars-primary-text);
           --state-icon-color: var(--lcars-primary-text);
+          color: var(--primary-text-color);
           height: 100%;
           box-sizing: border-box;
         }
@@ -632,6 +635,13 @@
         border-right-width: var(--lcars-vertical-border);
         > :not(style,card-mod) {
           padding-right: 6px;
+        }
+      }
+
+      /* -------------- Entities Card padding ---------- */
+      :host(.middle-blank) {
+        #states {
+          padding: 0px;
         }
       }
 
@@ -676,6 +686,7 @@
           --mdc-text-field-ink-color: var(--lcars-primary-text);
           --wa-form-control-value-color: var(--lcars-primary-text);
           --state-icon-color: var(--lcars-primary-text);
+          color: var(--primary-text-color);
           padding-bottom: 6px;
           height: 100%;
           box-sizing: border-box;
@@ -769,6 +780,7 @@
           --mdc-text-field-ink-color: var(--lcars-primary-text);
           --wa-form-control-value-color: var(--lcars-primary-text);
           --state-icon-color: var(--lcars-primary-text);
+          color: var(--primary-text-color);
           text-transform: uppercase;
         }
       }
@@ -1214,6 +1226,7 @@
           --mdc-text-field-ink-color: var(--lcars-primary-text);
           --wa-form-control-value-color: var(--lcars-primary-text);
           --state-icon-color: var(--lcars-primary-text);
+          color: var(--primary-text-color);
           border-radius: 0px;
           display: inline-block;
           padding: 0px 6px 0px 6px;
@@ -1551,7 +1564,7 @@
           }
         }
     # Markdown h1 fix
-    "ha-card ha-markdown$": |
+    "ha-markdown$": |
       h1 {
         font-weight: normal;
       }
