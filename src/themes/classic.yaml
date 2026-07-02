@@ -1,0 +1,28 @@
+name: LCARS Classic
+
+lcars-ui-primary: var(--lcars-khaki)
+lcars-ui-secondary: var(--lcars-khaki)
+lcars-ui-tertiary: var(--lcars-mars)
+lcars-ui-quaternary: var(--lcars-gray)
+lcars-ui-quaternary-text: var(--lcars-text-light)
+
+lcars-ui-config-button: var(--lcars-cool)
+
+lcars-card-top-color: var(--lcars-cool)
+lcars-card-mid-color: var(--lcars-ice)
+lcars-card-button-color: var(--lcars-ice)
+lcars-card-bottom-color: var(--lcars-ice)
+lcars-settings-card-color: "#727295"
+
+lcars-card-top-text: var(--lcars-text-dark)
+lcars-card-mid-text: var(--lcars-text-dark)
+lcars-card-button-text: var(--lcars-text-dark)
+lcars-card-bottom-text: var(--lcars-text-dark)
+
+success-color: var(--lcars-green)
+warning-color: var(--lcars-sunflower)
+error-color: var(--lcars-dark-red)
+
+modes:
+  dark:
+    lcars-ui-quaternary-text: var(--lcars-text-dark)

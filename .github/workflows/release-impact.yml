@@ -1,0 +1,45 @@
+name: HA-Frontend Release Impact Analysis
+
+on:
+  schedule:
+    # Daily at 21:00 UTC — after Home Assistant's typical 15:00-20:00 UTC
+    # release window, so a same-day pin bump lands before the next fire.
+    - cron: "0 21 * * *"
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: "ha-frontend-release-impact-analysis"
+          persist-credentials: true
+          fetch-depth: 0
+          
+      - name: Rebase Branch
+        uses: martincostello/rebaser@v3.0.1
+        with:
+          branch: master
+          
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install anthropic requests
+
+      - name: Run release impact analyzer
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python py/release_impact.py
+
+      - name: Commit and push new analyses
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "chore: add ha-frontend release impact analyses"
+          file_pattern: "docs/release-impact/*.md docs/release-impact/.state.json"
