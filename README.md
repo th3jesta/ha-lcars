@@ -49,7 +49,9 @@ Stack titles have moved into the borders.
 ### Light and Dark Theme Options
 Every theme now includes light and dark modes! For most the themes the change is subtle. The LCARS panels found in _Star Trek_ do not always comply with modern web accesssiblity standards for contrast. In situations where a theme has dark text on a darkish background, a light theme has been added to switch the text to light and improve contrast. In a few cases, the theme's background colors have been lightened instead. The light/dark mode also affects how the backlight effect is applied if you have the LCARS Texture helper turned on. Give them a try, and be sure to hop on Discord or GitHub to let us know if you find situations where it doesn't work! 
 
-<p align="center"><img width="800" alt="Transporter Light Mode" src="https://github.com/user-attachments/assets/91c9ce05-d1c1-41e5-b7e1-ba5d3c000d7c" /><img width="800" alt="Transporter Dark Mode" src="https://github.com/user-attachments/assets/789d794b-f26c-439f-8f99-6fce4f0758d2" /></p>
+<p align="center"><img width="800" alt="Picard I Light Mode" src="https://github.com/user-attachments/assets/a5908c3c-744e-4dde-a076-cc37c8dded07" />
+<img width="800" alt="Picard I Dark Mode" src="https://github.com/user-attachments/assets/3c6c30bd-68c3-48b8-85e6-c049d93f16b2" />
+</p>
 
 
 
