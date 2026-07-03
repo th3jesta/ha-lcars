@@ -499,7 +499,7 @@
       :host > ha-card.header-contained > *:not(style):not(card-mod):not(h1),
       :host > ha-card.header-open > *:not(style):not(card-mod):not(h1) {
         background-color: var(--lcars-background-color);
-        --lcars-primary-text: var(--lcars-background-text);
+        --lcars-primary-text: var(--lcars-background-text) !important;
         --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
         --ha-card-header-color: var(--lcars-primary-text);
         --ha-color-text-primary: var(--lcars-primary-text);
@@ -599,7 +599,7 @@
       :host > ha-card.middle-blank > *:not(style):not(card-mod):not(h1) {
         border-radius: 0px;
         background-color: var(--lcars-background-color);
-        --lcars-primary-text: var(--lcars-background-text);
+        --lcars-primary-text: var(--lcars-background-text) !important;
         --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
         --ha-card-header-color: var(--lcars-primary-text);
         --ha-color-text-primary: var(--lcars-primary-text);
@@ -684,7 +684,7 @@
       :host > ha-card.footer-open > *:not(style):not(card-mod):not(h1) {
         border-radius: 0px;
         background-color: var(--lcars-background-color);
-        --lcars-primary-text: var(--lcars-background-text);
+        --lcars-primary-text: var(--lcars-background-text) !important;
         --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
         --ha-card-header-color: var(--lcars-primary-text);
         --ha-color-text-primary: var(--lcars-primary-text);
@@ -803,7 +803,7 @@
       ha-card.button-barrel-right > #aspect-ratio > ha-card,
       ha-card.button-barrel-right {
         background-color: var(--lcars-card-button-color);
-        --lcars-primary-text: var(--lcars-card-button-text);
+        --lcars-primary-text: var(--lcars-card-button-text) !important;
         --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
         --ha-card-header-color: var(--lcars-primary-text);
         --ha-color-text-primary: var(--lcars-primary-text);
@@ -829,7 +829,7 @@
       ha-card.button-bar-right > #aspect-ratio > ha-card,
       ha-card.button-bar-right {
         background-color: var(--lcars-card-button-color);
-        --lcars-primary-text: var(--lcars-card-button-text);
+        --lcars-primary-text: var(--lcars-card-button-text) !important;
         --state-icon-color: var(--lcars-primary-text);
         text-transform: uppercase;
       }
@@ -1663,7 +1663,7 @@
       :host > ha-card.bar-right,
       :host > ha-card.bar-large-right {
         background-color: var(--lcars-card-top-color);
-        --lcars-primary-text: var(--lcars-card-top-text);
+        --lcars-primary-text: var(--lcars-card-top-text) !important;
         border-radius: 9999px;
         display: block;
         height: 1em;
@@ -1682,7 +1682,7 @@
       :host > ha-card.bar-large-right > *:not(style):not(card-mod):not(h1) {
         text-transform: uppercase;
         background-color: var(--lcars-background-color);
-        --lcars-primary-text: var(--lcars-background-text);
+        --lcars-primary-text: var(--lcars-background-text) !important;
         --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
         --ha-card-header-color: var(--lcars-primary-text);
         --ha-color-text-primary: var(--lcars-primary-text);
@@ -1811,7 +1811,7 @@
 
       :host(.type-calendar) ha-full-calendar,
       ha-card.type-calendar ha-full-calendar {
-        --lcars-primary-text: var(--lcars-background-text);
+        --lcars-primary-text: var(--lcars-background-text) !important;
         --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
         --ha-card-header-color: var(--lcars-primary-text);
         --ha-color-text-primary: var(--lcars-primary-text);
