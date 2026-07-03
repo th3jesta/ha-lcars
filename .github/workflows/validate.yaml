@@ -19,13 +19,13 @@ jobs:
       - name: Run Generation Script
         run: python py/generate_themes.py
       - name: Run Flatten Script
-        run: python py/flatten_ha_theme_css.py -o "themes/lcars_flat.yaml" "themes/lcars.yaml" 
+        run: python py/flatten_ha_theme_css.py -o "theme_flat/lcars_flat.yaml" "themes/lcars.yaml"
       - name: Commit and Push
         if: github.event_name != 'pull_request'
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "chore: generate theme files"
-          file_pattern: "themes/lcars.yaml themes/lcars_flat.yaml"
+          file_pattern: "themes/lcars.yaml theme_flat/lcars_flat.yaml"
       - name: HACS Validation
         uses: "hacs/action@main"
         with:

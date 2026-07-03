@@ -16,6 +16,7 @@ src/
 generate_themes.py       # Assembles the above into themes/lcars.yaml
 themes/
   lcars.yaml             # Generated output installed by HACS — do not edit
+theme_flat/
   lcars_flat.yaml        # Generated flattened version for iOS and Qt browsers that need it — do not edit
 py/
   flatten_ha_theme_css.py  # Flattens nested CSS in lcars.yaml → lcars_flat.yaml
@@ -57,10 +58,10 @@ python3 py/generate_themes.py
 ```
 
 ### flatten_ha_theme_css.py
-`lcars_flat.yaml` is generated automatically on release tags — you do not need to run the flatten script locally. If you need a flat file locally for testing:
+`theme_flat/lcars_flat.yaml` is generated automatically by the Build and Validate workflow — you do not need to run the flatten script locally. If you need a flat file locally for testing:
 
 ```bash
-python3 py/flatten_ha_theme_css.py -o themes/lcars_flat.yaml themes/lcars.yaml
+python3 py/flatten_ha_theme_css.py -o theme_flat/lcars_flat.yaml themes/lcars.yaml
 ```
 
 ---
@@ -69,9 +70,7 @@ python3 py/flatten_ha_theme_css.py -o themes/lcars_flat.yaml themes/lcars.yaml
 
 | Workflow | Trigger | What it does |
 |----------|---------|--------------|
-| `validate.yaml` | push, PR, daily | HACS theme validation |
-| `hassfest.yml` | push, PR, daily | Home Assistant `hassfest` validation |
-| `flatten.yml` | push of any tag | Runs `py/flatten_ha_theme_css.py` and commits `themes/lcars_flat.yaml` to `master` |
+| `validate.yaml` | push, PR, daily | Regenerates `themes/lcars.yaml` and `theme_flat/lcars_flat.yaml`, commits them (non-PR), then runs HACS theme validation |
 | `purge-jsdelivr.yml` | push to `js-main` branch | Purges the jsDelivr CDN cache for `lcars.js` |
 
 ---
