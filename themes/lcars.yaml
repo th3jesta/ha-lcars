@@ -788,9 +788,9 @@
           text-transform: uppercase;
 
           /* Louder ripple press feedback to handle wide range in colors */
-          --ha-ripple-color: var(--lcars-ui-mix-color);
-          --ha-ripple-pressed-opacity: 0.4;
-          --ha-ripple-hover-opacity: 0.12;
+          --ha-ripple-color: var(--lcars-ripple-color);
+          --ha-ripple-pressed-opacity: var(--lcars-ripple-pressed-opacity);
+          --ha-ripple-hover-opacity: var(--lcars-ripple-hover-opacity);
         }
       }
 
@@ -2807,6 +2807,10 @@ LCARS 25C:
   success-color: var(--lcars-alt-green)
   warning-color: var(--lcars-light-orange)
   error-color: var(--lcars-alt-orange)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # Derived RGB
   rgb-card-background-color: "109,116,140"
   rgb-primary-text-color: "255,255,255"
@@ -2884,6 +2888,10 @@ LCARS 25C (Blue Alert):
   success-color: var(--lcars-alt-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # Derived RGB
   rgb-card-background-color: "34,102,255"
   rgb-primary-text-color: "255,255,255"
@@ -2963,6 +2971,10 @@ LCARS 25C (Red Alert):
   success-color: var(--lcars-alt-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # Derived RGB
   rgb-card-background-color: "204,0,0"
   rgb-primary-text-color: "255,255,255"
@@ -3042,6 +3054,10 @@ LCARS 25C (Yellow Alert):
   success-color: var(--lcars-alt-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # Derived RGB
   rgb-card-background-color: "255,170,0"
   rgb-primary-text-color: "255,255,255"
@@ -3114,6 +3130,10 @@ LCARS Breen:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # Derived RGB
   rgb-card-background-color: "15,86,22"
   rgb-primary-text-color: "255,255,255"
@@ -3186,6 +3206,10 @@ LCARS Cardassia:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # Derived RGB
   rgb-card-background-color: "79,26,35"
   rgb-primary-text-color: "255,255,255"
@@ -3261,6 +3285,10 @@ LCARS Classic:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # Derived RGB
   rgb-card-background-color: "102,102,136"
   rgb-primary-text-color: "255,255,255"
@@ -3334,6 +3362,10 @@ LCARS Default:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # Derived RGB
   rgb-card-background-color: "102,102,136"
   rgb-primary-text-color: "255,255,255"
@@ -3408,6 +3440,10 @@ LCARS Kronos:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # Derived RGB
   rgb-card-background-color: "147,10,0"
   rgb-primary-text-color: "255,255,255"
@@ -3481,6 +3517,10 @@ LCARS Picard [LCARdS Blue Accent]:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # HA Color Palette
   ha-color-primary-05: var(--lcards-blue-darkest)
   ha-color-primary-10: var(--lcards-blue-darkest)
@@ -3637,6 +3677,10 @@ LCARS Picard [LCARdS Red Accent]:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # HA Color Palette
   ha-color-primary-05: var(--lcards-orange-darkest)
   ha-color-primary-10: var(--lcards-orange-darkest)
@@ -3792,6 +3836,10 @@ LCARS Lower Decks I:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # Derived RGB
   rgb-card-background-color: "145,85,11"
   rgb-primary-text-color: "255,255,255"
@@ -3865,6 +3913,10 @@ LCARS Lower Decks II:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # Derived RGB
   rgb-card-background-color: "145,85,11"
   rgb-primary-text-color: "255,255,255"
@@ -3938,6 +3990,10 @@ LCARS Modern:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-red)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # Derived RGB
   rgb-card-background-color: "102,102,136"
   rgb-primary-text-color: "255,255,255"
@@ -4012,6 +4068,10 @@ LCARS Navigation:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-dark-red)
   error-color: var(--lcars-gold)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # Derived RGB
   rgb-card-background-color: "130,122,83"
   rgb-primary-text-color: "255,255,255"
@@ -4084,6 +4144,10 @@ LCARS Nemesis Blue:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # Derived RGB
   rgb-card-background-color: "68,74,119"
   rgb-primary-text-color: "255,255,255"
@@ -4157,6 +4221,10 @@ LCARS Picard I:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # Derived RGB
   rgb-card-background-color: "101,107,131"
   rgb-primary-text-color: "255,255,255"
@@ -4233,6 +4301,10 @@ LCARS Picard II:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-red)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # Derived RGB
   rgb-card-background-color: "1,37,86"
   rgb-primary-text-color: "255,255,255"
@@ -4307,6 +4379,10 @@ LCARS Red Alert:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # Derived RGB
   rgb-card-background-color: "54,0,0"
   rgb-primary-text-color: "255,255,255"
@@ -4382,6 +4458,10 @@ LCARS Romulus:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # Derived RGB
   rgb-card-background-color: "15,86,22"
   rgb-primary-text-color: "255,255,255"
@@ -4455,6 +4535,10 @@ LCARS TNG:
   success-color: var(--lcars-khaki-light)
   warning-color: var(--lcars-vivid-crimson)
   error-color: var(--lcars-maroon)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # Derived RGB
   rgb-card-background-color: "68,74,119"
   rgb-primary-text-color: "255,255,255"
@@ -4527,6 +4611,10 @@ LCARS TNGbuttons:
   success-color: var(--lcars-sage)
   warning-color: var(--lcars-vivid-crimson)
   error-color: var(--lcars-maroon)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # Derived RGB
   rgb-card-background-color: "68,74,119"
   rgb-primary-text-color: "255,255,255"
@@ -4599,6 +4687,10 @@ LCARS Transporter:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-dark-red)
   error-color: var(--lcars-gold)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # Derived RGB
   rgb-card-background-color: "44,55,75"
   rgb-primary-text-color: "255,255,255"
@@ -4675,6 +4767,10 @@ LCARS Zeldaar:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # Ripple
+  lcars-ripple-color: var(--lcars-ui-mix-color)
+  lcars-ripple-pressed-opacity: 0.4
+  lcars-ripple-hover-opacity: 0.12
   # Derived RGB
   rgb-card-background-color: "119,68,119"
   rgb-primary-text-color: "255,255,255"

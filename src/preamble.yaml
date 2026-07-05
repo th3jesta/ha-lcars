@@ -788,9 +788,9 @@
           text-transform: uppercase;
 
           /* Louder ripple press feedback to handle wide range in colors */
-          --ha-ripple-color: var(--lcars-ui-mix-color);
-          --ha-ripple-pressed-opacity: 0.4;
-          --ha-ripple-hover-opacity: 0.12;
+          --ha-ripple-color: var(--lcars-ripple-color);
+          --ha-ripple-pressed-opacity: var(--lcars-ripple-pressed-opacity);
+          --ha-ripple-hover-opacity: var(--lcars-ripple-hover-opacity);
         }
       }
 

@@ -98,6 +98,12 @@ SECTIONS: dict[str, list[str]] = {
         "error-color",
     ],
 
+    "Ripple": [
+        "lcars-ripple-color",
+        "lcars-ripple-pressed-opacity",
+        "lcars-ripple-hover-opacity",
+    ],
+
     "HA Color Palette": [
         "ha-color-primary-05", "ha-color-primary-10", "ha-color-primary-20",
         "ha-color-primary-30", "ha-color-primary-40", "ha-color-primary-50",
