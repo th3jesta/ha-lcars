@@ -749,6 +749,8 @@
       :host(.button-capped-right),
       :host(.button-barrel-left),
       :host(.button-barrel-right),
+      :host(.button-bar-left),
+      :host(.button-bar-right),
       ha-card:is(
         .button-small,
         .button-large,
@@ -759,7 +761,9 @@
         .button-capped-left,
         .button-capped-right,
         .button-barrel-left,
-        .button-barrel-right
+        .button-barrel-right,
+        .button-bar-left,
+        .button-bar-right
       ) {
 
         > ha-card,
@@ -783,34 +787,10 @@
           color: var(--primary-text-color);
           text-transform: uppercase;
 
-          /* Loud ripple press feedback (issue #149): keep HA's ripple
-             animation but make it a high-contrast, mode-aware wash so the
-             tap is unmistakable. --lcars-ui-mix-color is black in light
-             mode, white in dark. */
+          /* Louder ripple press feedback to handle wide range in colors */
           --ha-ripple-color: var(--lcars-ui-mix-color);
           --ha-ripple-pressed-opacity: 0.4;
-          --ha-ripple-hover-opacity: 0.18;
-        }
-      }
-
-      :host(.button-bar-left),
-      :host(.button-bar-right),
-      ha-card:is(
-        .button-bar-left,
-        .button-bar-right
-      ) {
-
-        > ha-card,
-        > #aspect-ratio > ha-card,
-        &:is(ha-card) {
-          background-color: var(--lcars-card-button-color);
-          --lcars-primary-text: var(--lcars-card-button-text);
-          --state-icon-color: var(--lcars-primary-text);
-          text-transform: uppercase;
-
-          --ha-ripple-color: var(--lcars-ui-mix-color);
-          --ha-ripple-pressed-opacity: 0.4;
-          --ha-ripple-hover-opacity: 0.18;
+          --ha-ripple-hover-opacity: 0.12;
         }
       }
 

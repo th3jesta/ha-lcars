@@ -775,6 +775,10 @@
       :host(.button-barrel-left) > #aspect-ratio > ha-card,
       :host(.button-barrel-right) > ha-card,
       :host(.button-barrel-right) > #aspect-ratio > ha-card,
+      :host(.button-bar-left) > ha-card,
+      :host(.button-bar-left) > #aspect-ratio > ha-card,
+      :host(.button-bar-right) > ha-card,
+      :host(.button-bar-right) > #aspect-ratio > ha-card,
       ha-card.button-large > ha-card,
       ha-card.button-large > #aspect-ratio > ha-card,
       ha-card.button-large,
@@ -801,7 +805,13 @@
       ha-card.button-barrel-left,
       ha-card.button-barrel-right > ha-card,
       ha-card.button-barrel-right > #aspect-ratio > ha-card,
-      ha-card.button-barrel-right {
+      ha-card.button-barrel-right,
+      ha-card.button-bar-left > ha-card,
+      ha-card.button-bar-left > #aspect-ratio > ha-card,
+      ha-card.button-bar-left,
+      ha-card.button-bar-right > ha-card,
+      ha-card.button-bar-right > #aspect-ratio > ha-card,
+      ha-card.button-bar-right {
         background-color: var(--lcars-card-button-color);
         --lcars-primary-text: var(--lcars-card-button-text);
         --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
@@ -821,23 +831,7 @@
         text-transform: uppercase;
         --ha-ripple-color: var(--lcars-ui-mix-color);
         --ha-ripple-pressed-opacity: 0.4;
-        --ha-ripple-hover-opacity: 0.18;
-      }
-
-      :host(.button-bar-left) > ha-card,
-      :host(.button-bar-left) > #aspect-ratio > ha-card,
-      :host(.button-bar-right) > ha-card,
-      :host(.button-bar-right) > #aspect-ratio > ha-card,
-      ha-card.button-bar-right > ha-card,
-      ha-card.button-bar-right > #aspect-ratio > ha-card,
-      ha-card.button-bar-right {
-        background-color: var(--lcars-card-button-color);
-        --lcars-primary-text: var(--lcars-card-button-text);
-        --state-icon-color: var(--lcars-primary-text);
-        text-transform: uppercase;
-        --ha-ripple-color: var(--lcars-ui-mix-color);
-        --ha-ripple-pressed-opacity: 0.4;
-        --ha-ripple-hover-opacity: 0.18;
+        --ha-ripple-hover-opacity: 0.12;
       }
 
       :host(.button-small) > ha-card,
