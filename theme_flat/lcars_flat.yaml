@@ -819,6 +819,9 @@
         --state-icon-color: var(--lcars-primary-text);
         color: var(--primary-text-color);
         text-transform: uppercase;
+        --ha-ripple-color: var(--lcars-ui-mix-color);
+        --ha-ripple-pressed-opacity: 0.4;
+        --ha-ripple-hover-opacity: 0.18;
       }
 
       :host(.button-bar-left) > ha-card,
@@ -832,6 +835,9 @@
         --lcars-primary-text: var(--lcars-card-button-text);
         --state-icon-color: var(--lcars-primary-text);
         text-transform: uppercase;
+        --ha-ripple-color: var(--lcars-ui-mix-color);
+        --ha-ripple-pressed-opacity: 0.4;
+        --ha-ripple-hover-opacity: 0.18;
       }
 
       :host(.button-small) > ha-card,
