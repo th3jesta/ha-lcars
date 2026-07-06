@@ -454,6 +454,24 @@
       /*                Common Card Styles               */
       /* ----------------------------------------------- */
       :host {
+        /* Re-resolve the helper-driven values at card scope. A per-card
+           `theme:` re-applies the theme's compiled defaults as inline styles
+           on the card, shadowing the #view-level helper values (issue #236).
+           Stylesheet !important on the same element wins over those. */
+        --lcars-horizontal-border: {{ states('input_number.lcars_horizontal') if has_value('input_number.lcars_horizontal') else 10 }}px !important;
+        --lcars-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
+        --lcars-middle-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
+        {% if not is_state('input_boolean.lcars_sound', 'on') %}
+        --lcars-sound: false;
+        {% else %}
+        --lcars-sound: true;
+        {% endif %}
+        {% if not is_state('input_boolean.lcars_texture', 'off') %}
+        --lcars-texture: true;
+        {% else %}
+        --lcars-texture: false;
+        {% endif %}
+
         /* Default card has quaternary background. */
         font-family: var(--font-family) !important;
         --md-sys-color-primary: var(--lcars-ui-quaternary) !important;
