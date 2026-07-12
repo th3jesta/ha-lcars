@@ -120,13 +120,13 @@
   # Use these for text on backgrounds: pick the darkest step (on dark bg) or
   # lightest step (on light bg) that still clears the WCAG ratio you need.
   # Ordered black -> white. The existing dark/gray/light anchors are preserved.
-  lcars-text-dark: "#000000"     # L*=0  — pure black, max contrast
-  lcars-text-coal: "#292929"     # L*=17 — near-black, softens stark black on bright surfaces
-  lcars-text-smoke: "#4E4E4E"    # L*=33 — dark gray
-  lcars-text-stone: "#777777"    # L*=50 — mid gray
-  lcars-text-mist: "#A2A2A2"     # L*=67 — light-mid gray
-  lcars-text-gray: "#d3d3d3"     # L*=84 — light gray (off-white), softens stark white on dark surfaces
-  lcars-text-light: "#FFFFFF"    # L*=100 — pure white, max contrast
+  lcars-text-dark: "#000000" # L*=0  — pure black, max contrast
+  lcars-text-coal: "#292929" # L*=17 — near-black, softens stark black on bright surfaces
+  lcars-text-smoke: "#4E4E4E" # L*=33 — dark gray
+  lcars-text-stone: "#777777" # L*=50 — mid gray
+  lcars-text-mist: "#A2A2A2" # L*=67 — light-mid gray
+  lcars-text-gray: "#d3d3d3" # L*=84 — light gray (off-white), softens stark white on dark surfaces
+  lcars-text-light: "#FFFFFF" # L*=100 — pure white, max contrast
   lcars-medium-gray: "#B6B6C1"
   lcars-dark-gray: "#3e3e3e"
   lcars-khaki: "#ffe399"
@@ -194,55 +194,55 @@
   # LCARdS card components depend on the full --lcards-* spectrum.
 
   # Orange family
-  lcards-orange-darkest:      "#d91604"
-  lcards-orange-dark:         "#ef1d10"
-  lcards-orange-medium-dark:  "#e7442a"
-  lcards-orange:              "#ff6753"
-  lcards-orange-medium:       "#ff6753"
+  lcards-orange-darkest: "#d91604"
+  lcards-orange-dark: "#ef1d10"
+  lcards-orange-medium-dark: "#e7442a"
+  lcards-orange: "#ff6753"
+  lcards-orange-medium: "#ff6753"
   lcards-orange-medium-light: "#ff8470"
-  lcards-orange-light:        "#ff977b"
-  lcards-orange-lightest:     "#ffb399"
+  lcards-orange-light: "#ff977b"
+  lcards-orange-lightest: "#ffb399"
 
   # Gray family
-  lcards-gray-darkest:        "#1e2229"
-  lcards-gray-dark:           "#2f3749"
-  lcards-gray-medium-dark:    "#52596e"
-  lcards-gray:                "#6d748c"
-  lcards-gray-medium:         "#6d748c"
-  lcards-gray-medium-light:   "#9ea5ba"
-  lcards-gray-light:          "#d2d5df"
-  lcards-gray-lightest:       "#f3f4f7"
-  lcards-moonlight:           "#dfe1e8"
+  lcards-gray-darkest: "#1e2229"
+  lcards-gray-dark: "#2f3749"
+  lcards-gray-medium-dark: "#52596e"
+  lcards-gray: "#6d748c"
+  lcards-gray-medium: "#6d748c"
+  lcards-gray-medium-light: "#9ea5ba"
+  lcards-gray-light: "#d2d5df"
+  lcards-gray-lightest: "#f3f4f7"
+  lcards-moonlight: "#dfe1e8"
 
   # Blue family
-  lcards-blue-darkest:        "#002241"
-  lcards-blue-dark:           "#1c3c55"
-  lcards-blue-medium-dark:    "#2a7193"
-  lcards-blue:                "#37a6d1"
-  lcards-blue-medium:         "#37a6d1"
-  lcards-blue-medium-light:   "#67caf0"
-  lcards-blue-light:          "#93e1ff"
-  lcards-blue-lightest:       "#00eeee"
+  lcards-blue-darkest: "#002241"
+  lcards-blue-dark: "#1c3c55"
+  lcards-blue-medium-dark: "#2a7193"
+  lcards-blue: "#37a6d1"
+  lcards-blue-medium: "#37a6d1"
+  lcards-blue-medium-light: "#67caf0"
+  lcards-blue-light: "#93e1ff"
+  lcards-blue-lightest: "#00eeee"
 
   # Green family
-  lcards-green-darkest:       "#0c2a15"
-  lcards-green-dark:          "#083717"
-  lcards-green-medium-dark:   "#095320"
-  lcards-green:               "#266239"
-  lcards-green-medium:        "#266239"
-  lcards-green-medium-light:  "#458359"
-  lcards-green-light:         "#80bb93"
-  lcards-green-lightest:      "#b8e0c1"
+  lcards-green-darkest: "#0c2a15"
+  lcards-green-dark: "#083717"
+  lcards-green-medium-dark: "#095320"
+  lcards-green: "#266239"
+  lcards-green-medium: "#266239"
+  lcards-green-medium-light: "#458359"
+  lcards-green-light: "#80bb93"
+  lcards-green-lightest: "#b8e0c1"
 
   # Yellow family
-  lcards-yellow-darkest:      "#70602c"
-  lcards-yellow-dark:         "#ac943b"
-  lcards-yellow-medium-dark:  "#d2bf50"
-  lcards-yellow:              "#f9ef97"
-  lcards-yellow-medium:       "#f9ef97"
+  lcards-yellow-darkest: "#70602c"
+  lcards-yellow-dark: "#ac943b"
+  lcards-yellow-medium-dark: "#d2bf50"
+  lcards-yellow: "#f9ef97"
+  lcards-yellow-medium: "#f9ef97"
   lcards-yellow-medium-light: "#fffac9"
-  lcards-yellow-light:        "#e7e6de"
-  lcards-yellow-lightest:     "#f5f5dc"
+  lcards-yellow-light: "#e7e6de"
+  lcards-yellow-lightest: "#f5f5dc"
 
   # Shapes
   lcars-vertical-border: 35px
@@ -303,7 +303,7 @@
   lcars-primary-text: var(--lcars-text-light)
   lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color))
   # This should be a list of all varaibles that control the color of text in
-  #   every part of the UI and in every card. 
+  #   every part of the UI and in every card.
   ha-card-header-color: var(--lcars-primary-text)
   ha-color-text-primary: var(--lcars-primary-text)
   primary-text-color: var(--lcars-primary-text)
@@ -316,7 +316,7 @@
   mdc-text-field-fill-color: transparent
   mdc-text-field-ink-color: var(--lcars-primary-text)
   wa-form-control-value-color: var(--lcars-primary-text);
- 
+
   # Sidebar Menu
   sidebar-background-color: var(--lcars-sidebar-background)
   sidebar-menu-button-background-color: var(--sidebar-background-color)
@@ -345,7 +345,7 @@
   ha-card-border-radius: var(--lcars-outer-radius)
   ha-card-border-width: 0px
   ha-heading-card-title-color: var(--lcars-ui-text-heading)
-  
+
   # Tables
   # TODO: Test this. this alternates between black and quaternary?
   table-row-background-color: var(--primary-background-color)
@@ -364,7 +364,7 @@
   mdc-theme-text-primary-on-background: var(--lcars-ui-secondary-text)
   mdc-theme-text-secondary-on-background: var(--lcars-ui-secondary-text)
   mdc-shape-small: 0px
-  
+
   #App Header
   app-header-edit-background-color: transparent
   app-header-text-color: var(--lcars-ui-app-header-text-color, var(--lcars-ui-primary-text))
@@ -1379,6 +1379,7 @@
       /* ----------- To-Do List Card ------------------- */
       :host(.type-todo-list),
       ha-card:is(.type-todo-list) {
+        --lcars-type: "todo-list";
         --card-background-color: transparent !important;
         --ha-card-border-radius: 0px !important;
         --active-color: var(--lcars-card-mid-color);
@@ -1525,42 +1526,46 @@
 
     # To-Do List Card
     "ha-card:has(ha-sortable)$": |
-      h1.card-header {
-        background-color: var(--lcars-card-top-color);
-        color: var(--lcars-card-top-text);
-        border-top-left-radius: var(--list-border-left);
-        border-top-right-radius: var(--list-border-right);
-        border-bottom-left-radius: var(--list-border-left);
-        border-bottom-right-radius: var(--list-border-right);
-        box-sizing: border-box;
-        margin-block: 5px;
-        padding-top: 0.15em;
-        padding-right: max(15px, var(--list-border-right));
-        padding-bottom: 0px;
-        padding-left: max(15px, var(--list-border-left));
-        height: 60px;
+      @container style(--lcars-type: "todo-list") {
+        h1.card-header {
+          background-color: var(--lcars-card-top-color);
+          color: var(--lcars-card-top-text);
+          border-top-left-radius: var(--list-border-left);
+          border-top-right-radius: var(--list-border-right);
+          border-bottom-left-radius: var(--list-border-left);
+          border-bottom-right-radius: var(--list-border-right);
+          box-sizing: border-box;
+          margin-block: 5px;
+          padding-top: 0.15em;
+          padding-right: max(15px, var(--list-border-right));
+          padding-bottom: 0px;
+          padding-left: max(15px, var(--list-border-left));
+          height: 60px;
+        }
       }
     "ha-card ha-sortable ha-list":
       "ha-check-list-item$": |
-        span {
-          height: 100%;
-          --mdc-list-item-graphic-margin: 0px;
-
-          ha-checkbox {
-            border-right: var(--check-border-right) solid var(--lcars-background-color);
-            border-left: var(--check-border-left) solid var(--lcars-background-color);
+        @container style(--lcars-type: "todo-list") {
+          span {
             height: 100%;
-            display: flex;
-            align-items: center;
+            --mdc-list-item-graphic-margin: 0px;
 
-            --mdc-checkbox-checked-color: var(--completed-color);
+            ha-checkbox {
+              border-right: var(--check-border-right) solid var(--lcars-background-color);
+              border-left: var(--check-border-left) solid var(--lcars-background-color);
+              height: 100%;
+              display: flex;
+              align-items: center;
 
-            --right-shift: calc( var(--flex-left) * var(--left-border) );
-            --left-shift: calc( var(--flex-right) * var(--right-border) );
-            margin-right: calc( 0px - 5px * var(--right-shift) );
-            padding-left: calc( 5px * var(--right-shift) );
-            margin-left: calc( 0px - 5px * var(--left-shift) );
-            padding-right: calc( 5px * var(--left-shift) );
+              --mdc-checkbox-checked-color: var(--completed-color);
+
+              --right-shift: calc( var(--flex-left) * var(--left-border) );
+              --left-shift: calc( var(--flex-right) * var(--right-border) );
+              margin-right: calc( 0px - 5px * var(--right-shift) );
+              padding-left: calc( 5px * var(--right-shift) );
+              margin-left: calc( 0px - 5px * var(--left-shift) );
+              padding-right: calc( 5px * var(--left-shift) );
+            }
           }
         }
     # Markdown h1 fix
@@ -2759,4 +2764,3 @@
       .divider {
         display: none;
       }
-      
