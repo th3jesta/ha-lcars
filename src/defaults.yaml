@@ -87,6 +87,13 @@ success-color: var(--lcars-green)
 warning-color: var(--lcars-sunflower)
 error-color: var(--lcars-dark-red)
 
+# Button press ripple (issue #149). Themes can override the wash color and
+# either opacity. Color defaults to the mode-aware contrast token (black in
+# light mode, white in dark); pressed opacity is ~3x HA's 0.12 default so a tap
+# is unmistakable on any button color.
+lcars-ripple-color: var(--lcars-ui-mix-color)
+lcars-ripple-pressed-opacity: 0.4
+lcars-ripple-hover-opacity: 0.12
 # HA tonal palette derived from lcars-ui-tertiary (approximates HA's OKLCH
 # palette generation). Defined here rather than in &base so themes with
 # hand-tuned palettes (the LCARdS variants) override cleanly instead of

@@ -754,6 +754,8 @@
       :host(.button-capped-right),
       :host(.button-barrel-left),
       :host(.button-barrel-right),
+      :host(.button-bar-left),
+      :host(.button-bar-right),
       ha-card:is(
         .button-small,
         .button-large,
@@ -764,7 +766,9 @@
         .button-capped-left,
         .button-capped-right,
         .button-barrel-left,
-        .button-barrel-right
+        .button-barrel-right,
+        .button-bar-left,
+        .button-bar-right
       ) {
 
         > ha-card,
@@ -789,16 +793,11 @@
           --card-secondary-color: var(--lcars-secondary-text);
           color: var(--primary-text-color);
           text-transform: uppercase;
-        }
-      }
 
-      :host(.button-bar-left),
-      :host(.button-bar-right),
-      ha-card:is(
-        .button-bar-left,
-        .button-bar-right
-      ) {
-
+          /* Louder ripple press feedback to handle wide range in colors */
+          --ha-ripple-color: var(--lcars-ripple-color);
+          --ha-ripple-pressed-opacity: var(--lcars-ripple-pressed-opacity);
+          --ha-ripple-hover-opacity: var(--lcars-ripple-hover-opacity);
         > ha-card,
         > #aspect-ratio > ha-card,
         &:is(ha-card) {
