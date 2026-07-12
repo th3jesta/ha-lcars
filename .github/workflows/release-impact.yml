@@ -22,7 +22,11 @@ jobs:
       - name: Rebase Branch
         uses: martincostello/rebaser@v3.0.1
         with:
-          branch: master
+          # Use the remote-tracking ref: the rebaser passes this straight to
+          # `git rebase`, and a bare `master` has no local branch to resolve
+          # (checkout only creates refs/remotes/origin/master), which failed
+          # with "fatal: invalid upstream 'master'".
+          branch: origin/master
           
       - name: Set up Python
         uses: actions/setup-python@v5
