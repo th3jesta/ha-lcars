@@ -66,6 +66,55 @@ python3 py/flatten_ha_theme_css.py -o theme_flat/lcars_flat.yaml themes/lcars.ya
 
 ---
 
+## Naming conventions
+
+### Issues
+
+Title format: `[prefix] one-line symptom`
+
+- Prefix is one of `bug`, `feature`, `support`, `doc`.
+- Describe the observable symptom, not your diagnosis — e.g.
+  `[bug] Mushroom card text unreadable in dark mode with middle-blank class`,
+  not `[bug] --card-primary-color missing from preamble`.
+
+### Branches
+
+`<issue#>-<slug>` when the work resolves a specific issue, otherwise `<prefix>-<slug>` with a prefix of `fix`, `feature`, or `chore`:
+
+```
+229-mushroom-card-color-vars     # resolves issue #229
+fix-sidebar-icon-clipping        # fix without a tracking issue
+feature-strong-press-effect
+chore-regenerate-workflows
+```
+
+Cut branches from a fresh pull of `master`.
+
+### Commits
+
+Follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/):
+
+```
+<type>(<optional scope>): <description>
+
+[optional body — explain why, wrapped at 72 chars]
+
+[optional footer, e.g. Fixes #229]
+```
+
+Common types: `fix`, `feat`, `docs`, `chore`, `refactor`, `ci`. Example:
+
+```
+fix(preamble): restore card-primary-color for Mushroom cards
+
+Mushroom cards color their text via --card-primary-color, which the
+v4.1 variable rework dropped from the text-color lists.
+
+Fixes #229
+```
+
+---
+
 ## CI/CD workflows
 
 | Workflow | Trigger | What it does |

@@ -87,6 +87,22 @@ success-color: var(--lcars-green)
 warning-color: var(--lcars-sunflower)
 error-color: var(--lcars-dark-red)
 
+# HA tonal palette derived from lcars-ui-tertiary (approximates HA's OKLCH
+# palette generation). Defined here rather than in &base so themes with
+# hand-tuned palettes (the LCARdS variants) override cleanly instead of
+# duplicating keys merged in via <<: *base (issue #232).
+ha-color-primary-05: "color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)"
+ha-color-primary-10: "color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)"
+ha-color-primary-20: "color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)"
+ha-color-primary-30: "color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)"
+ha-color-primary-40: "var(--lcars-ui-tertiary)"
+ha-color-primary-50: "color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)"
+ha-color-primary-60: "color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)"
+ha-color-primary-70: "color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)"
+ha-color-primary-80: "color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)"
+ha-color-primary-90: "color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)"
+ha-color-primary-95: "color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)"
+
 modes:
   light:
     lcars-ui-mix-color: black
