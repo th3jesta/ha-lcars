@@ -458,6 +458,8 @@
         --mdc-text-field-ink-color: var(--lcars-primary-text);
         --wa-form-control-value-color: var(--lcars-primary-text);
         --state-icon-color: var(--lcars-primary-text);
+        --card-primary-color: var(--lcars-primary-text);
+        --card-secondary-color: var(--lcars-secondary-text);
         color: var(--primary-text-color);
       }
 
@@ -508,6 +510,8 @@
         --mdc-text-field-ink-color: var(--lcars-primary-text);
         --wa-form-control-value-color: var(--lcars-primary-text);
         --state-icon-color: var(--lcars-primary-text);
+        --card-primary-color: var(--lcars-primary-text);
+        --card-secondary-color: var(--lcars-secondary-text);
         color: var(--primary-text-color);
         border-radius: 0px;
         padding-top: 6px;
@@ -608,6 +612,8 @@
         --mdc-text-field-ink-color: var(--lcars-primary-text);
         --wa-form-control-value-color: var(--lcars-primary-text);
         --state-icon-color: var(--lcars-primary-text);
+        --card-primary-color: var(--lcars-primary-text);
+        --card-secondary-color: var(--lcars-secondary-text);
         color: var(--primary-text-color);
         height: 100%;
         box-sizing: border-box;
@@ -693,6 +699,8 @@
         --mdc-text-field-ink-color: var(--lcars-primary-text);
         --wa-form-control-value-color: var(--lcars-primary-text);
         --state-icon-color: var(--lcars-primary-text);
+        --card-primary-color: var(--lcars-primary-text);
+        --card-secondary-color: var(--lcars-secondary-text);
         color: var(--primary-text-color);
         padding-bottom: 6px;
         height: 100%;
@@ -812,6 +820,8 @@
         --mdc-text-field-ink-color: var(--lcars-primary-text);
         --wa-form-control-value-color: var(--lcars-primary-text);
         --state-icon-color: var(--lcars-primary-text);
+        --card-primary-color: var(--lcars-primary-text);
+        --card-secondary-color: var(--lcars-secondary-text);
         color: var(--primary-text-color);
         text-transform: uppercase;
       }
@@ -825,7 +835,10 @@
       ha-card.button-bar-right {
         background-color: var(--lcars-card-button-color);
         --lcars-primary-text: var(--lcars-card-button-text) !important;
+        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
         --state-icon-color: var(--lcars-primary-text);
+        --card-primary-color: var(--lcars-primary-text);
+        --card-secondary-color: var(--lcars-secondary-text);
         text-transform: uppercase;
       }
 
@@ -1691,6 +1704,8 @@
         --mdc-text-field-ink-color: var(--lcars-primary-text);
         --wa-form-control-value-color: var(--lcars-primary-text);
         --state-icon-color: var(--lcars-primary-text);
+        --card-primary-color: var(--lcars-primary-text);
+        --card-secondary-color: var(--lcars-secondary-text);
         color: var(--primary-text-color);
         border-radius: 0px;
         display: inline-block;
@@ -1820,6 +1835,8 @@
         --mdc-text-field-ink-color: var(--lcars-primary-text);
         --wa-form-control-value-color: var(--lcars-primary-text);
         --state-icon-color: var(--lcars-primary-text);
+        --card-primary-color: var(--lcars-primary-text);
+        --card-secondary-color: var(--lcars-secondary-text);
       }
 
       :host.type-custom-html-template-card,
