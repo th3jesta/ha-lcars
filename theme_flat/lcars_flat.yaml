@@ -271,18 +271,8 @@
 # ======================================================= #
 (DO NOT USE/MODIFY)=== Base customizations: &base
   primary-color: var(--lcars-ui-tertiary)
-  # Tonal palette derived from lcars-ui-tertiary (approximates HA's OKLCH palette generation)
-  ha-color-primary-05: "color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)"
-  ha-color-primary-10: "color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)"
-  ha-color-primary-20: "color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)"
-  ha-color-primary-30: "color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)"
-  ha-color-primary-40: "var(--lcars-ui-tertiary)"
-  ha-color-primary-50: "color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)"
-  ha-color-primary-60: "color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)"
-  ha-color-primary-70: "color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)"
-  ha-color-primary-80: "color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)"
-  ha-color-primary-90: "color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)"
-  ha-color-primary-95: "color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)"
+  # ha-color-primary-* tonal palette lives in src/defaults.yaml so themes can
+  # override it without duplicating keys brought in via <<: *base (issue #232).
   primary-background-color: var(--lcars-background-color)
   secondary-background-color: var(--lcars-ui-quaternary)
   divider-color: transparent
@@ -3336,6 +3326,18 @@ LCARS 25C:
   success-color: var(--lcars-alt-green)
   warning-color: var(--lcars-light-orange)
   error-color: var(--lcars-alt-orange)
+  # HA Color Palette
+  ha-color-primary-05: color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)
+  ha-color-primary-10: color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)
+  ha-color-primary-20: color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)
+  ha-color-primary-30: color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)
+  ha-color-primary-40: var(--lcars-ui-tertiary)
+  ha-color-primary-50: color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)
+  ha-color-primary-60: color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)
+  ha-color-primary-70: color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)
+  ha-color-primary-80: color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)
+  ha-color-primary-90: color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)
+  ha-color-primary-95: color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)
   # Derived RGB
   rgb-card-background-color: "109,116,140"
   rgb-primary-text-color: "255,255,255"
@@ -3413,6 +3415,18 @@ LCARS 25C (Blue Alert):
   success-color: var(--lcars-alt-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # HA Color Palette
+  ha-color-primary-05: color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)
+  ha-color-primary-10: color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)
+  ha-color-primary-20: color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)
+  ha-color-primary-30: color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)
+  ha-color-primary-40: var(--lcars-ui-tertiary)
+  ha-color-primary-50: color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)
+  ha-color-primary-60: color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)
+  ha-color-primary-70: color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)
+  ha-color-primary-80: color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)
+  ha-color-primary-90: color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)
+  ha-color-primary-95: color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)
   # Derived RGB
   rgb-card-background-color: "34,102,255"
   rgb-primary-text-color: "255,255,255"
@@ -3492,6 +3506,18 @@ LCARS 25C (Red Alert):
   success-color: var(--lcars-alt-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # HA Color Palette
+  ha-color-primary-05: color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)
+  ha-color-primary-10: color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)
+  ha-color-primary-20: color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)
+  ha-color-primary-30: color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)
+  ha-color-primary-40: var(--lcars-ui-tertiary)
+  ha-color-primary-50: color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)
+  ha-color-primary-60: color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)
+  ha-color-primary-70: color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)
+  ha-color-primary-80: color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)
+  ha-color-primary-90: color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)
+  ha-color-primary-95: color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)
   # Derived RGB
   rgb-card-background-color: "204,0,0"
   rgb-primary-text-color: "255,255,255"
@@ -3571,6 +3597,18 @@ LCARS 25C (Yellow Alert):
   success-color: var(--lcars-alt-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # HA Color Palette
+  ha-color-primary-05: color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)
+  ha-color-primary-10: color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)
+  ha-color-primary-20: color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)
+  ha-color-primary-30: color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)
+  ha-color-primary-40: var(--lcars-ui-tertiary)
+  ha-color-primary-50: color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)
+  ha-color-primary-60: color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)
+  ha-color-primary-70: color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)
+  ha-color-primary-80: color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)
+  ha-color-primary-90: color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)
+  ha-color-primary-95: color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)
   # Derived RGB
   rgb-card-background-color: "255,170,0"
   rgb-primary-text-color: "255,255,255"
@@ -3643,6 +3681,18 @@ LCARS Breen:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # HA Color Palette
+  ha-color-primary-05: color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)
+  ha-color-primary-10: color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)
+  ha-color-primary-20: color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)
+  ha-color-primary-30: color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)
+  ha-color-primary-40: var(--lcars-ui-tertiary)
+  ha-color-primary-50: color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)
+  ha-color-primary-60: color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)
+  ha-color-primary-70: color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)
+  ha-color-primary-80: color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)
+  ha-color-primary-90: color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)
+  ha-color-primary-95: color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)
   # Derived RGB
   rgb-card-background-color: "15,86,22"
   rgb-primary-text-color: "255,255,255"
@@ -3715,6 +3765,18 @@ LCARS Cardassia:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # HA Color Palette
+  ha-color-primary-05: color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)
+  ha-color-primary-10: color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)
+  ha-color-primary-20: color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)
+  ha-color-primary-30: color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)
+  ha-color-primary-40: var(--lcars-ui-tertiary)
+  ha-color-primary-50: color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)
+  ha-color-primary-60: color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)
+  ha-color-primary-70: color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)
+  ha-color-primary-80: color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)
+  ha-color-primary-90: color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)
+  ha-color-primary-95: color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)
   # Derived RGB
   rgb-card-background-color: "79,26,35"
   rgb-primary-text-color: "255,255,255"
@@ -3790,6 +3852,18 @@ LCARS Classic:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # HA Color Palette
+  ha-color-primary-05: color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)
+  ha-color-primary-10: color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)
+  ha-color-primary-20: color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)
+  ha-color-primary-30: color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)
+  ha-color-primary-40: var(--lcars-ui-tertiary)
+  ha-color-primary-50: color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)
+  ha-color-primary-60: color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)
+  ha-color-primary-70: color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)
+  ha-color-primary-80: color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)
+  ha-color-primary-90: color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)
+  ha-color-primary-95: color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)
   # Derived RGB
   rgb-card-background-color: "102,102,136"
   rgb-primary-text-color: "255,255,255"
@@ -3863,6 +3937,18 @@ LCARS Default:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # HA Color Palette
+  ha-color-primary-05: color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)
+  ha-color-primary-10: color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)
+  ha-color-primary-20: color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)
+  ha-color-primary-30: color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)
+  ha-color-primary-40: var(--lcars-ui-tertiary)
+  ha-color-primary-50: color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)
+  ha-color-primary-60: color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)
+  ha-color-primary-70: color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)
+  ha-color-primary-80: color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)
+  ha-color-primary-90: color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)
+  ha-color-primary-95: color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)
   # Derived RGB
   rgb-card-background-color: "102,102,136"
   rgb-primary-text-color: "255,255,255"
@@ -3937,6 +4023,18 @@ LCARS Kronos:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # HA Color Palette
+  ha-color-primary-05: color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)
+  ha-color-primary-10: color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)
+  ha-color-primary-20: color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)
+  ha-color-primary-30: color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)
+  ha-color-primary-40: var(--lcars-ui-tertiary)
+  ha-color-primary-50: color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)
+  ha-color-primary-60: color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)
+  ha-color-primary-70: color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)
+  ha-color-primary-80: color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)
+  ha-color-primary-90: color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)
+  ha-color-primary-95: color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)
   # Derived RGB
   rgb-card-background-color: "147,10,0"
   rgb-primary-text-color: "255,255,255"
@@ -4321,6 +4419,18 @@ LCARS Lower Decks I:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # HA Color Palette
+  ha-color-primary-05: color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)
+  ha-color-primary-10: color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)
+  ha-color-primary-20: color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)
+  ha-color-primary-30: color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)
+  ha-color-primary-40: var(--lcars-ui-tertiary)
+  ha-color-primary-50: color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)
+  ha-color-primary-60: color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)
+  ha-color-primary-70: color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)
+  ha-color-primary-80: color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)
+  ha-color-primary-90: color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)
+  ha-color-primary-95: color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)
   # Derived RGB
   rgb-card-background-color: "145,85,11"
   rgb-primary-text-color: "255,255,255"
@@ -4394,6 +4504,18 @@ LCARS Lower Decks II:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # HA Color Palette
+  ha-color-primary-05: color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)
+  ha-color-primary-10: color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)
+  ha-color-primary-20: color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)
+  ha-color-primary-30: color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)
+  ha-color-primary-40: var(--lcars-ui-tertiary)
+  ha-color-primary-50: color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)
+  ha-color-primary-60: color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)
+  ha-color-primary-70: color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)
+  ha-color-primary-80: color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)
+  ha-color-primary-90: color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)
+  ha-color-primary-95: color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)
   # Derived RGB
   rgb-card-background-color: "145,85,11"
   rgb-primary-text-color: "255,255,255"
@@ -4467,6 +4589,18 @@ LCARS Modern:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-red)
+  # HA Color Palette
+  ha-color-primary-05: color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)
+  ha-color-primary-10: color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)
+  ha-color-primary-20: color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)
+  ha-color-primary-30: color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)
+  ha-color-primary-40: var(--lcars-ui-tertiary)
+  ha-color-primary-50: color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)
+  ha-color-primary-60: color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)
+  ha-color-primary-70: color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)
+  ha-color-primary-80: color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)
+  ha-color-primary-90: color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)
+  ha-color-primary-95: color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)
   # Derived RGB
   rgb-card-background-color: "102,102,136"
   rgb-primary-text-color: "255,255,255"
@@ -4541,6 +4675,18 @@ LCARS Navigation:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-dark-red)
   error-color: var(--lcars-gold)
+  # HA Color Palette
+  ha-color-primary-05: color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)
+  ha-color-primary-10: color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)
+  ha-color-primary-20: color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)
+  ha-color-primary-30: color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)
+  ha-color-primary-40: var(--lcars-ui-tertiary)
+  ha-color-primary-50: color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)
+  ha-color-primary-60: color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)
+  ha-color-primary-70: color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)
+  ha-color-primary-80: color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)
+  ha-color-primary-90: color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)
+  ha-color-primary-95: color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)
   # Derived RGB
   rgb-card-background-color: "130,122,83"
   rgb-primary-text-color: "255,255,255"
@@ -4613,6 +4759,18 @@ LCARS Nemesis Blue:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # HA Color Palette
+  ha-color-primary-05: color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)
+  ha-color-primary-10: color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)
+  ha-color-primary-20: color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)
+  ha-color-primary-30: color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)
+  ha-color-primary-40: var(--lcars-ui-tertiary)
+  ha-color-primary-50: color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)
+  ha-color-primary-60: color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)
+  ha-color-primary-70: color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)
+  ha-color-primary-80: color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)
+  ha-color-primary-90: color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)
+  ha-color-primary-95: color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)
   # Derived RGB
   rgb-card-background-color: "68,74,119"
   rgb-primary-text-color: "255,255,255"
@@ -4686,6 +4844,18 @@ LCARS Picard I:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # HA Color Palette
+  ha-color-primary-05: color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)
+  ha-color-primary-10: color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)
+  ha-color-primary-20: color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)
+  ha-color-primary-30: color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)
+  ha-color-primary-40: var(--lcars-ui-tertiary)
+  ha-color-primary-50: color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)
+  ha-color-primary-60: color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)
+  ha-color-primary-70: color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)
+  ha-color-primary-80: color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)
+  ha-color-primary-90: color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)
+  ha-color-primary-95: color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)
   # Derived RGB
   rgb-card-background-color: "101,107,131"
   rgb-primary-text-color: "255,255,255"
@@ -4762,6 +4932,18 @@ LCARS Picard II:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-red)
+  # HA Color Palette
+  ha-color-primary-05: color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)
+  ha-color-primary-10: color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)
+  ha-color-primary-20: color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)
+  ha-color-primary-30: color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)
+  ha-color-primary-40: var(--lcars-ui-tertiary)
+  ha-color-primary-50: color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)
+  ha-color-primary-60: color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)
+  ha-color-primary-70: color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)
+  ha-color-primary-80: color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)
+  ha-color-primary-90: color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)
+  ha-color-primary-95: color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)
   # Derived RGB
   rgb-card-background-color: "1,37,86"
   rgb-primary-text-color: "255,255,255"
@@ -4836,6 +5018,18 @@ LCARS Red Alert:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # HA Color Palette
+  ha-color-primary-05: color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)
+  ha-color-primary-10: color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)
+  ha-color-primary-20: color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)
+  ha-color-primary-30: color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)
+  ha-color-primary-40: var(--lcars-ui-tertiary)
+  ha-color-primary-50: color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)
+  ha-color-primary-60: color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)
+  ha-color-primary-70: color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)
+  ha-color-primary-80: color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)
+  ha-color-primary-90: color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)
+  ha-color-primary-95: color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)
   # Derived RGB
   rgb-card-background-color: "54,0,0"
   rgb-primary-text-color: "255,255,255"
@@ -4911,6 +5105,18 @@ LCARS Romulus:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # HA Color Palette
+  ha-color-primary-05: color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)
+  ha-color-primary-10: color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)
+  ha-color-primary-20: color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)
+  ha-color-primary-30: color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)
+  ha-color-primary-40: var(--lcars-ui-tertiary)
+  ha-color-primary-50: color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)
+  ha-color-primary-60: color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)
+  ha-color-primary-70: color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)
+  ha-color-primary-80: color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)
+  ha-color-primary-90: color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)
+  ha-color-primary-95: color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)
   # Derived RGB
   rgb-card-background-color: "15,86,22"
   rgb-primary-text-color: "255,255,255"
@@ -4984,6 +5190,18 @@ LCARS TNG:
   success-color: var(--lcars-khaki-light)
   warning-color: var(--lcars-vivid-crimson)
   error-color: var(--lcars-maroon)
+  # HA Color Palette
+  ha-color-primary-05: color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)
+  ha-color-primary-10: color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)
+  ha-color-primary-20: color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)
+  ha-color-primary-30: color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)
+  ha-color-primary-40: var(--lcars-ui-tertiary)
+  ha-color-primary-50: color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)
+  ha-color-primary-60: color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)
+  ha-color-primary-70: color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)
+  ha-color-primary-80: color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)
+  ha-color-primary-90: color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)
+  ha-color-primary-95: color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)
   # Derived RGB
   rgb-card-background-color: "68,74,119"
   rgb-primary-text-color: "255,255,255"
@@ -5056,6 +5274,18 @@ LCARS TNGbuttons:
   success-color: var(--lcars-sage)
   warning-color: var(--lcars-vivid-crimson)
   error-color: var(--lcars-maroon)
+  # HA Color Palette
+  ha-color-primary-05: color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)
+  ha-color-primary-10: color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)
+  ha-color-primary-20: color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)
+  ha-color-primary-30: color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)
+  ha-color-primary-40: var(--lcars-ui-tertiary)
+  ha-color-primary-50: color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)
+  ha-color-primary-60: color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)
+  ha-color-primary-70: color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)
+  ha-color-primary-80: color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)
+  ha-color-primary-90: color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)
+  ha-color-primary-95: color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)
   # Derived RGB
   rgb-card-background-color: "68,74,119"
   rgb-primary-text-color: "255,255,255"
@@ -5128,6 +5358,18 @@ LCARS Transporter:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-dark-red)
   error-color: var(--lcars-gold)
+  # HA Color Palette
+  ha-color-primary-05: color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)
+  ha-color-primary-10: color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)
+  ha-color-primary-20: color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)
+  ha-color-primary-30: color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)
+  ha-color-primary-40: var(--lcars-ui-tertiary)
+  ha-color-primary-50: color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)
+  ha-color-primary-60: color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)
+  ha-color-primary-70: color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)
+  ha-color-primary-80: color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)
+  ha-color-primary-90: color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)
+  ha-color-primary-95: color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)
   # Derived RGB
   rgb-card-background-color: "44,55,75"
   rgb-primary-text-color: "255,255,255"
@@ -5204,6 +5446,18 @@ LCARS Zeldaar:
   success-color: var(--lcars-green)
   warning-color: var(--lcars-sunflower)
   error-color: var(--lcars-dark-red)
+  # HA Color Palette
+  ha-color-primary-05: color-mix(in oklch, var(--lcars-ui-tertiary) 10%, black)
+  ha-color-primary-10: color-mix(in oklch, var(--lcars-ui-tertiary) 22%, black)
+  ha-color-primary-20: color-mix(in oklch, var(--lcars-ui-tertiary) 44%, black)
+  ha-color-primary-30: color-mix(in oklch, var(--lcars-ui-tertiary) 67%, black)
+  ha-color-primary-40: var(--lcars-ui-tertiary)
+  ha-color-primary-50: color-mix(in oklch, var(--lcars-ui-tertiary) 88%, white)
+  ha-color-primary-60: color-mix(in oklch, var(--lcars-ui-tertiary) 70%, white)
+  ha-color-primary-70: color-mix(in oklch, var(--lcars-ui-tertiary) 50%, white)
+  ha-color-primary-80: color-mix(in oklch, var(--lcars-ui-tertiary) 30%, white)
+  ha-color-primary-90: color-mix(in oklch, var(--lcars-ui-tertiary) 15%, white)
+  ha-color-primary-95: color-mix(in oklch, var(--lcars-ui-tertiary) 8%, white)
   # Derived RGB
   rgb-card-background-color: "119,68,119"
   rgb-primary-text-color: "255,255,255"
