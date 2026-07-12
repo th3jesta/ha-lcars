@@ -447,6 +447,11 @@
   card-mod-card-yaml: &card-mod-card |
     .: |
       :host {
+        --lcars-horizontal-border: {{ states('input_number.lcars_horizontal') if has_value('input_number.lcars_horizontal') else 10 }}px !important;
+        --lcars-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
+        --lcars-middle-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
+        --lcars-sound: {{ true if is_state('input_boolean.lcars_sound', 'on') else false }};
+        --lcars-texture: {{ true if is_state('input_boolean.lcars_texture', 'on') else false }};
         font-family: var(--font-family) !important;
         --md-sys-color-primary: var(--lcars-ui-quaternary) !important;
         --lcars-primary-text: var(--lcars-ui-quaternary-text) !important;
@@ -2468,6 +2473,8 @@
         --lcars-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
         --lcars-middle-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
         --menu-font-size: {{ states('input_number.lcars_menu_font') if has_value('input_number.lcars_menu_font') else 24 }}px !important;
+        --lcars-sound: {{ true if is_state('input_boolean.lcars_sound', 'on') else false }};
+        --lcars-texture: {{ true if is_state('input_boolean.lcars_texture', 'on') else false }};
       }
 
       hui-view::-webkit-scrollbar {
