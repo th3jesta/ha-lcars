@@ -403,6 +403,15 @@
   # Calendar card and panel
   table-header-background-color: var(--ha-color-primary-10)
 
+  # Hover tooltips (ha-tooltip) — sidebar item names, header icons, etc.
+  # Set at theme level (not #view) so tooltips outside the dashboard —
+  # notably the collapsed sidebar's — are covered too. Without these,
+  # ha-tooltip falls back to --ha-color-surface-default (HA near-black in
+  # dark mode) and --primary-text-color, which can collide (issue: black
+  # text on black tooltip in dark mode).
+  ha-tooltip-background-color: var(--lcars-tooltip-background)
+  ha-tooltip-text-color: var(--lcars-tooltip-text)
+
 # ======================================================= #
 #                    CARD MODIFICATIONS                   #
 # ======================================================= #

@@ -118,6 +118,9 @@ modes:
     lcars-backlight-middle-location: 60%
     lcars-backlight-outer: transparent
     lcars-settings-card-text: var(--lcars-text-light)
+    # hover tooltips (ha-tooltip): sidebar item names, header icons, etc.
+    lcars-tooltip-background: var(--lcars-ui-quaternary)
+    lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   dark:
     lcars-ui-mix-color: white
     lcars-backlight-center: "#ffffff10"
@@ -125,3 +128,6 @@ modes:
     lcars-backlight-middle-location: 70%
     lcars-backlight-outer: "#00000080"
     lcars-settings-card-text: var(--lcars-text-dark)
+    # hover tooltips (ha-tooltip): sidebar item names, header icons, etc.
+    lcars-tooltip-background: var(--lcars-background-color)
+    lcars-tooltip-text: var(--lcars-background-text)
