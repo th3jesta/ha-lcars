@@ -798,16 +798,6 @@
           --ha-ripple-color: var(--lcars-ripple-color);
           --ha-ripple-pressed-opacity: var(--lcars-ripple-pressed-opacity);
           --ha-ripple-hover-opacity: var(--lcars-ripple-hover-opacity);
-        > ha-card,
-        > #aspect-ratio > ha-card,
-        &:is(ha-card) {
-          background-color: var(--lcars-card-button-color);
-          --lcars-primary-text: var(--lcars-card-button-text) !important;
-          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
-          --state-icon-color: var(--lcars-primary-text);
-          --card-primary-color: var(--lcars-primary-text);
-          --card-secondary-color: var(--lcars-secondary-text);
-          text-transform: uppercase;
         }
       }
 
