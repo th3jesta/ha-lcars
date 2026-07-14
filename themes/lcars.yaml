@@ -2012,6 +2012,7 @@
             pointer-events: none;
           }
         }
+      }
 
     # ------------------- Dev Tools Submenu ---------------------------------- #
     "ha-panel-developer-tools $": |
