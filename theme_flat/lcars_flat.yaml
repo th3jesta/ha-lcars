@@ -382,7 +382,7 @@
   markdown-code-text-color: var(--lcars-text-light)
 
   # Fields
-  ha-color-form-background: rgba(0, 0, 0, 0)
+  ha-color-form-background: rgba(0, 0, 0, 0.01)
   ha-color-form-background-hover: rgba(255, 255, 255, 0.05)
   ha-color-form-background-disabled: rgba(0, 0, 0, 0.1)
   ha-color-fill-primary-quiet-resting: rgba(255, 255, 255, 0.1)
@@ -3294,6 +3294,17 @@
       .divider {
         display: none;
       }
+    "ha-tooltip $": |
+      div.body {
+        padding-top: 9px !important;
+        padding-bottom: 11px !important;
+        min-height: 40px;
+        line-height: var(--menu-font-size);
+        margin-top: -5px;
+        margin-left: -3px;
+        padding-right: 20px;
+        border-radius: 0px 999px 999px 9px;
+      }
 # ======================================================= #
 #                    THEME DEFINITIONS                    #
 # ======================================================= #
@@ -3374,6 +3385,8 @@ LCARS 25C:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "109,116,140"
   # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   lcars-tab-selected-bg: url("data:image/svg+xml,%3C!-- sample rectangle --%3E%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='transparent'%3E%3Canimate attributeName='fill' values='%23e7442a;%23e7442a;%236d748c' begin='0s' dur='5s' calcMode='discrete' repeatCount='indefinite' /%3E%3C/rect%3E%3C/svg%3E")
   modes:
     light:
@@ -3383,8 +3396,6 @@ LCARS 25C:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -3392,8 +3403,6 @@ LCARS 25C:
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
       lcars-card-top-text: var(--lcars-text-gray)
       lcars-card-bottom-text: var(--lcars-text-gray)
 
@@ -3470,6 +3479,9 @@ LCARS 25C (Blue Alert):
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "34,102,255"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -3478,8 +3490,6 @@ LCARS 25C (Blue Alert):
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -3487,8 +3497,6 @@ LCARS 25C (Blue Alert):
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
       lcars-ui-primary-text: var(--lcars-text-dark)
       lcars-ui-quaternary-text: var(--lcars-text-dark)
       lcars-card-top-text: var(--lcars-text-dark)
@@ -3569,6 +3577,9 @@ LCARS 25C (Red Alert):
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "204,0,0"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -3577,8 +3588,6 @@ LCARS 25C (Red Alert):
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -3586,8 +3595,6 @@ LCARS 25C (Red Alert):
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
       lcars-ui-primary-text: var(--lcars-text-dark)
       lcars-ui-quaternary-text: var(--lcars-text-dark)
       lcars-card-top-text: var(--lcars-text-dark)
@@ -3668,6 +3675,9 @@ LCARS 25C (Yellow Alert):
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "255,170,0"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -3676,8 +3686,6 @@ LCARS 25C (Yellow Alert):
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -3685,8 +3693,6 @@ LCARS 25C (Yellow Alert):
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
 
 LCARS Breen:
   card-mod-theme: LCARS Breen
@@ -3760,6 +3766,9 @@ LCARS Breen:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "15,86,22"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -3768,8 +3777,6 @@ LCARS Breen:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -3777,8 +3784,6 @@ LCARS Breen:
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
 
 LCARS Cardassia:
   card-mod-theme: LCARS Cardassia
@@ -3852,6 +3857,9 @@ LCARS Cardassia:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "79,26,35"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -3860,8 +3868,6 @@ LCARS Cardassia:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -3869,8 +3875,6 @@ LCARS Cardassia:
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
       lcars-ui-quaternary-text: var(--lcars-text-gray)
       lcars-card-mid-text: var(--lcars-text-gray)
       lcars-card-button-text: var(--lcars-text-gray)
@@ -3947,6 +3951,9 @@ LCARS Classic:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "102,102,136"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -3955,8 +3962,6 @@ LCARS Classic:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -3964,8 +3969,6 @@ LCARS Classic:
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
       lcars-ui-quaternary-text: var(--lcars-text-dark)
 
 LCARS Default:
@@ -4040,6 +4043,9 @@ LCARS Default:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "102,102,136"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -4048,8 +4054,6 @@ LCARS Default:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -4057,8 +4061,6 @@ LCARS Default:
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
       lcars-ui-quaternary-text: var(--lcars-text-dark)
       lcars-card-bottom-text: var(--lcars-text-dark)
 
@@ -4134,6 +4136,9 @@ LCARS Kronos:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "147,10,0"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -4142,8 +4147,6 @@ LCARS Kronos:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -4151,8 +4154,6 @@ LCARS Kronos:
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
 
 LCARS Picard [LCARdS Blue Accent]:
   card-mod-theme: LCARS Picard [LCARdS Blue Accent]
@@ -4272,6 +4273,8 @@ LCARS Picard [LCARdS Blue Accent]:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "109,116,140"
   # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   lcars-card-mid-left-color: var(--lcards-blue)
   lcars-card-button: var(--lcards-blue)
   lcars-card-button-off: var(--lcards-gray-medium-light)
@@ -4285,8 +4288,6 @@ LCARS Picard [LCARdS Blue Accent]:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
       ha-color-form-background: color-mix(in srgb, var(--lcards-moonlight) 40%, transparent)
       lcars-ui-primary: var(--lcards-gray-medium-light)
       lcars-ui-secondary: var(--lcards-gray-light)
@@ -4303,8 +4304,6 @@ LCARS Picard [LCARdS Blue Accent]:
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
       ha-color-form-background: color-mix(in srgb, var(--lcards-moonlight) 30%, transparent)
       lcars-ui-primary: var(--lcards-gray)
       lcars-ui-secondary: var(--lcards-gray-medium-light)
@@ -4436,6 +4435,8 @@ LCARS Picard [LCARdS Red Accent]:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "109,116,140"
   # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   lcars-card-mid-left-color: var(--lcards-orange)
   lcars-card-button: var(--lcards-orange)
   lcars-card-button-off: var(--lcards-gray-medium-light)
@@ -4449,8 +4450,6 @@ LCARS Picard [LCARdS Red Accent]:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
       ha-color-form-background: color-mix(in srgb, var(--lcards-moonlight) 40%, transparent)
       lcars-ui-primary: var(--lcards-gray-medium-light)
       lcars-ui-secondary: var(--lcards-gray-light)
@@ -4467,8 +4466,6 @@ LCARS Picard [LCARdS Red Accent]:
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
       ha-color-form-background: color-mix(in srgb, var(--lcards-moonlight) 30%, transparent)
       lcars-ui-primary: var(--lcards-gray)
       lcars-ui-secondary: var(--lcards-gray-medium-light)
@@ -4554,6 +4551,9 @@ LCARS Lower Decks I:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "145,85,11"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -4562,8 +4562,6 @@ LCARS Lower Decks I:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -4571,8 +4569,6 @@ LCARS Lower Decks I:
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
       lcars-ui-quaternary-text: var(--lcars-text-dark)
 
 LCARS Lower Decks II:
@@ -4647,6 +4643,9 @@ LCARS Lower Decks II:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "145,85,11"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -4655,8 +4654,6 @@ LCARS Lower Decks II:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -4664,8 +4661,6 @@ LCARS Lower Decks II:
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
       lcars-ui-quaternary-text: var(--lcars-text-dark)
 
 LCARS Modern:
@@ -4740,6 +4735,9 @@ LCARS Modern:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "102,102,136"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -4748,8 +4746,6 @@ LCARS Modern:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -4757,8 +4753,6 @@ LCARS Modern:
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
       lcars-ui-quaternary-text: var(--lcars-text-dark)
       lcars-card-button-text: var(--lcars-text-dark)
 
@@ -4834,6 +4828,9 @@ LCARS Navigation:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "130,122,83"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -4842,8 +4839,6 @@ LCARS Navigation:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -4851,8 +4846,6 @@ LCARS Navigation:
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
 
 LCARS Nemesis Blue:
   card-mod-theme: LCARS Nemesis Blue
@@ -4926,6 +4919,9 @@ LCARS Nemesis Blue:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "68,74,119"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -4934,8 +4930,6 @@ LCARS Nemesis Blue:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -4943,8 +4937,6 @@ LCARS Nemesis Blue:
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
       lcars-ui-primary-text: var(--lcars-text-dark)
 
 LCARS Picard I:
@@ -5019,6 +5011,9 @@ LCARS Picard I:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "101,107,131"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -5027,8 +5022,6 @@ LCARS Picard I:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -5036,8 +5029,6 @@ LCARS Picard I:
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
       lcars-ui-secondary-text: var(--lcars-text-dark)
       lcars-ui-quaternary-text: var(--lcars-text-dark)
       lcars-card-top-text: var(--lcars-text-dark)
@@ -5115,6 +5106,9 @@ LCARS Picard II:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "1,37,86"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -5123,8 +5117,6 @@ LCARS Picard II:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -5132,8 +5124,6 @@ LCARS Picard II:
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
       lcars-ui-quaternary-text: var(--lcars-text-gray)
       lcars-card-bottom-text: var(--lcars-text-gray)
 
@@ -5209,6 +5199,9 @@ LCARS Red Alert:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "54,0,0"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -5217,8 +5210,6 @@ LCARS Red Alert:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -5226,8 +5217,6 @@ LCARS Red Alert:
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
       lcars-ui-primary-text: var(--lcars-text-dark)
       lcars-ui-quaternary-text: var(--lcars-text-mist)
       lcars-card-top-text: var(--lcars-text-dark)
@@ -5304,6 +5293,9 @@ LCARS Romulus:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "15,86,22"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -5312,8 +5304,6 @@ LCARS Romulus:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -5321,8 +5311,6 @@ LCARS Romulus:
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
       lcars-card-top-text: var(--lcars-text-dark)
 
 LCARS TNG:
@@ -5397,6 +5385,9 @@ LCARS TNG:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "68,74,119"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -5405,8 +5396,6 @@ LCARS TNG:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -5414,8 +5403,6 @@ LCARS TNG:
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
 
 LCARS TNGbuttons:
   card-mod-theme: LCARS TNGbuttons
@@ -5489,6 +5476,9 @@ LCARS TNGbuttons:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "68,74,119"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -5497,8 +5487,6 @@ LCARS TNGbuttons:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -5506,8 +5494,6 @@ LCARS TNGbuttons:
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
 
 LCARS Transporter:
   card-mod-theme: LCARS Transporter
@@ -5581,6 +5567,9 @@ LCARS Transporter:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "44,55,75"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -5589,8 +5578,6 @@ LCARS Transporter:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -5598,8 +5585,6 @@ LCARS Transporter:
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
       lcars-ui-primary-text: var(--lcars-text-gray)
       lcars-ui-quaternary-text: var(--lcars-text-gray)
       lcars-card-button-text: var(--lcars-text-dark)
@@ -5677,6 +5662,9 @@ LCARS Zeldaar:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "119,68,119"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -5685,8 +5673,6 @@ LCARS Zeldaar:
       lcars-backlight-middle-location: 60%
       lcars-backlight-outer: transparent
       lcars-settings-card-text: var(--lcars-text-light)
-      lcars-tooltip-background: var(--lcars-ui-quaternary)
-      lcars-tooltip-text: var(--lcars-ui-quaternary-text)
     dark:
       lcars-ui-mix-color: white
       lcars-backlight-center: "#ffffff10"
@@ -5694,8 +5680,6 @@ LCARS Zeldaar:
       lcars-backlight-middle-location: 70%
       lcars-backlight-outer: "#00000080"
       lcars-settings-card-text: var(--lcars-text-dark)
-      lcars-tooltip-background: var(--lcars-background-color)
-      lcars-tooltip-text: var(--lcars-background-text)
 
 # ================ Paste your themes here =============== |
 # (or add a file to src/themes/ and run generate_themes.py)
