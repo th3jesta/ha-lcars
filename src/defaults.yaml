@@ -59,6 +59,9 @@ lcars-sidebar-notification-color: var(--lcars-ui-tertiary)
 # UI Text
 # section/view heading titles on dashboards
 lcars-ui-text-heading: var(--lcars-text-gray)
+# Tooltips popups
+lcars-tooltip-background: var(--lcars-ui-quaternary)
+lcars-tooltip-text: var(--lcars-ui-quaternary-text)
 
 # Card colors
 # top bar background of LCARS card sections

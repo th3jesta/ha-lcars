@@ -382,7 +382,7 @@
   markdown-code-text-color: var(--lcars-text-light)
 
   # Fields
-  ha-color-form-background: rgba(0, 0, 0, 0)
+  ha-color-form-background: rgba(0, 0, 0, 0.01)
   ha-color-form-background-hover: rgba(255, 255, 255, 0.05)
   ha-color-form-background-disabled: rgba(0, 0, 0, 0.1)
   ha-color-fill-primary-quiet-resting: rgba(255, 255, 255, 0.1)
@@ -402,6 +402,15 @@
 
   # Calendar card and panel
   table-header-background-color: var(--ha-color-primary-10)
+
+  # Hover tooltips (ha-tooltip) — sidebar item names, header icons, etc.
+  # Set at theme level (not #view) so tooltips outside the dashboard —
+  # notably the collapsed sidebar's — are covered too. Without these,
+  # ha-tooltip falls back to --ha-color-surface-default (HA near-black in
+  # dark mode) and --primary-text-color, which can collide (issue: black
+  # text on black tooltip in dark mode).
+  ha-tooltip-background-color: var(--lcars-tooltip-background)
+  ha-tooltip-text-color: var(--lcars-tooltip-text)
 
 # ======================================================= #
 #                    CARD MODIFICATIONS                   #
@@ -2770,6 +2779,17 @@
       .divider {
         display: none;
       }
+    "ha-tooltip $": |
+      div.body {
+        padding-top: 9px !important;
+        padding-bottom: 11px !important;
+        min-height: 40px;
+        line-height: var(--menu-font-size);
+        margin-top: -5px;
+        margin-left: -3px;
+        padding-right: 20px;
+        border-radius: 0px 999px 999px 9px;
+      }
 
 # ======================================================= #
 #                    THEME DEFINITIONS                    #
@@ -2851,6 +2871,8 @@ LCARS 25C:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "109,116,140"
   # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   lcars-tab-selected-bg: url("data:image/svg+xml,%3C!-- sample rectangle --%3E%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='transparent'%3E%3Canimate attributeName='fill' values='%23e7442a;%23e7442a;%236d748c' begin='0s' dur='5s' calcMode='discrete' repeatCount='indefinite' /%3E%3C/rect%3E%3C/svg%3E")
   modes:
     light:
@@ -2943,6 +2965,9 @@ LCARS 25C (Blue Alert):
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "34,102,255"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -3038,6 +3063,9 @@ LCARS 25C (Red Alert):
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "204,0,0"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -3133,6 +3161,9 @@ LCARS 25C (Yellow Alert):
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "255,170,0"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -3221,6 +3252,9 @@ LCARS Breen:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "15,86,22"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -3309,6 +3343,9 @@ LCARS Cardassia:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "79,26,35"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -3400,6 +3437,9 @@ LCARS Classic:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "102,102,136"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -3489,6 +3529,9 @@ LCARS Default:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "102,102,136"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -3579,6 +3622,9 @@ LCARS Kronos:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "147,10,0"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -3713,6 +3759,8 @@ LCARS Picard [LCARdS Blue Accent]:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "109,116,140"
   # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   lcars-card-mid-left-color: var(--lcards-blue)
   lcars-card-button: var(--lcards-blue)
   lcars-card-button-off: var(--lcards-gray-medium-light)
@@ -3873,6 +3921,8 @@ LCARS Picard [LCARdS Red Accent]:
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "109,116,140"
   # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   lcars-card-mid-left-color: var(--lcards-orange)
   lcars-card-button: var(--lcards-orange)
   lcars-card-button-off: var(--lcards-gray-medium-light)
@@ -3987,6 +4037,9 @@ LCARS Lower Decks I:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "145,85,11"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -4076,6 +4129,9 @@ LCARS Lower Decks II:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "145,85,11"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -4165,6 +4221,9 @@ LCARS Modern:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "102,102,136"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -4255,6 +4314,9 @@ LCARS Navigation:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "130,122,83"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -4343,6 +4405,9 @@ LCARS Nemesis Blue:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "68,74,119"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -4432,6 +4497,9 @@ LCARS Picard I:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "101,107,131"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -4524,6 +4592,9 @@ LCARS Picard II:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "1,37,86"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -4614,6 +4685,9 @@ LCARS Red Alert:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "54,0,0"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -4705,6 +4779,9 @@ LCARS Romulus:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "15,86,22"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -4794,6 +4871,9 @@ LCARS TNG:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "68,74,119"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -4882,6 +4962,9 @@ LCARS TNGbuttons:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "68,74,119"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -4970,6 +5053,9 @@ LCARS Transporter:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "44,55,75"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black
@@ -5062,6 +5148,9 @@ LCARS Zeldaar:
   rgb-accent-color: "255,119,0"
   rgb-primary-background-color: "0,0,0"
   rgb-secondary-background-color: "119,68,119"
+  # Theme-specific
+  lcars-tooltip-background: var(--lcars-ui-quaternary)
+  lcars-tooltip-text: var(--lcars-ui-quaternary-text)
   modes:
     light:
       lcars-ui-mix-color: black

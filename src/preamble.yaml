@@ -382,7 +382,7 @@
   markdown-code-text-color: var(--lcars-text-light)
 
   # Fields
-  ha-color-form-background: rgba(0, 0, 0, 0)
+  ha-color-form-background: rgba(0, 0, 0, 0.01)
   ha-color-form-background-hover: rgba(255, 255, 255, 0.05)
   ha-color-form-background-disabled: rgba(0, 0, 0, 0.1)
   ha-color-fill-primary-quiet-resting: rgba(255, 255, 255, 0.1)
@@ -402,6 +402,15 @@
 
   # Calendar card and panel
   table-header-background-color: var(--ha-color-primary-10)
+
+  # Hover tooltips (ha-tooltip) — sidebar item names, header icons, etc.
+  # Set at theme level (not #view) so tooltips outside the dashboard —
+  # notably the collapsed sidebar's — are covered too. Without these,
+  # ha-tooltip falls back to --ha-color-surface-default (HA near-black in
+  # dark mode) and --primary-text-color, which can collide (issue: black
+  # text on black tooltip in dark mode).
+  ha-tooltip-background-color: var(--lcars-tooltip-background)
+  ha-tooltip-text-color: var(--lcars-tooltip-text)
 
 # ======================================================= #
 #                    CARD MODIFICATIONS                   #
@@ -2769,4 +2778,15 @@
       }
       .divider {
         display: none;
+      }
+    "ha-tooltip $": |
+      div.body {
+        padding-top: 9px !important;
+        padding-bottom: 11px !important;
+        min-height: 40px;
+        line-height: var(--menu-font-size);
+        margin-top: -5px;
+        margin-left: -3px;
+        padding-right: 20px;
+        border-radius: 0px 999px 999px 9px;
       }
