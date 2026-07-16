@@ -52,3 +52,6 @@ jobs:
         with:
           commit_message: "chore: add ha-frontend pre-release pipeline impact analysis"
           file_pattern: "docs/release-impact/pipeline-*.md"
+          # The Rebase Branch step rewrites history when master has moved,
+          # so the push is non-fast-forward by design.
+          push_options: '--force-with-lease'
