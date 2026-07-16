@@ -382,7 +382,7 @@
   markdown-code-text-color: var(--lcars-text-light)
 
   # Fields
-  ha-color-form-background: rgba(0, 0, 0, 0)
+  ha-color-form-background: rgba(0, 0, 0, 0.01)
   ha-color-form-background-hover: rgba(255, 255, 255, 0.05)
   ha-color-form-background-disabled: rgba(0, 0, 0, 0.1)
   ha-color-fill-primary-quiet-resting: rgba(255, 255, 255, 0.1)
@@ -2778,4 +2778,15 @@
       }
       .divider {
         display: none;
+      }
+    "ha-tooltip $": |
+      div.body {
+        padding-top: 9px !important;
+        padding-bottom: 11px !important;
+        min-height: 40px;
+        line-height: var(--menu-font-size);
+        margin-top: -5px;
+        margin-left: -3px;
+        padding-right: 20px;
+        border-radius: 0px 999px 999px 9px;
       }
