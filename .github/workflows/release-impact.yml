@@ -47,3 +47,6 @@ jobs:
         with:
           commit_message: "chore: add ha-frontend release impact analyses"
           file_pattern: "docs/release-impact/*.md docs/release-impact/.state.json"
+          # The Rebase Branch step rewrites history when master has moved,
+          # so the push is non-fast-forward by design.
+          push_options: '--force-with-lease'
