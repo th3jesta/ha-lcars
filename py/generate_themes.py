@@ -453,6 +453,108 @@ def verify_contrast_rule(output_file: Path) -> None:
         print(f"  WARNING {w}")
 
 
+_JINJA_RE = re.compile(r"\{\{.*?\}\}|\{%.*?%\}", re.S)
+_YAML_LITERAL_RE = re.compile(r"^(\s*)([^\s#][^:\n]*): \|-?\s*$")
+
+
+def _iter_literal_blocks(text: str):
+    """Yield (key, start_line, block_text) for every YAML literal block."""
+    lines = text.splitlines()
+    i = 0
+    while i < len(lines):
+        m = _YAML_LITERAL_RE.match(lines[i])
+        if not m:
+            i += 1
+            continue
+        indent, key = len(m.group(1)), m.group(2)
+        body_start = i + 1
+        j = body_start
+        while j < len(lines) and (
+            not lines[j].strip() or len(lines[j]) - len(lines[j].lstrip()) > indent
+        ):
+            j += 1
+        yield key, body_start + 1, "\n".join(lines[body_start:j])
+        i = j
+
+
+def verify_css_balance(output_file: Path) -> None:
+    """Check every CSS block in the generated file for balanced braces and
+    closed comments.
+
+    An unclosed brace or comment makes the browser silently swallow every
+    rule after it (both have shipped before: an unclosed comment fence, and
+    the #234 merge artifact that killed all bar-class chrome). Unlike the
+    contrast verifier, imbalance is never intentional, so this hard-fails
+    the build. Quoted strings are honored so a literal brace or "/*" inside
+    content:"..." can't skew the count; Jinja tags are masked in place so
+    line numbers stay accurate.
+    """
+    text = output_file.read_text()
+    failures: list[str] = []
+
+    for key, start_line, block in _iter_literal_blocks(text):
+        css = _JINJA_RE.sub("/*jinja*/", block)
+        depth = 0
+        in_comment = False
+        comment_line = 0
+        quote: str | None = None
+        open_lines: list[int] = []
+        for lineno, ln in enumerate(css.splitlines(), start=start_line):
+            col = 0
+            while col < len(ln):
+                if in_comment:
+                    end = ln.find("*/", col)
+                    if end == -1:
+                        break
+                    in_comment = False
+                    col = end + 2
+                    continue
+                ch = ln[col]
+                if quote is not None:
+                    if ch == "\\":
+                        col += 2
+                        continue
+                    if ch == quote:
+                        quote = None
+                    col += 1
+                    continue
+                if ch in ("'", '"'):
+                    quote = ch
+                    col += 1
+                    continue
+                if ln.startswith("/*", col):
+                    in_comment = True
+                    comment_line = lineno
+                    col += 2
+                    continue
+                if ch == "{":
+                    depth += 1
+                    open_lines.append(lineno)
+                elif ch == "}":
+                    depth -= 1
+                    if open_lines:
+                        open_lines.pop()
+                    if depth < 0:
+                        failures.append(f"{key!r}: stray '}}' at line {lineno}")
+                        depth = 0
+                col += 1
+            # An unterminated string cannot span lines in CSS; reset so one
+            # stray quote doesn't poison the rest of the block.
+            quote = None
+        if depth > 0:
+            failures.append(
+                f"{key!r}: {depth} unclosed '{{' (first opened at line {open_lines[0]})"
+            )
+        if in_comment:
+            failures.append(f"{key!r}: unclosed comment starting at line {comment_line}")
+
+    if failures:
+        for f in failures:
+            print(f"ERROR css-balance: {f}")
+        sys.exit(1)
+    print("CSS balance: all literal blocks balanced.")
+
+
 def main() -> None:
     with DEFAULTS_FILE.open() as f:
         defaults: dict = yaml.safe_load(f)
@@ -515,6 +617,7 @@ def main() -> None:
         print(f"  {name}")
 
     verify_contrast_rule(OUTPUT_FILE)
+    verify_css_balance(OUTPUT_FILE)
 
 
 if __name__ == "__main__":
