@@ -1,0 +1,137 @@
+name: LCARS Picard [LCARdS Blue Accent]
+
+# UI Colors
+lcars-ui-primary: var(--lcards-gray-medium-light)
+lcars-ui-primary-text: var(--lcars-text-dark)
+lcars-ui-secondary: var(--lcards-gray)
+lcars-ui-secondary-text: var(--lcars-text-dark)
+lcars-ui-tertiary: var(--lcards-blue)
+lcars-ui-tertiary-text: var(--lcars-text-dark)
+lcars-ui-quaternary: var(--lcards-gray)
+lcars-ui-quaternary-text: var(--lcars-text-light)
+lcars-ui-accent-color: var(--lcards-blue)
+lcars-ui-accent-text: var(--lcars-text-light)
+lcars-background-color: var(--lcars-black)
+lcars-background-text: var(--lcars-text-light)
+lcars-alert-color: var(--lcards-orange-medium-dark)
+lcars-ui-text-heading: var(--lcars-text-gray)
+
+# Header / Sidebar
+lcars-ui-config-button: var(--lcards-orange-lightest)
+lcars-ui-config-icon: var(--lcards-orange-lightest)
+
+# Sidebar
+lcars-sidebar-icon-color: var(--lcards-gray-dark)
+
+# Card colors
+lcars-card-top-color: var(--lcards-gray-medium-dark)
+lcars-card-mid-color: var(--lcards-blue)
+lcars-card-button-color: var(--lcards-blue)
+lcars-card-bottom-color: var(--lcards-gray-dark)
+
+# Card text
+lcars-card-top-text: var(--lcars-text-light)
+lcars-card-mid-text: var(--lcars-text-dark)
+lcars-card-button-text: var(--lcars-text-dark)
+lcars-card-bottom-text: var(--lcars-text-light)
+
+# Settings
+lcars-settings-card-color: "#5077AF"
+
+# HA Core tonal palette — LCARdS blue family as primary
+ha-color-primary-05: var(--lcards-blue-darkest)
+ha-color-primary-10: var(--lcards-blue-darkest)
+ha-color-primary-20: var(--lcards-blue-dark)
+ha-color-primary-30: var(--lcards-blue-medium-dark)
+ha-color-primary-40: var(--lcards-blue)
+ha-color-primary-50: var(--lcards-blue)
+ha-color-primary-60: var(--lcards-blue)
+ha-color-primary-70: var(--lcards-blue-medium-light)
+ha-color-primary-80: var(--lcards-blue-light)
+ha-color-primary-90: var(--lcards-blue-lightest)
+ha-color-primary-95: var(--lcards-blue-lightest)
+
+# HA neutral palette → LCARdS gray family
+ha-color-neutral-05: var(--lcards-gray-darkest)
+ha-color-neutral-10: var(--lcards-gray-darkest)
+ha-color-neutral-20: var(--lcards-gray-dark)
+ha-color-neutral-30: var(--lcards-gray-medium-dark)
+ha-color-neutral-40: var(--lcards-gray-medium-dark)
+ha-color-neutral-50: var(--lcards-gray)
+ha-color-neutral-60: var(--lcards-gray-medium-light)
+ha-color-neutral-70: var(--lcards-gray-medium-light)
+ha-color-neutral-80: var(--lcards-gray-light)
+ha-color-neutral-90: var(--lcards-gray-lightest)
+ha-color-neutral-95: var(--lcards-gray-lightest)
+
+# HA orange palette → LCARdS yellow family
+ha-color-orange-05: var(--lcards-yellow-darkest)
+ha-color-orange-10: var(--lcards-yellow-darkest)
+ha-color-orange-20: var(--lcards-yellow-dark)
+ha-color-orange-30: var(--lcards-yellow-medium-dark)
+ha-color-orange-40: var(--lcards-yellow-medium-dark)
+ha-color-orange-50: var(--lcards-yellow)
+ha-color-orange-60: var(--lcards-yellow-medium-light)
+ha-color-orange-70: var(--lcards-yellow-medium-light)
+ha-color-orange-80: var(--lcards-yellow-light)
+ha-color-orange-90: var(--lcards-yellow-lightest)
+ha-color-orange-95: var(--lcards-yellow-lightest)
+
+# HA red palette → LCARdS orange family
+ha-color-red-05: var(--lcards-orange-darkest)
+ha-color-red-10: var(--lcards-orange-darkest)
+ha-color-red-20: var(--lcards-orange-dark)
+ha-color-red-30: var(--lcards-orange-medium-dark)
+ha-color-red-40: var(--lcards-orange-medium-dark)
+ha-color-red-50: var(--lcards-orange)
+ha-color-red-60: var(--lcards-orange-medium-light)
+ha-color-red-70: var(--lcards-orange-medium-light)
+ha-color-red-80: var(--lcards-orange-light)
+ha-color-red-90: var(--lcards-orange-lightest)
+ha-color-red-95: var(--lcards-orange-lightest)
+
+# HA green palette → LCARdS green family
+ha-color-green-05: var(--lcards-green-darkest)
+ha-color-green-10: var(--lcards-green-darkest)
+ha-color-green-20: var(--lcards-green-dark)
+ha-color-green-30: var(--lcards-green-medium-dark)
+ha-color-green-40: var(--lcards-green-medium-dark)
+ha-color-green-50: var(--lcards-green)
+ha-color-green-60: var(--lcards-green-medium-light)
+ha-color-green-70: var(--lcards-green-medium-light)
+ha-color-green-80: var(--lcards-green-light)
+ha-color-green-90: var(--lcards-green-lightest)
+ha-color-green-95: var(--lcards-green-lightest)
+
+# Backward-compat aliases (existed in master, renamed/dropped in v4.1.0-beta rewrite)
+lcars-card-mid-left-color: var(--lcards-blue)
+lcars-card-button: var(--lcards-blue)
+lcars-card-button-off: var(--lcards-gray-medium-light)
+lcars-card-button-barrel: var(--lcards-gray-medium-dark)
+lcars-card-background: var(--lcards-gray-medium-light)
+
+modes:
+  light:
+    ha-color-form-background: "color-mix(in srgb, var(--lcards-moonlight) 40%, transparent)"
+    lcars-ui-primary: var(--lcards-gray-medium-light)
+    lcars-ui-secondary: var(--lcards-gray-light)
+    lcars-ui-tertiary: var(--lcards-blue)
+    lcars-ui-quaternary: var(--lcards-gray-medium-dark)
+    lcars-alert-color: var(--lcards-orange-medium-dark)
+    success-color: var(--lcards-green)
+    warning-color: var(--lcards-orange-medium-light)
+    error-color: var(--lcards-orange)
+
+  dark:
+    ha-color-form-background: "color-mix(in srgb, var(--lcards-moonlight) 30%, transparent)"
+    lcars-ui-primary: var(--lcards-gray)
+    lcars-ui-secondary: var(--lcards-gray-medium-light)
+    lcars-ui-tertiary: var(--lcards-blue)
+    lcars-ui-quaternary: var(--lcards-gray-dark)
+    lcars-alert-color: var(--lcards-orange-medium-dark)
+    success-color: var(--lcards-green)
+    warning-color: var(--lcards-orange)
+    error-color: var(--lcards-orange-dark)
+    lcars-ui-quaternary-text: var(--lcars-text-gray)
+    lcars-card-top-text: var(--lcars-text-dark)
+    lcars-card-bottom-text: var(--lcars-text-gray)

@@ -1,0 +1,29 @@
+name: LCARS Nemesis Blue
+
+lcars-ui-primary: var(--lcars-evening)
+lcars-ui-primary-text: var(--lcars-text-light)
+lcars-ui-secondary: var(--lcars-wheat)
+lcars-ui-tertiary: var(--lcars-pumpkinshade)
+lcars-ui-quaternary: var(--lcars-galaxy)
+
+lcars-sidebar-icon-color: var(--lcars-text-dark)
+lcars-ui-config-button: var(--lcars-ice)
+
+lcars-card-top-color: var(--lcars-sky)
+lcars-card-mid-color: var(--lcars-ice)
+lcars-card-button-color: var(--lcars-honey)
+lcars-card-bottom-color: var(--lcars-cool)
+lcars-settings-card-color: "#6B72A3"
+
+lcars-card-top-text: var(--lcars-text-dark)
+lcars-card-mid-text: var(--lcars-text-dark)
+lcars-card-button-text: var(--lcars-text-dark)
+lcars-card-bottom-text: var(--lcars-text-dark)
+
+success-color: var(--lcars-green)
+warning-color: var(--lcars-sunflower)
+error-color: var(--lcars-dark-red)
+
+modes:
+  dark:
+    lcars-ui-primary-text: var(--lcars-text-dark)
