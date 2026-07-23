@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-07-22T22:06:37.447549+00:00",
+  "last_run": "2026-07-23T22:07:46.568181+00:00",
   "_note": "Seeded with the latest ha-frontend stable release at worker setup time. The release-impact GitHub Action updates this file on every run. The .md files in this directory are working documents that developers delete after resolving issues \u2014 this file persists across those deletions.",
   "last_analyzed_pin": "20260624.6",
   "state_migrated_from_last_processed_tag": true,
