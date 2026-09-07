@@ -351,8 +351,8 @@
   mdc-typography-font-family: var(--font-family)
   mdc-theme-on-primary: black
   mdc-theme-on-secondary: black
-  mdc-theme-text-primary-on-background: var(--lcars-ui-secondary-text)
-  mdc-theme-text-secondary-on-background: var(--lcars-ui-secondary-text)
+  mdc-theme-text-primary-on-background: var(--primary-text-color)
+  mdc-theme-text-secondary-on-background: var(--secondary-text-color)
   mdc-shape-small: 0px
 
   #App Header
