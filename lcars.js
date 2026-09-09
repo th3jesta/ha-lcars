@@ -30,6 +30,11 @@ Promise.resolve(customElements.whenDefined('ha-panel-lovelace')).then(() => {
   }
 })
 
+// input_boolean.lcars_sound is an optional helper, so treat a missing entity
+// as sound off rather than letting the click handler throw.
+const lcarsSoundOn = () =>
+  document.querySelector('home-assistant')?.hass?.states['input_boolean.lcars_sound']?.state === 'on'
+
 class SidebarSound {
   refsMenu = {
     ha: null,
@@ -51,7 +56,7 @@ class SidebarSound {
 
   runMenu = () => {
     this.refsMenu.sidebar.addEventListener('click', e => {
-      if (document.querySelector('home-assistant').hass.states['input_boolean.lcars_sound'].state == 'on') {
+      if (lcarsSoundOn()) {
         if (e.target.matches("ha-icon-button")) {
           menuExpand.play()
         } else if (e.target.matches("PAPER-ICON-ITEM") ||
@@ -92,7 +97,7 @@ class DashSound {
 
   runButton = () => {
     this.refsButton.resolver.addEventListener('click', e => {
-      if (e.target.matches("HA-PANEL-LOVELACE") && document.querySelector('home-assistant').hass.states['input_boolean.lcars_sound'].state == 'on' ) {
+      if (e.target.matches("HA-PANEL-LOVELACE") && lcarsSoundOn()) {
         btnBeep.play()
       }
     })
