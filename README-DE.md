@@ -143,7 +143,7 @@ B. Wenn Sie einer zufälligen, auf einem CDN gehosteten JavaScript-Datei nicht v
 > **WENN SIE CLOUDFLARE VOR IHRER WEBSITE VERWENDEN:**  
 > Leeren Sie den Site-Cache in CloudFlare (Purge Cache unter Quick Actions), wann immer Sie die lokale Datei aktualisieren oder wenn Sie den JSDelivr-Link verwenden und eine neue Version von HA-LCARS veröffentlicht wird. Dies muss sowohl bei Verwendung des JSDelivr-Links als auch bei der Ablage im www-Ordner erfolgen. Sofern nicht anders konfiguriert, cached CloudFlare alles, was auf Ihrer Website möglich ist.
 
-#### III. Die Uhr einrichten
+#### IV. Die Uhr einrichten
 Damit die Uhr funktioniert, müssen Sie die Integration **Time & Date** einrichten, indem Sie Folgendes zu Ihrer configuration.yaml hinzufügen:
 ```yaml
 sensor:
@@ -164,23 +164,41 @@ https://www.home-assistant.io/integrations/time_date/
 >[!NOTE]
 > Möglicherweise möchten Sie diese neuen Time-&-Date-Entitäten aus der Recorder-Integration von Home Assistant entfernen, damit Ihre Datenbank nicht durch Aktualisierungen im Sekundentakt aufgebläht wird. Beispiele, wie Sie dies tun können: https://www.home-assistant.io/integrations/recorder/#common-filtering-examples
 
-#### IV. Hilfsentitäten erstellen
-Dieses Theme verfügt über Umschaltsteuerungen für Sound und Texturen, Zahlensteuerungen für die Rahmengrößen sowie einen optionalen Template-Sensor zum Hinzufügen von benutzerdefiniertem Text zur Kopfzeile. Erstellen Sie diese Hilfsentitäten, indem Sie zu ``Settings`` → ``Devices & Services`` → ``Helpers`` navigieren und zwei vom Typ **Toggle**, zwei vom Typ **Number** sowie eine vom Typ **Template** erstellen, benannt wie unten angegeben:
-- LCARS Sound (Entity-ID sollte `input_boolean.lcars_sound` sein)
+#### V. Hilfsentitäten erstellen
+Dieses Theme verfügt über Umschaltsteuerungen für Sound und Texturen, Zahlensteuerungen für die Rahmengrößen und die Menü-Schriftgröße sowie einen Template-Sensor zum Hinzufügen von benutzerdefiniertem Text zur Kopfzeile. **Alle sechs sind optional** — für jede nicht erstellte Hilfsentität verwendet das Theme den unten genannten Standardwert. Erstellen Sie diejenigen, deren Einstellungen Sie über die Benutzeroberfläche ändern möchten.
+
+Erstellen Sie sie, indem Sie zu ``Einstellungen`` → ``Geräte & Dienste`` → ``Helfer`` → ``+ Helfer erstellen`` navigieren. Die Entity-IDs müssen exakt wie unten angegeben lauten, sonst findet das Theme sie nicht.
+
+- **LCARS Sound** — Helfertyp **Toggle** (Entity-ID sollte `input_boolean.lcars_sound` sein)
   - Schaltet Tasten- und Tippgeräusche ein bzw. aus
-- LCARS Texture (Entity-ID sollte `input_boolean.lcars_texture` sein)
+  - Ohne diese Entität: Geräusche bleiben aus
+- **LCARS Texture** — Helfertyp **Toggle** (Entity-ID sollte `input_boolean.lcars_texture` sein)
   - Schaltet ein Körnungsmuster und einen Hintergrundbeleuchtungseffekt ein bzw. aus
-- LCARS Vertical (Entity-ID sollte `input_number.lcars_vertical` sein)
+  - Ohne diese Entität: die Textur ist dauerhaft **eingeschaltet** und lässt sich nicht abschalten
+- **LCARS Vertical** — Helfertyp **Number** (Entity-ID sollte `input_number.lcars_vertical` sein)
   - Legt die Breite der vertikalen Rahmen fest
   - Mindestwert: 26
   - Maximalwert: 60
-- LCARS Horizontal (Entity-ID sollte `input_number.lcars_horizontal` sein)
+  - Ohne diese Entität: 35px
+- **LCARS Horizontal** — Helfertyp **Number** (Entity-ID sollte `input_number.lcars_horizontal` sein)
   - Legt die Breite der horizontalen Rahmen fest
   - Mindestwert: 6
   - Maximalwert: 60
-- Optional: LCARS Header (Entity-ID sollte `sensor.lcars_header` sein)
+  - Ohne diese Entität: 10px
+- **LCARS Menu Font** — Helfertyp **Number** (Entity-ID sollte `input_number.lcars_menu_font` sein)
+  - Legt die Schriftgröße (in px) des Seitenleistenmenüs fest
+  - Ohne diese Entität: 24px
+- **LCARS Header** — Helfertyp **Template**, dann **Sensor-Template** auswählen (Entity-ID sollte `sensor.lcars_header` sein)
   - Fügt dem Uhrenbereich der Kopfzeile Text hinzu
+  - Tragen Sie den Namen und das Status-Template ein; lassen Sie die übrigen Felder (Maßeinheit, Geräteklasse, Zustandsklasse) leer
   - Beispiel-Template: `{{ "LCARS " + states('sensor.time') }}`
+  - Ohne diese Entität: die Kopfzeile zeigt `sensor.time` oder den Text `LCARS`, falls dieser nicht verfügbar ist
+
+> [!IMPORTANT]
+> Wenn Sie in Schritt III `lcars.js` hinzugefügt haben, erstellen Sie den **LCARS Sound**-Umschalter auch dann, wenn Sie keine Geräusche wünschen. Das Skript liest diese Entität bei jedem Klick direkt aus und schreibt andernfalls bei jedem Klick eine Fehlermeldung in die Browser-Konsole.
+
+> [!NOTE]
+> Der **Template**-Helfer fragt zuerst, *welche Art* von Template Sie erstellen möchten. Wählen Sie **Sensor-Template** — die anderen Optionen (Binärsensor, Schaltfläche, Zahl, Auswahl, Schalter usw.) erzeugen nicht die vom Theme benötigte Entität `sensor.lcars_header`.
 <img height="276" alt="entities for LCARS sound, texture, and borders" src="https://github.com/user-attachments/assets/bc9956d6-85bb-424f-9890-dcbc4bed19d7" />
 
 Diese Entitäten können direkt über die jeweilige Entitätsansicht gesteuert werden, oder Sie können sogar Schaltflächen zu Ihrem Dashboard hinzufügen, um sie zu steuern – genau wie bei jeder anderen Entität.
