@@ -15,16 +15,16 @@ Color codes and font choice from https://www.thelcars.com
 ```yaml
 type: vertical-stack
 title: Old Title
-card_mod:
+uix:
   class: header-left
 cards:
   - type: markdown
     content: "# My New Title"
-    card_mod:
+    uix:
       class: middle-blank
   - type: button
     entity: light.living_room_lamp
-    card_mod:
+    uix:
       class: button-small
 ```
 </td><td>
@@ -90,19 +90,45 @@ I am most definitely not a real web developer, and fumbled my way into the initi
 
 ## Installation instructions
 ### Prerequisites
-#### I. Enable themes and install card-mod
+#### I. Enable themes and install UI eXtension (UIX)
 
-1. Install `card-mod` per the instructions on its [GitHub page](https://github.com/thomasloven/lovelace-card-mod "card-mod").
+HA-LCARS injects its CSS into Home Assistant using [UI eXtension (UIX)](https://github.com/Lint-Free-Technology/uix "UI eXtension"), the in-kind successor to card-mod. (A recent Home Assistant Core update broke card-mod and no fix is planned; if you are upgrading an existing HA-LCARS install that still uses card-mod, see [Converting from card-mod to UIX](#converting-from-card-mod-to-uix) below.)
 
-2. Make sure in your ``configuration.yaml`` file you have the following:
+1. Install `UI eXtension` per the instructions in its [Quick Start guide](https://uix.lf.technology/quick-start "UIX Quick Start") — either through HACS (don't miss the **Download** step) or manually by copying the repository's `custom_components/uix` folder into your `custom_components` directory. **Restart** Home Assistant after installing.
+
+2. Add the UIX service: go to ``Settings`` → ``Devices & Services`` → ``+ Add Integration`` and add **UI eXtension**, then refresh your browser. Unlike card-mod, UIX is an integration — it needs **no** `extra_module_url` entry.
+
+3. Make sure in your ``configuration.yaml`` file you have the following:
 ```yaml
 frontend:
   themes: !include_dir_merge_named themes
-  extra_module_url:
-    - /www/community/lovelace-card-mod/card-mod.js?hacstag=1234567890 #or wherever you put card-mod
 ```
-3. Under the Home Assistant ``config`` folder, create a new folder named ``themes``   
-4. **Restart** Home assistant to apply the changes.
+4. Under the Home Assistant ``config`` folder, create a new folder named ``themes``   
+5. **Restart** Home assistant to apply the changes.
+
+<a id="converting-from-card-mod-to-uix"></a>
+<details>
+<summary><b>Converting an existing install from card-mod to UIX</b> (click to expand)</summary>
+
+UIX is a drop-in replacement for card-mod (compatible with card-mod configuration up to 4.2.1), from the heritage of the original card-mod project. To convert an existing HA-LCARS setup:
+
+1. **Uninstall card-mod** — in HACS, find `card-mod` and remove it (or delete `www/community/lovelace-card-mod` if you installed it manually).
+2. **Remove the card-mod entry from `configuration.yaml`** — delete the `card-mod.js` line under `frontend:` → `extra_module_url:` (and the `extra_module_url:` key itself if nothing else is listed there), then **restart** Home Assistant.
+3. **Install UI eXtension** and add its service per steps 1–2 above, then refresh your browser (a hard reload, e.g. Ctrl+Shift+R, is safest).
+4. **Your dashboards keep working as-is** — UIX understands the existing `card_mod:` keys in your card YAML for backward compatibility. For new cards (and when touching old ones), prefer the new key, which is what the examples in this README use:
+
+```yaml
+# before (card-mod)          # after (UIX)
+card_mod:                    uix:
+  class: header-left           class: header-left
+```
+
+5. **Theme files need no changes** — UIX also reads card-mod's theme keys (`card-mod-theme:`, `card-mod-<thing>-yaml:`), so the HA-LCARS theme files work unchanged. If you maintain your own theme customizations you may optionally rename those keys to `uix-theme:` / `uix-<thing>-yaml:`.
+
+> [!NOTE]
+> If you use UI Lovelace Minimalist, disable its `Include custom card resources` option so it doesn't re-load the removed card-mod resource.
+
+</details>
 
 #### II. Add the fonts
 
@@ -208,7 +234,7 @@ In order to have this theme set automatically as the backend selected default, a
 ### Classes
 The theme includes some classes that can be added to cards like this to give them special styling:
 ```yaml
-card_mod:
+uix:
   class: header-left
 ```
 > [!NOTE]  
@@ -225,22 +251,22 @@ The classes are as follows:
     
 ```yaml
 type: markdown
-card_mod:
+uix:
   class: header-left
 content: '# header-left'
 
 type: markdown
-card_mod:
+uix:
   class: header-right
 content: '# header-right'
 
 type: markdown
-card_mod:
+uix:
   class: header-contained
 content: '# header-contained'
 
 type: markdown
-card_mod:
+uix:
   class: header-open
 content: '# header-open'
 ```
@@ -262,22 +288,22 @@ content: '# header-open'
     
 ```yaml
 type: markdown
-card_mod:
+uix:
   class: middle-left
 content: '# middle-left'
 
 type: markdown
-card_mod:
+uix:
   class: middle-right
 content: '# middle-right'
 
 type: markdown
-card_mod:
+uix:
   class: middle-contained
 content: '# middle-contained'
     
 type: markdown
-card_mod:
+uix:
   class: middle-blank
 content: '# middle-blank'
 ```
@@ -299,22 +325,22 @@ content: '# middle-blank'
     
 ```yaml
 type: markdown
-card_mod:
+uix:
   class: footer-left
 content: '# footer-left'
 
 type: markdown
-card_mod:
+uix:
   class: footer-right
 content: '# footer-right'
 
 type: markdown
-card_mod:
+uix:
   class: footer-contained
 content: '# footer-contained'
 
 type: markdown
-card_mod:
+uix:
   class: footer-open
 content: '# footer-open'
 ```
@@ -338,7 +364,7 @@ content: '# footer-open'
 type: light
 entity: light.jesse_s_desk
 name: Desk Lamp
-card_mod:
+uix:
   class: button-small
 ```
 
@@ -367,7 +393,7 @@ tap_action:
   data: {}
   target: {}
 show_state: true
-card_mod:
+uix:
   class: button-large
 ```
 
@@ -394,7 +420,7 @@ tap_action:
   action: toggle
 entity: switch.speakers
 icon: mdi:speaker-multiple
-card_mod:
+uix:
   class: button-lozenge-left
   
 show_name: true
@@ -403,7 +429,7 @@ type: button
 tap_action:
   action: toggle
 entity: switch.lightsaber
-card_mod:
+uix:
   class: button-lozenge-right
 ```
 
@@ -429,7 +455,7 @@ type: button
 tap_action:
   action: toggle
 entity: light.bedroom_tree
-card_mod:
+uix:
   class: button-bullet-left
   
 show_name: true
@@ -438,7 +464,7 @@ type: button
 tap_action:
   action: toggle
 entity: switch.counter_lights
-card_mod:
+uix:
   class: button-bullet-right
 ```
 
@@ -464,7 +490,7 @@ type: button
 tap_action:
   action: toggle
 entity: light.bathroom
-card_mod:
+uix:
   class: button-capped-left
   
 show_name: true
@@ -473,7 +499,7 @@ type: button
 tap_action:
   action: toggle
 entity: switch.built_in
-card_mod:
+uix:
   class: button-capped-right
 ```
 
@@ -499,7 +525,7 @@ type: button
 tap_action:
   action: toggle
 entity: light.bathroom
-card_mod:
+uix:
   class: button-barrel-left
   
 show_name: true
@@ -508,7 +534,7 @@ type: button
 tap_action:
   action: toggle
 entity: switch.built_in
-card_mod:
+uix:
   class: button-barrel-right
 ```
 
@@ -534,7 +560,7 @@ show_state: true
 type: button
 entity: light.porch_light
 name: Porch
-card_mod:
+uix:
   class: button-bar-left
 
 show_name: true
@@ -543,7 +569,7 @@ show_state: true
 type: button
 entity: light.garage_light
 name: Garage
-card_mod:
+uix:
   class: button-bar-right
 ```
 
@@ -565,22 +591,22 @@ card_mod:
 ```yaml
 type: markdown
 content: 'bar-left'
-card_mod:
+uix:
   class: bar-left
   
 type: markdown
 content: 'bar-large-left'
-card_mod:
+uix:
   class: bar-large-left
   
 type: markdown
 content: 'bar-right'
-card_mod:
+uix:
   class: bar-right
   
 type: markdown
 content: 'bar-large-right'
-card_mod:
+uix:
   class: bar-large-right
 ```
 
@@ -604,21 +630,21 @@ type: todo-list
 entity: todo.testing
 title: To-do List
 theme: LCARS Default
-card_mod:
+uix:
   class: list-capped-right
 
 type: todo-list
 entity: todo.testing
 title: To-do List
 theme: LCARS Lower Decks I
-card_mod:
+uix:
   class: list-lozenge-left
 
 type: todo-list
 entity: todo.testing
 title: To-do List
 theme: LCARS Picard II
-card_mod:
+uix:
   class: list-barrel-left
 ```
 
@@ -629,7 +655,7 @@ card_mod:
 </tr>
 </table>
 
-12. `entity-<lozenge|bullet|capped|barrel>-<left|right>` - styled entities lists (from Entities Card and [Auto-Entities Cards](https://github.com/thomasloven/lovelace-auto-entities)) using the `lozenge`, `bullet`, `capped`, and `barrel` styles in `left` and `right` variants similar to the `button-*` classes discussed above. Additionally, the icon cap can be hidden by applying the `no-cap` class. The class is applied using card_mod _to each entity in the Entities Card_, or using `options:` in each filter of an auto-entities card.
+12. `entity-<lozenge|bullet|capped|barrel>-<left|right>` - styled entities lists (from Entities Card and [Auto-Entities Cards](https://github.com/thomasloven/lovelace-auto-entities)) using the `lozenge`, `bullet`, `capped`, and `barrel` styles in `left` and `right` variants similar to the `button-*` classes discussed above. Additionally, the icon cap can be hidden by applying the `no-cap` class. The class is applied using the `uix:` key _on each entity in the Entities Card_, or using `options:` in each filter of an auto-entities card.
 
 Unique to this set of classes is the width of the readout area where the entity states are shown. This is can be set using a css variable `--lcars-readout-width` to one of the cards containing the entities list, as seen in the examples below. In the first example, the variable is set in the `vertical-stack` containing the entities card -- this would apply to all entities cards in that stack. In the second example, the varaible is set in the `card:` section of the auto-entities card which specifies options for the created `entities card`.  
 
@@ -645,46 +671,46 @@ type: vertical-stack
 cards:
   - type: markdown
     content: "# Entities Card"
-    card_mod:
+    uix:
       class: header-left
   - type: entities
     entities:
       - entity: sensor.mudroom_motion_temperature
         icon: none
-        card_mod:
+        uix:
           class: entity-lozenge-left
       - entity: sensor.kitchen_current_temperature
-        card_mod:
+        uix:
           class: entity-capped-left
       - entity: sensor.family_room_motion_temperature
-        card_mod:
+        uix:
           class: entity-bullet-left
       - entity: sensor.office_motion_temperature
-        card_mod:
+        uix:
           class: entity-barrel-left no-cap
       - entity: sensor.living_room_current_temperature
-        card_mod:
+        uix:
           class: entity-lozenge-right
       - entity: sensor.nursery_temperature
-        card_mod:
+        uix:
           class: entity-capped-right no-cap
       - entity: sensor.master_bedroom_temperature
-        card_mod:
+        uix:
           class: entity-bullet-right
       - entity: sensor.foyer_motion_temperature
-        card_mod:
+        uix:
           class: entity-barrel-right
-    card_mod:
+    uix:
       class: middle-blank
   - type: markdown
     content: |
       # &nbsp;
-    card_mod:
+    uix:
       class: footer-right
 grid_options:
   rows: auto
   columns: 12
-card_mod:
+uix:
   style: |
     :host{
       --lcars-readout-width: 150px;
@@ -705,12 +731,12 @@ type: vertical-stack
 cards:
   - type: markdown
     content: "# Auto-Entities Card"
-    card_mod:
+    uix:
       class: header-right
   - type: custom:auto-entities
     card:
       type: entities
-      card_mod:
+      uix:
         class: footer-right
         style: |
           :host {
@@ -719,12 +745,12 @@ cards:
     filter:
       include:
         - options:
-            card_mod:
+            uix:
               class: entity-lozenge-left
           area: mudroom
           label: security_sensor
         - options:
-            card_mod:
+            uix:
               class: entity-lozenge-right
           area: "Family Room"
           label: security_sensor
@@ -759,16 +785,16 @@ Make use of Vertical Stack cards. Whether in this theme or any other theme, they
 type: vertical-stack
 cards:
   - type: markdown
-    card_mod:
+    uix:
       class: header-left
     content: '# Climate'
   - type: weather-forecast
     entity: weather.home
-    card_mod:
+    uix:
       class: middle-left
   - type: thermostat
     entity: climate.dining_room
-    card_mod:
+    uix:
       class: footer-left
 ```
 
@@ -802,63 +828,63 @@ cards:
         entity: input_number.lcars_vertical
       - type: entity
         entity: input_boolean.lcars_texture
-    card_mod:
+    uix:
       style: ":host .title {font-size:2em;}"
   - type: horizontal-stack
     title: top
-    card_mod:
+    uix:
       class: header-right
     cards:
       - show_name: true
         show_icon: true
         type: button
         entity: light.east_flood_lights
-        card_mod:
+        uix:
           class: button-lozenge-left
       - show_name: true
         show_icon: true
         type: button
         entity: light.south_flood_lights
-        card_mod:
+        uix:
           class: button-lozenge-right
   - type: horizontal-stack
     title: middle
-    card_mod:
+    uix:
       class: middle-right
     cards:
       - show_name: true
         show_icon: true
         type: button
         entity: light.porch_light
-        card_mod:
+        uix:
           class: button-lozenge-left
       - show_name: true
         show_icon: true
         type: button
         entity: light.garage_light
-        card_mod:
+        uix:
           class: button-lozenge-right
   - type: horizontal-stack
     title: bottom
-    card_mod:
+    uix:
       class: footer-right
     cards:
       - show_name: true
         show_icon: true
         type: button
         entity: light.front_lights
-        card_mod:
+        uix:
           class: button-lozenge-left
       - show_name: true
         show_icon: true
         type: button
         entity: light.stoop_light
-        card_mod:
+        uix:
           class: button-lozenge-right
 grid_options:
   columns: 48
   rows: auto
-card_mod:
+uix:
   class: header-left
 ```
 
@@ -885,7 +911,7 @@ show_name: true
 show_icon: true
 show_state: true
 entity: light.front_lights
-card_mod:
+uix:
   class: button-lozenge-left
 grid_options:
   columns: full
@@ -895,7 +921,7 @@ show_name: true
 show_icon: true
 show_state: true
 entity: light.front_lights
-card_mod:
+uix:
   class: button-lozenge-left
 grid_options:
   columns: full
@@ -934,7 +960,7 @@ badges:
     entity: input_number.lcars_vertical
   - type: entity
     entity: input_boolean.lcars_texture
-card_mod:
+uix:
   class: header-contained
   style: |
     :host .title { font-size: 2em;}
@@ -950,7 +976,7 @@ badges:
     entity: input_number.lcars_horizontal
   - type: entity
     entity: input_boolean.lcars_texture
-card_mod:
+uix:
   class: bar-left
 grid_options:
   columns: 18
@@ -982,7 +1008,7 @@ If you are only applying the theme to a dashboard or a card, the font won't rend
 type: markdown
 content: '# Card-level theming'
 theme: LCARS Default
-card_mod:
+uix:
   class: header-left
   style: |
     ha-card > * {
@@ -1010,7 +1036,7 @@ You can switch the alignment of text in a card, such as the markdown card for `h
 <td>
     
 ```yaml
-card_mod:
+uix:
   class: header-right
   style: |
     ha-card {
@@ -1035,7 +1061,7 @@ You can set a button's background color to the color of the light by adding cust
 <td>
     
 ```yaml
-card_mod:
+uix:
   class: button-capped-right
   style: |
     ha-card {
@@ -1072,7 +1098,7 @@ type: vertical-stack
 cards:
   - type: markdown
     content: Defiant Class Bar
-    card_mod:
+    uix:
       class: bar-left
       style: |
         :host {
@@ -1080,11 +1106,11 @@ cards:
         }
   - type: markdown
     content: Constitution Class Bar
-    card_mod:
+    uix:
       class: bar-left
   - type: markdown
     content: Galaxy Class Bar
-    card_mod:
+    uix:
       class: bar-left
 ```
 
@@ -1096,7 +1122,7 @@ cards:
 </table>
 
 ## Known issues
-* Font and sidebar and header CSS styles only load when a dashboard has been loaded first. If you navigate directly to a non-dashboard page without loading a dashboard first, things will look pretty awful, though still functional. Simply load a dashboard and hit the back button. This is a quirk of the [card-mod](https://github.com/thomasloven/lovelace-card-mod) addon on which this theme relies, so it's outside my ability to fix.
+* Font and sidebar and header CSS styles only load when a dashboard has been loaded first. If you navigate directly to a non-dashboard page without loading a dashboard first, things will look pretty awful, though still functional. Simply load a dashboard and hit the back button. This is a quirk of the CSS-injection approach of [UI eXtension](https://github.com/Lint-Free-Technology/uix) (as with card-mod before it) on which this theme relies, so it's outside my ability to fix.
 * Sometimes when a dashboard loads, not all CSS styles will load and all or most cards will end up looking like the `button-large` cards. This is more prevalent on large dashboards. Try reloading the page, and if that doesn't work, load a smaller dashboard and then go back to the offending dashboard.
 
 ## Acknowledgements

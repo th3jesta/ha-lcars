@@ -12,8 +12,8 @@ Farb-Codes und Schriftart-Auswahl von https://www.thelcars.com
     --Danke Jim Robertus!
 
 # 💥BREAKING CHANGES IN 4.0💥
-1. Home Assistant LCARS basiert auf der Funktionalität von [card-mod](https://github.com/thomasloven/lovelace-card-mod "card-mod"). Version 4.x von card-mod enthält zahlreiche inkompatible Änderungen für alle Themes, einschließlich Home Assistant LCARS. Die meisten Standardkarten, die dieses Theme verwenden, sollten sich ohne Probleme aktualisieren. Karten mit benutzerdefiniertem CSS, das über ``card-mod: style:`` angewendet wurde, müssen möglicherweise manuell auf die neuen Element-Selektoren von card-mod aktualisiert werden (z. B. ``hui-card`` statt ``ha-card``). Siehe die [README](https://github.com/thomasloven/lovelace-card-mod/blob/master/README.md) und [README-application](https://github.com/thomasloven/lovelace-card-mod/blob/master/README-application.md) von card-mod als Einstieg.
-2. Aufgrund der oben genannten Änderungen werden einige Karten nicht mehr unterstützt oder benötigen spezielle Workarounds. Der Workaround besteht darin, die Karte in einen vertikalen oder horizontalen Stack zu legen. Dadurch ändert sich, wie card-mod die Karte erkennt und das Theme anwendet. Bekannte problematische Karten:
+1. Home Assistant LCARS basiert auf der Funktionalität von [UI eXtension (UIX)](https://github.com/Lint-Free-Technology/uix "UI eXtension"), dem Nachfolger von card-mod. (Ein aktuelles Home-Assistant-Core-Update hat card-mod unbrauchbar gemacht, und eine Reparatur ist nicht geplant.) Die 4.x-Umstellung enthielt zahlreiche inkompatible Änderungen für alle Themes, einschließlich Home Assistant LCARS. Die meisten Standardkarten, die dieses Theme verwenden, sollten sich ohne Probleme aktualisieren. Karten mit benutzerdefiniertem CSS müssen möglicherweise manuell auf die neuen Element-Selektoren aktualisiert werden (z. B. ``hui-card`` statt ``ha-card``). Siehe die [UIX-Dokumentation](https://uix.lf.technology/) als Einstieg.
+2. Aufgrund der oben genannten Änderungen werden einige Karten nicht mehr unterstützt oder benötigen spezielle Workarounds. Der Workaround besteht darin, die Karte in einen vertikalen oder horizontalen Stack zu legen. Dadurch ändert sich, wie UIX die Karte erkennt und das Theme anwendet. Bekannte problematische Karten:
    - ⚠️ custom-button-card: Stack-Workaround für einige Theme-Klassen erforderlich. Wenden Sie die gewünschte Theme-Klasse auf den Stack an. Verwenden Sie die Stiloptionen der Custom Button Card, um das gewünschte Aussehen zu erzielen.
 3. Balkenkarten können nun skaliert werden, indem die Schriftgröße der Karte geändert wird (siehe [Tipps und Tricks](#custom-bar-sizes) unten). Daher darf das Markdown **keine** Schriftgrößen enthalten, z. B. die Überschrift ``#``.
 4. Dies ist nahezu eine vollständige Neufassung, einschließlich mehrerer CSS-Optimierungen. Dashboards, die mit früheren Versionen erstellt wurden, müssen möglicherweise aufgrund kleiner Änderungen bei Abständen und Innenabständen leicht angepasst werden.
@@ -70,20 +70,44 @@ Ich bin definitiv kein echter Webentwickler und habe mich mit Hilfe von Stack Ex
 
 ## Installationsanweisungen
 ### Voraussetzungen
-#### I. Themes aktivieren und card-mod installieren
+#### I. Themes aktivieren und UI eXtension (UIX) installieren
 
-1. Installieren Sie `card-mod` gemäß den Anweisungen auf seiner [GitHub-Seite](https://github.com/thomasloven/lovelace-card-mod "card-mod").
+HA-LCARS injiziert sein CSS mit [UI eXtension (UIX)](https://github.com/Lint-Free-Technology/uix "UI eXtension"), dem Nachfolger von card-mod, in Home Assistant. (Ein aktuelles Home-Assistant-Core-Update hat card-mod unbrauchbar gemacht, und eine Reparatur ist nicht geplant. Wenn Sie eine bestehende HA-LCARS-Installation aktualisieren, die noch card-mod verwendet, siehe den Umstellungsabschnitt unten.)
 
-2. Stellen Sie sicher, dass Sie in Ihrer ``configuration.yaml``-Datei Folgendes haben:
+1. Installieren Sie `UI eXtension` gemäß den Anweisungen im [Quick-Start-Guide](https://uix.lf.technology/quick-start "UIX Quick Start") — entweder über HACS (den **Download**-Schritt nicht vergessen) oder manuell, indem Sie den Ordner `custom_components/uix` aus dem Repository in Ihr `custom_components`-Verzeichnis kopieren. **Starten** Sie Home Assistant danach neu.
+
+2. Fügen Sie den UIX-Dienst hinzu: Gehen Sie zu ``Einstellungen`` → ``Geräte & Dienste`` → ``+ Integration hinzufügen`` und fügen Sie **UI eXtension** hinzu, dann aktualisieren Sie Ihren Browser. Anders als card-mod ist UIX eine Integration — ein `extra_module_url`-Eintrag ist **nicht** erforderlich.
+
+3. Stellen Sie sicher, dass Sie in Ihrer ``configuration.yaml``-Datei Folgendes haben:
 ```yaml
 frontend:
-  javascript_version: latest
   themes: !include_dir_merge_named themes
-  extra_module_url:
-    - /local/community/lovelace-card-mod/card-mod.js #or wherever you ended up putting card-mod.js
 ```
-3. Unter dem Home Assistant **Config**-Ordner erstellen Sie einen neuen Ordner mit dem Namen **themes**.
-4. **Starten** Sie Home Assistant neu, um die Änderungen zu übernehmen.
+4. Unter dem Home Assistant **Config**-Ordner erstellen Sie einen neuen Ordner mit dem Namen **themes**.
+5. **Starten** Sie Home Assistant neu, um die Änderungen zu übernehmen.
+
+<details>
+<summary><b>Umstellung einer bestehenden Installation von card-mod auf UIX</b> (zum Aufklappen anklicken)</summary>
+
+UIX ist ein direkter Ersatz für card-mod (kompatibel mit card-mod-Konfigurationen bis Version 4.2.1). So stellen Sie eine bestehende HA-LCARS-Installation um:
+
+1. **card-mod deinstallieren** — suchen Sie `card-mod` in HACS und entfernen Sie es (oder löschen Sie `www/community/lovelace-card-mod`, falls manuell installiert).
+2. **card-mod-Eintrag aus der `configuration.yaml` entfernen** — löschen Sie die `card-mod.js`-Zeile unter `frontend:` → `extra_module_url:` (und den `extra_module_url`-Schlüssel selbst, wenn dort sonst nichts steht), dann Home Assistant **neu starten**.
+3. **UI eXtension installieren** und den Dienst gemäß den Schritten 1–2 oben hinzufügen, danach den Browser aktualisieren (am sichersten mit einem Hard-Reload, z. B. Strg+Umschalt+R).
+4. **Ihre Dashboards funktionieren unverändert weiter** — UIX versteht die vorhandenen `card_mod:`-Schlüssel in Ihrem Karten-YAML aus Kompatibilitätsgründen. Für neue Karten wird der neue Schlüssel empfohlen, den auch die Beispiele in dieser README verwenden:
+
+```yaml
+# vorher (card-mod)          # nachher (UIX)
+card_mod:                    uix:
+  class: header-left           class: header-left
+```
+
+5. **Theme-Dateien müssen nicht geändert werden** — UIX liest auch die Theme-Schlüssel von card-mod (`card-mod-theme:`, `card-mod-<thing>-yaml:`), sodass die HA-LCARS-Theme-Dateien unverändert funktionieren.
+
+> [!NOTE]
+> Wenn Sie UI Lovelace Minimalist verwenden, deaktivieren Sie dessen Option `Include custom card resources`, damit die entfernte card-mod-Ressource nicht erneut geladen wird.
+
+</details>
 
 #### II. Schriftarten hinzufügen
 
@@ -188,7 +212,7 @@ Um dieses Theme automatisch als vom Backend ausgewähltes Standard-Theme festzul
 ### Klassen
 Das Theme enthält einige Klassen, die Karten hinzugefügt werden können, um ihnen spezielles Styling zu verleihen:
 ```yaml
-card_mod:
+uix:
   class: header
 ```
 >[!NOTE]
@@ -207,22 +231,22 @@ Die Klassen sind wie folgt:
     
 ```yaml
 type: markdown
-card_mod:
+uix:
   class: header-left
 content: '# header-left'
 
 type: markdown
-card_mod:
+uix:
   class: header-right
 content: '# header-right'
 
 type: markdown
-card_mod:
+uix:
   class: header-contained
 content: '# header-contained'
 
 type: markdown
-card_mod:
+uix:
   class: header-open
 content: '# header-open'
 ```
@@ -245,22 +269,22 @@ content: '# header-open'
     
 ```yaml
 type: markdown
-card_mod:
+uix:
   class: middle-left
 content: '# middle-left'
 
 type: markdown
-card_mod:
+uix:
   class: middle-right
 content: '# middle-right'
 
 type: markdown
-card_mod:
+uix:
   class: middle-contained
 content: '# middle-contained'
     
 type: markdown
-card_mod:
+uix:
   class: middle-blank
 content: '# middle-blank'
 ```
@@ -283,22 +307,22 @@ content: '# middle-blank'
     
 ```yaml
 type: markdown
-card_mod:
+uix:
   class: footer-left
 content: '# footer-left'
 
 type: markdown
-card_mod:
+uix:
   class: footer-right
 content: '# footer-right'
 
 type: markdown
-card_mod:
+uix:
   class: footer-contained
 content: '# footer-contained'
 
 type: markdown
-card_mod:
+uix:
   class: footer-open
 content: '# footer-open'
 ```
@@ -323,7 +347,7 @@ content: '# footer-open'
 type: light
 entity: light.jesse_s_desk
 name: Desk Lamp
-card_mod:
+uix:
   class: button-small
 ```
 
@@ -353,7 +377,7 @@ tap_action:
   data: {}
   target: {}
 show_state: true
-card_mod:
+uix:
   class: button-large
 ```
 
@@ -381,7 +405,7 @@ tap_action:
   action: toggle
 entity: switch.speakers
 icon: mdi:speaker-multiple
-card_mod:
+uix:
   class: button-lozenge-left
   
 show_name: true
@@ -390,7 +414,7 @@ type: button
 tap_action:
   action: toggle
 entity: switch.lightsaber
-card_mod:
+uix:
   class: button-lozenge-right
 ```
 
@@ -417,7 +441,7 @@ type: button
 tap_action:
   action: toggle
 entity: light.bedroom_tree
-card_mod:
+uix:
   class: button-bullet-left
   
 show_name: true
@@ -426,7 +450,7 @@ type: button
 tap_action:
   action: toggle
 entity: switch.counter_lights
-card_mod:
+uix:
   class: button-bullet-right
 ```
 
@@ -453,7 +477,7 @@ type: button
 tap_action:
   action: toggle
 entity: light.bathroom
-card_mod:
+uix:
   class: button-capped-left
   
 show_name: true
@@ -462,7 +486,7 @@ type: button
 tap_action:
   action: toggle
 entity: switch.built_in
-card_mod:
+uix:
   class: button-capped-right
 ```
 
@@ -488,7 +512,7 @@ type: button
 tap_action:
   action: toggle
 entity: light.bathroom
-card_mod:
+uix:
   class: button-barrel-left
   
 show_name: true
@@ -497,7 +521,7 @@ type: button
 tap_action:
   action: toggle
 entity: switch.built_in
-card_mod:
+uix:
   class: button-barrel-right
 ```
 
@@ -524,7 +548,7 @@ show_state: true
 type: button
 entity: light.porch_light
 name: Porch
-card_mod:
+uix:
   class: button-bar-left
 
 show_name: true
@@ -533,7 +557,7 @@ show_state: true
 type: button
 entity: light.garage_light
 name: Garage
-card_mod:
+uix:
   class: button-bar-right
 ```
 
@@ -556,22 +580,22 @@ card_mod:
 ```yaml
 type: markdown
 content: 'bar-left'
-card_mod:
+uix:
   class: bar-left
   
 type: markdown
 content: 'bar-large-left'
-card_mod:
+uix:
   class: bar-large-left
   
 type: markdown
 content: 'bar-right'
-card_mod:
+uix:
   class: bar-right
   
 type: markdown
 content: 'bar-large-right'
-card_mod:
+uix:
   class: bar-large-right
 ```
 
@@ -596,16 +620,16 @@ Verwenden Sie Vertical Stack-Karten. Ob in diesem Thema oder einem anderen, sie 
 type: vertical-stack
 cards:
   - type: markdown
-    card_mod:
+    uix:
       class: header-left
     content: '# Climate'
   - type: weather-forecast
     entity: weather.home
-    card_mod:
+    uix:
       class: middle-left
   - type: thermostat
     entity: climate.dining_room
-    card_mod:
+    uix:
       class: footer-left
 ```
 
@@ -618,7 +642,7 @@ show_name: true
 show_icon: true
 show_state: true
 entity: light.front_lights
-card_mod:
+uix:
   class: button-lozenge-left
 grid_options:
   columns: full
@@ -643,7 +667,7 @@ badges:
     entity: input_number.lcars_vertical
   - type: entity
     entity: input_boolean.lcars_texture
-card_mod:
+uix:
   class: header-contained
   style: |
     :host .title { font-size: 2em;}
@@ -659,7 +683,7 @@ Für Karten, die das Theme isoliert verwenden, kann die Schriftart pro Karte mit
 type: markdown
 content: '# Card-level theming'
 theme: LCARS Default
-card_mod:
+uix:
   class: header-left
   style: |
     ha-card > * {
@@ -674,7 +698,7 @@ Sie können Fonts selbst hosten (z.B. in einem Auto oder Air-Gapped-Netzwerk). A
 Textausrichtung kann pro Karte per CSS angepasst werden:
 
 ```yaml
-card_mod:
+uix:
   class: header-right
   style: |
     ha-card {
@@ -686,7 +710,7 @@ card_mod:
 Hintergrundfarbe kann abhängig vom Lichtstatus gesetzt werden:
 
 ```yaml
-card_mod:
+uix:
   class: button-capped-right
   style: |
     ha-card {
@@ -709,7 +733,7 @@ type: vertical-stack
 cards:
   - type: markdown
     content: Defiant Class Bar
-    card_mod:
+    uix:
       class: bar-left
       style: |
         :host {
@@ -717,11 +741,11 @@ cards:
         }
   - type: markdown
     content: Constitution Class Bar
-    card_mod:
+    uix:
       class: bar-left
   - type: markdown
     content: Galaxy Class Bar
-    card_mod:
+    uix:
       class: bar-left
 ```
 
