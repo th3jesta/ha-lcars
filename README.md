@@ -187,7 +187,7 @@ sensor:
 #### V. Create the helper entities
 This theme has toggle controls for sound and textures, number controls for border sizes and menu font size, and a template sensor for adding custom text to the header. **All six are optional** — the theme falls back to the defaults noted below for any helper you skip. Create the ones whose settings you want to be able to change from the UI.
 
-Create them by going to ``Settings`` → ``Devices & Services`` → ``Helpers`` → ``+ Create helper``. The entity IDs must match exactly as shown below, or the theme will not find them.
+Create them by going to ``Settings`` → ``Devices & Services`` → ``Helpers`` → ``+ Create helper``. The entity IDs must match exactly as shown below, or the theme will not find them. When creating a helper, the entity ID is created from the name. A toggle helper named `LCARS Sound` automatically becomes entity `input_boolean.lcars_sound`. 
 
 - **LCARS Sound** — helper type **Toggle** (entity id should be `input_boolean.lcars_sound`)
   - Toggles button and tap sounds
@@ -197,29 +197,21 @@ Create them by going to ``Settings`` → ``Devices & Services`` → ``Helpers`` 
   - If not created: the texture is always **on** and cannot be turned off
 - **LCARS Vertical** — helper type **Number** (entity id should be `input_number.lcars_vertical`)
   - Sets the width of vertical borders
-  - Min value: 26
-  - Max value: 60
   - If not created: 35px
 - **LCARS Horizontal** — helper type **Number** (entity id should be `input_number.lcars_horizontal`)
   - Sets the width of horizontal borders
-  - Min value: 6
-  - Max value: 60
   - If not created: 10px
 - **LCARS Menu Font** — helper type **Number** (entity id should be `input_number.lcars_menu_font`)
-  - Sets the font size (in px) of the sidebar menu
+  - Sets the font size (in px) of the sidebar menu.
+  - Do not leave this at 0 or your menu font will be illegible. Start with 20-24. 
   - If not created: 24px
-- **LCARS Header** — helper type **Template**, then choose **Template a sensor** (entity id should be `sensor.lcars_header`)
+- **LCARS Header** — helper type **Template**, then choose to template a **Sensor** (entity id should be `sensor.lcars_header`)
   - Adds text to the clock area of the header
   - Fill in the name and the template state; leave the remaining fields (unit of measurement, device class, state class) blank
-  - Example Template: `{{ "LCARS " + states('sensor.time') }}`
+  - Example template state: `{{ "LCARS " + states('sensor.time') }}`
   - If not created: the header shows `sensor.time`, or the text `LCARS` if that is unavailable
 
-> [!IMPORTANT]
-> If you added `lcars.js` in step III, create the **LCARS Sound** toggle even if you do not want sounds. The script reads that entity directly on every click and will log a browser console error on each one if it does not exist.
-
-> [!NOTE]
-> The **Template** helper first asks *what kind* of template you want to create. Pick **Template a sensor** — the other choices (binary sensor, button, number, select, switch, etc.) will not create the `sensor.lcars_header` entity that the theme looks for.
-<img height="276" alt="entities for LCARS sound, texture, and borders" src="https://github.com/user-attachments/assets/bc9956d6-85bb-424f-9890-dcbc4bed19d7" />
+<p align="center"><img height="300" alt="helper entities" src="https://github.com/user-attachments/assets/d6bcf6ec-610b-48db-8fde-4d7b5fa925ed" /></p>
 
 These entities can be controlled directly from viewing the entity, or you can even add buttons to your dashboard to control them, just like any other entity. 
 
