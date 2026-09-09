@@ -167,7 +167,7 @@ https://www.home-assistant.io/integrations/time_date/
 #### V. Hilfsentitäten erstellen
 Dieses Theme verfügt über Umschaltsteuerungen für Sound und Texturen, Zahlensteuerungen für die Rahmengrößen und die Menü-Schriftgröße sowie einen Template-Sensor zum Hinzufügen von benutzerdefiniertem Text zur Kopfzeile. **Alle sechs sind optional** — für jede nicht erstellte Hilfsentität verwendet das Theme den unten genannten Standardwert. Erstellen Sie diejenigen, deren Einstellungen Sie über die Benutzeroberfläche ändern möchten.
 
-Erstellen Sie sie, indem Sie zu ``Einstellungen`` → ``Geräte & Dienste`` → ``Helfer`` → ``+ Helfer erstellen`` navigieren. Die Entity-IDs müssen exakt wie unten angegeben lauten, sonst findet das Theme sie nicht.
+Erstellen Sie sie, indem Sie zu ``Einstellungen`` → ``Geräte & Dienste`` → ``Helfer`` → ``+ Helfer erstellen`` navigieren. Die Entity-IDs müssen exakt wie unten angegeben lauten, sonst findet das Theme sie nicht. Beim Erstellen eines Helfers wird die Entity-ID aus dem Namen gebildet: Ein Toggle-Helfer mit dem Namen `LCARS Sound` wird automatisch zur Entität `input_boolean.lcars_sound`.
 
 - **LCARS Sound** — Helfertyp **Toggle** (Entity-ID sollte `input_boolean.lcars_sound` sein)
   - Schaltet Tasten- und Tippgeräusche ein bzw. aus
@@ -177,29 +177,21 @@ Erstellen Sie sie, indem Sie zu ``Einstellungen`` → ``Geräte & Dienste`` → 
   - Ohne diese Entität: die Textur ist dauerhaft **eingeschaltet** und lässt sich nicht abschalten
 - **LCARS Vertical** — Helfertyp **Number** (Entity-ID sollte `input_number.lcars_vertical` sein)
   - Legt die Breite der vertikalen Rahmen fest
-  - Mindestwert: 26
-  - Maximalwert: 60
   - Ohne diese Entität: 35px
 - **LCARS Horizontal** — Helfertyp **Number** (Entity-ID sollte `input_number.lcars_horizontal` sein)
   - Legt die Breite der horizontalen Rahmen fest
-  - Mindestwert: 6
-  - Maximalwert: 60
   - Ohne diese Entität: 10px
 - **LCARS Menu Font** — Helfertyp **Number** (Entity-ID sollte `input_number.lcars_menu_font` sein)
-  - Legt die Schriftgröße (in px) des Seitenleistenmenüs fest
+  - Legt die Schriftgröße (in px) des Seitenleistenmenüs fest.
+  - Lassen Sie diesen Wert nicht auf 0, sonst wird die Menüschrift unlesbar. Beginnen Sie mit 20–24.
   - Ohne diese Entität: 24px
-- **LCARS Header** — Helfertyp **Template**, dann **Sensor-Template** auswählen (Entity-ID sollte `sensor.lcars_header` sein)
+- **LCARS Header** — Helfertyp **Template**, dann als Template-Typ **Sensor** wählen (Entity-ID sollte `sensor.lcars_header` sein)
   - Fügt dem Uhrenbereich der Kopfzeile Text hinzu
   - Tragen Sie den Namen und das Status-Template ein; lassen Sie die übrigen Felder (Maßeinheit, Geräteklasse, Zustandsklasse) leer
-  - Beispiel-Template: `{{ "LCARS " + states('sensor.time') }}`
+  - Beispiel für das Status-Template: `{{ "LCARS " + states('sensor.time') }}`
   - Ohne diese Entität: die Kopfzeile zeigt `sensor.time` oder den Text `LCARS`, falls dieser nicht verfügbar ist
 
-> [!IMPORTANT]
-> Wenn Sie in Schritt III `lcars.js` hinzugefügt haben, erstellen Sie den **LCARS Sound**-Umschalter auch dann, wenn Sie keine Geräusche wünschen. Das Skript liest diese Entität bei jedem Klick direkt aus und schreibt andernfalls bei jedem Klick eine Fehlermeldung in die Browser-Konsole.
-
-> [!NOTE]
-> Der **Template**-Helfer fragt zuerst, *welche Art* von Template Sie erstellen möchten. Wählen Sie **Sensor-Template** — die anderen Optionen (Binärsensor, Schaltfläche, Zahl, Auswahl, Schalter usw.) erzeugen nicht die vom Theme benötigte Entität `sensor.lcars_header`.
-<img height="276" alt="entities for LCARS sound, texture, and borders" src="https://github.com/user-attachments/assets/bc9956d6-85bb-424f-9890-dcbc4bed19d7" />
+<p align="center"><img height="300" alt="helper entities" src="https://github.com/user-attachments/assets/d6bcf6ec-610b-48db-8fde-4d7b5fa925ed" /></p>
 
 Diese Entitäten können direkt über die jeweilige Entitätsansicht gesteuert werden, oder Sie können sogar Schaltflächen zu Ihrem Dashboard hinzufügen, um sie zu steuern – genau wie bei jeder anderen Entität.
 
