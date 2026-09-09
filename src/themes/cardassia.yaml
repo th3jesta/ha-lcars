@@ -1,0 +1,30 @@
+name: LCARS Cardassia
+
+lcars-ui-primary: var(--lcars-green-primary)
+lcars-ui-secondary: var(--lcars-lavender-rose)
+lcars-ui-tertiary: var(--lcars-aqua)
+lcars-ui-quaternary: var(--lcars-cardassia-maroon)
+
+lcars-ui-app-header-clock: var(--lcars-pearl)
+lcars-ui-config-button: var(--lcars-aqua)
+
+lcars-card-top-color: var(--lcars-sky-blue)
+lcars-card-mid-color: var(--lcars-cardassia-maroon)
+lcars-card-button-color: var(--lcars-cardassia-maroon)
+lcars-card-bottom-color: var(--lcars-eggplant)
+lcars-settings-card-color: "#A2646B"
+
+lcars-card-top-text: var(--lcars-text-dark)
+lcars-card-mid-text: var(--lcars-text-light)
+lcars-card-button-text: var(--lcars-text-light)
+lcars-card-bottom-text: var(--lcars-text-light)
+
+success-color: var(--lcars-green)
+warning-color: var(--lcars-sunflower)
+error-color: var(--lcars-dark-red)
+
+modes:
+  dark:
+    lcars-ui-quaternary-text: var(--lcars-text-gray)
+    lcars-card-mid-text: var(--lcars-text-gray)
+    lcars-card-button-text: var(--lcars-text-gray)

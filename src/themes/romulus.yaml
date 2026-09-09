@@ -1,0 +1,28 @@
+name: LCARS Romulus
+
+lcars-ui-primary: var(--lcars-green)
+lcars-ui-secondary: var(--lcars-african-violet)
+lcars-ui-tertiary: var(--lcars-orange)
+lcars-ui-quaternary: var(--lcars-green-middle)
+
+lcars-sidebar-icon-color: var(--lcars-aqua)
+lcars-ui-config-button: var(--lcars-aqua)
+
+lcars-card-top-color: var(--lcars-cardinal)
+lcars-card-mid-color: var(--lcars-african-violet)
+lcars-card-button-color: var(--lcars-sky)
+lcars-card-bottom-color: var(--lcars-aqua)
+lcars-settings-card-color: "#428343"
+
+lcars-card-top-text: var(--lcars-text-light)
+lcars-card-mid-text: var(--lcars-text-dark)
+lcars-card-button-text: var(--lcars-text-dark)
+lcars-card-bottom-text: var(--lcars-text-dark)
+
+success-color: var(--lcars-green)
+warning-color: var(--lcars-sunflower)
+error-color: var(--lcars-dark-red)
+
+modes:
+  dark:
+    lcars-card-top-text: var(--lcars-text-dark)

@@ -1,0 +1,2792 @@
+# LCARS Theme
+# Color codes and font choice from https://www.thelcars.com
+#     --thanks Jim Robertus!
+# Custom themes can be created down at the bottom of this
+# file. Or, search for "THEME DEFINITIONS", which will take
+# you right there.
+
+# ======================================================= #
+#                     LCARS VARIABLES                     #
+# ======================================================= #
+(DO NOT USE/MODIFY)=== LCARS variables: &lcars-variables
+  lcars-space-white: "#f5f6fa"
+  lcars-violet-creme: "#ddbbff"
+  lcars-green: "#33cc99"
+  lcars-magenta: "#cc4499"
+  lcars-blue: "#4455ff"
+  lcars-yellow: "#ffcc33"
+  lcars-violet: "#9944ff"
+  lcars-orange: "#ff7700"
+  lcars-african-violet: "#cc88ff"
+  lcars-text-purple: "#cc77ff"
+  lcars-red: "#dd4444"
+  lcars-almond: "#ffaa90"
+  lcars-almond-creme: "#ffbbaa"
+  lcars-sunflower: "#ffcc66"
+  lcars-bluey: "#7788ff"
+  lcars-gray: "#666688"
+  lcars-sky: "#aaaaff"
+  lcars-ice: "#88ccff"
+  lcars-gold: "#ffaa00"
+  lcars-mars: "#ff2200"
+  lcars-peach: "#ff8866"
+  lcars-butterscotch: "#ff9966"
+  lcars-tomato: "#ff5555"
+  lcars-lilac: "#cc33ff"
+  lcars-evening: "#2255ff"
+  lcars-midnight: "#1111ee"
+  lcars-ghost: "#88bbff"
+  lcars-wheat: "#ccaa88"
+  lcars-roseblush: "#cc6666"
+  lcars-honey: "#ffcc99"
+  lcars-cardinal: "#cc2233"
+  lcars-pumpkinshade: "#ff7744"
+  lcars-darkpumpkin: "#91550b"
+  lcars-tangerine: "#ff8833"
+  lcars-martian: "#99dd66"
+  lcars-text-blue: "#2266ff"
+  lcars-moonbeam: "#ccdeff"
+  lcars-cool: "#5588ff"
+  lcars-galaxy: "#444a77"
+  lcars-moonshine: "#ddeeff"
+  lcars-october-sunset: "#ff4400"
+  lcars-harvestgold: "#ffaa44"
+  lcars-butter: "#ffeecc"
+  lcars-steel-blue: "#5588ee" # lcars-c43
+  lcars-aqua: "#88ffff" # lcars-c44
+  lcars-deep-navy: "#344470" # lcars-c45
+  lcars-slate: "#455580" # lcars-c46
+  lcars-periwinkle: "#7799dd" # lcars-c47
+  lcars-sky-blue: "#66ccff" # lcars-c48
+  lcars-powder-blue: "#99ccff" # lcars-c49
+  lcars-vermilion: "#ff3500" # lcars-c50
+  lcars-plum: "#552255" # lcars-c51
+  lcars-eggplant: "#663366" # lcars-c52
+  lcars-mauve: "#774477" # lcars-c53
+  lcars-orchid: "#885588" # lcars-c54
+  lcars-lavender-rose: "#996699" # lcars-c55
+  lcars-yam: "#ff8800" # lcars-c56
+  lcars-taupe: "#d0b0a0" # lcars-c57
+  lcars-periwinkle-light: "#bbbbff" # lcars-c58
+  lcars-sage: "#99aa66" # lcars-c59
+  lcars-emerald: "#00bb00" # lcars-c60
+  lcars-lime: "#33ff33" # lcars-c61
+  lcars-mint: "#ddffdd" # lcars-c62
+  lcars-peach-light: "#ffebde" # lcars-c63
+  lcars-lilac-light: "#cc99cc" # lcars-c64
+  lcars-lavender-mist: "#f6eef6" # lcars-c65
+  lcars-plum-medium: "#aa66aa" # lcars-c66
+  lcars-orchid-light: "#dd88dd" # lcars-c67
+  lcars-scarlet: "#ff0000" # lcars-c68
+  lcars-crimson: "#cc0000" # lcars-c69
+  lcars-ruby: "#ee0000" # lcars-c70
+  lcars-silver: "#dfdfdf" # lcars-c71
+  lcars-pearl: "#f7f7f7" # lcars-c72
+
+  # LCARS Modern Theme Colors
+  lcars-modern-light-gray: "#9996BA"
+
+  # LCARS Transporter Theme Colors
+  lcars-navy-gray: "#2C374B" # lcars-c73
+  lcars-slate-gray: "#6E748C" # lcars-c74
+  lcars-teal: "#2A7092" # lcars-c75
+  lcars-coral: "#FA6851" # lcars-c76
+  lcars-charcoal: "#51596C" # lcars-c77
+
+  # LCARS Navigation Theme Colors
+  lcars-olive: "#827A53" # lcars-c79
+  lcars-sand: "#CDB972" # lcars-c80
+  lcars-lemon: "#F7EE51" # lcars-c81
+  lcars-cornflower: "#6499FF" # lcars-c82
+  lcars-khaki-dark: "#B8A666" # lcars-c83
+
+  # LCARS Picard S1 Colors
+  lcars-dunkelgrau: "#30374AFF"
+  lcars-mittelgrau: "#656B83FF"
+  lcars-hellgrau: "#9FA5BDFF"
+  lcars-feuerrot: "#E7432AFF"
+  lcars-mango: "#E5960C"
+  lcars-turquoise: "#6efaf9" # lcars-c84
+  lcars-beige: "#e2c599" # lcars-c85
+  lcars-cerulean: "#21bece" # lcars-c86
+  lcars-midnight-blue: "#012556" # lcars-c87
+  lcars-seafoam: "#d6f6f1" # lcars-c88
+  lcars-apricot: "#e1915c" # lcars-c89
+
+  # Additional Colors
+  lcars-lavender: "#cc88ff"
+  lcars-error: "#ff2200"
+  # Grayscale text scale, perceptually spaced (CIE L*).
+  # Use these for text on backgrounds: pick the darkest step (on dark bg) or
+  # lightest step (on light bg) that still clears the WCAG ratio you need.
+  # Ordered black -> white. The existing dark/gray/light anchors are preserved.
+  lcars-text-dark: "#000000" # L*=0  — pure black, max contrast
+  lcars-text-coal: "#292929" # L*=17 — near-black, softens stark black on bright surfaces
+  lcars-text-smoke: "#4E4E4E" # L*=33 — dark gray
+  lcars-text-stone: "#777777" # L*=50 — mid gray
+  lcars-text-mist: "#A2A2A2" # L*=67 — light-mid gray
+  lcars-text-gray: "#d3d3d3" # L*=84 — light gray (off-white), softens stark white on dark surfaces
+  lcars-text-light: "#FFFFFF" # L*=100 — pure white, max contrast
+  lcars-medium-gray: "#B6B6C1"
+  lcars-dark-gray: "#3e3e3e"
+  lcars-khaki: "#ffe399"
+  lcars-cardassia-maroon: "#4f1a23"
+  lcars-dark-red: "#360000"
+  lcars-green-primary: "#288855"
+  lcars-green-secondary: "#229a6c"
+  lcars-green-tertiary: "#88de90"
+  lcars-green-middle: "#0f5616"
+  lcars-green-footer: "#37bd76"
+  # LCARS 25C
+  lcars-alt-dark-gray: "#2f3749"
+  lcars-medium-dark-gray: "#52596e"
+  lcars-primary-gray: "#6d748c"
+  lcars-light-gray: "#9ea5ba"
+  lcars-ghost-gray: "#d2d5df"
+  lcars-starlight: "#f3f4f7"
+  lcars-cyan: "#0ee"
+  lcars-alt-orange: "#e7442a"
+  lcars-light-orange: "#ff6753"
+  lcars-pale-orange: "#ff977b"
+  lcars-alt-blue: "#37a6d1"
+  lcars-medium-dark-blue: "#2a7193"
+  lcars-dark-blue: "#1c3c55"
+  lcars-alt-green: "#2B9032"
+  lcars-black-cherry: "#8c6d7c"
+  lcars-font-color: "#828ba6"
+
+  lcars-alert-red: var(--lcars-crimson)
+  lcars-alert-yellow: var(--lcars-gold)
+  lcars-alert-blue: var(--lcars-text-blue)
+  lcars-alert-white: var(--lcars-silver)
+  lcars-alert-uv: "#000080"
+  lcars-alert-uvc: "#68fffa"
+
+  # General
+  lcars-black: "#000000"
+  lcars-graphite: "#555555"
+
+  # TNG Theme Colors
+  lcars-wheat-light: "#f5deb3"
+  lcars-peach-cream: "#f5cd9f"
+  lcars-tan: "#d2b48c"
+  lcars-antique-gold: "#c5b358"
+  lcars-warm-gold: "#efc861"
+  lcars-amber: "#ffbb33"
+  lcars-khaki-light: "#f0e68c"
+  lcars-vivid-crimson: "#dc143c"
+  lcars-maroon: "#8b0000"
+
+  # Lower Decks II Colors
+  lcars-vanilla: "#fff5c7"
+
+  # Kronos Colors
+  lcars-deep-maroon: "#930a00"
+
+  # Red Alert Colors
+  lcars-brick-red: "#bf1b1b"
+  lcars-mahogany: "#9d361e"
+  lcars-muted-coral: "#d66a60"
+  lcars-sienna: "#91311c"
+
+  # ── LCARdS Palette Colors ──────────────────────────────────────────────────
+  # Self-contained hex definitions — do not convert to var() references.
+  # LCARdS card components depend on the full --lcards-* spectrum.
+
+  # Orange family
+  lcards-orange-darkest: "#d91604"
+  lcards-orange-dark: "#ef1d10"
+  lcards-orange-medium-dark: "#e7442a"
+  lcards-orange: "#ff6753"
+  lcards-orange-medium: "#ff6753"
+  lcards-orange-medium-light: "#ff8470"
+  lcards-orange-light: "#ff977b"
+  lcards-orange-lightest: "#ffb399"
+
+  # Gray family
+  lcards-gray-darkest: "#1e2229"
+  lcards-gray-dark: "#2f3749"
+  lcards-gray-medium-dark: "#52596e"
+  lcards-gray: "#6d748c"
+  lcards-gray-medium: "#6d748c"
+  lcards-gray-medium-light: "#9ea5ba"
+  lcards-gray-light: "#d2d5df"
+  lcards-gray-lightest: "#f3f4f7"
+  lcards-moonlight: "#dfe1e8"
+
+  # Blue family
+  lcards-blue-darkest: "#002241"
+  lcards-blue-dark: "#1c3c55"
+  lcards-blue-medium-dark: "#2a7193"
+  lcards-blue: "#37a6d1"
+  lcards-blue-medium: "#37a6d1"
+  lcards-blue-medium-light: "#67caf0"
+  lcards-blue-light: "#93e1ff"
+  lcards-blue-lightest: "#00eeee"
+
+  # Green family
+  lcards-green-darkest: "#0c2a15"
+  lcards-green-dark: "#083717"
+  lcards-green-medium-dark: "#095320"
+  lcards-green: "#266239"
+  lcards-green-medium: "#266239"
+  lcards-green-medium-light: "#458359"
+  lcards-green-light: "#80bb93"
+  lcards-green-lightest: "#b8e0c1"
+
+  # Yellow family
+  lcards-yellow-darkest: "#70602c"
+  lcards-yellow-dark: "#ac943b"
+  lcards-yellow-medium-dark: "#d2bf50"
+  lcards-yellow: "#f9ef97"
+  lcards-yellow-medium: "#f9ef97"
+  lcards-yellow-medium-light: "#fffac9"
+  lcards-yellow-light: "#e7e6de"
+  lcards-yellow-lightest: "#f5f5dc"
+
+  # Shapes
+  lcars-vertical-border: 35px
+  lcars-horizontal-border: 10px
+  lcars-outer-radius: 34px
+  lcars-inner-radius: 20px
+  # Calculated
+  lcars-middle-vertical-border: "calc(var(--lcars-vertical-border) + 0px)"
+
+  # Font
+  lcars-font: Tungsten
+  lcars-fallback-font: Antonio
+
+  # MSD Colors:
+  msd-bright: "#fff1ab"
+  msd-medium: var(--lcars-yellow) ### "#ffcc33"
+  msd-normal: var(--lcars-orange) ### "#ff7700"
+  msd-dark: var(--lcars-october-sunset) ### "#ff4400"
+  msd-ra-bright: "#dca29e"
+  msd-ra-medium: "#e97369"
+  msd-ra-normal: "#ff1100"
+  msd-ra-dark: "#7f0800"
+
+# ======================================================= #
+#                   BASE CUSTOMIZATIONS                   #
+# ======================================================= #
+(DO NOT USE/MODIFY)=== Base customizations: &base
+  primary-color: var(--lcars-ui-tertiary)
+  # ha-color-primary-* tonal palette lives in src/defaults.yaml so themes can
+  # override it without duplicating keys brought in via <<: *base (issue #232).
+  primary-background-color: var(--lcars-background-color)
+  secondary-background-color: var(--lcars-ui-quaternary)
+  divider-color: transparent
+  accent-color: var(--lcars-ui-accent-color)
+  text-accent-color: var(--lcars-ui-accent-text)
+  box-sizing: unset !important
+
+  # Fonts
+  font-family: "var(--lcars-font), var(--lcars-fallback-font), Segoe UI Variable Static Text, Segoe UI, SegoeUI, -apple-system,BlinkMacSystemFont, system-ui, sans-serif"
+  ha-font-family-body: var(--font-family)
+  ha-card-header-font-family: var(--font-family)
+  header-font-size: calc(var(--header-height) * 0.93)
+
+  # Text
+  # Default card has a quaternary background. When the card background changes
+  # or when there's a black background (e.g. /config/devices/dashboard), these
+  # are overriden in the card_mod CSS.
+  lcars-primary-text: var(--lcars-text-light)
+  lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color))
+  # This should be a list of all varaibles that control the color of text in
+  #   every part of the UI and in every card.
+  ha-card-header-color: var(--lcars-primary-text)
+  ha-color-text-primary: var(--lcars-primary-text)
+  primary-text-color: var(--lcars-primary-text)
+  secondary-text-color: var(--lcars-primary-text)
+  text-primary-color: var(--lcars-primary-text)
+  disabled-text-color: var(--lcars-graphite)
+  mdc-select-label-ink-color: var(--lcars-secondary-text)
+  mdc-select-ink-color: var(--lcars-primary-text)
+  mdc-text-field-label-ink-color: var(--lcars-primary-text)
+  mdc-text-field-fill-color: transparent
+  mdc-text-field-ink-color: var(--lcars-primary-text)
+  wa-form-control-value-color: var(--lcars-primary-text);
+
+  # Sidebar Menu
+  sidebar-background-color: var(--lcars-sidebar-background)
+  sidebar-menu-button-background-color: var(--sidebar-background-color)
+  sidebar-icon-color: var(--lcars-sidebar-text)
+  sidebar-text-color: var(--lcars-sidebar-text)
+  sidebar-selected-icon-color: var(--lcars-sidebar-text)
+  sidebar-menu-button-text-color: var(--lcars-sidebar-text)
+
+  # States and Badges
+  state-icon-color: var(--lcars-primary-text)
+  state-active-color: var(--lcars-sunflower)
+
+  # Sliders
+  ha-slider-background: none !important
+
+  # Badges
+  label-badge-text-color: var(--lcars-text-dark)
+  label-badge-red: var(--lcars-alt-orange)
+  label-badge-yellow: var(--lcars-sunflower)
+  label-badge-blue: var(--lcars-blue)
+  label-badge-green: var(--lcars-green)
+  label-badge-grey: var(--lcars-medium-gray)
+
+  # Cards
+  card-background-color: var(--secondary-background-color)
+  ha-card-border-radius: var(--lcars-outer-radius)
+  ha-card-border-width: 0px
+  ha-heading-card-title-color: var(--lcars-ui-text-heading)
+
+  # Tables
+  # TODO: Test this. this alternates between black and quaternary?
+  table-row-background-color: var(--primary-background-color)
+  table-row-alternative-background-color: var(--secondary-background-color)
+  data-table-background-color: var(--lcars-background-color)
+
+  # Material Design Components
+  mdc-typography-button-font-family: var(--font-family)
+  mdc-typography-body2-font-family: var(--font-family)
+  mdc-theme-primary: var(--lcars-text-gray)
+  mdc-theme-secondary: var(--lcars-text-gray)
+  mdc-button-outline-color: transparent
+  mdc-typography-font-family: var(--font-family)
+  mdc-theme-on-primary: black
+  mdc-theme-on-secondary: black
+  mdc-theme-text-primary-on-background: var(--lcars-ui-secondary-text)
+  mdc-theme-text-secondary-on-background: var(--lcars-ui-secondary-text)
+  mdc-shape-small: 0px
+
+  #App Header
+  app-header-edit-background-color: transparent
+  app-header-text-color: var(--lcars-ui-app-header-text-color, var(--lcars-ui-primary-text))
+  header-height: 40px
+  # Tabs
+  ha-tab-padding-start: 5px;
+  ha-tab-padding-end: 5px;
+  #State
+  state-color: var(--lcars-ui-secondary)
+  #Code Editor
+  code-editor-background-color: black
+  # Other
+  more-info-header-background: rgba(25, 25, 25)
+  app-header-background-color: var(--lcars-ui-app-header-background-color, var(--lcars-ui-primary))
+  mini-media-player-base-color: var(--lcars-text-gray)
+  mini-media-player-icon-color: var(--lcars-text-gray)
+  state-lock-locked-color: var(--lcars-green)
+  state-lock-unlocked-color: var(--lcars-dark-red)
+  state-lock-locking-color: var(--lcars-yellow)
+  state-lock-unlocking-color: var(--lcars-yellow)
+  state-lock-open-color: var(--lcars-red)
+  state-lock-jammed-color: var(--lcars-scarlet)
+  input-dropdown-icon-color: var(--lcars-text-gray)
+  ha-outlined-field-container-color: var(--lcars-text-gray)
+  markdown-code-text-color: var(--lcars-text-light)
+
+  # Fields
+  ha-color-form-background: rgba(0, 0, 0, 0.01)
+  ha-color-form-background-hover: rgba(255, 255, 255, 0.05)
+  ha-color-form-background-disabled: rgba(0, 0, 0, 0.1)
+  ha-color-fill-primary-quiet-resting: rgba(255, 255, 255, 0.1)
+
+  # Thermostat Card  # ha-frontend: src/panels/lovelace/cards/hui-thermostat-card.ts, src/components/ha-control-circular-slider.ts
+  control-circular-slider-background: var(--lcars-dark-gray)
+  state-climate-auto-color: var(--lcars-cyan)
+  state-climate-manual-color: var(--lcars-primary-gray)
+  state-climate-fan_only-color: var(--lcars-medium-gray)
+  state-climate-dry-color: var(--lcars-light-orange)
+  state-climate-idle-color: var(--lcars-pale-orange)
+  state-climate-heat-cool-color: var(--lcars-alt-green)
+  state-climate-heat-color: var(--lcars-alt-orange)
+  state-climate-cool-color: var(--lcars-cyan)
+  state-unknown-color: var(--lcars-starlight)
+  energy-non-fossil-color: var(--lcars-alt-green)
+
+  # Calendar card and panel
+  table-header-background-color: var(--ha-color-primary-10)
+
+  # Hover tooltips (ha-tooltip) — sidebar item names, header icons, etc.
+  # Set at theme level (not #view) so tooltips outside the dashboard —
+  # notably the collapsed sidebar's — are covered too. Without these,
+  # ha-tooltip falls back to --ha-color-surface-default (HA near-black in
+  # dark mode) and --primary-text-color, which can collide (issue: black
+  # text on black tooltip in dark mode).
+  ha-tooltip-background-color: var(--lcars-tooltip-background)
+  ha-tooltip-text-color: var(--lcars-tooltip-text)
+
+# ======================================================= #
+#                    CARD MODIFICATIONS                   #
+# ======================================================= #
+(DO NOT USE/MODIFY)=== card-mod CSS: &card-mod-css # Card modifications
+  card-mod-drawer: |
+    :host {
+      /* ----------------------------------------------- */
+      /*         Dashbaord Texture and Gradient          */
+      /* ----------------------------------------------- */
+      {% if not is_state('input_boolean.lcars_texture', 'off') %}
+      &::before {
+        content: "";
+        background: radial-gradient(ellipse farthest-corner at center center, var(--lcars-backlight-center) 0%, var(--lcars-backlight-middle) var(--lcars-backlight-middle-location), var(--lcars-backlight-outer) 100%);
+        width: 100%;
+        height: 100%;
+        z-index: 9990;
+        position: fixed;
+        mix-blend-mode: overlay;
+        opacity: 1;
+        pointer-events: none;
+      }
+      &::after {
+        content: "";
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dmYRFZ60YiBhJRCgh1FYhiLAmdvX0CzTOpNE77ME0Zty/nWWzchDtiqrmQDeuv3powQ5ta2eN0FY0InkqDD73lT9c9lEzwUNqgFHs9VQce3TVClFCQrSTfOiYkVJQBmpbq2L6iZavPnAPcoU0dSw0SUTqz/GtrGuXfbyyBniKykOWQWGqwwMA7QiYAxi+IlPdqo+hYHnUt5ZPfnsHJyNiDtnpJyayNBkF6cWoYGAMY92U2hXHF/C1M8uP/ZtYdiuj26UdAdQQSXQErwSOMzt/XWRWAz5GuSBIkwG1H3FabJ2OsUOUhGC6tK4EMtJO0ttC6IBD3kM0ve0tJwMdSfjZo+EEISaeTr9P3wYrGjXqyC1krcKdhMpxEnt5JetoulscpyzhXN5FRpuPHvbeQaKxFAEB6EN+cYN6xD7RYGpXpNndMmZgM5Dcs3YSNFDHUo2LGfZuukSWyUYirJAdYbF3MfqEKmjM+I2EfhA94iG3L7uKrR+GdWD73ydlIB+6hgref1QTlmgmbM3/LeX5GI1Ux1RWpgxpLuZ2+I+IjzZ8wqE4nilvQdkUdfhzI5QDWy+kw5Wgg2pGpeEVeCCA7b85BO3F9DzxB3cdqvBzWcmzbyMiqhzuYqtHRVG2y4x+KOlnyqla8AoWWpuBoYRxzXrfKuILl6SfiWCbjxoZJUaCBj1CjH7GIaDbc9kqBY3W/Rgjda1iqQcOJu2WW+76pZC9QG7M00dffe9hNnseupFL53r8F7YHSwJWUKP2q+k7RdsxyOB11n0xtOvnW4irMMFNV4H0uqwS5ExsmP9AxbDTc9JwgneAT5vTiUSm1E7BSflSt3bfa1tv8Di3R8n3Af7MNWzs49hmauE2wP+ttrq+AsWpFG2awvsuOqbipWHgtuvuaAE+A1Z/7gC9hesnr+7wqCwG8c5yAg3AL1fm8T9AZtp/bbJGwl1pNrE7RuOX7PeMRUERVaPpEs+yqeoSmuOlokqw49pgomjLeh7icHNlG19yjs6XXOMedYm5xH2YxpV2tc0Ro2jJfxC50ApuxGob7lMsxfTbeUv07TyYxpeLucEH1gNd4IKH2LAg5TdVhlCafZvpskfncCfx8pOhJzd76bJWeYFnFciwcYfubRc12Ip/ppIhA1/mSZ/RxjFDrJC5xifFjJpY2Xl5zXdguFqYyTR1zSp1Y9p+tktDYYSNflcxI0iyO4TPBdlRcpeqjK/piF5bklq77VSEaA+z8qmJTFzIWiitbnzR794USKBUaT0NTEsVjZqLaFVqJoPN9ODG70IPbfBHKK+/q/AWR0tJzYHRULOa4MP+W/HfGadZUbfw177G7j/OGbIs8TahLyynl4X4RinF793Oz+BU0saXtUHrVBFT/DnA3ctNPoGbs4hRIjTok8i+algT1lTHi4SxFvONKNrgQFAq2/gFnWMXgwffgYMJpiKYkmW3tTg3ZQ9Jq+f8XN+A5eeUKHWvJWJ2sgJ1Sop+wwhqFVijqWaJhwtD8MNlSBeWNNWTa5Z5kPZw5+LbVT99wqTdx29lMUH4OIG/D86ruKEauBjvH5xy6um/Sfj7ei6UUVk4AIl3MyD4MSSTOFgSwsH/QJWaQ5as7ZcmgBZkzjjU1UrQ74ci1gWBCSGHtuV1H2mhSnO3Wp/3fEV5a+4wz//6qy8JxjZsmxxy5+4w9CDNJY09T072iKG0EnOS0arEYgXqYnXcYHwjTtUNAcMelOd4xpkoqiTYICWFq0JSiPfPDQdnt+4/wuqcXY47QILbgAAAABJRU5ErkJggg==);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        z-index: 9991;
+        mix-blend-mode: overlay;
+        opacity: 1;
+        pointer-events: none;
+      }
+      {% endif %}
+    }
+  card-mod-card-yaml: &card-mod-card |
+    .: |
+      /* ----------------------------------------------- */
+      /*                Common Card Styles               */
+      /* ----------------------------------------------- */
+      :host {
+        /* Re-resolve these here for cards with theme overrides */
+        --lcars-horizontal-border: {{ states('input_number.lcars_horizontal') if has_value('input_number.lcars_horizontal') else 10 }}px !important;
+        --lcars-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
+        --lcars-middle-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
+        --lcars-sound: {{ true if is_state('input_boolean.lcars_sound', 'on') else false }};
+        --lcars-texture: {{ true if is_state('input_boolean.lcars_texture', 'on') else false }};
+
+        /* Default card has quaternary background. */
+        font-family: var(--font-family) !important;
+        --md-sys-color-primary: var(--lcars-ui-quaternary) !important;
+
+        /* Force these to be recomputed to prevent eager variable resolution */
+        --lcars-primary-text: var(--lcars-ui-quaternary-text) !important;
+        --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
+        --ha-card-header-color: var(--lcars-primary-text);
+        --ha-color-text-primary: var(--lcars-primary-text);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+        --text-primary-color: var(--lcars-primary-text);
+        --mdc-select-label-ink-color: var(--lcars-secondary-text);
+        --mdc-select-ink-color: var(--lcars-primary-text);
+        --mdc-text-field-label-ink-color: var(--lcars-primary-text);
+        --mdc-text-field-fill-color: transparent;
+        --mdc-text-field-ink-color: var(--lcars-primary-text);
+        --wa-form-control-value-color: var(--lcars-primary-text);
+        --state-icon-color: var(--lcars-primary-text);
+        --card-primary-color: var(--lcars-primary-text);
+        --card-secondary-color: var(--lcars-secondary-text);
+        color: var(--primary-text-color);
+      }
+      :host, :host > ha-card {
+        &:not(.type-undefined,.type-custom-grid-layout) {
+          height: 100%;
+        }
+
+      }
+      
+      /* =============================================== */
+      /*        HEADER CLASSES AND CARD TYPE FIXES       */
+      /* =============================================== */
+      
+      /* ------------- Common Header Styles ------------ */
+      :host(.header-left),
+      :host(.header-right),
+      :host(.header-contained),
+      :host(.header-open),
+      ha-card:is(.header-left,
+                 .header-right,
+                 .header-contained,
+                 .header-open
+      ):not(div > *) {
+        display: block !important;
+        height: 100%;
+        border: 0px solid var(--lcars-card-top-color);
+        border-top-width: var(--lcars-horizontal-border);
+        border-radius: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        background-color: var(--lcars-card-top-color);
+        text-transform: uppercase;
+
+        > :not(style,card-mod,h1) {
+          background-color: var(--lcars-background-color);
+          --lcars-primary-text: var(--lcars-background-text) !important;
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
+          --ha-card-header-color: var(--lcars-primary-text);
+          --ha-color-text-primary: var(--lcars-primary-text);
+          --primary-text-color: var(--lcars-primary-text);
+          --secondary-text-color: var(--lcars-primary-text);
+          --text-primary-color: var(--lcars-primary-text);
+          --mdc-select-label-ink-color: var(--lcars-secondary-text);
+          --mdc-select-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-label-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-fill-color: transparent;
+          --mdc-text-field-ink-color: var(--lcars-primary-text);
+          --wa-form-control-value-color: var(--lcars-primary-text);
+          --state-icon-color: var(--lcars-primary-text);
+          --card-primary-color: var(--lcars-primary-text);
+          --card-secondary-color: var(--lcars-secondary-text);
+          color: var(--primary-text-color);
+          border-radius: 0px;
+          padding-top: 6px;
+          height: 100%;
+          box-sizing: border-box;
+        }
+        > ha-markdown,
+        > ha-card > ha-markdown {
+          padding-block: 0px;
+        }
+      }
+      
+      /* ----------------Border on left----------------- */
+      :host(.header-left),
+      :host(.header-contained),
+      ha-card:is(.header-left,
+                 .header-contained
+      ):not(div > *) {
+        border-top-left-radius: var(--ha-card-border-radius);
+        border-left-width: var(--lcars-vertical-border);
+
+        > :not(style,card-mod) {
+          border-top-left-radius: var(--lcars-inner-radius);
+          padding-left: 6px;
+        }
+      }
+
+      /* ----------------Border on right---------------- */
+      :host(.header-right),
+      :host(.header-contained),
+      ha-card:is(.header-right,
+                 .header-contained
+      ):not(div > *) {
+        border-top-right-radius: var(--ha-card-border-radius);
+        border-right-width: var(--lcars-vertical-border);
+
+        > :not(style,card-mod) {
+          border-top-right-radius: var(--lcars-inner-radius);
+          padding-right: 6px;
+        }
+      }
+
+      /* =============================================== */
+      /*        MIDDLE CLASSES AND CARD TYPE FIXES       */
+      /* =============================================== */
+
+      /* ------------- Common Middle Styles ------------ */
+      :host(.middle-left),
+      :host(.middle-right),
+      :host(.middle-contained),
+      :host(.middle-blank),
+      ha-card:is(.middle-left,
+                 .middle-right,
+                 .middle-contained,
+                 .middle-blank
+      ):not(div > *)  {
+        display: block !important;
+        height: 100%;
+        background-color: var(--lcars-background-color);
+        padding: 0px;
+        box-sizing: border-box;
+        border-radius: 0px;
+        border-inline: 0px solid var(--lcars-card-mid-color);
+        text-transform: uppercase;
+
+        > :not(style,card-mod,h1) {
+          border-radius: 0px;
+          background-color: var(--lcars-background-color);
+          --lcars-primary-text: var(--lcars-background-text) !important;
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
+          --ha-card-header-color: var(--lcars-primary-text);
+          --ha-color-text-primary: var(--lcars-primary-text);
+          --primary-text-color: var(--lcars-primary-text);
+          --secondary-text-color: var(--lcars-primary-text);
+          --text-primary-color: var(--lcars-primary-text);
+          --mdc-select-label-ink-color: var(--lcars-secondary-text);
+          --mdc-select-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-label-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-fill-color: transparent;
+          --mdc-text-field-ink-color: var(--lcars-primary-text);
+          --wa-form-control-value-color: var(--lcars-primary-text);
+          --state-icon-color: var(--lcars-primary-text);
+          --card-primary-color: var(--lcars-primary-text);
+          --card-secondary-color: var(--lcars-secondary-text);
+          color: var(--primary-text-color);
+          height: 100%;
+          box-sizing: border-box;
+        }
+      }
+      > ha-markdown,
+      > ha-card > ha-markdown {
+        padding-block: 0px;
+      }
+      
+      /* -----------------Border on left---------------- */
+      :host(.middle-left),
+      :host(.middle-contained),
+      ha-card:is(.middle-left,
+                 .middle-contained
+      ):not(div > *) {
+        border-left-width: var(--lcars-vertical-border);
+        > :not(style,card-mod) {
+          padding-left: 6px;
+        }
+      }
+
+      /* ----------------Border on right---------------- */
+      :host(.middle-right),
+      :host(.middle-contained),
+      ha-card:is(.middle-right,
+                 .middle-contained
+      ):not(div > *) {
+        border-right-width: var(--lcars-vertical-border);
+        > :not(style,card-mod) {
+          padding-right: 6px;
+        }
+      }
+
+      /* -------------- Entities Card padding ---------- */
+      :host(.middle-blank) {
+        #states {
+          padding: 0px;
+        }
+      }
+
+      /* =============================================== */
+      /*        FOOTER CLASSES AND CARD TYPE FIXES       */
+      /* =============================================== */
+      
+      /* ------------- Common Footer Styles ------------ */
+      :host(.footer-left),
+      :host(.footer-right),
+      :host(.footer-contained),
+      :host(.footer-open),
+      ha-card:is(.footer-left,
+                 .footer-right,
+                 .footer-contained,
+                 .footer-open
+      ):not(div > *) {
+        display: block !important;
+        height: 100%;
+        padding: 0px;          
+        box-sizing: border-box;
+        border-radius: 0px;
+        border: 0px solid var(--lcars-card-bottom-color);
+        border-bottom-width: var(--lcars-horizontal-border);
+        background-color: var(--lcars-card-bottom-color);
+        text-transform: uppercase;
+
+        > :not(style,card-mod,h1) {
+          border-radius: 0px;
+          background-color: var(--lcars-background-color);
+          --lcars-primary-text: var(--lcars-background-text) !important;
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
+          --ha-card-header-color: var(--lcars-primary-text);
+          --ha-color-text-primary: var(--lcars-primary-text);
+          --primary-text-color: var(--lcars-primary-text);
+          --secondary-text-color: var(--lcars-primary-text);
+          --text-primary-color: var(--lcars-primary-text);
+          --mdc-select-label-ink-color: var(--lcars-secondary-text);
+          --mdc-select-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-label-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-fill-color: transparent;
+          --mdc-text-field-ink-color: var(--lcars-primary-text);
+          --wa-form-control-value-color: var(--lcars-primary-text);
+          --state-icon-color: var(--lcars-primary-text);
+          --card-primary-color: var(--lcars-primary-text);
+          --card-secondary-color: var(--lcars-secondary-text);
+          color: var(--primary-text-color);
+          padding-bottom: 6px;
+          height: 100%;
+          box-sizing: border-box;
+
+        }
+        > ha-markdown,
+        > ha-card > ha-markdown {
+          padding-block: 0px;
+        }
+      }
+
+      /* ----------------------------------------------- */
+      /*              Specific Footer Styles             */
+      /* ----------------------------------------------- */
+
+      /* -----------------Border on left---------------- */
+      :host(.footer-left),
+      :host(.footer-contained),
+      ha-card:is(.footer-left,
+                 .footer-contained
+      ):not(div > *)  {
+        border-bottom-left-radius: var(--ha-card-border-radius) !important;
+        border-left-width: var(--lcars-vertical-border);
+
+        > :not(style,card-mod) {
+          border-bottom-left-radius: var(--lcars-inner-radius) !important;
+          padding-left: 6px;
+        }
+      }
+
+      /* ----------------Border on right---------------- */
+      :host(.footer-right),
+      :host(.footer-contained),
+      ha-card:is(.footer-right,
+                 .footer-contained
+      ):not(div > *)  {
+        border-bottom-right-radius: var(--ha-card-border-radius) !important;
+        border-right-width: var(--lcars-vertical-border);
+
+        > :not(style,card-mod) {
+          border-bottom-right-radius: var(--lcars-inner-radius) !important;
+          padding-right: 6px;
+        }
+      }
+
+      /* =============================================== */
+      /*                     BUTTONS                     */
+      /* =============================================== */
+
+      /* ----------------------------------------------- */
+      /*               Common Button Styles              */
+      /* ----------------------------------------------- */
+      :host(.button-small),
+      :host(.button-large),
+      :host(.button-lozenge-left),
+      :host(.button-lozenge-right),
+      :host(.button-bullet-left),
+      :host(.button-bullet-right),
+      :host(.button-capped-left),
+      :host(.button-capped-right),
+      :host(.button-barrel-left),
+      :host(.button-barrel-right),
+      :host(.button-bar-left),
+      :host(.button-bar-right),
+      ha-card:is(
+        .button-small,
+        .button-large,
+        .button-lozenge-left,
+        .button-lozenge-right,
+        .button-bullet-left,
+        .button-bullet-right,
+        .button-capped-left,
+        .button-capped-right,
+        .button-barrel-left,
+        .button-barrel-right,
+        .button-bar-left,
+        .button-bar-right
+      ) {
+
+        > ha-card,
+        > #aspect-ratio > ha-card,
+        &:is(ha-card) {
+          background-color: var(--lcars-card-button-color);
+          --lcars-primary-text: var(--lcars-card-button-text) !important;
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
+          --ha-card-header-color: var(--lcars-primary-text);
+          --ha-color-text-primary: var(--lcars-primary-text);
+          --primary-text-color: var(--lcars-primary-text);
+          --secondary-text-color: var(--lcars-primary-text);
+          --text-primary-color: var(--lcars-primary-text);
+          --mdc-select-label-ink-color: var(--lcars-secondary-text);
+          --mdc-select-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-label-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-fill-color: transparent;
+          --mdc-text-field-ink-color: var(--lcars-primary-text);
+          --wa-form-control-value-color: var(--lcars-primary-text);
+          --state-icon-color: var(--lcars-primary-text);
+          --card-primary-color: var(--lcars-primary-text);
+          --card-secondary-color: var(--lcars-secondary-text);
+          color: var(--primary-text-color);
+          text-transform: uppercase;
+
+          /* Louder ripple press feedback to handle wide range in colors */
+          --ha-ripple-color: var(--lcars-ripple-color);
+          --ha-ripple-pressed-opacity: var(--lcars-ripple-pressed-opacity);
+          --ha-ripple-hover-opacity: var(--lcars-ripple-hover-opacity);
+        }
+      }
+
+      /* ----------------------------------------------- */
+      /*           Small Button Class and Fixes          */
+      /* ----------------------------------------------- */
+      :host(.button-small),
+      ha-card:is(.button-small) {
+        > ha-card, 
+        > #aspect-ratio > ha-card,
+        &:is(ha-card) {
+          display: flex;
+          border-radius: 0px !important;
+          position: relative;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          justify-content: center;
+          
+          > .more-info {
+            display: none;
+          }
+          > .content {
+            > #controls {
+              display: flex;
+              place-content: flex-start center;
+              position: relative; 
+              padding: 0px;
+            }
+            > #info {
+              text-align: right;
+              box-sizing: border-box;
+              width: 100%;
+              padding: 0px 6px 6px 0px;
+              margin-top: -24px;
+              position: relative;
+            }
+          }
+
+          > span {
+            box-sizing: border-box;
+            text-align: right;
+            width: 100%;
+            padding: 6px;
+            margin: unset;
+            position: absolute;
+            bottom: 0;
+          }
+
+          > span.state {
+            text-align: right;
+            width: 100%;
+            padding: 6px;
+            padding-bottom: 22px;
+            margin: unset;
+            position: absolute;
+            bottom: 0;
+          }
+        }
+      }
+
+      /* ----------------------------------------------- */
+      /*           Large Button Class and Fixes          */
+      /* ----------------------------------------------- */
+      /* None... amazingly */
+      
+      /* =============================================== */
+      /*      BULLET/LOZENGE/CAPPED/BARREL BUTTONS       */
+      /* =============================================== */
+      /* These must handle all possible applications of  */
+      /* the classes by card-mod. That includes both     */
+      /* :host and ha-card because nesting a card in     */
+      /* stacks, layout-card, etc will affect where the  */
+      /* class is applied.                               */
+
+      :host(.button-lozenge-left),
+      :host(.button-lozenge-right),
+      :host(.button-bullet-left),
+      :host(.button-bullet-right),
+      :host(.button-capped-left),
+      :host(.button-capped-right),
+      :host(.button-barrel-left),
+      :host(.button-barrel-right),
+      :host(.button-bar-left),
+      :host(.button-bar-right),
+      ha-card:is(
+        .button-lozenge-left,
+        .button-lozenge-right,
+        .button-bullet-left,
+        .button-bullet-right,
+        .button-capped-left,
+        .button-capped-right,
+        .button-barrel-left,
+        .button-barrel-right,
+        .button-bar-left,
+        .button-bar-right
+      ) {
+
+        > ha-card, 
+        > #aspect-ratio > ha-card,
+        &:is(ha-card) {
+        
+          min-height: 60px;
+          display: flex;
+          align-items: flex-end;
+          flex-direction: column-reverse;
+          border-radius: 0px;
+          padding-block: 0px;
+
+          > ha-state-icon {
+            --mdc-icon-size: unset;
+            background-color: var(--lcars-card-top-color);
+            position: absolute;
+            left: 0;
+            width: var(--lcars-vertical-border);
+            height: 100% !important;
+            max-height: 100% !important;
+            border-right: var(--lcars-background-color) solid 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          
+          > span {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            margin-top: unset;
+            padding: 6px;
+          }
+          
+          > span.state {
+            align-items: center;
+            color: var(--lcars-card-button-text);
+          }
+
+          /* Big Slider Card */
+          &:is(#container) {
+            > #slider {
+              right: 0;
+              left: calc(var(--lcars-vertical-border) + 6px);
+              background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
+            }
+            > #content {
+              padding-left: calc(var(--lcars-vertical-border) + 18px);
+              justify-content: right;
+            }
+          }
+        }
+      }
+      
+      /* ----------------------------------------------- */
+      /*               Flip Right Buttons                */
+      /* ----------------------------------------------- */
+      :host(.button-lozenge-right),
+      :host(.button-bullet-right),
+      :host(.button-capped-right),
+      :host(.button-barrel-right),
+      ha-card:is(
+        .button-lozenge-right,
+        .button-bullet-right,
+        .button-capped-right,
+        .button-barrel-right
+      ) {
+
+        > ha-card#container,
+        > ha-card, 
+        > #aspect-ratio > ha-card,
+        &:is(ha-card) {
+
+          align-items: flex-start;
+
+          > ha-state-icon {
+            left: auto;
+            right: 0;
+            border-right: 0px;
+            border-left: var(--lcars-background-color) solid 6px;
+          }
+          
+          > span {
+            justify-content: flex-start;
+            left: var(--lcars-vertical-border);
+            padding-inline: 6px;
+          }
+          
+          /* Big Slider Card */
+          &:is(#container) {
+            > #slider {
+              right: calc(var(--lcars-vertical-border) + 6px);
+              left: 0;
+              background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
+            }
+            > #content {
+              padding-left: var(--ha-card-border-radius);
+              padding-right: 0px;
+              justify-content: left;
+            }
+          }
+        }
+      }
+
+
+      /* ----------------------------------------------- */
+      /*                   Corner Radii                  */
+      /* ----------------------------------------------- */
+      :host(.button-lozenge-left),
+      :host(.button-lozenge-right),
+      :host(.button-bullet-left),
+      :host(.button-capped-right),
+      :host(.button-bar-left),
+      :host(.button-bar-right),
+      ha-card:is(
+        .button-lozenge-left,
+        .button-bullet-left,
+        .button-bar-left,
+        .button-lozenge-right,
+        .button-capped-right,
+        .button-bar-right
+      ) {
+        > ha-card#container,
+        > ha-card, 
+        > #aspect-ratio > ha-card,
+        &:is(ha-card) {
+          border-top-right-radius: var(--ha-card-border-radius);
+          border-bottom-right-radius: var(--ha-card-border-radius);
+        }
+      }
+      :host(.button-lozenge-left),
+      :host(.button-lozenge-right),
+      :host(.button-bullet-right),
+      :host(.button-capped-left),
+      :host(.button-bar-left),
+      :host(.button-bar-right),
+      ha-card:is(
+        .button-lozenge-left,
+        .button-capped-left,
+        .button-bar-left,
+        .button-lozenge-right,
+        .button-bullet-right,
+        .button-bar-right
+      ) {
+        > ha-card#container,
+        > ha-card, 
+        > #aspect-ratio > ha-card,
+        &:is(ha-card) {
+      
+          border-top-left-radius: var(--ha-card-border-radius);
+          border-bottom-left-radius: var(--ha-card-border-radius);
+        }
+      }
+      :host(.button-lozenge-left), 
+      :host(.button-bullet-left),
+      ha-card:is(
+        .button-lozenge-left,
+        .button-bullet-left
+      ) {
+        > ha-card#container,
+        > ha-card, 
+        > #aspect-ratio > ha-card,
+        &:is(ha-card) {
+          > span {
+            padding-right: var(--ha-card-border-radius);
+          }
+        }
+      }
+      :host(.button-lozenge-right), 
+      :host(.button-bullet-right),
+      ha-card:is(
+        .button-lozenge-right,
+        .button-bullet-right
+      ) {
+        > ha-card#container,
+        > ha-card, 
+        > #aspect-ratio > ha-card,
+        &:is(ha-card) {
+          > span {
+            padding-left: var(--ha-card-border-radius);
+          }
+        }
+      }
+
+      /* ----------------------------------------------- */
+      /*                  Button Bar                     */
+      /* ----------------------------------------------- */
+      :host(.button-bar-left),
+      :host(.button-bar-right),
+      ha-card:is(
+        .button-bar-left,
+        .button-bar-right
+      ) {
+        > ha-card#container,
+        > ha-card, 
+        > #aspect-ratio > ha-card,
+        &:is(ha-card) {
+
+          line-height: 60px;
+          font-size: 60px;
+          padding-left: var(--lcars-vertical-border);
+          flex-direction: row;
+          justify-content: space-between;
+
+          > span {
+            width: fit-content;
+            padding: 0px;
+
+            &:is(.state) {
+              padding-right: var(--ha-card-border-radius);
+              height: 100%;
+            }
+
+            &:not(.state) { 
+              color: var(--lcars-background-text);
+              height: 100%;
+              background-color: var(--lcars-background-color);
+              padding-inline: 6px;
+              padding-bottom: 0.05em;
+              margin-top: -0.5em;
+            }
+          }
+          
+          > ha-state-icon {
+            font-size: 0;
+          }
+          
+          /* Big Slider Card */
+          &:is(#container) {
+            > #slider {
+              right: 0;
+              left: calc(var(--lcars-vertical-border) + 6px);
+              background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
+            }
+            > #content {
+              position: relative;
+              padding-right: var(--ha-card-border-radius);
+              padding-left: 18px;
+              padding-bottom: 0.1em;
+              justify-content: left;
+            }
+          }
+          
+        }
+      }
+
+      :host(.button-bar-right),
+      ha-card:is(.button-bar-right) {
+        > ha-card#container,
+        > ha-card, 
+        > #aspect-ratio > ha-card,
+        &:is(ha-card) {
+
+          flex-direction: row-reverse;
+          padding-left: 0;
+          padding-right: var(--lcars-vertical-border);
+
+          > span:is(.state) {
+              padding-left: var(--ha-card-border-radius);
+              padding-right: 0;
+          }
+
+          > ha-state-icon {
+            left: auto;
+            right: 0;
+            border-right: 0px;
+            border-left: var(--lcars-background-color) solid 6px;
+          }
+
+          /* Big Slider Card */
+          &:is(#container) {
+            > #slider {
+              right: calc(var(--lcars-vertical-border) + 6px);
+              left: 0;
+              background: linear-gradient(90deg, var(--bsc-slider-color), var(--bsc-slider-color) var(--bsc-percent), transparent var(--bsc-percent), transparent 100%);
+            }
+            > #content {
+              padding-left: var(--ha-card-border-radius);
+              padding-right: 18px;
+              justify-content: right;
+            }
+          }
+        }
+        
+      }
+
+
+      /* =============================================== */
+      /*                    BAR STYLES                   */
+      /* =============================================== */
+
+      /* ----------------------------------------------- */
+      /*                Common Bar Styles                */
+      /* ----------------------------------------------- */
+      :host(.bar-left),
+      :host(.bar-right),
+      :host(.bar-large-left),
+      :host(.bar-large-right),
+      ha-card:is(.bar-left,
+                 .bar-large-left,
+                 .bar-right,
+                 .bar-large-right
+      ):not(div > *)   {
+        background-color: var(--lcars-card-top-color);
+        --lcars-primary-text: var(--lcars-card-top-text) !important;
+        border-radius: 9999px;
+        display: block;
+        height: 1em;
+        font-size: 2em;
+        line-height: 1;
+        overflow:hidden;
+
+        > :not(style,card-mod,h1) {
+          text-transform: uppercase;
+          background-color: var(--lcars-background-color);
+          --lcars-primary-text: var(--lcars-background-text) !important;
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
+          --ha-card-header-color: var(--lcars-primary-text);
+          --ha-color-text-primary: var(--lcars-primary-text);
+          --primary-text-color: var(--lcars-primary-text);
+          --secondary-text-color: var(--lcars-primary-text);
+          --text-primary-color: var(--lcars-primary-text);
+          --mdc-select-label-ink-color: var(--lcars-secondary-text);
+          --mdc-select-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-label-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-fill-color: transparent;
+          --mdc-text-field-ink-color: var(--lcars-primary-text);
+          --wa-form-control-value-color: var(--lcars-primary-text);
+          --state-icon-color: var(--lcars-primary-text);
+          --card-primary-color: var(--lcars-primary-text);
+          --card-secondary-color: var(--lcars-secondary-text);
+          color: var(--primary-text-color);
+          border-radius: 0px;
+          display: inline-block;
+          padding: 0px 6px 0px 6px;
+          height: calc(100% + 0.4em);
+          vertical-align: top;
+          overflow: hidden;
+
+          > ha-markdown {
+            padding: 0px;
+            margin-top: -0.06em;
+          }
+        }
+
+        .title { 
+          font-size: inherit !important;
+          line-height: 1;
+          margin-top: -0.06em;
+        }
+      }
+      
+      :host(.bar-large-left),
+      :host(.bar-large-right),
+      ha-card:is(.bar-large-left,
+                 .bar-large-right
+      ):not(div > *) {
+          font-size: 3em;
+      }
+
+      :host(.bar-left),
+      :host(.bar-large-left),
+      ha-card:is(.bar-left,
+                 .bar-large-left
+      ):not(div > *) {
+        border-left: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
+      }
+
+      :host(.bar-right),
+      :host(.bar-large-right),
+      ha-card:is(.bar-right,
+                 .bar-large-right
+      ):not(div > *) {
+        border-right: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
+        text-align: right;
+      }
+
+      /* =============================================== */
+      /*               STACK STYLES                      */
+      /* =============================================== */
+      :host(.type-vertical-stack),
+      :host(.type-horizontal-stack) {
+        position: relative;
+        .card-header {
+          padding: 0px;
+          position: absolute;
+          left: calc( 0px - var(--lcars-vertical-border) /2);
+          top: 50%;
+          transform: translate(-50%, -50%);
+          background-color: transparent;
+        }
+      }
+      :host(.header-right.type-horizontal-stack),
+      :host(.middle-right.type-horizontal-stack),
+      :host(.footer-right.type-horizontal-stack),
+      :host(.header-right.type-vertical-stack),
+      :host(.middle-right.type-vertical-stack),
+      :host(.footer-right.type-vertical-stack) {
+        .card-header {
+          transform: translate(50%, -50%);
+          left: unset;
+          right: calc( 0px - var(--lcars-vertical-border) /2);
+        }
+      }
+      :host(.header-left.type-horizontal-stack),
+      :host(.header-right.type-horizontal-stack),
+      :host(.header-contained.type-horizontal-stack),
+      :host(.header-left.type-vertical-stack),
+      :host(.header-right.type-vertical-stack),
+      :host(.header-contained.type-vertical-stack) {
+        .card-header {
+          color: var(--lcars-card-top-text);
+        }
+      }
+      :host(.middle-left.type-horizontal-stack),
+      :host(.middle-right.type-horizontal-stack),
+      :host(.middle-contained.type-horizontal-stack),
+      :host(.middle-left.type-vertical-stack),
+      :host(.middle-right.type-vertical-stack),
+      :host(.middle-contained.type-vertical-stack) {
+        .card-header {
+          color: var(--lcars-card-mid-text);
+        }
+      }
+      :host(.footer-left.type-horizontal-stack),
+      :host(.footer-right.type-horizontal-stack),
+      :host(.footer-contained.type-horizontal-stack),
+      :host(.footer-left.type-vertical-stack),
+      :host(.footer-right.type-vertical-stack),
+      :host(.footer-contained.type-vertical-stack) {
+        .card-header {
+          color: var(--lcars-card-bottom-text);
+        }
+      }
+      
+      /* =============================================== */
+      /*               MISCELLANEOUS STYLES              */
+      /* =============================================== */
+
+      /* WIP fix for aliasing ugliness on slider tracks */
+      .type-light > .bar {
+        stroke-width: 5px;
+      }
+
+      /* ----------------------------------------------- */
+      /*               Specific Card Fixes               */
+      /* ----------------------------------------------- */
+
+      /* ----------- Calendar Card --------------------- */
+      :host(.type-calendar),
+      ha-card:is(.type-calendar) {
+        ha-full-calendar {
+          --lcars-primary-text: var(--lcars-background-text) !important;
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
+          --ha-card-header-color: var(--lcars-primary-text);
+          --ha-color-text-primary: var(--lcars-primary-text);
+          --primary-text-color: var(--lcars-primary-text);
+          --secondary-text-color: var(--lcars-primary-text);
+          --text-primary-color: var(--lcars-primary-text);
+          --mdc-select-label-ink-color: var(--lcars-secondary-text);
+          --mdc-select-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-label-ink-color: var(--lcars-primary-text);
+          --mdc-text-field-fill-color: transparent;
+          --mdc-text-field-ink-color: var(--lcars-primary-text);
+          --wa-form-control-value-color: var(--lcars-primary-text);
+          --state-icon-color: var(--lcars-primary-text);
+          --card-primary-color: var(--lcars-primary-text);
+          --card-secondary-color: var(--lcars-secondary-text);
+        }
+      }
+
+      /* ----------- HTML Template Card ---------------- */
+      :host, ha-card {
+        &:is(.type-custom-html-template-card, .type-custom-html-card) {
+          padding:0px !important;
+        }
+      }
+
+      /* ----------- Weather Card ---------------------- */
+      :host(.type-custom-weather-card) > ha-card {
+        padding-top: 12px !important;
+      }
+
+      /* ----------- To-Do List Card ------------------- */
+      :host(.type-todo-list),
+      ha-card:is(.type-todo-list) {
+        --lcars-type: "todo-list";
+        --card-background-color: transparent !important;
+        --ha-card-border-radius: 0px !important;
+        --active-color: var(--lcars-card-mid-color);
+        --active-text-color: var(--lcars-card-mid-text);
+        --completed-color: color-mix(in srgb, var(--active-color), black 70%);
+        --completed-text-color: var(--lcars-gray);
+        --list-border-left: 0px;
+        --list-border-right: 0px;
+
+        > ha-card, &:is(ha-card) {
+          div.addRow {
+            background-color: var(--lcars-card-bottom-color);
+            --mdc-text-field-fill-color: var(--lcars-card-bottom-color);
+            color: var(--lcars-card-bottom-text);
+            --mdc-text-field-ink-color: var(--lcars-card-bottom-text);
+            --mdc-text-field-label-ink-color: var(--lcars-card-bottom-text);
+            caret-color: currentColor;
+            border-top-left-radius: var(--list-border-left);
+            border-top-right-radius: var(--list-border-right);
+            border-bottom-left-radius: var(--list-border-left);
+            border-bottom-right-radius: var(--list-border-right);
+            margin-block: 5px;
+            padding: 5px max(15px, var(--list-border-right)) 5px max(15px, var(--list-border-left));
+            height: 50px;
+          }
+          ha-sortable > ha-list {
+            .header {
+              background-color: var(--lcars-card-top-color);
+              color: var(--lcars-card-top-text);
+              --primary-text-color: var(--lcars-card-top-text);
+              border-top-left-radius: var(--list-border-left);
+              border-top-right-radius: var(--list-border-right);
+              border-bottom-left-radius: var(--list-border-left);
+              border-bottom-right-radius: var(--list-border-right);
+              margin-block: 5px;
+              height: 60px;
+              padding: 0px max(15px, var(--list-border-right)) 0px max(15px, var(--list-border-left));
+              font-size: 1.2rem;
+
+              h2 {
+                padding-bottom: 0.15em;
+              }
+            }
+
+            ha-check-list-item {
+              --check-border-right: 5px;
+              --check-border-left: 0px;
+              --flex-left: 1;
+
+              background-color: var(--active-color);
+              color: var(--active-text-color);
+              text-transform: uppercase;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              border-top-left-radius: var(--list-border-left);
+              border-top-right-radius: var(--list-border-right);
+              border-bottom-left-radius: var(--list-border-left);
+              border-bottom-right-radius: var(--list-border-right);
+              margin: 5px;
+              padding-top: 0px var(--list-border-right) 0px var(--list-border-left);
+              height: 60px;
+            }
+            ha-check-list-item.completed {
+              background-color: var(--completed-color);
+              color: var(--completed-text-color);
+            }
+            ha-check-list-item.completed ha-svg-icon {
+              background-color: var(--completed-text-color);
+            }
+            ha-check-list-item .mdc-checkbox {
+              opacity: 1;
+              position: absolute;
+            }
+            .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~
+            .mdc-checkbox__background, .mdc-checkbox
+            .mdc-checkbox__native-control:enabled:indeterminate ~
+            .mdc-checkbox__background, .mdc-checkbox
+            .mdc-checkbox__native-control[data-indeterminate="true"]:enabled ~
+            .mdc-checkbox__background {
+              border-color: var(--lcars-background-color);
+              background-color: var(--lcars-background-color);
+            }
+            ha-check-list-item .summary {
+              font-size: 1.2rem;
+              position: absolute;
+              right: max(8px, var(--list-border-right));
+              bottom: 8px;
+            }
+          }
+        }
+      }
+      :host(.list-lozenge-left),
+      :host(.list-lozenge-right),
+      :host(.list-bullet-right),
+      :host(.list-capped-left),
+      ha-card:is(.list-lozenge-left),
+      ha-card:is(.list-lozenge-right),
+      ha-card:is(.list-bullet-right),
+      ha-card:is(.list-capped-left) {
+        --list-border-left: 30px;
+        --left-border: 1;
+      }
+      :host(.list-lozenge-left),
+      :host(.list-lozenge-right),
+      :host(.list-bullet-left),
+      :host(.list-capped-right),
+      ha-card:is(.list-lozenge-left),
+      ha-card:is(.list-lozenge-right),
+      ha-card:is(.list-bullet-left),
+      ha-card:is(.list-capped-right) {
+        --list-border-right: 30px;
+        --right-border: 1;
+      }
+      :host(.list-lozenge-right),
+      :host(.list-bullet-right),
+      :host(.list-capped-right),
+      :host(.list-barrel-right),
+      ha-card:is(.list-lozenge-right),
+      ha-card:is(.list-bullet-right),
+      ha-card:is(.list-capped-right),
+      ha-card:is(.list-barrel-right) {
+        & > ha-card, &:is(ha-card) {
+          > ha-sortable > ha-list > ha-check-list-item {
+            flex-direction: row-reverse;
+            --check-border-left: 5px;
+            --check-border-right: 0px;
+            --flex-left: 0;
+            --flex-right: 1;
+
+            .summary {
+              right: unset;
+              left: max(8px, var(--list-border-left));
+            }
+          }
+        }
+      }
+
+    # Gauge cards on various themes and styles need a background color
+    "ha-card ha-gauge$": |
+      .gauge {
+        --primary-background-color: var(--lcars-dark-gray);
+      }
+
+    # To-Do List Card
+    "ha-card:has(ha-sortable)$": |
+      @container style(--lcars-type: "todo-list") {
+        h1.card-header {
+          background-color: var(--lcars-card-top-color);
+          color: var(--lcars-card-top-text);
+          border-top-left-radius: var(--list-border-left);
+          border-top-right-radius: var(--list-border-right);
+          border-bottom-left-radius: var(--list-border-left);
+          border-bottom-right-radius: var(--list-border-right);
+          box-sizing: border-box;
+          margin-block: 5px;
+          padding-top: 0.15em;
+          padding-right: max(15px, var(--list-border-right));
+          padding-bottom: 0px;
+          padding-left: max(15px, var(--list-border-left));
+          height: 60px;
+        }
+      }
+    "ha-card ha-sortable ha-list":
+      "ha-check-list-item$": |
+        @container style(--lcars-type: "todo-list") {
+          span {
+            height: 100%;
+            --mdc-list-item-graphic-margin: 0px;
+
+            ha-checkbox {
+              border-right: var(--check-border-right) solid var(--lcars-background-color);
+              border-left: var(--check-border-left) solid var(--lcars-background-color);
+              height: 100%;
+              display: flex;
+              align-items: center;
+
+              --mdc-checkbox-checked-color: var(--completed-color);
+
+              --right-shift: calc( var(--flex-left) * var(--left-border) );
+              --left-shift: calc( var(--flex-right) * var(--right-border) );
+              margin-right: calc( 0px - 5px * var(--right-shift) );
+              padding-left: calc( 5px * var(--right-shift) );
+              margin-left: calc( 0px - 5px * var(--left-shift) );
+              padding-right: calc( 5px * var(--left-shift) );
+            }
+          }
+        }
+    # Markdown h1 fix
+    "ha-markdown$": |
+      h1 {
+        font-weight: normal;
+      }
+
+  # ===================================================== #
+  #             Entities Cards Modifications              #
+  # ===================================================== #
+  card-mod-row-yaml: &card-mod-row |
+    .: |
+      :host {
+        --lcars-height: 60px;
+        /* Uses `lcars-readout-width` if the user specifies it in card_mod. Otherwise a global value is set, otherwise, vertical border, or a default value). */
+        --lcars-global-readout-width: {{ states('sensor.lcars_readout_width') if has_value('sensor.lcars_readout_width') else 'unset' }};
+        --lcars-inner-readout-width: var(--lcars-readout-width, var(--lcars-global-readout-width, var(--lcars-vertical-border, 150px)));
+      }
+      /* Can't theme inside hui-generic-entity-row's dom from here */
+      /* So set variables to describe the behavior which are inherited into the dom */
+      :host(.no-cap) {
+        --lcars-capped: false;
+      }
+      :host(.entity-lozenge-left) {
+        --lcars-entity-class: "entity-lozenge-left";
+      }
+      :host(.entity-bullet-left) {
+        --lcars-entity-class: "entity-bullet-left";
+      }
+      :host(.entity-capped-left) {
+        --lcars-entity-class: "entity-capped-left";
+      }
+      :host(.entity-barrel-left) {
+        --lcars-entity-class: "entity-barrel-left";
+      }
+      :host(.entity-lozenge-right) {
+        --lcars-entity-class: "entity-lozenge-right";
+      }
+      :host(.entity-bullet-right) {
+        --lcars-entity-class: "entity-bullet-right";
+      }
+      :host(.entity-capped-right) {
+        --lcars-entity-class: "entity-capped-right";
+      }
+      :host(.entity-barrel-right) {
+        --lcars-entity-class: "entity-barrel-right";
+      }
+      /* Handle row types that have a div outside the shadow dom */
+      /* .when and .what handle the event-type row */
+      /* .text-content handles the timer-type row */
+      /* .flex handles the number and input_number slider rows */
+      @container style(--lcars-entity-class) {
+        div:not(.what):not(.when):not(.text-content) {
+          order: 1;
+          box-sizing: border-box;
+          padding: 0px 6px;
+          min-width: var(--lcars-inner-readout-width);
+          @container style(--lcars-capped: false) {
+            min-width: calc(var(--lcars-inner-readout-width) + 40px);
+          }
+        }
+        div.flex {
+          flex-grow: 0;
+        }
+      }
+    "hui-generic-entity-row $": |
+      @container style(--lcars-entity-class) {
+        state-badge{
+          order: 0;
+          background-color: var(--lcars-card-button-color);
+          --state-icon-color: var(--lcars-card-button-text);
+          color: var(--lcars-card-button-text);
+          border-top-right-radius: 0px;
+          border-bottom-right-radius: 0px;
+          border-top-left-radius: 0px;
+          border-bottom-left-radius: 0px;
+          height: var(--lcars-height);
+        }
+        div.info.text-content {
+          order: 2;
+          background-color: var(--lcars-card-button-color);
+          --primary-text-color: var(--lcars-card-button-text);
+          color: var(--lcars-card-button-text);
+          border-top-right-radius: 0px;
+          border-bottom-right-radius: 0px;
+          border-top-left-radius: 0px;
+          border-bottom-left-radius: 0px;
+          padding: 0px 12px 6px 3px;
+          white-space: unset;
+          font-size: 14px;
+          box-sizing: border-box;
+          height: var(--lcars-height);
+          display: flex;
+          align-items: flex-end;
+          justify-content: end;
+        }
+        div.value.text-content, slot {
+          order: 1;
+          background-color: transparent;
+          --primary-text-color: var(--lcars-background-text);
+          color: var(--lcars-background-text);
+          border-top-right-radius: 0px;
+          border-bottom-right-radius: 0px;
+          border-top-left-radius: 0px;
+          border-bottom-left-radius: 0px;
+          line-height: 1;
+          font-size: calc(var(--lcars-height) * 0.8);
+          box-sizing: border-box;
+          padding: 0 12px 0.2em 6px;
+          min-width: var(--lcars-inner-readout-width);
+          white-space: nowrap;
+        }
+      }
+      @container style(--lcars-entity-class: "entity-lozenge-right") 
+              or style(--lcars-entity-class: "entity-barrel-right") 
+              or style(--lcars-entity-class: "entity-bullet-right")  
+              or style(--lcars-entity-class: "entity-capped-right") {
+        state-badge {
+          order: 2;
+        }
+        div.info.text-content {
+          order: 0;
+          padding: 0px 3px 6px 12px;
+          justify-content: start;
+        }
+        div.value.text-content {
+          .state {
+            text-align: left;
+          }
+        }
+      }
+      :host {
+        overflow: hidden;
+      }
+      @container style(--lcars-entity-class: "entity-lozenge-left") 
+              or style(--lcars-entity-class: "entity-lozenge-right") 
+              or style(--lcars-entity-class: "entity-bullet-left")  
+              or style(--lcars-entity-class: "entity-capped-right") {
+        :host {
+          border-top-left-radius: 9999px;
+          border-bottom-left-radius: 9999px;
+        }
+      }
+      @container style(--lcars-entity-class: "entity-lozenge-left") 
+              or style(--lcars-entity-class: "entity-lozenge-right") 
+              or style(--lcars-entity-class: "entity-bullet-right")  
+              or style(--lcars-entity-class: "entity-capped-left") {
+        :host {
+          border-top-right-radius: 9999px;
+          border-bottom-right-radius: 9999px;
+        }
+      }
+      @container style(--lcars-capped: false) {
+        state-badge {
+          display: none;
+        }
+        div.value.text-content {
+          min-width: calc(var(--lcars-inner-readout-width) + 40px);
+        }
+        @container style(--lcars-entity-class: "entity-lozenge-left") 
+                or style(--lcars-entity-class: "entity-bullet-left") 
+                or style(--lcars-entity-class: "entity-barrel-left")  
+                or style(--lcars-entity-class: "entity-capped-left") {
+          :host {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+          }
+        }
+        @container style(--lcars-entity-class: "entity-lozenge-right") 
+                or style(--lcars-entity-class: "entity-barrel-right") 
+                or style(--lcars-entity-class: "entity-bullet-right")  
+                or style(--lcars-entity-class: "entity-capped-right") {
+          :host {
+            border-top-right-radius: 9999px;
+            border-bottom-right-radius: 9999px;
+          }
+        }
+
+      }
+  # ===================================================== #
+  #          TOOLBAR AND DASHBOARD MODIFICATIONS          #
+  # ===================================================== #
+  card-mod-root-yaml: &card-mod-root |
+    ha-tab-group$: |
+      :host {
+        margin-left: 30px;
+        border-left: solid var(--lcars-background-color) 4px;
+        --header-height: 40px;
+        --ha-tab-indicator-color: transparent !important;
+        font-family: var(--font-family) !important;
+        text-transform: uppercase;
+      }
+      .tab-group-top {
+        --safe-track-width: 0px;
+      }
+      .tabs {
+        overflow-y: hidden;
+      }
+    ha-tab-group-tab$: |
+      :host {
+        --track-width: 0px;
+        --tab-bar-height: 48px;
+        --ha-tab-padding-start: 5px;
+        --ha-tab-padding-end: 5px ;
+        flex: 1;
+
+        > div.tab {
+          border-right: 4px solid var(--lcars-background-color);
+          text-align: center;
+          display: block;
+          min-height: 40px;
+        }
+      }
+      :host([aria-selected="true"]),
+      :host([active]) {
+        background-color: var(--lcars-ui-tertiary);
+      }
+    div.header: |
+      .toolbar {
+        /* hack fix for rounding errors the cause slight gap between header and sidebar */
+        box-shadow: -1px 0px var(--lcars-sidebar-background);
+        color: var(--lcars-sidebar-text);
+        background-color: var(--lcars-sidebar-background);
+        --app-header-border-bottom: 0px;
+        border-right: 30px solid var(--lcars-card-top-color);
+        border-radius: 0px 0px 0px 0px;
+        margin-right: 1px;
+        padding: 0px 12px !important;
+
+        /* -------- Sidebar Toggle -------- */
+        ha-menu-button {
+          display: none;
+          color: transparent;
+        }
+        @media screen and (max-width: 870px) {
+          ha-button-menu > ha-icon-button {
+            margin-right: -48px;
+            padding-right: unset !important;
+            margin-left: unset !important;
+          }
+          ha-icon-button {
+            padding-right: unset !important;
+            margin-left: unset !important;
+          }
+          ha-menu-button {
+            display: initial !important;
+            color: var(--lcars-ui-primary-text) !important;
+            padding-right: 0px !important;
+            margin-right: -22px;
+            margin-left: -16px;
+          }
+          .main-title
+          {
+            margin-left: 22px !important;
+          }
+        }
+        
+        /* -------- Inner elbow -------- */
+        &::before {
+          content: "";
+          position: fixed;
+          height: 40px;
+          width: 100px;
+          background-color: transparent;
+          border-top-left-radius: 40px;
+          box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+          margin-top: 80px;
+          margin-left: -12px;
+          z-index: 9997;
+          pointer-events: none;
+        }
+
+        /* -------- Clock -------- */
+        &::after {
+          content: "{{ states('sensor.lcars_header') if has_value('sensor.lcars_header') else states('sensor.time') if has_value('sensor.time') else 'LCARS' }}";
+          color: var(--lcars-ui-app-header-clock);
+          visibility: visible;
+          font-size: var(--header-font-size);
+          font-family: var(--font-family);
+          margin: 0px -12px 0px 0px;
+          padding: 0px 0px 0px 0px;
+          background-color: var(--lcars-background-color);
+          vertical-align: middle;
+          height: var(--header-height);
+          border-right: 5px solid var(--lcars-background-color);
+          border-left: 5px solid var(--lcars-background-color);
+          text-transform: uppercase;
+          white-space: nowrap;
+          line-height: 0.95;
+        }
+        @media screen and (max-width: 870px) {
+          &::after {
+            content: "";
+            border-left: 0px solid var(--lcars-background-color);
+          }
+        }
+      }
+
+
+    div.edit-mode: |
+      /* =============================================== */
+      /*            EDIT MODE SETTINGS                   */
+      /* =============================================== */
+      .tab-bar {
+        background: var(--lcars-background-color);
+        padding-left: 40px;
+      }
+      ha-tab-group {
+        margin-left: 0px;
+        border-left: none;
+        height: 40px !important;
+        color: var(--lcars-text-light);
+        --icon-primary-color: var(--lcars-text-light);
+      }
+      #add-view {
+        background-color: var(--lcars-card-top-color);
+        height: 40px;
+        border-radius: 0px 0px 0px 0px;
+        border-left: solid var(--lcars-background-color) 4px;
+      }
+      div.main-title {
+        color: var(--lcars-ui-primary-text);
+
+        .edit-icon {
+          color: var(--lcars-ui-primary-text) !important;
+        }
+      }
+      .exit-edit-mode {
+        --wa-color-fill-normal: var(--lcars-ui-tertiary);
+        --wa-color-on-normal: var(--lcars-text-light);
+        --button-color-fill-normal-hover:  color-mix(in srgb, var(--lcars-ui-tertiary), black 30%);;
+      }
+      .toolbar .action-items {
+        --text-primary-color: var(--lcars-ui-primary-text);
+      }
+
+
+    .: |
+      /* =============================================== */
+      /*            VIEW AND PANEL SETTINGS              */
+      /* =============================================== */
+
+      hui-view {
+        container-type: inline-size;
+        container-name: view-container;
+      }
+
+      hui-panel-view {
+        overflow: hidden;
+      }      
+
+      @container view-container (min-width: 0px) {
+        hui-panel-view {
+          margin: 5px 0px 0px 5px !important;
+          max-height: calc(100vh - 45px);
+        }
+      }
+
+      @container view-container style(--kiosk-header-height: 0px) {
+        hui-panel-view {
+          max-height: 100vh;
+          margin: 0px 0px 0px 0px !important;
+          padding: 0px 0px 0px 0px !important;
+        }
+      }
+      #view {
+        --primary-background-color: var(--primary-background-color);
+        --lovelace-background: var(--primary-background-color);
+        --lcars-horizontal-border: {{ states('input_number.lcars_horizontal') if has_value('input_number.lcars_horizontal') else 10 }}px !important;
+        --lcars-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
+        --lcars-middle-vertical-border: {{ states('input_number.lcars_vertical') if has_value('input_number.lcars_vertical') else 35 }}px !important;
+        --menu-font-size: {{ states('input_number.lcars_menu_font') if has_value('input_number.lcars_menu_font') else 24 }}px !important;
+        --lcars-sound: {{ true if is_state('input_boolean.lcars_sound', 'on') else false }};
+        --lcars-texture: {{ true if is_state('input_boolean.lcars_texture', 'on') else false }};
+      }
+      hui-view::-webkit-scrollbar {
+        display: none;
+      }
+      hui-view {
+        scrollbar-width: none !important;
+      }
+      hui-masonry-view {
+        padding-right: 23px;
+      }
+
+      {% if not is_state('input_boolean.lcars_sound', 'on') %}
+      .header {
+        --lcars-sound: false;
+      }
+      {% else %}
+      .header {
+        --lcars-sound: true;
+      }
+      {% endif %}
+
+  # ===================================================== #
+  #                 CONFIG MODIFICATIONS                  #
+  # ===================================================== #
+  card-mod-config-yaml: &card-mod-config |
+    .: |
+      :host {
+        /* Force these to be recomputed to prevent eager variable resolution    */
+        /* There are too many places in the settings pages that use light and   */
+        /* dark font on various background colors. We can't track them all.     */
+        /* The solution is to use a medium luminance background and default     */
+        /* to light text. Some places will use black, but that's still legible. */
+        --lcars-primary-text: var(--lcars-text-light);
+        --lcars-secondary-text: var(--lcars-text-light);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-secondary-text);
+        --card-background-color: var(--lcars-settings-card-color);
+        --ha-card-background: var(--lcars-settings-card-color);
+        --ha-card-background-color: var(--lcars-settings-card-color);
+        --md-sys-color-surface: var(--lcars-settings-card-color);
+        --ha-card-header-color: var(--lcars-primary-text);
+        --ha-color-text-primary: var(--lcars-primary-text);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+        --text-primary-color: var(--lcars-primary-text);
+        --mdc-select-label-ink-color: var(--lcars-secondary-text);
+        --mdc-select-ink-color: var(--lcars-primary-text);
+        --mdc-text-field-label-ink-color: var(--lcars-primary-text);
+        --mdc-text-field-fill-color: transparent;
+        --mdc-text-field-ink-color: var(--lcars-primary-text);
+        --wa-form-control-value-color: var(--lcars-primary-text);
+      }
+      ha-panel-config{
+        &::before {
+          @media screen and (min-width: 601px) {
+            content: "";
+            position: fixed;
+            height: 40px;
+            width: 100px;
+            background-color: transparent;
+            border-top-left-radius: 40px;
+            box-shadow: -40px 0 0 0 var(--lcars-ui-primary);
+            margin-top: 40px;
+            margin-left: 0px;
+            z-index: 5;
+            pointer-events: none;
+          }
+        }
+      }
+
+    # ------------------- Dev Tools Submenu ---------------------------------- #
+    "ha-panel-developer-tools $": |
+      .header ha-tab-group {
+        background-color: var(--lcars-background-color);
+        border-top-left-radius: var(--lcars-inner-radius);
+        --track-width: unset;
+
+        ha-tab-group-tab {
+          border-radius: 99px;
+          background-color: var(--lcars-card-button-color);
+          color: var(--lcars-card-button-text);
+          margin: 10px 10px 0px 10px;
+          padding-left: 40px;
+        }
+
+        ha-tab-group-tab[active] {
+          background-color: var(--lcars-ui-tertiary);
+          border-bottom: 0px;
+          margin-bottom: 0px;
+        }
+        
+      }
+      developer-tools-router {
+        padding-top: 112px !important;
+      }
+
+    # ------------------- Bottom Nav Menu Fixes ------------------------------ #
+    # Disappointingly, "* $ hass-tabs-subpage $" doesn't seem to work?
+    # So I have to enumerate anywhere the bottom bar nav appears
+    # ------------------- Automation/Script Editor Drag States --------------- #
+    "ha-config-automation $ ha-automation-editor $": |
+      .sortable-ghost,
+      .sortable-drag {
+        background-color: var(--lcars-ui-secondary) !important;
+      }
+    "ha-config-script $ ha-script-editor $": |
+      .sortable-ghost,
+      .sortable-drag {
+        background-color: var(--lcars-ui-secondary) !important;
+      }
+    "ha-config-automation $ hass-tabs-subpage $": |
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-blueprint $ hass-tabs-subpage $": |
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-script $ hass-tabs-subpage $": |
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-scene $ hass-tabs-subpage $": |
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-integrations $ hass-tabs-subpage $": |
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-devices $ hass-tabs-subpage $": |
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-entities $ hass-tabs-subpage $": |
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-helpers $ hass-tabs-subpage $": |
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-areas $ hass-tabs-subpage $": |
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-labels $ hass-tabs-subpage $": |
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-zone $ hass-tabs-subpage $": |
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-person $ hass-tabs-subpage $": |
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-users $ hass-tabs-subpage $": |
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-voice-assistants ha-config-voice-assistants-assistants $":
+      "hass-tabs-subpage $": |
+        div.bottom-bar {
+          --header-height: 50px;
+        }
+    "ha-config-voice-assistants ha-config-voice-assistants-expose $ hass-tabs-subpage $": |
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-config-system-navigation $ hass-subpage ha-config-section ha-card":
+      "$": |
+        :host {
+          background-color: transparent !important;
+          border-radius: 0 !important;
+          margin-top: 32px !important;
+        }
+      "ha-config-navigation-list $": |
+        ha-list-nav {
+        
+          ha-list-item-button {
+            background-color: var(--lcars-card-mid-color);
+            --primary-text-color: var(--lcars-card-mid-text);
+            --secondary-text-color: color-mix(in oklch, var(--primary-text-color) 80%, transparent);
+            border-radius: 999px;
+            margin-block: 5px;
+          }
+          ha-list-item-button:first-child {
+            background-color: var(--lcars-card-top-color);
+            --primary-text-color: var(--lcars-card-top-text);
+            --secondary-text-color: color-mix(in oklch, var(--primary-text-color) 80%, transparent);
+          }
+          ha-list-item-button:last-child {
+            background-color: var(--lcars-card-bottom-color);
+            --primary-text-color: var(--lcars-card-bottom-text);
+            --secondary-text-color: color-mix(in oklch, var(--primary-text-color) 80%, transparent);
+          }
+        }
+    "ha-config-dashboard $ ha-top-app-bar-fixed ha-config-section":
+      .: |
+        ha-card:has(ha-config-repairs) {
+          --lcars-alert-color: var(--lcars-alert-red);
+        }
+        ha-card:has(ha-config-updates) {
+          --lcars-alert-color: var(--lcars-alert-yellow);
+        }
+      "ha-card":
+        .: |
+          div.dashboard-alert-title {
+            text-transform: uppercase;
+            font-size: 30px !important;
+            line-height: 1;
+            border-inline: 30px solid var(--lcars-alert-color);
+            border-top-left-radius: 25px;
+            padding-top: 8px !important;
+            padding-bottom: 12px !important;
+            background-color:  color-mix(in srgb, var(--lcars-alert-color), transparent 66%);
+            border-top-right-radius: 25px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+          }
+        "ha-config-navigation $ ha-config-navigation-list$": | 
+          /* -------- Settings Page Lists -------- */
+          ha-list-nav {
+            ha-list-item-button {
+              background-color: var(--lcars-card-mid-color);
+              --primary-text-color: var(--lcars-card-mid-text);
+              --secondary-text-color: color-mix(in oklch, var(--primary-text-color) 80%, transparent);
+              border-radius: 999px;
+              margin-block: 5px;
+            }
+            ha-list-item-button:first-child {
+              background-color: var(--lcars-card-top-color);
+              --primary-text-color: var(--lcars-card-top-text);
+              --secondary-text-color: color-mix(in oklch, var(--primary-text-color) 80%, transparent);
+            }
+            ha-list-item-button:last-child {
+              background-color: var(--lcars-card-bottom-color);
+              --primary-text-color: var(--lcars-card-bottom-text);
+              --secondary-text-color: color-mix(in oklch, var(--primary-text-color) 80%, transparent);
+            }
+          }
+        "ha-config-repairs$": |
+          /* -------- Settings Page Repairs List -------- */
+          ha-list-base {
+            padding-block: 5px;
+
+            ha-list-item-button {
+              background-color: color-mix(in srgb, var(--lcars-alert-red), transparent 66%);
+              margin: 5px 30px;
+            }
+          }
+        "ha-config-updates$": |
+          /* -------- Settings Page Updates List -------- */
+          ha-list-base {
+            padding-block: 5px;
+
+            ha-list-item-button {
+              background-color: color-mix(in srgb, var(--lcars-alert-yellow), transparent 66%);
+              margin: 5px 30px;
+            }
+          }
+        "$": |
+          :host {
+            background-color: transparent !important;
+            --primary-text-color: var(--lcars-background-text);
+            --secondary-text-color: var(--lcars-background-text);
+            border-radius: 0 !important;
+            margin-top: 32px !important;
+          }
+    "ha-config-section-updates $ hass-subpage div.content":
+      "ha-card":
+        "$": |
+          /* -------- Updates Page List -------- */
+          :host {
+            background-color: transparent !important;
+            --primary-text-color: var(--lcars-background-text);
+            --secondary-text-color: var(--lcars-background-text);
+            border-radius: 0 !important;
+            margin-top: 32px !important;
+          }
+        .: |
+          .title{
+            text-transform: uppercase;
+            font-size: 30px !important;
+            line-height: 1;
+            border-inline: 30px solid var(--lcars-alert-yellow);
+            border-top-left-radius: 25px;
+            padding-top: 8px !important;
+            padding-bottom: 12px !important;
+            background-color:  color-mix(in srgb, var(--lcars-alert-yellow), transparent 66%);
+            border-top-right-radius: 25px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+          }
+        "div.card-content ha-config-updates$": |
+            
+            ha-list-base {
+              --md-sys-color-surface: transparent !important;
+              padding-block: 5px;
+
+              ha-list-item-button {
+                background-color: color-mix(in srgb, var(--lcars-alert-yellow), transparent 66%);
+                margin: 5px 30px;
+              }
+            }
+    "ha-config-repairs-dashboard $ hass-subpage div.content":
+      "ha-card":
+        "$": |
+          /* -------- Repairs Page List -------- */
+          :host {
+            background-color: transparent !important;
+            --primary-text-color: var(--lcars-background-text);
+            --secondary-text-color: var(--lcars-background-text);
+            border-radius: 0 !important;
+            margin-top: 32px !important;
+          }
+        .: |
+          .title{
+            text-transform: uppercase;
+            font-size: 30px !important;
+            line-height: 1;
+            border-inline: 30px solid var(--lcars-alert-red);
+            border-top-left-radius: 25px;
+            padding-top: 8px !important;
+            padding-bottom: 12px !important;
+            background-color:  color-mix(in srgb, var(--lcars-alert-red), transparent 66%);
+            border-top-right-radius: 25px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+          }
+        "div.card-content ha-config-repairs$": |
+          ha-list-base {
+            --md-sys-color-surface: transparent !important;
+            padding-block: 5px;
+
+            ha-list-item-button {
+              background-color: color-mix(in srgb, var(--lcars-alert-red), transparent 66%);
+              margin: 5px 30px;
+            }
+          }
+    "ha-config-logs $ hass-subpage div search-input.header $ ha-textfield$": |
+      label.mdc-text-field--filled {
+        height: var(--header-height);
+
+        span#label {
+          line-height: 1.25rem;
+        }
+        input.mdc-text-field__input {
+          align-self: end;
+        }
+      }
+    "ha-config-info $ hass-subpage div.content":
+      "ha-card": |
+        :is(.header) {
+          border-top: var(--lcars-horizontal-border) solid var(--lcars-card-top-color);
+          border-inline: var(--lcars-vertical-border) solid var(--lcars-card-top-color);
+          border-top-left-radius: var(--lcars-outer-radius);
+          border-top-right-radius: var(--lcars-outer-radius);
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0px;
+          background-color: transparent;
+          --lcars-primary-text: var(--lcars-text-light);
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color))
+
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: calc(2 * var(--lcars-inner-radius) + 2px);
+            width: calc(2 * var(--lcars-inner-radius) + 2px);
+            background-color: transparent;
+            border-top-left-radius: var(--lcars-inner-radius);
+            box-shadow: calc(var(--lcars-inner-radius) * -1) 0 0 0 var(--lcars-card-top-color);
+            margin-top: 0px;
+            margin-left: 0px;
+            z-index: 5;
+            pointer-events: none;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: calc(2 * var(--lcars-inner-radius) + 2px);
+            width: calc(2 * var(--lcars-inner-radius) + 2px);
+            background-color: transparent;
+            border-top-right-radius: var(--lcars-inner-radius);
+            box-shadow: calc(var(--lcars-inner-radius)) 0 0 0 var(--lcars-card-top-color);
+            margin-top: 0px;
+            margin-right: 0px;
+            z-index: 5;
+            pointer-events: none;
+          }
+        }
+        :is(.ohf) {
+          border-bottom: var(--lcars-horizontal-border) solid var(--lcars-card-bottom-color);
+          border-inline: var(--lcars-vertical-border) solid var(--lcars-card-bottom-color);
+          border-bottom-left-radius: var(--lcars-outer-radius);
+          border-bottom-right-radius: var(--lcars-outer-radius);
+          border-top-left-radius: 0px;
+          border-top-right-radius: 0px;
+          background-color: transparent;
+          --lcars-primary-text: var(--lcars-background-text);
+          --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
+          margin-bottom: 6px;
+
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: calc(2 * var(--lcars-inner-radius) + 2px);
+            width: calc(2 * var(--lcars-inner-radius) + 2px);
+            background-color: transparent;
+            border-bottom-left-radius: var(--lcars-inner-radius);
+            box-shadow: calc(var(--lcars-inner-radius) * -1) 0 0 0 var(--lcars-card-bottom-color);
+            margin-top: 0px;
+            margin-left: 0px;
+            z-index: 5;
+            pointer-events: none;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: calc(2 * var(--lcars-inner-radius) + 2px);
+            width: calc(2 * var(--lcars-inner-radius) + 2px);
+            background-color: transparent;
+            border-bottom-right-radius: var(--lcars-inner-radius);
+            box-shadow: calc(var(--lcars-inner-radius)) 0 0 0 var(--lcars-card-bottom-color);
+            margin-top: 0px;
+            margin-right: 0px;
+            z-index: 5;
+            pointer-events: none;
+          }
+
+        }
+        :is(.pages) {
+          background-color: transparent !important;
+          --primary-text-color: var(--lcars-background-text);
+          --secondary-text-color: var(--lcars-background-text);
+          border-radius: 0 !important;
+          margin-top: 6px !important;
+          padding: 0px;
+
+          ha-md-list {
+            --md-sys-color-surface: transparent !important;
+            padding-top: 0px;
+          
+            ha-md-list-item {
+              background-color: var(--lcars-card-mid-color);
+              --md-list-item-label-text-color: var(--lcars-card-mid-text);
+              --md-list-item-supporting-text-color: var(--lcars-card-mid-text);
+              border-radius: 999px;
+              margin-block: 5px;
+            }
+            ha-md-list-item:first-child {
+              background-color: var(--lcars-card-top-color);
+              --md-list-item-label-text-color: var(--lcars-card-top-text);
+              --md-list-item-supporting-text-color: var(--lcars-card-top-text);
+            }
+            ha-md-list-item:last-child {
+              background-color: var(--lcars-card-bottom-color);
+              --md-list-item-label-text-color: var(--lcars-card-bottom-text);
+              --md-list-item-supporting-text-color: var(--lcars-card-bottom-text);
+            }
+          }
+        }
+
+  # ===================================================== #
+  #             USER PROFILE MODIFICATIONS                #
+  # ===================================================== #
+  card-mod-profile-yaml: |
+    .: |
+      :host {
+        /* Force these to be recomputed to prevent eager variable resolution    */
+        /* There are too many places in the settings pages that use light and   */
+        /* dark font on various background colors. We can't track them all.     */
+        /* The solution is to use a medium luminance background and default     */
+        /* to light text. Some places will use black, but that's still legible. */
+        --lcars-primary-text: var(--lcars-text-light);
+        --lcars-secondary-text: var(--lcars-text-light);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-secondary-text);
+        --card-background-color: var(--lcars-settings-card-color);
+        --ha-card-background: var(--lcars-settings-card-color);
+        --ha-card-background-color: var(--lcars-settings-card-color);
+        --md-sys-color-surface: var(--lcars-settings-card-color);
+        --ha-card-header-color: var(--lcars-primary-text);
+        --ha-color-text-primary: var(--lcars-primary-text);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+        --text-primary-color: var(--lcars-primary-text);
+        --mdc-select-label-ink-color: var(--lcars-secondary-text);
+        --mdc-select-ink-color: var(--lcars-primary-text);
+        --mdc-text-field-label-ink-color: var(--lcars-primary-text);
+        --mdc-text-field-fill-color: transparent;
+        --mdc-text-field-ink-color: var(--lcars-primary-text);
+        --wa-form-control-value-color: var(--lcars-primary-text);
+      }
+    $: |
+      :host {
+        font-family: var(--font-family);
+      }
+    "ha-profile-section-general $ hass-tabs-subpage $": |
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+    "ha-profile-section-security $ hass-tabs-subpage $": |
+      div.bottom-bar {
+        --header-height: 50px;
+      }
+
+  # ===================================================== #
+  #                 DIALOG MODIFICATIONS                  #
+  # ===================================================== #
+  card-mod-dialog-yaml: |
+    .: |
+      :host {
+        /* Force these to be recomputed to prevent eager variable resolution    */
+        /* There are too many places in the settings pages that use light and   */
+        /* dark font on various background colors. We can't track them all.     */
+        /* The solution is to use a medium luminance background and default     */
+        /* to light text. Some places will use black, but that's still legible. */
+        --lcars-primary-text: var(--lcars-text-light);
+        --lcars-secondary-text: var(--lcars-text-light);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-secondary-text);
+        --card-background-color: var(--lcars-settings-card-color);
+        --ha-card-background: var(--lcars-settings-card-color);
+        --ha-card-background-color: var(--lcars-settings-card-color);
+        --md-sys-color-surface: var(--lcars-settings-card-color);
+        --ha-card-header-color: var(--lcars-primary-text);
+        --ha-color-text-primary: var(--lcars-primary-text);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+        --text-primary-color: var(--lcars-primary-text);
+        --mdc-select-label-ink-color: var(--lcars-secondary-text);
+        --mdc-select-ink-color: var(--lcars-primary-text);
+        --mdc-text-field-label-ink-color: var(--lcars-primary-text);
+        --mdc-text-field-fill-color: transparent;
+        --mdc-text-field-ink-color: var(--lcars-primary-text);
+        --wa-form-control-value-color: var(--lcars-primary-text);
+      }
+    $: |
+      :host {
+        font-family: var(--font-family);
+      }
+  # ===================================================== #
+  #              MORE INFO MODIFICATIONS                  #
+  # ===================================================== #
+  card-mod-more-info-yaml: |
+    .: |
+      :host {
+        /* Force these to be recomputed to prevent eager variable resolution    */
+        /* There are too many places in the settings pages that use light and   */
+        /* dark font on various background colors. We can't track them all.     */
+        /* The solution is to use a medium luminance background and default     */
+        /* to light text. Some places will use black, but that's still legible. */
+        --lcars-primary-text: var(--lcars-text-light);
+        --lcars-secondary-text: var(--lcars-text-light);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-secondary-text);
+        --card-background-color: var(--lcars-settings-card-color);
+        --ha-card-background: var(--lcars-settings-card-color);
+        --ha-card-background-color: var(--lcars-settings-card-color);
+        --md-sys-color-surface: var(--lcars-settings-card-color);
+        --ha-card-header-color: var(--lcars-primary-text);
+        --ha-color-text-primary: var(--lcars-primary-text);
+        --primary-text-color: var(--lcars-primary-text);
+        --secondary-text-color: var(--lcars-primary-text);
+        --text-primary-color: var(--lcars-primary-text);
+        --mdc-select-label-ink-color: var(--lcars-secondary-text);
+        --mdc-select-ink-color: var(--lcars-primary-text);
+        --mdc-text-field-label-ink-color: var(--lcars-primary-text);
+        --mdc-text-field-fill-color: transparent;
+        --mdc-text-field-ink-color: var(--lcars-primary-text);
+        --wa-form-control-value-color: var(--lcars-primary-text);
+      }
+      button.breadcrumb {
+        font-family: var(--font-family);
+      }
+    $: |
+      :host {
+        font-family: var(--font-family);
+      }
+
+  # ===================================================== #
+  #                 SIDEBAR MODIFICATIONS                 #
+  # ===================================================== #
+  card-mod-sidebar-yaml: &card-mod-sidebar |
+    ha-list-item-button$: |
+      #item {
+        column-gap: 0;
+        padding: 0;
+        align-items: stretch;
+      }
+
+    .: |
+      :host {
+        content: "";
+        border-right: 0px !important;
+        border-top-left-radius: 80px;
+        box-shadow: var(--lcars-background-color) 0px -130px 0px 0px;
+        --menu-font-size: {{ states('input_number.lcars_menu_font') if has_value('input_number.lcars_menu_font') else 24 }}px;
+      }
+      .title {
+        display: none !important;
+      }
+      .fade-top {
+        display: none;
+      }
+      .fade-bottom {
+        display: none;
+      }
+      .panels-list > .wrapper::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 56px;
+        height: calc(100% - 75px);
+        border-left: 5px solid var(--lcars-background-color);
+      
+      }
+      ha-list-nav.before-spacer {
+        margin-top: 70px;
+        margin-bottom: 0px;
+        height: 100%;
+        border-bottom: 5px solid var(--lcars-background-color);
+        border-top: 5px solid var(--lcars-background-color);
+        font-family: var(--font-family);
+      }
+      ha-list-nav.after-spacer {
+        padding: 0;
+        margin: 0;
+      }
+      ha-list-item-button {
+        border-bottom: 5px solid;
+        background-color: var(--lcars-sidebar-item-color);
+        width: 100% !important;
+        margin: unset !important;
+        border-radius: unset !important;
+        border-color: var(--lcars-background-color);
+        color: var(--lcars-sidebar-text) !important;
+
+        span.item-text,
+        span.badge {
+          font-family: var(--font-family);
+          text-align: right;
+          text-transform: uppercase;
+          line-height: 1;
+          color: var(--lcars-sidebar-text);
+        }
+        span.item-text {
+          font-size: var(--menu-font-size) !important;
+          align-content: center;
+          align-self: end;
+          box-sizing: border-box;
+          height: 100%;
+          min-height: 40px;
+          margin: 0px 0px 0px 0px;
+          padding: 9px 8px 11px 5px;
+          width: 100%;
+        }
+        span.badge {
+          position: absolute;
+          display: block;
+          top: unset;
+          left: 0px;
+          bottom: 0px;
+          background-color: var(--lcars-background-color);
+          border-radius: 0px;
+          height: 100%;
+          font-size: 38px;
+          line-height: 1;
+          min-width: 46px;
+          border-top: 0px solid var(--lcars-background-color);
+          overflow: hidden;
+          padding: 0 0 0 0;
+          margin: 0px;
+          text-align: center;
+          transition: font-size 0.2s ease;
+        }      
+      
+        &.configuration {
+          background-color: var(--lcars-ui-config-button);
+
+          > span.item-text {
+            color: var(--lcars-ui-config-button);
+            background-color: var(--lcars-background-color);
+            border: 3px var(--lcars-ui-config-button) solid;
+            padding-top: 6px;
+            padding-bottom: 8px;
+          }
+
+          > span.badge {
+            color: var(--lcars-ui-config-icon);
+            border-left: 5px var(--lcars-ui-config-icon) solid;
+            border-right: 5px var(--lcars-ui-config-icon) solid;
+          }            
+          > ha-icon,
+          > ha-svg-icon {
+            color: var(--lcars-sidebar-text);
+            background-color: var(--lcars-ui-config-icon);
+          }     
+        }
+
+        &.notifications {
+          > span.badge {
+            color: var(--lcars-sidebar-notification-color) !important;
+            border-left: 5px var(--lcars-sidebar-notification-color) solid;
+            border-right: 5px var(--lcars-sidebar-notification-color) solid;
+          }
+        }
+
+        &.user {
+          background-color: var(--lcars-sidebar-icon-background);
+
+          &:not(.selected) span.item-text {
+            color: var(--lcars-sidebar-icon-color);
+          }
+
+        }
+
+        &.selected {
+          background-color: var(--lcars-sidebar-selected-color);
+
+          &::before {
+            display: none;
+          }
+          > span.item-text {
+            color: var(--lcars-sidebar-selected-color);
+            background-color: var(--lcars-background-color);
+            border: 3px var(--lcars-sidebar-selected-color) solid;
+            padding-top: 6px;
+            padding-bottom: 8px;
+          }
+
+          > ha-icon,
+          > ha-user-badge,
+          > ha-svg-icon {
+            background-color: var(--lcars-sidebar-selected-color);
+          }
+          > span.badge {
+            color: var(--lcars-sidebar-selected-color);
+            fill: var(--lcars-sidebar-selected-color);
+            border-left-color: var(--lcars-sidebar-selected-color);
+            border-right-color: var(--lcars-sidebar-selected-color);
+          }
+          > ha-user-badge {
+            margin-right: 0px;
+          }
+        }
+      }
+
+      div.menu {
+        overflow: visible;
+
+        ha-icon-button {
+          margin-top: 150px;
+          margin-right: 94px;
+          margin-left: 0px;
+          z-index: 99;
+        }
+      }
+      @media screen and (max-width: 870px) {
+        .ha-scrollbar::before {
+          content: "";
+          position: fixed;
+          top: 40px;
+          left: 56px;
+          border-left: 5px var(--lcars-background-color) solid;
+          border-top: 5px var(--lcars-background-color) solid;
+          border-top-left-radius: calc(var(--lcars-inner-radius) + var(--lcars-outer-radius) / 2 );
+          background: transparent;
+          width: calc( var(--mdc-drawer-width,256px) - 61px );
+          height: 70px;
+        }
+      }
+
+      ha-icon,
+      ha-svg-icon,
+      ha-user-badge {
+        left: 0px;
+        align-content: center;
+        box-sizing: border-box;
+        min-width: 61px;
+        padding-right: 16px;
+        padding-left: 16px;
+        min-height: 100%;
+        background-color: var(--lcars-sidebar-item-color);
+        border-right: 5px solid var(--lcars-background-color);
+      }
+      ha-user-badge {
+        box-sizing: border-box;
+        width: calc( var(--mdc-icon-size,24px) + 37px);
+        padding-block: 8px;
+      }
+
+      :host([expanded]) {
+        /* as of 2026.06, the 100% width isn't filling the slot */
+        width: var(--ha-sidebar-width);
+
+        ha-list-item-button:not(.selected) {
+          ha-icon,
+          ha-user-badge,
+          ha-svg-icon {
+            color: var(--lcars-sidebar-icon-color);
+            background-color: var(--lcars-sidebar-icon-background);
+          }
+        }
+        span.badge {
+          font-size: max( 38px, var(--menu-font-size) + 10px );
+        }
+        ha-user-badge {
+          padding-block: max( 8px, var(--menu-font-size)/2 - 2px );
+        }
+      }
+      .divider {
+        display: none;
+      }
+    "ha-tooltip $": |
+      div.body {
+        padding-top: 9px !important;
+        padding-bottom: 11px !important;
+        min-height: 40px;
+        line-height: var(--menu-font-size);
+        margin-top: -5px;
+        margin-left: -3px;
+        padding-right: 20px;
+        border-radius: 0px 999px 999px 9px;
+      }

@@ -1,0 +1,32 @@
+name: LCARS Transporter
+
+lcars-ui-primary: var(--lcars-navy-gray)
+lcars-ui-primary-text: var(--lcars-text-light)
+lcars-ui-secondary: var(--lcars-slate-gray)
+lcars-ui-tertiary: var(--lcars-coral)
+lcars-ui-quaternary: var(--lcars-navy-gray)
+
+lcars-sidebar-icon-color: var(--lcars-light-gray)
+lcars-ui-config-button: var(--lcars-teal)
+
+lcars-card-top-color: var(--lcars-charcoal)
+lcars-card-mid-color: var(--lcars-charcoal)
+lcars-card-button-color: var(--lcars-teal)
+lcars-card-bottom-color: var(--lcars-navy-gray)
+lcars-settings-card-color: "#69768D"
+
+lcars-card-top-text: var(--lcars-text-light)
+lcars-card-mid-text: var(--lcars-text-light)
+lcars-card-button-text: var(--lcars-text-light)
+lcars-card-bottom-text: var(--lcars-text-light)
+
+success-color: var(--lcars-green)
+warning-color: var(--lcars-dark-red)
+error-color: var(--lcars-gold)
+
+modes:
+  dark:
+    lcars-ui-primary-text: var(--lcars-text-gray)
+    lcars-ui-quaternary-text: var(--lcars-text-gray)
+    lcars-card-button-text: var(--lcars-text-dark)
+    lcars-card-bottom-text: var(--lcars-text-gray)
