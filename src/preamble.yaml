@@ -467,18 +467,7 @@
         /* Force these to be recomputed to prevent eager variable resolution */
         --lcars-primary-text: var(--lcars-ui-quaternary-text) !important;
         --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
-        --ha-card-header-color: var(--lcars-primary-text);
-        --ha-color-text-primary: var(--lcars-primary-text);
-        --primary-text-color: var(--lcars-primary-text);
-        --secondary-text-color: var(--lcars-primary-text);
-        --text-primary-color: var(--lcars-primary-text);
-        --mdc-select-label-ink-color: var(--lcars-secondary-text);
-        --mdc-select-ink-color: var(--lcars-primary-text);
-        --mdc-text-field-label-ink-color: var(--lcars-primary-text);
-        --mdc-text-field-fill-color: transparent;
-        --mdc-text-field-ink-color: var(--lcars-primary-text);
-        --wa-form-control-value-color: var(--lcars-primary-text);
-        --state-icon-color: var(--lcars-primary-text);
+        /* FORCE_RECOMPUTE_TEXT_VARS */
         --card-primary-color: var(--lcars-primary-text);
         --card-secondary-color: var(--lcars-secondary-text);
         color: var(--primary-text-color);
@@ -518,18 +507,7 @@
           background-color: var(--lcars-background-color);
           --lcars-primary-text: var(--lcars-background-text) !important;
           --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
-          --ha-card-header-color: var(--lcars-primary-text);
-          --ha-color-text-primary: var(--lcars-primary-text);
-          --primary-text-color: var(--lcars-primary-text);
-          --secondary-text-color: var(--lcars-primary-text);
-          --text-primary-color: var(--lcars-primary-text);
-          --mdc-select-label-ink-color: var(--lcars-secondary-text);
-          --mdc-select-ink-color: var(--lcars-primary-text);
-          --mdc-text-field-label-ink-color: var(--lcars-primary-text);
-          --mdc-text-field-fill-color: transparent;
-          --mdc-text-field-ink-color: var(--lcars-primary-text);
-          --wa-form-control-value-color: var(--lcars-primary-text);
-          --state-icon-color: var(--lcars-primary-text);
+          /* FORCE_RECOMPUTE_TEXT_VARS */
           --card-primary-color: var(--lcars-primary-text);
           --card-secondary-color: var(--lcars-secondary-text);
           color: var(--primary-text-color);
@@ -602,18 +580,7 @@
           background-color: var(--lcars-background-color);
           --lcars-primary-text: var(--lcars-background-text) !important;
           --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
-          --ha-card-header-color: var(--lcars-primary-text);
-          --ha-color-text-primary: var(--lcars-primary-text);
-          --primary-text-color: var(--lcars-primary-text);
-          --secondary-text-color: var(--lcars-primary-text);
-          --text-primary-color: var(--lcars-primary-text);
-          --mdc-select-label-ink-color: var(--lcars-secondary-text);
-          --mdc-select-ink-color: var(--lcars-primary-text);
-          --mdc-text-field-label-ink-color: var(--lcars-primary-text);
-          --mdc-text-field-fill-color: transparent;
-          --mdc-text-field-ink-color: var(--lcars-primary-text);
-          --wa-form-control-value-color: var(--lcars-primary-text);
-          --state-icon-color: var(--lcars-primary-text);
+          /* FORCE_RECOMPUTE_TEXT_VARS */
           --card-primary-color: var(--lcars-primary-text);
           --card-secondary-color: var(--lcars-secondary-text);
           color: var(--primary-text-color);
@@ -686,18 +653,7 @@
           background-color: var(--lcars-background-color);
           --lcars-primary-text: var(--lcars-background-text) !important;
           --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
-          --ha-card-header-color: var(--lcars-primary-text);
-          --ha-color-text-primary: var(--lcars-primary-text);
-          --primary-text-color: var(--lcars-primary-text);
-          --secondary-text-color: var(--lcars-primary-text);
-          --text-primary-color: var(--lcars-primary-text);
-          --mdc-select-label-ink-color: var(--lcars-secondary-text);
-          --mdc-select-ink-color: var(--lcars-primary-text);
-          --mdc-text-field-label-ink-color: var(--lcars-primary-text);
-          --mdc-text-field-fill-color: transparent;
-          --mdc-text-field-ink-color: var(--lcars-primary-text);
-          --wa-form-control-value-color: var(--lcars-primary-text);
-          --state-icon-color: var(--lcars-primary-text);
+          /* FORCE_RECOMPUTE_TEXT_VARS */
           --card-primary-color: var(--lcars-primary-text);
           --card-secondary-color: var(--lcars-secondary-text);
           color: var(--primary-text-color);
@@ -786,18 +742,7 @@
           background-color: var(--lcars-card-button-color);
           --lcars-primary-text: var(--lcars-card-button-text) !important;
           --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
-          --ha-card-header-color: var(--lcars-primary-text);
-          --ha-color-text-primary: var(--lcars-primary-text);
-          --primary-text-color: var(--lcars-primary-text);
-          --secondary-text-color: var(--lcars-primary-text);
-          --text-primary-color: var(--lcars-primary-text);
-          --mdc-select-label-ink-color: var(--lcars-secondary-text);
-          --mdc-select-ink-color: var(--lcars-primary-text);
-          --mdc-text-field-label-ink-color: var(--lcars-primary-text);
-          --mdc-text-field-fill-color: transparent;
-          --mdc-text-field-ink-color: var(--lcars-primary-text);
-          --wa-form-control-value-color: var(--lcars-primary-text);
-          --state-icon-color: var(--lcars-primary-text);
+          /* FORCE_RECOMPUTE_TEXT_VARS */
           --card-primary-color: var(--lcars-primary-text);
           --card-secondary-color: var(--lcars-secondary-text);
           color: var(--primary-text-color);
@@ -1222,18 +1167,7 @@
           background-color: var(--lcars-background-color);
           --lcars-primary-text: var(--lcars-background-text) !important;
           --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
-          --ha-card-header-color: var(--lcars-primary-text);
-          --ha-color-text-primary: var(--lcars-primary-text);
-          --primary-text-color: var(--lcars-primary-text);
-          --secondary-text-color: var(--lcars-primary-text);
-          --text-primary-color: var(--lcars-primary-text);
-          --mdc-select-label-ink-color: var(--lcars-secondary-text);
-          --mdc-select-ink-color: var(--lcars-primary-text);
-          --mdc-text-field-label-ink-color: var(--lcars-primary-text);
-          --mdc-text-field-fill-color: transparent;
-          --mdc-text-field-ink-color: var(--lcars-primary-text);
-          --wa-form-control-value-color: var(--lcars-primary-text);
-          --state-icon-color: var(--lcars-primary-text);
+          /* FORCE_RECOMPUTE_TEXT_VARS */
           --card-primary-color: var(--lcars-primary-text);
           --card-secondary-color: var(--lcars-secondary-text);
           color: var(--primary-text-color);
@@ -1359,18 +1293,7 @@
         ha-full-calendar {
           --lcars-primary-text: var(--lcars-background-text) !important;
           --lcars-secondary-text: color-mix(in oklch, var(--lcars-primary-text) 80%, var(--lcars-ui-mix-color));
-          --ha-card-header-color: var(--lcars-primary-text);
-          --ha-color-text-primary: var(--lcars-primary-text);
-          --primary-text-color: var(--lcars-primary-text);
-          --secondary-text-color: var(--lcars-primary-text);
-          --text-primary-color: var(--lcars-primary-text);
-          --mdc-select-label-ink-color: var(--lcars-secondary-text);
-          --mdc-select-ink-color: var(--lcars-primary-text);
-          --mdc-text-field-label-ink-color: var(--lcars-primary-text);
-          --mdc-text-field-fill-color: transparent;
-          --mdc-text-field-ink-color: var(--lcars-primary-text);
-          --wa-form-control-value-color: var(--lcars-primary-text);
-          --state-icon-color: var(--lcars-primary-text);
+          /* FORCE_RECOMPUTE_TEXT_VARS */
           --card-primary-color: var(--lcars-primary-text);
           --card-secondary-color: var(--lcars-secondary-text);
         }
@@ -1993,17 +1916,7 @@
         --ha-card-background: var(--lcars-settings-card-color);
         --ha-card-background-color: var(--lcars-settings-card-color);
         --md-sys-color-surface: var(--lcars-settings-card-color);
-        --ha-card-header-color: var(--lcars-primary-text);
-        --ha-color-text-primary: var(--lcars-primary-text);
-        --primary-text-color: var(--lcars-primary-text);
-        --secondary-text-color: var(--lcars-primary-text);
-        --text-primary-color: var(--lcars-primary-text);
-        --mdc-select-label-ink-color: var(--lcars-secondary-text);
-        --mdc-select-ink-color: var(--lcars-primary-text);
-        --mdc-text-field-label-ink-color: var(--lcars-primary-text);
-        --mdc-text-field-fill-color: transparent;
-        --mdc-text-field-ink-color: var(--lcars-primary-text);
-        --wa-form-control-value-color: var(--lcars-primary-text);
+        /* FORCE_RECOMPUTE_TEXT_VARS */
       }
       ha-panel-config{
         &::before {
@@ -2446,17 +2359,7 @@
         --ha-card-background: var(--lcars-settings-card-color);
         --ha-card-background-color: var(--lcars-settings-card-color);
         --md-sys-color-surface: var(--lcars-settings-card-color);
-        --ha-card-header-color: var(--lcars-primary-text);
-        --ha-color-text-primary: var(--lcars-primary-text);
-        --primary-text-color: var(--lcars-primary-text);
-        --secondary-text-color: var(--lcars-primary-text);
-        --text-primary-color: var(--lcars-primary-text);
-        --mdc-select-label-ink-color: var(--lcars-secondary-text);
-        --mdc-select-ink-color: var(--lcars-primary-text);
-        --mdc-text-field-label-ink-color: var(--lcars-primary-text);
-        --mdc-text-field-fill-color: transparent;
-        --mdc-text-field-ink-color: var(--lcars-primary-text);
-        --wa-form-control-value-color: var(--lcars-primary-text);
+        /* FORCE_RECOMPUTE_TEXT_VARS */
       }
     $: |
       :host {
@@ -2490,17 +2393,7 @@
         --ha-card-background: var(--lcars-settings-card-color);
         --ha-card-background-color: var(--lcars-settings-card-color);
         --md-sys-color-surface: var(--lcars-settings-card-color);
-        --ha-card-header-color: var(--lcars-primary-text);
-        --ha-color-text-primary: var(--lcars-primary-text);
-        --primary-text-color: var(--lcars-primary-text);
-        --secondary-text-color: var(--lcars-primary-text);
-        --text-primary-color: var(--lcars-primary-text);
-        --mdc-select-label-ink-color: var(--lcars-secondary-text);
-        --mdc-select-ink-color: var(--lcars-primary-text);
-        --mdc-text-field-label-ink-color: var(--lcars-primary-text);
-        --mdc-text-field-fill-color: transparent;
-        --mdc-text-field-ink-color: var(--lcars-primary-text);
-        --wa-form-control-value-color: var(--lcars-primary-text);
+        /* FORCE_RECOMPUTE_TEXT_VARS */
       }
     $: |
       :host {
@@ -2525,17 +2418,7 @@
         --ha-card-background: var(--lcars-settings-card-color);
         --ha-card-background-color: var(--lcars-settings-card-color);
         --md-sys-color-surface: var(--lcars-settings-card-color);
-        --ha-card-header-color: var(--lcars-primary-text);
-        --ha-color-text-primary: var(--lcars-primary-text);
-        --primary-text-color: var(--lcars-primary-text);
-        --secondary-text-color: var(--lcars-primary-text);
-        --text-primary-color: var(--lcars-primary-text);
-        --mdc-select-label-ink-color: var(--lcars-secondary-text);
-        --mdc-select-ink-color: var(--lcars-primary-text);
-        --mdc-text-field-label-ink-color: var(--lcars-primary-text);
-        --mdc-text-field-fill-color: transparent;
-        --mdc-text-field-ink-color: var(--lcars-primary-text);
-        --wa-form-control-value-color: var(--lcars-primary-text);
+        /* FORCE_RECOMPUTE_TEXT_VARS */
       }
       button.breadcrumb {
         font-family: var(--font-family);
