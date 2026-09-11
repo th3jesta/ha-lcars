@@ -162,6 +162,59 @@ _VERIFY_SLOTS = [
 # Key of the palette block in the generated lcars.yaml (the &lcars-variables anchor).
 _PALETTE_KEY = "(DO NOT USE/MODIFY)=== LCARS variables"
 
+# Single source of truth for the "force recompute" boilerplate that preamble.yaml
+# repeats at every :host{} scope (dialogs, settings pages, card regions, ...) so
+# that MDC/HA text-color vars re-resolve locally instead of inheriting a stale
+# value from document.documentElement. See src/preamble.yaml's "Text" section
+# (under &base) for the vars this list is meant to mirror.
+#
+# preamble.yaml marks each insertion point with a bare `/* FORCE_RECOMPUTE_TEXT_VARS */`
+# comment (indentation preserved); expand_force_recompute_markers() below expands
+# it into these var declarations at generation time. Adding a var here is the
+# ONLY change needed to make it re-resolve at every one of those scopes — no more
+# hand-editing ~11 duplicated blocks.
+_FORCE_RECOMPUTE_TEXT_VARS: dict[str, str] = {
+    "ha-card-header-color": "var(--lcars-primary-text)",
+    "ha-color-text-primary": "var(--lcars-primary-text)",
+    "primary-text-color": "var(--lcars-primary-text)",
+    "secondary-text-color": "var(--lcars-primary-text)",
+    "text-primary-color": "var(--lcars-primary-text)",
+    "mdc-select-label-ink-color": "var(--lcars-secondary-text)",
+    "mdc-select-ink-color": "var(--lcars-primary-text)",
+    "mdc-text-field-label-ink-color": "var(--lcars-primary-text)",
+    "mdc-text-field-fill-color": "transparent",
+    "mdc-text-field-ink-color": "var(--lcars-primary-text)",
+    "wa-form-control-value-color": "var(--lcars-primary-text)",
+    "mdc-theme-text-primary-on-background": "var(--primary-text-color)",
+    "mdc-theme-text-secondary-on-background": "var(--secondary-text-color)",
+    "state-icon-color": "var(--lcars-primary-text)",
+}
+
+_FORCE_RECOMPUTE_MARKER = "/* FORCE_RECOMPUTE_TEXT_VARS */"
+
+# &base vars that legitimately depend on the primary/secondary text-color chain
+# but are deliberately NOT in _FORCE_RECOMPUTE_TEXT_VARS above, so the drift
+# guard doesn't flag them as false positives. Keep this in sync with reality,
+# not the other way around — if one of these starts depending on
+# --primary-text-color/--secondary-text-color for real, move it into the dict
+# above instead of adding it here.
+_FORCE_RECOMPUTE_EXCLUDED = {
+    # The two scope-local "source" vars — each :host{} block sets these directly
+    # with a scope-appropriate value; they're never part of the shared boilerplate.
+    "lcars-primary-text",
+    "lcars-secondary-text",
+    # var(--lcars-graphite): a raw palette color, never overridden per-scope, so
+    # nothing to "eagerly resolve" wrong.
+    "disabled-text-color",
+    # var(--lcars-text-gray): also a raw palette color, never overridden per-scope.
+    "mdc-theme-primary",
+    "mdc-theme-secondary",
+}
+
+_TEXT_COLOR_DEP_RE = re.compile(
+    r"var\(--(?:primary-text-color|secondary-text-color|lcars-primary-text|lcars-secondary-text)\b"
+)
+
 
 def load_preamble_vars(preamble_path: Path) -> tuple[dict, dict]:
     """Return (palette, base_vars) extracted from preamble.yaml.
@@ -186,6 +239,41 @@ def load_preamble_vars(preamble_path: Path) -> tuple[dict, dict]:
         elif "primary-color" in flat and "card-background-color" in flat:
             base_vars = flat
     return palette, base_vars
+
+
+def expand_force_recompute_markers(text: str) -> str:
+    """Expand every `/* FORCE_RECOMPUTE_TEXT_VARS */` marker line into the full
+    set of var declarations from _FORCE_RECOMPUTE_TEXT_VARS, preserving the
+    marker line's own indentation."""
+    out_lines: list[str] = []
+    for line in text.split("\n"):
+        if line.strip() == _FORCE_RECOMPUTE_MARKER:
+            indent = line[: len(line) - len(line.lstrip())]
+            for name, value in _FORCE_RECOMPUTE_TEXT_VARS.items():
+                out_lines.append(f"{indent}--{name}: {value};")
+        else:
+            out_lines.append(line)
+    return "\n".join(out_lines)
+
+
+def check_force_recompute_drift(base_vars: dict) -> None:
+    """Warn if any &base var depends on the primary/secondary text-color chain
+    but is missing from _FORCE_RECOMPUTE_TEXT_VARS (and isn't an explicitly
+    documented exception) — i.e. it will silently fail to re-resolve inside
+    dialogs, settings pages, and per-card-region theme scopes."""
+    missing = [
+        key
+        for key, value in base_vars.items()
+        if key not in _FORCE_RECOMPUTE_TEXT_VARS
+        and key not in _FORCE_RECOMPUTE_EXCLUDED
+        and _TEXT_COLOR_DEP_RE.search(str(value))
+    ]
+    if missing:
+        print(
+            "  WARNING: &base variables depend on --primary-text-color/--secondary-text-color "
+            "but are missing from _FORCE_RECOMPUTE_TEXT_VARS in generate_themes.py — they will "
+            f"not re-resolve correctly in dialogs/settings/card scopes: {', '.join(sorted(missing))}"
+        )
 
 
 def var_resolve(key: str, context: dict, depth: int = 0) -> str | None:
@@ -479,7 +567,8 @@ def main() -> None:
         sys.exit(1)
 
     palette, base_vars = load_preamble_vars(PREAMBLE_FILE)
-    preamble = PREAMBLE_FILE.read_text().rstrip()
+    check_force_recompute_drift(base_vars)
+    preamble = expand_force_recompute_markers(PREAMBLE_FILE.read_text().rstrip())
 
     chunks: list[str] = [
         preamble,

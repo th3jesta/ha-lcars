@@ -351,8 +351,8 @@
   mdc-typography-font-family: var(--font-family)
   mdc-theme-on-primary: black
   mdc-theme-on-secondary: black
-  mdc-theme-text-primary-on-background: var(--lcars-ui-secondary-text)
-  mdc-theme-text-secondary-on-background: var(--lcars-ui-secondary-text)
+  mdc-theme-text-primary-on-background: var(--primary-text-color)
+  mdc-theme-text-secondary-on-background: var(--secondary-text-color)
   mdc-shape-small: 0px
 
   #App Header
@@ -478,6 +478,8 @@
         --mdc-text-field-fill-color: transparent;
         --mdc-text-field-ink-color: var(--lcars-primary-text);
         --wa-form-control-value-color: var(--lcars-primary-text);
+        --mdc-theme-text-primary-on-background: var(--primary-text-color);
+        --mdc-theme-text-secondary-on-background: var(--secondary-text-color);
         --state-icon-color: var(--lcars-primary-text);
         --card-primary-color: var(--lcars-primary-text);
         --card-secondary-color: var(--lcars-secondary-text);
@@ -529,6 +531,8 @@
           --mdc-text-field-fill-color: transparent;
           --mdc-text-field-ink-color: var(--lcars-primary-text);
           --wa-form-control-value-color: var(--lcars-primary-text);
+          --mdc-theme-text-primary-on-background: var(--primary-text-color);
+          --mdc-theme-text-secondary-on-background: var(--secondary-text-color);
           --state-icon-color: var(--lcars-primary-text);
           --card-primary-color: var(--lcars-primary-text);
           --card-secondary-color: var(--lcars-secondary-text);
@@ -613,6 +617,8 @@
           --mdc-text-field-fill-color: transparent;
           --mdc-text-field-ink-color: var(--lcars-primary-text);
           --wa-form-control-value-color: var(--lcars-primary-text);
+          --mdc-theme-text-primary-on-background: var(--primary-text-color);
+          --mdc-theme-text-secondary-on-background: var(--secondary-text-color);
           --state-icon-color: var(--lcars-primary-text);
           --card-primary-color: var(--lcars-primary-text);
           --card-secondary-color: var(--lcars-secondary-text);
@@ -697,6 +703,8 @@
           --mdc-text-field-fill-color: transparent;
           --mdc-text-field-ink-color: var(--lcars-primary-text);
           --wa-form-control-value-color: var(--lcars-primary-text);
+          --mdc-theme-text-primary-on-background: var(--primary-text-color);
+          --mdc-theme-text-secondary-on-background: var(--secondary-text-color);
           --state-icon-color: var(--lcars-primary-text);
           --card-primary-color: var(--lcars-primary-text);
           --card-secondary-color: var(--lcars-secondary-text);
@@ -797,6 +805,8 @@
           --mdc-text-field-fill-color: transparent;
           --mdc-text-field-ink-color: var(--lcars-primary-text);
           --wa-form-control-value-color: var(--lcars-primary-text);
+          --mdc-theme-text-primary-on-background: var(--primary-text-color);
+          --mdc-theme-text-secondary-on-background: var(--secondary-text-color);
           --state-icon-color: var(--lcars-primary-text);
           --card-primary-color: var(--lcars-primary-text);
           --card-secondary-color: var(--lcars-secondary-text);
@@ -1233,6 +1243,8 @@
           --mdc-text-field-fill-color: transparent;
           --mdc-text-field-ink-color: var(--lcars-primary-text);
           --wa-form-control-value-color: var(--lcars-primary-text);
+          --mdc-theme-text-primary-on-background: var(--primary-text-color);
+          --mdc-theme-text-secondary-on-background: var(--secondary-text-color);
           --state-icon-color: var(--lcars-primary-text);
           --card-primary-color: var(--lcars-primary-text);
           --card-secondary-color: var(--lcars-secondary-text);
@@ -1370,6 +1382,8 @@
           --mdc-text-field-fill-color: transparent;
           --mdc-text-field-ink-color: var(--lcars-primary-text);
           --wa-form-control-value-color: var(--lcars-primary-text);
+          --mdc-theme-text-primary-on-background: var(--primary-text-color);
+          --mdc-theme-text-secondary-on-background: var(--secondary-text-color);
           --state-icon-color: var(--lcars-primary-text);
           --card-primary-color: var(--lcars-primary-text);
           --card-secondary-color: var(--lcars-secondary-text);
@@ -2004,6 +2018,9 @@
         --mdc-text-field-fill-color: transparent;
         --mdc-text-field-ink-color: var(--lcars-primary-text);
         --wa-form-control-value-color: var(--lcars-primary-text);
+        --mdc-theme-text-primary-on-background: var(--primary-text-color);
+        --mdc-theme-text-secondary-on-background: var(--secondary-text-color);
+        --state-icon-color: var(--lcars-primary-text);
       }
       ha-panel-config{
         &::before {
@@ -2457,6 +2474,9 @@
         --mdc-text-field-fill-color: transparent;
         --mdc-text-field-ink-color: var(--lcars-primary-text);
         --wa-form-control-value-color: var(--lcars-primary-text);
+        --mdc-theme-text-primary-on-background: var(--primary-text-color);
+        --mdc-theme-text-secondary-on-background: var(--secondary-text-color);
+        --state-icon-color: var(--lcars-primary-text);
       }
     $: |
       :host {
@@ -2501,6 +2521,9 @@
         --mdc-text-field-fill-color: transparent;
         --mdc-text-field-ink-color: var(--lcars-primary-text);
         --wa-form-control-value-color: var(--lcars-primary-text);
+        --mdc-theme-text-primary-on-background: var(--primary-text-color);
+        --mdc-theme-text-secondary-on-background: var(--secondary-text-color);
+        --state-icon-color: var(--lcars-primary-text);
       }
     $: |
       :host {
@@ -2536,6 +2559,9 @@
         --mdc-text-field-fill-color: transparent;
         --mdc-text-field-ink-color: var(--lcars-primary-text);
         --wa-form-control-value-color: var(--lcars-primary-text);
+        --mdc-theme-text-primary-on-background: var(--primary-text-color);
+        --mdc-theme-text-secondary-on-background: var(--secondary-text-color);
+        --state-icon-color: var(--lcars-primary-text);
       }
       button.breadcrumb {
         font-family: var(--font-family);
