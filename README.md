@@ -9,7 +9,7 @@ Color codes and font choice from https://www.thelcars.com
     --thanks Jim Robertus!
 
 # 💥BREAKING CHANGES IN 4.1💥
-1. Stack titles have moved to into the borders. While this opens up many possibilities for alternate layouts, it could wreck the look and spacing of existing dashboards. If the in-border placement is not what you want, the workaround is to add a markdown card as the fist card of the stack with `conten: "# This stacks's title`. 
+1. Stack titles have moved into the borders. While this opens up many possibilities for alternate layouts, it could wreck the look and spacing of existing dashboards. If the in-border placement is not what you want, the workaround is to add a markdown card as the first card of the stack with `content: "# This stack's title`. 
 <table><tr><td>
     
 ```yaml
@@ -28,7 +28,7 @@ cards:
       class: button-small
 ```
 </td><td>
-<img width="400" alt="Stack title exampls" src="https://github.com/user-attachments/assets/82bee145-44a1-489d-8526-27fc12f5cd64" />
+<img width="400" alt="Stack title examples" src="https://github.com/user-attachments/assets/82bee145-44a1-489d-8526-27fc12f5cd64" />
 </td></tr></table>
 
 
@@ -182,7 +182,7 @@ sensor:
 ```
 
 > [!IMPORTANT]  
-> You may wish to remove the new Time & Date entities from Home Assistant's Recorder integration so they don't fill you database with updates every second. Examples on how to do that: https://www.home-assistant.io/integrations/recorder/#common-filtering-examples
+> You may wish to remove the new Time & Date entities from Home Assistant's Recorder integration so they don't fill your database with updates every second. Examples on how to do that: https://www.home-assistant.io/integrations/recorder/#common-filtering-examples
 
 #### IV. Create the helper entities
 This theme has toggle controls for sound and textures, number controls for border sizes and menu font size, and an optional template sensor for adding custom text to the header. Create these helper entities by going to ``Settings`` → ``Devices & Services`` → ``Helpers`` and create two of type **Toggle**, two of type **Number**, and one of type **Template** named as below:
@@ -657,7 +657,7 @@ uix:
 
 12. `entity-<lozenge|bullet|capped|barrel>-<left|right>` - styled entities lists (from Entities Card and [Auto-Entities Cards](https://github.com/thomasloven/lovelace-auto-entities)) using the `lozenge`, `bullet`, `capped`, and `barrel` styles in `left` and `right` variants similar to the `button-*` classes discussed above. Additionally, the icon cap can be hidden by applying the `no-cap` class. The class is applied using the `uix:` key _on each entity in the Entities Card_, or using `options:` in each filter of an auto-entities card.
 
-Unique to this set of classes is the width of the readout area where the entity states are shown. This is can be set using a css variable `--lcars-readout-width` to one of the cards containing the entities list, as seen in the examples below. In the first example, the variable is set in the `vertical-stack` containing the entities card -- this would apply to all entities cards in that stack. In the second example, the varaible is set in the `card:` section of the auto-entities card which specifies options for the created `entities card`.  
+Unique to this set of classes is the width of the readout area where the entity states are shown. This can be set using a css variable `--lcars-readout-width` on one of the cards containing the entities list, as seen in the examples below. In the first example, the variable is set in the `vertical-stack` containing the entities card -- this would apply to all entities cards in that stack. In the second example, the variable is set in the `card:` section of the auto-entities card which specifies options for the created `entities card`.  
 
 <table>
 <tr>
