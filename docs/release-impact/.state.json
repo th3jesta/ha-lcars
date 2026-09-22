@@ -1,0 +1,5 @@
+{
+  "last_processed_tag": "20260527.2",
+  "last_run": "2026-06-02T17:27:13.900826+00:00",
+  "_note": "Seeded with the latest ha-frontend stable release at worker setup time. The release-impact GitHub Action updates this file on every run. The .md files in this directory are working documents that developers delete after resolving issues \u2014 this file persists across those deletions."
+}

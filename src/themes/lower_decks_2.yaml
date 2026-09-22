@@ -1,0 +1,27 @@
+name: LCARS Lower Decks II
+
+lcars-ui-primary: var(--lcars-gold)
+lcars-ui-secondary: var(--lcars-butter)
+lcars-ui-tertiary: var(--lcars-orange)
+lcars-ui-quaternary: var(--lcars-darkpumpkin)
+
+lcars-ui-config-button: var(--lcars-ui-quaternary)
+
+lcars-card-top-color: var(--lcars-orange)
+lcars-card-mid-color: var(--lcars-taupe)
+lcars-card-button-color: var(--lcars-honey)
+lcars-card-bottom-color: var(--lcars-vanilla)
+lcars-settings-card-color: "#A56726"
+
+lcars-card-top-text: var(--lcars-text-dark)
+lcars-card-mid-text: var(--lcars-text-dark)
+lcars-card-button-text: var(--lcars-text-dark)
+lcars-card-bottom-text: var(--lcars-text-dark)
+
+success-color: var(--lcars-green)
+warning-color: var(--lcars-sunflower)
+error-color: var(--lcars-dark-red)
+
+modes:
+  dark:
+    lcars-ui-quaternary-text: var(--lcars-text-dark)

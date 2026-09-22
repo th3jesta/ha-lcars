@@ -1,0 +1,57 @@
+name: HA-Frontend Beta Release Impact Analysis
+
+# Counterpart to release-impact.yml. Runs the analyzer against the frontend
+# pin at the latest ha-core pre-release, comparing against the pin at the
+# latest ha-core stable release. Does not advance the scheduled workflow's
+# state file.
+
+on:
+  schedule:
+    # Every Monday at 22:00 UTC. During a Core release week this fires ~2 days
+    # before the Wednesday stable ships and after b1 has landed, so the report
+    # captures the mid-cycle state (any late-arriving structural changes such
+    # as token aliases that landed after b0). Outside release weeks the head
+    # pin equals the last stable pin, so the analyzer no-ops without spending
+    # API credits.
+    - cron: "0 22 * * 1"
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: "ha-frontend-release-impact-analysis"
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Rebase Branch
+        uses: martincostello/rebaser@v3.0.1
+        with:
+          branch: master
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install anthropic requests
+
+      - name: Run release impact analyzer on latest beta
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python py/release_impact.py --latest-beta
+
+      - name: Commit and push new analysis
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "chore: add ha-frontend pre-release pipeline impact analysis"
+          file_pattern: "docs/release-impact/pipeline-*.md"
+          # The Rebase Branch step rewrites history when master has moved,
+          # so the push is non-fast-forward by design.
+          push_options: '--force-with-lease'

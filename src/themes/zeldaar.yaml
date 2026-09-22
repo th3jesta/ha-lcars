@@ -1,0 +1,23 @@
+name: LCARS Zeldaar
+
+lcars-ui-primary: var(--lcars-violet-creme)
+lcars-ui-secondary: var(--lcars-honey)
+lcars-ui-tertiary: var(--lcars-roseblush)
+lcars-ui-quaternary: var(--lcars-mauve)
+
+lcars-ui-config-button: var(--lcars-african-violet)
+
+lcars-card-top-color: var(--lcars-bluey)
+lcars-card-mid-color: var(--lcars-khaki)
+lcars-card-button-color: var(--lcars-african-violet)
+lcars-card-bottom-color: var(--lcars-roseblush)
+lcars-settings-card-color: "#986398"
+
+lcars-card-top-text: var(--lcars-text-dark)
+lcars-card-mid-text: var(--lcars-text-dark)
+lcars-card-button-text: var(--lcars-text-dark)
+lcars-card-bottom-text: var(--lcars-text-dark)
+
+success-color: var(--lcars-green)
+warning-color: var(--lcars-sunflower)
+error-color: var(--lcars-dark-red)
