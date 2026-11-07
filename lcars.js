@@ -98,16 +98,13 @@ runButton = () => {
       return
     }
 
-    // Original click behaviour
     if (e.type === 'click') {
       if (!e.target.matches('HA-PANEL-LOVELACE')) return
     }
 
-    // Touchscreen behaviour
     if (e.type === 'touchend') {
       const path = e.composedPath()
 
-      // Only react to touches inside the Lovelace panel
       if (!path.some(el => el?.tagName === 'HA-PANEL-LOVELACE')) return
     }
 
