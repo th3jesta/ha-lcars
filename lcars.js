@@ -90,14 +90,34 @@ class DashSound {
     } catch (ex) { }
   }
 
-  runButton = () => {
-    this.refsButton.resolver.addEventListener('click', e => {
-      if (e.target.matches("HA-PANEL-LOVELACE") && document.querySelector('home-assistant').hass.states['input_boolean.lcars_sound'].state == 'on' ) {
-        btnBeep.play()
-      }
+runButton = () => {
+  const handleButton = e => {
+    const hass = document.querySelector('home-assistant')?.hass
+
+    if (hass?.states['input_boolean.lcars_sound']?.state !== 'on') {
+      return
+    }
+
+    if (e.type === 'click') {
+      if (!e.target.matches('HA-PANEL-LOVELACE')) return
+    }
+
+    if (e.type === 'touchend') {
+      const path = e.composedPath()
+
+      if (!path.some(el => el?.tagName === 'HA-PANEL-LOVELACE')) return
+    }
+
+    console.log('LCARS button sound:', e.type)
+    btnBeep.currentTime = 0
+    btnBeep.play().catch(err => {
+      console.warn('LCARS button sound failed:', err)
     })
   }
-}
+
+  this.refsButton.resolver.addEventListener('click', handleButton)
+  this.refsButton.resolver.addEventListener('touchend', handleButton)
+}}
 
 Promise.all([
   customElements.whenDefined('ha-panel-lovelace'),
